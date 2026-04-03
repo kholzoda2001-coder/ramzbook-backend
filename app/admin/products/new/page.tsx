@@ -126,30 +126,13 @@ export default function AddNewBookPage() {
     setIsSubmitting(true);
 
     try {
-      // Step 1 — upload cover image to Vercel Blob if a file was selected
-      let finalCoverUrl = coverUrl.trim() || null;
-      if (coverFile) {
-        setIsCoverUploading(true);
-        const uploadForm = new FormData();
-        uploadForm.append('file', coverFile);
-        const uploadRes = await fetch('/api/admin/upload', { method: 'POST', body: uploadForm });
-        setIsCoverUploading(false);
-        if (!uploadRes.ok) {
-          const upErr = await uploadRes.json().catch(() => ({}));
-          setSubmitError(upErr.error ?? 'Cover image upload failed.');
-          return;
-        }
-        const { url } = await uploadRes.json();
-        finalCoverUrl = url;
-      }
-
-      // Step 2 — submit book JSON as usual
+      // Step 1 — submit book JSON as usual
       const res = await fetch('/api/admin/books', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: title.trim(), author: author.trim(), description: description.trim() || null,
-          category: category || null, coverUrl: finalCoverUrl, pdfUrl: pdfUrl.trim() || null,
+          category: category || null, coverUrl: coverUrl.trim() || null, pdfUrl: pdfUrl.trim() || null,
           preface: preface.trim() || null, guide: guide.trim() || null,
           isFree,
           priceSixMonths: isFree ? null : parseFloat(priceSixMonths) || null,
@@ -174,14 +157,40 @@ export default function AddNewBookPage() {
   };
 
   /* ─── Cover Image Handler ─── */
-  const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCoverChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    
     // Revoke old preview to avoid memory leaks
     if (coverPreview) URL.revokeObjectURL(coverPreview);
+    
     setCoverFile(file);
     setCoverPreview(URL.createObjectURL(file));
-    setCoverUrl(''); // clear the manual URL if a file is chosen
+    setSubmitError(null);
+    setIsCoverUploading(true);
+
+    try {
+      const uploadForm = new FormData();
+      uploadForm.append('file', file);
+      
+      const uploadRes = await fetch('/api/admin/upload', { 
+        method: 'POST', 
+        body: uploadForm 
+      });
+      
+      if (!uploadRes.ok) {
+        const upErr = await uploadRes.json().catch(() => ({}));
+        setSubmitError(upErr.error ?? 'Cover image upload failed.');
+        setCoverUrl(''); // Reset invalid URL string
+      } else {
+        const { url } = await uploadRes.json();
+        setCoverUrl(url); // Save Vercel Blob generic URL
+      }
+    } catch {
+      setSubmitError('Network error during image upload.');
+    } finally {
+      setIsCoverUploading(false);
+    }
   };
 
   /* ─── Reading Guide Logic ─── */
