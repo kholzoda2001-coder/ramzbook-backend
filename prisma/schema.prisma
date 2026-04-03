@@ -1,0 +1,265 @@
+// RAMZ Ebook — Prisma schema (MySQL / Production)
+// Run after switching: npx prisma migrate dev --name mysql-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Core Models ──────────────────────────────────────────────────────────────
+
+/// Represents a book / course product in the catalog.
+model Product {
+  id          String  @id @default(cuid())
+  title       String  @db.VarChar(255)
+  author      String  @db.VarChar(255)
+  coverUrl    String? @db.VarChar(500)
+  pdfUrl      String? @db.VarChar(500)
+  description String? @db.Text
+  category    String? @db.VarChar(100)
+  rating      Float   @default(4.5)
+  isFree         Boolean @default(false)
+  priceSixMonths Float?
+  priceLifetime  Float?
+  isActive       Boolean @default(true)
+
+  /// Long-form intro text shown before modules
+  preface       String? @db.LongText
+  /// JSON array: [{ letter, hint }, ...]
+  alphabet      String? @db.Text
+  guide         String? @db.LongText
+  /// JSON array of reading guide steps: [{ title, description, icon, color }, ...]
+  readingSteps  String? @db.LongText
+  /// JSON string for the pro tip box: { title, body, highlightWords: [] }
+  proTip        String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  modules         Module[]
+  userProgress    UserProgress[]
+  bookChapters    BookChapter[]
+  alphabetLetters AlphabetLetter[]
+  readingRules    ReadingRule[]
+
+  @@map("products")
+}
+
+/// App user account for authentication.
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique @db.VarChar(255)
+  /// E.164-style phone when the account was created via SMS OTP (optional).
+  phone        String?  @unique @db.VarChar(32)
+  name         String   @db.VarChar(255)
+  passwordHash String   @db.VarChar(255)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  refreshTokens RefreshToken[]
+  userProgress  UserProgress[]
+
+  @@map("users")
+}
+
+/// Opaque refresh tokens (stored hashed) for rotating access sessions.
+model RefreshToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique @db.Char(64)
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("refresh_tokens")
+}
+
+/// One-time password challenge (email or SMS). Plain OTP is never stored — only [otpHash].
+model OtpCode {
+  id             String   @id @default(cuid())
+  /// Normalised destination: lower-case email or E.164-ish phone digits.
+  identifier     String   @db.VarChar(320)
+  /// `email` | `phone`
+  channel        String   @default("email") @db.VarChar(16)
+  /// HMAC-SHA256 hex digest of the 6-digit code (server pepper from env).
+  otpHash        String   @db.VarChar(128)
+  expiresAt      DateTime
+  used           Boolean  @default(false)
+  /// Failed verification attempts for this row (max enforced in application).
+  verifyAttempts Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  @@index([identifier])
+  @@index([expiresAt])
+  @@map("otp_codes")
+}
+
+/// Key/value settings (JSON payloads). Used for OTP provider configuration.
+model AppSetting {
+  key       String   @id @db.VarChar(128)
+  valueJson String   @db.LongText
+  updatedAt DateTime @updatedAt
+
+  @@map("app_settings")
+}
+
+/// A lesson / chapter inside a book.
+model Module {
+  id            String   @id @default(cuid())
+  productId     String
+  title         String   @db.VarChar(255)
+  orderIndex    Int      @default(0)
+  isFreePreview Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  pages   Page[]
+
+  @@index([productId, orderIndex])
+  @@map("modules")
+}
+
+/// A single swipeable page inside a module.
+/// pageType: TOC | PREFACE | ALPHABET | GUIDE | VOCAB | QUIZ
+/// content: JSON payload — { words:[...] } or { questions:[...] }
+model Page {
+  id         String   @id @default(cuid())
+  moduleId   String
+  pageType   String   @db.VarChar(20)
+  orderIndex Int      @default(0)
+  content    String   @db.LongText
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  module Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@index([moduleId, orderIndex])
+  @@map("pages")
+}
+
+// ─── Dynamic Learning Content ──────────────────────────────────────────────
+
+/// A learning chapter attached to a product (vocabulary list or dialogue).
+model BookChapter {
+  id          String   @id @default(cuid())
+  productId   String
+  title       String   @db.VarChar(255)
+  pageNumbers String?  @db.VarChar(100)
+  /// 'vocabulary' | 'dialogue'
+  type        String   @db.VarChar(20)
+  orderIndex  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  product         Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
+  vocabularyItems VocabularyItem[]
+  dialogueLines   DialogueLine[]
+
+  @@index([productId, orderIndex])
+  @@map("book_chapters")
+}
+
+/// A single vocabulary word inside a BookChapter of type 'vocabulary'.
+model VocabularyItem {
+  id                 String   @id @default(cuid())
+  chapterId          String
+  originalWord       String   @db.VarChar(255)
+  transcription      String?  @db.VarChar(255)
+  pronunciationTajik String?  @db.VarChar(255)
+  translationTajik   String   @db.VarChar(500)
+  audioUrl           String?  @db.VarChar(500)
+  orderIndex         Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  chapter BookChapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([chapterId, orderIndex])
+  @@map("vocabulary_items")
+}
+
+/// A single line of dialogue inside a BookChapter of type 'dialogue'.
+model DialogueLine {
+  id              String   @id @default(cuid())
+  chapterId       String
+  speakerName     String   @db.VarChar(100)
+  textOriginal    String   @db.Text
+  textTranslation String   @db.Text
+  isMe            Boolean  @default(false)
+  audioUrl        String?  @db.VarChar(500)
+  orderIndex      Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  chapter BookChapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+
+  @@index([chapterId, orderIndex])
+  @@map("dialogue_lines")
+}
+
+// ─── Alphabet & Reading Rules ──────────────────────────────────────────────
+
+/// A single letter entry in a book's alphabet table.
+model AlphabetLetter {
+  id              String   @id @default(cuid())
+  productId       String
+  letter          String   @db.VarChar(10)
+  transcription   String?  @db.VarChar(100)
+  pronunciationTj String?  @db.VarChar(100)
+  orderIndex      Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId, orderIndex])
+  @@map("alphabet_letters")
+}
+
+/// A reading rule (pattern + Tajik description) for a book.
+model ReadingRule {
+  id          String   @id @default(cuid())
+  productId   String
+  pattern     String   @db.VarChar(100)
+  description String   @db.Text
+  orderIndex  Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId, orderIndex])
+  @@map("reading_rules")
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+
+/// Tracks a user's reading progress and purchase status per book.
+model UserProgress {
+  id                String   @id @default(cuid())
+  userId            String
+  productId         String
+  lastReadPageIndex Int      @default(0)
+  isPurchased       Boolean  @default(false)
+  isManualGrant     Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  product Product @relation(fields: [productId], references: [id])
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+  @@index([userId])
+  @@map("user_progress")
+}
