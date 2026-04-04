@@ -212,8 +212,8 @@ export default function ProductsTable({ books }: { books: Book[] }) {
                           {openMenu === book.id && (
                             <div style={{ position: 'absolute', right: 0, top: 'calc(100% + 4px)', background: 'var(--bg-surface)', border: '1px solid var(--bg-border)', borderRadius: '10px', padding: '6px', minWidth: '148px', zIndex: 100, boxShadow: '0 8px 24px rgba(0,0,0,0.4)' }}>
                               {[
-                                { icon: Eye,   label: 'Preview',   color: 'var(--text-secondary)', onClick: () => setOpenMenu(null) },
-                                { icon: Edit2, label: 'Edit Book', color: 'var(--text-secondary)', onClick: () => { setOpenMenu(null); router.push(`/admin/products/${book.id}/edit`); } },
+                                { icon: Eye,   label: 'Preview',   color: 'var(--text-secondary)', onClick: () => { setOpenMenu(null); router.push(`/admin/products/${book.id}/preview`); } },
+                                { icon: Edit2, label: 'Edit Book', color: 'var(--text-secondary)', onClick: () => { setOpenMenu(null); router.push(`/admin/products/${book.id}`); } },
                                 { icon: Trash2, label: 'Delete',   color: 'var(--red)',            onClick: () => handleDelete(book.id) },
                               ].map(({ icon: Icon, label, color, onClick }) => (
                                 <button key={label} onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: '10px', width: '100%', padding: '8px 12px', borderRadius: '7px', background: 'none', border: 'none', cursor: 'pointer', color, fontSize: '13px', fontWeight: 500, transition: 'background 0.12s ease', textAlign: 'left' }}
