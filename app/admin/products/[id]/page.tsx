@@ -178,7 +178,7 @@ export default function EditBookPage() {
           try {
             const parsedAlph = JSON.parse(data.alphabet);
             if (Array.isArray(parsedAlph)) {
-              setAlphabet(parsedAlph.map((a, i) => ({ ...a, id: \`alph-\${i}\` })));
+              setAlphabet(parsedAlph.map((a, i) => ({ ...a, id: `alph-${i}` })));
             }
           } catch (e) {
             console.error(e);
@@ -202,7 +202,7 @@ export default function EditBookPage() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch(\`/api/admin/books/\${id}\`, {
+      const res = await fetch(`/api/admin/books/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -280,7 +280,7 @@ export default function EditBookPage() {
   const updateLetter = (id: string, field: string, value: any) => setAlphabet(alphabet.map(l => l.id === id ? { ...l, [field]: value } : l));
 
   /* ─── Modules & CSV Logic ─── */
-  const addModule = () => setModules([...modules, { id: Date.now().toString(), title: \`Module \${modules.length + 1}\`, isPremium: modules.length > 0, vocabulary: [], quizzes: [] }]);
+  const addModule = () => setModules([...modules, { id: Date.now().toString(), title: `Module ${modules.length + 1}`, isPremium: modules.length > 0, vocabulary: [], quizzes: [] }]);
   const removeModule = (id: string) => setModules(modules.filter(m => m.id !== id));
   const updateModuleField = (id: string, field: string, value: any) => setModules(modules.map(m => m.id === id ? { ...m, [field]: value } : m));
   
@@ -292,7 +292,7 @@ export default function EditBookPage() {
       header: true, skipEmptyLines: true,
       complete: (results) => {
         const parsedData: VocabRow[] = results.data.map((row: any, index: number) => ({
-          id: \`\${moduleId}-row-\${index}-\${Date.now()}\`,
+          id: `${moduleId}-row-${index}-${Date.now()}`,
           emoji: row.Emoji || row.emoji || '💬', word: row.Word || row.word || '',
           trans_TJ: row.Trans_TJ || row.trans_TJ || '', trans_EN: row.Trans_EN || row.trans_EN || '',
           translation: row.Translation || row.translation || '', example: row.Example || row.example || '',
@@ -304,7 +304,7 @@ export default function EditBookPage() {
     });
   };
   const addSingleWord = (moduleId: string) => {
-    const newWord: VocabRow = { id: \`\${moduleId}-manual-\${Date.now()}\`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null };
+    const newWord: VocabRow = { id: `${moduleId}-manual-${Date.now()}`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null };
     setModules(modules.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, newWord] } : mod));
   };
 
@@ -414,7 +414,7 @@ export default function EditBookPage() {
                     </p>
                     <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                       {coverFile
-                        ? \`\${(coverFile.size / 1024).toFixed(0)} KB · \${coverFile.type}\`
+                        ? `${(coverFile.size / 1024).toFixed(0)} KB · ${coverFile.type}`
                         : 'PNG, JPG, WEBP up to 10 MB'}
                     </p>
                   </div>
@@ -556,16 +556,16 @@ export default function EditBookPage() {
                 <div key={item.id} style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'minmax(60px, 1fr) 2fr 3fr auto', gap: '10px', background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', padding: '16px', borderRadius: '12px' }}>
                   <button type="button" onClick={() => removeLetter(item.id)} style={{ position: 'absolute', top: '-10px', right: '-10px', background: 'var(--red)', color: '#fff', border: 'none', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>✕</button>
                   <div>
-                    <Label htmlFor={\`letter-\${item.id}\`}>Letter</Label>
-                    <input id={\`letter-\${item.id}\`} className="input-field" placeholder="A a" style={{ textAlign: 'center', fontWeight: 'bold' }} value={item.letter} onChange={(e) => updateLetter(item.id, 'letter', e.target.value)} />
+                    <Label htmlFor={`letter-${item.id}`}>Letter</Label>
+                    <input id={`letter-${item.id}`} className="input-field" placeholder="A a" style={{ textAlign: 'center', fontWeight: 'bold' }} value={item.letter} onChange={(e) => updateLetter(item.id, 'letter', e.target.value)} />
                   </div>
                   <div>
-                    <Label htmlFor={\`trans-\${item.id}\`}>Transcription</Label>
-                    <input id={\`trans-\${item.id}\`} className="input-field" placeholder="[ a ]" value={item.transcription} onChange={(e) => updateLetter(item.id, 'transcription', e.target.value)} />
+                    <Label htmlFor={`trans-${item.id}`}>Transcription</Label>
+                    <input id={`trans-${item.id}`} className="input-field" placeholder="[ a ]" value={item.transcription} onChange={(e) => updateLetter(item.id, 'transcription', e.target.value)} />
                   </div>
                   <div>
-                    <Label htmlFor={\`rule-\${item.id}\`}>Rule</Label>
-                    <input id={\`rule-\${item.id}\`} className="input-field" placeholder="Pronunciation rule..." value={item.explanation} onChange={(e) => updateLetter(item.id, 'explanation', e.target.value)} />
+                    <Label htmlFor={`rule-${item.id}`}>Rule</Label>
+                    <input id={`rule-${item.id}`} className="input-field" placeholder="Pronunciation rule..." value={item.explanation} onChange={(e) => updateLetter(item.id, 'explanation', e.target.value)} />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', border: '1px dashed var(--accent-from)', padding: '10px', borderRadius: '8px', height: '42px', color: 'var(--accent-from)', background: 'rgba(45, 140, 148, 0.05)' }}>
@@ -597,7 +597,7 @@ export default function EditBookPage() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', cursor: 'pointer', fontWeight: 600, color: mod.isPremium ? '#f59e0b' : '#10b981' }}>
                         {mod.isPremium ? 'Premium' : 'Free'}
-                        <Toggle id={\`toggle-\${mod.id}\`} checked={mod.isPremium} onChange={() => updateModuleField(mod.id, 'isPremium', !mod.isPremium)} />
+                        <Toggle id={`toggle-${mod.id}`} checked={mod.isPremium} onChange={() => updateModuleField(mod.id, 'isPremium', !mod.isPremium)} />
                       </label>
                       <button type="button" onClick={() => removeModule(mod.id)} style={{ color: 'var(--text-muted)', background: 'transparent', border: 'none', cursor: 'pointer' }}><Trash2 size={18} /></button>
                     </div>
@@ -683,7 +683,7 @@ export default function EditBookPage() {
                                     <button type="button" onClick={() => updateModuleQuizField(mod.id, quiz.id, 'correctIndex', oIdx)} style={{ position: 'absolute', left: '10px', width: '20px', height: '20px', borderRadius: '50%', background: quiz.correctIndex === oIdx ? '#10b981' : 'transparent', border: quiz.correctIndex === oIdx ? 'none' : '2px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
                                       {quiz.correctIndex === oIdx && <CheckCircle2 size={12} color="#fff" />}
                                     </button>
-                                    <input type="text" className="input-field" style={{ paddingLeft: '40px', borderColor: quiz.correctIndex === oIdx ? '#10b981' : 'var(--bg-border)' }} value={opt} onChange={(e) => updateModuleQuizOption(mod.id, quiz.id, oIdx, e.target.value)} placeholder={\`Option \${oIdx + 1}\`} />
+                                    <input type="text" className="input-field" style={{ paddingLeft: '40px', borderColor: quiz.correctIndex === oIdx ? '#10b981' : 'var(--bg-border)' }} value={opt} onChange={(e) => updateModuleQuizOption(mod.id, quiz.id, oIdx, e.target.value)} placeholder={`Option ${oIdx + 1}`} />
                                   </div>
                                 ))}
                               </div>
