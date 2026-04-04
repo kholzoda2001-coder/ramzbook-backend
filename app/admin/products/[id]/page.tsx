@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import Papa from 'papaparse';
 import {
@@ -75,8 +75,10 @@ export interface ReadingStepDraft {
 }
 
 /* ─── Main Page ─── */
-export default function AddNewBookPage() {
+export default function EditBookPage() {
   const router = useRouter();
+  const params = useParams();
+  const id = params.id as string;
 
   // Basic Metatdata
   const [title, setTitle] = useState('');
@@ -85,7 +87,7 @@ export default function AddNewBookPage() {
   const [category, setCategory] = useState('');
   // Cover image — we track both the selected File and an object-URL for preview
   const [coverFile, setCoverFile] = useState<File | null>(null);
-  const [coverPreview, setCoverPreview] = useState<string>(''); // local blob URL
+  const [coverPreview, setCoverPreview] = useState<string>(''); // local blob URL or existing remote URL
   const [coverUrl, setCoverUrl] = useState('');               // fallback: manual URL
   const [pdfUrl, setPdfUrl] = useState('');
   const [preface, setPreface] = useState('');
@@ -113,9 +115,83 @@ export default function AddNewBookPage() {
   const [alphabet, setAlphabet] = useState<AlphabetDraft[]>([]);
   const [modules, setModules] = useState<ModuleDraft[]>([]);
 
+  const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCoverUploading, setIsCoverUploading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!id) return;
+
+    fetch(`/api/admin/books/${id}`)
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch book data');
+        return res.json();
+      })
+      .then((data) => {
+        setTitle(data.title || '');
+        setAuthor(data.author || '');
+        setDescription(data.description || '');
+        setCategory(data.category || '');
+        setCoverUrl(data.coverUrl || '');
+        if (data.coverUrl) setCoverPreview(data.coverUrl);
+        setPdfUrl(data.pdfUrl || '');
+        setPreface(data.preface || '');
+        setGuide(data.guide || '');
+        setIsFree(!!data.isFree);
+        if (data.priceSixMonths) setPriceSixMonths(String(data.priceSixMonths));
+        if (data.priceLifetime) setPriceLifetime(String(data.priceLifetime));
+        if (data.rating) setRating(String(data.rating));
+        setIsActive(!!data.isActive);
+
+        if (data.modulesData && Array.isArray(data.modulesData)) {
+          setModules(data.modulesData.map((m: any, i: number) => ({
+             ...m,
+             id: m.id || `mod-${i}`,
+             vocabulary: m.vocabulary || [],
+             quizzes: m.quizzes || [],
+          })));
+        }
+
+        if (data.readingSteps) {
+          try {
+            const parsed = JSON.parse(data.readingSteps);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              setReadingSteps(parsed.map((p, i) => ({ ...p, id: `loaded-${i}` })));
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+        
+        if (data.proTip) {
+          try {
+            const pt = JSON.parse(data.proTip);
+            setProTipTitle(pt.title || '');
+            setProTipBody(pt.body || '');
+          } catch (e) {
+            console.error(e);
+          }
+        }
+        
+        if (data.alphabet) {
+          try {
+            const parsedAlph = JSON.parse(data.alphabet);
+            if (Array.isArray(parsedAlph)) {
+              setAlphabet(parsedAlph.map((a, i) => ({ ...a, id: \`alph-\${i}\` })));
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      })
+      .catch((err) => {
+        setSubmitError(err.message || 'Unable to load existing book data.');
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [id]);
 
   /* ─── Handlers ─── */
   const handleSubmit = async (e: React.FormEvent, asDraft = false) => {
@@ -126,9 +202,8 @@ export default function AddNewBookPage() {
     setIsSubmitting(true);
 
     try {
-      // Step 1 — submit book JSON as usual
-      const res = await fetch('/api/admin/books', {
-        method: 'POST',
+      const res = await fetch(\`/api/admin/books/\${id}\`, {
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: title.trim(), author: author.trim(), description: description.trim() || null,
@@ -138,10 +213,10 @@ export default function AddNewBookPage() {
           priceSixMonths: isFree ? null : parseFloat(priceSixMonths) || null,
           priceLifetime: isFree ? null : parseFloat(priceLifetime) || null,
           rating: parseFloat(rating) || 4.5, isActive: asDraft ? false : isActive,
-          alphabet: alphabet.length > 0 ? alphabet.map(({ id: _, ...rest }) => rest) : null, 
-          modulesData: modules.map(({ id: _, ...rest }) => rest), // sanitize id if needed, though server ignores it anyways
-          readingSteps: readingSteps.map(({ id: _, ...rest }) => rest),
+          alphabet: alphabet.length > 0 ? alphabet.map(({ id: _, ...rest }) => rest) : null,
+          readingSteps: readingSteps.length > 0 ? readingSteps.map(({ id: _, ...rest }) => rest) : [],
           proTip: { title: proTipTitle, body: proTipBody },
+          modulesData: modules.map(({ id: _, ...rest }) => rest), 
         }),
       });
 
@@ -163,7 +238,7 @@ export default function AddNewBookPage() {
     if (!file) return;
     
     // Revoke old preview to avoid memory leaks
-    if (coverPreview) URL.revokeObjectURL(coverPreview);
+    if (coverPreview && coverPreview.startsWith('blob:')) URL.revokeObjectURL(coverPreview);
     
     setCoverFile(file);
     setCoverPreview(URL.createObjectURL(file));
@@ -205,7 +280,7 @@ export default function AddNewBookPage() {
   const updateLetter = (id: string, field: string, value: any) => setAlphabet(alphabet.map(l => l.id === id ? { ...l, [field]: value } : l));
 
   /* ─── Modules & CSV Logic ─── */
-  const addModule = () => setModules([...modules, { id: Date.now().toString(), title: `Module ${modules.length + 1}`, isPremium: modules.length > 0, vocabulary: [], quizzes: [] }]);
+  const addModule = () => setModules([...modules, { id: Date.now().toString(), title: \`Module \${modules.length + 1}\`, isPremium: modules.length > 0, vocabulary: [], quizzes: [] }]);
   const removeModule = (id: string) => setModules(modules.filter(m => m.id !== id));
   const updateModuleField = (id: string, field: string, value: any) => setModules(modules.map(m => m.id === id ? { ...m, [field]: value } : m));
   
@@ -217,7 +292,7 @@ export default function AddNewBookPage() {
       header: true, skipEmptyLines: true,
       complete: (results) => {
         const parsedData: VocabRow[] = results.data.map((row: any, index: number) => ({
-          id: `${moduleId}-row-${index}-${Date.now()}`,
+          id: \`\${moduleId}-row-\${index}-\${Date.now()}\`,
           emoji: row.Emoji || row.emoji || '💬', word: row.Word || row.word || '',
           trans_TJ: row.Trans_TJ || row.trans_TJ || '', trans_EN: row.Trans_EN || row.trans_EN || '',
           translation: row.Translation || row.translation || '', example: row.Example || row.example || '',
@@ -229,7 +304,7 @@ export default function AddNewBookPage() {
     });
   };
   const addSingleWord = (moduleId: string) => {
-    const newWord: VocabRow = { id: `${moduleId}-manual-${Date.now()}`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null };
+    const newWord: VocabRow = { id: \`\${moduleId}-manual-\${Date.now()}\`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null };
     setModules(modules.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, newWord] } : mod));
   };
 
@@ -238,6 +313,14 @@ export default function AddNewBookPage() {
   const removeModuleQuiz = (moduleId: string, quizId: string) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.filter(q => q.id !== quizId) } : m));
   const updateModuleQuizField = (moduleId: string, quizId: string, field: string, value: any) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.map(q => q.id === quizId ? { ...q, [field]: value } : q) } : m));
   const updateModuleQuizOption = (moduleId: string, quizId: string, optIndex: number, value: string) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.map(q => { if (q.id === quizId) { const newOpts = [...q.options]; newOpts[optIndex] = value; return { ...q, options: newOpts }; } return q; }) } : m));
+
+  if (isLoading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', color: 'var(--text-muted)' }}>
+        Loading Book Data...
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -248,8 +331,8 @@ export default function AddNewBookPage() {
             <ArrowLeft size={16} />
           </Link>
           <div>
-            <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)' }}>Add New Book</h1>
-            <p style={{ color: 'var(--text-muted)', fontSize: '13px', marginTop: '2px' }}>Fill in the details to publish a new e-book</p>
+            <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)' }}>Edit Book</h1>
+            <p style={{ color: 'var(--text-muted)', fontSize: '13px', marginTop: '2px' }}>Update existing e-book details</p>
           </div>
         </div>
 
@@ -261,7 +344,7 @@ export default function AddNewBookPage() {
           </button>
           <button type="submit" className="gradient-btn" disabled={isSubmitting}
             style={{ padding: '10px 20px', borderRadius: '9px', color: '#fff', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '7px', cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1 }}>
-            <Eye size={14} />{isSubmitting ? 'Publishing…' : 'Publish Book'}
+            <Eye size={14} />{isSubmitting ? 'Updating…' : 'Update Book'}
           </button>
         </div>
       </div>
@@ -327,11 +410,11 @@ export default function AddNewBookPage() {
                   {/* Label text */}
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '3px' }}>
-                      {coverFile ? coverFile.name : 'Click to upload cover image'}
+                      {coverFile ? coverFile.name : 'Click to update cover image'}
                     </p>
                     <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                       {coverFile
-                        ? `${(coverFile.size / 1024).toFixed(0)} KB · ${coverFile.type}`
+                        ? \`\${(coverFile.size / 1024).toFixed(0)} KB · \${coverFile.type}\`
                         : 'PNG, JPG, WEBP up to 10 MB'}
                     </p>
                   </div>
@@ -357,23 +440,26 @@ export default function AddNewBookPage() {
                 </label>
 
                 {/* Optional manual URL fallback */}
-                {!coverFile && (
+                {(!coverFile) && (
                   <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>or paste URL:</span>
                     <input
                       className="input-field"
                       placeholder="https://example.com/cover.jpg"
                       value={coverUrl}
-                      onChange={e => setCoverUrl(e.target.value)}
+                      onChange={e => {
+                         setCoverUrl(e.target.value);
+                         setCoverPreview(e.target.value);
+                      }}
                       style={{ fontSize: '12px', padding: '6px 10px' }}
                     />
                   </div>
                 )}
 
-                {coverFile && (
+                {(coverFile || coverPreview) && (
                   <button
                     type="button"
-                    onClick={() => { setCoverFile(null); if (coverPreview) URL.revokeObjectURL(coverPreview); setCoverPreview(''); }}
+                    onClick={() => { setCoverFile(null); if (coverPreview && coverPreview.startsWith('blob:')) URL.revokeObjectURL(coverPreview); setCoverPreview(''); setCoverUrl(''); }}
                     style={{ marginTop: '6px', fontSize: '11px', color: 'var(--red)', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
                   >
                     ✕ Remove image
@@ -470,16 +556,16 @@ export default function AddNewBookPage() {
                 <div key={item.id} style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'minmax(60px, 1fr) 2fr 3fr auto', gap: '10px', background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', padding: '16px', borderRadius: '12px' }}>
                   <button type="button" onClick={() => removeLetter(item.id)} style={{ position: 'absolute', top: '-10px', right: '-10px', background: 'var(--red)', color: '#fff', border: 'none', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>✕</button>
                   <div>
-                    <Label htmlFor={`letter-${item.id}`}>Letter</Label>
-                    <input id={`letter-${item.id}`} className="input-field" placeholder="A a" style={{ textAlign: 'center', fontWeight: 'bold' }} value={item.letter} onChange={(e) => updateLetter(item.id, 'letter', e.target.value)} />
+                    <Label htmlFor={\`letter-\${item.id}\`}>Letter</Label>
+                    <input id={\`letter-\${item.id}\`} className="input-field" placeholder="A a" style={{ textAlign: 'center', fontWeight: 'bold' }} value={item.letter} onChange={(e) => updateLetter(item.id, 'letter', e.target.value)} />
                   </div>
                   <div>
-                    <Label htmlFor={`trans-${item.id}`}>Transcription</Label>
-                    <input id={`trans-${item.id}`} className="input-field" placeholder="[ a ]" value={item.transcription} onChange={(e) => updateLetter(item.id, 'transcription', e.target.value)} />
+                    <Label htmlFor={\`trans-\${item.id}\`}>Transcription</Label>
+                    <input id={\`trans-\${item.id}\`} className="input-field" placeholder="[ a ]" value={item.transcription} onChange={(e) => updateLetter(item.id, 'transcription', e.target.value)} />
                   </div>
                   <div>
-                    <Label htmlFor={`rule-${item.id}`}>Rule</Label>
-                    <input id={`rule-${item.id}`} className="input-field" placeholder="Pronunciation rule..." value={item.explanation} onChange={(e) => updateLetter(item.id, 'explanation', e.target.value)} />
+                    <Label htmlFor={\`rule-\${item.id}\`}>Rule</Label>
+                    <input id={\`rule-\${item.id}\`} className="input-field" placeholder="Pronunciation rule..." value={item.explanation} onChange={(e) => updateLetter(item.id, 'explanation', e.target.value)} />
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer', border: '1px dashed var(--accent-from)', padding: '10px', borderRadius: '8px', height: '42px', color: 'var(--accent-from)', background: 'rgba(45, 140, 148, 0.05)' }}>
@@ -511,7 +597,7 @@ export default function AddNewBookPage() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', cursor: 'pointer', fontWeight: 600, color: mod.isPremium ? '#f59e0b' : '#10b981' }}>
                         {mod.isPremium ? 'Premium' : 'Free'}
-                        <Toggle id={`toggle-${mod.id}`} checked={mod.isPremium} onChange={() => updateModuleField(mod.id, 'isPremium', !mod.isPremium)} />
+                        <Toggle id={\`toggle-\${mod.id}\`} checked={mod.isPremium} onChange={() => updateModuleField(mod.id, 'isPremium', !mod.isPremium)} />
                       </label>
                       <button type="button" onClick={() => removeModule(mod.id)} style={{ color: 'var(--text-muted)', background: 'transparent', border: 'none', cursor: 'pointer' }}><Trash2 size={18} /></button>
                     </div>
@@ -597,7 +683,7 @@ export default function AddNewBookPage() {
                                     <button type="button" onClick={() => updateModuleQuizField(mod.id, quiz.id, 'correctIndex', oIdx)} style={{ position: 'absolute', left: '10px', width: '20px', height: '20px', borderRadius: '50%', background: quiz.correctIndex === oIdx ? '#10b981' : 'transparent', border: quiz.correctIndex === oIdx ? 'none' : '2px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
                                       {quiz.correctIndex === oIdx && <CheckCircle2 size={12} color="#fff" />}
                                     </button>
-                                    <input type="text" className="input-field" style={{ paddingLeft: '40px', borderColor: quiz.correctIndex === oIdx ? '#10b981' : 'var(--bg-border)' }} value={opt} onChange={(e) => updateModuleQuizOption(mod.id, quiz.id, oIdx, e.target.value)} placeholder={`Option ${oIdx + 1}`} />
+                                    <input type="text" className="input-field" style={{ paddingLeft: '40px', borderColor: quiz.correctIndex === oIdx ? '#10b981' : 'var(--bg-border)' }} value={opt} onChange={(e) => updateModuleQuizOption(mod.id, quiz.id, oIdx, e.target.value)} placeholder={\`Option \${oIdx + 1}\`} />
                                   </div>
                                 ))}
                               </div>
