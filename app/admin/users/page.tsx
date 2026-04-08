@@ -10,6 +10,8 @@
  *
  * Access is controlled via UserProgress.isPurchased — the exact same
  * field the mobile app reads. No secondary permission system.
+ *
+ * Protected by the admin session (cookie-based) — no API key required.
  */
 
 import { useState, useEffect, useCallback, useTransition } from 'react';
@@ -75,12 +77,10 @@ function ToastBanner({ toast, onDismiss }: { toast: Toast; onDismiss: () => void
 
 function AccessPanel({
   user,
-  adminKey,
   onClose,
   onToast,
 }: {
   user: User;
-  adminKey: string;
   onClose: () => void;
   onToast: (t: Toast) => void;
 }) {
@@ -92,9 +92,7 @@ function AccessPanel({
   const fetchAccess = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/admin/users/${user.id}/access`, {
-        headers: { 'x-admin-api-key': adminKey },
-      });
+      const res = await fetch(`/api/admin/users/${user.id}/access`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Failed to load');
       setBooks(data.books ?? []);
@@ -103,7 +101,7 @@ function AccessPanel({
     } finally {
       setLoading(false);
     }
-  }, [user.id, adminKey, onToast]);
+  }, [user.id, onToast]);
 
   useEffect(() => { fetchAccess(); }, [fetchAccess]);
 
@@ -112,7 +110,7 @@ function AccessPanel({
     try {
       const res = await fetch(`/api/admin/users/${user.id}/access`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-admin-api-key': adminKey },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ productId: book.id, grant }),
       });
       const data = await res.json();
@@ -322,23 +320,7 @@ export default function UsersPage() {
   const [toast, setToast] = useState<Toast | null>(null);
   const [, startTransition] = useTransition();
 
-  // Admin key — stored in localStorage so we don't re-enter it each time
-  const [adminKey, setAdminKey] = useState('');
-  const [keyInput, setKeyInput] = useState('');
-  const [keyLocked, setKeyLocked] = useState(true);
-
-  useEffect(() => {
-    const stored = localStorage.getItem('ramz-admin-key') ?? '';
-    if (stored) { setAdminKey(stored); setKeyLocked(false); }
-  }, []);
-
-  const saveKey = () => {
-    localStorage.setItem('ramz-admin-key', keyInput.trim());
-    setAdminKey(keyInput.trim());
-    setKeyLocked(false);
-  };
-
-  // Fetch users list
+  // Fetch users list on mount
   useEffect(() => {
     setLoading(true);
     fetch('/api/admin/users')
@@ -357,41 +339,6 @@ export default function UsersPage() {
   );
 
   const dismissToast = useCallback(() => setToast(null), []);
-
-  // ── Key setup screen ─────────────────────────────────────────────────────────
-  if (keyLocked) {
-    return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
-        <div className="glass-card" style={{ padding: 32, maxWidth: 400, width: '100%', textAlign: 'center' }}>
-          <ShieldCheck size={36} color="var(--accent-from)" style={{ marginBottom: 16 }} />
-          <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 6 }}>Admin API Key</h2>
-          <p style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 20 }}>
-            Барои идораи дастрасии корбарон, ключи ADMIN_API_KEY-ро ворид кунед.
-          </p>
-          <input
-            type="password"
-            className="input-field"
-            placeholder="Ключи Adminро ворид кунед…"
-            value={keyInput}
-            onChange={(e) => setKeyInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && keyInput.trim() && saveKey()}
-            style={{ marginBottom: 12 }}
-          />
-          <button
-            onClick={saveKey}
-            disabled={!keyInput.trim()}
-            className="gradient-btn"
-            style={{ width: '100%', padding: '11px 0', borderRadius: 10, color: '#fff', fontSize: 14, fontWeight: 600, border: 'none', cursor: keyInput.trim() ? 'pointer' : 'not-allowed', opacity: keyInput.trim() ? 1 : 0.5 }}
-          >
-            Тасдиқ кардан
-          </button>
-          <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 12 }}>
-            Ключ дар localStorage нигоҳ дошта мешавад
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   // ── Main users table ─────────────────────────────────────────────────────────
   return (
@@ -525,12 +472,6 @@ export default function UsersPage() {
 
             <div style={{ padding: '14px 20px', borderTop: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between' }}>
               <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{filtered.length} корбар</p>
-              <button
-                onClick={() => { localStorage.removeItem('ramz-admin-key'); setKeyLocked(true); setAdminKey(''); setKeyInput(''); }}
-                style={{ fontSize: 12, color: 'var(--text-muted)', background: 'none', border: 'none', cursor: 'pointer' }}
-              >
-                Ключро тоза кардан
-              </button>
             </div>
           </div>
         )}
@@ -540,7 +481,6 @@ export default function UsersPage() {
       {selectedUser && (
         <AccessPanel
           user={selectedUser}
-          adminKey={adminKey}
           onClose={() => setSelectedUser(null)}
           onToast={setToast}
         />

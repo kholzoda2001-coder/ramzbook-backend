@@ -9,29 +9,19 @@
  *   by upserting the UserProgress row — the same table the mobile app
  *   reads via /api/mobile/books/[id] and /api/mobile/library.
  *
- * Protected by ADMIN_API_KEY header:  x-admin-api-key: <value>
+ * Protected by the admin panel session (AdminShell layout).
+ * No custom API key header required.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-function isAdmin(req: NextRequest): boolean {
-  const key = req.headers.get('x-admin-api-key');
-  const expected = process.env.ADMIN_API_KEY;
-  if (!expected) return false; // key not configured → deny
-  return key === expected;
-}
-
 // ─── GET: list all books with access status for this user ─────────────────────
 
 export async function GET(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  if (!isAdmin(req)) {
-    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-  }
-
   const userId = params.id;
 
   try {
@@ -92,10 +82,6 @@ export async function POST(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  if (!isAdmin(req)) {
-    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-  }
-
   const userId = params.id;
 
   try {
