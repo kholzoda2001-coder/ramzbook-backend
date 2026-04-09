@@ -181,7 +181,9 @@ export default function AddNewBookPage() {
       
       if (!uploadRes.ok) {
         const upErr = await uploadRes.json().catch(() => ({}));
-        setSubmitError(upErr.error ?? 'Cover image upload failed.');
+        const errorMsg = upErr.error ?? 'Хатогӣ ҳангоми боргузории расм. Эҳтимол ҳаҷми расм хеле калон аст (аз 4MB хурдтар интихоб кунед).';
+        setSubmitError(errorMsg);
+        alert(errorMsg);
         setCoverUrl(''); // Reset invalid URL string
       } else {
         const { url } = await uploadRes.json();
@@ -255,13 +257,13 @@ export default function AddNewBookPage() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           {submitError && <p style={{ fontSize: '12px', color: 'var(--red)', maxWidth: '260px' }}>⚠️ {submitError}</p>}
-          <button type="button" onClick={(e) => handleSubmit(e, true)} disabled={isSubmitting}
-            style={{ padding: '10px 18px', borderRadius: '9px', background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', color: 'var(--text-secondary)', fontSize: '13px', fontWeight: 600, cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.6 : 1, display: 'flex', alignItems: 'center', gap: '7px' }}>
-            <Save size={14} />{isSubmitting ? 'Saving…' : 'Save Draft'}
+          <button type="button" onClick={(e) => handleSubmit(e, true)} disabled={isSubmitting || isCoverUploading}
+            style={{ padding: '10px 18px', borderRadius: '9px', background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', color: 'var(--text-secondary)', fontSize: '13px', fontWeight: 600, cursor: (isSubmitting || isCoverUploading) ? 'not-allowed' : 'pointer', opacity: (isSubmitting || isCoverUploading) ? 0.6 : 1, display: 'flex', alignItems: 'center', gap: '7px' }}>
+            <Save size={14} />{isCoverUploading ? 'Uploading Image…' : isSubmitting ? 'Saving…' : 'Save Draft'}
           </button>
-          <button type="submit" className="gradient-btn" disabled={isSubmitting}
-            style={{ padding: '10px 20px', borderRadius: '9px', color: '#fff', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '7px', cursor: isSubmitting ? 'not-allowed' : 'pointer', opacity: isSubmitting ? 0.7 : 1 }}>
-            <Eye size={14} />{isSubmitting ? 'Publishing…' : 'Publish Book'}
+          <button type="submit" className="gradient-btn" disabled={isSubmitting || isCoverUploading}
+            style={{ padding: '10px 20px', borderRadius: '9px', color: '#fff', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '7px', cursor: (isSubmitting || isCoverUploading) ? 'not-allowed' : 'pointer', opacity: (isSubmitting || isCoverUploading) ? 0.7 : 1 }}>
+            <Eye size={14} />{isCoverUploading ? 'Uploading Image…' : isSubmitting ? 'Publishing…' : 'Publish Book'}
           </button>
         </div>
       </div>
