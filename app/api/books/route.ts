@@ -38,8 +38,27 @@ export async function GET(req: NextRequest) {
       },
       orderBy: { createdAt: 'desc' },
     });
+
+    let purchasedProductIds = new Set<string>();
     
-    return NextResponse.json(products, { status: 200, headers: corsHeaders });
+    if (userId !== 'guest') {
+      const progressRecords = await prisma.userProgress.findMany({
+        where: { userId, isPurchased: true },
+        select: { productId: true },
+      });
+      purchasedProductIds = new Set(progressRecords.map(p => p.productId));
+    }
+
+    const modifiedProducts = products.map((product) => {
+      const isPurchased = purchasedProductIds.has(product.id);
+      return {
+        ...product,
+        isOwned: isPurchased || product.isFree,
+        isLocked: !(isPurchased || product.isFree),
+      };
+    });
+    
+    return NextResponse.json(modifiedProducts, { status: 200, headers: corsHeaders });
   } catch (err) {
     console.error('[GET /api/books]', err);
     return apiError('Failed to fetch books');
