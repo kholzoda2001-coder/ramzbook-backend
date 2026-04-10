@@ -19,6 +19,7 @@ const navItems = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { label: 'Users', href: '/admin/users', icon: Users },
   { label: 'E-books', href: '/admin/products', icon: BookOpen },
+  { label: 'Categories', href: '/admin/categories', icon: BookOpen },
   { label: 'OTP Settings', href: '/admin/otp-settings', icon: Radio },
   { label: 'Login Settings', href: '/admin/login-settings', icon: Key },
   { label: 'Settings', href: '/admin/settings', icon: Settings },

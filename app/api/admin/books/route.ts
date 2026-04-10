@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const {
-      title, author, category, description, coverUrl, pdfUrl,
+      title, author, category, categoryId, description, coverUrl, pdfUrl,
       preface, guide, isFree, rating, isActive,
       priceSixMonths, priceLifetime,
       readingSteps, proTip,
@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
           title: title.trim(),
           author: author.trim(),
           category: category ?? null,
+          categoryId: categoryId ?? null,
           description: description ?? null,
           coverUrl: coverUrl ?? null,
           pdfUrl: pdfUrl ?? null,

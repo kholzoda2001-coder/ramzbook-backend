@@ -55,8 +55,6 @@ function Toggle({ id, checked, onChange }: { id: string; checked: boolean; onCha
   );
 }
 
-const CATEGORIES = ['Забони Арабӣ', 'Забони Англисӣ', 'Забони Русӣ', 'Забони Туркӣ', 'Забони Форсӣ', 'Дигар'];
-
 /* ─── Interfaces ─── */
 export interface VocabRow {
   id: string; emoji: string; word: string; trans_TJ: string; trans_EN: string; translation: string; example: string; exampleTranslation: string; audio: File | null;
@@ -84,7 +82,18 @@ export default function EditBookPage() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [categoryId, setCategoryId] = useState('');
+  const [categoryList, setCategoryList] = useState<any[]>([]);
+
+  // Fetch Categories
+  import('react').then((React) => {
+    React.useEffect(() => {
+      fetch('/api/admin/categories').then(r => r.json()).then(data => {
+        if (Array.isArray(data)) setCategoryList(data);
+      }).catch(console.error);
+    }, []);
+  });
+
   // Cover image — we track both the selected File and an object-URL for preview
   const [coverFile, setCoverFile] = useState<File | null>(null);
   const [coverPreview, setCoverPreview] = useState<string>(''); // local blob URL or existing remote URL
@@ -132,7 +141,13 @@ export default function EditBookPage() {
         setTitle(data.title || '');
         setAuthor(data.author || '');
         setDescription(data.description || '');
-        setCategory(data.category || '');
+        if (data.categoryId) {
+          setCategoryId(data.categoryId);
+        } else if (data.category && categoryList.length > 0) {
+          // fallback
+          const matched = categoryList.find(c => c.name === data.category);
+          if (matched) setCategoryId(matched.id);
+        }
         setCoverUrl(data.coverUrl || '');
         if (data.coverUrl) setCoverPreview(data.coverUrl);
         setPdfUrl(data.pdfUrl || '');
@@ -207,7 +222,9 @@ export default function EditBookPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           title: title.trim(), author: author.trim(), description: description.trim() || null,
-          category: category || null, coverUrl: coverUrl.trim() || null, pdfUrl: pdfUrl.trim() || null,
+          category: categoryList.find(c => c.id === categoryId)?.name || null,
+          categoryId: categoryId || null,
+          coverUrl: coverUrl.trim() || null, pdfUrl: pdfUrl.trim() || null,
           preface: preface.trim() || null, guide: guide.trim() || null,
           isFree,
           priceSixMonths: isFree ? null : parseFloat(priceSixMonths) || null,
@@ -369,9 +386,9 @@ export default function EditBookPage() {
               </div>
               <div>
                 <Label htmlFor="category">Category</Label>
-                <select id="category" className="input-field" value={category} onChange={(e) => setCategory(e.target.value)}>
+                <select id="category" className="input-field" value={categoryId} onChange={(e) => setCategoryId(e.target.value)}>
                   <option value="">— Select —</option>
-                  {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                  {categoryList.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
               </div>
             </FormRow>

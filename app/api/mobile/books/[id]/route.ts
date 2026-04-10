@@ -80,11 +80,17 @@ export async function GET(
       };
     });
 
-    // ── alphabet is also stored as a JSON string in SQLite ────────────────
-    const parseAlphabet = (raw: string | null | undefined) => {
+    // ── JSON column parsers ────────────────────────────────────────────────
+    const parseJsonArray = (raw: string | null | undefined) => {
       if (!raw) return [];
       try { return JSON.parse(raw) as unknown[]; }
       catch { return []; }
+    };
+
+    const parseJsonObject = (raw: string | null | undefined) => {
+      if (!raw) return null;
+      try { return JSON.parse(raw); }
+      catch { return null; }
     };
 
     // ── Calculate rough progress ratio ────────────────────────────────────
@@ -101,8 +107,10 @@ export async function GET(
       category: product.category ?? '',
       description: product.description ?? '',
       preface: product.preface ?? '',
-      alphabet: parseAlphabet(product.alphabet as string | null),
+      alphabet: parseJsonArray(product.alphabet as string | null),
       guide: product.guide ?? '',
+      readingSteps: parseJsonArray(product.readingSteps as string | null),
+      proTip: parseJsonObject(product.proTip as string | null),
       isOwned: progress?.isPurchased ?? product.isFree,
       isLocked: !(progress?.isPurchased ?? product.isFree),
       progress: progressRatio,

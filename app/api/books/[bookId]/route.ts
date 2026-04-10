@@ -26,7 +26,11 @@ export async function GET(
         modules: {
           orderBy: { orderIndex: 'asc' },
           include: {
-            _count: { select: { pages: true } },
+            // Include page content so we count actual words/quizzes per module
+            pages: {
+              select: { pageType: true, content: true },
+              orderBy: { orderIndex: 'asc' },
+            },
           },
         },
       },
@@ -43,7 +47,7 @@ export async function GET(
       });
     }
 
-    const parseJsonArray = (raw: string | null | undefined) => {
+    const parseJsonArray = (raw: string | null | undefined): unknown[] => {
       if (!raw) return [];
       try { return JSON.parse(raw) as unknown[]; }
       catch { return []; }
@@ -53,9 +57,20 @@ export async function GET(
       if (!raw) return null;
       try { return JSON.parse(raw); }
       catch { return null; }
-    }
+    };
 
-    const totalPages = 4 + product.modules.length * 2;
+    const parsePageContent = (raw: string | null | undefined): Record<string, unknown> => {
+      if (!raw) return {};
+      try { return JSON.parse(raw) as Record<string, unknown>; }
+      catch { return {}; }
+    };
+
+    // Compute realistic total pages based on what the book actually has
+    const introPageCount =
+      (product.preface   ? 1 : 0) +
+      (product.alphabet  ? 1 : 0) +
+      (product.guide     ? 1 : 0);
+    const totalPages = introPageCount + product.modules.length * 2;
     const lastReadPageIndex = progress?.lastReadPageIndex ?? 0;
     const progressRatio = totalPages > 0 ? Math.min(lastReadPageIndex / totalPages, 1.0) : 0;
 
@@ -79,16 +94,22 @@ export async function GET(
       priceLifetime: product.priceLifetime,
       progress: progressRatio,
       lastReadPageIndex,
-      modules: product.modules.map((m) => ({
-        id: m.id,
-        title: m.title,
-        orderIndex: m.orderIndex,
-        isFreePreview: m.isFreePreview,
-        _count: {
-          words: Math.floor(m._count.pages / 2),
-          quizzes: Math.ceil(m._count.pages / 2),
-        },
-      })),
+      modules: product.modules.map((m) => {
+        const vocabPage    = m.pages.find((p) => p.pageType === 'VOCAB');
+        const quizPage     = m.pages.find((p) => p.pageType === 'QUIZ');
+        const vocabContent = parsePageContent(vocabPage?.content);
+        const quizContent  = parsePageContent(quizPage?.content);
+        // Count actual items stored rather than dividing page count
+        const wordsCount   = Array.isArray(vocabContent.words)     ? (vocabContent.words     as unknown[]).length : 0;
+        const quizzesCount = Array.isArray(quizContent.questions)  ? (quizContent.questions  as unknown[]).length : 0;
+        return {
+          id: m.id,
+          title: m.title,
+          orderIndex: m.orderIndex,
+          isFreePreview: m.isFreePreview,
+          _count: { words: wordsCount, quizzes: quizzesCount },
+        };
+      }),
     };
 
     return NextResponse.json(response, { status: 200, headers: corsHeaders });
