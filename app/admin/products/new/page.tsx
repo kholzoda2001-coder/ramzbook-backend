@@ -58,6 +58,7 @@ function Toggle({ id, checked, onChange }: { id: string; checked: boolean; onCha
 /* ─── Interfaces ─── */
 export interface VocabRow {
   id: string; emoji: string; word: string; trans_TJ: string; trans_EN: string; translation: string; example: string; exampleTranslation: string; audio: File | null;
+  transcriptionEn: string; transcriptionTj: string; exampleEn: string; exampleTj: string;
 }
 export interface QuizDraft {
   id: string; question: string; options: string[]; correctIndex: number;
@@ -235,6 +236,10 @@ export default function AddNewBookPage() {
           trans_TJ: row.Trans_TJ || row.trans_TJ || '', trans_EN: row.Trans_EN || row.trans_EN || '',
           translation: row.Translation || row.translation || '', example: row.Example || row.example || '',
           exampleTranslation: row.ExampleTranslation || row.exampleTranslation || '', audio: null,
+          transcriptionEn: row.TranscriptionEn || row.transcriptionEn || '',
+          transcriptionTj: row.TranscriptionTj || row.transcriptionTj || '',
+          exampleEn: row.ExampleEn || row.exampleEn || '',
+          exampleTj: row.ExampleTj || row.exampleTj || '',
         }));
         setModules(modules.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, ...parsedData] } : mod));
       },
@@ -242,7 +247,7 @@ export default function AddNewBookPage() {
     });
   };
   const addSingleWord = (moduleId: string) => {
-    const newWord: VocabRow = { id: `${moduleId}-manual-${Date.now()}`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null };
+    const newWord: VocabRow = { id: `${moduleId}-manual-${Date.now()}`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null, transcriptionEn: '', transcriptionTj: '', exampleEn: '', exampleTj: '' };
     setModules(modules.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, newWord] } : mod));
   };
 
@@ -542,43 +547,56 @@ export default function AddNewBookPage() {
                         <input type="file" style={{ display: 'none' }} accept=".csv" onChange={(e) => handleCSVUpload(mod.id, e)} />
                       </label>
                     ) : (
-                      <div style={{ position: 'relative', overflowX: 'auto', marginBottom: '8px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                      <div style={{ marginBottom: '8px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                            <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)' }}>{mod.vocabulary.length} Words Loaded</span>
-                           <button type="button" onClick={() => addSingleWord(mod.id)} style={{ fontSize: '12px', fontWeight: 600, color: 'var(--accent-from)', background: 'transparent', border: 'none', cursor: 'pointer' }}>+ Add Word Manually</button>
+                           <button type="button" onClick={() => addSingleWord(mod.id)} style={{ fontSize: '12px', fontWeight: 600, color: 'var(--accent-from)', background: 'rgba(45,140,148,0.08)', border: '1px solid rgba(45,140,148,0.2)', borderRadius: '7px', cursor: 'pointer', padding: '5px 12px', display: 'flex', alignItems: 'center', gap: '5px' }}><PlusCircle size={13} /> Add Word</button>
                         </div>
-                        <table style={{ width: '100%', fontSize: '13px', textAlign: 'left', borderCollapse: 'collapse' }}>
-                          <thead style={{ borderBottom: '1px solid var(--bg-border)', color: 'var(--text-muted)' }}>
-                            <tr><th style={{ padding: '8px' }}>EM</th><th style={{ padding: '8px' }}>Word</th><th style={{ padding: '8px' }}>Translation</th><th style={{ padding: '8px' }}>Audio</th><th style={{ padding: '8px' }}></th></tr>
-                          </thead>
-                          <tbody>
-                            {mod.vocabulary.map((vocab, vIdx) => (
-                              <tr key={vocab.id} style={{ borderBottom: '1px solid var(--bg-border)' }}>
-                                <td style={{ padding: '8px', fontSize: '18px' }}>
-                                  <input type="text" value={vocab.emoji} onChange={(e) => { const c = [...mod.vocabulary]; c[vIdx].emoji = e.target.value; updateModuleField(mod.id, 'vocabulary', c); }} style={{ width: '30px', background: 'transparent', border: 'none', outline: 'none', textAlign: 'center' }} />
-                                </td>
-                                <td style={{ padding: '8px' }}>
-                                  <input type="text" value={vocab.word} onChange={(e) => { const c = [...mod.vocabulary]; c[vIdx].word = e.target.value; updateModuleField(mod.id, 'vocabulary', c); }} style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', fontWeight: 'bold', color: 'var(--text-primary)' }} />
-                                </td>
-                                <td style={{ padding: '8px' }}>
-                                  <input type="text" value={vocab.translation} onChange={(e) => { const c = [...mod.vocabulary]; c[vIdx].translation = e.target.value; updateModuleField(mod.id, 'vocabulary', c); }} style={{ width: '100%', background: 'transparent', border: 'none', outline: 'none', color: 'var(--text-secondary)' }} />
-                                </td>
-                                <td style={{ padding: '8px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                          {mod.vocabulary.map((vocab, vIdx) => {
+                            const upd = (field: keyof VocabRow, val: any) => { const c = [...mod.vocabulary]; (c[vIdx] as any)[field] = val; updateModuleField(mod.id, 'vocabulary', c); };
+                            return (
+                              <div key={vocab.id} style={{ background: 'var(--bg-primary)', border: '1px solid var(--bg-border)', borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.2s' }}>
+                                {/* Row 1 — Emoji · Word · Translation · Audio · Delete */}
+                                <div style={{ display: 'grid', gridTemplateColumns: '48px 1fr 1fr auto auto', gap: '8px', alignItems: 'center', padding: '10px 12px', borderBottom: '1px solid var(--bg-border)', background: 'rgba(255,255,255,0.015)' }}>
+                                  <input type="text" value={vocab.emoji} onChange={(e) => upd('emoji', e.target.value)} title="Emoji" style={{ fontSize: '20px', textAlign: 'center', background: 'transparent', border: 'none', outline: 'none', width: '100%' }} />
+                                  <input type="text" value={vocab.word} onChange={(e) => upd('word', e.target.value)} placeholder="Word" style={{ background: 'transparent', border: 'none', outline: 'none', fontWeight: 700, fontSize: '14px', color: 'var(--text-primary)', width: '100%' }} />
+                                  <input type="text" value={vocab.translation} onChange={(e) => upd('translation', e.target.value)} placeholder="Translation" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'var(--text-secondary)', width: '100%' }} />
                                   {vocab.audio ? (
-                                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(16, 185, 129, 0.1)', color: '#059669', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600 }}><Headphones size={12} /> OK</span>
+                                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(16,185,129,0.1)', color: '#059669', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, whiteSpace: 'nowrap' }}><Headphones size={12} /> OK</span>
                                   ) : (
-                                    <label style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(239, 68, 68, 0.1)', color: '#dc2626', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }}>
-                                      <AlertCircle size={12} /> Miss <input type="file" style={{ display: 'none' }} accept="audio/*" onChange={(e) => { if(e.target.files?.[0]) { const c = [...mod.vocabulary]; c[vIdx].audio = e.target.files[0]; updateModuleField(mod.id, 'vocabulary', c); } }} />
+                                    <label style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(239,68,68,0.1)', color: '#dc2626', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>
+                                      <AlertCircle size={12} /> Audio<input type="file" style={{ display: 'none' }} accept="audio/*" onChange={(e) => { if (e.target.files?.[0]) upd('audio', e.target.files[0]); }} />
                                     </label>
                                   )}
-                                </td>
-                                <td style={{ padding: '8px', textAlign: 'right' }}>
-                                  <button type="button" onClick={() => updateModuleField(mod.id, 'vocabulary', mod.vocabulary.filter(v => v.id !== vocab.id))} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><Trash2 size={14} /></button>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                                  <button type="button" onClick={() => updateModuleField(mod.id, 'vocabulary', mod.vocabulary.filter(v => v.id !== vocab.id))} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '4px' }}><Trash2 size={14} /></button>
+                                </div>
+                                {/* Row 2 — Transcriptions */}
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px 12px', borderBottom: '1px solid var(--bg-border)' }}>
+                                  <div>
+                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Transcription EN</p>
+                                    <input type="text" value={vocab.transcriptionEn || ''} onChange={(e) => upd('transcriptionEn', e.target.value)} placeholder="[ ˈfɑːðər ]" className="input-field" style={{ fontSize: '13px', padding: '7px 10px', fontFamily: 'monospace' }} />
+                                  </div>
+                                  <div>
+                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Transcription TJ</p>
+                                    <input type="text" value={vocab.transcriptionTj || ''} onChange={(e) => upd('transcriptionTj', e.target.value)} placeholder="[ фазер ]" className="input-field" style={{ fontSize: '13px', padding: '7px 10px', fontFamily: 'monospace' }} />
+                                  </div>
+                                </div>
+                                {/* Row 3 — Examples */}
+                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px 12px' }}>
+                                  <div>
+                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Example EN</p>
+                                    <input type="text" value={vocab.exampleEn || ''} onChange={(e) => upd('exampleEn', e.target.value)} placeholder="My father is kind." className="input-field" style={{ fontSize: '13px', padding: '7px 10px' }} />
+                                  </div>
+                                  <div>
+                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Example TJ</p>
+                                    <input type="text" value={vocab.exampleTj || ''} onChange={(e) => upd('exampleTj', e.target.value)} placeholder="Падари ман меҳрубон аст." className="input-field" style={{ fontSize: '13px', padding: '7px 10px' }} />
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     )}
 
