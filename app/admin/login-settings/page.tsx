@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { Save, AlertCircle, CheckCircle2, LayoutGrid, KeyRound, MonitorSmartphone, Smartphone } from 'lucide-react';
 
 export default function AdminLoginSettingsPage() {
-  const [adminKey, setAdminKey] = useState('');
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState<{ type: 'error' | 'success'; msg: string } | null>(null);
@@ -22,16 +21,10 @@ export default function AdminLoginSettingsPage() {
   }, [status]);
 
   async function loadConfig() {
-    if (!adminKey) {
-      setStatus({ type: 'error', msg: 'Please enter the Admin API Key first.' });
-      return;
-    }
     setLoading(true);
     setStatus(null);
     try {
-      const res = await fetch('/api/admin/login-settings', {
-        headers: { 'x-admin-api-key': adminKey },
-      });
+      const res = await fetch('/api/admin/login-settings');
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       
@@ -50,7 +43,6 @@ export default function AdminLoginSettingsPage() {
   }
 
   async function saveConfig() {
-    if (!adminKey) return setStatus({ type: 'error', msg: 'Admin API Key is required.' });
     setSaving(true);
     setStatus(null);
     try {
@@ -63,7 +55,7 @@ export default function AdminLoginSettingsPage() {
 
       const res = await fetch('/api/admin/login-settings', {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json', 'x-admin-api-key': adminKey },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ config: payload }),
       });
       const data = await res.json();
@@ -93,17 +85,13 @@ export default function AdminLoginSettingsPage() {
         </div>
       )}
 
-      {/* Auth Control */}
+      {/* Auth Control Removed */}
       <div className="glass-card p-6 mb-8 fade-up delay-1">
-        <h2 className="text-base font-semibold mb-4 text-[var(--text-primary)]">Admin Session</h2>
+        <h2 className="text-base font-semibold mb-4 text-[var(--text-primary)]">Admin Session State</h2>
         <div className="flex flex-col sm:flex-row gap-4">
-          <input
-            type="password"
-            placeholder="Enter ADMIN_API_KEY..."
-            className="flex-1 input-field bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-4 py-2.5 text-sm outline-none focus:border-indigo-500 transition-colors"
-            value={adminKey}
-            onChange={(e) => setAdminKey(e.target.value)}
-          />
+          <p className="flex-1 text-sm text-[var(--text-muted)] flex items-center">
+            You are securely authenticated via middleware. Load or save your configurations below.
+          </p>
           <button
             onClick={loadConfig}
             disabled={loading}
@@ -188,7 +176,7 @@ export default function AdminLoginSettingsPage() {
       <div className="mt-8 flex justify-end">
         <button
           onClick={saveConfig}
-          disabled={saving || !adminKey}
+          disabled={saving}
           className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 shadow-lg shadow-indigo-500/20"
         >
           <Save size={18} />

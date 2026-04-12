@@ -12,25 +12,12 @@ import {
   type LoginSettingsConfig,
 } from '@/lib/auth/login-settings';
 
-function assertAdmin(req: NextRequest): boolean {
-  const key = process.env.ADMIN_API_KEY;
-  if (!key) return false;
-  const provided = req.headers.get('x-admin-api-key');
-  return provided === key;
-}
-
 export async function GET(req: NextRequest) {
-  if (!assertAdmin(req)) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
   const cfg = await loadLoginSettingsConfig(prisma);
   return Response.json({ config: maskLoginSettingsForResponse(cfg) });
 }
 
 export async function PUT(req: NextRequest) {
-  if (!assertAdmin(req)) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
   try {
     const body = (await req.json()) as { config?: Partial<LoginSettingsConfig> };
     if (!body.config) {

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   Users,
@@ -32,6 +32,15 @@ interface SidebarProps {
 
 export default function AdminSidebar({ onClose, staticMode }: SidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  async function handleLogout() {
+    try {
+      await fetch('/api/admin/login', { method: 'DELETE' });
+    } finally {
+      router.push('/admin/login');
+    }
+  }
 
   return (
     <aside
@@ -137,20 +146,21 @@ export default function AdminSidebar({ onClose, staticMode }: SidebarProps) {
           </div>
         </div>
 
-        <Link
-          href="/"
+        <button
+          onClick={handleLogout}
           style={{
-            display: 'flex', alignItems: 'center', gap: '10px',
+            display: 'flex', alignItems: 'center', gap: '10px', width: '100%',
             padding: '9px 12px', borderRadius: '8px',
             color: 'var(--text-muted)', fontSize: '13px', fontWeight: 500,
-            textDecoration: 'none', transition: 'color 0.15s ease, background 0.15s ease',
+            background: 'transparent', border: 'none', cursor: 'pointer',
+            transition: 'color 0.15s ease, background 0.15s ease',
           }}
           onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--red)'; e.currentTarget.style.background = 'rgba(239,68,68,0.08)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.background = 'transparent'; }}
         >
           <LogOut size={15} />
           Sign Out
-        </Link>
+        </button>
       </div>
     </aside>
   );

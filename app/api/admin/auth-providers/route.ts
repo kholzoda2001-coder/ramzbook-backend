@@ -1,8 +1,7 @@
 /**
  * Admin-only CRUD for OTP delivery provider settings (masked on read).
  *
- * LIVE: set ADMIN_API_KEY in server env; send header `x-admin-api-key: <key>`.
- * Never expose this key in client-side code.
+ * LIVE: Protected securely via Next.js middleware using JWT tokens.
  */
 
 import { NextRequest } from 'next/server';
@@ -36,25 +35,12 @@ function assertValidProviderIds(partial: Partial<AuthProvidersConfig>): string |
   return null;
 }
 
-function assertAdmin(req: NextRequest): boolean {
-  const key = process.env.ADMIN_API_KEY;
-  if (!key) return false;
-  const provided = req.headers.get('x-admin-api-key');
-  return provided === key;
-}
-
 export async function GET(req: NextRequest) {
-  if (!assertAdmin(req)) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
   const cfg = await loadAuthProvidersConfig(prisma);
   return Response.json({ config: maskAuthProvidersForResponse(cfg) });
 }
 
 export async function PUT(req: NextRequest) {
-  if (!assertAdmin(req)) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
   try {
     const body = (await req.json()) as { config?: Partial<AuthProvidersConfig> };
     if (!body.config) {

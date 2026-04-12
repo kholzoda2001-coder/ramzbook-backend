@@ -4,17 +4,7 @@ import { loadAuthProvidersConfig } from '@/lib/otp/auth-provider-settings';
 import { sendOtpEmail } from '@/lib/mailer';
 import { publishOtpViaRabbitMq } from '@/lib/providers/rabbitmq-adapter';
 
-function assertAdmin(req: NextRequest): boolean {
-  const key = process.env.ADMIN_API_KEY;
-  if (!key) return false;
-  const provided = req.headers.get('x-admin-api-key');
-  return provided === key;
-}
-
 export async function POST(req: NextRequest) {
-  if (!assertAdmin(req)) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 });
-  }
 
   try {
     const body = (await req.json()) as { provider: string; to: string };
