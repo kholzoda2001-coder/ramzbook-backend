@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       preface, guide, isFree, rating, isActive,
       priceSixMonths, priceLifetime,
       readingSteps, proTip,
-      alphabet, modulesData
+      alphabet, modulesData, languageCode
     } = body;
 
     if (!title?.trim()) return NextResponse.json({ error: 'Book title is required' }, { status: 400 });
@@ -44,6 +44,7 @@ export async function POST(req: NextRequest) {
           readingSteps: readingSteps ? JSON.stringify(readingSteps) : null,
           proTip: proTip ? JSON.stringify(proTip) : null,
           alphabet: alphabet ? JSON.stringify(alphabet) : null,
+          languageCode: languageCode ?? 'en-US',
         },
       });
 

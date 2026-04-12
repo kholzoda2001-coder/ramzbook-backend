@@ -100,6 +100,7 @@ export default function AddNewBookPage() {
   const [pdfUrl, setPdfUrl] = useState('');
   const [preface, setPreface] = useState('');
   const [guide, setGuide] = useState('');
+  const [languageCode, setLanguageCode] = useState('en-US');
   
   // Pricing & Status
   const [isFree, setIsFree] = useState(false);
@@ -144,6 +145,7 @@ export default function AddNewBookPage() {
           title: title.trim(), author: author.trim(), description: description.trim() || null,
           category: categoryList.find(c => c.id === categoryId)?.name || null,
           categoryId: categoryId || null,
+          languageCode: languageCode,
           coverUrl: coverUrl.trim() || null, pdfUrl: pdfUrl.trim() || null,
           preface: preface.trim() || null, guide: guide.trim() || null,
           isFree,
@@ -299,6 +301,19 @@ export default function AddNewBookPage() {
               <div>
                 <Label htmlFor="author">Author <span style={{ color: 'var(--red)' }}>*</span></Label>
                 <input id="author" className="input-field" placeholder="e.g. N. Nazarov" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+              </div>
+              <div>
+                <Label htmlFor="languageCode">Target Language</Label>
+                <select id="languageCode" className="input-field" value={languageCode} onChange={(e) => setLanguageCode(e.target.value)}>
+                  <option value="en-US">English (US)</option>
+                  <option value="en-GB">English (UK)</option>
+                  <option value="de-DE">German</option>
+                  <option value="ru-RU">Russian</option>
+                  <option value="zh-CN">Chinese (Simplified)</option>
+                  <option value="tr-TR">Turkish</option>
+                  <option value="fr-FR">French</option>
+                  <option value="es-ES">Spanish</option>
+                </select>
               </div>
               <div>
                 <Label htmlFor="category">Category</Label>

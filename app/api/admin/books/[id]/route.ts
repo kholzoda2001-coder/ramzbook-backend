@@ -56,7 +56,7 @@ export async function DELETE(_req: NextRequest, { params }: { params: { id: stri
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
   try {
     const body = await req.json();
-    const { modulesData, alphabet, readingSteps, proTip, categoryId, category, ...restData } = body;
+    const { modulesData, alphabet, readingSteps, proTip, categoryId, category, languageCode, ...restData } = body;
     
     // DB expects JSON strings for these fields
     const data = {
@@ -66,6 +66,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       alphabet: alphabet ? (typeof alphabet === 'string' ? alphabet : JSON.stringify(alphabet)) : null,
       readingSteps: readingSteps ? (typeof readingSteps === 'string' ? readingSteps : JSON.stringify(readingSteps)) : null,
       proTip: proTip ? (typeof proTip === 'string' ? proTip : JSON.stringify(proTip)) : null,
+      languageCode: languageCode ?? 'en-US',
     };
 
     const product = await prisma.$transaction(async (tx) => {

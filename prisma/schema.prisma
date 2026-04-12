@@ -38,6 +38,9 @@ model Product {
   /// JSON string for the pro tip box: { title, body, highlightWords: [] }
   proTip        String? @db.Text
 
+  /// Multilingual TTS Target Language (e.g. en-US, ru-RU, de-DE)
+  languageCode  String  @default("en-US") @db.VarChar(15)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
