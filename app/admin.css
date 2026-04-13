@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================================
    DESIGN SYSTEM — Ramz Super-App Admin
@@ -10,9 +11,12 @@
   --bg-surface:    #ffffff;
   --bg-elevated:   #f8fafc;
   --bg-border:     #e2e8f0;
+  --bg-document:   #f8fafc;
 
   --accent-from:   #6366f1;
   --accent-to:     #8b5cf6;
+  --accent:        #6366f1;
+  --accent-hover:  #5558e8;
   --accent-glow:   rgba(99, 102, 241, 0.15);
 
   --text-primary:   #0f172a;
@@ -30,9 +34,12 @@
   --bg-surface:    #13161f;
   --bg-elevated:   #1a1e2b;
   --bg-border:     #272c3d;
+  --bg-document:   #0d0f14;
 
   --accent-from:   #6366f1;
   --accent-to:     #8b5cf6;
+  --accent:        #818cf8;
+  --accent-hover:  #6366f1;
   --accent-glow:   rgba(99, 102, 241, 0.25);
 
   --text-primary:   #f1f5f9;
@@ -166,3 +173,80 @@ body {
 .delay-2 { animation-delay: 0.10s; }
 .delay-3 { animation-delay: 0.15s; }
 .delay-4 { animation-delay: 0.20s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+  50%       { box-shadow: 0 0 32px 8px rgba(99,102,241,0.18); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes loginFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.login-float { animation: float 4s ease-in-out infinite; }
+.login-card  { animation: loginFadeIn 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+.btn-shimmer {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to), var(--accent-from));
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+.btn-shimmer:hover { animation-play-state: paused; opacity: 0.92; }
+
+/* ---- Login Page Specific ---- */
+.login-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.4;
+  animation: float 6s ease-in-out infinite;
+}
+.login-input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  background: var(--bg-document);
+  border: 1.5px solid var(--bg-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.login-input::placeholder { color: var(--text-muted); }
+.login-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+.login-btn {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+}
+.login-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.4);
+}
+.login-btn:active { transform: translateY(0); }
+.login-btn:disabled { opacity: 0.65; cursor: not-allowed; }
+
