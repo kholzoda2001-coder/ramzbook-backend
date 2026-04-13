@@ -3,7 +3,7 @@ import { signAdminToken, setAdminCookie, clearAdminCookie } from '@/lib/admin-au
 
 // Secure fallbacks provided out-of-the-box as requested.
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'kholzoda2001@gmail.com';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || process.env.ADMIN_API_KEY || '2001KholzodA';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '2001KholzodA';
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,7 +13,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email and password are required' }, { status: 400 });
     }
 
-    if (email === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+    if (
+      email.trim().toLowerCase() === ADMIN_USERNAME.trim().toLowerCase() && 
+      password.trim() === ADMIN_PASSWORD.trim()
+    ) {
       // 1. Generate token
       const token = await signAdminToken(email);
       // 2. Set strict secure HTTP-only cookie
