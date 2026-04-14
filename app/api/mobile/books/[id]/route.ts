@@ -51,10 +51,35 @@ export async function GET(
       return Response.json({ error: 'Book not found' }, { status: 404 });
     }
 
-    // ── Fetch user-specific progress (may not exist yet) ─────────────────
-    const progress = await prisma.userProgress.findUnique({
-      where: { userId_productId: { userId, productId: bookId } },
-    });
+    // ── Fetch user-specific progress and VIP status ─────────────────────
+    const [progress, user] = await Promise.all([
+      prisma.userProgress.findUnique({
+        where: { userId_productId: { userId, productId: bookId } },
+      }),
+      prisma.user.findUnique({
+        where: { id: userId },
+        select: { vipExpiresAt: true }
+      })
+    ]);
+
+    const isVip = !!(user?.vipExpiresAt && new Date(user.vipExpiresAt).getTime() > Date.now());
+
+    let bookIsPurchased = false;
+    let effectiveExpiresAt: string | null = null;
+
+    if (progress?.isPurchased) {
+      if (!progress.expiresAt || new Date(progress.expiresAt).getTime() > Date.now()) {
+        bookIsPurchased = true;
+      }
+    }
+
+    if (isVip) {
+      effectiveExpiresAt = user!.vipExpiresAt!.toISOString();
+    } else if (bookIsPurchased && progress?.expiresAt) {
+      effectiveExpiresAt = progress.expiresAt.toISOString();
+    }
+
+    const actuallyOwned = isVip || bookIsPurchased || product.isFree;
 
     // ── Shape modules — content is stored as a JSON string in SQLite ─────
     const modules = product.modules.map((mod) => {
@@ -111,8 +136,9 @@ export async function GET(
       guide: product.guide ?? '',
       readingSteps: parseJsonArray(product.readingSteps as string | null),
       proTip: parseJsonObject(product.proTip as string | null),
-      isOwned: progress?.isPurchased ?? product.isFree,
-      isLocked: !(progress?.isPurchased ?? product.isFree),
+      isOwned: actuallyOwned,
+      isLocked: !actuallyOwned,
+      expiresAt: effectiveExpiresAt, // For Flutter to potentially display
       progress: progressRatio,
       lastReadPageIndex,
       modules,

@@ -28,7 +28,7 @@ export async function GET(
     // Verify user exists
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { id: true, name: true, email: true },
+      select: { id: true, name: true, email: true, vipExpiresAt: true },
     });
     if (!user) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
@@ -48,24 +48,29 @@ export async function GET(
       },
     });
 
-    // Fetch user's progress rows (only the ones where isPurchased is set)
+    // Fetch user's progress rows
     const progressRows = await prisma.userProgress.findMany({
       where: { userId },
-      select: { productId: true, isPurchased: true, isManualGrant: true },
+      select: { productId: true, isPurchased: true, isManualGrant: true, expiresAt: true },
     });
 
-    const purchasedSet = new Set(
-      progressRows.filter((r) => r.isPurchased).map((r) => r.productId)
-    );
+    const isVip = !!(user.vipExpiresAt && new Date(user.vipExpiresAt).getTime() > Date.now());
 
     const books = products.map((p) => {
       const row = progressRows.find((r) => r.productId === p.id);
+      
+      let isPurchased = false;
+      if (row?.isPurchased && (!row.expiresAt || new Date(row.expiresAt).getTime() > Date.now())) {
+        isPurchased = true;
+      }
+
       return {
         ...p,
-        isPurchased: purchasedSet.has(p.id),
+        isPurchased,
         isManualGrant: row?.isManualGrant ?? false,
-        // If the book is free it's always accessible; reflect that
-        isAccessible: p.isFree || purchasedSet.has(p.id),
+        expiresAt: row?.expiresAt ?? null,
+        // If free, VIP, or organically/manually active, it's accessible
+        isAccessible: p.isFree || isVip || isPurchased,
       };
     });
 
@@ -85,69 +90,81 @@ export async function POST(
   const userId = params.id;
 
   try {
-    const body = (await req.json()) as { productId?: string; grant?: boolean };
-    const { productId, grant } = body;
+    const body = await req.json();
+    const { action, productId } = body as { action?: string; productId?: string };
 
-    if (!productId || typeof grant !== 'boolean') {
-      return NextResponse.json(
-        { error: 'productId (string) and grant (boolean) are required.' },
-        { status: 400 }
-      );
+    if (!action) {
+      return NextResponse.json({ error: 'Action is required.' }, { status: 400 });
     }
 
-    // Verify both user and product exist
-    const [user, product, existingProgress] = await Promise.all([
-      prisma.user.findUnique({ where: { id: userId }, select: { id: true } }),
-      prisma.product.findUnique({ where: { id: productId }, select: { id: true } }),
-      prisma.userProgress.findUnique({ where: { userId_productId: { userId, productId } } })
-    ]);
+    const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true } });
+    if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 });
 
-    if (!user)    return NextResponse.json({ error: 'User not found' },    { status: 404 });
+    // ── VIP Actions ──
+    if (action === 'grant_vip' || action === 'revoke_vip') {
+      let vipExpiresAt: Date | null = null;
+      if (action === 'grant_vip') {
+        vipExpiresAt = new Date();
+        vipExpiresAt.setMonth(vipExpiresAt.getMonth() + 1); // 1 month from now
+      }
+      await prisma.user.update({
+        where: { id: userId },
+        data: { vipExpiresAt }
+      });
+      return NextResponse.json({ ok: true, message: action === 'grant_vip' ? 'VIP granted for 1 month.' : 'VIP revoked.' });
+    }
+
+    // ── Book Actions ──
+    if (!productId) {
+      return NextResponse.json({ error: 'productId is required for book actions.' }, { status: 400 });
+    }
+
+    const product = await prisma.product.findUnique({ where: { id: productId }, select: { id: true } });
     if (!product) return NextResponse.json({ error: 'Product not found' }, { status: 404 });
 
-    // SAFETY LOGIC:
-    // 1. Organic Purchase (isPurchased = true, isManualGrant = false):
-    //    If admin tries to revoke an organic purchase, we block it to prevent accidental data loss of real purchases.
-    // 2. Manual Grant (isPurchased = true, isManualGrant = true):
-    //    Admin can safely revoke. isPurchased becomes false.
-    // 3. Locked (both false): Admin can grant. Both become true.
-
+    const existingProgress = await prisma.userProgress.findUnique({ where: { userId_productId: { userId, productId } } });
     const isOrganicPurchase = existingProgress?.isPurchased && !existingProgress?.isManualGrant;
 
-    if (!grant && isOrganicPurchase) {
-      return NextResponse.json(
-        { error: 'Cannot revoke: This book was organically purchased by the user. Revoking would destroy their real purchase.' },
-        { status: 403 }
-      );
+    if (action === 'revoke') {
+      if (isOrganicPurchase) {
+        return NextResponse.json({ error: 'Cannot revoke: organically purchased.' }, { status: 403 });
+      }
+      await prisma.userProgress.update({
+        where: { userId_productId: { userId, productId } },
+        data: { isPurchased: false, isManualGrant: false, expiresAt: null }
+      });
+      return NextResponse.json({ ok: true, message: 'Access revoked.' });
     }
 
-    // Upsert UserProgress
-    const progress = await prisma.userProgress.upsert({
-      where: { userId_productId: { userId, productId } },
-      create: {
-        userId,
-        productId,
-        isPurchased: grant,
-        isManualGrant: grant,
-        lastReadPageIndex: 0,
-      },
-      update: {
-        isPurchased: grant ? true : false,
-        isManualGrant: grant ? true : false,
-      },
-      select: { isPurchased: true, isManualGrant: true, lastReadPageIndex: true },
-    });
+    if (action === 'grant_6m' || action === 'grant_lifetime') {
+      let expiresAt: Date | null = null;
+      if (action === 'grant_6m') {
+        expiresAt = new Date();
+        expiresAt.setMonth(expiresAt.getMonth() + 6);
+      }
 
-    return NextResponse.json({
-      ok: true,
-      userId,
-      productId,
-      isPurchased: progress.isPurchased,
-      isManualGrant: progress.isManualGrant,
-      message: grant
-        ? 'Access granted manually.'
-        : 'Manual access revoked — book is locked again.',
-    });
+      const progress = await prisma.userProgress.upsert({
+        where: { userId_productId: { userId, productId } },
+        create: {
+          userId,
+          productId,
+          isPurchased: true,
+          isManualGrant: true,
+          expiresAt,
+          lastReadPageIndex: 0,
+        },
+        update: {
+          isPurchased: true,
+          isManualGrant: true,
+          expiresAt,
+        },
+        select: { isPurchased: true, isManualGrant: true, expiresAt: true },
+      });
+
+      return NextResponse.json({ ok: true, message: action === 'grant_6m' ? 'Granted for 6 months.' : 'Granted for lifetime.' });
+    }
+
+    return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
   } catch (err) {
     console.error('[admin/users/[id]/access POST]', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });

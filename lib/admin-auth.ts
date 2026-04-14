@@ -2,7 +2,10 @@ import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-const DEFAULT_SECRET = process.env.JWT_SECRET || 'fallback_secret_for_development_purposes_only';
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET is not configured in environment variables");
+}
+const DEFAULT_SECRET = process.env.JWT_SECRET;
 const SECRET_KEY = new TextEncoder().encode(DEFAULT_SECRET);
 
 export async function signAdminToken(username: string): Promise<string> {

@@ -41,6 +41,7 @@ type BookAccess = {
   isPurchased: boolean;
   isManualGrant: boolean;
   isAccessible: boolean;
+  expiresAt: string | null;
 };
 
 type Toast = { type: 'success' | 'error'; message: string };
@@ -85,6 +86,7 @@ function AccessPanel({
   onToast: (t: Toast) => void;
 }) {
   const [books, setBooks] = useState<BookAccess[]>([]);
+  const [vipExpiresAt, setVipExpiresAt] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [bookSearch, setBookSearch] = useState('');
   const [toggling, setToggling] = useState<string | null>(null);
@@ -96,6 +98,7 @@ function AccessPanel({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Failed to load');
       setBooks(data.books ?? []);
+      setVipExpiresAt(data.user?.vipExpiresAt ?? null);
     } catch (err: unknown) {
       onToast({ type: 'error', message: err instanceof Error ? err.message : 'Failed to load books' });
     } finally {
@@ -105,28 +108,22 @@ function AccessPanel({
 
   useEffect(() => { fetchAccess(); }, [fetchAccess]);
 
-  const toggle = async (book: BookAccess, grant: boolean) => {
-    setToggling(book.id);
+  const executeAction = async (bookId: string | null, action: string) => {
+    setToggling(bookId ?? 'vip');
     try {
       const res = await fetch(`/api/admin/users/${user.id}/access`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productId: book.id, grant }),
+        body: JSON.stringify({ productId: bookId, action }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Failed');
       onToast({
         type: 'success',
-        message: grant
-          ? `✅ "${book.title}" — дастрасӣ дода шуд`
-          : `🔒 "${book.title}" — дастрасӣ бекор шуд`,
+        message: data.message ?? 'Success',
       });
-      // Optimistic update
-      setBooks((prev) =>
-        prev.map((b) =>
-          b.id === book.id ? { ...b, isPurchased: grant, isManualGrant: grant, isAccessible: book.isFree || grant } : b
-        )
-      );
+      // Reload access entirely to ensure dates and calculation accuracy
+      await fetchAccess();
     } catch (err: unknown) {
       onToast({ type: 'error', message: err instanceof Error ? err.message : 'Error' });
     } finally {
@@ -155,8 +152,8 @@ function AccessPanel({
     let StatusIcon = Lock;
 
     if (isFree) { statusColor = '#818cf8'; statusLabel = 'Free'; StatusIcon = Unlock; }
-    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = 'Manually Granted'; StatusIcon = ShieldCheck; }
-    else if (isGranted && !isManual) { statusColor = '#10b981'; statusLabel = 'Purchased'; StatusIcon = ShieldCheck; }
+    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = book.expiresAt ? 'Granted (6m)' : 'Granted (∞)'; StatusIcon = ShieldCheck; }
+    else if (isGranted && !isManual) { statusColor = '#10b981'; statusLabel = book.expiresAt ? 'Purchased (6m)' : 'Purchased (∞)'; StatusIcon = ShieldCheck; }
 
     return (
       <div style={{
@@ -180,7 +177,10 @@ function AccessPanel({
         {/* Info */}
         <div style={{ flex: 1, minWidth: 0 }}>
           <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{book.title}</p>
-          <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{book.author}</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{book.author}</p>
+            {book.expiresAt && <span style={{ fontSize: 10, color: '#ef4444' }}>• Exp: {new Date(book.expiresAt).toLocaleDateString()}</span>}
+          </div>
         </div>
 
         {/* Status badge */}
@@ -194,27 +194,54 @@ function AccessPanel({
           {statusLabel}
         </span>
 
-        {/* Action button (not for free books) */}
+        {/* Action buttons (not for free books) */}
         {!isFree && (
-          <button
-            onClick={() => toggle(book, !isGranted)}
-            disabled={busy}
-            title={isGranted ? 'Revoke access' : 'Grant access'}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: 32, height: 32, borderRadius: 8, border: 'none', cursor: busy ? 'wait' : 'pointer',
-              background: isGranted ? 'rgba(239,68,68,0.12)' : 'rgba(16,185,129,0.12)',
-              color: isGranted ? '#ef4444' : '#10b981',
-              transition: 'all 0.15s ease', flexShrink: 0,
-              opacity: busy ? 0.6 : 1,
-            }}
-            onMouseEnter={(e) => { if (!busy) (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.1)'; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)'; }}
-          >
-            {busy
-              ? <Loader2 size={14} style={{ animation: 'spin 0.8s linear infinite' }} />
-              : isGranted ? <ShieldOff size={14} /> : <ShieldCheck size={14} />}
-          </button>
+          <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
+            {isGranted ? (
+              <button
+                onClick={() => executeAction(book.id, 'revoke')}
+                disabled={busy}
+                title="Бекор кардан (Revoke)"
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                  padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
+                  background: 'rgba(239,68,68,0.12)', color: '#ef4444', fontSize: 11, fontWeight: 700,
+                  opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
+                }}
+              >
+                {busy && toggling === book.id ? <Loader2 size={12} className="spin" /> : <X size={14} />} Манъ
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={() => executeAction(book.id, 'grant_6m')}
+                  disabled={busy}
+                  title="Дастрасӣ барои 6 моҳ"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                    padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
+                    background: 'rgba(59,130,246,0.12)', color: '#3b82f6', fontSize: 11, fontWeight: 700,
+                    opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
+                  }}
+                >
+                  6 моҳ
+                </button>
+                <button
+                  onClick={() => executeAction(book.id, 'grant_lifetime')}
+                  disabled={busy}
+                  title="Дастрасии якумра"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
+                    padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
+                    background: 'rgba(16,185,129,0.12)', color: '#10b981', fontSize: 11, fontWeight: 700,
+                    opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
+                  }}
+                >
+                  ∞ Даимӣ
+                </button>
+              </>
+            )}
+          </div>
         )}
       </div>
     );
@@ -262,6 +289,32 @@ function AccessPanel({
           </div>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', borderRadius: 8, padding: 4 }}>
             <X size={18} />
+          </button>
+        </div>
+
+        {/* Global VIP Status Banner */}
+        <div style={{ padding: '16px 24px', background: vipExpiresAt ? 'rgba(16,185,129,0.05)' : 'var(--bg-elevated)', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <p style={{ fontSize: 13, fontWeight: 700, color: vipExpiresAt ? '#10b981' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <ShieldCheck size={16} /> 
+              Обунаи VIP (Ҳамаи китобҳо)
+            </p>
+            {vipExpiresAt ? (
+              <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>Фаъол то: {new Date(vipExpiresAt).toLocaleDateString()}</p>
+            ) : (
+              <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>Обунаи фарогир ба тамоми китобҳо</p>
+            )}
+          </div>
+          <button
+            onClick={() => executeAction(null, vipExpiresAt ? 'revoke_vip' : 'grant_vip')}
+            disabled={toggling === 'vip'}
+            style={{
+              padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+              background: vipExpiresAt ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.15)',
+              color: vipExpiresAt ? '#ef4444' : '#10b981'
+            }}
+          >
+            {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : (vipExpiresAt ? 'Қатъи VIP' : 'Додани VIP (1 моҳ)')}
           </button>
         </div>
 
