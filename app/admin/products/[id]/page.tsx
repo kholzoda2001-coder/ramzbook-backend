@@ -8,6 +8,7 @@ import {
   ArrowLeft, BookOpen, Save, Eye, Upload, UploadCloud,
   FileText, DollarSign, Type, FileSpreadsheet, ListChecks, PlusCircle, Trash2, Headphones, AlertCircle, CheckCircle2, BookMarked, Lightbulb
 } from 'lucide-react';
+import BulkImportPanel from '../_components/BulkImportPanel';
 
 /* ─── Shared UI Primitives ─── */
 function SectionCard({ icon: Icon, title, subtitle, children, accentColor = 'var(--accent-from)' }: {
@@ -125,6 +126,12 @@ export default function EditBookPage() {
   // New Builder States
   const [alphabet, setAlphabet] = useState<AlphabetDraft[]>([]);
   const [modules, setModules] = useState<ModuleDraft[]>([]);
+
+  // Per-module vocab tab: 'manual' | 'bulk'
+  const [vocabTabs, setVocabTabs] = useState<Record<string, 'manual' | 'bulk'>>({});
+  const getVocabTab = (modId: string) => vocabTabs[modId] ?? 'manual';
+  const setVocabTab = (modId: string, tab: 'manual' | 'bulk') =>
+    setVocabTabs(prev => ({ ...prev, [modId]: tab }));
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -645,15 +652,76 @@ export default function EditBookPage() {
                   
                   {/* Vocabulary Section */}
                   <div style={{ padding: '20px' }}>
-                    <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <BookOpen size={16} color="#10b981" /> Lesson Vocabulary
-                    </h3>
+                    {/* ── Vocab Section Header + Tab switcher ── */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+                      <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}>
+                        <BookOpen size={16} color="#10b981" /> Lesson Vocabulary
+                        {mod.vocabulary.length > 0 && (
+                          <span style={{ fontSize: '11px', fontWeight: 700, color: '#fff', background: '#10b981', borderRadius: '99px', padding: '1px 8px', marginLeft: '4px' }}>
+                            {mod.vocabulary.length}
+                          </span>
+                        )}
+                      </h3>
+                      {/* Tab pills */}
+                      <div style={{ display: 'flex', gap: '6px', background: 'var(--bg-primary)', borderRadius: '10px', padding: '4px', border: '1px solid var(--bg-border)' }}>
+                        {(['manual', 'bulk'] as const).map(tab => (
+                          <button
+                            key={tab}
+                            type="button"
+                            onClick={() => setVocabTab(mod.id, tab)}
+                            style={{
+                              padding: '5px 14px', borderRadius: '7px', fontSize: '12px', fontWeight: 700,
+                              border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                              background: getVocabTab(mod.id) === tab
+                                ? (tab === 'bulk' ? 'linear-gradient(135deg,#059669,#10b981)' : 'linear-gradient(135deg,var(--accent-from),var(--accent-to))')
+                                : 'transparent',
+                              color: getVocabTab(mod.id) === tab ? '#fff' : 'var(--text-muted)',
+                              boxShadow: getVocabTab(mod.id) === tab ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
+                            }}
+                          >
+                            {tab === 'manual' ? '✏️ Manual Entry' : '📂 Bulk Import'}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* ── Bulk Import Panel ── */}
+                    {getVocabTab(mod.id) === 'bulk' && (
+                      <div style={{ padding: '20px', background: 'var(--bg-primary)', borderRadius: '12px', border: '1px solid var(--bg-border)', marginBottom: '12px' }}>
+                        <BulkImportPanel
+                          moduleId={mod.id}
+                          moduleName={mod.title}
+                          onImportSuccess={(count) => {
+                            // Reload the full book data so the word list refreshes
+                            fetch(`/api/admin/books/${id}`)
+                              .then(r => r.json())
+                              .then(data => {
+                                if (data.modulesData && Array.isArray(data.modulesData)) {
+                                  setModules(data.modulesData.map((m: any, i: number) => ({
+                                    ...m, id: m.id || `mod-${i}`,
+                                    vocabulary: m.vocabulary || [], quizzes: m.quizzes || [],
+                                  })));
+                                }
+                              })
+                              .catch(console.error);
+                            // Switch to manual tab so user can inspect the imported words
+                            setVocabTab(mod.id, 'manual');
+                          }}
+                        />
+                      </div>
+                    )}
+
+                    {/* ── Manual Entry ── */}
+                    {getVocabTab(mod.id) === 'manual' && (
+                      <>
                     {mod.vocabulary.length === 0 ? (
-                      <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '140px', border: '2px dashed var(--accent-from)', background: 'rgba(45, 140, 148, 0.05)', borderRadius: '10px', cursor: 'pointer', opacity: 0.8, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.8'}>
-                        <UploadCloud size={32} color="var(--accent-from)" style={{ marginBottom: '8px' }} />
-                        <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--accent-from)' }}>Drop CSV File Here</span>
-                        <input type="file" style={{ display: 'none' }} accept=".csv" onChange={(e) => handleCSVUpload(mod.id, e)} />
-                      </label>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', padding: '28px 20px', border: '2px dashed var(--bg-border)', borderRadius: '10px', background: 'rgba(255,255,255,0.01)', textAlign: 'center' }}>
+                        <BookOpen size={28} color="var(--text-muted)" />
+                        <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>No words yet. Add them manually here or use the <strong>Bulk Import</strong> tab.</p>
+                        <button type="button" onClick={() => addSingleWord(mod.id)} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--accent-from)', background: 'rgba(45,140,148,0.08)', border: '1px solid rgba(45,140,148,0.2)', borderRadius: '8px', cursor: 'pointer', padding: '8px 18px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <PlusCircle size={15} /> Add First Word
+                        </button>
+                      </div>
                     ) : (
                       <div style={{ marginBottom: '8px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
@@ -706,6 +774,8 @@ export default function EditBookPage() {
                           })}
                         </div>
                       </div>
+                    )}
+                      </>
                     )}
 
                     {/* Nested Quizzes Section */}
