@@ -175,31 +175,47 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess 
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
       {/* ── Header row: title + template buttons ── */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', padding: '14px 18px', background: 'linear-gradient(135deg, rgba(16,185,129,0.06), rgba(99,102,241,0.06))', borderRadius: '12px', border: '1px solid rgba(16,185,129,0.2)' }}>
         <div>
-          <p style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '2px' }}>
-            Bulk Import into <span style={{ color: '#10b981' }}>{moduleName}</span>
+          <p style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '3px' }}>
+            📥 Step 1 — Download a template
           </p>
           <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-            Upload a CSV or Excel file. Up to 2 000 words per batch.
+            Bulk import into <span style={{ color: '#10b981', fontWeight: 700 }}>{moduleName}</span> · Up to 2,000 words per batch.
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <button
             type="button"
             onClick={() => downloadTemplate('csv')}
-            style={templateBtnStyle('#10b981')}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '7px',
+              padding: '9px 18px', borderRadius: '9px', fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+              background: '#059669', color: '#fff', border: 'none',
+              boxShadow: '0 3px 10px rgba(5,150,105,0.35)', whiteSpace: 'nowrap',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.88')}
+            onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
             title="Download CSV template"
           >
-            <Download size={13} /> CSV Template
+            <Download size={14} /> Download CSV Template
           </button>
           <button
             type="button"
             onClick={() => downloadTemplate('xlsx')}
-            style={templateBtnStyle('#6366f1')}
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '7px',
+              padding: '9px 18px', borderRadius: '9px', fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+              background: '#6366f1', color: '#fff', border: 'none',
+              boxShadow: '0 3px 10px rgba(99,102,241,0.35)', whiteSpace: 'nowrap',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '0.88')}
+            onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.opacity = '1')}
             title="Download Excel template"
           >
-            <Download size={13} /> XLSX Template
+            <Download size={14} /> Download Excel Template
           </button>
         </div>
       </div>

@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Papa from 'papaparse';
 import {
   ArrowLeft, BookOpen, Save, Eye, Upload, UploadCloud,
-  FileText, DollarSign, Type, FileSpreadsheet, ListChecks, PlusCircle, Trash2, Headphones, AlertCircle, CheckCircle2, BookMarked, Lightbulb
+  FileText, DollarSign, Type, FileSpreadsheet, ListChecks, PlusCircle, Trash2, Headphones, AlertCircle, CheckCircle2, BookMarked, Lightbulb,
+  Download, RefreshCw
 } from 'lucide-react';
 
 /* ─── Shared UI Primitives ─── */
@@ -123,6 +124,82 @@ export default function AddNewBookPage() {
   // New Builder States
   const [alphabet, setAlphabet] = useState<AlphabetDraft[]>([]);
   const [modules, setModules] = useState<ModuleDraft[]>([]);
+
+  // Per-module vocab tab: 'manual' | 'bulk'
+  const [vocabTabs, setVocabTabs] = useState<Record<string, 'manual' | 'bulk'>>({});
+  const getVocabTab = (modId: string) => vocabTabs[modId] ?? 'manual';
+  const setVocabTab = (modId: string, tab: 'manual' | 'bulk') =>
+    setVocabTabs(prev => ({ ...prev, [modId]: tab }));
+
+  // Per-module bulk-import UI state
+  const [bulkDragActive, setBulkDragActive] = useState<Record<string, boolean>>({});
+  const [bulkFileName, setBulkFileName]     = useState<Record<string, string>>({});
+  const [bulkStatus, setBulkStatus]         = useState<Record<string, 'idle'|'parsing'|'ready'|'error'>>({});
+  const [bulkMsg, setBulkMsg]               = useState<Record<string, string>>({});
+  const [bulkPreview, setBulkPreview]       = useState<Record<string, boolean>>({});
+
+  const parseBulkFile = useCallback(async (modId: string, file: File) => {
+    setBulkStatus(p => ({ ...p, [modId]: 'parsing' }));
+    setBulkMsg(p => ({ ...p, [modId]: '' }));
+    setBulkFileName(p => ({ ...p, [modId]: file.name }));
+
+    const normalise = (raw: Record<string, any>, idx: number): VocabRow => {
+      const g = (keys: string[]) => { for (const k of keys) { const v = raw[k] ?? raw[k.toLowerCase()] ?? ''; if (v !== '') return String(v).trim(); } return ''; };
+      return {
+        id: `${modId}-bulk-${Date.now()}-${idx}`,
+        emoji:              g(['emoji','Emoji'])           || '💬',
+        word:               g(['word','Word']),
+        translation:        g(['translation','Translation']),
+        trans_TJ:           g(['trans_TJ','Trans_TJ','transTJ']),
+        trans_EN:           g(['trans_EN','Trans_EN','transEN']),
+        transcriptionEn:    g(['transcriptionEn','TranscriptionEn']),
+        transcriptionTj:    g(['transcriptionTj','TranscriptionTj']),
+        exampleEn:          g(['exampleEn','ExampleEn']),
+        exampleTj:          g(['exampleTj','ExampleTj']),
+        example:            g(['example','Example']),
+        exampleTranslation: g(['exampleTranslation','ExampleTranslation']),
+        audio: null,
+      };
+    };
+
+    const ext = file.name.split('.').pop()?.toLowerCase();
+    if (ext === 'csv' || file.type === 'text/csv') {
+      Papa.parse(file, {
+        header: true, skipEmptyLines: true,
+        complete: (results) => {
+          const rows = (results.data as Record<string,any>[]).map(normalise).filter(r => r.word || r.translation);
+          if (rows.length === 0) { setBulkStatus(p => ({...p,[modId]:'error'})); setBulkMsg(p=>({...p,[modId]:'No valid rows found. Check that headers match the template.'})); return; }
+          setModules(ms => ms.map(m => m.id === modId ? { ...m, vocabulary: [...m.vocabulary, ...rows] } : m));
+          setBulkStatus(p => ({...p,[modId]:'ready'}));
+          setBulkMsg(p => ({...p,[modId]:`✅ ${rows.length} words added to module!`}));
+          setBulkPreview(p => ({...p,[modId]:false}));
+          setVocabTab(modId, 'manual'); // switch to manual so user can review
+        },
+        error: (err) => { setBulkStatus(p=>({...p,[modId]:'error'})); setBulkMsg(p=>({...p,[modId]:'CSV error: '+err.message})); }
+      });
+    } else if (ext === 'xlsx' || ext === 'xls') {
+      try {
+        const XLSX = await import('xlsx');
+        const buf  = await file.arrayBuffer();
+        const wb   = XLSX.read(buf, { type: 'array' });
+        const ws   = wb.Sheets[wb.SheetNames[0]];
+        const rows = (XLSX.utils.sheet_to_json<Record<string,any>>(ws, { defval: '' })).map(normalise).filter(r => r.word || r.translation);
+        if (rows.length === 0) { setBulkStatus(p=>({...p,[modId]:'error'})); setBulkMsg(p=>({...p,[modId]:'No valid rows found in Excel file.'})); return; }
+        setModules(ms => ms.map(m => m.id === modId ? { ...m, vocabulary: [...m.vocabulary, ...rows] } : m));
+        setBulkStatus(p => ({...p,[modId]:'ready'}));
+        setBulkMsg(p => ({...p,[modId]:`✅ ${rows.length} words added to module!`}));
+        setVocabTab(modId, 'manual');
+      } catch (e: any) { setBulkStatus(p=>({...p,[modId]:'error'})); setBulkMsg(p=>({...p,[modId]:'Excel error: '+e.message})); }
+    } else {
+      setBulkStatus(p=>({...p,[modId]:'error'})); setBulkMsg(p=>({...p,[modId]:'Unsupported file type. Use .csv or .xlsx.'}));
+    }
+  }, []);
+
+  const resetBulk = (modId: string) => {
+    setBulkStatus(p => ({...p,[modId]:'idle'}));
+    setBulkMsg(p => ({...p,[modId]:''}));
+    setBulkFileName(p => ({...p,[modId]:''}));
+  };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCoverUploading, setIsCoverUploading] = useState(false);
@@ -527,10 +604,16 @@ export default function AddNewBookPage() {
           </SectionCard>
 
           {/* Modules & CSV UI & Nested Quizzes */}
-          <SectionCard icon={FileSpreadsheet} title="Modules & Vocabulary" subtitle="Mass import via CSV and define bound Quizzes" accentColor="#10b981">
+          <SectionCard icon={FileSpreadsheet} title="Modules & Vocabulary" subtitle="Add modules, then manually enter words OR bulk import from CSV/Excel" accentColor="#10b981">
             <button type="button" onClick={addModule} style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 18px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.1)', color: '#059669', border: '1px solid rgba(16, 185, 129, 0.2)', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>
               <PlusCircle size={16} /> Add Module
             </button>
+            {modules.length === 0 && (
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '28px 20px', border: '2px dashed var(--bg-border)', borderRadius: '12px', background: 'rgba(255,255,255,0.01)', textAlign: 'center', marginBottom: '8px' }}>
+                <FileSpreadsheet size={28} color="var(--text-muted)" />
+                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Click <strong style={{ color: '#059669' }}>"Add Module"</strong> above to begin. Each module has both a <strong>✏️ Manual Entry</strong> tab and a <strong>📂 Bulk Import</strong> tab (with CSV &amp; Excel template downloads).</p>
+              </div>
+            )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               {modules.map((mod, index) => (
                 <div key={mod.id} style={{ background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
@@ -552,67 +635,213 @@ export default function AddNewBookPage() {
                   
                   {/* Vocabulary Section */}
                   <div style={{ padding: '20px' }}>
-                    <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <BookOpen size={16} color="#10b981" /> Lesson Vocabulary
-                    </h3>
-                    {mod.vocabulary.length === 0 ? (
-                      <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '140px', border: '2px dashed var(--accent-from)', background: 'rgba(45, 140, 148, 0.05)', borderRadius: '10px', cursor: 'pointer', opacity: 0.8, transition: 'opacity 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.8'}>
-                        <UploadCloud size={32} color="var(--accent-from)" style={{ marginBottom: '8px' }} />
-                        <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--accent-from)' }}>Drop CSV File Here</span>
-                        <input type="file" style={{ display: 'none' }} accept=".csv" onChange={(e) => handleCSVUpload(mod.id, e)} />
-                      </label>
-                    ) : (
-                      <div style={{ marginBottom: '8px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                           <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)' }}>{mod.vocabulary.length} Words Loaded</span>
-                           <button type="button" onClick={() => addSingleWord(mod.id)} style={{ fontSize: '12px', fontWeight: 600, color: 'var(--accent-from)', background: 'rgba(45,140,148,0.08)', border: '1px solid rgba(45,140,148,0.2)', borderRadius: '7px', cursor: 'pointer', padding: '5px 12px', display: 'flex', alignItems: 'center', gap: '5px' }}><PlusCircle size={13} /> Add Word</button>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                          {mod.vocabulary.map((vocab, vIdx) => {
-                            const upd = (field: keyof VocabRow, val: any) => { const c = [...mod.vocabulary]; (c[vIdx] as any)[field] = val; updateModuleField(mod.id, 'vocabulary', c); };
-                            return (
-                              <div key={vocab.id} style={{ background: 'var(--bg-primary)', border: '1px solid var(--bg-border)', borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.2s' }}>
-                                {/* Row 1 — Emoji · Word · Translation · Audio · Delete */}
-                                <div style={{ display: 'grid', gridTemplateColumns: '48px 1fr 1fr auto auto', gap: '8px', alignItems: 'center', padding: '10px 12px', borderBottom: '1px solid var(--bg-border)', background: 'rgba(255,255,255,0.015)' }}>
-                                  <input type="text" value={vocab.emoji} onChange={(e) => upd('emoji', e.target.value)} title="Emoji" style={{ fontSize: '20px', textAlign: 'center', background: 'transparent', border: 'none', outline: 'none', width: '100%' }} />
-                                  <input type="text" value={vocab.word} onChange={(e) => upd('word', e.target.value)} placeholder="Word" style={{ background: 'transparent', border: 'none', outline: 'none', fontWeight: 700, fontSize: '14px', color: 'var(--text-primary)', width: '100%' }} />
-                                  <input type="text" value={vocab.translation} onChange={(e) => upd('translation', e.target.value)} placeholder="Translation" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'var(--text-secondary)', width: '100%' }} />
-                                  {vocab.audio ? (
-                                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(16,185,129,0.1)', color: '#059669', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, whiteSpace: 'nowrap' }}><Headphones size={12} /> OK</span>
-                                  ) : (
-                                    <label style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(239,68,68,0.1)', color: '#dc2626', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>
-                                      <AlertCircle size={12} /> Audio<input type="file" style={{ display: 'none' }} accept="audio/*" onChange={(e) => { if (e.target.files?.[0]) upd('audio', e.target.files[0]); }} />
-                                    </label>
-                                  )}
-                                  <button type="button" onClick={() => updateModuleField(mod.id, 'vocabulary', mod.vocabulary.filter(v => v.id !== vocab.id))} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '4px' }}><Trash2 size={14} /></button>
-                                </div>
-                                {/* Row 2 — Transcriptions */}
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px 12px', borderBottom: '1px solid var(--bg-border)' }}>
-                                  <div>
-                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Transcription EN</p>
-                                    <input type="text" value={vocab.transcriptionEn || ''} onChange={(e) => upd('transcriptionEn', e.target.value)} placeholder="[ ˈfɑːðər ]" className="input-field" style={{ fontSize: '13px', padding: '7px 10px', fontFamily: 'monospace' }} />
-                                  </div>
-                                  <div>
-                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Transcription TJ</p>
-                                    <input type="text" value={vocab.transcriptionTj || ''} onChange={(e) => upd('transcriptionTj', e.target.value)} placeholder="[ фазер ]" className="input-field" style={{ fontSize: '13px', padding: '7px 10px', fontFamily: 'monospace' }} />
-                                  </div>
-                                </div>
-                                {/* Row 3 — Examples */}
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px 12px' }}>
-                                  <div>
-                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Example EN</p>
-                                    <input type="text" value={vocab.exampleEn || ''} onChange={(e) => upd('exampleEn', e.target.value)} placeholder="My father is kind." className="input-field" style={{ fontSize: '13px', padding: '7px 10px' }} />
-                                  </div>
-                                  <div>
-                                    <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Example TJ</p>
-                                    <input type="text" value={vocab.exampleTj || ''} onChange={(e) => upd('exampleTj', e.target.value)} placeholder="Падари ман меҳрубон аст." className="input-field" style={{ fontSize: '13px', padding: '7px 10px' }} />
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
+
+                    {/* ── Header + Tab Pills ── */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+                      <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}>
+                        <BookOpen size={16} color="#10b981" /> Lesson Vocabulary
+                        {mod.vocabulary.length > 0 && (
+                          <span style={{ fontSize: '11px', fontWeight: 700, color: '#fff', background: '#10b981', borderRadius: '99px', padding: '1px 8px', marginLeft: '4px' }}>
+                            {mod.vocabulary.length}
+                          </span>
+                        )}
+                      </h3>
+                      {/* ── Tab Toggle Pills ── */}
+                      <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-primary)', borderRadius: '12px', padding: '4px', border: '1px solid var(--bg-border)', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+                        <button
+                          type="button"
+                          onClick={() => setVocabTab(mod.id, 'manual')}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '6px',
+                            padding: '7px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 700,
+                            border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                            background: getVocabTab(mod.id) === 'manual'
+                              ? 'linear-gradient(135deg, var(--accent-from), var(--accent-to))'
+                              : 'transparent',
+                            color: getVocabTab(mod.id) === 'manual' ? '#fff' : 'var(--text-muted)',
+                            boxShadow: getVocabTab(mod.id) === 'manual' ? '0 2px 8px rgba(0,0,0,0.18)' : 'none',
+                          }}
+                        >
+                          ✏️ Manual Entry
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setVocabTab(mod.id, 'bulk')}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '6px',
+                            padding: '7px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 700,
+                            border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                            background: getVocabTab(mod.id) === 'bulk'
+                              ? 'linear-gradient(135deg, #059669, #10b981)'
+                              : 'transparent',
+                            color: getVocabTab(mod.id) === 'bulk' ? '#fff' : 'var(--text-muted)',
+                            boxShadow: getVocabTab(mod.id) === 'bulk' ? '0 2px 8px rgba(0,0,0,0.18)' : 'none',
+                          }}
+                        >
+                          📂 Bulk Import
+                        </button>
                       </div>
+                    </div>
+
+                    {/* ── BULK IMPORT TAB ── */}
+                    {getVocabTab(mod.id) === 'bulk' && (() => {
+                      const st  = bulkStatus[mod.id]  ?? 'idle';
+                      const msg = bulkMsg[mod.id]     ?? '';
+                      const fn  = bulkFileName[mod.id] ?? '';
+                      const drag = bulkDragActive[mod.id] ?? false;
+                      return (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+
+                          {/* ── Template Download Buttons (always visible in Bulk tab) ── */}
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', padding: '14px 18px', background: 'linear-gradient(135deg, rgba(16,185,129,0.06), rgba(99,102,241,0.06))', borderRadius: '12px', border: '1px solid rgba(16,185,129,0.2)' }}>
+                            <div>
+                              <p style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '3px' }}>📥 Step 1 — Download a template</p>
+                              <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Fill in the columns and upload below. Supports up to 2,000 rows.</p>
+                            </div>
+                            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                              <a
+                                href="/api/admin/words/template?format=csv"
+                                download
+                                style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '9px 18px', borderRadius: '9px', fontSize: '13px', fontWeight: 700, textDecoration: 'none', background: '#059669', color: '#fff', boxShadow: '0 3px 10px rgba(5,150,105,0.35)', whiteSpace: 'nowrap', transition: 'opacity 0.2s' }}
+                                onMouseEnter={e => (e.currentTarget.style.opacity='0.88')}
+                                onMouseLeave={e => (e.currentTarget.style.opacity='1')}
+                              >
+                                <Download size={14} /> Download CSV Template
+                              </a>
+                              <a
+                                href="/api/admin/words/template?format=xlsx"
+                                download
+                                style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '9px 18px', borderRadius: '9px', fontSize: '13px', fontWeight: 700, textDecoration: 'none', background: '#6366f1', color: '#fff', boxShadow: '0 3px 10px rgba(99,102,241,0.35)', whiteSpace: 'nowrap', transition: 'opacity 0.2s' }}
+                                onMouseEnter={e => (e.currentTarget.style.opacity='0.88')}
+                                onMouseLeave={e => (e.currentTarget.style.opacity='1')}
+                              >
+                                <Download size={14} /> Download Excel Template
+                              </a>
+                            </div>
+                          </div>
+
+                          {/* Drop zone (shown when idle or after error) */}
+                          {(st === 'idle' || st === 'error') && (
+                            <label
+                              htmlFor={`bulk-new-${mod.id}`}
+                              onDragEnter={(e) => { e.preventDefault(); setBulkDragActive(p => ({...p,[mod.id]:true})); }}
+                              onDragOver={(e)  => { e.preventDefault(); setBulkDragActive(p => ({...p,[mod.id]:true})); }}
+                              onDragLeave={(e) => { e.preventDefault(); setBulkDragActive(p => ({...p,[mod.id]:false})); }}
+                              onDrop={(e) => { e.preventDefault(); setBulkDragActive(p => ({...p,[mod.id]:false})); const f = e.dataTransfer.files?.[0]; if (f) parseBulkFile(mod.id, f); }}
+                              style={{
+                                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                                gap: '10px', padding: '32px 24px', borderRadius: '14px', cursor: 'pointer', textAlign: 'center',
+                                border: `2px dashed ${drag ? '#10b981' : 'var(--bg-border)'}`,
+                                background: drag ? 'rgba(16,185,129,0.06)' : 'rgba(255,255,255,0.02)',
+                                transition: 'border-color 0.2s, background 0.2s',
+                              }}
+                            >
+                              <div style={{ width: 52, height: 52, borderRadius: '14px', background: drag ? 'rgba(16,185,129,0.15)' : 'rgba(16,185,129,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <UploadCloud size={26} color="#10b981" />
+                              </div>
+                              <div>
+                                <p style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>{drag ? 'Release to upload' : 'Drag & drop your file here'}</p>
+                                <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>or <span style={{ color: '#10b981', fontWeight: 600 }}>browse files</span> · CSV and XLSX supported</p>
+                              </div>
+                              <input id={`bulk-new-${mod.id}`} type="file" accept=".csv,.xlsx,.xls" style={{ display: 'none' }}
+                                onChange={(e) => { const f = e.target.files?.[0]; if (f) parseBulkFile(mod.id, f); e.target.value=''; }} />
+                            </label>
+                          )}
+
+                          {/* Parsing */}
+                          {st === 'parsing' && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderRadius: '10px', background: 'rgba(99,102,241,0.08)', color: '#6366f1', fontSize: '13px' }}>
+                              <RefreshCw size={15} style={{ animation: 'spin 0.8s linear infinite', flexShrink: 0 }} />
+                              Parsing <strong style={{ marginLeft: 4 }}>{fn}</strong>…
+                            </div>
+                          )}
+
+                          {/* Error */}
+                          {st === 'error' && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderRadius: '10px', background: 'rgba(239,68,68,0.08)', color: '#dc2626', fontSize: '13px', flexWrap: 'wrap' }}>
+                              <AlertCircle size={15} style={{ flexShrink: 0 }} />
+                              <span style={{ flex: 1 }}>{msg}</span>
+                              <button type="button" onClick={() => resetBulk(mod.id)} style={{ background: 'none', border: '1px solid #dc262660', color: '#dc2626', borderRadius: '6px', padding: '3px 10px', fontSize: '11px', fontWeight: 700, cursor: 'pointer' }}>Reset</button>
+                            </div>
+                          )}
+
+                          {/* Success */}
+                          {st === 'ready' && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 16px', borderRadius: '10px', background: 'rgba(16,185,129,0.08)', color: '#059669', fontSize: '13px', flexWrap: 'wrap' }}>
+                              <CheckCircle2 size={15} style={{ flexShrink: 0 }} />
+                              <span style={{ flex: 1 }}>{msg}</span>
+                              <button type="button" onClick={() => resetBulk(mod.id)} style={{ background: 'none', border: '1px solid #05966960', color: '#059669', borderRadius: '6px', padding: '3px 10px', fontSize: '11px', fontWeight: 700, cursor: 'pointer' }}>Import another</button>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
+
+                    {/* ── MANUAL ENTRY TAB ── */}
+                    {getVocabTab(mod.id) === 'manual' && (
+                      <>
+                        {mod.vocabulary.length === 0 ? (
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', padding: '28px 20px', border: '2px dashed var(--bg-border)', borderRadius: '10px', background: 'rgba(255,255,255,0.01)', textAlign: 'center' }}>
+                            <BookOpen size={28} color="var(--text-muted)" />
+                            <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>No words yet. Add them manually here or use the <strong>Bulk Import</strong> tab.</p>
+                            <button type="button" onClick={() => addSingleWord(mod.id)} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--accent-from)', background: 'rgba(45,140,148,0.08)', border: '1px solid rgba(45,140,148,0.2)', borderRadius: '8px', cursor: 'pointer', padding: '8px 18px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <PlusCircle size={15} /> Add First Word
+                            </button>
+                          </div>
+                        ) : (
+                          <div style={{ marginBottom: '8px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                               <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)' }}>{mod.vocabulary.length} Words Loaded</span>
+                               <button type="button" onClick={() => addSingleWord(mod.id)} style={{ fontSize: '12px', fontWeight: 600, color: 'var(--accent-from)', background: 'rgba(45,140,148,0.08)', border: '1px solid rgba(45,140,148,0.2)', borderRadius: '7px', cursor: 'pointer', padding: '5px 12px', display: 'flex', alignItems: 'center', gap: '5px' }}><PlusCircle size={13} /> Add Word</button>
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                              {mod.vocabulary.map((vocab, vIdx) => {
+                                const upd = (field: keyof VocabRow, val: any) => { const c = [...mod.vocabulary]; (c[vIdx] as any)[field] = val; updateModuleField(mod.id, 'vocabulary', c); };
+                                return (
+                                  <div key={vocab.id} style={{ background: 'var(--bg-primary)', border: '1px solid var(--bg-border)', borderRadius: '12px', overflow: 'hidden', transition: 'border-color 0.2s' }}>
+                                    {/* Row 1 — Emoji · Word · Translation · Audio · Delete */}
+                                    <div style={{ display: 'grid', gridTemplateColumns: '48px 1fr 1fr auto auto', gap: '8px', alignItems: 'center', padding: '10px 12px', borderBottom: '1px solid var(--bg-border)', background: 'rgba(255,255,255,0.015)' }}>
+                                      <input type="text" value={vocab.emoji} onChange={(e) => upd('emoji', e.target.value)} title="Emoji" style={{ fontSize: '20px', textAlign: 'center', background: 'transparent', border: 'none', outline: 'none', width: '100%' }} />
+                                      <input type="text" value={vocab.word} onChange={(e) => upd('word', e.target.value)} placeholder="Word" style={{ background: 'transparent', border: 'none', outline: 'none', fontWeight: 700, fontSize: '14px', color: 'var(--text-primary)', width: '100%' }} />
+                                      <input type="text" value={vocab.translation} onChange={(e) => upd('translation', e.target.value)} placeholder="Translation" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: '13px', color: 'var(--text-secondary)', width: '100%' }} />
+                                      {vocab.audio ? (
+                                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(16,185,129,0.1)', color: '#059669', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, whiteSpace: 'nowrap' }}><Headphones size={12} /> OK</span>
+                                      ) : (
+                                        <label style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: 'rgba(239,68,68,0.1)', color: '#dc2626', padding: '4px 8px', borderRadius: '6px', fontSize: '11px', fontWeight: 600, cursor: 'pointer', whiteSpace: 'nowrap' }}>
+                                          <AlertCircle size={12} /> Audio<input type="file" style={{ display: 'none' }} accept="audio/*" onChange={(e) => { if (e.target.files?.[0]) upd('audio', e.target.files[0]); }} />
+                                        </label>
+                                      )}
+                                      <button type="button" onClick={() => updateModuleField(mod.id, 'vocabulary', mod.vocabulary.filter(v => v.id !== vocab.id))} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '4px' }}><Trash2 size={14} /></button>
+                                    </div>
+                                    {/* Row 2 — Transcriptions */}
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px 12px', borderBottom: '1px solid var(--bg-border)' }}>
+                                      <div>
+                                        <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Transcription EN</p>
+                                        <input type="text" value={vocab.transcriptionEn || ''} onChange={(e) => upd('transcriptionEn', e.target.value)} placeholder="[ ˈfɑːðər ]" className="input-field" style={{ fontSize: '13px', padding: '7px 10px', fontFamily: 'monospace' }} />
+                                      </div>
+                                      <div>
+                                        <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Transcription TJ</p>
+                                        <input type="text" value={vocab.transcriptionTj || ''} onChange={(e) => upd('transcriptionTj', e.target.value)} placeholder="[ фазер ]" className="input-field" style={{ fontSize: '13px', padding: '7px 10px', fontFamily: 'monospace' }} />
+                                      </div>
+                                    </div>
+                                    {/* Row 3 — Examples */}
+                                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '8px 12px' }}>
+                                      <div>
+                                        <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Example EN</p>
+                                        <input type="text" value={vocab.exampleEn || ''} onChange={(e) => upd('exampleEn', e.target.value)} placeholder="My father is kind." className="input-field" style={{ fontSize: '13px', padding: '7px 10px' }} />
+                                      </div>
+                                      <div>
+                                        <p style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Example TJ</p>
+                                        <input type="text" value={vocab.exampleTj || ''} onChange={(e) => upd('exampleTj', e.target.value)} placeholder="Падари ман меҳрубон аст." className="input-field" style={{ fontSize: '13px', padding: '7px 10px' }} />
+                                      </div>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
 
                     {/* Nested Quizzes Section */}

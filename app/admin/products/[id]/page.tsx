@@ -627,10 +627,16 @@ export default function EditBookPage() {
           </SectionCard>
 
           {/* Modules & CSV UI & Nested Quizzes */}
-          <SectionCard icon={FileSpreadsheet} title="Modules & Vocabulary" subtitle="Mass import via CSV and define bound Quizzes" accentColor="#10b981">
+          <SectionCard icon={FileSpreadsheet} title="Modules & Vocabulary" subtitle="Add modules, then manually enter words OR bulk import from CSV/Excel" accentColor="#10b981">
             <button type="button" onClick={addModule} style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 18px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.1)', color: '#059669', border: '1px solid rgba(16, 185, 129, 0.2)', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>
               <PlusCircle size={16} /> Add Module
             </button>
+            {modules.length === 0 && (
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '28px 20px', border: '2px dashed var(--bg-border)', borderRadius: '12px', background: 'rgba(255,255,255,0.01)', textAlign: 'center', marginBottom: '8px' }}>
+                <FileSpreadsheet size={28} color="var(--text-muted)" />
+                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Click <strong style={{ color: '#059669' }}>"Add Module"</strong> above to begin. Each module has both a <strong>✏️ Manual Entry</strong> tab and a <strong>📂 Bulk Import</strong> tab (with CSV &amp; Excel template downloads).</p>
+              </div>
+            )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               {modules.map((mod, index) => (
                 <div key={mod.id} style={{ background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
@@ -663,25 +669,39 @@ export default function EditBookPage() {
                         )}
                       </h3>
                       {/* Tab pills */}
-                      <div style={{ display: 'flex', gap: '6px', background: 'var(--bg-primary)', borderRadius: '10px', padding: '4px', border: '1px solid var(--bg-border)' }}>
-                        {(['manual', 'bulk'] as const).map(tab => (
-                          <button
-                            key={tab}
-                            type="button"
-                            onClick={() => setVocabTab(mod.id, tab)}
-                            style={{
-                              padding: '5px 14px', borderRadius: '7px', fontSize: '12px', fontWeight: 700,
-                              border: 'none', cursor: 'pointer', transition: 'all 0.18s',
-                              background: getVocabTab(mod.id) === tab
-                                ? (tab === 'bulk' ? 'linear-gradient(135deg,#059669,#10b981)' : 'linear-gradient(135deg,var(--accent-from),var(--accent-to))')
-                                : 'transparent',
-                              color: getVocabTab(mod.id) === tab ? '#fff' : 'var(--text-muted)',
-                              boxShadow: getVocabTab(mod.id) === tab ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
-                            }}
-                          >
-                            {tab === 'manual' ? '✏️ Manual Entry' : '📂 Bulk Import'}
-                          </button>
-                        ))}
+                      <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-primary)', borderRadius: '12px', padding: '4px', border: '1px solid var(--bg-border)', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+                        <button
+                          type="button"
+                          onClick={() => setVocabTab(mod.id, 'manual')}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '6px',
+                            padding: '7px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 700,
+                            border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                            background: getVocabTab(mod.id) === 'manual'
+                              ? 'linear-gradient(135deg, var(--accent-from), var(--accent-to))'
+                              : 'transparent',
+                            color: getVocabTab(mod.id) === 'manual' ? '#fff' : 'var(--text-muted)',
+                            boxShadow: getVocabTab(mod.id) === 'manual' ? '0 2px 8px rgba(0,0,0,0.18)' : 'none',
+                          }}
+                        >
+                          ✏️ Manual Entry
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setVocabTab(mod.id, 'bulk')}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: '6px',
+                            padding: '7px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 700,
+                            border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                            background: getVocabTab(mod.id) === 'bulk'
+                              ? 'linear-gradient(135deg, #059669, #10b981)'
+                              : 'transparent',
+                            color: getVocabTab(mod.id) === 'bulk' ? '#fff' : 'var(--text-muted)',
+                            boxShadow: getVocabTab(mod.id) === 'bulk' ? '0 2px 8px rgba(0,0,0,0.18)' : 'none',
+                          }}
+                        >
+                          📂 Bulk Import
+                        </button>
                       </div>
                     </div>
 
