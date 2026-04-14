@@ -9,7 +9,6 @@ export default function AdminLoginSettingsPage() {
   const [status, setStatus] = useState<{ type: 'error' | 'success'; msg: string } | null>(null);
 
   const [googleClientId, setGoogleClientId] = useState('');
-  const [appleClientIds, setAppleClientIds] = useState('');
   const [telegramBotToken, setTelegramBotToken] = useState('');
   const [allowMockSocial, setAllowMockSocial] = useState(false);
 
@@ -30,7 +29,6 @@ export default function AdminLoginSettingsPage() {
       
       const cfg = data.config;
       setGoogleClientId(cfg.googleClientId);
-      setAppleClientIds(cfg.appleClientIds);
       setTelegramBotToken(cfg.telegramBotToken);
       setAllowMockSocial(cfg.allowMockSocial);
       
@@ -48,7 +46,6 @@ export default function AdminLoginSettingsPage() {
     try {
       const payload = {
         googleClientId,
-        appleClientIds,
         telegramBotToken,
         allowMockSocial,
       };
@@ -119,21 +116,6 @@ export default function AdminLoginSettingsPage() {
           </div>
         </div>
 
-        {/* Apple Configuration */}
-        <div className="glass-card p-6">
-          <h2 className="text-base font-semibold mb-6 text-[var(--text-primary)] flex items-center gap-2">
-            <Smartphone size={18} className="text-[#000]" style={{ filter: 'var(--logo-filter)' }} /> Apple Sign In
-          </h2>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-xs text-[var(--text-muted)] mb-1">Apple Client ID(s)</label>
-              <input type="text" value={appleClientIds} onChange={(e) => setAppleClientIds(e.target.value)} className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" placeholder="com.ramz.app,com.ramz.app.web" />
-            </div>
-            <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-              Accepts comma-separated Bundle IDs or Services IDs. The Apple JWT audience must match one of these explicitly to authorize.
-            </p>
-          </div>
-        </div>
 
         {/* Telegram Configuration */}
         <div className="glass-card p-6">

@@ -21,7 +21,6 @@ import {
 } from '@/lib/auth';
 import { loadLoginSettingsConfig } from '@/lib/auth/login-settings';
 import { verifyTelegramLoginWidget } from '@/lib/social/telegram-widget';
-import { verifyAppleIdentityToken } from '@/lib/social/apple-jwt';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -78,43 +77,6 @@ export async function POST(req: NextRequest) {
           },
           { status: 501, headers: CORS },
         );
-      }
-    } else if (provider === 'apple') {
-      if (idToken.startsWith('mock_')) {
-        const allowMock = loginCfg.allowMockSocial || process.env.ALLOW_MOCK_SOCIAL === 'true';
-        if (process.env.NODE_ENV === 'production' && !allowMock) {
-          return Response.json({ error: 'Mock social disabled in production.' }, { status: 403, headers: CORS });
-        }
-        const slug = crypto.createHash('sha256').update(idToken).digest('hex').slice(0, 20);
-        email = `mock_apple_${slug}@ramzbook.dev`;
-        name = 'Dev Apple';
-      } else {
-        const raw = (loginCfg.appleClientIds || process.env.APPLE_CLIENT_ID || '').trim();
-        if (!raw) {
-          return Response.json(
-            {
-              error:
-                'APPLE_CLIENT_ID нест. Барои iOS/macOS одатан Bundle ID; барои Web — Services ID. ' +
-                'Чанд арзишро бо віргул ҷудо кунед агар зарур бошад.',
-            },
-            { status: 501, headers: CORS },
-          );
-        }
-        const audiences = raw.split(',').map((s) => s.trim()).filter(Boolean);
-        try {
-          const { sub, email: appleEmail } = await verifyAppleIdentityToken(idToken, audiences);
-          email = appleEmail ?? `apple_${sub}@apple.ramzbook.internal`;
-          name =
-            appleEmail != null && appleEmail.length > 0
-              ? appleEmail.split('@')[0]!
-              : `Apple ${sub.slice(0, 8)}`;
-        } catch (e) {
-          console.error('[social/callback] Apple JWT', e);
-          return Response.json(
-            { error: 'Apple identity token нодуруст ё мӯҳлаташ гузашта.' },
-            { status: 401, headers: CORS },
-          );
-        }
       }
     } else if (provider === 'telegram') {
       const botToken = (loginCfg.telegramBotToken || process.env.TELEGRAM_BOT_TOKEN || '').trim();

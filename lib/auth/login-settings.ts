@@ -9,14 +9,12 @@ export const SETTING_KEY = 'login_settings';
 
 export interface LoginSettingsConfig {
   googleClientId: string;
-  appleClientIds: string;
   telegramBotToken: string;
   allowMockSocial: boolean;
 }
 
 export const defaultLoginSettingsConfig: LoginSettingsConfig = {
   googleClientId: '',
-  appleClientIds: '',
   telegramBotToken: '',
   allowMockSocial: false,
 };
@@ -69,7 +67,6 @@ export function mergeLoginSettingsUpdate(
 ): LoginSettingsConfig {
   const next = deepClone(current);
   if (partial.googleClientId !== undefined) next.googleClientId = partial.googleClientId;
-  if (partial.appleClientIds !== undefined) next.appleClientIds = partial.appleClientIds;
   if (partial.allowMockSocial !== undefined) next.allowMockSocial = partial.allowMockSocial;
   
   if (partial.telegramBotToken !== undefined) {
