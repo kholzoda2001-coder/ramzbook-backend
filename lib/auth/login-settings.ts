@@ -11,12 +11,14 @@ export interface LoginSettingsConfig {
   googleClientId: string;
   telegramBotToken: string;
   allowMockSocial: boolean;
+  whatsappSupportNumber: string;
 }
 
 export const defaultLoginSettingsConfig: LoginSettingsConfig = {
   googleClientId: '',
   telegramBotToken: '',
   allowMockSocial: false,
+  whatsappSupportNumber: '+992000000000',
 };
 
 function deepClone<T>(o: T): T {
@@ -68,6 +70,7 @@ export function mergeLoginSettingsUpdate(
   const next = deepClone(current);
   if (partial.googleClientId !== undefined) next.googleClientId = partial.googleClientId;
   if (partial.allowMockSocial !== undefined) next.allowMockSocial = partial.allowMockSocial;
+  if (partial.whatsappSupportNumber !== undefined) next.whatsappSupportNumber = partial.whatsappSupportNumber;
   
   if (partial.telegramBotToken !== undefined) {
     if (partial.telegramBotToken === '***MASKED***') {

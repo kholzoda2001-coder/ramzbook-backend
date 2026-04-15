@@ -10,6 +10,7 @@ export default function AdminLoginSettingsPage() {
 
   const [googleClientId, setGoogleClientId] = useState('');
   const [telegramBotToken, setTelegramBotToken] = useState('');
+  const [whatsappSupportNumber, setWhatsappSupportNumber] = useState('');
   const [allowMockSocial, setAllowMockSocial] = useState(false);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function AdminLoginSettingsPage() {
       const cfg = data.config;
       setGoogleClientId(cfg.googleClientId);
       setTelegramBotToken(cfg.telegramBotToken);
+      setWhatsappSupportNumber(cfg.whatsappSupportNumber ?? '');
       setAllowMockSocial(cfg.allowMockSocial);
       
       setStatus({ type: 'success', msg: 'Login configurations loaded successfully.' });
@@ -47,6 +49,7 @@ export default function AdminLoginSettingsPage() {
       const payload = {
         googleClientId,
         telegramBotToken,
+        whatsappSupportNumber,
         allowMockSocial,
       };
 
@@ -129,6 +132,22 @@ export default function AdminLoginSettingsPage() {
             </div>
             <p className="text-xs text-[var(--text-muted)] leading-relaxed">
               Used strictly for validation hashing of the Telegram Login Widget payload. Safe since hashing occurs server-side.
+            </p>
+          </div>
+        </div>
+
+        {/* WhatsApp Support Number Configuration */}
+        <div className="glass-card p-6">
+          <h2 className="text-base font-semibold mb-6 text-[var(--text-primary)] flex items-center gap-2">
+            <Smartphone size={18} className="text-green-500" /> WhatsApp Support
+          </h2>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-xs text-[var(--text-muted)] mb-1">WhatsApp Number</label>
+              <input type="text" value={whatsappSupportNumber} onChange={(e) => setWhatsappSupportNumber(e.target.value)} className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" placeholder="+992000000000" />
+            </div>
+            <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+              The phone number used for the "Subscribe via WhatsApp" button in the mobile app. Format should be international e.g. +992...
             </p>
           </div>
         </div>
