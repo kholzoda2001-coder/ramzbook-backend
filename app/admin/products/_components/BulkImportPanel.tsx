@@ -26,6 +26,8 @@ interface Props {
   moduleId: string;
   moduleName: string;
   onImportSuccess: (count: number) => void;
+  isDraft?: boolean;
+  onClientImport?: (rows: BulkRow[], mode: 'append' | 'replace') => void;
 }
 
 /* ─── Column mapping (case-insensitive key normalisation) ───────────────── */
@@ -53,7 +55,7 @@ function normaliseRow(raw: Record<string, any>, idx: number): BulkRow {
 }
 
 /* ─── Component ────────────────────────────────────────────────────────── */
-export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess }: Props) {
+export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess, isDraft, onClientImport }: Props) {
   const [dragActive, setDragActive] = useState(false);
   const [fileName, setFileName]     = useState('');
   const [rows, setRows]             = useState<BulkRow[]>([]);
@@ -135,6 +137,15 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess 
     if (rows.length === 0) return;
     setStatus('importing');
     setMessage('');
+
+    if (isDraft && onClientImport) {
+      onClientImport(rows, mode);
+      setStatus('done');
+      setMessage(`✅ Successfully staged ${rows.length} words in this draft module.`);
+      onImportSuccess(rows.length);
+      return;
+    }
+
     try {
       const res = await fetch('/api/admin/words/bulk', {
         method: 'POST',

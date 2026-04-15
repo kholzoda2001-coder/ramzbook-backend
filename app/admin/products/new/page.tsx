@@ -86,13 +86,11 @@ export default function AddNewBookPage() {
   const [categoryList, setCategoryList] = useState<any[]>([]);
 
   // Fetch Categories
-  import('react').then((React) => {
-    React.useEffect(() => {
-      fetch('/api/admin/categories').then(r => r.json()).then(data => {
-        if (Array.isArray(data)) setCategoryList(data);
-      }).catch(console.error);
-    }, []);
-  });
+  useEffect(() => {
+    fetch('/api/admin/categories').then(r => r.json()).then(data => {
+      if (Array.isArray(data)) setCategoryList(data);
+    }).catch(console.error);
+  }, []);
 
   // Cover image — we track both the selected File and an object-URL for preview
   const [coverFile, setCoverFile] = useState<File | null>(null);

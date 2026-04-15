@@ -88,13 +88,11 @@ export default function EditBookPage() {
   const [categoryList, setCategoryList] = useState<any[]>([]);
 
   // Fetch Categories
-  import('react').then((React) => {
-    React.useEffect(() => {
-      fetch('/api/admin/categories').then(r => r.json()).then(data => {
-        if (Array.isArray(data)) setCategoryList(data);
-      }).catch(console.error);
-    }, []);
-  });
+  useEffect(() => {
+    fetch('/api/admin/categories').then(r => r.json()).then(data => {
+      if (Array.isArray(data)) setCategoryList(data);
+    }).catch(console.error);
+  }, []);
 
   // Cover image — we track both the selected File and an object-URL for preview
   const [coverFile, setCoverFile] = useState<File | null>(null);
@@ -711,19 +709,38 @@ export default function EditBookPage() {
                         <BulkImportPanel
                           moduleId={mod.id}
                           moduleName={mod.title}
+                          isDraft={!mod.id.includes('c')}
+                          onClientImport={(words, mode) => {
+                            const newVocab: VocabRow[] = words.map((w, idx) => ({
+                              id: `${mod.id}-bulk-${Date.now()}-${idx}`,
+                              emoji: w.emoji || '💬', word: w.word || '', trans_TJ: w.trans_TJ || '', trans_EN: w.trans_EN || '',
+                              translation: w.translation || '', example: w.example || '', exampleTranslation: w.exampleTranslation || '', audio: null,
+                              transcriptionEn: w.transcriptionEn || '', transcriptionTj: w.transcriptionTj || '',
+                              exampleEn: w.exampleEn || '', exampleTj: w.exampleTj || ''
+                            }));
+                            setModules(modules.map(m => {
+                              if (m.id !== mod.id) return m;
+                              return {
+                                ...m,
+                                vocabulary: mode === 'replace' ? newVocab : [...m.vocabulary, ...newVocab]
+                              };
+                            }));
+                          }}
                           onImportSuccess={(count) => {
-                            // Reload the full book data so the word list refreshes
-                            fetch(`/api/admin/books/${id}`)
-                              .then(r => r.json())
-                              .then(data => {
-                                if (data.modulesData && Array.isArray(data.modulesData)) {
-                                  setModules(data.modulesData.map((m: any, i: number) => ({
-                                    ...m, id: m.id || `mod-${i}`,
-                                    vocabulary: m.vocabulary || [], quizzes: m.quizzes || [],
-                                  })));
-                                }
-                              })
-                              .catch(console.error);
+                            // Only reload the full book data from DB if this is an existing database module
+                            if (mod.id.includes('c')) {
+                              fetch(`/api/admin/books/${id}`)
+                                .then(r => r.json())
+                                .then(data => {
+                                  if (data.modulesData && Array.isArray(data.modulesData)) {
+                                    setModules(data.modulesData.map((m: any, i: number) => ({
+                                      ...m, id: m.id || `mod-${i}`,
+                                      vocabulary: m.vocabulary || [], quizzes: m.quizzes || [],
+                                    })));
+                                  }
+                                })
+                                .catch(console.error);
+                            }
                             // Switch to manual tab so user can inspect the imported words
                             setVocabTab(mod.id, 'manual');
                           }}
