@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
     const product = await prisma.product.findUnique({
@@ -46,9 +48,14 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    await prisma.product.delete({ where: { id: params.id } });
+    await prisma.$transaction(async (tx) => {
+      // Manually delete UserProgress references since schema is missing onDelete: Cascade
+      await tx.userProgress.deleteMany({ where: { productId: params.id } });
+      await tx.product.delete({ where: { id: params.id } });
+    });
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err: any) {
+    console.error('Delete failed:', err?.message);
     return NextResponse.json({ error: 'Delete failed' }, { status: 500 });
   }
 }

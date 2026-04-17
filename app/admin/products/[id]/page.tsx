@@ -139,7 +139,7 @@ export default function EditBookPage() {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`/api/admin/books/${id}`)
+    fetch(`/api/admin/books/${id}?_t=${Date.now()}`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch book data');
         return res.json();
@@ -729,7 +729,7 @@ export default function EditBookPage() {
                           onImportSuccess={(count) => {
                             // Only reload the full book data from DB if this is an existing database module
                             if (mod.id.includes('c')) {
-                              fetch(`/api/admin/books/${id}`)
+                              fetch(`/api/admin/books/${id}?_t=${Date.now()}`)
                                 .then(r => r.json())
                                 .then(data => {
                                   if (data.modulesData && Array.isArray(data.modulesData)) {
