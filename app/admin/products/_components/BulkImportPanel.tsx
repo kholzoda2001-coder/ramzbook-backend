@@ -56,6 +56,8 @@ function normaliseRow(raw: Record<string, any>, idx: number): BulkRow {
 
 /* ─── Component ────────────────────────────────────────────────────────── */
 export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess, isDraft, onClientImport }: Props) {
+  // Track staged count separately so we can show a re-import option
+  const [stagedCount, setStagedCount] = useState(0);
   const [dragActive, setDragActive] = useState(false);
   const [fileName, setFileName]     = useState('');
   const [rows, setRows]             = useState<BulkRow[]>([]);
@@ -81,9 +83,23 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess,
           const parsed = (results.data as Record<string, any>[]).map(normaliseRow);
           const valid  = parsed.filter(r => r.word || r.translation);
           setRows(valid);
-          setStatus(valid.length > 0 ? 'ready' : 'error');
-          setMessage(valid.length === 0 ? 'No valid rows found in this CSV. Make sure the headers match the template.' : '');
-          if (valid.length > 0) setPreviewOpen(true);
+          if (valid.length === 0) {
+            setStatus('error');
+            setMessage('No valid rows found in this CSV. Make sure the headers match the template.');
+            return;
+          }
+          setPreviewOpen(true);
+          // ── AUTO-STAGE in draft mode so words reach the parent modules state
+          // immediately on drop — no separate "Import" button click required.
+          if (isDraft && onClientImport) {
+            console.log(`[BulkImportPanel] Auto-staging ${valid.length} words (mode: append) for module ${moduleId}`);
+            onClientImport(valid, 'append');
+            setStagedCount(valid.length);
+            setStatus('ready'); // keep 'ready' so user can re-stage with different mode
+            setMessage('');
+          } else {
+            setStatus('ready');
+          }
         },
         error: (err) => {
           setStatus('error');
@@ -99,10 +115,23 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess,
         const raw    = XLSX.utils.sheet_to_json<Record<string, any>>(ws, { defval: '' });
         const parsed = raw.map(normaliseRow);
         const valid  = parsed.filter(r => r.word || r.translation);
+        if (valid.length === 0) {
+          setStatus('error');
+          setMessage('No valid rows found in this Excel file.');
+          return;
+        }
         setRows(valid);
-        setStatus(valid.length > 0 ? 'ready' : 'error');
-        setMessage(valid.length === 0 ? 'No valid rows found in this Excel file.' : '');
-        if (valid.length > 0) setPreviewOpen(true);
+        setPreviewOpen(true);
+        // ── AUTO-STAGE in draft mode
+        if (isDraft && onClientImport) {
+          console.log(`[BulkImportPanel] Auto-staging ${valid.length} words (mode: append) for module ${moduleId}`);
+          onClientImport(valid, 'append');
+          setStagedCount(valid.length);
+          setStatus('ready');
+          setMessage('');
+        } else {
+          setStatus('ready');
+        }
       } catch (err: any) {
         setStatus('error');
         setMessage('Excel parse error: ' + err.message);
@@ -306,6 +335,19 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess,
       {(status === 'ready' || status === 'importing') && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
 
+          {/* Auto-staged banner (draft mode only) */}
+          {isDraft && stagedCount > 0 && (
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '10px',
+              padding: '10px 14px', borderRadius: '10px',
+              background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.35)',
+              fontSize: '12px', fontWeight: 700, color: '#059669',
+            }}>
+              <CheckCircle2 size={15} style={{ flexShrink: 0 }} />
+              <span>✅ {stagedCount} words auto-staged — click <strong>"Update Book"</strong> at the top to save permanently.</span>
+            </div>
+          )}
+
           {/* File badge */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: '12px',
@@ -402,7 +444,7 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess,
             </div>
           )}
 
-          {/* Submit button */}
+          {/* Submit / re-stage button */}
           <button
             type="button"
             onClick={handleImport}
@@ -411,7 +453,9 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess,
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
               padding: '12px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '14px',
               cursor: isbusy ? 'not-allowed' : 'pointer', opacity: isbusy ? 0.7 : 1,
-              background: 'linear-gradient(135deg, #059669, #10b981)',
+              background: isDraft && stagedCount > 0
+                ? 'linear-gradient(135deg, #6366f1, #8b5cf6)'
+                : 'linear-gradient(135deg, #059669, #10b981)',
               color: '#fff', border: 'none', boxShadow: '0 4px 14px rgba(16,185,129,0.35)',
               transition: 'opacity 0.2s, transform 0.1s',
             }}
@@ -419,8 +463,10 @@ export default function BulkImportPanel({ moduleId, moduleName, onImportSuccess,
             onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)'; }}
           >
             {status === 'importing'
-              ? <><RefreshCw size={15} style={{ animation: 'spin 0.8s linear infinite' }} /> Importing…</>
-              : <><ArrowRight size={15} /> Import {rows.length} word{rows.length !== 1 ? 's' : ''} into module</>}
+              ? <><RefreshCw size={15} style={{ animation: 'spin 0.8s linear infinite' }} /> Staging…</>
+              : isDraft && stagedCount > 0
+                ? <><RefreshCw size={15} /> Re-stage with {mode} mode ({rows.length} words)</>
+                : <><ArrowRight size={15} /> Stage {rows.length} word{rows.length !== 1 ? 's' : ''} into module</>}
           </button>
         </div>
       )}

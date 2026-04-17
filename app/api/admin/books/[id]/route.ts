@@ -76,6 +76,13 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       languageCode: languageCode ?? 'en-US',
     };
 
+    if (Array.isArray(modulesData)) {
+      console.log(`[EditBook API] Received PATCH for ${params.id}. Modules count: ${modulesData.length}`);
+      modulesData.forEach((m, idx) => {
+        console.log(`[EditBook API] Module ${idx + 1} (${m.title}): ${m.vocabulary?.length || 0} words, ${m.quizzes?.length || 0} quizzes.`);
+      });
+    }
+
     const product = await prisma.$transaction(async (tx) => {
       const updatedProduct = await tx.product.update({
         where: { id: params.id },

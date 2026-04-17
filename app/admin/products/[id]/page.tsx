@@ -136,6 +136,14 @@ export default function EditBookPage() {
   const [isCoverUploading, setIsCoverUploading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  // ── Toast notifications ────────────────────────────────────────────────────
+  const [toasts, setToasts] = useState<{ id: number; type: 'success' | 'error' | 'info'; msg: string }[]>([]);
+  const showToast = (type: 'success' | 'error' | 'info', msg: string) => {
+    const id = Date.now();
+    setToasts(prev => [...prev, { id, type, msg }]);
+    setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 5000);
+  };
+
   useEffect(() => {
     if (!id) return;
 
@@ -224,35 +232,53 @@ export default function EditBookPage() {
     if (!author.trim()) { setSubmitError('Author name is required.'); return; }
     setIsSubmitting(true);
 
+    const payload = {
+      title: title.trim(), author: author.trim(), description: description.trim() || null,
+      category: categoryList.find(c => c.id === categoryId)?.name || null,
+      categoryId: categoryId || null,
+      languageCode: languageCode,
+      coverUrl: coverUrl.trim() || null, pdfUrl: pdfUrl.trim() || null,
+      preface: preface.trim() || null, guide: guide.trim() || null,
+      isFree,
+      priceSixMonths: isFree ? null : parseFloat(priceSixMonths) || null,
+      priceLifetime: isFree ? null : parseFloat(priceLifetime) || null,
+      rating: parseFloat(rating) || 4.5, isActive: asDraft ? false : isActive,
+      alphabet: alphabet.length > 0 ? alphabet.map(({ id: _, ...rest }) => rest) : null,
+      readingSteps: readingSteps.length > 0 ? readingSteps.map(({ id: _, ...rest }) => rest) : [],
+      proTip: { title: proTipTitle, body: proTipBody },
+      modulesData: modules.map(m => ({
+        title: m.title,
+        isPremium: m.isPremium,
+        vocabulary: m.vocabulary.map(({ audio, ...rest }) => rest),
+        quizzes: m.quizzes,
+      })),
+    };
+
+    console.log('[EditBook] PATCH payload →', JSON.stringify(payload, null, 2));
+
     try {
       const res = await fetch(`/api/admin/books/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: title.trim(), author: author.trim(), description: description.trim() || null,
-          category: categoryList.find(c => c.id === categoryId)?.name || null,
-          categoryId: categoryId || null,
-          languageCode: languageCode,
-          coverUrl: coverUrl.trim() || null, pdfUrl: pdfUrl.trim() || null,
-          preface: preface.trim() || null, guide: guide.trim() || null,
-          isFree,
-          priceSixMonths: isFree ? null : parseFloat(priceSixMonths) || null,
-          priceLifetime: isFree ? null : parseFloat(priceLifetime) || null,
-          rating: parseFloat(rating) || 4.5, isActive: asDraft ? false : isActive,
-          alphabet: alphabet.length > 0 ? alphabet.map(({ id: _, ...rest }) => rest) : null,
-          readingSteps: readingSteps.length > 0 ? readingSteps.map(({ id: _, ...rest }) => rest) : [],
-          proTip: { title: proTipTitle, body: proTipBody },
-          modulesData: modules.map(({ id: _, ...rest }) => rest), 
-        }),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
-      if (!res.ok) { setSubmitError(data.error ?? 'An unexpected error occurred.'); return; }
+      console.log('[EditBook] PATCH response ←', res.status, data);
 
-      router.push('/admin/products');
-      router.refresh();
-    } catch {
+      if (!res.ok) {
+        const errMsg = data.error ?? 'An unexpected error occurred.';
+        setSubmitError(errMsg);
+        showToast('error', `❌ Save failed: ${errMsg}`);
+        return;
+      }
+
+      showToast('success', '✅ Book updated successfully!');
+      setTimeout(() => { router.push('/admin/products'); router.refresh(); }, 800);
+    } catch (err) {
+      console.error('[EditBook] Network error during PATCH:', err);
       setSubmitError('Network error — could not reach the server.');
+      showToast('error', '❌ Network error — could not reach the server.');
     } finally {
       setIsSubmitting(false);
     }
@@ -308,9 +334,9 @@ export default function EditBookPage() {
   const updateLetter = (id: string, field: string, value: any) => setAlphabet(alphabet.map(l => l.id === id ? { ...l, [field]: value } : l));
 
   /* ─── Modules & CSV Logic ─── */
-  const addModule = () => setModules([...modules, { id: Date.now().toString(), title: `Module ${modules.length + 1}`, isPremium: modules.length > 0, vocabulary: [], quizzes: [] }]);
-  const removeModule = (id: string) => setModules(modules.filter(m => m.id !== id));
-  const updateModuleField = (id: string, field: string, value: any) => setModules(modules.map(m => m.id === id ? { ...m, [field]: value } : m));
+  const addModule = () => setModules(prev => [...prev, { id: Date.now().toString(), title: `Module ${prev.length + 1}`, isPremium: prev.length > 0, vocabulary: [], quizzes: [] }]);
+  const removeModule = (id: string) => setModules(prev => prev.filter(m => m.id !== id));
+  const updateModuleField = (id: string, field: string, value: any) => setModules(prev => prev.map(m => m.id === id ? { ...m, [field]: value } : m));
   
   const handleCSVUpload = (moduleId: string, e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -330,21 +356,21 @@ export default function EditBookPage() {
           exampleEn: row.ExampleEn || row.exampleEn || '',
           exampleTj: row.ExampleTj || row.exampleTj || '',
         }));
-        setModules(modules.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, ...parsedData] } : mod));
+        setModules(prev => prev.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, ...parsedData] } : mod));
       },
       error: (err) => alert("Хатогӣ ҳангоми хондани файл: " + err.message)
     });
   };
   const addSingleWord = (moduleId: string) => {
     const newWord: VocabRow = { id: `${moduleId}-manual-${Date.now()}`, emoji: '🆕', word: '', trans_TJ: '', trans_EN: '', translation: '', example: '', exampleTranslation: '', audio: null, transcriptionEn: '', transcriptionTj: '', exampleEn: '', exampleTj: '' };
-    setModules(modules.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, newWord] } : mod));
+    setModules(prev => prev.map(mod => mod.id === moduleId ? { ...mod, vocabulary: [...mod.vocabulary, newWord] } : mod));
   };
 
   /* ─── Nested Module Quiz Logic ─── */
-  const addModuleQuiz = (moduleId: string) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: [...m.quizzes, { id: Date.now().toString(), question: '', options: ['', '', '', ''], correctIndex: 0 }] } : m));
-  const removeModuleQuiz = (moduleId: string, quizId: string) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.filter(q => q.id !== quizId) } : m));
-  const updateModuleQuizField = (moduleId: string, quizId: string, field: string, value: any) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.map(q => q.id === quizId ? { ...q, [field]: value } : q) } : m));
-  const updateModuleQuizOption = (moduleId: string, quizId: string, optIndex: number, value: string) => setModules(modules.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.map(q => { if (q.id === quizId) { const newOpts = [...q.options]; newOpts[optIndex] = value; return { ...q, options: newOpts }; } return q; }) } : m));
+  const addModuleQuiz = (moduleId: string) => setModules(prev => prev.map(m => m.id === moduleId ? { ...m, quizzes: [...m.quizzes, { id: Date.now().toString(), question: '', options: ['', '', '', ''], correctIndex: 0 }] } : m));
+  const removeModuleQuiz = (moduleId: string, quizId: string) => setModules(prev => prev.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.filter(q => q.id !== quizId) } : m));
+  const updateModuleQuizField = (moduleId: string, quizId: string, field: string, value: any) => setModules(prev => prev.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.map(q => q.id === quizId ? { ...q, [field]: value } : q) } : m));
+  const updateModuleQuizOption = (moduleId: string, quizId: string, optIndex: number, value: string) => setModules(prev => prev.map(m => m.id === moduleId ? { ...m, quizzes: m.quizzes.map(q => { if (q.id === quizId) { const newOpts = [...q.options]; newOpts[optIndex] = value; return { ...q, options: newOpts }; } return q; }) } : m));
 
   if (isLoading) {
     return (
@@ -355,6 +381,21 @@ export default function EditBookPage() {
   }
 
   return (
+    <>
+    {/* ── Toast container ── */}
+    <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', gap: '10px', pointerEvents: 'none' }}>
+      {toasts.map(t => (
+        <div key={t.id} style={{
+          pointerEvents: 'auto',
+          padding: '13px 20px', borderRadius: '12px', fontSize: '13px', fontWeight: 600,
+          boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+          background: t.type === 'success' ? 'rgba(5,150,105,0.95)' : t.type === 'error' ? 'rgba(220,38,38,0.95)' : 'rgba(99,102,241,0.95)',
+          color: '#fff',
+          animation: 'fadeIn 0.25s ease',
+          maxWidth: '360px',
+        }}>{t.msg}</div>
+      ))}
+    </div>
     <form onSubmit={handleSubmit}>
       {/* Page Header */}
       <div className="fade-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '28px', gap: '16px', flexWrap: 'wrap' }}>
@@ -704,44 +745,44 @@ export default function EditBookPage() {
                     </div>
 
                     {/* ── Bulk Import Panel ── */}
+                    {/* NOTE: isDraft is always true here so that imported rows are staged
+                         into React state via onClientImport. The PATCH on "Update Book"
+                         is the single source of truth for DB persistence. Using the direct
+                         /api/admin/words/bulk endpoint would be overwritten by the PATCH
+                         which deletes + recreates all modules from state. */}
                     {getVocabTab(mod.id) === 'bulk' && (
                       <div style={{ padding: '20px', background: 'var(--bg-primary)', borderRadius: '12px', border: '1px solid var(--bg-border)', marginBottom: '12px' }}>
                         <BulkImportPanel
                           moduleId={mod.id}
                           moduleName={mod.title}
-                          isDraft={!mod.id.includes('c')}
+                          isDraft={true}
                           onClientImport={(words, mode) => {
+                            console.log(`[BulkImport] Staging ${words.length} words into module "${mod.title}" (mode: ${mode})`);
                             const newVocab: VocabRow[] = words.map((w, idx) => ({
                               id: `${mod.id}-bulk-${Date.now()}-${idx}`,
-                              emoji: w.emoji || '💬', word: w.word || '', trans_TJ: w.trans_TJ || '', trans_EN: w.trans_EN || '',
-                              translation: w.translation || '', example: w.example || '', exampleTranslation: w.exampleTranslation || '', audio: null,
-                              transcriptionEn: w.transcriptionEn || '', transcriptionTj: w.transcriptionTj || '',
-                              exampleEn: w.exampleEn || '', exampleTj: w.exampleTj || ''
+                              emoji: w.emoji || '💬',
+                              word: w.word || '',
+                              trans_TJ: w.trans_TJ || '',
+                              trans_EN: w.trans_EN || '',
+                              translation: w.translation || '',
+                              example: w.example || '',
+                              exampleTranslation: w.exampleTranslation || '',
+                              audio: null,
+                              transcriptionEn: w.transcriptionEn || '',
+                              transcriptionTj: w.transcriptionTj || '',
+                              exampleEn: w.exampleEn || '',
+                              exampleTj: w.exampleTj || '',
                             }));
-                            setModules(modules.map(m => {
+                            setModules(prev => prev.map(m => {
                               if (m.id !== mod.id) return m;
-                              return {
-                                ...m,
-                                vocabulary: mode === 'replace' ? newVocab : [...m.vocabulary, ...newVocab]
-                              };
+                              const updatedVocab = mode === 'replace' ? newVocab : [...m.vocabulary, ...newVocab];
+                              console.log(`[BulkImport] Module "${m.title}" now has ${updatedVocab.length} words staged.`);
+                              return { ...m, vocabulary: updatedVocab };
                             }));
                           }}
                           onImportSuccess={(count) => {
-                            // Only reload the full book data from DB if this is an existing database module
-                            if (mod.id.includes('c')) {
-                              fetch(`/api/admin/books/${id}?_t=${Date.now()}`)
-                                .then(r => r.json())
-                                .then(data => {
-                                  if (data.modulesData && Array.isArray(data.modulesData)) {
-                                    setModules(data.modulesData.map((m: any, i: number) => ({
-                                      ...m, id: m.id || `mod-${i}`,
-                                      vocabulary: m.vocabulary || [], quizzes: m.quizzes || [],
-                                    })));
-                                  }
-                                })
-                                .catch(console.error);
-                            }
-                            // Switch to manual tab so user can inspect the imported words
+                            // Words are staged in state. Remind the user to click "Update Book" to persist.
+                            showToast('info', `📥 ${count} word${count !== 1 ? 's' : ''} staged — click "Update Book" to save to database.`);
                             setVocabTab(mod.id, 'manual');
                           }}
                         />
@@ -907,5 +948,6 @@ export default function EditBookPage() {
         </div>
       </div>
     </form>
+    </>
   );
 }
