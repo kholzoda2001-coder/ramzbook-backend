@@ -125,7 +125,6 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 
     return NextResponse.json(product);
   } catch (e) {
-    console.error(e);
-    return NextResponse.json({ error: 'Update failed' }, { status: 500 });
+    return NextResponse.json({ error: e instanceof Error ? e.message : 'Update failed' }, { status: 500 });
   }
 }
