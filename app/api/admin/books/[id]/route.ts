@@ -121,6 +121,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       }
 
       return updatedProduct;
+    }, {
+      maxWait: 5000,
+      timeout: 30000,
     });
 
     return NextResponse.json(product);
