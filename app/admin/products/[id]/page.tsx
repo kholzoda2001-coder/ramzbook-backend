@@ -9,6 +9,7 @@ import {
   FileText, DollarSign, Type, FileSpreadsheet, ListChecks, PlusCircle, Trash2, Headphones, AlertCircle, CheckCircle2, BookMarked, Lightbulb
 } from 'lucide-react';
 import BulkImportPanel from '../_components/BulkImportPanel';
+import BulkQuizImportPanel, { BulkQuizRow } from '../_components/BulkQuizImportPanel';
 
 /* ─── Shared UI Primitives ─── */
 function SectionCard({ icon: Icon, title, subtitle, children, accentColor = 'var(--accent-from)' }: {
@@ -130,6 +131,12 @@ export default function EditBookPage() {
   const getVocabTab = (modId: string) => vocabTabs[modId] ?? 'manual';
   const setVocabTab = (modId: string, tab: 'manual' | 'bulk') =>
     setVocabTabs(prev => ({ ...prev, [modId]: tab }));
+
+  // Per-module quiz tab: 'manual' | 'bulk'
+  const [quizTabs, setQuizTabs] = useState<Record<string, 'manual' | 'bulk'>>({});
+  const getQuizTab = (modId: string) => quizTabs[modId] ?? 'manual';
+  const setQuizTab = (modId: string, tab: 'manual' | 'bulk') =>
+    setQuizTabs(prev => ({ ...prev, [modId]: tab }));
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -858,39 +865,114 @@ export default function EditBookPage() {
 
                     {/* Nested Quizzes Section */}
                     <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '2px dashed var(--bg-border)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                        <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      {/* Quiz Header + Tab switcher */}
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+                        <h3 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px', margin: 0 }}>
                           <ListChecks size={16} color="#ef4444" /> End-of-Module Quiz
+                          {mod.quizzes.length > 0 && (
+                            <span style={{ fontSize: '11px', fontWeight: 700, color: '#fff', background: '#ef4444', borderRadius: '99px', padding: '1px 8px', marginLeft: '4px' }}>
+                              {mod.quizzes.length}
+                            </span>
+                          )}
                         </h3>
-                        <button type="button" onClick={() => addModuleQuiz(mod.id)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '8px', background: 'rgba(239, 68, 68, 0.1)', color: '#dc2626', border: '1px solid rgba(239, 68, 68, 0.2)', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}>
-                          <PlusCircle size={14} /> Add Question
-                        </button>
+                        {/* Quiz Tab pills */}
+                        <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-primary)', borderRadius: '12px', padding: '4px', border: '1px solid var(--bg-border)', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+                          <button
+                            type="button"
+                            onClick={() => setQuizTab(mod.id, 'manual')}
+                            style={{
+                              display: 'flex', alignItems: 'center', gap: '6px',
+                              padding: '7px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 700,
+                              border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                              background: getQuizTab(mod.id) === 'manual'
+                                ? 'linear-gradient(135deg, #ef4444, #dc2626)'
+                                : 'transparent',
+                              color: getQuizTab(mod.id) === 'manual' ? '#fff' : 'var(--text-muted)',
+                              boxShadow: getQuizTab(mod.id) === 'manual' ? '0 2px 8px rgba(0,0,0,0.18)' : 'none',
+                            }}
+                          >
+                            ✏️ Manual Entry
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setQuizTab(mod.id, 'bulk')}
+                            style={{
+                              display: 'flex', alignItems: 'center', gap: '6px',
+                              padding: '7px 16px', borderRadius: '8px', fontSize: '13px', fontWeight: 700,
+                              border: 'none', cursor: 'pointer', transition: 'all 0.18s',
+                              background: getQuizTab(mod.id) === 'bulk'
+                                ? 'linear-gradient(135deg, #dc2626, #ef4444)'
+                                : 'transparent',
+                              color: getQuizTab(mod.id) === 'bulk' ? '#fff' : 'var(--text-muted)',
+                              boxShadow: getQuizTab(mod.id) === 'bulk' ? '0 2px 8px rgba(0,0,0,0.18)' : 'none',
+                            }}
+                          >
+                            📂 Bulk Import
+                          </button>
+                        </div>
                       </div>
 
-                      {mod.quizzes.length === 0 ? (
-                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '16px 0', background: 'var(--bg-primary)', borderRadius: '8px' }}>No quiz questions yet. Add one to test users after this module.</p>
-                      ) : (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                          {mod.quizzes.map((quiz, qIdx) => (
-                            <div key={quiz.id} style={{ background: 'var(--bg-primary)', border: '1px solid var(--bg-border)', padding: '16px', borderRadius: '12px', position: 'relative' }}>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                                <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>Question {qIdx + 1}</span>
-                                <button type="button" onClick={() => removeModuleQuiz(mod.id, quiz.id)} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><Trash2 size={16} /></button>
-                              </div>
-                              <input type="text" className="input-field" value={quiz.question} onChange={(e) => updateModuleQuizField(mod.id, quiz.id, 'question', e.target.value)} placeholder="Type the question text..." style={{ marginBottom: '16px' }} />
-                              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                                {quiz.options.map((opt, oIdx) => (
-                                  <div key={oIdx} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                                    <button type="button" onClick={() => updateModuleQuizField(mod.id, quiz.id, 'correctIndex', oIdx)} style={{ position: 'absolute', left: '10px', width: '20px', height: '20px', borderRadius: '50%', background: quiz.correctIndex === oIdx ? '#10b981' : 'transparent', border: quiz.correctIndex === oIdx ? 'none' : '2px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                                      {quiz.correctIndex === oIdx && <CheckCircle2 size={12} color="#fff" />}
-                                    </button>
-                                    <input type="text" className="input-field" style={{ paddingLeft: '40px', borderColor: quiz.correctIndex === oIdx ? '#10b981' : 'var(--bg-border)' }} value={opt} onChange={(e) => updateModuleQuizOption(mod.id, quiz.id, oIdx, e.target.value)} placeholder={`Option ${oIdx + 1}`} />
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          ))}
+                      {/* Bulk Quiz Import Panel */}
+                      {getQuizTab(mod.id) === 'bulk' && (
+                        <div style={{ padding: '20px', background: 'var(--bg-primary)', borderRadius: '12px', border: '1px solid var(--bg-border)', marginBottom: '12px' }}>
+                          <BulkQuizImportPanel
+                            moduleId={mod.id}
+                            moduleName={mod.title}
+                            onClientImport={(quizRows: BulkQuizRow[], mode: 'append' | 'replace') => {
+                              console.log(`[BulkQuizImport] Staging ${quizRows.length} quizzes into module "${mod.title}" (mode: ${mode})`);
+                              const newQuizzes: QuizDraft[] = quizRows.map((q, idx) => ({
+                                id: `${mod.id}-quiz-bulk-${Date.now()}-${idx}`,
+                                question: q.question,
+                                options: [...q.options],
+                                correctIndex: q.correctIndex,
+                              }));
+                              setModules(prev => prev.map(m => {
+                                if (m.id !== mod.id) return m;
+                                const updatedQuizzes = mode === 'replace' ? newQuizzes : [...m.quizzes, ...newQuizzes];
+                                console.log(`[BulkQuizImport] Module "${m.title}" now has ${updatedQuizzes.length} quizzes staged.`);
+                                return { ...m, quizzes: updatedQuizzes };
+                              }));
+                              showToast('info', `📥 ${quizRows.length} quiz question${quizRows.length !== 1 ? 's' : ''} staged — click "Update Book" to save.`);
+                              setQuizTab(mod.id, 'manual');
+                            }}
+                          />
                         </div>
+                      )}
+
+                      {/* Manual Quiz Entry */}
+                      {getQuizTab(mod.id) === 'manual' && (
+                        <>
+                          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '12px' }}>
+                            <button type="button" onClick={() => addModuleQuiz(mod.id)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', borderRadius: '8px', background: 'rgba(239, 68, 68, 0.1)', color: '#dc2626', border: '1px solid rgba(239, 68, 68, 0.2)', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}>
+                              <PlusCircle size={14} /> Add Question
+                            </button>
+                          </div>
+                          {mod.quizzes.length === 0 ? (
+                            <p style={{ fontSize: '13px', color: 'var(--text-muted)', textAlign: 'center', padding: '16px 0', background: 'var(--bg-primary)', borderRadius: '8px' }}>No quiz questions yet. Add one manually or use the <strong>Bulk Import</strong> tab.</p>
+                          ) : (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                              {mod.quizzes.map((quiz, qIdx) => (
+                                <div key={quiz.id} style={{ background: 'var(--bg-primary)', border: '1px solid var(--bg-border)', padding: '16px', borderRadius: '12px', position: 'relative' }}>
+                                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                                    <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-secondary)' }}>Question {qIdx + 1}</span>
+                                    <button type="button" onClick={() => removeModuleQuiz(mod.id, quiz.id)} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}><Trash2 size={16} /></button>
+                                  </div>
+                                  <input type="text" className="input-field" value={quiz.question} onChange={(e) => updateModuleQuizField(mod.id, quiz.id, 'question', e.target.value)} placeholder="Type the question text..." style={{ marginBottom: '16px' }} />
+                                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                                    {quiz.options.map((opt, oIdx) => (
+                                      <div key={oIdx} style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                                        <button type="button" onClick={() => updateModuleQuizField(mod.id, quiz.id, 'correctIndex', oIdx)} style={{ position: 'absolute', left: '10px', width: '20px', height: '20px', borderRadius: '50%', background: quiz.correctIndex === oIdx ? '#10b981' : 'transparent', border: quiz.correctIndex === oIdx ? 'none' : '2px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                          {quiz.correctIndex === oIdx && <CheckCircle2 size={12} color="#fff" />}
+                                        </button>
+                                        <input type="text" className="input-field" style={{ paddingLeft: '40px', borderColor: quiz.correctIndex === oIdx ? '#10b981' : 'var(--bg-border)' }} value={opt} onChange={(e) => updateModuleQuizOption(mod.id, quiz.id, oIdx, e.target.value)} placeholder={`Option ${oIdx + 1}`} />
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
