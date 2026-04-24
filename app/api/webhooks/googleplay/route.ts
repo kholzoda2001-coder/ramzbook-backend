@@ -94,6 +94,9 @@ export async function POST(req: NextRequest) {
       } else if (notificationType === 4) {
         console.log(`[RTDN] Subscription ${subscriptionId} purchased.`);
       }
+    } else if (notification.testNotification) {
+      console.log('[RTDN] Received test notification from Google Play.');
+    }
 
     // Always return 200 OK to acknowledge receipt, otherwise Pub/Sub will retry
     return NextResponse.json({ ok: true });
