@@ -27,9 +27,20 @@ type User = {
   id: string;
   name: string;
   email: string;
+  phone: string | null;
   isActive: boolean;
   createdAt: string;
 };
+
+/** Returns the display contact: phone number if it's a phone-registered user, else email */
+function displayContact(user: User): string {
+  if (user.phone) return user.phone;
+  // Hide shadow emails (e.g. 992xxx@ramzbook.tj) — show cleaned phone instead
+  if (user.email.endsWith('@ramzbook.tj')) {
+    return '+' + user.email.replace('@ramzbook.tj', '');
+  }
+  return user.email;
+}
 
 type BookAccess = {
   id: string;
@@ -292,7 +303,7 @@ function AccessPanel({
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.name}</p>
-            <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{user.email}</p>
+            <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{displayContact(user)}</p>
           </div>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', borderRadius: 8, padding: 4 }}>
             <X size={18} />
@@ -398,6 +409,7 @@ export default function UsersPage() {
   const filtered = users.filter(
     (u) =>
       u.name.toLowerCase().includes(search.toLowerCase()) ||
+      displayContact(u).toLowerCase().includes(search.toLowerCase()) ||
       u.email.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -485,8 +497,17 @@ export default function UsersPage() {
                         </div>
                       </td>
 
-                      {/* Email */}
-                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text-secondary)' }}>{user.email}</td>
+                      {/* Email / Phone */}
+                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text-secondary)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                          {user.phone || user.email.endsWith('@ramzbook.tj') ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 700, padding: '2px 7px', borderRadius: 99, background: 'rgba(16,185,129,0.1)', color: '#10b981', border: '1px solid rgba(16,185,129,0.25)', flexShrink: 0 }}>📱</span>
+                          ) : (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 700, padding: '2px 7px', borderRadius: 99, background: 'rgba(99,102,241,0.1)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.25)', flexShrink: 0 }}>✉️</span>
+                          )}
+                          {displayContact(user)}
+                        </div>
+                      </td>
 
                       {/* ID */}
                       <td style={{ padding: '16px 20px' }}>
