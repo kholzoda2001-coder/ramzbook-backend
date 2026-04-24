@@ -14,32 +14,53 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as {
       name?: string;
+      identifier?: string;
       email?: string;
       password?: string;
     };
 
     const name = body.name?.trim() ?? '';
-    const email = body.email?.trim().toLowerCase() ?? '';
+    const rawIdentifier = (body.identifier ?? body.email ?? '').trim().toLowerCase();
     const password = body.password ?? '';
 
     if (name.length < 2) {
       return Response.json({ error: 'Name must be at least 2 characters.' }, { status: 400 });
     }
-    if (!email.includes('@') || email.length < 5) {
-      return Response.json({ error: 'Valid email is required.' }, { status: 400 });
+    if (rawIdentifier.length < 5) {
+      return Response.json({ error: 'Valid email or phone number is required.' }, { status: 400 });
     }
     if (password.length < 8) {
       return Response.json({ error: 'Password must be at least 8 characters.' }, { status: 400 });
     }
 
-    const existing = await prisma.user.findUnique({ where: { email }, select: { id: true } });
+    let email = '';
+    let phone: string | null = null;
+
+    if (rawIdentifier.includes('@')) {
+      email = rawIdentifier;
+    } else {
+      phone = rawIdentifier.replace(/[\s\-()]/g, '');
+      if (!phone.startsWith('+')) phone = '+' + phone;
+      email = `${phone.replace('+', '')}@ramzbook.tj`;
+    }
+
+    const existing = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email },
+          ...(phone ? [{ phone }] : [])
+        ]
+      },
+      select: { id: true }
+    });
+    
     if (existing) {
-      return Response.json({ error: 'Email is already registered.' }, { status: 409 });
+      return Response.json({ error: 'This email or phone number is already registered.' }, { status: 409 });
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
     const user = await prisma.user.create({
-      data: { name, email, passwordHash, isActive: true },
+      data: { name, email, phone, passwordHash, isActive: true },
       select: { id: true, name: true, email: true },
     });
 

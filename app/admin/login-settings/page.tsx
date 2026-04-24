@@ -147,7 +147,7 @@ export default function AdminLoginSettingsPage() {
               <input type="text" value={whatsappSupportNumber} onChange={(e) => setWhatsappSupportNumber(e.target.value)} className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" placeholder="+992000000000" />
             </div>
             <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-              The phone number used for the "Subscribe via WhatsApp" button in the mobile app. Format should be international e.g. +992...
+              The phone number used for the "WhatsApp Support" button in the mobile app. Format should be international e.g. +992...
             </p>
           </div>
         </div>

@@ -109,12 +109,19 @@ function AccessPanel({
   useEffect(() => { fetchAccess(); }, [fetchAccess]);
 
   const executeAction = async (bookId: string | null, action: string) => {
+    let reason = '';
+    if (action.startsWith('grant_')) {
+      const input = window.prompt('Сабаби додани дастрасиро нависед (Support/Promo/Trial):');
+      if (input === null) return; // Cancelled
+      reason = input.trim();
+    }
+
     setToggling(bookId ?? 'vip');
     try {
       const res = await fetch(`/api/admin/users/${user.id}/access`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productId: bookId, action }),
+        body: JSON.stringify({ productId: bookId, action, reason }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Failed');
@@ -152,7 +159,7 @@ function AccessPanel({
     let StatusIcon = Lock;
 
     if (isFree) { statusColor = '#818cf8'; statusLabel = 'Free'; StatusIcon = Unlock; }
-    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = book.expiresAt ? 'Granted (6m)' : 'Granted (∞)'; StatusIcon = ShieldCheck; }
+    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = book.expiresAt ? `Granted (${new Date(book.expiresAt).getFullYear() === new Date().getFullYear() + 1 ? '1y' : '6m'})` : 'Granted (∞)'; StatusIcon = ShieldCheck; }
     else if (isGranted && !isManual) { statusColor = '#10b981'; statusLabel = book.expiresAt ? 'Purchased (6m)' : 'Purchased (∞)'; StatusIcon = ShieldCheck; }
 
     return (
@@ -227,9 +234,9 @@ function AccessPanel({
                   6 моҳ
                 </button>
                 <button
-                  onClick={() => executeAction(book.id, 'grant_lifetime')}
+                  onClick={() => executeAction(book.id, 'grant_1y')}
                   disabled={busy}
-                  title="Дастрасии якумра"
+                  title="Дастрасӣ барои 1 сол"
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
                     padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
@@ -237,7 +244,7 @@ function AccessPanel({
                     opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
                   }}
                 >
-                  ∞ Даимӣ
+                  1 сол
                 </button>
               </>
             )}
@@ -290,6 +297,9 @@ function AccessPanel({
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', borderRadius: 8, padding: 4 }}>
             <X size={18} />
           </button>
+        </div>
+        <div style={{ padding: '10px 24px', background: 'rgba(234, 179, 8, 0.15)', borderBottom: '1px solid rgba(234, 179, 8, 0.2)', color: '#ca8a04', fontSize: 12, fontWeight: 500 }}>
+          ⚠️ <b>Огоҳӣ:</b> Функсияҳои додани дастрасӣ дар ин ҷо танҳо барои дастгирии техникӣ, промокодҳо ва давраҳои озмоишӣ мебошанд. Барои фурӯши муқаррарӣ истифода набаред (Google Play Policy).
         </div>
 
         {/* Global VIP Status Banner */}

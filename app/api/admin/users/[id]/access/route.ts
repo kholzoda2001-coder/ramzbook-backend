@@ -91,7 +91,7 @@ export async function POST(
 
   try {
     const body = await req.json();
-    const { action, productId } = body as { action?: string; productId?: string };
+    const { action, productId, reason } = body as { action?: string; productId?: string; reason?: string };
 
     if (!action) {
       return NextResponse.json({ error: 'Action is required.' }, { status: 400 });
@@ -109,7 +109,10 @@ export async function POST(
       }
       await prisma.user.update({
         where: { id: userId },
-        data: { vipExpiresAt }
+        data: { 
+          vipExpiresAt,
+          vipGrantReason: action === 'grant_vip' ? (reason || 'Admin manual grant') : null
+        }
       });
       return NextResponse.json({ ok: true, message: action === 'grant_vip' ? 'VIP granted for 1 month.' : 'VIP revoked.' });
     }
@@ -131,16 +134,19 @@ export async function POST(
       }
       await prisma.userProgress.update({
         where: { userId_productId: { userId, productId } },
-        data: { isPurchased: false, isManualGrant: false, expiresAt: null }
+        data: { isPurchased: false, isManualGrant: false, expiresAt: null, grantReason: null }
       });
       return NextResponse.json({ ok: true, message: 'Access revoked.' });
     }
 
-    if (action === 'grant_6m' || action === 'grant_lifetime') {
+    if (action === 'grant_6m' || action === 'grant_1y') {
       let expiresAt: Date | null = null;
       if (action === 'grant_6m') {
         expiresAt = new Date();
         expiresAt.setMonth(expiresAt.getMonth() + 6);
+      } else if (action === 'grant_1y') {
+        expiresAt = new Date();
+        expiresAt.setFullYear(expiresAt.getFullYear() + 1);
       }
 
       const progress = await prisma.userProgress.upsert({
@@ -150,18 +156,20 @@ export async function POST(
           productId,
           isPurchased: true,
           isManualGrant: true,
+          grantReason: reason || 'Admin manual grant',
           expiresAt,
           lastReadPageIndex: 0,
         },
         update: {
           isPurchased: true,
           isManualGrant: true,
+          grantReason: reason || 'Admin manual grant',
           expiresAt,
         },
-        select: { isPurchased: true, isManualGrant: true, expiresAt: true },
+        select: { isPurchased: true, isManualGrant: true, expiresAt: true, grantReason: true },
       });
 
-      return NextResponse.json({ ok: true, message: action === 'grant_6m' ? 'Granted for 6 months.' : 'Granted for lifetime.' });
+      return NextResponse.json({ ok: true, message: action === 'grant_6m' ? 'Granted for 6 months.' : 'Granted for 1 year.' });
     }
 
     return NextResponse.json({ error: 'Unknown action' }, { status: 400 });

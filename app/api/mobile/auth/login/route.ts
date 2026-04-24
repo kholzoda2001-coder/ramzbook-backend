@@ -13,19 +13,35 @@ const REFRESH_TTL_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as {
+      identifier?: string;
       email?: string;
       password?: string;
     };
 
-    const email = body.email?.trim().toLowerCase() ?? '';
+    const rawIdentifier = (body.identifier ?? body.email ?? '').trim().toLowerCase();
     const password = body.password ?? '';
 
-    if (!email || !password) {
-      return Response.json({ error: 'Email and password are required.' }, { status: 400 });
+    if (!rawIdentifier || !password) {
+      return Response.json({ error: 'Email/Phone and password are required.' }, { status: 400 });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
+    let email = '';
+    let phone: string | null = null;
+
+    if (rawIdentifier.includes('@')) {
+      email = rawIdentifier;
+    } else {
+      phone = rawIdentifier.replace(/[\s\-()]/g, '');
+      if (!phone.startsWith('+')) phone = '+' + phone;
+    }
+
+    const user = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: email || rawIdentifier },
+          ...(phone ? [{ phone }] : [])
+        ]
+      },
       select: { id: true, name: true, email: true, passwordHash: true, isActive: true },
     });
 

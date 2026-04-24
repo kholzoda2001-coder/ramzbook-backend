@@ -78,9 +78,11 @@ model User {
   phone        String?  @unique @db.VarChar(32)
   name         String   @db.VarChar(255)
   passwordHash String   @db.VarChar(255)
-  isActive     Boolean  @default(true)
-  vipExpiresAt DateTime?
-  createdAt    DateTime @default(now())
+  isActive       Boolean  @default(true)
+  vipExpiresAt   DateTime?
+  vipGrantReason String?  @db.VarChar(255)
+  vipPurchaseToken String? @db.VarChar(500)
+  createdAt      DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
   refreshTokens RefreshToken[]
@@ -275,6 +277,8 @@ model UserProgress {
   lastReadPageIndex Int      @default(0)
   isPurchased       Boolean  @default(false)
   isManualGrant     Boolean  @default(false)
+  grantReason       String?  @db.VarChar(255)
+  purchaseToken     String?  @db.VarChar(500)
   expiresAt         DateTime?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
