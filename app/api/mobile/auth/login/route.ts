@@ -35,18 +35,25 @@ export async function POST(req: NextRequest) {
       if (!phone.startsWith('+')) phone = '+' + phone;
     }
 
+    // Build OR conditions carefully to avoid matching empty strings
+    const orConditions: object[] = [];
+    if (email) orConditions.push({ email });
+    if (phone) orConditions.push({ phone });
+    // Fallback: try rawIdentifier as email (covers edge cases)
+    if (!email && !phone && rawIdentifier) orConditions.push({ email: rawIdentifier });
+
     const user = await prisma.user.findFirst({
-      where: {
-        OR: [
-          { email: email || rawIdentifier },
-          ...(phone ? [{ phone }] : [])
-        ]
-      },
-      select: { id: true, name: true, email: true, passwordHash: true, isActive: true },
+      where: { OR: orConditions },
+      select: { id: true, name: true, email: true, phone: true, passwordHash: true, isActive: true },
     });
 
     if (!user || !user.isActive) {
       return Response.json({ error: 'Invalid credentials.' }, { status: 401 });
+    }
+
+    // Guard: social-only accounts have no password
+    if (!user.passwordHash) {
+      return Response.json({ error: 'This account uses social login. Please use Google or Telegram.' }, { status: 401 });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
