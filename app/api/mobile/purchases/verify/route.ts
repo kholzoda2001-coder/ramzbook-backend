@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const body = await req.json();
-    const { productId, purchaseToken, isVip } = body;
+    const { productId, purchaseToken, isVip, targetBookId } = body;
 
     if (!purchaseToken) {
       return NextResponse.json({ error: 'Missing purchase token' }, { status: 400 });
@@ -35,20 +35,52 @@ export async function POST(req: NextRequest) {
         
         const androidPublisher = google.androidpublisher({ version: 'v3', auth });
         
-        // Since we are using Subscriptions for all these tiers:
-        const response = await androidPublisher.purchases.subscriptions.get({
-          packageName,
-          subscriptionId: productId,
-          token: purchaseToken,
-        });
+        let isValid = false;
+        let parsedExpiryTime: Date | null = null;
 
-        const purchase = response.data;
-        // Check if paymentState indicates an active or pending subscription
-        // For subscriptions: paymentState 1 (Payment received), or undefined if it's trial/active without explicit state in older APIs.
-        // It's safer to check if the expiry time is in the future.
-        const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
-        if (expiryTimeMillis < Date.now()) {
-          return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
+        if (productId === 'standard_single_book') {
+          const response = await androidPublisher.purchases.products.get({
+            packageName,
+            productId,
+            token: purchaseToken,
+          });
+          const purchase = response.data;
+          // purchaseState 0 = PURCHASED
+          if (purchase.purchaseState !== 0) {
+            return NextResponse.json({ error: 'Purchase not successful on Google Play' }, { status: 400 });
+          }
+          isValid = true;
+        } else {
+          const response = await androidPublisher.purchases.subscriptions.get({
+            packageName,
+            subscriptionId: productId,
+            token: purchaseToken,
+          });
+
+          const purchase = response.data;
+          const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
+          if (expiryTimeMillis < Date.now()) {
+            return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
+          }
+          
+          parsedExpiryTime = new Date(expiryTimeMillis);
+
+          // Acknowledge the subscription if it hasn't been acknowledged yet
+          if (purchase.acknowledgementState === 0) {
+            try {
+              await androidPublisher.purchases.subscriptions.acknowledge({
+                packageName,
+                subscriptionId: productId,
+                token: purchaseToken,
+              });
+              console.log('[Billing] Server acknowledged subscription:', productId);
+            } catch (ackErr: any) {
+              console.error('[Billing] Failed to acknowledge subscription on server:', ackErr.message);
+              // Non-fatal, client might have completed the purchase
+            }
+          }
+
+          isValid = true;
         }
       } catch (err: any) {
         console.error('[Billing] Verification failed:', err.message);
@@ -63,41 +95,43 @@ export async function POST(req: NextRequest) {
     }
 
     if (isVip) {
-      // Grant VIP for 1 month
-      let vipExpiresAt = new Date();
-      vipExpiresAt.setMonth(vipExpiresAt.getMonth() + 1);
+      // Use parsedExpiryTime if available, else fallback to manual calculation
+      let vipExpiresAt = parsedExpiryTime || new Date();
+      let subscriptionPlan = 'monthly';
+      
+      if (productId === 'vip_yearly') {
+        if (!parsedExpiryTime) vipExpiresAt.setFullYear(vipExpiresAt.getFullYear() + 1);
+        subscriptionPlan = 'yearly';
+      } else {
+        if (!parsedExpiryTime) vipExpiresAt.setMonth(vipExpiresAt.getMonth() + 1);
+      }
 
       await prisma.user.update({
         where: { id: userId },
-        data: { vipExpiresAt, vipPurchaseToken: purchaseToken }
+        data: { 
+          vipExpiresAt, 
+          vipPurchaseToken: purchaseToken,
+          subscriptionPlan,
+          vipGrantReason: null
+        }
       });
 
       return NextResponse.json({ ok: true, message: 'VIP granted.' });
     }
 
-    if (!productId) {
-      return NextResponse.json({ error: 'Product ID required for non-VIP purchases' }, { status: 400 });
+    if (!targetBookId) {
+      return NextResponse.json({ error: 'targetBookId is required for book purchases' }, { status: 400 });
     }
 
-    // Grant specific book access
-    // We determine 6-month or 1-year based on the productId naming convention
-    // e.g., 'book_1_6m' or 'book_1_1y'. If it ends with 1y, we grant 1 year.
-    let expiresAt = new Date();
-    if (productId.endsWith('_1y')) {
-      expiresAt.setFullYear(expiresAt.getFullYear() + 1);
-    } else {
-      // Default to 6 months
-      expiresAt.setMonth(expiresAt.getMonth() + 6);
-    }
-
+    // Grant lifetime access to the specific book
     await prisma.userProgress.upsert({
-      where: { userId_productId: { userId, productId: productId.replace('_6m', '').replace('_1y', '') } },
+      where: { userId_productId: { userId, productId: targetBookId } },
       create: {
         userId,
-        productId: productId.replace('_6m', '').replace('_1y', ''),
+        productId: targetBookId,
         isPurchased: true,
         isManualGrant: false,
-        expiresAt,
+        expiresAt: null, // Lifetime access
         purchaseToken,
         lastReadPageIndex: 0,
       },
@@ -105,7 +139,7 @@ export async function POST(req: NextRequest) {
         isPurchased: true,
         isManualGrant: false,
         purchaseToken,
-        expiresAt,
+        expiresAt: null,
       },
     });
 

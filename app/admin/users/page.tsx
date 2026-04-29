@@ -98,6 +98,7 @@ function AccessPanel({
 }) {
   const [books, setBooks] = useState<BookAccess[]>([]);
   const [vipExpiresAt, setVipExpiresAt] = useState<string | null>(null);
+  const [subscriptionPlan, setSubscriptionPlan] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [bookSearch, setBookSearch] = useState('');
   const [toggling, setToggling] = useState<string | null>(null);
@@ -110,6 +111,7 @@ function AccessPanel({
       if (!res.ok) throw new Error(data.error ?? 'Failed to load');
       setBooks(data.books ?? []);
       setVipExpiresAt(data.user?.vipExpiresAt ?? null);
+      setSubscriptionPlan(data.user?.subscriptionPlan ?? null);
     } catch (err: unknown) {
       onToast({ type: 'error', message: err instanceof Error ? err.message : 'Failed to load books' });
     } finally {
@@ -170,8 +172,8 @@ function AccessPanel({
     let StatusIcon = Lock;
 
     if (isFree) { statusColor = '#818cf8'; statusLabel = 'Free'; StatusIcon = Unlock; }
-    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = book.expiresAt ? `Granted (${new Date(book.expiresAt).getFullYear() === new Date().getFullYear() + 1 ? '1y' : '6m'})` : 'Granted (∞)'; StatusIcon = ShieldCheck; }
-    else if (isGranted && !isManual) { statusColor = '#10b981'; statusLabel = book.expiresAt ? 'Purchased (6m)' : 'Purchased (∞)'; StatusIcon = ShieldCheck; }
+    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = 'Granted (∞)'; StatusIcon = ShieldCheck; }
+    else if (isGranted && !isManual) { statusColor = '#10b981'; statusLabel = 'Purchased (∞)'; StatusIcon = ShieldCheck; }
 
     return (
       <div style={{
@@ -232,9 +234,9 @@ function AccessPanel({
             ) : (
               <>
                 <button
-                  onClick={() => executeAction(book.id, 'grant_6m')}
+                  onClick={() => executeAction(book.id, 'grant_lifetime')}
                   disabled={busy}
-                  title="Дастрасӣ барои 6 моҳ"
+                  title="Дастрасии якумра"
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
                     padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
@@ -242,20 +244,7 @@ function AccessPanel({
                     opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
                   }}
                 >
-                  6 моҳ
-                </button>
-                <button
-                  onClick={() => executeAction(book.id, 'grant_1y')}
-                  disabled={busy}
-                  title="Дастрасӣ барои 1 сол"
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
-                    padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
-                    background: 'rgba(16,185,129,0.12)', color: '#10b981', fontSize: 11, fontWeight: 700,
-                    opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
-                  }}
-                >
-                  1 сол
+                  Якумра
                 </button>
               </>
             )}
@@ -318,7 +307,7 @@ function AccessPanel({
           <div>
             <p style={{ fontSize: 13, fontWeight: 700, color: vipExpiresAt ? '#10b981' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
               <ShieldCheck size={16} /> 
-              Обунаи VIP (Ҳамаи китобҳо)
+              Обунаи VIP {subscriptionPlan && <span style={{ fontSize: 10, padding: '2px 6px', background: 'rgba(16,185,129,0.15)', borderRadius: 4, textTransform: 'uppercase' }}>{subscriptionPlan}</span>}
             </p>
             {vipExpiresAt ? (
               <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>Фаъол то: {new Date(vipExpiresAt).toLocaleDateString()}</p>
@@ -326,17 +315,43 @@ function AccessPanel({
               <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>Обунаи фарогир ба тамоми китобҳо</p>
             )}
           </div>
-          <button
-            onClick={() => executeAction(null, vipExpiresAt ? 'revoke_vip' : 'grant_vip')}
-            disabled={toggling === 'vip'}
-            style={{
-              padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-              background: vipExpiresAt ? 'rgba(239,68,68,0.1)' : 'rgba(16,185,129,0.15)',
-              color: vipExpiresAt ? '#ef4444' : '#10b981'
-            }}
-          >
-            {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : (vipExpiresAt ? 'Қатъи VIP' : 'Додани VIP (1 моҳ)')}
-          </button>
+          <div style={{ display: 'flex', gap: 8 }}>
+            {vipExpiresAt ? (
+              <button
+                onClick={() => executeAction(null, 'revoke_vip')}
+                disabled={toggling === 'vip'}
+                style={{
+                  padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                  background: 'rgba(239,68,68,0.1)', color: '#ef4444'
+                }}
+              >
+                {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъи VIP'}
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={() => executeAction(null, 'grant_vip')}
+                  disabled={toggling === 'vip'}
+                  style={{
+                    padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                    background: 'rgba(16,185,129,0.15)', color: '#10b981'
+                  }}
+                >
+                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'VIP (1 моҳ)'}
+                </button>
+                <button
+                  onClick={() => executeAction(null, 'grant_vip_1y')}
+                  disabled={toggling === 'vip'}
+                  style={{
+                    padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                    background: 'rgba(59,130,246,0.15)', color: '#3b82f6'
+                  }}
+                >
+                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'VIP (1 сол)'}
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
         {/* Book search */}

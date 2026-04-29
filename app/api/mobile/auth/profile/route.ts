@@ -4,12 +4,38 @@ import { requireUserId, unauthorized } from '@/lib/auth';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'PATCH, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, PATCH, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
 export async function OPTIONS() {
   return new Response(null, { status: 204, headers: CORS });
+}
+
+export async function GET(req: NextRequest) {
+  const userId = requireUserId(req);
+  if (!userId) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401, headers: CORS });
+  }
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, name: true, email: true, vipExpiresAt: true },
+    });
+
+    if (!user) {
+      return Response.json({ error: 'User not found' }, { status: 404, headers: CORS });
+    }
+
+    return Response.json({ user }, { status: 200, headers: CORS });
+  } catch (err) {
+    console.error('[auth/profile GET]', err);
+    return Response.json(
+      { error: 'Failed to fetch profile' },
+      { status: 500, headers: CORS },
+    );
+  }
 }
 
 /**

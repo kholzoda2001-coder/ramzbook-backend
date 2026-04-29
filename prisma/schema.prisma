@@ -80,6 +80,7 @@ model User {
   passwordHash String   @db.VarChar(255)
   isActive       Boolean  @default(true)
   vipExpiresAt   DateTime?
+  subscriptionPlan String?  @db.VarChar(50)
   vipGrantReason String?  @db.VarChar(255)
   vipPurchaseToken String? @db.VarChar(500)
   createdAt      DateTime @default(now())

@@ -28,7 +28,7 @@ export async function GET(
     // Verify user exists
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { id: true, name: true, email: true, vipExpiresAt: true },
+      select: { id: true, name: true, email: true, vipExpiresAt: true, subscriptionPlan: true, vipPurchaseToken: true, vipGrantReason: true },
     });
     if (!user) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
@@ -97,24 +97,36 @@ export async function POST(
       return NextResponse.json({ error: 'Action is required.' }, { status: 400 });
     }
 
-    const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true } });
+    const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, vipPurchaseToken: true } });
     if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 });
 
     // ── VIP Actions ──
-    if (action === 'grant_vip' || action === 'revoke_vip') {
+    if (action === 'grant_vip' || action === 'grant_vip_1y' || action === 'revoke_vip') {
+      const isOrganicVip = !!user.vipPurchaseToken;
+
+      if (action === 'revoke_vip' && isOrganicVip) {
+        return NextResponse.json({ error: 'Cannot revoke: VIP was organically purchased via Play Store.' }, { status: 403 });
+      }
       let vipExpiresAt: Date | null = null;
+      let subscriptionPlan: string | null = null;
       if (action === 'grant_vip') {
         vipExpiresAt = new Date();
         vipExpiresAt.setMonth(vipExpiresAt.getMonth() + 1); // 1 month from now
+        subscriptionPlan = 'manual_1m';
+      } else if (action === 'grant_vip_1y') {
+        vipExpiresAt = new Date();
+        vipExpiresAt.setFullYear(vipExpiresAt.getFullYear() + 1); // 1 year from now
+        subscriptionPlan = 'manual_1y';
       }
       await prisma.user.update({
         where: { id: userId },
         data: { 
           vipExpiresAt,
-          vipGrantReason: action === 'grant_vip' ? (reason || 'Admin manual grant') : null
+          vipGrantReason: (action === 'grant_vip' || action === 'grant_vip_1y') ? (reason || 'Admin manual grant') : null,
+          subscriptionPlan: subscriptionPlan
         }
       });
-      return NextResponse.json({ ok: true, message: action === 'grant_vip' ? 'VIP granted for 1 month.' : 'VIP revoked.' });
+      return NextResponse.json({ ok: true, message: action === 'revoke_vip' ? 'VIP revoked.' : (action === 'grant_vip' ? 'VIP granted for 1 month.' : 'VIP granted for 1 year.') });
     }
 
     // ── Book Actions ──
@@ -139,16 +151,7 @@ export async function POST(
       return NextResponse.json({ ok: true, message: 'Access revoked.' });
     }
 
-    if (action === 'grant_6m' || action === 'grant_1y') {
-      let expiresAt: Date | null = null;
-      if (action === 'grant_6m') {
-        expiresAt = new Date();
-        expiresAt.setMonth(expiresAt.getMonth() + 6);
-      } else if (action === 'grant_1y') {
-        expiresAt = new Date();
-        expiresAt.setFullYear(expiresAt.getFullYear() + 1);
-      }
-
+    if (action === 'grant_lifetime') {
       const progress = await prisma.userProgress.upsert({
         where: { userId_productId: { userId, productId } },
         create: {
@@ -157,19 +160,19 @@ export async function POST(
           isPurchased: true,
           isManualGrant: true,
           grantReason: reason || 'Admin manual grant',
-          expiresAt,
+          expiresAt: null, // Lifetime
           lastReadPageIndex: 0,
         },
         update: {
           isPurchased: true,
           isManualGrant: true,
           grantReason: reason || 'Admin manual grant',
-          expiresAt,
+          expiresAt: null,
         },
         select: { isPurchased: true, isManualGrant: true, expiresAt: true, grantReason: true },
       });
 
-      return NextResponse.json({ ok: true, message: action === 'grant_6m' ? 'Granted for 6 months.' : 'Granted for 1 year.' });
+      return NextResponse.json({ ok: true, message: 'Lifetime access granted.' });
     }
 
     return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
