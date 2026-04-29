@@ -25,6 +25,8 @@ export async function POST(req: NextRequest) {
     const playCredentialsStr = process.env.GOOGLE_PLAY_CREDENTIALS;
     const packageName = process.env.ANDROID_PACKAGE_NAME || 'com.ramzbook.tj'; // Assuming 'com.ramzbook.tj' from previous context
 
+    let parsedExpiryTime: Date | null = null;
+
     if (playCredentialsStr) {
       try {
         const credentials = JSON.parse(playCredentialsStr);
@@ -36,7 +38,6 @@ export async function POST(req: NextRequest) {
         const androidPublisher = google.androidpublisher({ version: 'v3', auth });
         
         let isValid = false;
-        let parsedExpiryTime: Date | null = null;
 
         if (productId === 'standard_single_book') {
           const response = await androidPublisher.purchases.products.get({
