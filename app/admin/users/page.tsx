@@ -236,15 +236,15 @@ function AccessPanel({
                 <button
                   onClick={() => executeAction(book.id, 'grant_lifetime')}
                   disabled={busy}
-                  title="Дастрасии якумра"
+                  title="Дастрасии якумра ба ин китоб"
                   style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
-                    padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
-                    background: 'rgba(59,130,246,0.12)', color: '#3b82f6', fontSize: 11, fontWeight: 700,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+                    padding: '0 12px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
+                    background: 'linear-gradient(135deg, rgba(234,179,8,0.15), rgba(234,179,8,0.05))', color: '#ca8a04', fontSize: 11, fontWeight: 700,
                     opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
                   }}
                 >
-                  Якумра
+                  {busy && toggling === book.id ? <Loader2 size={12} className="spin" /> : <ShieldCheck size={12} />} Китоби якумра
                 </button>
               </>
             )}
@@ -302,55 +302,93 @@ function AccessPanel({
           ⚠️ <b>Огоҳӣ:</b> Функсияҳои додани дастрасӣ дар ин ҷо танҳо барои дастгирии техникӣ, промокодҳо ва давраҳои озмоишӣ мебошанд. Барои фурӯши муқаррарӣ истифода набаред (Google Play Policy).
         </div>
 
-        {/* Global VIP Status Banner */}
-        <div style={{ padding: '16px 24px', background: vipExpiresAt ? 'rgba(16,185,129,0.05)' : 'var(--bg-elevated)', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div>
-            <p style={{ fontSize: 13, fontWeight: 700, color: vipExpiresAt ? '#10b981' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <ShieldCheck size={16} /> 
-              Обунаи VIP {subscriptionPlan && <span style={{ fontSize: 10, padding: '2px 6px', background: 'rgba(16,185,129,0.15)', borderRadius: 4, textTransform: 'uppercase' }}>{subscriptionPlan}</span>}
-            </p>
-            {vipExpiresAt ? (
-              <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>Фаъол то: {new Date(vipExpiresAt).toLocaleDateString()}</p>
-            ) : (
-              <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>Обунаи фарогир ба тамоми китобҳо</p>
-            )}
-          </div>
-          <div style={{ display: 'flex', gap: 8 }}>
-            {vipExpiresAt ? (
-              <button
-                onClick={() => executeAction(null, 'revoke_vip')}
-                disabled={toggling === 'vip'}
-                style={{
-                  padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                  background: 'rgba(239,68,68,0.1)', color: '#ef4444'
-                }}
-              >
-                {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъи VIP'}
-              </button>
-            ) : (
-              <>
+        {/* Premium VIP Plans */}
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', background: 'var(--bg-surface)' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 12 }}>
+            Обунаҳои глобалӣ (VIP)
+          </p>
+          <div style={{ display: 'flex', gap: 12 }}>
+            {/* 1 Month Card */}
+            <div style={{
+              flex: 1, padding: '16px', borderRadius: 16,
+              background: vipExpiresAt && subscriptionPlan?.includes('1m') ? 'rgba(16,185,129,0.04)' : 'var(--bg-elevated)',
+              border: `1px solid ${vipExpiresAt && subscriptionPlan?.includes('1m') ? 'rgba(16,185,129,0.3)' : 'var(--bg-border)'}`,
+              display: 'flex', flexDirection: 'column', gap: 12
+            }}>
+              <div>
+                <h4 style={{ fontSize: 14, fontWeight: 700, color: vipExpiresAt && subscriptionPlan?.includes('1m') ? '#10b981' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <ShieldCheck size={16} color={vipExpiresAt && subscriptionPlan?.includes('1m') ? '#10b981' : 'var(--text-muted)'} /> 1 Моҳ
+                </h4>
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>Дастрасӣ ба ҳама китобҳо</p>
+              </div>
+              {!vipExpiresAt ? (
                 <button
                   onClick={() => executeAction(null, 'grant_vip')}
                   disabled={toggling === 'vip'}
                   style={{
-                    padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                    background: 'rgba(16,185,129,0.15)', color: '#10b981'
+                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                    background: 'rgba(16,185,129,0.1)', color: '#10b981'
                   }}
                 >
-                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'VIP (1 моҳ)'}
+                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
                 </button>
+              ) : subscriptionPlan?.includes('1m') ? (
+                <button
+                  onClick={() => executeAction(null, 'revoke_vip')}
+                  disabled={toggling === 'vip'}
+                  title={`Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`}
+                  style={{
+                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                    background: 'rgba(239,68,68,0.1)', color: '#ef4444'
+                  }}
+                >
+                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
+                </button>
+              ) : (
+                <div style={{ fontSize: 11, color: 'var(--text-muted)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
+              )}
+            </div>
+
+            {/* 1 Year Card */}
+            <div style={{
+              flex: 1, padding: '16px', borderRadius: 16,
+              background: vipExpiresAt && subscriptionPlan?.includes('1y') ? 'rgba(59,130,246,0.04)' : 'var(--bg-elevated)',
+              border: `1px solid ${vipExpiresAt && subscriptionPlan?.includes('1y') ? 'rgba(59,130,246,0.3)' : 'var(--bg-border)'}`,
+              display: 'flex', flexDirection: 'column', gap: 12
+            }}>
+              <div>
+                <h4 style={{ fontSize: 14, fontWeight: 700, color: vipExpiresAt && subscriptionPlan?.includes('1y') ? '#3b82f6' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <ShieldCheck size={16} color={vipExpiresAt && subscriptionPlan?.includes('1y') ? '#3b82f6' : 'var(--text-muted)'} /> 1 Сол
+                </h4>
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>Беҳтарин интихоб</p>
+              </div>
+              {!vipExpiresAt ? (
                 <button
                   onClick={() => executeAction(null, 'grant_vip_1y')}
                   disabled={toggling === 'vip'}
                   style={{
-                    padding: '6px 14px', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                    background: 'rgba(59,130,246,0.15)', color: '#3b82f6'
+                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                    background: 'rgba(59,130,246,0.1)', color: '#3b82f6'
                   }}
                 >
-                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'VIP (1 сол)'}
+                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
                 </button>
-              </>
-            )}
+              ) : subscriptionPlan?.includes('1y') ? (
+                <button
+                  onClick={() => executeAction(null, 'revoke_vip')}
+                  disabled={toggling === 'vip'}
+                  title={`Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`}
+                  style={{
+                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                    background: 'rgba(239,68,68,0.1)', color: '#ef4444'
+                  }}
+                >
+                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
+                </button>
+              ) : (
+                <div style={{ fontSize: 11, color: 'var(--text-muted)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
+              )}
+            </div>
           </div>
         </div>
 
