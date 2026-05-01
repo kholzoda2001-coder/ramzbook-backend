@@ -30,8 +30,8 @@ export async function GET(req: NextRequest) {
         languageCode: true,
         rating: true,
         isFree: true,
-        priceSixMonths: true,
-        priceLifetime: true,
+        pdfUrl: true,
+        previewPdfUrl: true,
         createdAt: true,
         _count: {
           select: { modules: true },

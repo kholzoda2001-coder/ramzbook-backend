@@ -93,6 +93,8 @@ export async function GET(
       isFree: product.isFree,
       priceSixMonths: product.priceSixMonths,
       priceLifetime: product.priceLifetime,
+      pdfUrl: product.pdfUrl ?? null,
+      previewPdfUrl: product.previewPdfUrl ?? null,
       progress: progressRatio,
       lastReadPageIndex,
       modules: product.modules.map((m) => {

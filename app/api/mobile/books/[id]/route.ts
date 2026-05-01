@@ -142,6 +142,8 @@ export async function GET(
       progress: progressRatio,
       lastReadPageIndex,
       modules,
+      pdfUrl: product.pdfUrl ?? null,
+      previewPdfUrl: product.previewPdfUrl ?? null,
     };
 
     return Response.json(response);
