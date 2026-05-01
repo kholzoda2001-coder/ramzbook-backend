@@ -82,6 +82,7 @@ export async function GET(
       rating: product.rating,
       category: product.category ?? '',
       description: product.description ?? '',
+      languageCode: product.languageCode ?? 'en-US',
       preface: product.preface ?? '',
       alphabet: parseJsonArray(product.alphabet as string | null),
       guide: product.guide ?? '',

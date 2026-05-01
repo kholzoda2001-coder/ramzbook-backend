@@ -27,6 +27,7 @@ export async function GET(req: NextRequest) {
         coverUrl: true,
         description: true,
         category: true,
+        languageCode: true,
         rating: true,
         isFree: true,
         priceSixMonths: true,

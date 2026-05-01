@@ -450,7 +450,7 @@ export default function UsersPage() {
   // Fetch users list on mount
   useEffect(() => {
     setLoading(true);
-    fetch('/api/admin/users')
+    fetch(`/api/admin/users?_t=${Date.now()}`)
       .then((r) => r.json())
       .then((data) => {
         setUsers(Array.isArray(data) ? data : []);

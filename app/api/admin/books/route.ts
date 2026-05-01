@@ -91,6 +91,12 @@ export async function POST(req: NextRequest) {
       return newProduct;
     });
 
+    // Trigger PDF generation asynchronously
+    fetch(`${req.nextUrl.origin}/api/admin/books/${product.id}/generate-pdf`, {
+      method: 'POST',
+      headers: { authorization: req.headers.get('authorization') || '' }
+    }).catch(e => console.error('Auto PDF gen error:', e));
+
     return NextResponse.json({ ...product, createdAt: product.createdAt.toISOString() });
   } catch (e) {
     console.error(e);

@@ -141,6 +141,7 @@ export default function EditBookPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCoverUploading, setIsCoverUploading] = useState(false);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   // ── Toast notifications ────────────────────────────────────────────────────
@@ -230,6 +231,26 @@ export default function EditBookPage() {
         setIsLoading(false);
       });
   }, [id]);
+
+  /* ─── PDF Generation Handler ─── */
+  const handleGeneratePdf = async () => {
+    if (!id) return;
+    setIsGeneratingPdf(true);
+    showToast('info', '⏳ Хулоса... PDF сохта шуда истодааст (ин метавонад чанд сония гирад)...');
+    try {
+      const res = await fetch(`/api/admin/books/${id}/generate-pdf`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to generate PDF');
+      
+      if (data.pdfUrl) setPdfUrl(data.pdfUrl);
+      showToast('success', '✅ PDF бо муваффақият сохта шуд!');
+    } catch (err: any) {
+      console.error(err);
+      showToast('error', `❌ Хатогӣ ҳангоми сохтани PDF: ${err.message}`);
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
 
   /* ─── Handlers ─── */
   const handleSubmit = async (e: React.FormEvent, asDraft = false) => {
@@ -418,6 +439,12 @@ export default function EditBookPage() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
           {submitError && <p style={{ fontSize: '12px', color: 'var(--red)', maxWidth: '260px' }}>⚠️ {submitError}</p>}
+          
+          <button type="button" onClick={handleGeneratePdf} disabled={isGeneratingPdf || isSubmitting}
+            style={{ padding: '10px 18px', borderRadius: '9px', background: 'rgba(236, 163, 54, 0.1)', border: '1px solid rgba(236, 163, 54, 0.3)', color: '#ECA336', fontSize: '13px', fontWeight: 600, cursor: (isGeneratingPdf || isSubmitting) ? 'not-allowed' : 'pointer', opacity: (isGeneratingPdf || isSubmitting) ? 0.6 : 1, display: 'flex', alignItems: 'center', gap: '7px' }}>
+            <FileText size={14} />{isGeneratingPdf ? 'Generating...' : 'Сохтани PDF'}
+          </button>
+
           <button type="button" onClick={(e) => handleSubmit(e, true)} disabled={isSubmitting || isCoverUploading}
             style={{ padding: '10px 18px', borderRadius: '9px', background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', color: 'var(--text-secondary)', fontSize: '13px', fontWeight: 600, cursor: (isSubmitting || isCoverUploading) ? 'not-allowed' : 'pointer', opacity: (isSubmitting || isCoverUploading) ? 0.6 : 1, display: 'flex', alignItems: 'center', gap: '7px' }}>
             <Save size={14} />{isCoverUploading ? 'Uploading Image…' : isSubmitting ? 'Saving…' : 'Save Draft'}

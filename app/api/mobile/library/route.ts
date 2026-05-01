@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
         prisma.product.findMany({
           where: { isActive: true },
           select: {
-            id: true, title: true, author: true, coverUrl: true, description: true, category: true, rating: true, isFree: true,
+            id: true, title: true, author: true, coverUrl: true, description: true, category: true, rating: true, isFree: true, languageCode: true,
             _count: { select: { modules: true } },
           }
         }),
@@ -71,6 +71,7 @@ export async function GET(req: NextRequest) {
               coverUrl: true,
               description: true,
               category: true,
+              languageCode: true,
               rating: true,
               isFree: true,
               _count: { select: { modules: true } },
