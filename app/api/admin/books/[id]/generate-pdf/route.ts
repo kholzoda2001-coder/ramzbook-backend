@@ -34,14 +34,15 @@ export async function POST(
     }
 
     // Generate Full PDF
-    const fullPdfBuffer = await generateBookPdfBuffer(book as any, false);
+    const origin = req.nextUrl.origin;
+    const fullPdfBuffer = await generateBookPdfBuffer(book as any, false, origin);
     const fullBlob = await put(`pdfs/${book.id}_full.pdf`, fullPdfBuffer, {
       access: 'public',
       addRandomSuffix: false, // Override if it exists
     });
 
     // Generate Preview PDF
-    const previewPdfBuffer = await generateBookPdfBuffer(book as any, true);
+    const previewPdfBuffer = await generateBookPdfBuffer(book as any, true, origin);
     const previewBlob = await put(`pdfs/${book.id}_preview.pdf`, previewPdfBuffer, {
       access: 'public',
       addRandomSuffix: false,
