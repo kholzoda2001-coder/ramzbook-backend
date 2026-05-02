@@ -35,7 +35,7 @@ export type PdfProductData = {
  * @returns Buffer containing the PDF data
  */
 export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boolean = false): Promise<Buffer> {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     try {
       const doc = new PDFDocument({
         size: 'A4',
@@ -49,16 +49,38 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
       doc.on('error', reject);
 
       // Register fonts
-      const fontRegular = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Regular.ttf');
-      const fontBold = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Bold.ttf');
-      
       try {
-        doc.registerFont('Regular', fontRegular);
-        doc.registerFont('Bold', fontBold);
+        // Try local file system first (works locally)
+        const fs = require('fs');
+        const fontRegular = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Regular.ttf');
+        const fontBold = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Bold.ttf');
+        if (fs.existsSync(fontRegular) && fs.existsSync(fontBold)) {
+          doc.registerFont('Regular', fontRegular);
+          doc.registerFont('Bold', fontBold);
+        } else {
+          throw new Error('Local fonts not found');
+        }
       } catch (e) {
-        console.warn('Custom fonts not found, falling back to standard fonts');
-        doc.registerFont('Regular', 'Helvetica');
-        doc.registerFont('Bold', 'Helvetica-Bold');
+        try {
+          // Fallback to fetching from URL (for Vercel serverless functions)
+          console.log('Fetching fonts from URL...');
+          const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://admin.ramz.tj';
+          const [regRes, boldRes] = await Promise.all([
+            fetch(`${baseUrl}/fonts/Roboto-Regular.ttf`),
+            fetch(`${baseUrl}/fonts/Roboto-Bold.ttf`)
+          ]);
+          
+          if (regRes.ok && boldRes.ok) {
+            doc.registerFont('Regular', Buffer.from(await regRes.arrayBuffer()));
+            doc.registerFont('Bold', Buffer.from(await boldRes.arrayBuffer()));
+          } else {
+            throw new Error('Failed to fetch fonts via HTTP');
+          }
+        } catch (err) {
+          console.warn('All font loading failed, falling back to Helvetica', err);
+          doc.registerFont('Regular', 'Helvetica');
+          doc.registerFont('Bold', 'Helvetica-Bold');
+        }
       }
 
       // Colors

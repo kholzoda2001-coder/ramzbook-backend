@@ -64,7 +64,8 @@ export async function POST(
     });
   } catch (error) {
     console.error('[generate-pdf error]', error);
-    return apiError('Failed to generate PDF');
+    const msg = error instanceof Error ? error.message : String(error);
+    return apiError(`Failed to generate PDF: ${msg}`);
   }
 }
 
