@@ -37,10 +37,45 @@ export type PdfProductData = {
 export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boolean = false, origin: string = 'https://admin.ramz.tj'): Promise<Buffer> {
   return new Promise(async (resolve, reject) => {
     try {
+      // --- Load font buffers BEFORE creating PDFDocument ---
+      // This avoids the Helvetica.afm ENOENT error on Vercel serverless
+      let regularFontSrc: string | Buffer;
+      let boldFontSrc: string | Buffer;
+
+      try {
+        const fs = require('fs');
+        const fontRegularPath = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Regular.ttf');
+        const fontBoldPath = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Bold.ttf');
+        if (fs.existsSync(fontRegularPath) && fs.existsSync(fontBoldPath)) {
+          regularFontSrc = fontRegularPath;
+          boldFontSrc = fontBoldPath;
+        } else {
+          throw new Error('Local fonts not found');
+        }
+      } catch (e) {
+        // Fallback: fetch fonts from URL (for Vercel serverless)
+        console.log(`Fetching fonts from URL: ${origin}`);
+        const regUrl = `${origin}/fonts/Roboto-Regular.ttf`;
+        const boldUrl = `${origin}/fonts/Roboto-Bold.ttf`;
+
+        const [regRes, boldRes] = await Promise.all([
+          fetch(regUrl),
+          fetch(boldUrl)
+        ]);
+
+        if (!regRes.ok) throw new Error(`Failed to fetch Regular font from ${regUrl}: ${regRes.status}`);
+        if (!boldRes.ok) throw new Error(`Failed to fetch Bold font from ${boldUrl}: ${boldRes.status}`);
+
+        regularFontSrc = Buffer.from(await regRes.arrayBuffer());
+        boldFontSrc = Buffer.from(await boldRes.arrayBuffer());
+      }
+
+      // Create PDFDocument with NO default font to avoid Helvetica.afm lookup
       const doc = new PDFDocument({
         size: 'A4',
         margin: 50,
         bufferPages: true,
+        font: regularFontSrc,
       });
 
       const buffers: Buffer[] = [];
@@ -48,35 +83,9 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
       doc.on('end', () => resolve(Buffer.concat(buffers)));
       doc.on('error', reject);
 
-      // Register fonts
-      try {
-        // Try local file system first (works locally)
-        const fs = require('fs');
-        const fontRegular = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Regular.ttf');
-        const fontBold = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Bold.ttf');
-        if (fs.existsSync(fontRegular) && fs.existsSync(fontBold)) {
-          doc.registerFont('Regular', fontRegular);
-          doc.registerFont('Bold', fontBold);
-        } else {
-          throw new Error('Local fonts not found');
-        }
-      } catch (e) {
-        // Fallback to fetching from URL (for Vercel serverless functions)
-        console.log(`Fetching fonts from URL: ${origin}`);
-        const regUrl = `${origin}/fonts/Roboto-Regular.ttf`;
-        const boldUrl = `${origin}/fonts/Roboto-Bold.ttf`;
-        
-        const [regRes, boldRes] = await Promise.all([
-          fetch(regUrl),
-          fetch(boldUrl)
-        ]);
-        
-        if (!regRes.ok) throw new Error(`Failed to fetch Regular font from ${regUrl}: ${regRes.status}`);
-        if (!boldRes.ok) throw new Error(`Failed to fetch Bold font from ${boldUrl}: ${boldRes.status}`);
-        
-        doc.registerFont('Regular', Buffer.from(await regRes.arrayBuffer()));
-        doc.registerFont('Bold', Buffer.from(await boldRes.arrayBuffer()));
-      }
+      // Register named fonts for use throughout the document
+      doc.registerFont('Regular', regularFontSrc);
+      doc.registerFont('Bold', boldFontSrc);
 
       // Colors
       const primaryColor = '#2D8C94';
