@@ -3,6 +3,12 @@ const nextConfig = {
   serverExternalPackages: ['pdfkit'],
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client', 'pdfkit'],
+    outputFileTracingIncludes: {
+      '/api/admin/books/\\[id\\]/generate-pdf': [
+        './node_modules/pdfkit/js/data/**/*',
+        './public/fonts/**/*',
+      ],
+    },
   },
   images: {
     remotePatterns: [
