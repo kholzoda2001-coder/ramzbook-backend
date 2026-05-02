@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ['pdfkit'],
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client', 'pdfkit'],
   },
