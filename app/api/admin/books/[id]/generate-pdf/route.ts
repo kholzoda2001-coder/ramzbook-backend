@@ -9,8 +9,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const adminId = requireUserId(req);
-    if (!adminId) return unauthorized();
+    // Auth is handled by middleware.ts for /api/admin/* routes
 
     const book = await prisma.product.findUnique({
       where: { id: params.id },
