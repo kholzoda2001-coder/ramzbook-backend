@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
   try {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { id: true, name: true, email: true, vipExpiresAt: true },
+      select: { id: true, name: true, email: true, phone: true, vipExpiresAt: true },
     });
 
     if (!user) {
@@ -59,7 +59,7 @@ export async function PATCH(req: NextRequest) {
     const user = await prisma.user.update({
       where: { id: userId },
       data: { name },
-      select: { id: true, name: true, email: true },
+      select: { id: true, name: true, email: true, phone: true, vipExpiresAt: true },
     });
 
     return Response.json({ user }, { status: 200, headers: CORS });

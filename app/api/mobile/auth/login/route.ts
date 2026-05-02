@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
     });
 
     return Response.json({
-      user: { id: user.id, name: user.name, email: user.email },
+      user: { id: user.id, name: user.name, email: user.email, phone: user.phone },
       accessToken,
       refreshToken,
     });
