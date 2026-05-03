@@ -1,14 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Bundle pdfkit as an external server package to avoid tree-shaking issues
   serverExternalPackages: ['pdfkit'],
+  // Include pdfkit AFM font data + our custom fonts in the serverless bundle
+  outputFileTracingIncludes: {
+    '/api/admin/books/[id]/generate-pdf': [
+      './node_modules/pdfkit/js/data/**/*',
+      './public/fonts/**/*',
+    ],
+  },
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client', 'pdfkit'],
-    outputFileTracingIncludes: {
-      '/api/admin/books/\\[id\\]/generate-pdf': [
-        './node_modules/pdfkit/js/data/**/*',
-        './public/fonts/**/*',
-      ],
-    },
   },
   images: {
     remotePatterns: [

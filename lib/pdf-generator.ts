@@ -38,21 +38,35 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
   return new Promise(async (resolve, reject) => {
     try {
       // --- Load font buffers BEFORE creating PDFDocument ---
-      // This avoids the Helvetica.afm ENOENT error on Vercel serverless
-      let regularFontSrc: string | Buffer;
-      let boldFontSrc: string | Buffer;
+      // In Vercel serverless, process.cwd() may not contain public/, so we
+      // first try the path included via outputFileTracingIncludes, then
+      // fall back to fetching from the deployment's public URL.
+      let regularFontSrc: Buffer;
+      let boldFontSrc: Buffer;
 
+      let fontsLoaded = false;
       try {
-        const fs = require('fs');
-        const fontRegularPath = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Regular.ttf');
-        const fontBoldPath = path.join(process.cwd(), 'public', 'fonts', 'Roboto-Bold.ttf');
-        if (fs.existsSync(fontRegularPath) && fs.existsSync(fontBoldPath)) {
-          regularFontSrc = fontRegularPath;
-          boldFontSrc = fontBoldPath;
-        } else {
-          throw new Error('Local fonts not found');
+        const fs = require('fs') as typeof import('fs');
+        // Try multiple possible paths for the font files
+        const possibleBases = [
+          path.join(process.cwd(), 'public', 'fonts'),
+          path.join(__dirname, '..', '..', '..', 'public', 'fonts'),
+        ];
+        for (const base of possibleBases) {
+          const rPath = path.join(base, 'Roboto-Regular.ttf');
+          const bPath = path.join(base, 'Roboto-Bold.ttf');
+          if (fs.existsSync(rPath) && fs.existsSync(bPath)) {
+            regularFontSrc = fs.readFileSync(rPath);
+            boldFontSrc = fs.readFileSync(bPath);
+            fontsLoaded = true;
+            break;
+          }
         }
-      } catch (e) {
+      } catch (_) {
+        // Will fall through to URL fetch
+      }
+
+      if (!fontsLoaded) {
         // Fallback: fetch fonts from URL (for Vercel serverless)
         console.log(`Fetching fonts from URL: ${origin}`);
         const regUrl = `${origin}/fonts/Roboto-Regular.ttf`;
@@ -63,19 +77,20 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
           fetch(boldUrl)
         ]);
 
-        if (!regRes.ok) throw new Error(`Failed to fetch Regular font from ${regUrl}: ${regRes.status}`);
-        if (!boldRes.ok) throw new Error(`Failed to fetch Bold font from ${boldUrl}: ${boldRes.status}`);
+        if (!regRes.ok) throw new Error(`Failed to fetch Regular font: ${regRes.status}`);
+        if (!boldRes.ok) throw new Error(`Failed to fetch Bold font: ${boldRes.status}`);
 
         regularFontSrc = Buffer.from(await regRes.arrayBuffer());
         boldFontSrc = Buffer.from(await boldRes.arrayBuffer());
       }
 
       // Create PDFDocument with NO default font to avoid Helvetica.afm lookup
+      // regularFontSrc & boldFontSrc are always assigned above (fs or fetch)
       const doc = new PDFDocument({
         size: 'A4',
         margin: 50,
         bufferPages: true,
-        font: regularFontSrc,
+        font: regularFontSrc!,
       });
 
       const buffers: Buffer[] = [];
@@ -84,8 +99,8 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
       doc.on('error', reject);
 
       // Register named fonts for use throughout the document
-      doc.registerFont('Regular', regularFontSrc);
-      doc.registerFont('Bold', boldFontSrc);
+      doc.registerFont('Regular', regularFontSrc!);
+      doc.registerFont('Bold', boldFontSrc!);
 
       // Colors
       const primaryColor = '#2D8C94';
