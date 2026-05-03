@@ -41,8 +41,10 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
       // In Vercel serverless, process.cwd() may not contain public/, so we
       // first try the path included via outputFileTracingIncludes, then
       // fall back to fetching from the deployment's public URL.
-      let regularFontSrc: Buffer;
-      let boldFontSrc: Buffer;
+      // Using 'any' here because Buffer is a valid pdfkit font source at runtime
+      // but @types/pdfkit incorrectly restricts the type to string only.
+      let regularFontSrc: any = null;
+      let boldFontSrc: any = null;
 
       let fontsLoaded = false;
       try {
@@ -84,13 +86,16 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
         boldFontSrc = Buffer.from(await boldRes.arrayBuffer());
       }
 
-      // Create PDFDocument with NO default font to avoid Helvetica.afm lookup
-      // regularFontSrc & boldFontSrc are always assigned above (fs or fetch)
+      if (!regularFontSrc || !boldFontSrc) {
+        throw new Error('Could not load fonts from any source');
+      }
+
+      // Create PDFDocument WITHOUT specifying font in options to avoid
+      // Helvetica.afm lookup. We register and activate our custom fonts below.
       const doc = new PDFDocument({
         size: 'A4',
         margin: 50,
         bufferPages: true,
-        font: regularFontSrc!,
       });
 
       const buffers: Buffer[] = [];
@@ -99,8 +104,11 @@ export async function generateBookPdfBuffer(book: PdfProductData, isPreview: boo
       doc.on('error', reject);
 
       // Register named fonts for use throughout the document
-      doc.registerFont('Regular', regularFontSrc!);
-      doc.registerFont('Bold', boldFontSrc!);
+      // (regularFontSrc / boldFontSrc are 'any' so TypeScript accepts Buffer here)
+      doc.registerFont('Regular', regularFontSrc);
+      doc.registerFont('Bold', boldFontSrc);
+      // Activate Regular immediately so PDFKit never tries to fall back to Helvetica
+      doc.font('Regular');
 
       // Colors
       const primaryColor = '#2D8C94';
