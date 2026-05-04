@@ -112,8 +112,9 @@ export async function GET(
       };
     });
 
-    // ── FALLBACK FOR LEGACY DATA (If Product only has old BookChapters) ──
-    if (modules.length === 0 && product.bookChapters && product.bookChapters.length > 0) {
+    // ── FALLBACK FOR LEGACY DATA (If Product only has old BookChapters or empty modules) ──
+    const hasAnyContent = modules.some(m => (m.words && m.words.length > 0) || (m.quizzes && m.quizzes.length > 0));
+    if (!hasAnyContent && product.bookChapters && product.bookChapters.length > 0) {
       modules = product.bookChapters.map((chapter) => {
         const words = chapter.vocabularyItems.map(vi => ({
           id: vi.id,

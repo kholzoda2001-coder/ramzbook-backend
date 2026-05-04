@@ -46,7 +46,8 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
       };
     });
 
-    if (modulesData.length === 0 && product.bookChapters && product.bookChapters.length > 0) {
+    const hasAnyContent = modulesData.some(m => (m.vocabulary && m.vocabulary.length > 0) || (m.quizzes && m.quizzes.length > 0));
+    if (!hasAnyContent && product.bookChapters && product.bookChapters.length > 0) {
       modulesData = product.bookChapters.map((chapter) => {
         const words = chapter.vocabularyItems.map(vi => ({
           id: vi.id,
