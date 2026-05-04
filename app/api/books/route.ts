@@ -44,7 +44,11 @@ export async function GET(req: NextRequest) {
     
     if (userId !== 'guest') {
       const progressRecords = await prisma.userProgress.findMany({
-        where: { userId, isPurchased: true },
+        where: {
+          userId,
+          OR: [{ isPurchased: true }, { isManualGrant: true }],
+          AND: [{ OR: [{ expiresAt: null }, { expiresAt: { gt: new Date() } }] }]
+        },
         select: { productId: true },
       });
       purchasedProductIds = new Set(progressRecords.map(p => p.productId));
