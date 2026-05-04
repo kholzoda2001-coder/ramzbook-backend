@@ -56,10 +56,17 @@ export async function GET(req: NextRequest) {
       const progressRecords = await prisma.userProgress.findMany({
         where: { 
           userId, 
-          isPurchased: true,
           OR: [
-            { expiresAt: null },
-            { expiresAt: { gt: new Date() } }
+            { isPurchased: true },
+            { isManualGrant: true }
+          ],
+          AND: [
+            {
+              OR: [
+                { expiresAt: null },
+                { expiresAt: { gt: new Date() } }
+              ]
+            }
           ]
         },
         include: {

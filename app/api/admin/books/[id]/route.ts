@@ -13,12 +13,19 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
           include: {
             pages: { orderBy: { orderIndex: 'asc' } }
           }
+        },
+        bookChapters: {
+          orderBy: { orderIndex: 'asc' },
+          include: {
+            vocabularyItems: { orderBy: { orderIndex: 'asc' } },
+            dialogueLines: { orderBy: { orderIndex: 'asc' } }
+          }
         }
       }
     });
     if (!product) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-    const modulesData = product.modules.map(mod => {
+    let modulesData = product.modules.map(mod => {
       const vocabPage = mod.pages.find(p => p.pageType === 'VOCAB');
       const quizPage = mod.pages.find(p => p.pageType === 'QUIZ');
 
@@ -38,6 +45,30 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
         quizzes: q.questions || [],
       };
     });
+
+    if (modulesData.length === 0 && product.bookChapters && product.bookChapters.length > 0) {
+      modulesData = product.bookChapters.map((chapter) => {
+        const words = chapter.vocabularyItems.map(vi => ({
+          id: vi.id,
+          originalWord: vi.originalWord,
+          word: vi.originalWord, // For admin UI mapping
+          transcriptionEn: '',
+          transcriptionTj: vi.pronunciationTajik ?? '', // Admin UI expects Tj here
+          trans_TJ: vi.transcription ?? '', // Legacy
+          trans_EN: vi.pronunciationTajik ?? '', // Legacy
+          pronunciation: vi.pronunciationTajik ?? '',
+          translation: vi.translationTajik ?? '',
+          audioUrl: vi.audioUrl ?? ''
+        }));
+        return {
+          id: chapter.id,
+          title: chapter.title,
+          isPremium: false,
+          vocabulary: words,
+          quizzes: [],
+        };
+      });
+    }
 
     return NextResponse.json({ ...product, modulesData });
   } catch (e) {

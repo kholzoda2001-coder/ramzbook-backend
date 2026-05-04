@@ -44,6 +44,13 @@ export async function GET(
             },
           },
         },
+        bookChapters: {
+          orderBy: { orderIndex: 'asc' },
+          include: {
+            vocabularyItems: { orderBy: { orderIndex: 'asc' } },
+            dialogueLines: { orderBy: { orderIndex: 'asc' } }
+          }
+        }
       },
     });
 
@@ -67,7 +74,7 @@ export async function GET(
     let bookIsPurchased = false;
     let effectiveExpiresAt: string | null = null;
 
-    if (progress?.isPurchased) {
+    if (progress?.isPurchased || progress?.isManualGrant) {
       if (!progress.expiresAt || new Date(progress.expiresAt).getTime() > Date.now()) {
         bookIsPurchased = true;
       }
@@ -82,7 +89,7 @@ export async function GET(
     const actuallyOwned = isVip || bookIsPurchased || product.isFree;
 
     // ── Shape modules — content is stored as a JSON string in SQLite ─────
-    const modules = product.modules.map((mod) => {
+    let modules = product.modules.map((mod) => {
       const vocabPage = mod.pages.find((p) => p.pageType === 'VOCAB');
       const quizPage  = mod.pages.find((p) => p.pageType === 'QUIZ');
 
@@ -104,6 +111,28 @@ export async function GET(
         quizzes: (quizContent.questions as unknown[]) ?? [],
       };
     });
+
+    // ── FALLBACK FOR LEGACY DATA (If Product only has old BookChapters) ──
+    if (modules.length === 0 && product.bookChapters && product.bookChapters.length > 0) {
+      modules = product.bookChapters.map((chapter) => {
+        const words = chapter.vocabularyItems.map(vi => ({
+          id: vi.id,
+          originalWord: vi.originalWord,
+          transcription: vi.transcription ?? '',
+          pronunciation: vi.pronunciationTajik ?? '',
+          translation: vi.translationTajik ?? '',
+          audioUrl: vi.audioUrl ?? ''
+        }));
+        return {
+          id: chapter.id,
+          title: chapter.title,
+          orderIndex: chapter.orderIndex,
+          isFreePreview: false,
+          words: words,
+          quizzes: [],
+        };
+      });
+    }
 
     // ── JSON column parsers ────────────────────────────────────────────────
     const parseJsonArray = (raw: string | null | undefined) => {
