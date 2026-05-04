@@ -475,14 +475,57 @@ export default function EditBookPage() {
               <div>
                 <Label htmlFor="languageCode">Target Language</Label>
                 <select id="languageCode" className="input-field" value={languageCode} onChange={(e) => setLanguageCode(e.target.value)}>
-                  <option value="en-US">English (US)</option>
-                  <option value="en-GB">English (UK)</option>
-                  <option value="de-DE">German</option>
-                  <option value="ru-RU">Russian</option>
-                  <option value="zh-CN">Chinese (Simplified)</option>
-                  <option value="tr-TR">Turkish</option>
-                  <option value="fr-FR">French</option>
-                  <option value="es-ES">Spanish</option>
+                  <optgroup label="─── Забонҳои Аврупо ───">
+                    <option value="en-US">🇺🇸 English (US) — Англисӣ</option>
+                    <option value="en-GB">🇬🇧 English (UK) — Англисӣ</option>
+                    <option value="ru-RU">🇷🇺 Russian — Русӣ</option>
+                    <option value="de-DE">🇩🇪 German — Олмонӣ</option>
+                    <option value="fr-FR">🇫🇷 French — Франсузӣ</option>
+                    <option value="es-ES">🇪🇸 Spanish — Испанӣ</option>
+                    <option value="it-IT">🇮🇹 Italian — Италявӣ</option>
+                    <option value="pt-BR">🇧🇷 Portuguese — Португалӣ</option>
+                    <option value="nl-NL">🇳🇱 Dutch — Ҳолландӣ</option>
+                    <option value="pl-PL">🇵🇱 Polish — Лаҳистонӣ</option>
+                    <option value="sv-SE">🇸🇪 Swedish — Шведӣ</option>
+                    <option value="nb-NO">🇳🇴 Norwegian — Норвегӣ</option>
+                    <option value="da-DK">🇩🇰 Danish — Даниягӣ</option>
+                    <option value="fi-FI">🇫🇮 Finnish — Финӣ</option>
+                    <option value="el-GR">🇬🇷 Greek — Юнонӣ</option>
+                    <option value="cs-CZ">🇨🇿 Czech — Чехӣ</option>
+                    <option value="ro-RO">🇷🇴 Romanian — Руминӣ</option>
+                    <option value="hu-HU">🇭🇺 Hungarian — Маҷорӣ</option>
+                    <option value="uk-UA">🇺🇦 Ukrainian — Украинӣ</option>
+                    <option value="bg-BG">🇧🇬 Bulgarian — Болгорӣ</option>
+                    <option value="hr-HR">🇭🇷 Croatian — Хорватӣ</option>
+                    <option value="sk-SK">🇸🇰 Slovak — Словакӣ</option>
+                    <option value="sr-RS">🇷🇸 Serbian — Сербӣ</option>
+                    <option value="ca-ES">🏴󠁥󠁳󠁣󠁴󠁿 Catalan — Каталонӣ</option>
+                  </optgroup>
+                  <optgroup label="─── Забонҳои Осиёи Шарқӣ ───">
+                    <option value="zh-CN">🇨🇳 Chinese — Хитойӣ</option>
+                    <option value="ja-JP">🇯🇵 Japanese — Японӣ</option>
+                    <option value="ko-KR">🇰🇷 Korean — Кореягӣ</option>
+                    <option value="vi-VN">🇻🇳 Vietnamese — Вьетнамӣ</option>
+                    <option value="th-TH">🇹🇭 Thai — Тайӣ</option>
+                    <option value="id-ID">🇮🇩 Indonesian — Индонезиягӣ</option>
+                    <option value="ms-MY">🇲🇾 Malay — Малайӣ</option>
+                    <option value="tl-PH">🇵🇭 Filipino — Филиппинӣ</option>
+                  </optgroup>
+                  <optgroup label="─── Забонҳои Осиёи Ҷанубӣ ───">
+                    <option value="hi-IN">🇮🇳 Hindi — Ҳиндӣ</option>
+                    <option value="bn-BD">🇧🇩 Bengali — Бангалӣ</option>
+                    <option value="ur-PK">🇵🇰 Urdu — Урдуӣ</option>
+                    <option value="ta-IN">🇮🇳 Tamil — Тамилӣ</option>
+                  </optgroup>
+                  <optgroup label="─── Забонҳои Хавармиёна ───">
+                    <option value="ar-SA">🇸🇦 Arabic — Арабӣ</option>
+                    <option value="tr-TR">🇹🇷 Turkish — Туркӣ</option>
+                    <option value="fa-IR">🇮🇷 Persian — Форсӣ</option>
+                    <option value="he-IL">🇮🇱 Hebrew — Яҳудӣ</option>
+                  </optgroup>
+                  <optgroup label="─── Дигар забонҳо ───">
+                    <option value="sw-KE">🇰🇪 Swahili — Суахилӣ</option>
+                  </optgroup>
                 </select>
               </div>
               <div>

@@ -102,15 +102,44 @@ export async function GET(
         const quizPage     = m.pages.find((p) => p.pageType === 'QUIZ');
         const vocabContent = parsePageContent(vocabPage?.content);
         const quizContent  = parsePageContent(quizPage?.content);
-        // Count actual items stored rather than dividing page count
-        const wordsCount   = Array.isArray(vocabContent.words)     ? (vocabContent.words     as unknown[]).length : 0;
-        const quizzesCount = Array.isArray(quizContent.questions)  ? (quizContent.questions  as unknown[]).length : 0;
+
+        // Full word objects for the reader vocab page
+        const words = Array.isArray(vocabContent.words)
+          ? (vocabContent.words as Record<string, unknown>[]).map((w, i) => ({
+              id: w['id'] ?? `${m.id}_w${i}`,
+              originalWord: w['originalWord'] ?? w['word'] ?? '',
+              transcription: w['transcription'] ?? '',
+              pronunciation: w['pronunciation'] ?? '',
+              translation: w['translation'] ?? '',
+              audioUrl: w['audioUrl'] ?? null,
+              exampleSentence: w['exampleSentence'] ?? '',
+              exampleTranslation: w['exampleTranslation'] ?? '',
+            }))
+          : [];
+
+        // Full quiz objects for the reader quiz page
+        // DB stores them under 'questions' key; Flutter expects 'quizzes'
+        const rawQuestions = Array.isArray(quizContent.questions)
+          ? (quizContent.questions as Record<string, unknown>[])
+          : Array.isArray(quizContent.quizzes)
+            ? (quizContent.quizzes as Record<string, unknown>[])
+            : [];
+
+        const quizzes = rawQuestions.map((q, i) => ({
+          id: q['id'] ?? `${m.id}_q${i}`,
+          question: q['question'] ?? '',
+          options: Array.isArray(q['options']) ? q['options'] : [],
+          correctAnswerIndex: (q['correctAnswerIndex'] as number) ?? 0,
+        }));
+
         return {
           id: m.id,
           title: m.title,
           orderIndex: m.orderIndex,
           isFreePreview: m.isFreePreview,
-          _count: { words: wordsCount, quizzes: quizzesCount },
+          words,
+          quizzes,
+          _count: { words: words.length, quizzes: quizzes.length },
         };
       }),
     };
