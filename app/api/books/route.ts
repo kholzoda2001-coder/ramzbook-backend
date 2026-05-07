@@ -41,27 +41,36 @@ export async function GET(req: NextRequest) {
     });
 
     let purchasedProductIds = new Set<string>();
-    
+    let isVip = false;
+
     if (userId !== 'guest') {
-      const progressRecords = await prisma.userProgress.findMany({
-        where: {
-          userId,
-          OR: [{ isPurchased: true }, { isManualGrant: true }],
-          AND: [{ OR: [{ expiresAt: null }, { expiresAt: { gt: new Date() } }] }]
-        },
-        select: { productId: true },
-      });
+      const [progressRecords, user] = await Promise.all([
+        prisma.userProgress.findMany({
+          where: {
+            userId,
+            OR: [{ isPurchased: true }, { isManualGrant: true }],
+            AND: [{ OR: [{ expiresAt: null }, { expiresAt: { gt: new Date() } }] }],
+          },
+          select: { productId: true },
+        }),
+        prisma.user.findUnique({
+          where: { id: userId },
+          select: { vipExpiresAt: true },
+        }),
+      ]);
       purchasedProductIds = new Set(progressRecords.map(p => p.productId));
+      isVip = !!(user?.vipExpiresAt && new Date(user.vipExpiresAt).getTime() > Date.now());
     }
 
     const modifiedProducts = products.map((product) => {
-      const isPurchased = purchasedProductIds.has(product.id);
+      const isPurchased = isVip || purchasedProductIds.has(product.id);
       return {
         ...product,
         isOwned: isPurchased || product.isFree,
         isLocked: !(isPurchased || product.isFree),
       };
     });
+
     
     return NextResponse.json(modifiedProducts, { status: 200, headers: corsHeaders });
   } catch (err) {

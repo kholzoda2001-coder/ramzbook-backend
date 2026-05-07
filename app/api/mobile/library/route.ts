@@ -33,7 +33,14 @@ export async function GET(req: NextRequest) {
           where: { isActive: true },
           select: {
             id: true, title: true, author: true, coverUrl: true, description: true, category: true, rating: true, isFree: true, languageCode: true, pdfUrl: true, previewPdfUrl: true,
-            _count: { select: { modules: true } },
+            modules: {
+              orderBy: { orderIndex: 'asc' },
+              include: { pages: { orderBy: { orderIndex: 'asc' } } }
+            },
+            bookChapters: {
+              orderBy: { orderIndex: 'asc' },
+              include: { vocabularyItems: { orderBy: { orderIndex: 'asc' } }, dialogueLines: { orderBy: { orderIndex: 'asc' } } }
+            }
           }
         }),
         prisma.userProgress.findMany({ where: { userId } })
@@ -47,8 +54,9 @@ export async function GET(req: NextRequest) {
           isOwned: true,
           isLocked: false,
           expiresAt: user!.vipExpiresAt!.toISOString(),
-          progress: calculateProgress(lastRead, p._count.modules),
+          progress: calculateProgress(lastRead, p.modules.length > 0 ? p.modules.length : p.bookChapters.length),
           lastReadPageIndex: lastRead,
+          modules: formatModules(p as any),
         };
       });
     } else {
@@ -83,7 +91,14 @@ export async function GET(req: NextRequest) {
               isFree: true,
               pdfUrl: true,
               previewPdfUrl: true,
-              _count: { select: { modules: true } },
+              modules: {
+                orderBy: { orderIndex: 'asc' },
+                include: { pages: { orderBy: { orderIndex: 'asc' } } }
+              },
+              bookChapters: {
+                orderBy: { orderIndex: 'asc' },
+                include: { vocabularyItems: { orderBy: { orderIndex: 'asc' } }, dialogueLines: { orderBy: { orderIndex: 'asc' } } }
+              }
             },
           },
         },
@@ -95,8 +110,9 @@ export async function GET(req: NextRequest) {
         isOwned: true,
         isLocked: false,
         expiresAt: p.expiresAt?.toISOString() ?? null,
-        progress: calculateProgress(p.lastReadPageIndex, p.product._count.modules),
+        progress: calculateProgress(p.lastReadPageIndex, p.product.modules.length > 0 ? p.product.modules.length : p.product.bookChapters.length),
         lastReadPageIndex: p.lastReadPageIndex,
+        modules: formatModules(p.product as any),
       }));
     }
 
@@ -115,6 +131,54 @@ function calculateProgress(lastPageIndex: number, moduleCount: number): number {
   const totalPages = 4 + moduleCount * 2;
   if (totalPages === 0) return 0;
   return Math.min(lastPageIndex / totalPages, 1.0);
+}
+
+function formatModules(product: any) {
+  let modules = (product.modules || []).map((mod: any) => {
+    const vocabPage = mod.pages.find((p: any) => p.pageType === 'VOCAB');
+    const quizPage  = mod.pages.find((p: any) => p.pageType === 'QUIZ');
+
+    const parseContent = (raw: string | null | undefined) => {
+      if (!raw) return {};
+      try { return JSON.parse(raw); } catch { return {}; }
+    };
+
+    const vocabContent = parseContent(vocabPage?.content);
+    const quizContent  = parseContent(quizPage?.content);
+
+    return {
+      id: mod.id,
+      title: mod.title,
+      orderIndex: mod.orderIndex,
+      isFreePreview: mod.isFreePreview,
+      words:   vocabContent.words ?? [],
+      quizzes: quizContent.questions ?? [],
+    };
+  });
+
+  const hasAnyContent = modules.some((m: any) => (m.words && m.words.length > 0) || (m.quizzes && m.quizzes.length > 0));
+  if (!hasAnyContent && product.bookChapters && product.bookChapters.length > 0) {
+    modules = product.bookChapters.map((chapter: any) => {
+      const words = chapter.vocabularyItems.map((vi: any) => ({
+        id: vi.id,
+        originalWord: vi.originalWord,
+        transcription: vi.transcription ?? '',
+        pronunciation: vi.pronunciationTajik ?? '',
+        translation: vi.translationTajik ?? '',
+        audioUrl: vi.audioUrl ?? ''
+      }));
+      return {
+        id: chapter.id,
+        title: chapter.title,
+        orderIndex: chapter.orderIndex,
+        isFreePreview: false,
+        words: words,
+        quizzes: [],
+      };
+    });
+  }
+
+  return modules;
 }
 
 export async function OPTIONS() {

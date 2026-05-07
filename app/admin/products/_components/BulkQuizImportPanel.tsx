@@ -21,38 +21,107 @@ interface Props {
 }
 
 /* ─── Column mapping (case-insensitive key normalisation) ───────────────── */
-function normaliseRow(raw: Record<string, any>, idx: number): BulkQuizRow | null {
-  const g = (keys: string[]) => {
-    for (const k of keys) {
-      const val = raw[k] ?? raw[k.toLowerCase()] ?? raw[k.toUpperCase()] ?? '';
-      if (val !== '' && val !== undefined) return String(val).trim();
-    }
-    return '';
-  };
 
-  const question = g(['Question', 'question', 'Савол', 'савол']);
-  const opt1 = g(['Option 1', 'option 1', 'Option A', 'option A', 'Варианти 1']);
-  const opt2 = g(['Option 2', 'option 2', 'Option B', 'option B', 'Варианти 2']);
-  const opt3 = g(['Option 3', 'option 3', 'Option C', 'option C', 'Варианти 3']);
-  const opt4 = g(['Option 4', 'option 4', 'Option D', 'option D', 'Варианти 4']);
-  
-  const correctRaw = g(['Correct Option Index', 'Correct Option', 'Correct', 'Ҷавоби дуруст', 'Ҷавоб']);
-  
+/**
+ * Robust column getter — tries all provided key variants (case-insensitive too).
+ * Also tries with/without spaces and underscores.
+ */
+function getCell(raw: Record<string, any>, keys: string[]): string {
+  // Build a normalised lookup map once (lowercase, no spaces/underscores)
+  const normMap: Record<string, string> = {};
+  for (const rawKey of Object.keys(raw)) {
+    const normKey = rawKey.toLowerCase().replace(/[\s_]/g, '');
+    const val = raw[rawKey];
+    if (val !== null && val !== undefined && String(val).trim() !== '') {
+      normMap[normKey] = String(val).trim();
+    }
+  }
+
+  for (const k of keys) {
+    // Try exact match first
+    if (raw[k] !== undefined && raw[k] !== null && String(raw[k]).trim() !== '') {
+      return String(raw[k]).trim();
+    }
+    // Try case-insensitive / normalised match
+    const normK = k.toLowerCase().replace(/[\s_]/g, '');
+    if (normMap[normK]) return normMap[normK];
+  }
+  return '';
+}
+
+/**
+ * Parse the "correct answer" cell into a 0-based index.
+ * Accepts:
+ *   Numbers:  "1" → 0,  "2" → 1,  "3" → 2,  "4" → 3   (1-based, as in template)
+ *   Numbers:  "0" → 0,  …                                 (0-based fallback)
+ *   Letters:  "A"/"a" → 0,  "B"/"b" → 1,  "C"/"c" → 2,  "D"/"d" → 3
+ *   Prefixed: "Option 2", "Opt B", "Вариянти 3", "Answer: C", etc.
+ *   Defaults to 0 if unrecognised (and logs a warning).
+ */
+function parseCorrectIndex(raw: string, rowIdx: number): number {
+  if (!raw) return 0;
+
+  const s = raw.trim().toUpperCase();
+
+  // Extract the first meaningful token (letter A-D or digit 0-4)
+  // from strings like "OPTION 2", "OPT B", "ВАРИЯНТИ 3", "ANSWER: C"
+  const match = s.match(/([ABCD]|\b[0-4]\b)/);
+  if (!match) {
+    console.warn(`[BulkQuizImport] Row ${rowIdx}: Cannot parse correct answer "${raw}", defaulting to index 0`);
+    return 0;
+  }
+
+  const token = match[1];
+
+  if (token === 'A' || token === '1') return 0;
+  if (token === 'B' || token === '2') return 1;
+  if (token === 'C' || token === '3') return 2;
+  if (token === 'D' || token === '4') return 3;
+  if (token === '0') return 0; // 0-based fallback
+
+  console.warn(`[BulkQuizImport] Row ${rowIdx}: Unrecognised answer token "${token}" in "${raw}", defaulting to index 0`);
+  return 0;
+}
+
+function normaliseRow(raw: Record<string, any>, idx: number): BulkQuizRow | null {
+  const question = getCell(raw, [
+    'Question', 'question', 'Савол', 'савол', 'Вопрос', 'вопрос',
+  ]);
+  const opt1 = getCell(raw, [
+    'Option 1', 'option 1', 'option1', 'Option A', 'optionA', 'Opt1', 'A',
+    'Варианти 1', 'Вариант 1', 'Вариант А',
+  ]);
+  const opt2 = getCell(raw, [
+    'Option 2', 'option 2', 'option2', 'Option B', 'optionB', 'Opt2', 'B',
+    'Варианти 2', 'Вариант 2', 'Вариант Б',
+  ]);
+  const opt3 = getCell(raw, [
+    'Option 3', 'option 3', 'option3', 'Option C', 'optionC', 'Opt3', 'C',
+    'Варианти 3', 'Вариант 3', 'Вариант В',
+  ]);
+  const opt4 = getCell(raw, [
+    'Option 4', 'option 4', 'option4', 'Option D', 'optionD', 'Opt4', 'D',
+    'Варианти 4', 'Вариант 4', 'Вариант Г',
+  ]);
+
+  const correctRaw = getCell(raw, [
+    'Correct Option Index', 'correct option index', 'correctoptionindex',
+    'Correct Option', 'correct option', 'correctoption',
+    'Correct', 'correct',
+    'Answer', 'answer',
+    'Ҷавоби дуруст', 'ҷавоби дуруст',
+    'Ҷавоб', 'ҷавоб',
+    'Правильный ответ', 'Правильный',
+  ]);
+
   if (!question) return null;
 
-  // Parse correct index. If they typed "1", it means index 0.
-  // If they typed "A", it means index 0.
-  let correctIndex = 0;
-  if (/^[aA1]$/.test(correctRaw)) correctIndex = 0;
-  else if (/^[bB2]$/.test(correctRaw)) correctIndex = 1;
-  else if (/^[cC3]$/.test(correctRaw)) correctIndex = 2;
-  else if (/^[dD4]$/.test(correctRaw)) correctIndex = 3;
-  // fallback to 0 if not understood
+  const correctIndex = parseCorrectIndex(correctRaw, idx);
 
   return {
     question,
     options: [opt1, opt2, opt3, opt4],
-    correctIndex
+    correctIndex,
   };
 }
 

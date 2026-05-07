@@ -47,16 +47,25 @@ export async function GET(
     }
 
     let progress = null;
+    let isVip = false;
     if (userId !== 'guest') {
-      progress = await prisma.userProgress.findUnique({
-        where: { userId_productId: { userId, productId: bookId } },
-      });
+      const [prog, user] = await Promise.all([
+        prisma.userProgress.findUnique({
+          where: { userId_productId: { userId, productId: bookId } },
+        }),
+        prisma.user.findUnique({
+          where: { id: userId },
+          select: { vipExpiresAt: true },
+        }),
+      ]);
+      progress = prog;
+      isVip = !!(user?.vipExpiresAt && new Date(user.vipExpiresAt).getTime() > Date.now());
     }
 
-    // ── Ownership check: supports both purchased and manually granted access ──
+    // ── Ownership check: VIP, purchased, or manually granted ──
     const isBookAccessible = !!(progress?.isPurchased || progress?.isManualGrant);
     const isNotExpired = !progress?.expiresAt || new Date(progress.expiresAt).getTime() > Date.now();
-    const userOwns = isBookAccessible && isNotExpired;
+    const userOwns = isVip || (isBookAccessible && isNotExpired);
 
     const parseJsonArray = (raw: string | null | undefined): unknown[] => {
       if (!raw) return [];
