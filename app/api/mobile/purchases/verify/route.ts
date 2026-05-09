@@ -23,13 +23,22 @@ export async function POST(req: NextRequest) {
 
     // Google Play Developer API Verification Step
     const playCredentialsStr = process.env.GOOGLE_PLAY_CREDENTIALS;
-    const packageName = process.env.ANDROID_PACKAGE_NAME || 'com.ramzbook.tj'; // Assuming 'com.ramzbook.tj' from previous context
+    const packageName = process.env.ANDROID_PACKAGE_NAME || 'com.ramzbook.tj';
 
     let parsedExpiryTime: Date | null = null;
 
     if (playCredentialsStr) {
+      let credentials: any;
       try {
-        const credentials = JSON.parse(playCredentialsStr);
+        credentials = JSON.parse(playCredentialsStr);
+        console.log('[Billing] Credentials parsed OK, client_email:', credentials.client_email ?? '(missing)');
+      } catch (parseErr: any) {
+        console.error('[Billing] GOOGLE_PLAY_CREDENTIALS JSON parse FAILED:', parseErr.message);
+        console.error('[Billing] First 100 chars:', playCredentialsStr.substring(0, 100));
+        return NextResponse.json({ error: 'Server credentials misconfigured' }, { status: 500 });
+      }
+
+      try {
         const auth = new google.auth.GoogleAuth({
           credentials,
           scopes: ['https://www.googleapis.com/auth/androidpublisher'],
@@ -39,6 +48,8 @@ export async function POST(req: NextRequest) {
         
         let isValid = false;
 
+        console.log('[Billing] Verifying productId:', productId, 'packageName:', packageName);
+
         if (productId === 'standard_single_book') {
           const response = await androidPublisher.purchases.products.get({
             packageName,
@@ -46,6 +57,7 @@ export async function POST(req: NextRequest) {
             token: purchaseToken,
           });
           const purchase = response.data;
+          console.log('[Billing] Product purchase state:', purchase.purchaseState);
           // purchaseState 0 = PURCHASED
           if (purchase.purchaseState !== 0) {
             return NextResponse.json({ error: 'Purchase not successful on Google Play' }, { status: 400 });
@@ -60,6 +72,7 @@ export async function POST(req: NextRequest) {
 
           const purchase = response.data;
           const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
+          console.log('[Billing] Subscription expiry:', new Date(expiryTimeMillis).toISOString(), 'now:', new Date().toISOString());
           if (expiryTimeMillis < Date.now()) {
             return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
           }
@@ -85,11 +98,13 @@ export async function POST(req: NextRequest) {
         }
       } catch (err: any) {
         console.error('[Billing] Verification failed:', err.message);
+        console.error('[Billing] Error code:', err.code, 'status:', err.status);
+        if (err.errors) console.error('[Billing] Error details:', JSON.stringify(err.errors));
         return NextResponse.json({ error: 'Invalid Google Play receipt' }, { status: 400 });
       }
     } else {
       if (process.env.NODE_ENV === 'production') {
-        console.error('[Billing] CRITICAL: GOOGLE_PLAY_CREDENTIALS missing in production!');
+        console.error('[Billing] CRITICAL: GOOGLE_PLAY_CREDENTIALS env var is EMPTY or not set!');
         return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
       }
       console.warn('[Billing] Bypassing strict Google Play validation due to missing GOOGLE_PLAY_CREDENTIALS in development. Token:', purchaseToken);
