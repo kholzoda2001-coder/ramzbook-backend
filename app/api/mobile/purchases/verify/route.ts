@@ -64,42 +64,75 @@ export async function POST(req: NextRequest) {
           }
           isValid = true;
         } else {
-          const response = await androidPublisher.purchases.subscriptions.get({
-            packageName,
-            subscriptionId: productId,
-            token: purchaseToken,
-          });
+          try {
+            const response = await androidPublisher.purchases.subscriptions.get({
+              packageName,
+              subscriptionId: productId,
+              token: purchaseToken,
+            });
 
-          const purchase = response.data;
-          const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
-          console.log('[Billing] Subscription expiry:', new Date(expiryTimeMillis).toISOString(), 'now:', new Date().toISOString());
-          if (expiryTimeMillis < Date.now()) {
-            return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
-          }
-          
-          parsedExpiryTime = new Date(expiryTimeMillis);
+            const purchase = response.data;
+            const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
+            console.log('[Billing] Subscription expiry:', new Date(expiryTimeMillis).toISOString(), 'now:', new Date().toISOString());
+            if (expiryTimeMillis < Date.now()) {
+              return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
+            }
+            
+            parsedExpiryTime = new Date(expiryTimeMillis);
 
-          // Acknowledge the subscription if it hasn't been acknowledged yet
-          if (purchase.acknowledgementState === 0) {
+            // Acknowledge the subscription if it hasn't been acknowledged yet
+            if (purchase.acknowledgementState === 0) {
+              try {
+                await androidPublisher.purchases.subscriptions.acknowledge({
+                  packageName,
+                  subscriptionId: productId,
+                  token: purchaseToken,
+                });
+                console.log('[Billing] Server acknowledged subscription:', productId);
+              } catch (ackErr: any) {
+                console.error('[Billing] Failed to acknowledge subscription on server:', ackErr.message);
+              }
+            }
+
+            isValid = true;
+          } catch (subErr: any) {
+            console.warn('[Billing] subscriptions.get failed, trying products.get as fallback. Error:', subErr.message);
+            // Fallback for cases where VIP was created as an IN-APP PRODUCT instead of a SUBSCRIPTION
             try {
-              await androidPublisher.purchases.subscriptions.acknowledge({
+              const prodResponse = await androidPublisher.purchases.products.get({
                 packageName,
-                subscriptionId: productId,
+                productId,
                 token: purchaseToken,
               });
-              console.log('[Billing] Server acknowledged subscription:', productId);
-            } catch (ackErr: any) {
-              console.error('[Billing] Failed to acknowledge subscription on server:', ackErr.message);
-              // Non-fatal, client might have completed the purchase
+              const purchase = prodResponse.data;
+              console.log('[Billing] Fallback product purchase state:', purchase.purchaseState);
+              if (purchase.purchaseState !== 0) {
+                return NextResponse.json({ error: 'Purchase not successful on Google Play' }, { status: 400 });
+              }
+
+              if (purchase.acknowledgementState === 0) {
+                try {
+                  await androidPublisher.purchases.products.acknowledge({
+                    packageName,
+                    productId,
+                    token: purchaseToken,
+                  });
+                  console.log('[Billing] Server acknowledged product fallback:', productId);
+                } catch (ackErr: any) {
+                  console.error('[Billing] Failed to acknowledge product fallback on server:', ackErr.message);
+                }
+              }
+
+              // parsedExpiryTime remains null, so it falls back to manual +1 month / +1 year
+              isValid = true;
+            } catch (fallbackErr: any) {
+              console.error('[Billing] Fallback products.get also failed:', fallbackErr.message);
+              return NextResponse.json({ error: 'Invalid Google Play receipt' }, { status: 400 });
             }
           }
-
-          isValid = true;
         }
       } catch (err: any) {
-        console.error('[Billing] Verification failed:', err.message);
-        console.error('[Billing] Error code:', err.code, 'status:', err.status);
-        if (err.errors) console.error('[Billing] Error details:', JSON.stringify(err.errors));
+        console.error('[Billing] Verification wrapper failed:', err.message);
         return NextResponse.json({ error: 'Invalid Google Play receipt' }, { status: 400 });
       }
     } else {
