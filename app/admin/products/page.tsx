@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PlusCircle, BookOpen, AlertTriangle } from 'lucide-react';
+import { PlusCircle, BookOpen, AlertTriangle, Globe } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 import ProductsTable from './_components/ProductsTable';
 
@@ -68,14 +68,24 @@ export default async function ProductsListPage() {
             {books.length} book{books.length !== 1 ? 's' : ''} in the database
           </p>
         </div>
-        <Link
-          href="/admin/products/new"
-          className="gradient-btn"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '11px 20px', borderRadius: '10px', color: '#fff', fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}
-        >
-          <PlusCircle size={16} />
-          Add New Book
-        </Link>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <Link
+            href="/admin/languages/new"
+            className="gradient-btn"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '11px 20px', borderRadius: '10px', color: '#fff', fontSize: '14px', fontWeight: 600, textDecoration: 'none', background: 'linear-gradient(135deg, #4B6BFB, #00D4C0)' }}
+          >
+            <Globe size={16} />
+            Add New Language
+          </Link>
+          <Link
+            href="/admin/products/new"
+            className="glass-card"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '11px 20px', borderRadius: '10px', color: 'var(--text-primary)', fontSize: '14px', fontWeight: 600, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.1)' }}
+          >
+            <PlusCircle size={16} />
+            Add New Book
+          </Link>
+        </div>
       </div>
 
       {books.length === 0 ? (
