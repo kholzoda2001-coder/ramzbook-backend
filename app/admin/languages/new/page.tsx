@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { 
   Globe, Flag, AlignLeft, Layers, Plus, Trash2, 
   ChevronDown, ChevronRight, CheckCircle, ArrowRight, Save, LayoutTemplate,
-  Info, BookOpen, Volume2, Type, Upload
+  Info, BookOpen, Volume2, Type, Upload, Download
 } from 'lucide-react';
 
 // Types
@@ -193,6 +193,19 @@ export default function AddNewLanguagePage() {
     reader.readAsText(file);
     // Reset input
     event.target.value = '';
+  };
+
+  const downloadDemoCsv = () => {
+    // Add BOM for UTF-8 Excel support
+    const csvContent = "\uFEFFКалима,Тарҷума,Транскриптсия,Талаффуз,Эмоҷи\nApple,Себ,/ˈæpl/,[Эппл],🍎\nBook,Китоб,/bʊk/,[Бук],📖\nSun,Офтоб,/sʌn/,[Сан],☀️\nCar,Мошин,/kɑːr/,[Кар],🚗";
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "demo_template.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const updateLevelName = (levelId: string, name: string) => {
@@ -494,6 +507,13 @@ export default function AddNewLanguagePage() {
                                             />
                                           </div>
                                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                            <button 
+                                              onClick={downloadDemoCsv}
+                                              title="Шаблони CSV-ро боргирӣ кунед"
+                                              style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'transparent', color: '#64748b', border: '1px solid #cbd5e1', padding: '6px 10px', borderRadius: '20px', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}
+                                            >
+                                              <Download size={14} /> Шаблон
+                                            </button>
                                             <label style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(56, 189, 248, 0.1)', color: '#38BDF8', border: '1px solid rgba(56, 189, 248, 0.2)', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>
                                               <Upload size={14} /> CSV
                                               <input type="file" accept=".csv" style={{ display: 'none' }} onChange={(e) => handleCsvUpload(level.id, unit.id, lesson.id, e)} />
