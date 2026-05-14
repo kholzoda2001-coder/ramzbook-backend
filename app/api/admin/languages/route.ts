@@ -11,6 +11,7 @@ interface WordInput {
   audioUrl?: string;
   exampleSentence?: string;
   exampleTranslation?: string;
+  emoji?: string;
 }
 
 interface LessonInput {
@@ -114,6 +115,7 @@ export async function POST(req: NextRequest) {
             pronunciation: w.pronunciation || '',
             translation: w.translation || '',
             audioUrl: w.audioUrl || '',
+            emoji: w.emoji || '',
             exampleSentence: w.exampleSentence || '',
             exampleTranslation: w.exampleTranslation || '',
           }));

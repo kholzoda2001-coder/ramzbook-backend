@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { 
   Globe, Flag, AlignLeft, Layers, Plus, Trash2, 
   ChevronDown, ChevronRight, CheckCircle, ArrowRight, Save, LayoutTemplate,
-  Info, BookOpen, Volume2, Type
+  Info, BookOpen, Volume2, Type, Upload
 } from 'lucide-react';
 
 // Types
@@ -16,6 +16,7 @@ type Word = {
   transcription: string;
   pronunciation: string;
   audioUrl: string;
+  emoji: string;
 };
 
 type Lesson = {
@@ -99,7 +100,7 @@ export default function AddNewLanguagePage() {
                 ...u, lessons: u.lessons.map(ls => {
                   if (ls.id === lessonId) return {
                       ...ls, words: [...ls.words, { 
-                        id: genId(), originalWord: '', translation: '', transcription: '', pronunciation: '', audioUrl: '' 
+                        id: genId(), originalWord: '', translation: '', transcription: '', pronunciation: '', audioUrl: '', emoji: '' 
                       }]
                     };
                   return ls;
@@ -141,6 +142,71 @@ export default function AddNewLanguagePage() {
     }));
   };
 
+  const handleCsvUpload = (levelId: string, unitId: string, lessonId: string, event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target?.result as string;
+      const lines = text.split('\n');
+      const newWords: Word[] = [];
+      
+      let startIndex = 0;
+      if (lines[0] && (lines[0].toLowerCase().includes('original') || lines[0].toLowerCase().includes('калима'))) {
+        startIndex = 1;
+      }
+
+      for (let i = startIndex; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        
+        // Handle CSV split respecting commas inside quotes (basic regex)
+        // For simplicity, splitting by comma, but standardizing quotes if any
+        const parts = line.split(',');
+        if (parts.length >= 2) {
+          newWords.push({
+            id: genId(),
+            originalWord: parts[0]?.replace(/^"|"$/g, '').trim() || '',
+            translation: parts[1]?.replace(/^"|"$/g, '').trim() || '',
+            transcription: parts[2]?.replace(/^"|"$/g, '').trim() || '',
+            pronunciation: parts[3]?.replace(/^"|"$/g, '').trim() || '',
+            emoji: parts[4]?.replace(/^"|"$/g, '').trim() || '',
+            audioUrl: '',
+          });
+        }
+      }
+
+      if (newWords.length > 0) {
+        setLevels(prev => prev.map(l => {
+          if (l.id === levelId) return { ...l, units: l.units.map(u => {
+            if (u.id === unitId) return { ...u, lessons: u.lessons.map(ls => {
+              if (ls.id === lessonId) return { ...ls, words: [...ls.words, ...newWords] };
+              return ls;
+            })};
+            return u;
+          })};
+          return l;
+        }));
+      }
+    };
+    reader.readAsText(file);
+    // Reset input
+    event.target.value = '';
+  };
+
+  const updateLevelName = (levelId: string, name: string) => {
+    setLevels(prev => prev.map(l => l.id === levelId ? { ...l, name } : l));
+  };
+
+  const updateUnitName = (levelId: string, unitId: string, name: string) => {
+    setLevels(prev => prev.map(l => l.id === levelId ? { ...l, units: l.units.map(u => u.id === unitId ? { ...u, name } : u) } : l));
+  };
+
+  const updateLessonName = (levelId: string, unitId: string, lessonId: string, name: string) => {
+    setLevels(prev => prev.map(l => l.id === levelId ? { ...l, units: l.units.map(u => u.id === unitId ? { ...u, lessons: u.lessons.map(ls => ls.id === lessonId ? { ...ls, name } : ls) } : u) } : l));
+  };
+
   // --- Submit ---
   const handlePublish = async () => {
     setIsSubmitting(true);
@@ -156,7 +222,7 @@ export default function AddNewLanguagePage() {
             name: ls.name,
             words: ls.words.map(w => ({
               originalWord: w.originalWord, translation: w.translation,
-              transcription: w.transcription, pronunciation: w.pronunciation, audioUrl: w.audioUrl
+              transcription: w.transcription, pronunciation: w.pronunciation, audioUrl: w.audioUrl, emoji: w.emoji
             }))
           }))
         }))
@@ -340,9 +406,15 @@ export default function AddNewLanguagePage() {
                       <div style={{ width: 40, height: 40, borderRadius: '10px', background: 'var(--bg-elevated)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <Layers size={20} color="var(--primary)" />
                       </div>
-                      <div>
-                        <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)' }}>{level.name}</h3>
-                        <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{level.units.length} Модул • Ворид шавед барои таҳрир</p>
+                      <div style={{ flex: 1 }}>
+                        <input 
+                          type="text" 
+                          value={level.name} 
+                          onChange={(e) => updateLevelName(level.id, e.target.value)} 
+                          onClick={(e) => e.stopPropagation()}
+                          style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)', background: 'transparent', border: 'none', borderBottom: '1px solid var(--border-color)', outline: 'none', width: '100%', padding: '2px 0' }} 
+                        />
+                        <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>{level.units.length} Модул • Барои кушодан ё пӯшидан дар болои он клик кунед</p>
                       </div>
                     </div>
                     {isLevelExpanded ? <ChevronDown size={24} color="var(--primary)" /> : <ChevronRight size={24} color="var(--text-muted)" />}
@@ -378,9 +450,15 @@ export default function AddNewLanguagePage() {
                                 onClick={(e) => { e.stopPropagation(); setExpandedUnitId(isUnitExpanded ? null : unit.id); }}
                                 style={{ padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', background: isUnitExpanded ? 'rgba(0, 212, 192, 0.03)' : 'transparent' }}
                               >
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--primary)' }} />
-                                  <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)' }}>{unit.name}</h4>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1 }}>
+                                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--primary)', flexShrink: 0 }} />
+                                  <input 
+                                    type="text" 
+                                    value={unit.name} 
+                                    onChange={(e) => updateUnitName(level.id, unit.id, e.target.value)}
+                                    onClick={(e) => e.stopPropagation()}
+                                    style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', background: 'transparent', border: 'none', borderBottom: '1px dashed var(--border-color)', outline: 'none', width: '100%' }}
+                                  />
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                                   <span style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{unit.lessons.length} Дарс</span>
@@ -406,23 +484,34 @@ export default function AddNewLanguagePage() {
                                     {unit.lessons.map((lesson, lsIdx) => (
                                       <div key={lesson.id} style={{ background: 'var(--bg-main)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '10px', padding: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', borderBottom: '1px solid var(--border-color)', paddingBottom: '12px' }}>
-                                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                            <BookOpen size={16} color="#F5A623" />
-                                            <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)' }}>{lesson.name}</span>
+                                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, marginRight: '16px' }}>
+                                            <BookOpen size={16} color="#F5A623" style={{ flexShrink: 0 }} />
+                                            <input 
+                                              type="text" 
+                                              value={lesson.name} 
+                                              onChange={(e) => updateLessonName(level.id, unit.id, lesson.id, e.target.value)}
+                                              style={{ fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', background: 'transparent', border: 'none', borderBottom: '1px dashed var(--border-color)', outline: 'none', width: '100%' }}
+                                            />
                                           </div>
-                                          <button 
-                                            onClick={() => addWord(level.id, unit.id, lesson.id)}
-                                            style={{ display: 'flex', alignItems: 'center', gap: '4px', background: '#10B981', color: '#fff', border: 'none', padding: '6px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}
-                                          >
-                                            <Plus size={14} /> Калима
-                                          </button>
+                                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                            <label style={{ display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(56, 189, 248, 0.1)', color: '#38BDF8', border: '1px solid rgba(56, 189, 248, 0.2)', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>
+                                              <Upload size={14} /> CSV
+                                              <input type="file" accept=".csv" style={{ display: 'none' }} onChange={(e) => handleCsvUpload(level.id, unit.id, lesson.id, e)} />
+                                            </label>
+                                            <button 
+                                              onClick={() => addWord(level.id, unit.id, lesson.id)}
+                                              style={{ display: 'flex', alignItems: 'center', gap: '4px', background: '#10B981', color: '#fff', border: 'none', padding: '6px 16px', borderRadius: '20px', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}
+                                            >
+                                              <Plus size={14} /> Калима
+                                            </button>
+                                          </div>
                                         </div>
 
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                                           {lesson.words.length === 0 && <p style={{ fontSize: '13px', color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center', padding: '10px' }}>Дар ин дарс калима нест. "Калима" ро пахш кунед.</p>}
                                           
                                           {lesson.words.map((word, wIdx) => (
-                                            <div key={word.id} style={{ display: 'grid', gridTemplateColumns: '2fr 2fr 1.5fr 1.5fr 40px', gap: '10px', alignItems: 'center', background: 'var(--bg-elevated)', padding: '8px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                                            <div key={word.id} style={{ display: 'grid', gridTemplateColumns: '2fr 2fr 1fr 1fr 1fr 40px', gap: '10px', alignItems: 'center', background: 'var(--bg-elevated)', padding: '8px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
                                               <input 
                                                 type="text" placeholder="Калима (Original)" value={word.originalWord}
                                                 onChange={e => updateWord(level.id, unit.id, lesson.id, word.id, 'originalWord', e.target.value)}
@@ -441,6 +530,11 @@ export default function AddNewLanguagePage() {
                                               <input 
                                                 type="text" placeholder="Талаффуз (Тоҷ)" value={word.pronunciation}
                                                 onChange={e => updateWord(level.id, unit.id, lesson.id, word.id, 'pronunciation', e.target.value)}
+                                                style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', fontSize: '13px', outline: 'none', padding: '4px 8px', borderLeft: '1px solid var(--border-color)' }}
+                                              />
+                                              <input 
+                                                type="text" placeholder="Эмоҷи/Расм" value={word.emoji}
+                                                onChange={e => updateWord(level.id, unit.id, lesson.id, word.id, 'emoji', e.target.value)}
                                                 style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', fontSize: '13px', outline: 'none', padding: '4px 8px', borderLeft: '1px solid var(--border-color)' }}
                                               />
                                               <button onClick={() => removeWord(level.id, unit.id, lesson.id, word.id)} style={{ background: 'rgba(239,68,68,0.1)', border: 'none', color: '#ef4444', width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
