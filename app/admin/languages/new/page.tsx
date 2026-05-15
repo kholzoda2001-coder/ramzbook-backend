@@ -225,18 +225,42 @@ export default function AddNewLanguagePage() {
     setIsSubmitting(true);
     setError(null);
 
+    // Validate before sending
+    if (!languageName.trim()) {
+      setError('Номи забонро нависед!');
+      setIsSubmitting(false);
+      setStep(1);
+      return;
+    }
+    const totalUnits = levels.reduce((s, l) => s + l.units.length, 0);
+    if (totalUnits === 0) {
+      setError('Ҳадди ақал як модул (Unit) илова кунед!');
+      setIsSubmitting(false);
+      setStep(2);
+      return;
+    }
+
     const payload = {
-      languageName, languageCode, flagUrl, description,
+      languageName: languageName.trim(),
+      languageCode: languageCode.trim() || 'en-US',
+      flagUrl: flagUrl.trim(),
+      description: description.trim(),
       levels: levels.map(l => ({
         name: l.name,
         units: l.units.map(u => ({
           name: u.name,
           lessons: u.lessons.map(ls => ({
             name: ls.name,
-            words: ls.words.map(w => ({
-              originalWord: w.originalWord, translation: w.translation,
-              transcription: w.transcription, pronunciation: w.pronunciation, audioUrl: w.audioUrl, emoji: w.emoji
-            }))
+            words: ls.words
+              .filter(w => w.originalWord.trim() !== '') // skip empty rows
+              .map(w => ({
+                originalWord: w.originalWord.trim(),
+                translation: w.translation.trim(),
+                transcription: w.transcription.trim(),
+                pronunciation: w.pronunciation.trim(),
+                audioUrl: w.audioUrl.trim(),
+                emoji: w.emoji.trim()
+              }))
           }))
         }))
       }))
@@ -246,14 +270,32 @@ export default function AddNewLanguagePage() {
       const res = await fetch('/api/admin/languages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include', // ← мӯҳим: admin_token cookie-ро мефиристад
         body: JSON.stringify(payload)
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to create language');
+
+      let data: any = {};
+      try { data = await res.json(); } catch {}
+
+      // 401 = admin login expired
+      if (res.status === 401) {
+        throw new Error('Сессияи Admin ба охир расид. Лутфан дубора ворид шавед.');
+      }
+
+      if (!res.ok) {
+        throw new Error(data.error || `Хатои сервер: ${res.status} ${res.statusText}`);
+      }
+
+      // Success — short feedback before redirect
+      setError(null);
+      alert(`✅ ${data.message || 'Забон бо муваффақият илова шуд!'}`);
       router.push('/admin/products');
     } catch (err: any) {
-      setError(err.message);
+      const msg = err.message || 'Хатои номаълум. Лутфан дубора кӯшиш кунед.';
+      setError(msg);
       setIsSubmitting(false);
+      // Scroll to error
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -301,9 +343,13 @@ export default function AddNewLanguagePage() {
       </div>
 
       {error && (
-        <div className="fade-up" style={{ padding: '16px 20px', background: 'rgba(239,68,68,0.1)', color: '#ef4444', borderRadius: '12px', marginBottom: '24px', border: '1px solid rgba(239,68,68,0.2)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Info size={20} />
-          <span style={{ fontWeight: 500 }}>{error}</span>
+        <div className="fade-up" style={{ padding: '20px 24px', background: 'rgba(239,68,68,0.12)', color: '#ef4444', borderRadius: '14px', marginBottom: '24px', border: '2px solid rgba(239,68,68,0.3)', display: 'flex', alignItems: 'flex-start', gap: '14px', boxShadow: '0 4px 20px rgba(239,68,68,0.15)' }}>
+          <Info size={22} style={{ flexShrink: 0, marginTop: '2px' }} />
+          <div style={{ flex: 1 }}>
+            <p style={{ fontWeight: 700, fontSize: '15px', marginBottom: '4px' }}>Хатогӣ</p>
+            <p style={{ fontWeight: 500, fontSize: '14px', opacity: 0.9, wordBreak: 'break-word' }}>{error}</p>
+          </div>
+          <button onClick={() => setError(null)} style={{ background: 'transparent', border: 'none', color: '#ef4444', cursor: 'pointer', opacity: 0.7, flexShrink: 0, padding: '4px' }}>✕</button>
         </div>
       )}
 

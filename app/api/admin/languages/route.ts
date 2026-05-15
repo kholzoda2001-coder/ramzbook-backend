@@ -38,19 +38,38 @@ interface LanguagePayload {
   levels: LevelInput[];
 }
 
+export async function GET() {
+  try {
+    const categories = await prisma.category.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: 'desc' },
+      include: { _count: { select: { products: true } } },
+    });
+    return Response.json({ success: true, categories });
+  } catch (error) {
+    console.error('[languages GET] Error:', error);
+    return Response.json({ error: 'Failed to fetch languages' }, { status: 500 });
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const payload: LanguagePayload = await req.json();
 
     if (!payload.languageName || !payload.levels || payload.levels.length === 0) {
-      return Response.json({ error: 'Invalid payload. Language name and at least one level are required.' }, { status: 400 });
+      return Response.json(
+        { error: 'Номи забон ва ҳадди ақал як сатҳ лозим аст.' },
+        { status: 400 }
+      );
     }
+
+    // Fallback: agар languageCode bo'sh bo'lsa — 'en-US' ishlatamiz
+    const safeLanguageCode = (payload.languageCode || 'en-US').trim() || 'en-US';
 
     // We use a massive transaction to ensure data integrity.
     // If anything fails (e.g. database disconnect), everything rolls back.
     const result = await prisma.$transaction(async (tx) => {
       // 1. Create or Find Category (Language)
-      // We use slug for unique identification
       const slug = payload.languageName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
       let category = await tx.category.findUnique({ where: { slug } });
       
@@ -59,9 +78,8 @@ export async function POST(req: NextRequest) {
           data: {
             name: payload.languageName,
             slug: slug,
-            icon: payload.flagUrl, // We store the flag in the icon field
-            // Custom colors can be handled later or generated
-            color: '#00D4C0', 
+            icon: payload.flagUrl || '',
+            color: '#00D4C0',
             isActive: true,
           }
         });
@@ -77,14 +95,14 @@ export async function POST(req: NextRequest) {
           data: {
             title: `${payload.languageName} - ${level.name}`,
             author: 'RamzBook',
-            description: payload.description || `Complete course for ${payload.languageName} - ${level.name}`,
+            description: payload.description || `${payload.languageName} - ${level.name} курси пурра`,
             category: category.name,
             categoryId: category.id,
-            languageCode: payload.languageCode,
+            languageCode: safeLanguageCode, // ← always a valid non-empty string
             isActive: true,
-            isFree: lvlIdx === 0, // Automatically make Level 1 free as per monetization strategy!
+            isFree: lvlIdx === 0, // Level 1 is always free
             rating: 5.0,
-            priceSixMonths: 29.0, // Default prices
+            priceSixMonths: 29.0,
             priceLifetime: 119.0,
           }
         });
@@ -98,16 +116,14 @@ export async function POST(req: NextRequest) {
               productId: product.id,
               title: unit.name,
               orderIndex: unitIdx,
-              isFreePreview: lvlIdx === 0 && unitIdx === 0, // First unit of first level is super free
+              isFreePreview: lvlIdx === 0 && unitIdx === 0,
             }
           });
 
           // 4. Combine all lessons into a single VOCAB page for the mobile app
-          // The mobile app extracts words from a page with pageType='VOCAB'
           const allWords = unit.lessons.flatMap(lesson => lesson.words);
           totalWordsAdded += allWords.length;
 
-          // Assign IDs to words for the app to use
           const formattedWords = allWords.map((w, idx) => ({
             id: `word_${Date.now()}_${idx}_${Math.random().toString(36).substring(2, 7)}`,
             originalWord: w.originalWord,
@@ -120,34 +136,39 @@ export async function POST(req: NextRequest) {
             exampleTranslation: w.exampleTranslation || '',
           }));
 
-          await tx.page.create({
-            data: {
-              moduleId: mod.id,
-              pageType: 'VOCAB',
-              orderIndex: 0,
-              content: JSON.stringify({ words: formattedWords }),
-            }
-          });
+          // Only create a VOCAB page if there are words
+          if (formattedWords.length > 0) {
+            await tx.page.create({
+              data: {
+                moduleId: mod.id,
+                pageType: 'VOCAB',
+                orderIndex: 0,
+                content: JSON.stringify({ words: formattedWords }),
+              }
+            });
+          }
         }
       }
 
       return { categoryId: category.id, totalWordsAdded, levelsAdded: payload.levels.length };
     }, {
-      maxWait: 15000, // 15 seconds max wait
-      timeout: 30000, // 30 seconds timeout for this massive insertion
+      maxWait: 20000,  // 20 seconds max wait
+      timeout: 60000,  // 60 seconds timeout for large datasets
     });
 
-    // Revalidate caches to immediately show in admin
     revalidatePath('/admin/products');
+    revalidatePath('/admin/languages');
     
     return Response.json({ 
       success: true, 
-      message: `Language '${payload.languageName}' created with ${result.levelsAdded} levels and ${result.totalWordsAdded} words.`,
+      message: `Забони "${payload.languageName}" бо муваффақият илова шуд! ${result.levelsAdded} сатҳ, ${result.totalWordsAdded} калима.`,
       result 
     });
 
-  } catch (error) {
-    console.error('[languages/new POST] Error:', error);
-    return Response.json({ error: 'Internal Server Error' }, { status: 500 });
+  } catch (error: any) {
+    console.error('[languages POST] Error:', error);
+    // Return a meaningful error message to the client
+    const message = error?.message || 'Хатои дохилии сервер';
+    return Response.json({ error: message }, { status: 500 });
   }
 }
