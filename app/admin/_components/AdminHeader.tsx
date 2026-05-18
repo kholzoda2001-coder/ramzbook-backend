@@ -1,58 +1,48 @@
 'use client';
 
-import ThemeToggle from './ThemeToggle';
-import { Bell, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+
+const pageNames: Record<string, string> = {
+  '/admin': '📊 Dashboard',
+  '/admin/users': '👥 Корбарон',
+  '/admin/subs': '👑 Обунаҳо',
+  '/admin/languages': '🌍 Забонҳо',
+  '/admin/categories': '🗺️ Курс / Модулҳо',
+  '/admin/products': '📚 Дарсҳо',
+  '/admin/words': '💬 Калимаҳо',
+  '/admin/otp-settings': '⚙️ OTP Settings',
+  '/admin/login-settings': '🔑 Login Settings',
+};
 
 interface AdminHeaderProps {
   onMenuClick: () => void;
 }
 
 export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
+  const pathname = usePathname();
+  const pageName = pageNames[pathname] || '📊 Dashboard';
+
   return (
-    <header className="sticky top-0 z-30 flex h-16 w-full items-center justify-between border-b border-[--bg-border] bg-[--bg-surface] px-4 sm:px-7 transition-colors duration-300 flex-shrink-0">
-      <div className="flex items-center gap-3">
-        <button
-          onClick={onMenuClick}
-          className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-[--bg-border] bg-[--bg-elevated] text-[--text-secondary] hover:bg-[--bg-border] transition-colors"
-          aria-label="Open sidebar"
-        >
-          <Menu size={18} />
-        </button>
-        <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-          {new Date().toLocaleDateString('en-US', {
-            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-          })}
-        </p>
+    <header className="topbar">
+      <button
+        onClick={onMenuClick}
+        className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg border border-[--border] bg-[--card] text-[--text2] mr-2"
+        aria-label="Open sidebar"
+      >
+        <Menu size={18} />
+      </button>
+      <div className="pt">{pageName}</div>
+      <div className="sb hidden sm:flex">
+        <span style={{ color: 'var(--text3)', fontSize: '12px' }}>🔍</span>
+        <input placeholder="Ҷустуҷӯ..." />
       </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <ThemeToggle />
-
-        <div style={{ position: 'relative', cursor: 'pointer' }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: '10px',
-            background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'var(--text-secondary)',
-          }}>
-            <Bell size={16} strokeWidth={2} />
-          </div>
-          <div style={{
-            position: 'absolute', top: 7, right: 7,
-            width: 7, height: 7, background: 'var(--accent-from)',
-            borderRadius: '50%', border: '2px solid var(--bg-surface)',
-          }} />
-        </div>
-
-        <div style={{
-          width: 36, height: 36, borderRadius: '50%',
-          background: 'linear-gradient(135deg, var(--accent-from), var(--accent-to))',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontWeight: 700, fontSize: '14px', color: '#fff', cursor: 'pointer',
-          boxShadow: '0 2px 10px var(--accent-glow)',
-        }}>
-          A
-        </div>
+      <div className="tbb" title="Огоҳномаҳо">🔔</div>
+      <div className="tbb" title="Навсозӣ">🔄</div>
+      <div style={{ width: '1px', height: '20px', background: 'var(--border)' }}></div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer' }}>
+        <div className="avi" style={{ background: 'var(--grad)', width: '28px', height: '28px' }}>А</div>
+        <span className="hidden sm:inline" style={{ fontSize: '12px', fontWeight: 700 }}>Admin</span>
       </div>
     </header>
   );

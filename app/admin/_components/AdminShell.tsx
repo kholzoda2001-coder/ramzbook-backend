@@ -20,12 +20,10 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
   }, [isMobile]);
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: 'var(--bg-base)' }}>
+    <div className="app-layout">
       {/* Desktop Sidebar */}
       {!isMobile && (
-        <div style={{ width: 260, flexShrink: 0, display: 'flex', flexDirection: 'column', height: '100%' }}>
-          <Sidebar onClose={() => {}} staticMode />
-        </div>
+        <Sidebar onClose={() => {}} staticMode />
       )}
 
       {/* Mobile Sidebar Overlay */}
@@ -43,7 +41,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
           />
           <div
             style={{
-              position: 'fixed', top: 0, left: 0, bottom: 0, zIndex: 50, width: 260,
+              position: 'fixed', top: 0, left: 0, bottom: 0, zIndex: 50, width: 220,
               transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
               transition: 'transform 0.3s ease',
             }}
@@ -54,12 +52,12 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       )}
 
       {/* Main Content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minWidth: 0 }}>
+      <main className="main-content">
         <AdminHeader onMenuClick={() => setSidebarOpen(true)} />
-        <main style={{ flex: 1, overflowY: 'auto', background: 'var(--bg-base)', transition: 'background 0.3s', padding: '28px' }}>
+        <div className="content-area">
           {children}
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

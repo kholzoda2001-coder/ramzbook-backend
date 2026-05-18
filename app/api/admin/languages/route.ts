@@ -2,6 +2,8 @@ import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
+
 // Type definitions for the incoming JSON
 interface WordInput {
   originalWord: string;

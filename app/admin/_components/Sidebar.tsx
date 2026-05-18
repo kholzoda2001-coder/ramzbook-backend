@@ -2,35 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import {
-  LayoutDashboard,
-  Users,
-  BookOpen,
-  Settings,
-  ShieldCheck,
-  LogOut,
-  ChevronRight,
-  X,
-  Radio,
-  Key,
-} from 'lucide-react';
 
-const navItems = [
-  { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { label: 'Users', href: '/admin/users', icon: Users },
-  { label: 'E-books', href: '/admin/products', icon: BookOpen },
-  { label: 'Categories', href: '/admin/categories', icon: BookOpen },
-  { label: 'OTP Settings', href: '/admin/otp-settings', icon: Radio },
-  { label: 'Login Settings', href: '/admin/login-settings', icon: Key },
-  { label: 'Settings', href: '/admin/settings', icon: Settings },
-];
-
-interface SidebarProps {
-  onClose: () => void;
-  staticMode?: boolean;
-}
-
-export default function AdminSidebar({ onClose, staticMode }: SidebarProps) {
+export default function AdminSidebar({ onClose, staticMode }: { onClose: () => void, staticMode?: boolean }) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -42,125 +15,65 @@ export default function AdminSidebar({ onClose, staticMode }: SidebarProps) {
     }
   }
 
-  return (
-    <aside
-      style={{
-        width: '100%', height: '100%', display: 'flex', flexDirection: 'column',
-        background: 'var(--bg-surface)', borderRight: '1px solid var(--bg-border)', overflow: 'hidden',
-      }}
-    >
-      {/* Brand */}
-      <div style={{ padding: '28px 20px 20px', borderBottom: '1px solid var(--bg-border)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '11px' }}>
-            <div style={{
-              width: 38, height: 38, borderRadius: '10px',
-              background: 'linear-gradient(135deg, var(--accent-from), var(--accent-to))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 16px var(--accent-glow)', flexShrink: 0,
-            }}>
-              <ShieldCheck size={18} color="#fff" />
-            </div>
-            <div>
-              <p style={{
-                fontWeight: 700, fontSize: '15px',
-                background: 'linear-gradient(135deg, var(--accent-from), var(--accent-to))',
-                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-              }}>
-                Ramz Admin
-              </p>
-              <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Super-App v1.0</p>
-            </div>
-          </div>
+  const isActive = (path: string) => pathname === path || (path !== '/admin' && pathname.startsWith(path));
 
-          {!staticMode && (
-            <button
-              onClick={onClose}
-              style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: 32, height: 32, borderRadius: 8,
-                border: '1px solid var(--bg-border)', background: 'var(--bg-elevated)',
-                color: 'var(--text-muted)', cursor: 'pointer',
-              }}
-            >
-              <X size={16} />
-            </button>
-          )}
+  return (
+    <aside className="sidebar w-full h-full">
+      <div className="logo-area">
+        <div className="logo-mark">R</div>
+        <div>
+          <div className="logo-text">RAMZ</div>
+          <div className="logo-sub">Admin Panel</div>
         </div>
       </div>
-
-      {/* Navigation */}
-      <nav style={{ flex: 1, padding: '16px 12px', overflowY: 'auto' }}>
-        <p style={{
-          fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em',
-          color: 'var(--text-muted)', padding: '0 4px', marginBottom: '8px',
-          textTransform: 'uppercase',
-        }}>
-          Main Menu
-        </p>
-
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isActive =
-            item.href === '/admin'
-              ? pathname === '/admin'
-              : pathname.startsWith(item.href);
-
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={staticMode ? undefined : onClose}
-              className={`sidebar-nav-item ${isActive ? 'active' : ''}`}
-            >
-              <Icon size={17} />
-              <span style={{ flex: 1 }}>{item.label}</span>
-              {isActive && <ChevronRight size={14} style={{ opacity: 0.6 }} />}
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* Bottom user card */}
-      <div style={{ padding: '12px', borderTop: '1px solid var(--bg-border)' }}>
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: '10px',
-          padding: '10px 12px', borderRadius: '10px',
-          background: 'var(--bg-elevated)', marginBottom: '8px',
-        }}>
-          <div style={{
-            width: 32, height: 32, borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--accent-from), var(--accent-to))',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '13px', fontWeight: 700, color: '#fff', flexShrink: 0,
-          }}>
-            A
-          </div>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              Admin User
-            </p>
-            <p style={{ fontSize: '11px', color: 'var(--text-muted)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              admin@ramz.tj
-            </p>
-          </div>
-        </div>
-
-        <button
-          onClick={handleLogout}
-          style={{
-            display: 'flex', alignItems: 'center', gap: '10px', width: '100%',
-            padding: '9px 12px', borderRadius: '8px',
-            color: 'var(--text-muted)', fontSize: '13px', fontWeight: 500,
-            background: 'transparent', border: 'none', cursor: 'pointer',
-            transition: 'color 0.15s ease, background 0.15s ease',
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--red)'; e.currentTarget.style.background = 'rgba(239,68,68,0.08)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.background = 'transparent'; }}
-        >
-          <LogOut size={15} />
-          Sign Out
+      
+      <nav className="nav-wrap">
+        <div className="nav-sec">Асосӣ</div>
+        <Link href="/admin" className={`ni ${isActive('/admin') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">📊</span>Dashboard<span className="live"></span>
+        </Link>
+        <Link href="/admin/users" className={`ni ${isActive('/admin/users') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">👥</span>Корбарон<span className="nb nb-r">12K</span>
+        </Link>
+        <Link href="/admin/subs" className={`ni ${isActive('/admin/subs') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">👑</span>Обунаҳо<span className="nb nb-g">2.4K</span>
+        </Link>
+        
+        <div className="nav-sec">Мундариҷа</div>
+        <Link href="/admin/languages" className={`ni ${isActive('/admin/languages') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🌍</span>Забонҳо
+        </Link>
+        <Link href="/admin/categories" className={`ni ${isActive('/admin/categories') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🗺️</span>Курс / Модулҳо
+        </Link>
+        <Link href="/admin/products" className={`ni ${isActive('/admin/products') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">📚</span>Дарсҳо
+        </Link>
+        <Link href="/admin/words" className={`ni ${isActive('/admin/words') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">💬</span>Калимаҳо<span className="nb nb-t">5.2K</span>
+        </Link>
+        
+        <div className="nav-sec">Система</div>
+        <Link href="/admin/otp-settings" className={`ni ${isActive('/admin/otp-settings') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">⚙️</span>OTP Settings
+        </Link>
+        <Link href="/admin/login-settings" className={`ni ${isActive('/admin/login-settings') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🔑</span>Login Settings
+        </Link>
+        <button onClick={handleLogout} className="ni w-full text-left bg-transparent border-none">
+          <span className="ni-icon">🚪</span>Баромад
         </button>
+      </nav>
+      
+      <div className="sf">
+        <div className="ac">
+          <div className="avi" style={{ background: 'var(--grad)' }}>А</div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '12px', fontWeight: 700 }}>Admin RAMZ</div>
+            <div style={{ fontSize: '10px', color: 'var(--text3)' }}>Super Admin</div>
+          </div>
+          <span style={{ fontSize: '13px', color: 'var(--text3)', cursor: 'pointer' }}>⚙️</span>
+        </div>
       </div>
     </aside>
   );
