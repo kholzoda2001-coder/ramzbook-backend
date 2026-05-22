@@ -1,172 +1,152 @@
-'use client';
+import { prisma } from '@/lib/prisma';
+import Link from 'next/link';
 
-export default function AdminDashboardPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function AdminDashboardPage() {
+  // 1. Basic Stats
+  const totalUsers = await prisma.user.count();
+  const premiumUsers = await prisma.user.count({ where: { isPremium: true } });
+
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+  
+  const startOfMonth = new Date();
+  startOfMonth.setDate(1);
+  startOfMonth.setHours(0, 0, 0, 0);
+
+  // Lessons today (completed or active UserProgress)
+  const lessonsToday = await prisma.userProgress.count({
+    where: { updatedAt: { gte: startOfDay } }
+  });
+
+  // Monthly income
+  const payments = await prisma.payment.findMany({
+    where: { status: 'COMPLETED', createdAt: { gte: startOfMonth } }
+  });
+  const monthlyIncome = payments.reduce((acc, p) => acc + p.amount, 0);
+
+  // 2. Top Users
+  const topUsers = await prisma.user.findMany({
+    orderBy: { xp: 'desc' },
+    take: 5
+  });
+
+  // 3. Language Distribution
+  const languages = await prisma.language.findMany({
+    include: { _count: { select: { users: true } } }
+  });
+  
+  const totalEnrolls = languages.reduce((sum, lang) => sum + lang._count.users, 0);
+  const langStats = languages.map(l => ({
+    id: l.id,
+    name: l.name,
+    code: l.code,
+    flag: l.flagIcon || '🌐',
+    count: l._count.users,
+    percent: totalEnrolls > 0 ? Math.round((l._count.users / totalEnrolls) * 100) : 0
+  })).sort((a, b) => b.percent - a.percent);
+
+  // 4. Recent Activities (Merge recent users and payments)
+  const recentUsers = await prisma.user.findMany({ orderBy: { createdAt: 'desc' }, take: 3 });
+  const recentPayments = await prisma.payment.findMany({ include: { user: true }, orderBy: { createdAt: 'desc' }, take: 2 });
+  
+  const activities = [
+    ...recentUsers.map(u => ({
+      type: 'USER', 
+      title: `Корбари нав: ${u.name || 'Номаълум'} ба қайд гирифт`, 
+      date: u.createdAt,
+      color: 'var(--teal)'
+    })),
+    ...recentPayments.map(p => ({
+      type: 'PAYMENT', 
+      title: `${p.user?.name || 'Корбар'} Premium обуна шуд — $${p.amount.toFixed(2)}`, 
+      date: p.createdAt,
+      color: 'var(--gold)'
+    }))
+  ].sort((a, b) => b.date.getTime() - a.date.getTime());
+
+  // Colors for languages
+  const colors = ['var(--teal)', 'var(--blue)', 'var(--purple)', 'var(--gold)', 'var(--orange)', 'var(--red)'];
+
   return (
     <div className="page active" id="page-dashboard">
       <div className="sr">
         <div className="sc t">
           <div className="sh">
             <div className="si si-t">👥</div>
-            <span className="tr up">↑12.5%</span>
+            <span className="tr up">↑ Актив</span>
           </div>
-          <div className="sv">12,847</div>
+          <div className="sv">{totalUsers.toLocaleString()}</div>
           <div className="sl">Ҳамаи корбарон</div>
         </div>
         <div className="sc g">
           <div className="sh">
             <div className="si si-g">👑</div>
-            <span className="tr up">↑8.3%</span>
+            <span className="tr up">PRO</span>
           </div>
-          <div className="sv">2,431</div>
+          <div className="sv">{premiumUsers.toLocaleString()}</div>
           <div className="sl">Premium</div>
         </div>
         <div className="sc b">
           <div className="sh">
             <div className="si si-b">📚</div>
-            <span className="tr up">↑24%</span>
+            <span className="tr up">Имрӯз</span>
           </div>
-          <div className="sv">47,329</div>
-          <div className="sl">Дарсҳо имрӯз</div>
+          <div className="sv">{lessonsToday.toLocaleString()}</div>
+          <div className="sl">Дарсҳои хондашуда</div>
         </div>
         <div className="sc r">
           <div className="sh">
             <div className="si si-r">💰</div>
-            <span className="tr up">↑15.2%</span>
+            <span className="tr up">↑ Даромад</span>
           </div>
-          <div className="sv">$12,134</div>
-          <div className="sl">Даромади моҳ</div>
-        </div>
-      </div>
-
-      <div className="two">
-        <div className="sec">
-          <div className="shd"><div className="st">📈 Корбарони нав (7 рӯз)</div></div>
-          <div className="sb2">
-            <div className="cbars">
-              <div className="cb t" style={{ height: '60%' }} data-v="421"></div>
-              <div className="cb t" style={{ height: '75%' }} data-v="528"></div>
-              <div className="cb t" style={{ height: '52%' }} data-v="367"></div>
-              <div className="cb t" style={{ height: '90%' }} data-v="634"></div>
-              <div className="cb t" style={{ height: '68%' }} data-v="478"></div>
-              <div className="cb t" style={{ height: '82%' }} data-v="578"></div>
-              <div className="cb g" style={{ height: '100%' }} data-v="703"></div>
-            </div>
-            <div className="clbls">
-              <div className="cl2">Дш</div><div className="cl2">Сш</div><div className="cl2">Чш</div>
-              <div className="cl2">Пш</div><div className="cl2">Ҷм</div><div className="cl2">Шб</div><div className="cl2">Яш</div>
-            </div>
-            <div style={{ display: 'flex', gap: '14px', marginTop: '10px', paddingTop: '9px', borderTop: '1px solid var(--border)' }}>
-              <span style={{ fontSize: '11px', color: 'var(--text3)' }}>Ҳафта: <b style={{ color: 'var(--teal)' }}>3,709</b></span>
-              <span style={{ fontSize: '11px', color: 'var(--text3)' }}>Имрӯз: <b style={{ color: 'var(--gold)' }}>703</b></span>
-            </div>
-          </div>
-        </div>
-        <div className="sec">
-          <div className="shd"><div className="st">💰 Даромад (7 рӯз)</div></div>
-          <div className="sb2">
-            <div className="cbars">
-              <div className="cb g" style={{ height: '55%' }} data-v="$1.2K"></div>
-              <div className="cb g" style={{ height: '72%' }} data-v="$1.6K"></div>
-              <div className="cb g" style={{ height: '48%' }} data-v="$1.1K"></div>
-              <div className="cb g" style={{ height: '88%' }} data-v="$2.0K"></div>
-              <div className="cb g" style={{ height: '63%' }} data-v="$1.4K"></div>
-              <div className="cb g" style={{ height: '79%' }} data-v="$1.8K"></div>
-              <div className="cb t" style={{ height: '100%' }} data-v="$2.2K"></div>
-            </div>
-            <div className="clbls">
-              <div className="cl2">Дш</div><div className="cl2">Сш</div><div className="cl2">Чш</div>
-              <div className="cl2">Пш</div><div className="cl2">Ҷм</div><div className="cl2">Шб</div><div className="cl2">Яш</div>
-            </div>
-            <div style={{ display: 'flex', gap: '14px', marginTop: '10px', paddingTop: '9px', borderTop: '1px solid var(--border)' }}>
-              <span style={{ fontSize: '11px', color: 'var(--text3)' }}>Ҳафта: <b style={{ color: 'var(--gold)' }}>$11.3K</b></span>
-              <span style={{ fontSize: '11px', color: 'var(--text3)' }}>Имрӯз: <b style={{ color: 'var(--teal)' }}>$2.2K</b></span>
-            </div>
-          </div>
+          <div className="sv">${monthlyIncome.toFixed(2)}</div>
+          <div className="sl">Даромади ин моҳ</div>
         </div>
       </div>
 
       <div className="two">
         <div className="sec">
           <div className="shd">
-            <div className="st">🏆 Top корбарон</div>
-            <button className="btn bg2b">Ҳама →</button>
+            <div className="st">🏆 Top корбарон (аз рӯи XP)</div>
+            <Link href="/admin/users" className="btn bg2b" style={{ textDecoration: 'none' }}>Ҳама →</Link>
           </div>
           <div className="sb2">
-            <div className="mli">
-              <div className="avatar" style={{ background: 'var(--teal)' }}>A</div>
-              <div style={{ flex: 1 }}>
-                <div className="mln">Amira Rahimova</div>
-                <div className="mls">🔥 45 рӯз • 14,500 XP</div>
+            {topUsers.length === 0 && <div style={{ color: 'var(--text3)' }}>Корбарон ёфт нашуданд.</div>}
+            {topUsers.map((u, idx) => (
+              <div className="mli" key={u.id}>
+                <div className="avatar" style={{ background: colors[idx % colors.length] }}>
+                  {u.name?.charAt(0).toUpperCase() || 'U'}
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div className="mln">{u.name || 'Корбари Номаълум'}</div>
+                  <div className="mls">🔥 {u.streak} рӯз • {u.xp.toLocaleString()} XP</div>
+                </div>
+                {u.isPremium ? (
+                  <span className="pill pp">Premium</span>
+                ) : (
+                  <span className="pill pa">Free</span>
+                )}
               </div>
-              <span className="pill pp">Premium</span>
-            </div>
-            <div className="mli">
-              <div className="avatar" style={{ background: '#6366F1' }}>J</div>
-              <div style={{ flex: 1 }}>
-                <div className="mln">John Smith</div>
-                <div className="mls">🔥 30 рӯз • 13,200 XP</div>
-              </div>
-              <span className="pill pp">Premium</span>
-            </div>
-            <div className="mli">
-              <div className="avatar" style={{ background: '#EC4899' }}>S</div>
-              <div style={{ flex: 1 }}>
-                <div className="mln">Sara Nazarova</div>
-                <div className="mls">🔥 22 рӯз • 12,800 XP</div>
-              </div>
-              <span className="pill pa">Free</span>
-            </div>
-            <div className="mli">
-              <div className="avatar" style={{ background: '#F97316' }}>T</div>
-              <div style={{ flex: 1 }}>
-                <div className="mln">Timur Karimov</div>
-                <div className="mls">🔥 18 рӯз • 11,000 XP</div>
-              </div>
-              <span className="pill pp">Premium</span>
-            </div>
-            <div className="mli">
-              <div className="avatar" style={{ background: '#8B5CF6' }}>M</div>
-              <div style={{ flex: 1 }}>
-                <div className="mln">Muhammadyoqub</div>
-                <div className="mls">🔥 14 рӯз • 9,800 XP</div>
-              </div>
-              <span className="pill pa">Free</span>
-            </div>
+            ))}
           </div>
         </div>
+        
         <div className="sec">
-          <div className="shd"><div className="st">🌍 Забон тақсим</div></div>
+          <div className="shd"><div className="st">🌍 Забонҳои интихобшуда</div></div>
           <div className="sb2">
-            <div className="ub">
-              <span className="ul">🇬🇧 English</span>
-              <div className="ut"><div className="uf" style={{ width: '78%', background: 'var(--teal)' }}></div></div>
-              <span className="uv" style={{ color: 'var(--teal)' }}>78%</span>
-            </div>
-            <div className="ub">
-              <span className="ul">🇷🇺 Русский</span>
-              <div className="ut"><div className="uf" style={{ width: '62%', background: 'var(--blue)' }}></div></div>
-              <span className="uv" style={{ color: 'var(--blue)' }}>62%</span>
-            </div>
-            <div className="ub">
-              <span className="ul">🇩🇪 Deutsch</span>
-              <div className="ut"><div className="uf" style={{ width: '31%', background: 'var(--purple)' }}></div></div>
-              <span className="uv" style={{ color: 'var(--purple)' }}>31%</span>
-            </div>
-            <div className="ub">
-              <span className="ul">🇸🇦 العربية</span>
-              <div className="ut"><div className="uf" style={{ width: '24%', background: 'var(--gold)' }}></div></div>
-              <span className="uv" style={{ color: 'var(--gold)' }}>24%</span>
-            </div>
-            <div className="ub">
-              <span className="ul">🇫🇷 Français</span>
-              <div className="ut"><div className="uf" style={{ width: '18%', background: 'var(--orange)' }}></div></div>
-              <span className="uv" style={{ color: 'var(--orange)' }}>18%</span>
-            </div>
-            <div className="ub">
-              <span className="ul">🇨🇳 中文</span>
-              <div className="ut"><div className="uf" style={{ width: '11%', background: 'var(--red)' }}></div></div>
-              <span className="uv" style={{ color: 'var(--red)' }}>11%</span>
-            </div>
+            {langStats.length === 0 && <div style={{ color: 'var(--text3)' }}>Забонҳо ёфт нашуданд.</div>}
+            {langStats.map((l, idx) => {
+              const c = colors[idx % colors.length];
+              return (
+                <div className="ub" key={l.id}>
+                  <span className="ul">{l.flag} {l.name}</span>
+                  <div className="ut"><div className="uf" style={{ width: `${l.percent}%`, background: c }}></div></div>
+                  <span className="uv" style={{ color: c }}>{l.percent}%</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -177,41 +157,21 @@ export default function AdminDashboardPage() {
           <span style={{ fontSize: '10px', color: 'var(--green)', fontWeight: 700 }}>● Live</span>
         </div>
         <div className="sb2">
-          <div className="noti">
-            <div className="ndot" style={{ background: 'var(--teal)' }}></div>
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 600 }}>Корбари нав: <b>Layla Mahmudova</b> ба қайд гирифт</div>
-              <div style={{ fontSize: '10px', color: 'var(--text3)', marginTop: '2px' }}>2 дақиқа пеш</div>
-            </div>
-          </div>
-          <div className="noti">
-            <div className="ndot" style={{ background: 'var(--gold)' }}></div>
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 600 }}><b>Ahmed Hassan</b> Premium обуна шуд — $4.99</div>
-              <div style={{ fontSize: '10px', color: 'var(--text3)', marginTop: '2px' }}>8 дақиқа пеш</div>
-            </div>
-          </div>
-          <div className="noti">
-            <div className="ndot" style={{ background: 'var(--blue)' }}></div>
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 600 }}><b>Sara Nazarova</b> сатҳи 5 ба даст овард</div>
-              <div style={{ fontSize: '10px', color: 'var(--text3)', marginTop: '2px' }}>15 дақиқа пеш</div>
-            </div>
-          </div>
-          <div className="noti">
-            <div className="ndot" style={{ background: 'var(--purple)' }}></div>
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 600 }}>Дарси нав илова шуд: <b>"Present Perfect"</b></div>
-              <div style={{ fontSize: '10px', color: 'var(--text3)', marginTop: '2px' }}>1 соат пеш</div>
-            </div>
-          </div>
-          <div className="noti">
-            <div className="ndot" style={{ background: 'var(--green)' }}></div>
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 600 }}><b>Timur Karimov</b> 7-рӯза силсиласи тамом кард</div>
-              <div style={{ fontSize: '10px', color: 'var(--text3)', marginTop: '2px' }}>2 соат пеш</div>
-            </div>
-          </div>
+          {activities.length === 0 && <div style={{ color: 'var(--text3)' }}>Фаъолиятҳо ёфт нашуданд.</div>}
+          {activities.map((act, i) => {
+            const diffMin = Math.floor((new Date().getTime() - act.date.getTime()) / 60000);
+            const timeText = diffMin < 60 ? `${diffMin} дақиқа пеш` : `${Math.floor(diffMin / 60)} соат пеш`;
+            
+            return (
+              <div className="noti" key={i}>
+                <div className="ndot" style={{ background: act.color }}></div>
+                <div>
+                  <div style={{ fontSize: '12px', fontWeight: 600 }}>{act.title}</div>
+                  <div style={{ fontSize: '10px', color: 'var(--text3)', marginTop: '2px' }}>{timeText}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
