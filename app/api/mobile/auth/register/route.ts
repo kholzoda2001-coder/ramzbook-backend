@@ -44,13 +44,8 @@ export async function POST(req: NextRequest) {
       email = `${phone.replace('+', '')}@ramzbook.tj`;
     }
 
-    const existing = await prisma.user.findFirst({
-      where: {
-        OR: [
-          { email },
-          ...(phone ? [{ phone }] : [])
-        ]
-      },
+    const existing = await prisma.user.findUnique({
+      where: { email },
       select: { id: true }
     });
     
@@ -60,8 +55,8 @@ export async function POST(req: NextRequest) {
 
     const passwordHash = await bcrypt.hash(password, 10);
     const user = await prisma.user.create({
-      data: { name, email, phone, passwordHash, isActive: true },
-      select: { id: true, name: true, email: true, phone: true },
+      data: { name, email, passwordHash },
+      select: { id: true, name: true, email: true },
     });
 
     const accessToken = signAccessTokenForUser(user.id);

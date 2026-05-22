@@ -38,16 +38,15 @@ export async function POST(req: NextRequest) {
     // Build OR conditions carefully to avoid matching empty strings
     const orConditions: object[] = [];
     if (email) orConditions.push({ email });
-    if (phone) orConditions.push({ phone });
     // Fallback: try rawIdentifier as email (covers edge cases)
-    if (!email && !phone && rawIdentifier) orConditions.push({ email: rawIdentifier });
+    if (!email && rawIdentifier) orConditions.push({ email: rawIdentifier });
 
     const user = await prisma.user.findFirst({
       where: { OR: orConditions },
-      select: { id: true, name: true, email: true, phone: true, passwordHash: true, isActive: true },
+      select: { id: true, name: true, email: true, passwordHash: true },
     });
 
-    if (!user || !user.isActive) {
+    if (!user) {
       return Response.json({ error: 'Invalid credentials.' }, { status: 401 });
     }
 
@@ -73,7 +72,7 @@ export async function POST(req: NextRequest) {
     });
 
     return Response.json({
-      user: { id: user.id, name: user.name, email: user.email, phone: user.phone },
+      user: { id: user.id, name: user.name, email: user.email },
       accessToken,
       refreshToken,
     });
