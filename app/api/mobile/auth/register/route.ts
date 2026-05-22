@@ -70,9 +70,9 @@ export async function POST(req: NextRequest) {
     });
 
     return Response.json({ user, accessToken, refreshToken }, { status: 201 });
-  } catch (err) {
+  } catch (err: any) {
     console.error('[auth/register]', err);
-    return apiError('Failed to register user');
+    return Response.json({ error: 'Failed to register user', details: err.message }, { status: 500 });
   }
 }
 

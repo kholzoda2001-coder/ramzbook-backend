@@ -76,9 +76,9 @@ export async function POST(req: NextRequest) {
       accessToken,
       refreshToken,
     });
-  } catch (err) {
+  } catch (err: any) {
     console.error('[auth/login]', err);
-    return apiError('Failed to login');
+    return Response.json({ error: 'Failed to login', details: err.message }, { status: 500 });
   }
 }
 
