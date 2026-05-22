@@ -5,24 +5,35 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const categories = await prisma.category.findMany({
+    const languages = await prisma.language.findMany({
       where: {
         isActive: true,
       },
-      orderBy: { createdAt: 'desc' },
+      orderBy: { sortOrder: 'asc' },
       include: {
         _count: {
-          select: { products: true }
+          select: { courses: true }
         }
       }
     });
 
-    // Filter out logically empty categories if required
-    // (This ensures Mobile App doesn't show "dead filters")
-    const activeCategories = categories.filter(cat => cat._count.products > 0);
+    // Map Language to look like a Category for backward compatibility with mobile app
+    // until the Flutter app is updated
+    const activeCategories = languages
+      .filter(lang => lang._count.courses > 0)
+      .map(lang => ({
+        id: lang.id,
+        name: lang.name,
+        slug: lang.code,
+        icon: lang.flag,
+        isActive: lang.isActive,
+        _count: {
+          products: lang._count.courses
+        }
+      }));
 
     return NextResponse.json(activeCategories);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Server Error' }, { status: 500 });
   }
 }

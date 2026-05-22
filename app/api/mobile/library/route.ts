@@ -1,16 +1,8 @@
-/**
- * GET /api/mobile/library
- *
- * Returns the books purchased / owned by the current user, enriched with
- * their reading progress.  Powers the "My Books" and "Continue Reading"
- * sections on the HomeScreen.
- *
- * User identity: extracted from the `x-user-id` header (or `?userId=` param).
- */
-
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   try {
@@ -19,168 +11,85 @@ export async function GET(req: NextRequest) {
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { vipExpiresAt: true }
+      select: { isPremium: true, premiumExpiresAt: true }
     });
 
-    const isVip = !!(user?.vipExpiresAt && new Date(user.vipExpiresAt).getTime() > Date.now());
+    const isPremium = !!user?.isPremium;
 
-    let library = [];
-
-    if (isVip) {
-      // User is VIP: return all active books
-      const [products, allProgress] = await Promise.all([
-        prisma.product.findMany({
-          where: { isActive: true },
-          select: {
-            id: true, title: true, author: true, coverUrl: true, description: true, category: true, rating: true, isFree: true, languageCode: true, pdfUrl: true, previewPdfUrl: true,
-            modules: {
-              orderBy: { orderIndex: 'asc' },
-              include: { pages: { orderBy: { orderIndex: 'asc' } } }
-            },
-            bookChapters: {
-              orderBy: { orderIndex: 'asc' },
-              include: { vocabularyItems: { orderBy: { orderIndex: 'asc' } }, dialogueLines: { orderBy: { orderIndex: 'asc' } } }
+    // Fetch all active courses with their full tree: Unit -> Lesson -> Word
+    const courses = await prisma.course.findMany({
+      where: { isActive: true },
+      orderBy: { sortOrder: 'asc' },
+      include: {
+        language: true,
+        units: {
+          orderBy: { sortOrder: 'asc' },
+          include: {
+            lessons: {
+              orderBy: { sortOrder: 'asc' },
+              include: {
+                words: {
+                  orderBy: { sortOrder: 'asc' },
+                  include: { word: true }
+                }
+              }
             }
           }
-        }),
-        prisma.userProgress.findMany({ where: { userId } })
-      ]);
-      const progMap = new Map(allProgress.map(p => [p.productId, p.lastReadPageIndex]));
+        }
+      }
+    });
 
-      library = products.map((p) => {
-        const lastRead = progMap.get(p.id) ?? 0;
-        return {
-          ...p,
-          isOwned: true,
-          isLocked: false,
-          expiresAt: user!.vipExpiresAt!.toISOString(),
-          progress: calculateProgress(lastRead, p.modules.length > 0 ? p.modules.length : p.bookChapters.length),
-          lastReadPageIndex: lastRead,
-          modules: formatModules(p as any),
-        };
-      });
-    } else {
-      // Not VIP: return organically/manually purchased books that haven't expired
-      const progressRecords = await prisma.userProgress.findMany({
-        where: { 
-          userId, 
-          OR: [
-            { isPurchased: true },
-            { isManualGrant: true }
-          ],
-          AND: [
-            {
-              OR: [
-                { expiresAt: null },
-                { expiresAt: { gt: new Date() } }
-              ]
-            }
-          ]
-        },
-        include: {
-          product: {
-            select: {
-              id: true,
-              title: true,
-              author: true,
-              coverUrl: true,
-              description: true,
-              category: true,
-              languageCode: true,
-              rating: true,
-              isFree: true,
-              pdfUrl: true,
-              previewPdfUrl: true,
-              modules: {
-                orderBy: { orderIndex: 'asc' },
-                include: { pages: { orderBy: { orderIndex: 'asc' } } }
-              },
-              bookChapters: {
-                orderBy: { orderIndex: 'asc' },
-                include: { vocabularyItems: { orderBy: { orderIndex: 'asc' } }, dialogueLines: { orderBy: { orderIndex: 'asc' } } }
-              }
-            },
-          },
-        },
-        orderBy: { updatedAt: 'desc' },
-      });
+    // Map the new RAMZ schema (Course) into the old Mobile App schema (Product)
+    // so the Flutter app doesn't crash
+    const library = courses.map((c) => {
+      return {
+        id: c.id,
+        title: c.title,
+        author: 'RAMZ',
+        coverUrl: '', // Can be replaced with actual image later
+        description: c.description || '',
+        category: c.language.name,
+        rating: 5.0,
+        isFree: c.level === 'A1',
+        languageCode: c.language.code,
+        isOwned: isPremium || c.level === 'A1',
+        isLocked: !isPremium && c.level !== 'A1',
+        expiresAt: user?.premiumExpiresAt?.toISOString() ?? null,
+        progress: 0, // Simplified for now, can map from userProgress if needed
+        lastReadPageIndex: 0,
+        modules: c.units.map((u) => {
+          // Flatten all words in all lessons of this unit into the module's vocabulary
+          const words = u.lessons.flatMap(l => 
+            l.words.map(lw => ({
+              id: lw.word.id,
+              originalWord: lw.word.word,
+              transcription: lw.word.ipa || '',
+              pronunciation: lw.word.ipa || '',
+              translation: lw.word.translation || '',
+              audioUrl: lw.word.audioUrl || '',
+              emoji: lw.word.emoji || ''
+            }))
+          );
 
-      library = progressRecords.map((p) => ({
-        ...p.product,
-        isOwned: true,
-        isLocked: false,
-        expiresAt: p.expiresAt?.toISOString() ?? null,
-        progress: calculateProgress(p.lastReadPageIndex, p.product.modules.length > 0 ? p.product.modules.length : p.product.bookChapters.length),
-        lastReadPageIndex: p.lastReadPageIndex,
-        modules: formatModules(p.product as any),
-      }));
-    }
+          return {
+            id: u.id,
+            title: u.title,
+            orderIndex: u.sortOrder,
+            isFreePreview: !u.isPremium,
+            words: words,
+            quizzes: [] // We'll leave this empty or populate it later
+          };
+        })
+      };
+    });
 
-    return Response.json(library);
+    return NextResponse.json(library);
   } catch (err) {
     console.error('[library]', err);
     return apiError('Failed to fetch library');
   }
 }
 
-/**
- * Rough progress ratio: 4 fixed pages (TOC/Preface/Alphabet/Guide) +
- * 2 pages per module (VOCAB + QUIZ).
- */
-function calculateProgress(lastPageIndex: number, moduleCount: number): number {
-  const totalPages = 4 + moduleCount * 2;
-  if (totalPages === 0) return 0;
-  return Math.min(lastPageIndex / totalPages, 1.0);
-}
-
-function formatModules(product: any) {
-  let modules = (product.modules || []).map((mod: any) => {
-    const vocabPage = mod.pages.find((p: any) => p.pageType === 'VOCAB');
-    const quizPage  = mod.pages.find((p: any) => p.pageType === 'QUIZ');
-
-    const parseContent = (raw: string | null | undefined) => {
-      if (!raw) return {};
-      try { return JSON.parse(raw); } catch { return {}; }
-    };
-
-    const vocabContent = parseContent(vocabPage?.content);
-    const quizContent  = parseContent(quizPage?.content);
-
-    return {
-      id: mod.id,
-      title: mod.title,
-      orderIndex: mod.orderIndex,
-      isFreePreview: mod.isFreePreview,
-      words:   vocabContent.words ?? [],
-      quizzes: quizContent.questions ?? [],
-    };
-  });
-
-  const hasAnyContent = modules.some((m: any) => (m.words && m.words.length > 0) || (m.quizzes && m.quizzes.length > 0));
-  if (!hasAnyContent && product.bookChapters && product.bookChapters.length > 0) {
-    modules = product.bookChapters.map((chapter: any) => {
-      const words = chapter.vocabularyItems.map((vi: any) => ({
-        id: vi.id,
-        originalWord: vi.originalWord,
-        transcription: vi.transcription ?? '',
-        pronunciation: vi.pronunciationTajik ?? '',
-        translation: vi.translationTajik ?? '',
-        audioUrl: vi.audioUrl ?? ''
-      }));
-      return {
-        id: chapter.id,
-        title: chapter.title,
-        orderIndex: chapter.orderIndex,
-        isFreePreview: false,
-        words: words,
-        quizzes: [],
-      };
-    });
-  }
-
-  return modules;
-}
-
 export async function OPTIONS() {
-  return new Response(null, { status: 204 });
+  return new NextResponse(null, { status: 204 });
 }

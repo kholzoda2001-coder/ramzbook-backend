@@ -1,46 +1,75 @@
-/**
- * GET /api/public/modules/[moduleId]/words
- *
- * Legacy endpoint consumed by the existing Flutter wordsProvider.
- * Returns { words: [...], quizzes: [...] } — shape matches Word.fromJson()
- * and Quiz.fromJson().
- */
-
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { apiError } from '@/lib/auth';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: { moduleId: string } }
 ) {
   try {
-    const pages = await prisma.page.findMany({
-      where: { moduleId: params.moduleId },
-      orderBy: { orderIndex: 'asc' },
+    if (!params.moduleId) {
+      return NextResponse.json({ error: 'Module ID is required' }, { status: 400 });
+    }
+
+    // Try finding by Unit first
+    let unit = await prisma.unit.findUnique({
+      where: { id: params.moduleId },
+      include: {
+        lessons: {
+          include: {
+            words: {
+              include: { word: true },
+              orderBy: { sortOrder: 'asc' }
+            }
+          },
+          orderBy: { sortOrder: 'asc' }
+        }
+      }
     });
 
-    const vocabPage = pages.find((p) => p.pageType === 'VOCAB');
-    const quizPage  = pages.find((p) => p.pageType === 'QUIZ');
+    if (unit) {
+      const words = unit.lessons.flatMap(l => 
+        l.words.map(lw => ({
+          id: lw.word.id,
+          originalWord: lw.word.word,
+          transcription: lw.word.ipa || '',
+          pronunciation: lw.word.ipa || '',
+          translation: lw.word.translation || '',
+          audioUrl: lw.word.audioUrl || '',
+          emoji: lw.word.emoji || ''
+        }))
+      );
+      return NextResponse.json({ words });
+    }
 
-    const parse = (raw: string | null | undefined) => {
-      if (!raw) return {};
-      try { return JSON.parse(raw) as Record<string, unknown>; } catch { return {}; }
-    };
-
-    const vocabContent = parse(vocabPage?.content as string | null);
-    const quizContent  = parse(quizPage?.content  as string | null);
-
-    return Response.json({
-      words:   (vocabContent.words    as unknown[]) ?? [],
-      quizzes: (quizContent.questions as unknown[]) ?? [],
+    // Try finding by Lesson
+    const lesson = await prisma.lesson.findUnique({
+      where: { id: params.moduleId },
+      include: {
+        words: {
+          include: { word: true },
+          orderBy: { sortOrder: 'asc' }
+        }
+      }
     });
+
+    if (lesson) {
+      const words = lesson.words.map(lw => ({
+        id: lw.word.id,
+        originalWord: lw.word.word,
+        transcription: lw.word.ipa || '',
+        pronunciation: lw.word.ipa || '',
+        translation: lw.word.translation || '',
+        audioUrl: lw.word.audioUrl || '',
+        emoji: lw.word.emoji || ''
+      }));
+      return NextResponse.json({ words });
+    }
+
+    return NextResponse.json({ error: 'Module not found' }, { status: 404 });
   } catch (err) {
-    console.error('[public/modules/[moduleId]/words]', err);
-    return apiError('Failed to fetch words');
+    console.error('[GET /api/public/modules/[moduleId]/words]', err);
+    return NextResponse.json({ error: 'Failed to fetch words' }, { status: 500 });
   }
-}
-
-export async function OPTIONS() {
-  return new Response(null, { status: 204 });
 }

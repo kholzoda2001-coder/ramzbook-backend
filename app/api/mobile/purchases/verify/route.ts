@@ -3,11 +3,13 @@ import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { google } from 'googleapis';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/mobile/purchases/verify
  * 
- * Verifies a Google Play receipt and updates the UserProgress or User (for VIP).
- * Body: { productId: string, purchaseToken: string, isVip: boolean }
+ * Verifies a Google Play receipt and updates the User's Premium status and Subscription.
+ * Body: { productId: string, purchaseToken: string }
  */
 export async function POST(req: NextRequest) {
   try {
@@ -15,26 +17,24 @@ export async function POST(req: NextRequest) {
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const body = await req.json();
-    const { productId, purchaseToken, isVip, targetBookId } = body;
+    const { productId, purchaseToken } = body;
 
-    if (!purchaseToken) {
-      return NextResponse.json({ error: 'Missing purchase token' }, { status: 400 });
+    if (!purchaseToken || !productId) {
+      return NextResponse.json({ error: 'Missing purchase token or productId' }, { status: 400 });
     }
 
-    // Google Play Developer API Verification Step
     const playCredentialsStr = process.env.GOOGLE_PLAY_CREDENTIALS;
     const packageName = process.env.ANDROID_PACKAGE_NAME || 'com.ramzbook.tj';
 
     let parsedExpiryTime: Date | null = null;
+    let autoRenewing = true;
+    let orderId = '';
 
     if (playCredentialsStr) {
       let credentials: any;
       try {
         credentials = JSON.parse(playCredentialsStr);
-        console.log('[Billing] Credentials parsed OK, client_email:', credentials.client_email ?? '(missing)');
       } catch (parseErr: any) {
-        console.error('[Billing] GOOGLE_PLAY_CREDENTIALS JSON parse FAILED:', parseErr.message);
-        console.error('[Billing] First 100 chars:', playCredentialsStr.substring(0, 100));
         return NextResponse.json({ error: 'Server credentials misconfigured' }, { status: 500 });
       }
 
@@ -46,156 +46,141 @@ export async function POST(req: NextRequest) {
         
         const androidPublisher = google.androidpublisher({ version: 'v3', auth });
         
-        let isValid = false;
-
-        console.log('[Billing] Verifying productId:', productId, 'packageName:', packageName);
-
-        if (productId === 'standard_single_book') {
+        if (productId === 'ramz_lifetime') {
+          // Lifetime is usually a one-time product
           const response = await androidPublisher.purchases.products.get({
             packageName,
             productId,
             token: purchaseToken,
           });
           const purchase = response.data;
-          console.log('[Billing] Product purchase state:', purchase.purchaseState);
-          // purchaseState 0 = PURCHASED
+          
           if (purchase.purchaseState !== 0) {
             return NextResponse.json({ error: 'Purchase not successful on Google Play' }, { status: 400 });
           }
-          isValid = true;
-        } else {
-          try {
-            const response = await androidPublisher.purchases.subscriptions.get({
-              packageName,
-              subscriptionId: productId,
-              token: purchaseToken,
-            });
+          
+          orderId = purchase.orderId || '';
 
-            const purchase = response.data;
-            const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
-            console.log('[Billing] Subscription expiry:', new Date(expiryTimeMillis).toISOString(), 'now:', new Date().toISOString());
-            if (expiryTimeMillis < Date.now()) {
-              return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
-            }
-            
-            parsedExpiryTime = new Date(expiryTimeMillis);
-
-            // Acknowledge the subscription if it hasn't been acknowledged yet
-            if (purchase.acknowledgementState === 0) {
-              try {
-                await androidPublisher.purchases.subscriptions.acknowledge({
-                  packageName,
-                  subscriptionId: productId,
-                  token: purchaseToken,
-                });
-                console.log('[Billing] Server acknowledged subscription:', productId);
-              } catch (ackErr: any) {
-                console.error('[Billing] Failed to acknowledge subscription on server:', ackErr.message);
-              }
-            }
-
-            isValid = true;
-          } catch (subErr: any) {
-            console.warn('[Billing] subscriptions.get failed, trying products.get as fallback. Error:', subErr.message);
-            // Fallback for cases where VIP was created as an IN-APP PRODUCT instead of a SUBSCRIPTION
+          if (purchase.acknowledgementState === 0) {
             try {
-              const prodResponse = await androidPublisher.purchases.products.get({
+              await androidPublisher.purchases.products.acknowledge({
                 packageName,
                 productId,
                 token: purchaseToken,
               });
-              const purchase = prodResponse.data;
-              console.log('[Billing] Fallback product purchase state:', purchase.purchaseState);
-              if (purchase.purchaseState !== 0) {
-                return NextResponse.json({ error: 'Purchase not successful on Google Play' }, { status: 400 });
-              }
+            } catch (ackErr) {}
+          }
+          
+          parsedExpiryTime = new Date(Date.now() + 100 * 365 * 24 * 60 * 60 * 1000); // 100 years
+          autoRenewing = false;
+        } else {
+          // Subscriptions (monthly, yearly)
+          const response = await androidPublisher.purchases.subscriptions.get({
+            packageName,
+            subscriptionId: productId,
+            token: purchaseToken,
+          });
 
-              if (purchase.acknowledgementState === 0) {
-                try {
-                  await androidPublisher.purchases.products.acknowledge({
-                    packageName,
-                    productId,
-                    token: purchaseToken,
-                  });
-                  console.log('[Billing] Server acknowledged product fallback:', productId);
-                } catch (ackErr: any) {
-                  console.error('[Billing] Failed to acknowledge product fallback on server:', ackErr.message);
-                }
-              }
+          const purchase = response.data;
+          const expiryTimeMillis = parseInt(purchase.expiryTimeMillis || '0', 10);
+          
+          if (expiryTimeMillis < Date.now()) {
+            return NextResponse.json({ error: 'Subscription expired on Google Play' }, { status: 400 });
+          }
+          
+          parsedExpiryTime = new Date(expiryTimeMillis);
+          autoRenewing = purchase.autoRenewing || false;
+          orderId = purchase.orderId || '';
 
-              // parsedExpiryTime remains null, so it falls back to manual +1 month / +1 year
-              isValid = true;
-            } catch (fallbackErr: any) {
-              console.error('[Billing] Fallback products.get also failed:', fallbackErr.message);
-              return NextResponse.json({ error: 'Invalid Google Play receipt' }, { status: 400 });
-            }
+          if (purchase.acknowledgementState === 0) {
+            try {
+              await androidPublisher.purchases.subscriptions.acknowledge({
+                packageName,
+                subscriptionId: productId,
+                token: purchaseToken,
+              });
+            } catch (ackErr) {}
           }
         }
       } catch (err: any) {
-        console.error('[Billing] Verification wrapper failed:', err.message);
+        console.error('[Billing]', err);
         return NextResponse.json({ error: 'Invalid Google Play receipt' }, { status: 400 });
       }
     } else {
       if (process.env.NODE_ENV === 'production') {
-        console.error('[Billing] CRITICAL: GOOGLE_PLAY_CREDENTIALS env var is EMPTY or not set!');
         return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
       }
-      console.warn('[Billing] Bypassing strict Google Play validation due to missing GOOGLE_PLAY_CREDENTIALS in development. Token:', purchaseToken);
+      // Dev fallback
+      parsedExpiryTime = new Date();
+      if (productId === 'ramz_yearly') parsedExpiryTime.setFullYear(parsedExpiryTime.getFullYear() + 1);
+      else if (productId === 'ramz_lifetime') parsedExpiryTime.setFullYear(parsedExpiryTime.getFullYear() + 100);
+      else parsedExpiryTime.setMonth(parsedExpiryTime.getMonth() + 1);
+      orderId = 'dev_order_' + Date.now();
     }
 
-    if (isVip) {
-      // Use parsedExpiryTime if available, else fallback to manual calculation
-      let vipExpiresAt = parsedExpiryTime || new Date();
-      let subscriptionPlan = 'monthly';
-      
-      if (productId === 'vip_yearly') {
-        if (!parsedExpiryTime) vipExpiresAt.setFullYear(vipExpiresAt.getFullYear() + 1);
-        subscriptionPlan = 'yearly';
-      } else {
-        if (!parsedExpiryTime) vipExpiresAt.setMonth(vipExpiresAt.getMonth() + 1);
-      }
+    const plan = productId === 'ramz_yearly' ? 'yearly' : (productId === 'ramz_lifetime' ? 'lifetime' : 'monthly');
 
-      await prisma.user.update({
+    // Save to database
+    await prisma.$transaction(async (tx) => {
+      // 1. Update User
+      await tx.user.update({
         where: { id: userId },
-        data: { 
-          vipExpiresAt, 
-          vipPurchaseToken: purchaseToken,
-          subscriptionPlan,
-          vipGrantReason: null
+        data: {
+          isPremium: true,
+          premiumPlan: plan,
+          premiumStartedAt: new Date(),
+          premiumExpiresAt: parsedExpiryTime,
         }
       });
 
-      return NextResponse.json({ ok: true, message: 'VIP granted.' });
-    }
+      // 2. Create or Update Subscription
+      await tx.subscription.upsert({
+        where: { googlePurchaseToken: purchaseToken },
+        create: {
+          userId,
+          plan,
+          status: 'active',
+          googlePurchaseToken: purchaseToken,
+          googleOrderId: orderId,
+          googleProductId: productId,
+          startedAt: new Date(),
+          expiresAt: parsedExpiryTime,
+          autoRenew: autoRenewing,
+        },
+        update: {
+          status: 'active',
+          expiresAt: parsedExpiryTime,
+          autoRenew: autoRenewing,
+        }
+      });
 
-    if (!targetBookId) {
-      return NextResponse.json({ error: 'targetBookId is required for book purchases' }, { status: 400 });
-    }
-
-    // Grant lifetime access to the specific book
-    await prisma.userProgress.upsert({
-      where: { userId_productId: { userId, productId: targetBookId } },
-      create: {
-        userId,
-        productId: targetBookId,
-        isPurchased: true,
-        isManualGrant: false,
-        expiresAt: null, // Lifetime access
-        purchaseToken,
-        lastReadPageIndex: 0,
-      },
-      update: {
-        isPurchased: true,
-        isManualGrant: false,
-        purchaseToken,
-        expiresAt: null,
-      },
+      // 3. Create Payment Record (only if orderId is new)
+      if (orderId) {
+        const existingPayment = await tx.payment.findUnique({ where: { googleOrderId: orderId } });
+        if (!existingPayment) {
+           await tx.payment.create({
+             data: {
+               userId,
+               amount: plan === 'yearly' ? 29.99 : (plan === 'lifetime' ? 99.99 : 4.99),
+               currency: 'USD',
+               plan,
+               status: 'success',
+               googleOrderId: orderId,
+               googlePurchaseToken: purchaseToken,
+             }
+           });
+        }
+      }
     });
 
-    return NextResponse.json({ ok: true, message: 'Purchase verified and granted.' });
+    return NextResponse.json({ ok: true, message: 'Premium granted successfully.' });
 
   } catch (err) {
     console.error('[purchases/verify POST]', err);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204 });
 }

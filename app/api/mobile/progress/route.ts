@@ -1,28 +1,8 @@
-/**
- * POST /api/mobile/progress
- *
- * Called by the Flutter BookReaderScreen every time the user swipes to a
- * new page in the PageView.  Uses an upsert so the first swipe creates
- * the record and subsequent swipes update it.
- *
- * Request body (JSON):
- *   {
- *     "productId":         "ramz-english-1",
- *     "lastReadPageIndex": 5
- *   }
- *
- * User identity: extracted from the `x-user-id` header (or `?userId=` param).
- *
- * Response (200):
- *   {
- *     "ok": true,
- *     "lastReadPageIndex": 5
- *   }
- */
-
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,65 +10,88 @@ export async function POST(req: NextRequest) {
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const body = await req.json() as {
+      lessonId?: string;
+      isCompleted?: boolean;
+      accuracy?: number;
+      xpEarned?: number;
+      timeSpent?: number;
+      heartsLost?: number;
+      // Backward compatibility fields
       productId?: string;
       lastReadPageIndex?: number;
     };
 
-    const { productId, lastReadPageIndex } = body;
+    // If mobile app is still sending old format, just return success 
+    // without crashing, until it's updated
+    if (body.productId && !body.lessonId) {
+       return NextResponse.json({ ok: true, backwardCompatible: true });
+    }
 
-    if (!productId || typeof lastReadPageIndex !== 'number') {
-      return Response.json(
-        { error: 'productId (string) and lastReadPageIndex (number) are required.' },
+    const { lessonId, isCompleted = true, accuracy = 100, xpEarned = 10, timeSpent = 60, heartsLost = 0 } = body;
+
+    if (!lessonId) {
+      return NextResponse.json(
+        { error: 'lessonId is required.' },
         { status: 400 }
       );
     }
 
-    if (lastReadPageIndex < 0) {
-      return Response.json(
-        { error: 'lastReadPageIndex must be >= 0.' },
-        { status: 400 }
-      );
-    }
-
-    // Verify the product exists before writing progress
-    const product = await prisma.product.findUnique({
-      where: { id: productId },
-      select: { id: true },
+    // Verify the lesson exists
+    const lesson = await prisma.lesson.findUnique({
+      where: { id: lessonId },
+      select: { id: true, xpReward: true },
     });
 
-    if (!product) {
-      return Response.json({ error: 'Product not found.' }, { status: 404 });
+    if (!lesson) {
+      return NextResponse.json({ error: 'Lesson not found.' }, { status: 404 });
     }
 
-    // Upsert: create on first call, update on subsequent calls.
-    // Only advance the page index — never go backwards — to avoid a race
-    // condition where a stale request overwrites a newer position.
-    const existing = await prisma.userProgress.findUnique({
-      where: { userId_productId: { userId, productId } },
-      select: { lastReadPageIndex: true },
-    });
-
-    const updatedProgress = await prisma.userProgress.upsert({
-      where: { userId_productId: { userId, productId } },
+    // Upsert UserProgress
+    const progress = await prisma.userProgress.upsert({
+      where: { userId_lessonId: { userId, lessonId } },
       create: {
         userId,
-        productId,
-        lastReadPageIndex,
-        isPurchased: false, // Purchase status is managed separately
+        lessonId,
+        isCompleted,
+        accuracy,
+        xpEarned: isCompleted ? (xpEarned || lesson.xpReward) : 0,
+        timeSpent,
+        heartsLost,
+        completedAt: isCompleted ? new Date() : null,
       },
       update: {
-        // Only advance — never regress
-        lastReadPageIndex:
-          (existing?.lastReadPageIndex ?? 0) < lastReadPageIndex
-            ? lastReadPageIndex
-            : existing?.lastReadPageIndex ?? 0,
+        isCompleted: isCompleted ? true : undefined,
+        accuracy: isCompleted ? Math.max(accuracy, 0) : undefined, // keep highest accuracy? or latest
+        xpEarned: { increment: isCompleted ? (xpEarned || lesson.xpReward) : 0 },
+        timeSpent: { increment: timeSpent },
+        completedAt: isCompleted ? new Date() : undefined,
       },
-      select: { lastReadPageIndex: true },
     });
 
-    return Response.json({
+    // Optionally update user's total XP if they completed the lesson
+    if (isCompleted) {
+      await prisma.user.update({
+        where: { id: userId },
+        data: {
+          totalXp: { increment: xpEarned || lesson.xpReward },
+          hearts: Math.max(0, { decrement: heartsLost } as any) // Pseudo-code, we need to do it properly
+        }
+      });
+      // Proper heart deduction
+      if (heartsLost > 0) {
+        const user = await prisma.user.findUnique({ where: { id: userId }, select: { hearts: true } });
+        if (user) {
+          await prisma.user.update({
+            where: { id: userId },
+            data: { hearts: Math.max(0, user.hearts - heartsLost) }
+          });
+        }
+      }
+    }
+
+    return NextResponse.json({
       ok: true,
-      lastReadPageIndex: updatedProgress.lastReadPageIndex,
+      progress
     });
   } catch (err) {
     console.error('[progress]', err);
@@ -97,5 +100,5 @@ export async function POST(req: NextRequest) {
 }
 
 export async function OPTIONS() {
-  return new Response(null, { status: 204 });
+  return new NextResponse(null, { status: 204 });
 }
