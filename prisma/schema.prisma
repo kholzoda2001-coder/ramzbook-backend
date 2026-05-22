@@ -58,9 +58,22 @@ model User {
   payments          Payment[]
   gemTransactions   GemTransaction[]
   userLanguages     UserLanguage[]
+  refreshTokens     RefreshToken[]
   
   @@index([email])
   @@index([isPremium])
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
 }
 
 model Language {
