@@ -9,14 +9,14 @@ export default async function AdminSubscriptionsPage() {
       user: true,
     },
     orderBy: {
-      createdAt: 'desc'
+      startedAt: 'desc'
     }
   });
 
   const activeCount = subscriptions.filter(s => s.status === 'ACTIVE').length;
   
   const payments = await prisma.payment.findMany({
-    where: { status: 'COMPLETED' }
+    where: { status: 'success' }
   });
   
   const totalRevenue = payments.reduce((sum, p) => sum + p.amount, 0);
@@ -70,7 +70,7 @@ export default async function AdminSubscriptionsPage() {
                       </div>
                     </td>
                     <td style={{ padding: '16px 20px', fontWeight: 600, color: 'var(--gold)' }}>
-                      {sub.planType}
+                      {sub.plan}
                     </td>
                     <td style={{ padding: '16px 20px' }}>
                       <span className={`pill ${sub.status === 'ACTIVE' ? 'pp' : 'pa'}`} style={{ padding: '4px 10px', fontSize: '11px' }}>
@@ -78,10 +78,10 @@ export default async function AdminSubscriptionsPage() {
                       </span>
                     </td>
                     <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>
-                      {sub.startDate.toISOString().split('T')[0]}
+                      {sub.startedAt.toISOString().split('T')[0]}
                     </td>
                     <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>
-                      {sub.endDate ? sub.endDate.toISOString().split('T')[0] : 'Беохир (Lifetime)'}
+                      {sub.expiresAt ? sub.expiresAt.toISOString().split('T')[0] : 'Беохир (Lifetime)'}
                     </td>
                   </tr>
                 ))

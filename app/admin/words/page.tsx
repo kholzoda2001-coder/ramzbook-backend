@@ -6,12 +6,10 @@ export const dynamic = 'force-dynamic';
 export default async function AdminWordsPage() {
   const words = await prisma.word.findMany({
     include: {
-      language: true,
       lessons: {
         select: { lesson: { select: { title: true } } }
       }
     },
-    orderBy: { createdAt: 'desc' },
     take: 100 // Limit to latest 100 words for performance in MVP
   });
   
@@ -58,14 +56,14 @@ export default async function AdminWordsPage() {
                   <tr key={word.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <td style={{ padding: '16px 20px' }}>
                       <span className="pill" style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-primary)' }}>
-                        {word.language.flagIcon} {word.language.code.toUpperCase()}
+                        {word.langTo.toUpperCase()}
                       </span>
                     </td>
                     <td style={{ padding: '16px 20px', fontWeight: 600, color: 'var(--text-primary)' }}>
-                      {word.targetWord}
+                      {word.word}
                     </td>
                     <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>
-                      {word.nativeTranslation}
+                      {word.translation}
                     </td>
                     <td style={{ padding: '16px 20px' }}>
                       <span className="pill" style={{ background: 'var(--blue-dark)', color: 'var(--blue-light)', fontSize: '11px' }}>

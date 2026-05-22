@@ -14,11 +14,10 @@ export default async function AdminLessonsPage() {
             }
           }
         },
-        orderBy: { orderIndex: 'asc' }
+        orderBy: { sortOrder: 'asc' }
       },
       language: true
-    },
-    orderBy: { createdAt: 'desc' }
+    }
   });
 
   return (

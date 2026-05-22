@@ -15,36 +15,36 @@ export default async function AdminDashboardPage() {
   startOfMonth.setDate(1);
   startOfMonth.setHours(0, 0, 0, 0);
 
-  // Lessons today (completed or active UserProgress)
+  // Lessons today (completed UserProgress)
   const lessonsToday = await prisma.userProgress.count({
-    where: { updatedAt: { gte: startOfDay } }
+    where: { completedAt: { gte: startOfDay } }
   });
 
   // Monthly income
   const payments = await prisma.payment.findMany({
-    where: { status: 'COMPLETED', createdAt: { gte: startOfMonth } }
+    where: { status: 'success', createdAt: { gte: startOfMonth } }
   });
   const monthlyIncome = payments.reduce((acc, p) => acc + p.amount, 0);
 
   // 2. Top Users
   const topUsers = await prisma.user.findMany({
-    orderBy: { xp: 'desc' },
+    orderBy: { totalXp: 'desc' },
     take: 5
   });
 
   // 3. Language Distribution
   const languages = await prisma.language.findMany({
-    include: { _count: { select: { users: true } } }
+    include: { _count: { select: { userLanguages: true } } }
   });
   
-  const totalEnrolls = languages.reduce((sum, lang) => sum + lang._count.users, 0);
+  const totalEnrolls = languages.reduce((sum, lang) => sum + lang._count.userLanguages, 0);
   const langStats = languages.map(l => ({
     id: l.id,
     name: l.name,
     code: l.code,
-    flag: l.flagIcon || '🌐',
-    count: l._count.users,
-    percent: totalEnrolls > 0 ? Math.round((l._count.users / totalEnrolls) * 100) : 0
+    flag: l.flag || '🌐',
+    count: l._count.userLanguages,
+    percent: totalEnrolls > 0 ? Math.round((l._count.userLanguages / totalEnrolls) * 100) : 0
   })).sort((a, b) => b.percent - a.percent);
 
   // 4. Recent Activities (Merge recent users and payments)
@@ -121,7 +121,7 @@ export default async function AdminDashboardPage() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div className="mln">{u.name || 'Корбари Номаълум'}</div>
-                  <div className="mls">🔥 {u.streak} рӯз • {u.xp.toLocaleString()} XP</div>
+                  <div className="mls">🔥 {u.streak} рӯз • {u.totalXp.toLocaleString()} XP</div>
                 </div>
                 {u.isPremium ? (
                   <span className="pill pp">Premium</span>
