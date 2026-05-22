@@ -11,14 +11,33 @@ export async function GET() {
         id: true,
         name: true,
         email: true,
-        phone: true,
-        isActive: true,
+        isPremium: true,
+        premiumPlan: true,
+        totalXp: true,
+        streak: true,
         createdAt: true,
+        lastActiveAt: true,
       },
     });
 
-    return NextResponse.json(users);
-  } catch {
-    return NextResponse.json({ error: 'Хатои сервер' }, { status: 500 });
+    // Map to shape the client expects
+    const mapped = users.map(u => ({
+      id: u.id,
+      name: u.name,
+      email: u.email,
+      phone: null,            // Schema has no phone field
+      isActive: true,         // Schema has no isActive, assume all active
+      isPremium: u.isPremium,
+      premiumPlan: u.premiumPlan,
+      totalXp: u.totalXp,
+      streak: u.streak,
+      createdAt: u.createdAt,
+      lastActiveAt: u.lastActiveAt,
+    }));
+
+    return NextResponse.json(mapped);
+  } catch (error: any) {
+    console.error('USERS API ERROR:', error?.message);
+    return NextResponse.json({ error: error?.message || 'Хатои сервер' }, { status: 500 });
   }
 }
