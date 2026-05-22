@@ -21,10 +21,10 @@ export async function POST(req: NextRequest) {
     const tokenHash = hashRefreshToken(incoming);
     const row = await prisma.refreshToken.findUnique({
       where: { tokenHash },
-      include: { user: { select: { id: true, name: true, email: true, isActive: true } } },
+      include: { user: { select: { id: true, name: true, email: true } } },
     });
 
-    if (!row || row.revokedAt || row.expiresAt <= new Date() || !row.user.isActive) {
+    if (!row || row.revokedAt || row.expiresAt <= new Date()) {
       return Response.json({ error: 'Invalid refresh token.' }, { status: 401 });
     }
 

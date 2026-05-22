@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
       isNewUser = true;
       const passwordHash = await bcrypt.hash(crypto.randomBytes(24).toString('hex'), 10);
       user = await prisma.user.create({
-        data: { email, name, passwordHash, isActive: true },
+        data: { email, name, passwordHash },
       });
     }
 
