@@ -20,6 +20,21 @@ export default async function AdminLanguagesPage() {
               Идоракунии забонҳои дар барнома мавҷудбуда ({languages.length} забон)
             </p>
           </div>
+          <a href="/admin/languages/new" style={{ 
+            background: 'linear-gradient(135deg, var(--teal), #0d9488)', 
+            color: '#fff', 
+            padding: '10px 20px', 
+            borderRadius: '10px', 
+            textDecoration: 'none', 
+            fontWeight: 600,
+            fontSize: '14px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            boxShadow: '0 4px 12px rgba(20, 184, 166, 0.25)'
+          }}>
+            <span style={{ fontSize: '18px' }}>+</span> Забони Нав
+          </a>
         </div>
 
         <div className="glass-card fade-up" style={{ animationDelay: '0.1s' }}>

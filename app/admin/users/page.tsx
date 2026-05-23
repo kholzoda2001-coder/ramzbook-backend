@@ -36,10 +36,10 @@ type User = {
 function displayContact(user: User): string {
   if (user.phone) return user.phone;
   // Hide shadow emails (e.g. 992xxx@ramzbook.tj) — show cleaned phone instead
-  if (user.email.endsWith('@ramzbook.tj')) {
+  if (user.email && user.email.endsWith('@ramzbook.tj')) {
     return '+' + user.email.replace('@ramzbook.tj', '');
   }
-  return user.email;
+  return user.email || 'Номаълум';
 }
 
 type BookAccess = {
