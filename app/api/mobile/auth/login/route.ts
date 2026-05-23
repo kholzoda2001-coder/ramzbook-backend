@@ -25,30 +25,39 @@ export async function POST(req: NextRequest) {
     }
 
     const isEmail = rawIdentifier.includes('@');
-    let email: string | null = null;
     let phone: string | null = null;
 
-    if (isEmail) {
-      email = rawIdentifier.toLowerCase();
-    } else {
+    if (!isEmail) {
       // Normalize phone number
       phone = rawIdentifier.replace(/[\s\-()]/g, '');
       if (!phone.startsWith('+')) phone = '+' + phone;
     }
 
-    // Find user by email or phone
-    let user: { id: string; name: string; email: string | null; phone: string | null; passwordHash: string } | null = null;
+    // Build search conditions - support both old (synthetic email) and new (real phone field) formats
+    type UserRow = { id: string; name: string; email: string | null; phone: string | null; passwordHash: string };
+    let user: UserRow | null = null;
 
-    if (email) {
+    if (isEmail) {
+      // Direct email lookup
       user = await prisma.user.findUnique({
-        where: { email },
+        where: { email: rawIdentifier.toLowerCase() },
         select: { id: true, name: true, email: true, phone: true, passwordHash: true },
       });
     } else if (phone) {
+      // 1) Try real phone field (new registrations)
       user = await prisma.user.findUnique({
         where: { phone },
         select: { id: true, name: true, email: true, phone: true, passwordHash: true },
       });
+
+      if (!user) {
+        // 2) Fallback: old registrations stored phone as synthetic email {digits}@ramzbook.tj
+        const digits = phone.replace('+', '');
+        user = await prisma.user.findUnique({
+          where: { email: `${digits}@ramzbook.tj` },
+          select: { id: true, name: true, email: true, phone: true, passwordHash: true },
+        });
+      }
     }
 
     if (!user) {
