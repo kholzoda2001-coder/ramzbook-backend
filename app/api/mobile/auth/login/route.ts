@@ -35,11 +35,19 @@ export async function POST(req: NextRequest) {
       if (!phone.startsWith('+')) phone = '+' + phone;
     }
 
-    // Build OR conditions carefully to avoid matching empty strings
+    // Build OR conditions - phone users are stored with synthetic email: {phone_digits}@ramzbook.tj
     const orConditions: object[] = [];
-    if (email) orConditions.push({ email });
-    // Fallback: try rawIdentifier as email (covers edge cases)
-    if (!email && rawIdentifier) orConditions.push({ email: rawIdentifier });
+    if (email) {
+      orConditions.push({ email });
+    } else if (phone) {
+      // Phone was stored as synthetic email during registration
+      const digits = phone.replace('+', '');
+      orConditions.push({ email: `${digits}@ramzbook.tj` });
+      // Also try without leading country code variation
+      orConditions.push({ email: `${rawIdentifier.replace(/[^0-9]/g, '')}@ramzbook.tj` });
+    }
+    // Fallback: try rawIdentifier as-is (covers edge cases)
+    if (orConditions.length === 0) orConditions.push({ email: rawIdentifier });
 
     const user = await prisma.user.findFirst({
       where: { OR: orConditions },
