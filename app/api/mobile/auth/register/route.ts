@@ -2,7 +2,6 @@ import { NextRequest } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
 import {
-  apiError,
   generateRefreshToken,
   hashRefreshToken,
   signAccessTokenForUser,
@@ -20,7 +19,7 @@ export async function POST(req: NextRequest) {
     };
 
     const name = body.name?.trim() ?? '';
-    const rawIdentifier = (body.identifier ?? body.email ?? '').trim().toLowerCase();
+    const rawIdentifier = (body.identifier ?? body.email ?? '').trim();
     const password = body.password ?? '';
 
     if (name.length < 2) {
@@ -33,30 +32,41 @@ export async function POST(req: NextRequest) {
       return Response.json({ error: 'Password must be at least 8 characters.' }, { status: 400 });
     }
 
-    let email = '';
+    const isEmail = rawIdentifier.includes('@');
+    let email: string | null = null;
     let phone: string | null = null;
 
-    if (rawIdentifier.includes('@')) {
-      email = rawIdentifier;
+    if (isEmail) {
+      email = rawIdentifier.toLowerCase();
     } else {
+      // Normalize phone number
       phone = rawIdentifier.replace(/[\s\-()]/g, '');
       if (!phone.startsWith('+')) phone = '+' + phone;
-      email = `${phone.replace('+', '')}@ramzbook.tj`;
     }
 
-    const existing = await prisma.user.findUnique({
-      where: { email },
-      select: { id: true }
-    });
-    
-    if (existing) {
-      return Response.json({ error: 'This email or phone number is already registered.' }, { status: 409 });
+    // Check if already registered
+    if (email) {
+      const existing = await prisma.user.findUnique({
+        where: { email },
+        select: { id: true }
+      });
+      if (existing) {
+        return Response.json({ error: 'This email is already registered.' }, { status: 409 });
+      }
+    } else if (phone) {
+      const existing = await prisma.user.findUnique({
+        where: { phone },
+        select: { id: true }
+      });
+      if (existing) {
+        return Response.json({ error: 'This phone number is already registered.' }, { status: 409 });
+      }
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
     const user = await prisma.user.create({
-      data: { name, email, passwordHash },
-      select: { id: true, name: true, email: true },
+      data: { name, email, phone, passwordHash },
+      select: { id: true, name: true, email: true, phone: true },
     });
 
     const accessToken = signAccessTokenForUser(user.id);

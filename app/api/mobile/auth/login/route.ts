@@ -2,7 +2,6 @@ import { NextRequest } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
 import {
-  apiError,
   generateRefreshToken,
   hashRefreshToken,
   signAccessTokenForUser,
@@ -18,41 +17,39 @@ export async function POST(req: NextRequest) {
       password?: string;
     };
 
-    const rawIdentifier = (body.identifier ?? body.email ?? '').trim().toLowerCase();
+    const rawIdentifier = (body.identifier ?? body.email ?? '').trim();
     const password = body.password ?? '';
 
     if (!rawIdentifier || !password) {
       return Response.json({ error: 'Email/Phone and password are required.' }, { status: 400 });
     }
 
-    let email = '';
+    const isEmail = rawIdentifier.includes('@');
+    let email: string | null = null;
     let phone: string | null = null;
 
-    if (rawIdentifier.includes('@')) {
-      email = rawIdentifier;
+    if (isEmail) {
+      email = rawIdentifier.toLowerCase();
     } else {
+      // Normalize phone number
       phone = rawIdentifier.replace(/[\s\-()]/g, '');
       if (!phone.startsWith('+')) phone = '+' + phone;
     }
 
-    // Build OR conditions - phone users are stored with synthetic email: {phone_digits}@ramzbook.tj
-    const orConditions: object[] = [];
-    if (email) {
-      orConditions.push({ email });
-    } else if (phone) {
-      // Phone was stored as synthetic email during registration
-      const digits = phone.replace('+', '');
-      orConditions.push({ email: `${digits}@ramzbook.tj` });
-      // Also try without leading country code variation
-      orConditions.push({ email: `${rawIdentifier.replace(/[^0-9]/g, '')}@ramzbook.tj` });
-    }
-    // Fallback: try rawIdentifier as-is (covers edge cases)
-    if (orConditions.length === 0) orConditions.push({ email: rawIdentifier });
+    // Find user by email or phone
+    let user: { id: string; name: string; email: string | null; phone: string | null; passwordHash: string } | null = null;
 
-    const user = await prisma.user.findFirst({
-      where: { OR: orConditions },
-      select: { id: true, name: true, email: true, passwordHash: true },
-    });
+    if (email) {
+      user = await prisma.user.findUnique({
+        where: { email },
+        select: { id: true, name: true, email: true, phone: true, passwordHash: true },
+      });
+    } else if (phone) {
+      user = await prisma.user.findUnique({
+        where: { phone },
+        select: { id: true, name: true, email: true, phone: true, passwordHash: true },
+      });
+    }
 
     if (!user) {
       return Response.json({ error: 'Invalid credentials.' }, { status: 401 });
@@ -80,7 +77,7 @@ export async function POST(req: NextRequest) {
     });
 
     return Response.json({
-      user: { id: user.id, name: user.name, email: user.email },
+      user: { id: user.id, name: user.name, email: user.email, phone: user.phone },
       accessToken,
       refreshToken,
     });
