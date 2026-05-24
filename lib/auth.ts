@@ -104,3 +104,41 @@ export function unauthorized(message = 'Unauthorized') {
 export function apiError(message: string, status = 500) {
   return Response.json({ error: message }, { status });
 }
+
+/**
+ * Verifies an access token and returns its payload.
+ * Throws if invalid or expired.
+ */
+export function verifyAccessToken(token: string): { userId: string } {
+  const secret = getJwtSecret();
+  try {
+    const payload = jwt.verify(token, secret, {
+      issuer: 'ramz-api',
+      audience: 'ramz-mobile',
+    }) as MobileJwtPayload;
+    const userId = payload.sub ?? payload.userId;
+    if (!userId) throw new Error('No userId in token');
+    return { userId: userId.trim() };
+  } catch {
+    throw new Error('Invalid or expired access token');
+  }
+}
+
+/**
+ * Authenticates a request and returns a minimal user object { id }.
+ * Used by legacy endpoints that expect an { id } shape.
+ * Returns null if the request has no valid Bearer token.
+ */
+export async function authenticate(req: Request): Promise<{ id: string } | null> {
+  const authHeader = (req as any).headers?.get?.('authorization')
+    ?? (req.headers as any)['authorization'];
+  if (!authHeader) return null;
+  const [scheme, token] = (authHeader as string).split(' ');
+  if (scheme?.toLowerCase() !== 'bearer' || !token?.trim()) return null;
+  try {
+    const { userId } = verifyAccessToken(token.trim());
+    return { id: userId };
+  } catch {
+    return null;
+  }
+}

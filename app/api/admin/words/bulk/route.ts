@@ -6,41 +6,38 @@ export interface BulkWord {
   emoji?: string;
   word: string;
   translation?: string;
-  trans_TJ?: string;
-  trans_EN?: string;
+  ipa?: string;
   transcriptionEn?: string;
-  transcriptionTj?: string;
-  exampleEn?: string;
-  exampleTj?: string;
   example?: string;
   exampleTranslation?: string;
+  exampleTj?: string;
+  exampleEn?: string;
   audioUrl?: string;
 }
 
 /**
  * POST /api/admin/words/bulk
- * Body: { moduleId: string, words: BulkWord[], mode?: 'append' | 'replace' }
+ * Body: { lessonId: string, words: BulkWord[], mode?: 'append' | 'replace' }
  *
- * Merges incoming words into the module's VOCAB Page content JSON.
+ * Creates Word records in the database and links them to the specified lesson.
  * Uses a single Prisma transaction so the write is atomic.
  */
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { moduleId, words, mode = 'append' } = body as {
-      moduleId: string;
+    const { lessonId, words, mode = 'append' } = body as {
+      lessonId: string;
       words: BulkWord[];
       mode?: 'append' | 'replace';
     };
 
     // ── Validation ────────────────────────────────────────────────────────────
-    if (!moduleId || typeof moduleId !== 'string') {
-      return NextResponse.json({ error: 'moduleId is required' }, { status: 400 });
+    if (!lessonId || typeof lessonId !== 'string') {
+      return NextResponse.json({ error: 'lessonId is required' }, { status: 400 });
     }
     if (!Array.isArray(words) || words.length === 0) {
       return NextResponse.json({ error: 'words array is required and must not be empty' }, { status: 400 });
     }
-    // At most 2 000 words per request to avoid timeout
     if (words.length > 2000) {
       return NextResponse.json(
         { error: 'Too many words. Split into batches of ≤ 2 000.' },
@@ -48,81 +45,80 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Normalise incoming rows ───────────────────────────────────────────────
-    const normalised = words.map((w, i) => ({
-      id: `bulk-${Date.now()}-${i}`,
-      emoji:              w.emoji?.trim()              || '💬',
-      word:               (w.word ?? '').trim(),
-      translation:        (w.translation ?? '').trim(),
-      trans_TJ:           (w.trans_TJ ?? '').trim(),
-      trans_EN:           (w.trans_EN ?? '').trim(),
-      transcriptionEn:    (w.transcriptionEn ?? '').trim(),
-      transcriptionTj:    (w.transcriptionTj ?? '').trim(),
-      exampleEn:          (w.exampleEn ?? '').trim(),
-      exampleTj:          (w.exampleTj ?? '').trim(),
-      example:            (w.example ?? '').trim(),
-      exampleTranslation: (w.exampleTranslation ?? '').trim(),
-      audio:              null,          // files are not sent over JSON
-    }));
-
-    // Filter out blank rows (no word and no translation)
-    const clean = normalised.filter(w => w.word || w.translation);
-
+    // Filter out blank rows
+    const clean = words.filter(w => (w.word ?? '').trim() || (w.translation ?? '').trim());
     if (clean.length === 0) {
       return NextResponse.json({ error: 'All rows are empty (no word or translation).' }, { status: 400 });
     }
 
     // ── Database transaction ────────────────────────────────────────────────
     const result = await prisma.$transaction(async (tx) => {
-      // Verify the module exists
-      const mod = await tx.module.findUnique({ where: { id: moduleId } });
-      if (!mod) throw new Error(`Module "${moduleId}" not found`);
-
-      // Find existing VOCAB page for this module
-      let vocabPage = await tx.page.findFirst({
-        where: { moduleId, pageType: 'VOCAB' },
+      // Verify the lesson exists
+      const lesson = await tx.lesson.findUnique({
+        where: { id: lessonId },
+        include: { unit: { include: { course: { include: { language: true } } } } }
       });
+      if (!lesson) throw new Error(`Lesson "${lessonId}" not found`);
 
-      let existingWords: object[] = [];
+      const langFrom = lesson.unit.course.language.code ?? 'en';
+      const langTo = 'tg'; // default target language
 
-      if (vocabPage) {
-        // Parse existing content
-        try {
-          const parsed = JSON.parse(vocabPage.content);
-          existingWords = Array.isArray(parsed?.words) ? parsed.words : [];
-        } catch {
-          existingWords = [];
-        }
+      // If replace mode, remove all existing words from this lesson
+      if (mode === 'replace') {
+        await tx.lessonWord.deleteMany({ where: { lessonId } });
       }
 
-      const merged = mode === 'replace' ? clean : [...existingWords, ...clean];
-      const newContent = JSON.stringify({ words: merged });
-
-      if (vocabPage) {
-        vocabPage = await tx.page.update({
-          where: { id: vocabPage.id },
-          data: { content: newContent, updatedAt: new Date() },
+      // Get current max sortOrder for append mode
+      let maxOrder = 0;
+      if (mode === 'append') {
+        const last = await tx.lessonWord.findFirst({
+          where: { lessonId },
+          orderBy: { sortOrder: 'desc' },
         });
-      } else {
-        // Create brand-new VOCAB page
-        vocabPage = await tx.page.create({
+        maxOrder = last?.sortOrder ?? 0;
+      }
+
+      let insertedCount = 0;
+      for (let i = 0; i < clean.length; i++) {
+        const w = clean[i];
+        const wordText = (w.word ?? '').trim();
+        const translation = (w.translation ?? '').trim();
+        if (!wordText && !translation) continue;
+
+        // Create or reuse the word
+        const word = await tx.word.create({
           data: {
-            moduleId,
-            pageType: 'VOCAB',
-            orderIndex: 0,
-            content: newContent,
+            langFrom,
+            langTo,
+            word: wordText || translation,
+            translation: translation || wordText,
+            ipa: (w.ipa ?? w.transcriptionEn ?? '').trim() || null,
+            emoji: (w.emoji ?? '').trim() || null,
+            example: (w.example ?? w.exampleEn ?? '').trim() || null,
+            exampleTranslation: (w.exampleTranslation ?? w.exampleTj ?? '').trim() || null,
+            audioUrl: (w.audioUrl ?? '').trim() || null,
+            difficulty: 1,
           },
         });
+
+        await tx.lessonWord.create({
+          data: {
+            lessonId,
+            wordId: word.id,
+            sortOrder: maxOrder + i + 1,
+          },
+        });
+        insertedCount++;
       }
 
-      return { pageId: vocabPage.id, inserted: clean.length, total: merged.length };
+      const total = await tx.lessonWord.count({ where: { lessonId } });
+      return { inserted: insertedCount, total };
     });
 
     return NextResponse.json({
       success: true,
       inserted: result.inserted,
       total: result.total,
-      pageId: result.pageId,
     });
   } catch (err: any) {
     console.error('[bulk-import]', err);

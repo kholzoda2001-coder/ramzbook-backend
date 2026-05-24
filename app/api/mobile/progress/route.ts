@@ -68,25 +68,25 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Optionally update user's total XP if they completed the lesson
+    // Update user's total XP and hearts if they completed the lesson
     if (isCompleted) {
+      // First fetch current hearts to compute safe deduction
+      const currentUser = await prisma.user.findUnique({
+        where: { id: userId },
+        select: { hearts: true },
+      });
+      const currentHearts = currentUser?.hearts ?? 5;
+      const newHearts = heartsLost > 0 ? Math.max(0, currentHearts - heartsLost) : currentHearts;
+
       await prisma.user.update({
         where: { id: userId },
         data: {
           totalXp: { increment: xpEarned || lesson.xpReward },
-          hearts: Math.max(0, { decrement: heartsLost } as any) // Pseudo-code, we need to do it properly
-        }
+          weeklyXp: { increment: xpEarned || lesson.xpReward },
+          hearts: newHearts,
+          lastActiveAt: new Date(),
+        },
       });
-      // Proper heart deduction
-      if (heartsLost > 0) {
-        const user = await prisma.user.findUnique({ where: { id: userId }, select: { hearts: true } });
-        if (user) {
-          await prisma.user.update({
-            where: { id: userId },
-            data: { hearts: Math.max(0, user.hearts - heartsLost) }
-          });
-        }
-      }
     }
 
     return NextResponse.json({
