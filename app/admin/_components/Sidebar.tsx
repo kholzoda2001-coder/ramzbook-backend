@@ -44,7 +44,10 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
           <span className="ni-icon">🌍</span>Забонҳо
         </Link>
         <Link href="/admin/courses" className={`ni ${isActive('/admin/courses') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">🗺️</span>Курс / Модулҳо
+          <span className="ni-icon">🗺️</span>Курсҳо
+        </Link>
+        <Link href="/admin/modules" className={`ni ${isActive('/admin/modules') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">📦</span>Модулҳо
         </Link>
         <Link href="/admin/lessons" className={`ni ${isActive('/admin/lessons') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">📚</span>Дарсҳо

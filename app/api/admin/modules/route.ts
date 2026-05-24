@@ -4,17 +4,26 @@ import { revalidatePath } from 'next/cache';
 
 export const dynamic = 'force-dynamic';
 
-/** GET /api/admin/modules?courseId=X — modules for a course */
+/**
+ * GET /api/admin/modules?courseId=X — modules for a specific course
+ * GET /api/admin/modules             — all modules with course info
+ */
 export async function GET(req: NextRequest) {
   try {
     const courseId = req.nextUrl.searchParams.get('courseId');
-    if (!courseId) {
-      return NextResponse.json({ error: 'courseId is required' }, { status: 400 });
-    }
     const modules = await prisma.module.findMany({
-      where: { courseId },
-      orderBy: { order: 'asc' },
-      include: { _count: { select: { lessons: true } } },
+      where: courseId ? { courseId } : {},
+      orderBy: [{ courseId: 'asc' }, { order: 'asc' }],
+      include: {
+        _count: { select: { lessons: true } },
+        course: {
+          select: {
+            id: true, title: true, emoji: true, level: true,
+            targetLanguage: { select: { flag: true, name: true } },
+            nativeLanguage: { select: { flag: true, nativeName: true } },
+          },
+        },
+      },
     });
     return NextResponse.json({ modules });
   } catch (err: any) {

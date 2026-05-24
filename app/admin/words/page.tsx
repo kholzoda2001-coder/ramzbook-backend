@@ -14,25 +14,41 @@ interface Word {
   lesson?: { id: string; title: string } | null;
 }
 
+interface Course {
+  id: string;
+  title: string;
+  emoji: string;
+  level: string;
+  targetLanguage: { flag: string; name: string };
+  nativeLanguage: { flag: string; nativeName: string };
+}
+
 interface Lesson {
   id: string;
   title: string;
   moduleTitle?: string;
-  module?: { title: string; course: { title: string; level: string } };
+  module?: { title: string; course: { id: string; title: string; level: string } };
 }
 
 export default function AdminWordsPage() {
   const [words, setWords] = useState<Word[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [seeding, setSeeding] = useState(false);
+  const [courseFilter, setCourseFilter] = useState<string>('');
   const [lessonFilter, setLessonFilter] = useState<string>('');
   const [form, setForm] = useState({
     lessonId: '', word: '', translation: '', ipa: '', emoji: '', example: '', exampleTrans: '', difficulty: 1,
   });
+
+  // Lessons visible in filters/form — restricted to selected course
+  const visibleLessons = courseFilter
+    ? lessons.filter(l => l.module?.course?.id === courseFilter)
+    : lessons;
 
   // Pre-select lesson from ?lessonId=
   useEffect(() => {
@@ -52,16 +68,29 @@ export default function AdminWordsPage() {
     } catch (e: any) { setError(e.message); } finally { setLoading(false); }
   }, []);
 
-  const fetchLessons = useCallback(async () => {
+  const fetchCourses = useCallback(async () => {
     try {
-      const res = await fetch('/api/admin/lessons');
+      const res = await fetch('/api/admin/courses');
       const data = await res.json();
-      setLessons(data.lessons ?? []);
+      setCourses(data.courses ?? []);
     } catch {}
   }, []);
 
+  const fetchLessons = useCallback(async () => {
+    try {
+      const url = courseFilter ? `/api/admin/lessons?courseId=${courseFilter}` : '/api/admin/lessons';
+      const res = await fetch(url);
+      const data = await res.json();
+      setLessons(data.lessons ?? []);
+    } catch {}
+  }, [courseFilter]);
+
   useEffect(() => { fetchWords(lessonFilter); }, [fetchWords, lessonFilter]);
-  useEffect(() => { fetchLessons(); }, [fetchLessons]);
+  useEffect(() => { fetchCourses(); }, [fetchCourses]);
+  useEffect(() => {
+    setLessonFilter(''); // reset lesson when course changes
+    fetchLessons();
+  }, [fetchLessons]);
 
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault();
@@ -118,11 +147,19 @@ export default function AdminWordsPage() {
         </div>
       </div>
 
-      {/* Lesson filter */}
-      <div className="fade-up" style={{ marginBottom: '20px' }}>
-        <select value={lessonFilter} onChange={e => setLessonFilter(e.target.value)} style={{ ...FIELD, maxWidth: 420 }}>
-          <option value="">Ҳамаи калимаҳо</option>
-          {lessons.map(l => <option key={l.id} value={l.id}>{lessonLabel(l)}</option>)}
+      {/* Filters: Course + Lesson */}
+      <div className="fade-up" style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        <select value={courseFilter} onChange={e => setCourseFilter(e.target.value)} style={{ ...FIELD, maxWidth: 280 }}>
+          <option value="">🌐 Ҳамаи курсҳо</option>
+          {courses.map(c => (
+            <option key={c.id} value={c.id}>
+              {c.emoji} {c.targetLanguage.flag} {c.targetLanguage.name} → {c.nativeLanguage.flag} {c.nativeLanguage.nativeName} · {c.level}
+            </option>
+          ))}
+        </select>
+        <select value={lessonFilter} onChange={e => setLessonFilter(e.target.value)} style={{ ...FIELD, maxWidth: 360 }}>
+          <option value="">📚 Ҳамаи дарсҳо</option>
+          {visibleLessons.map(l => <option key={l.id} value={l.id}>{lessonLabel(l)}</option>)}
         </select>
       </div>
 
@@ -135,7 +172,7 @@ export default function AdminWordsPage() {
                 <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Дарс</label>
                 <select required value={form.lessonId} onChange={e => setForm(f => ({ ...f, lessonId: e.target.value }))} style={FIELD}>
                   <option value="">Дарс интихоб кунед</option>
-                  {lessons.map(l => <option key={l.id} value={l.id}>{lessonLabel(l)}</option>)}
+                  {visibleLessons.map(l => <option key={l.id} value={l.id}>{lessonLabel(l)}</option>)}
                 </select>
               </div>
               {[
