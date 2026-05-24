@@ -17,7 +17,7 @@ export default async function AdminDashboardPage() {
       prisma.userProgress.count({ where: { completedAt: { gte: startOfDay } } }),
       prisma.payment.findMany({ where: { status: 'success', createdAt: { gte: startOfMonth } } }),
       prisma.user.findMany({ orderBy: { totalXp: 'desc' }, take: 5 }),
-      prisma.language.findMany({ include: { _count: { select: { userLanguages: true } } }, orderBy: { sortOrder: 'asc' } }),
+      prisma.language.findMany({ include: { _count: { select: { userLanguages: true } } }, orderBy: { order: 'asc' } }),
       prisma.user.findMany({ orderBy: { createdAt: 'desc' }, take: 3 }),
       prisma.payment.findMany({ include: { user: true }, orderBy: { createdAt: 'desc' }, take: 2 }),
     ]);

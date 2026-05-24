@@ -8,19 +8,19 @@ export async function GET() {
     const languages = await prisma.language.findMany({
       where: {
         isActive: true,
+        canBeTarget: true,
       },
-      orderBy: { sortOrder: 'asc' },
+      orderBy: { order: 'asc' },
       include: {
         _count: {
-          select: { courses: true }
+          select: { coursesAsTarget: true }
         }
       }
     });
 
-    // Map Language to look like a Category for backward compatibility with mobile app
-    // until the Flutter app is updated
+    // Map Language to a Category shape for the legacy catalog screens.
     const activeCategories = languages
-      .filter(lang => lang._count.courses > 0)
+      .filter(lang => lang._count.coursesAsTarget > 0)
       .map(lang => ({
         id: lang.id,
         name: lang.name,
@@ -28,7 +28,7 @@ export async function GET() {
         icon: lang.flag,
         isActive: lang.isActive,
         _count: {
-          products: lang._count.courses
+          products: lang._count.coursesAsTarget
         }
       }));
 

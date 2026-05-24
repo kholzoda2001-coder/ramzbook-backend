@@ -9,7 +9,7 @@ export interface BulkWord {
   ipa?: string;
   transcriptionEn?: string;
   example?: string;
-  exampleTranslation?: string;
+  exampleTrans?: string;
   exampleTj?: string;
   exampleEn?: string;
   audioUrl?: string;
@@ -19,8 +19,7 @@ export interface BulkWord {
  * POST /api/admin/words/bulk
  * Body: { lessonId: string, words: BulkWord[], mode?: 'append' | 'replace' }
  *
- * Creates Word records in the database and links them to the specified lesson.
- * Uses a single Prisma transaction so the write is atomic.
+ * Words attach directly to the lesson (1:N). Atomic via a single transaction.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -31,7 +30,6 @@ export async function POST(req: NextRequest) {
       mode?: 'append' | 'replace';
     };
 
-    // ── Validation ────────────────────────────────────────────────────────────
     if (!lessonId || typeof lessonId !== 'string') {
       return NextResponse.json({ error: 'lessonId is required' }, { status: 400 });
     }
@@ -39,92 +37,54 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'words array is required and must not be empty' }, { status: 400 });
     }
     if (words.length > 2000) {
-      return NextResponse.json(
-        { error: 'Too many words. Split into batches of ≤ 2 000.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Too many words. Split into batches of ≤ 2 000.' }, { status: 400 });
     }
 
-    // Filter out blank rows
     const clean = words.filter(w => (w.word ?? '').trim() || (w.translation ?? '').trim());
     if (clean.length === 0) {
       return NextResponse.json({ error: 'All rows are empty (no word or translation).' }, { status: 400 });
     }
 
-    // ── Database transaction ────────────────────────────────────────────────
     const result = await prisma.$transaction(async (tx) => {
-      // Verify the lesson exists
-      const lesson = await tx.lesson.findUnique({
-        where: { id: lessonId },
-        include: { unit: { include: { course: { include: { language: true } } } } }
-      });
+      const lesson = await tx.lesson.findUnique({ where: { id: lessonId }, select: { id: true } });
       if (!lesson) throw new Error(`Lesson "${lessonId}" not found`);
 
-      const langFrom = lesson.unit.course.language.code ?? 'en';
-      const langTo = 'tg'; // default target language
-
-      // If replace mode, remove all existing words from this lesson
       if (mode === 'replace') {
-        await tx.lessonWord.deleteMany({ where: { lessonId } });
+        await tx.word.deleteMany({ where: { lessonId } });
       }
 
-      // Get current max sortOrder for append mode
       let maxOrder = 0;
       if (mode === 'append') {
-        const last = await tx.lessonWord.findFirst({
-          where: { lessonId },
-          orderBy: { sortOrder: 'desc' },
-        });
-        maxOrder = last?.sortOrder ?? 0;
+        const last = await tx.word.findFirst({ where: { lessonId }, orderBy: { order: 'desc' } });
+        maxOrder = last?.order ?? 0;
       }
 
-      let insertedCount = 0;
-      for (let i = 0; i < clean.length; i++) {
-        const w = clean[i];
+      const data = clean.map((w, i) => {
         const wordText = (w.word ?? '').trim();
         const translation = (w.translation ?? '').trim();
-        if (!wordText && !translation) continue;
+        return {
+          lessonId,
+          word: wordText || translation,
+          translation: translation || wordText,
+          ipa: (w.ipa ?? w.transcriptionEn ?? '').trim() || null,
+          emoji: (w.emoji ?? '').trim() || null,
+          example: (w.example ?? w.exampleEn ?? '').trim() || null,
+          exampleTrans: (w.exampleTrans ?? w.exampleTj ?? '').trim() || null,
+          audioUrl: (w.audioUrl ?? '').trim() || null,
+          difficulty: 1,
+          order: maxOrder + i + 1,
+        };
+      });
 
-        // Create or reuse the word
-        const word = await tx.word.create({
-          data: {
-            langFrom,
-            langTo,
-            word: wordText || translation,
-            translation: translation || wordText,
-            ipa: (w.ipa ?? w.transcriptionEn ?? '').trim() || null,
-            emoji: (w.emoji ?? '').trim() || null,
-            example: (w.example ?? w.exampleEn ?? '').trim() || null,
-            exampleTranslation: (w.exampleTranslation ?? w.exampleTj ?? '').trim() || null,
-            audioUrl: (w.audioUrl ?? '').trim() || null,
-            difficulty: 1,
-          },
-        });
+      await tx.word.createMany({ data });
 
-        await tx.lessonWord.create({
-          data: {
-            lessonId,
-            wordId: word.id,
-            sortOrder: maxOrder + i + 1,
-          },
-        });
-        insertedCount++;
-      }
-
-      const total = await tx.lessonWord.count({ where: { lessonId } });
-      return { inserted: insertedCount, total };
+      const total = await tx.word.count({ where: { lessonId } });
+      return { inserted: data.length, total };
     });
 
-    return NextResponse.json({
-      success: true,
-      inserted: result.inserted,
-      total: result.total,
-    });
+    return NextResponse.json({ success: true, inserted: result.inserted, total: result.total });
   } catch (err: any) {
     console.error('[bulk-import]', err);
-    return NextResponse.json(
-      { error: err?.message ?? 'Server error during bulk import' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: err?.message ?? 'Server error during bulk import' }, { status: 500 });
   }
 }

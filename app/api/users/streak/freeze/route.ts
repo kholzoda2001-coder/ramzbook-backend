@@ -4,7 +4,13 @@ import { authenticate } from '@/lib/auth';
 
 export async function POST(req: Request) {
   try {
-    const user = await authenticate(req);
+    const auth = await authenticate(req);
+    if (!auth) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+    const user = await prisma.user.findUnique({
+      where: { id: auth.id },
+      select: { id: true, isPremium: true, gems: true },
+    });
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const FREEZE_COST = 200; // Cost of one streak freeze

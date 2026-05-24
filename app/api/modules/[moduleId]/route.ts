@@ -10,79 +10,60 @@ const corsHeaders = {
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { moduleId: string } }
-) {
+export async function GET(req: NextRequest, { params }: { params: { moduleId: string } }) {
   try {
     if (!params.moduleId) {
-      return NextResponse.json({ error: 'Module ID (Unit ID) is required' }, { status: 400, headers: corsHeaders });
+      return NextResponse.json({ error: 'Module ID is required' }, { status: 400, headers: corsHeaders });
     }
 
-    // In the new schema, "module" maps to "Unit", and it contains "Lessons" with "Words"
-    const unit = await prisma.unit.findUnique({
+    // A "module" id may be a Module (aggregate its lessons' words) or a Lesson.
+    const module = await prisma.module.findUnique({
       where: { id: params.moduleId },
       include: {
         lessons: {
-          orderBy: { sortOrder: 'asc' },
-          include: {
-            words: {
-              orderBy: { sortOrder: 'asc' },
-              include: { word: true }
-            }
-          }
-        }
-      }
+          orderBy: { order: 'asc' },
+          include: { words: { orderBy: { order: 'asc' } } },
+        },
+      },
     });
 
-    if (!unit) {
-      // Fallback: If mobile app sends a Lesson ID instead of Unit ID
-      const lesson = await prisma.lesson.findUnique({
-         where: { id: params.moduleId },
-         include: {
-            words: {
-              orderBy: { sortOrder: 'asc' },
-              include: { word: true }
-            }
-         }
-      });
-      
-      if (!lesson) {
-         return NextResponse.json({ error: 'Unit/Lesson not found' }, { status: 404, headers: corsHeaders });
-      }
-      
-      const words = lesson.words.map(lw => ({
-        id: lw.word.id,
-        originalWord: lw.word.word,
-        transcription: lw.word.ipa || '',
-        pronunciation: lw.word.ipa || '',
-        translation: lw.word.translation || '',
-        audioUrl: lw.word.audioUrl || '',
-        emoji: lw.word.emoji || ''
-      }));
-
-      return NextResponse.json({ words, quizzes: [] }, { status: 200, headers: corsHeaders });
+    if (module) {
+      const words = module.lessons.flatMap((l) =>
+        l.words.map((w) => ({
+          id: w.id,
+          originalWord: w.word,
+          transcription: w.ipa || '',
+          pronunciation: w.ipa || '',
+          translation: w.translation || '',
+          audioUrl: w.audioUrl || '',
+          emoji: w.emoji || '',
+        }))
+      );
+      return NextResponse.json(
+        { title: module.title, description: module.titleTranslated, words, quizzes: [] },
+        { status: 200, headers: corsHeaders }
+      );
     }
 
-    // If it's a Unit, aggregate all words from its lessons
-    const words = unit.lessons.flatMap(l => 
-      l.words.map(lw => ({
-        id: lw.word.id,
-        originalWord: lw.word.word,
-        transcription: lw.word.ipa || '',
-        pronunciation: lw.word.ipa || '',
-        translation: lw.word.translation || '',
-        audioUrl: lw.word.audioUrl || '',
-        emoji: lw.word.emoji || ''
-      }))
-    );
+    const lesson = await prisma.lesson.findUnique({
+      where: { id: params.moduleId },
+      include: { words: { orderBy: { order: 'asc' } } },
+    });
 
-    return NextResponse.json({
-      title: unit.title,
-      description: unit.description,
-      words: words || [],
-      quizzes: [],
-    }, { status: 200, headers: corsHeaders });
+    if (!lesson) {
+      return NextResponse.json({ error: 'Module/Lesson not found' }, { status: 404, headers: corsHeaders });
+    }
+
+    const words = lesson.words.map((w) => ({
+      id: w.id,
+      originalWord: w.word,
+      transcription: w.ipa || '',
+      pronunciation: w.ipa || '',
+      translation: w.translation || '',
+      audioUrl: w.audioUrl || '',
+      emoji: w.emoji || '',
+    }));
+    return NextResponse.json({ words, quizzes: [] }, { status: 200, headers: corsHeaders });
   } catch (err) {
     console.error('[GET /api/modules/[moduleId]]', err);
     return apiError('Failed to fetch module details');

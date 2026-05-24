@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-/**
- * GET /api/admin/words/:id — get single word
- */
+/** GET /api/admin/words/:id — single word */
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } }
@@ -11,7 +9,7 @@ export async function GET(
   try {
     const word = await prisma.word.findUnique({
       where: { id: params.id },
-      include: { lessons: { include: { lesson: { select: { id: true, title: true } } } } },
+      include: { lesson: { select: { id: true, title: true } } },
     });
     if (!word) return NextResponse.json({ error: 'Word not found' }, { status: 404 });
     return NextResponse.json({ word });
@@ -20,9 +18,7 @@ export async function GET(
   }
 }
 
-/**
- * PUT /api/admin/words/:id — update word
- */
+/** PUT /api/admin/words/:id — update word */
 export async function PUT(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -34,9 +30,10 @@ export async function PUT(
       ipa?: string;
       emoji?: string;
       example?: string;
-      exampleTranslation?: string;
+      exampleTrans?: string;
       audioUrl?: string;
       difficulty?: number;
+      order?: number;
     };
 
     const updated = await prisma.word.update({
@@ -47,9 +44,10 @@ export async function PUT(
         ...(body.ipa !== undefined && { ipa: body.ipa.trim() || null }),
         ...(body.emoji !== undefined && { emoji: body.emoji.trim() || null }),
         ...(body.example !== undefined && { example: body.example.trim() || null }),
-        ...(body.exampleTranslation !== undefined && { exampleTranslation: body.exampleTranslation.trim() || null }),
+        ...(body.exampleTrans !== undefined && { exampleTrans: body.exampleTrans.trim() || null }),
         ...(body.audioUrl !== undefined && { audioUrl: body.audioUrl.trim() || null }),
         ...(body.difficulty !== undefined && { difficulty: body.difficulty }),
+        ...(body.order !== undefined && { order: body.order }),
       },
     });
     return NextResponse.json({ success: true, word: updated });
@@ -59,16 +57,12 @@ export async function PUT(
   }
 }
 
-/**
- * DELETE /api/admin/words/:id — delete word and all its lesson links
- */
+/** DELETE /api/admin/words/:id */
 export async function DELETE(
   _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    // Remove all lesson links first (foreign key)
-    await prisma.lessonWord.deleteMany({ where: { wordId: params.id } });
     await prisma.word.delete({ where: { id: params.id } });
     return NextResponse.json({ success: true });
   } catch (err: any) {

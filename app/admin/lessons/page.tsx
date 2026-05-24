@@ -1,44 +1,45 @@
 import { prisma } from '@/lib/prisma';
+import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
 
-export default async function AdminLessonsPage() {
+export default async function AdminLessonsPage({
+  searchParams,
+}: {
+  searchParams: { courseId?: string };
+}) {
   try {
     const courses = await prisma.course.findMany({
+      where: searchParams.courseId ? { id: searchParams.courseId } : {},
       include: {
-        language: true,
-        units: {
+        targetLanguage: true,
+        nativeLanguage: true,
+        modules: {
+          orderBy: { order: 'asc' },
           include: {
             lessons: {
-              include: {
-                _count: { select: { words: true, progress: true } }
-              },
-              orderBy: { sortOrder: 'asc' }
-            }
+              orderBy: { order: 'asc' },
+              include: { _count: { select: { words: true, progress: true } } },
+            },
           },
-          orderBy: { sortOrder: 'asc' }
-        }
-      }
+        },
+      },
+      orderBy: [{ order: 'asc' }, { level: 'asc' }],
     });
 
-    const totalLessons = courses.reduce((sum, c) => sum + c.units.reduce((s, u) => s + u.lessons.length, 0), 0);
+    const totalLessons = courses.reduce((sum, c) => sum + c.modules.reduce((s, m) => s + m.lessons.length, 0), 0);
 
     return (
       <div>
-        <div className="fade-up" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '28px', gap: '16px', flexWrap: 'wrap' }}>
-          <div>
-            <h1 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--text-primary)' }}>Дарсҳо</h1>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '4px' }}>
-              Ҳамаи дарсҳо — Ҷамъ: {totalLessons}
-            </p>
-          </div>
+        <div className="fade-up" style={{ marginBottom: '28px' }}>
+          <h1 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--text-primary)' }}>Дарсҳо</h1>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '4px' }}>Ҳамаи дарсҳо — Ҷамъ: {totalLessons}</p>
         </div>
 
         {courses.length === 0 ? (
           <div className="glass-card fade-up" style={{ padding: '60px 20px', textAlign: 'center' }}>
             <div style={{ fontSize: '48px', marginBottom: '16px' }}>📚</div>
             <h3 style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>Ягон дарс ёфт нашуд</h3>
-            <p style={{ color: 'var(--text3)', fontSize: '13px' }}>Аввал курс ва дарс созед.</p>
           </div>
         ) : (
           courses.map(course => (
@@ -47,40 +48,39 @@ export default async function AdminLessonsPage() {
                 <span style={{ fontSize: '20px' }}>{course.emoji}</span>
                 <div>
                   <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{course.title}</div>
-                  <div style={{ fontSize: '12px', color: 'var(--text3)' }}>{course.language?.flag} {course.language?.name} • {course.level}</div>
+                  {/* Breadcrumb: target → native → level */}
+                  <div style={{ fontSize: '12px', color: 'var(--text3)' }}>
+                    {course.targetLanguage.flag} {course.targetLanguage.name} → {course.nativeLanguage.flag} {course.nativeLanguage.nativeName} • {course.level}
+                  </div>
                 </div>
               </div>
 
-              {course.units.map(unit => (
-                <div key={unit.id} style={{ borderBottom: '1px solid var(--border)' }}>
+              {course.modules.map(module => (
+                <div key={module.id} style={{ borderBottom: '1px solid var(--border)' }}>
                   <div style={{ padding: '12px 20px', background: 'rgba(255,255,255,0.02)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '16px' }}>{unit.emoji}</span>
-                    <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: '14px' }}>{unit.title}</span>
-                    <span style={{ fontSize: '12px', color: 'var(--text3)', marginLeft: 'auto' }}>{unit.lessons.length} дарс</span>
+                    <span style={{ fontSize: '16px' }}>{module.emoji}</span>
+                    <span style={{ fontWeight: 600, color: 'var(--text-secondary)', fontSize: '14px' }}>
+                      {module.title} <span style={{ color: 'var(--text3)', fontWeight: 400 }}>· {module.titleTranslated}</span>
+                    </span>
+                    <span style={{ fontSize: '12px', color: 'var(--text3)', marginLeft: 'auto' }}>{module.lessons.length} дарс</span>
                   </div>
-                  
-                  {unit.lessons.length === 0 ? (
+
+                  {module.lessons.length === 0 ? (
                     <div style={{ padding: '16px 40px', color: 'var(--text3)', fontSize: '13px' }}>Дарс нест</div>
                   ) : (
                     <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '13px' }}>
                       <tbody>
-                        {unit.lessons.map(lesson => (
+                        {module.lessons.map(lesson => (
                           <tr key={lesson.id} style={{ borderTop: '1px solid rgba(255,255,255,0.03)' }}>
                             <td style={{ padding: '12px 40px', width: '40px' }}>{lesson.emoji}</td>
-                            <td style={{ padding: '12px 8px', fontWeight: 600, color: 'var(--text-primary)' }}>{lesson.title}</td>
-                            <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>
-                              💬 {lesson._count.words} калима
+                            <td style={{ padding: '12px 8px', fontWeight: 600, color: 'var(--text-primary)' }}>
+                              <Link href={`/admin/words?lessonId=${lesson.id}`} style={{ color: 'var(--text-primary)', textDecoration: 'none' }}>{lesson.title}</Link>
                             </td>
-                            <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>
-                              ⚡ {lesson.xpReward} XP
-                            </td>
-                            <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>
-                              ⏱️ {lesson.estimatedMin} дақ
-                            </td>
+                            <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>💬 {lesson._count.words} калима</td>
+                            <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>⚡ {lesson.xpReward} XP</td>
+                            <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>⏱️ {lesson.duration} дақ</td>
                             <td style={{ padding: '12px 20px' }}>
-                              <span className={`pill ${lesson.isActive ? 'pp' : 'pa'}`} style={{ padding: '3px 8px', fontSize: '10px' }}>
-                                {lesson.isActive ? 'Фаъол' : 'Ғайрифаъол'}
-                              </span>
+                              <span className={`pill ${lesson.isActive ? 'pp' : 'pa'}`} style={{ padding: '3px 8px', fontSize: '10px' }}>{lesson.isActive ? 'Фаъол' : 'Ғайрифаъол'}</span>
                             </td>
                           </tr>
                         ))}

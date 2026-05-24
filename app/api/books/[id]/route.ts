@@ -16,19 +16,14 @@ export async function GET(
     const course = await prisma.course.findUnique({
       where: { id: params.id },
       include: {
-        language: true,
-        units: {
-          orderBy: { sortOrder: 'asc' },
+        targetLanguage: true,
+        modules: {
+          orderBy: { order: 'asc' },
           include: {
             lessons: {
               where: { isActive: true },
-              orderBy: { sortOrder: 'asc' },
-              include: {
-                words: {
-                  orderBy: { sortOrder: 'asc' },
-                  include: { word: true },
-                },
-              },
+              orderBy: { order: 'asc' },
+              include: { words: { orderBy: { order: 'asc' } } },
             },
           },
         },
@@ -50,24 +45,24 @@ export async function GET(
       isLocked: false,
       isFree: true,
       lastReadPageIndex: 0,
-      category: course.language.name,
-      languageCode: course.language.code,
+      category: course.targetLanguage.name,
+      languageCode: course.targetLanguage.code,
       description: course.description || `${course.title} — ${course.level}`,
-      modules: course.units.map((unit) => ({
-        id: unit.id,
-        title: unit.title,
-        orderIndex: unit.sortOrder,
-        isFreePreview: !unit.isPremium,
-        words: unit.lessons.flatMap((lesson) =>
-          lesson.words.map((lw) => ({
-            id: lw.word.id,
-            originalWord: lw.word.word,
-            transcription: lw.word.ipa || '',
-            pronunciation: lw.word.audioUrl || '',
-            translation: lw.word.translation,
-            audioUrl: lw.word.audioUrl || '',
-            exampleSentence: lw.word.example || '',
-            exampleTranslation: lw.word.exampleTranslation || '',
+      modules: course.modules.map((module) => ({
+        id: module.id,
+        title: module.title,
+        orderIndex: module.order,
+        isFreePreview: !module.isPremium,
+        words: module.lessons.flatMap((lesson) =>
+          lesson.words.map((w) => ({
+            id: w.id,
+            originalWord: w.word,
+            transcription: w.ipa || '',
+            pronunciation: w.audioUrl || '',
+            translation: w.translation,
+            audioUrl: w.audioUrl || '',
+            exampleSentence: w.example || '',
+            exampleTranslation: w.exampleTrans || '',
           }))
         ),
         quizzes: [],

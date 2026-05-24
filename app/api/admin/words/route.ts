@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
 /**
- * GET /api/admin/words?lessonId=X  — get words for a lesson
- * GET /api/admin/words              — get all words (paginated)
+ * GET /api/admin/words?lessonId=X  — words for a lesson (ordered)
+ * GET /api/admin/words              — all words (paginated)
  */
 export async function GET(req: NextRequest) {
   try {
@@ -14,29 +14,19 @@ export async function GET(req: NextRequest) {
     const skip = (page - 1) * limit;
 
     if (lessonId) {
-      // Words for specific lesson
-      const lessonWords = await prisma.lessonWord.findMany({
+      const words = await prisma.word.findMany({
         where: { lessonId },
-        orderBy: { sortOrder: 'asc' },
-        include: { word: true },
+        orderBy: { order: 'asc' },
       });
-      return NextResponse.json({
-        words: lessonWords.map(lw => ({ ...lw.word, sortOrder: lw.sortOrder })),
-        total: lessonWords.length,
-      });
+      return NextResponse.json({ words, total: words.length });
     }
 
-    // All words paginated
     const [words, total] = await Promise.all([
       prisma.word.findMany({
         skip,
         take: limit,
         orderBy: { id: 'desc' },
-        include: {
-          lessons: {
-            select: { lesson: { select: { id: true, title: true } } },
-          },
-        },
+        include: { lesson: { select: { id: true, title: true } } },
       }),
       prisma.word.count(),
     ]);
@@ -50,7 +40,8 @@ export async function GET(req: NextRequest) {
 
 /**
  * POST /api/admin/words
- * Body: { lessonId, word, translation, ipa, emoji, example, exampleTranslation, audioUrl, difficulty }
+ * Body: { lessonId, word, translation, ipa, emoji, example, exampleTrans, audioUrl, difficulty }
+ * 'word' is in the lesson's target language; 'translation' is in the native language.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -61,42 +52,38 @@ export async function POST(req: NextRequest) {
       ipa?: string;
       emoji?: string;
       example?: string;
-      exampleTranslation?: string;
+      exampleTrans?: string;
       audioUrl?: string;
       difficulty?: number;
-      langFrom?: string;
-      langTo?: string;
+      order?: number;
     };
 
     const wordText = (body.word ?? '').trim();
     const translation = (body.translation ?? '').trim();
 
+    if (!body.lessonId) {
+      return NextResponse.json({ error: 'lessonId is required' }, { status: 400 });
+    }
     if (!wordText) {
       return NextResponse.json({ error: 'word field is required' }, { status: 400 });
     }
 
+    const order = body.order ?? (await prisma.word.count({ where: { lessonId: body.lessonId } }));
+
     const word = await prisma.word.create({
       data: {
-        langFrom: body.langFrom ?? 'en',
-        langTo: body.langTo ?? 'tg',
+        lessonId: body.lessonId,
         word: wordText,
         translation,
         ipa: body.ipa?.trim() || null,
         emoji: body.emoji?.trim() || null,
         example: body.example?.trim() || null,
-        exampleTranslation: body.exampleTranslation?.trim() || null,
+        exampleTrans: body.exampleTrans?.trim() || null,
         audioUrl: body.audioUrl?.trim() || null,
         difficulty: body.difficulty ?? 1,
+        order,
       },
     });
-
-    // If lessonId provided, link word to lesson
-    if (body.lessonId) {
-      const maxOrder = await prisma.lessonWord.count({ where: { lessonId: body.lessonId } });
-      await prisma.lessonWord.create({
-        data: { lessonId: body.lessonId, wordId: word.id, sortOrder: maxOrder + 1 },
-      });
-    }
 
     return NextResponse.json({ success: true, word });
   } catch (err: any) {

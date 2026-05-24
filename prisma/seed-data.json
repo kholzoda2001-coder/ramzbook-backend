@@ -1,0 +1,2662 @@
+{
+  "languages": [
+    {
+      "code": "tg",
+      "name": "Tajik",
+      "nativeName": "Тоҷикӣ",
+      "flag": "🇹🇯",
+      "canBeNative": true,
+      "canBeTarget": true,
+      "badge": null,
+      "learnerCount": "8.2M",
+      "order": 1
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "nativeName": "Русский",
+      "flag": "🇷🇺",
+      "canBeNative": true,
+      "canBeTarget": true,
+      "badge": "LIVE",
+      "learnerCount": "258M",
+      "order": 2
+    },
+    {
+      "code": "uz",
+      "name": "Uzbek",
+      "nativeName": "O'zbek",
+      "flag": "🇺🇿",
+      "canBeNative": true,
+      "canBeTarget": false,
+      "badge": null,
+      "learnerCount": "35M",
+      "order": 3
+    },
+    {
+      "code": "fa",
+      "name": "Persian",
+      "nativeName": "فارسی",
+      "flag": "🇮🇷",
+      "canBeNative": true,
+      "canBeTarget": false,
+      "badge": null,
+      "learnerCount": "80M",
+      "order": 4
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "flag": "🇬🇧",
+      "canBeNative": false,
+      "canBeTarget": true,
+      "badge": "HOT",
+      "learnerCount": "1.5B",
+      "order": 5
+    },
+    {
+      "code": "tr",
+      "name": "Turkish",
+      "nativeName": "Türkçe",
+      "flag": "🇹🇷",
+      "canBeNative": false,
+      "canBeTarget": true,
+      "badge": "SOON",
+      "learnerCount": "88M",
+      "order": 6
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "nativeName": "العربية",
+      "flag": "🇸🇦",
+      "canBeNative": false,
+      "canBeTarget": true,
+      "badge": "SOON",
+      "learnerCount": "420M",
+      "order": 7
+    }
+  ],
+  "courses": [
+    {
+      "level": "A1",
+      "title": "Забони англисӣ — A1",
+      "emoji": "🌱",
+      "color": "#14B8A6",
+      "description": "Калимаҳои оддӣ ва ибораҳои ҳаррӯза",
+      "modules": [
+        {
+          "title": "Greetings",
+          "titleTranslated": "Саломҳо",
+          "emoji": "👋",
+          "lessons": [
+            {
+              "title": "Greetings · Part 1",
+              "titleTranslated": "Саломҳо · Қисми 1",
+              "type": "vocab",
+              "emoji": "👋",
+              "words": [
+                {
+                  "w": "Hello",
+                  "t": "Салом",
+                  "e": "👋",
+                  "ipa": "/həˈloʊ/",
+                  "ex": "Hello, how are you?",
+                  "exT": "Салом, чӣ хелед?"
+                },
+                {
+                  "w": "Goodbye",
+                  "t": "Хайр",
+                  "e": "👋",
+                  "ipa": "/ɡʊdˈbaɪ/",
+                  "ex": "Goodbye, see you tomorrow.",
+                  "exT": "Хайр, то фардо."
+                },
+                {
+                  "w": "Thank you",
+                  "t": "Ташаккур",
+                  "e": "🙏",
+                  "ipa": "/θæŋk juː/",
+                  "ex": "Thank you very much.",
+                  "exT": "Ташаккури зиёд."
+                },
+                {
+                  "w": "Please",
+                  "t": "Лутфан",
+                  "e": "✨",
+                  "ipa": "/pliːz/",
+                  "ex": "Please help me.",
+                  "exT": "Лутфан ба ман кӯмак кунед."
+                }
+              ]
+            },
+            {
+              "title": "Greetings · Part 2",
+              "titleTranslated": "Саломҳо · Қисми 2",
+              "type": "vocab",
+              "emoji": "👋",
+              "words": [
+                {
+                  "w": "Sorry",
+                  "t": "Бубахшед",
+                  "e": "😔",
+                  "ipa": "/ˈsɒri/",
+                  "ex": "Sorry, I am late.",
+                  "exT": "Бубахшед, ман дер кардам."
+                },
+                {
+                  "w": "Yes",
+                  "t": "Бале",
+                  "e": "👍",
+                  "ipa": "/jes/",
+                  "ex": "Yes, of course.",
+                  "exT": "Бале, албатта."
+                },
+                {
+                  "w": "No",
+                  "t": "Не",
+                  "e": "👎",
+                  "ipa": "/noʊ/",
+                  "ex": "No, thank you.",
+                  "exT": "Не, ташаккур."
+                },
+                {
+                  "w": "Welcome",
+                  "t": "Хуш омадед",
+                  "e": "🤗",
+                  "ipa": "/ˈwelkəm/",
+                  "ex": "Welcome to our home.",
+                  "exT": "Ба хонаи мо хуш омадед."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Numbers",
+          "titleTranslated": "Рақамҳо",
+          "emoji": "🔢",
+          "lessons": [
+            {
+              "title": "Numbers · Part 1",
+              "titleTranslated": "Рақамҳо · Қисми 1",
+              "type": "vocab",
+              "emoji": "🔢",
+              "words": [
+                {
+                  "w": "One",
+                  "t": "Як",
+                  "e": "1️⃣",
+                  "ipa": "/wʌn/",
+                  "ex": "I have one brother.",
+                  "exT": "Ман як бародар дорам."
+                },
+                {
+                  "w": "Two",
+                  "t": "Ду",
+                  "e": "2️⃣",
+                  "ipa": "/tuː/",
+                  "ex": "Two apples, please.",
+                  "exT": "Ду себ, лутфан."
+                },
+                {
+                  "w": "Three",
+                  "t": "Се",
+                  "e": "3️⃣",
+                  "ipa": "/θriː/",
+                  "ex": "Three books are here.",
+                  "exT": "Се китоб ин ҷост."
+                },
+                {
+                  "w": "Four",
+                  "t": "Чор",
+                  "e": "4️⃣",
+                  "ipa": "/fɔːr/",
+                  "ex": "Four seasons.",
+                  "exT": "Чор фасл."
+                }
+              ]
+            },
+            {
+              "title": "Numbers · Part 2",
+              "titleTranslated": "Рақамҳо · Қисми 2",
+              "type": "vocab",
+              "emoji": "🔢",
+              "words": [
+                {
+                  "w": "Five",
+                  "t": "Панҷ",
+                  "e": "5️⃣",
+                  "ipa": "/faɪv/",
+                  "ex": "Five fingers.",
+                  "exT": "Панҷ ангушт."
+                },
+                {
+                  "w": "Ten",
+                  "t": "Даҳ",
+                  "e": "🔟",
+                  "ipa": "/ten/",
+                  "ex": "Ten minutes.",
+                  "exT": "Даҳ дақиқа."
+                },
+                {
+                  "w": "Hundred",
+                  "t": "Сад",
+                  "e": "💯",
+                  "ipa": "/ˈhʌndrəd/",
+                  "ex": "One hundred years.",
+                  "exT": "Сад сол."
+                },
+                {
+                  "w": "Zero",
+                  "t": "Сифр",
+                  "e": "0️⃣",
+                  "ipa": "/ˈzɪroʊ/",
+                  "ex": "Zero problems.",
+                  "exT": "Сифр мушкилот."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Family",
+          "titleTranslated": "Оила",
+          "emoji": "👨‍👩‍👧‍👦",
+          "lessons": [
+            {
+              "title": "Family · Part 1",
+              "titleTranslated": "Оила · Қисми 1",
+              "type": "vocab",
+              "emoji": "👨‍👩‍👧‍👦",
+              "words": [
+                {
+                  "w": "Mother",
+                  "t": "Модар",
+                  "e": "👩",
+                  "ipa": "/ˈmʌðər/",
+                  "ex": "My mother is kind.",
+                  "exT": "Модари ман меҳрубон аст."
+                },
+                {
+                  "w": "Father",
+                  "t": "Падар",
+                  "e": "👨",
+                  "ipa": "/ˈfɑːðər/",
+                  "ex": "My father works hard.",
+                  "exT": "Падари ман сахт кор мекунад."
+                },
+                {
+                  "w": "Brother",
+                  "t": "Бародар",
+                  "e": "👦",
+                  "ipa": "/ˈbrʌðər/",
+                  "ex": "I have a brother.",
+                  "exT": "Ман бародар дорам."
+                },
+                {
+                  "w": "Sister",
+                  "t": "Хоҳар",
+                  "e": "👧",
+                  "ipa": "/ˈsɪstər/",
+                  "ex": "My sister is a student.",
+                  "exT": "Хоҳари ман донишҷӯ аст."
+                }
+              ]
+            },
+            {
+              "title": "Family · Part 2",
+              "titleTranslated": "Оила · Қисми 2",
+              "type": "vocab",
+              "emoji": "👨‍👩‍👧‍👦",
+              "words": [
+                {
+                  "w": "Son",
+                  "t": "Писар",
+                  "e": "👶",
+                  "ipa": "/sʌn/",
+                  "ex": "Their son is young.",
+                  "exT": "Писари онҳо хурд аст."
+                },
+                {
+                  "w": "Daughter",
+                  "t": "Духтар",
+                  "e": "👧",
+                  "ipa": "/ˈdɔːtər/",
+                  "ex": "A clever daughter.",
+                  "exT": "Духтари боақл."
+                },
+                {
+                  "w": "Family",
+                  "t": "Оила",
+                  "e": "👨‍👩‍👧‍👦",
+                  "ipa": "/ˈfæməli/",
+                  "ex": "A big family.",
+                  "exT": "Оилаи калон."
+                },
+                {
+                  "w": "Child",
+                  "t": "Кӯдак",
+                  "e": "🧒",
+                  "ipa": "/tʃaɪld/",
+                  "ex": "The child is happy.",
+                  "exT": "Кӯдак хушбахт аст."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Food",
+          "titleTranslated": "Хӯрок",
+          "emoji": "🍽️",
+          "lessons": [
+            {
+              "title": "Food · Part 1",
+              "titleTranslated": "Хӯрок · Қисми 1",
+              "type": "vocab",
+              "emoji": "🍽️",
+              "words": [
+                {
+                  "w": "Bread",
+                  "t": "Нон",
+                  "e": "🍞",
+                  "ipa": "/bred/",
+                  "ex": "Fresh bread.",
+                  "exT": "Нони тоза."
+                },
+                {
+                  "w": "Water",
+                  "t": "Об",
+                  "e": "💧",
+                  "ipa": "/ˈwɔːtər/",
+                  "ex": "Cold water.",
+                  "exT": "Оби хунук."
+                },
+                {
+                  "w": "Tea",
+                  "t": "Чой",
+                  "e": "🍵",
+                  "ipa": "/tiː/",
+                  "ex": "Green tea.",
+                  "exT": "Чойи сабз."
+                },
+                {
+                  "w": "Meat",
+                  "t": "Гӯшт",
+                  "e": "🥩",
+                  "ipa": "/miːt/",
+                  "ex": "I like meat.",
+                  "exT": "Ман гӯштро дӯст медорам."
+                }
+              ]
+            },
+            {
+              "title": "Food · Part 2",
+              "titleTranslated": "Хӯрок · Қисми 2",
+              "type": "vocab",
+              "emoji": "🍽️",
+              "words": [
+                {
+                  "w": "Fruit",
+                  "t": "Мева",
+                  "e": "🍎",
+                  "ipa": "/fruːt/",
+                  "ex": "Sweet fruit.",
+                  "exT": "Меваи ширин."
+                },
+                {
+                  "w": "Rice",
+                  "t": "Биринҷ",
+                  "e": "🍚",
+                  "ipa": "/raɪs/",
+                  "ex": "A plate of rice.",
+                  "exT": "Як табақ биринҷ."
+                },
+                {
+                  "w": "Milk",
+                  "t": "Шир",
+                  "e": "🥛",
+                  "ipa": "/mɪlk/",
+                  "ex": "A glass of milk.",
+                  "exT": "Як стакан шир."
+                },
+                {
+                  "w": "Apple",
+                  "t": "Себ",
+                  "e": "🍎",
+                  "ipa": "/ˈæpəl/",
+                  "ex": "A red apple.",
+                  "exT": "Себи сурх."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Colors",
+          "titleTranslated": "Рангҳо",
+          "emoji": "🎨",
+          "lessons": [
+            {
+              "title": "Colors · Part 1",
+              "titleTranslated": "Рангҳо · Қисми 1",
+              "type": "vocab",
+              "emoji": "🎨",
+              "words": [
+                {
+                  "w": "Red",
+                  "t": "Сурх",
+                  "e": "🔴",
+                  "ipa": "/red/",
+                  "ex": "A red car.",
+                  "exT": "Мошини сурх."
+                },
+                {
+                  "w": "Blue",
+                  "t": "Кабуд",
+                  "e": "🔵",
+                  "ipa": "/bluː/",
+                  "ex": "The blue sky.",
+                  "exT": "Осмони кабуд."
+                },
+                {
+                  "w": "Green",
+                  "t": "Сабз",
+                  "e": "🟢",
+                  "ipa": "/ɡriːn/",
+                  "ex": "Green grass.",
+                  "exT": "Алафи сабз."
+                },
+                {
+                  "w": "Yellow",
+                  "t": "Зард",
+                  "e": "🟡",
+                  "ipa": "/ˈjeloʊ/",
+                  "ex": "The yellow sun.",
+                  "exT": "Офтоби зард."
+                }
+              ]
+            },
+            {
+              "title": "Colors · Part 2",
+              "titleTranslated": "Рангҳо · Қисми 2",
+              "type": "vocab",
+              "emoji": "🎨",
+              "words": [
+                {
+                  "w": "Black",
+                  "t": "Сиёҳ",
+                  "e": "⚫",
+                  "ipa": "/blæk/",
+                  "ex": "A black cat.",
+                  "exT": "Гурбаи сиёҳ."
+                },
+                {
+                  "w": "White",
+                  "t": "Сафед",
+                  "e": "⚪",
+                  "ipa": "/waɪt/",
+                  "ex": "White snow.",
+                  "exT": "Барфи сафед."
+                },
+                {
+                  "w": "Orange",
+                  "t": "Норинҷӣ",
+                  "e": "🟠",
+                  "ipa": "/ˈɒrɪndʒ/",
+                  "ex": "An orange flower.",
+                  "exT": "Гули норинҷӣ."
+                },
+                {
+                  "w": "Brown",
+                  "t": "Қаҳваранг",
+                  "e": "🟤",
+                  "ipa": "/braʊn/",
+                  "ex": "Brown bread.",
+                  "exT": "Нони қаҳваранг."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Time & Days",
+          "titleTranslated": "Вақт ва рӯзҳо",
+          "emoji": "⏰",
+          "lessons": [
+            {
+              "title": "Time & Days · Part 1",
+              "titleTranslated": "Вақт ва рӯзҳо · Қисми 1",
+              "type": "vocab",
+              "emoji": "⏰",
+              "words": [
+                {
+                  "w": "Day",
+                  "t": "Рӯз",
+                  "e": "☀️",
+                  "ipa": "/deɪ/",
+                  "ex": "A good day.",
+                  "exT": "Рӯзи хуб."
+                },
+                {
+                  "w": "Night",
+                  "t": "Шаб",
+                  "e": "🌙",
+                  "ipa": "/naɪt/",
+                  "ex": "A quiet night.",
+                  "exT": "Шаби ором."
+                },
+                {
+                  "w": "Today",
+                  "t": "Имрӯз",
+                  "e": "📅",
+                  "ipa": "/təˈdeɪ/",
+                  "ex": "Today is Monday.",
+                  "exT": "Имрӯз душанбе аст."
+                },
+                {
+                  "w": "Tomorrow",
+                  "t": "Фардо",
+                  "e": "➡️",
+                  "ipa": "/təˈmɒroʊ/",
+                  "ex": "See you tomorrow.",
+                  "exT": "То фардо."
+                }
+              ]
+            },
+            {
+              "title": "Time & Days · Part 2",
+              "titleTranslated": "Вақт ва рӯзҳо · Қисми 2",
+              "type": "vocab",
+              "emoji": "⏰",
+              "words": [
+                {
+                  "w": "Week",
+                  "t": "Ҳафта",
+                  "e": "🗓️",
+                  "ipa": "/wiːk/",
+                  "ex": "Next week.",
+                  "exT": "Ҳафтаи оянда."
+                },
+                {
+                  "w": "Month",
+                  "t": "Моҳ",
+                  "e": "📆",
+                  "ipa": "/mʌnθ/",
+                  "ex": "This month.",
+                  "exT": "Ин моҳ."
+                },
+                {
+                  "w": "Year",
+                  "t": "Сол",
+                  "e": "🎉",
+                  "ipa": "/jɪr/",
+                  "ex": "Happy New Year.",
+                  "exT": "Соли нав муборак."
+                },
+                {
+                  "w": "Hour",
+                  "t": "Соат",
+                  "e": "⏰",
+                  "ipa": "/ˈaʊər/",
+                  "ex": "One hour.",
+                  "exT": "Як соат."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": "A2",
+      "title": "Забони англисӣ — A2",
+      "emoji": "📗",
+      "color": "#60A5FA",
+      "description": "Муоширати оддӣ дар ҳолатҳои гуногун",
+      "modules": [
+        {
+          "title": "Travel",
+          "titleTranslated": "Сафар",
+          "emoji": "✈️",
+          "lessons": [
+            {
+              "title": "Travel · Part 1",
+              "titleTranslated": "Сафар · Қисми 1",
+              "type": "vocab",
+              "emoji": "✈️",
+              "words": [
+                {
+                  "w": "Airport",
+                  "t": "Фурудгоҳ",
+                  "e": "✈️",
+                  "ipa": "/ˈerpɔːrt/",
+                  "ex": "The airport is big.",
+                  "exT": "Фурудгоҳ калон аст."
+                },
+                {
+                  "w": "Ticket",
+                  "t": "Чипта",
+                  "e": "🎫",
+                  "ipa": "/ˈtɪkɪt/",
+                  "ex": "One ticket, please.",
+                  "exT": "Як чипта, лутфан."
+                },
+                {
+                  "w": "Hotel",
+                  "t": "Меҳмонхона",
+                  "e": "🏨",
+                  "ipa": "/hoʊˈtel/",
+                  "ex": "A clean hotel.",
+                  "exT": "Меҳмонхонаи тоза."
+                },
+                {
+                  "w": "Passport",
+                  "t": "Шиноснома",
+                  "e": "🛂",
+                  "ipa": "/ˈpæspɔːrt/",
+                  "ex": "Show your passport.",
+                  "exT": "Шиносномаатонро нишон диҳед."
+                }
+              ]
+            },
+            {
+              "title": "Travel · Part 2",
+              "titleTranslated": "Сафар · Қисми 2",
+              "type": "vocab",
+              "emoji": "✈️",
+              "words": [
+                {
+                  "w": "Map",
+                  "t": "Харита",
+                  "e": "🗺️",
+                  "ipa": "/mæp/",
+                  "ex": "A city map.",
+                  "exT": "Харитаи шаҳр."
+                },
+                {
+                  "w": "Car",
+                  "t": "Мошин",
+                  "e": "🚗",
+                  "ipa": "/kɑːr/",
+                  "ex": "A fast car.",
+                  "exT": "Мошини тез."
+                },
+                {
+                  "w": "Train",
+                  "t": "Қатор",
+                  "e": "🚆",
+                  "ipa": "/treɪn/",
+                  "ex": "The train is late.",
+                  "exT": "Қатор дер кард."
+                },
+                {
+                  "w": "Road",
+                  "t": "Роҳ",
+                  "e": "🛣️",
+                  "ipa": "/roʊd/",
+                  "ex": "A long road.",
+                  "exT": "Роҳи дароз."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Shopping",
+          "titleTranslated": "Харид",
+          "emoji": "🛒",
+          "lessons": [
+            {
+              "title": "Shopping · Part 1",
+              "titleTranslated": "Харид · Қисми 1",
+              "type": "vocab",
+              "emoji": "🛒",
+              "words": [
+                {
+                  "w": "Money",
+                  "t": "Пул",
+                  "e": "💰",
+                  "ipa": "/ˈmʌni/",
+                  "ex": "I have money.",
+                  "exT": "Ман пул дорам."
+                },
+                {
+                  "w": "Price",
+                  "t": "Нарх",
+                  "e": "🏷️",
+                  "ipa": "/praɪs/",
+                  "ex": "What is the price?",
+                  "exT": "Нарх чанд аст?"
+                },
+                {
+                  "w": "Shop",
+                  "t": "Мағоза",
+                  "e": "🏪",
+                  "ipa": "/ʃɒp/",
+                  "ex": "A new shop.",
+                  "exT": "Мағозаи нав."
+                },
+                {
+                  "w": "Buy",
+                  "t": "Харидан",
+                  "e": "🛍️",
+                  "ipa": "/baɪ/",
+                  "ex": "I want to buy bread.",
+                  "exT": "Ман нон харидан мехоҳам."
+                }
+              ]
+            },
+            {
+              "title": "Shopping · Part 2",
+              "titleTranslated": "Харид · Қисми 2",
+              "type": "vocab",
+              "emoji": "🛒",
+              "words": [
+                {
+                  "w": "Sell",
+                  "t": "Фурӯхтан",
+                  "e": "💵",
+                  "ipa": "/sel/",
+                  "ex": "They sell fruit.",
+                  "exT": "Онҳо мева мефурӯшанд."
+                },
+                {
+                  "w": "Market",
+                  "t": "Бозор",
+                  "e": "🛒",
+                  "ipa": "/ˈmɑːrkɪt/",
+                  "ex": "The market is busy.",
+                  "exT": "Бозор серодам аст."
+                },
+                {
+                  "w": "Cheap",
+                  "t": "Арзон",
+                  "e": "📉",
+                  "ipa": "/tʃiːp/",
+                  "ex": "This is cheap.",
+                  "exT": "Ин арзон аст."
+                },
+                {
+                  "w": "Expensive",
+                  "t": "Қиммат",
+                  "e": "📈",
+                  "ipa": "/ɪkˈspensɪv/",
+                  "ex": "That is expensive.",
+                  "exT": "Он қиммат аст."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Home",
+          "titleTranslated": "Хона",
+          "emoji": "🏠",
+          "lessons": [
+            {
+              "title": "Home · Part 1",
+              "titleTranslated": "Хона · Қисми 1",
+              "type": "vocab",
+              "emoji": "🏠",
+              "words": [
+                {
+                  "w": "House",
+                  "t": "Хона",
+                  "e": "🏠",
+                  "ipa": "/haʊs/",
+                  "ex": "A big house.",
+                  "exT": "Хонаи калон."
+                },
+                {
+                  "w": "Door",
+                  "t": "Дар",
+                  "e": "🚪",
+                  "ipa": "/dɔːr/",
+                  "ex": "Open the door.",
+                  "exT": "Дарро кушоед."
+                },
+                {
+                  "w": "Window",
+                  "t": "Тиреза",
+                  "e": "🪟",
+                  "ipa": "/ˈwɪndoʊ/",
+                  "ex": "Close the window.",
+                  "exT": "Тирезаро банд кунед."
+                },
+                {
+                  "w": "Table",
+                  "t": "Миз",
+                  "e": "🪑",
+                  "ipa": "/ˈteɪbəl/",
+                  "ex": "A wooden table.",
+                  "exT": "Мизи чӯбин."
+                }
+              ]
+            },
+            {
+              "title": "Home · Part 2",
+              "titleTranslated": "Хона · Қисми 2",
+              "type": "vocab",
+              "emoji": "🏠",
+              "words": [
+                {
+                  "w": "Chair",
+                  "t": "Курсӣ",
+                  "e": "🪑",
+                  "ipa": "/tʃer/",
+                  "ex": "Sit on the chair.",
+                  "exT": "Болои курсӣ нишинед."
+                },
+                {
+                  "w": "Bed",
+                  "t": "Кат",
+                  "e": "🛏️",
+                  "ipa": "/bed/",
+                  "ex": "A soft bed.",
+                  "exT": "Кати нарм."
+                },
+                {
+                  "w": "Kitchen",
+                  "t": "Ошхона",
+                  "e": "🍳",
+                  "ipa": "/ˈkɪtʃɪn/",
+                  "ex": "A clean kitchen.",
+                  "exT": "Ошхонаи тоза."
+                },
+                {
+                  "w": "Room",
+                  "t": "Утоқ",
+                  "e": "🚪",
+                  "ipa": "/ruːm/",
+                  "ex": "A bright room.",
+                  "exT": "Утоқи равшан."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Weather",
+          "titleTranslated": "Обу ҳаво",
+          "emoji": "🌤️",
+          "lessons": [
+            {
+              "title": "Weather · Part 1",
+              "titleTranslated": "Обу ҳаво · Қисми 1",
+              "type": "vocab",
+              "emoji": "🌤️",
+              "words": [
+                {
+                  "w": "Sun",
+                  "t": "Офтоб",
+                  "e": "☀️",
+                  "ipa": "/sʌn/",
+                  "ex": "The sun is hot.",
+                  "exT": "Офтоб гарм аст."
+                },
+                {
+                  "w": "Rain",
+                  "t": "Борон",
+                  "e": "🌧️",
+                  "ipa": "/reɪn/",
+                  "ex": "Heavy rain.",
+                  "exT": "Борони сахт."
+                },
+                {
+                  "w": "Snow",
+                  "t": "Барф",
+                  "e": "❄️",
+                  "ipa": "/snoʊ/",
+                  "ex": "White snow.",
+                  "exT": "Барфи сафед."
+                },
+                {
+                  "w": "Wind",
+                  "t": "Шамол",
+                  "e": "💨",
+                  "ipa": "/wɪnd/",
+                  "ex": "A cold wind.",
+                  "exT": "Шамоли хунук."
+                }
+              ]
+            },
+            {
+              "title": "Weather · Part 2",
+              "titleTranslated": "Обу ҳаво · Қисми 2",
+              "type": "vocab",
+              "emoji": "🌤️",
+              "words": [
+                {
+                  "w": "Cloud",
+                  "t": "Абр",
+                  "e": "☁️",
+                  "ipa": "/klaʊd/",
+                  "ex": "A grey cloud.",
+                  "exT": "Абри хокистарӣ."
+                },
+                {
+                  "w": "Hot",
+                  "t": "Гарм",
+                  "e": "🔥",
+                  "ipa": "/hɒt/",
+                  "ex": "A hot day.",
+                  "exT": "Рӯзи гарм."
+                },
+                {
+                  "w": "Cold",
+                  "t": "Хунук",
+                  "e": "🥶",
+                  "ipa": "/koʊld/",
+                  "ex": "Cold weather.",
+                  "exT": "Ҳавои хунук."
+                },
+                {
+                  "w": "Warm",
+                  "t": "Гармак",
+                  "e": "♨️",
+                  "ipa": "/wɔːrm/",
+                  "ex": "Warm clothes.",
+                  "exT": "Либоси гармак."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Body & Health",
+          "titleTranslated": "Бадан ва саломатӣ",
+          "emoji": "🩺",
+          "lessons": [
+            {
+              "title": "Body & Health · Part 1",
+              "titleTranslated": "Бадан ва саломатӣ · Қисми 1",
+              "type": "vocab",
+              "emoji": "🩺",
+              "words": [
+                {
+                  "w": "Head",
+                  "t": "Сар",
+                  "e": "🧠",
+                  "ipa": "/hed/",
+                  "ex": "My head hurts.",
+                  "exT": "Сарам дард мекунад."
+                },
+                {
+                  "w": "Hand",
+                  "t": "Даст",
+                  "e": "✋",
+                  "ipa": "/hænd/",
+                  "ex": "Wash your hands.",
+                  "exT": "Дастонатонро шӯед."
+                },
+                {
+                  "w": "Eye",
+                  "t": "Чашм",
+                  "e": "👁️",
+                  "ipa": "/aɪ/",
+                  "ex": "Beautiful eyes.",
+                  "exT": "Чашмони зебо."
+                },
+                {
+                  "w": "Heart",
+                  "t": "Дил",
+                  "e": "❤️",
+                  "ipa": "/hɑːrt/",
+                  "ex": "A kind heart.",
+                  "exT": "Дили меҳрубон."
+                }
+              ]
+            },
+            {
+              "title": "Body & Health · Part 2",
+              "titleTranslated": "Бадан ва саломатӣ · Қисми 2",
+              "type": "vocab",
+              "emoji": "🩺",
+              "words": [
+                {
+                  "w": "Doctor",
+                  "t": "Духтур",
+                  "e": "👨‍⚕️",
+                  "ipa": "/ˈdɒktər/",
+                  "ex": "Call the doctor.",
+                  "exT": "Ба духтур занг занед."
+                },
+                {
+                  "w": "Medicine",
+                  "t": "Дору",
+                  "e": "💊",
+                  "ipa": "/ˈmedsən/",
+                  "ex": "Take the medicine.",
+                  "exT": "Доруро қабул кунед."
+                },
+                {
+                  "w": "Sick",
+                  "t": "Бемор",
+                  "e": "🤒",
+                  "ipa": "/sɪk/",
+                  "ex": "He is sick.",
+                  "exT": "Ӯ бемор аст."
+                },
+                {
+                  "w": "Healthy",
+                  "t": "Солим",
+                  "e": "💪",
+                  "ipa": "/ˈhelθi/",
+                  "ex": "Stay healthy.",
+                  "exT": "Солим бошед."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Work",
+          "titleTranslated": "Кор",
+          "emoji": "💼",
+          "lessons": [
+            {
+              "title": "Work · Part 1",
+              "titleTranslated": "Кор · Қисми 1",
+              "type": "vocab",
+              "emoji": "💼",
+              "words": [
+                {
+                  "w": "Job",
+                  "t": "Кор",
+                  "e": "💼",
+                  "ipa": "/dʒɒb/",
+                  "ex": "A good job.",
+                  "exT": "Кори хуб."
+                },
+                {
+                  "w": "Office",
+                  "t": "Идора",
+                  "e": "🏢",
+                  "ipa": "/ˈɒfɪs/",
+                  "ex": "At the office.",
+                  "exT": "Дар идора."
+                },
+                {
+                  "w": "Salary",
+                  "t": "Маош",
+                  "e": "💵",
+                  "ipa": "/ˈsæləri/",
+                  "ex": "A high salary.",
+                  "exT": "Маоши баланд."
+                },
+                {
+                  "w": "Boss",
+                  "t": "Сардор",
+                  "e": "👔",
+                  "ipa": "/bɒs/",
+                  "ex": "My boss is busy.",
+                  "exT": "Сардори ман банд аст."
+                }
+              ]
+            },
+            {
+              "title": "Work · Part 2",
+              "titleTranslated": "Кор · Қисми 2",
+              "type": "vocab",
+              "emoji": "💼",
+              "words": [
+                {
+                  "w": "Meeting",
+                  "t": "Вохӯрӣ",
+                  "e": "🤝",
+                  "ipa": "/ˈmiːtɪŋ/",
+                  "ex": "A long meeting.",
+                  "exT": "Вохӯрии дароз."
+                },
+                {
+                  "w": "Email",
+                  "t": "Почта",
+                  "e": "📧",
+                  "ipa": "/ˈiːmeɪl/",
+                  "ex": "Send an email.",
+                  "exT": "Почта фиристед."
+                },
+                {
+                  "w": "Phone",
+                  "t": "Телефон",
+                  "e": "📱",
+                  "ipa": "/foʊn/",
+                  "ex": "Answer the phone.",
+                  "exT": "Ба телефон ҷавоб диҳед."
+                },
+                {
+                  "w": "Computer",
+                  "t": "Компютер",
+                  "e": "💻",
+                  "ipa": "/kəmˈpjuːtər/",
+                  "ex": "A new computer.",
+                  "exT": "Компютери нав."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": "B1",
+      "title": "Забони англисӣ — B1",
+      "emoji": "📘",
+      "color": "#A78BFA",
+      "description": "Мавзӯъҳои васеътар ва гуфтугӯи равон",
+      "modules": [
+        {
+          "title": "Education",
+          "titleTranslated": "Таҳсил",
+          "emoji": "🎓",
+          "lessons": [
+            {
+              "title": "Education · Part 1",
+              "titleTranslated": "Таҳсил · Қисми 1",
+              "type": "vocab",
+              "emoji": "🎓",
+              "words": [
+                {
+                  "w": "School",
+                  "t": "Мактаб",
+                  "e": "🏫",
+                  "ipa": "/skuːl/",
+                  "ex": "A good school.",
+                  "exT": "Мактаби хуб."
+                },
+                {
+                  "w": "Teacher",
+                  "t": "Муаллим",
+                  "e": "👨‍🏫",
+                  "ipa": "/ˈtiːtʃər/",
+                  "ex": "A kind teacher.",
+                  "exT": "Муаллими меҳрубон."
+                },
+                {
+                  "w": "Student",
+                  "t": "Донишҷӯ",
+                  "e": "🎓",
+                  "ipa": "/ˈstuːdənt/",
+                  "ex": "A hard-working student.",
+                  "exT": "Донишҷӯи меҳнатӣ."
+                },
+                {
+                  "w": "Book",
+                  "t": "Китоб",
+                  "e": "📖",
+                  "ipa": "/bʊk/",
+                  "ex": "An interesting book.",
+                  "exT": "Китоби ҷолиб."
+                }
+              ]
+            },
+            {
+              "title": "Education · Part 2",
+              "titleTranslated": "Таҳсил · Қисми 2",
+              "type": "vocab",
+              "emoji": "🎓",
+              "words": [
+                {
+                  "w": "Lesson",
+                  "t": "Дарс",
+                  "e": "📝",
+                  "ipa": "/ˈlesən/",
+                  "ex": "Today’s lesson.",
+                  "exT": "Дарси имрӯза."
+                },
+                {
+                  "w": "Exam",
+                  "t": "Имтиҳон",
+                  "e": "✍️",
+                  "ipa": "/ɪɡˈzæm/",
+                  "ex": "A hard exam.",
+                  "exT": "Имтиҳони душвор."
+                },
+                {
+                  "w": "Knowledge",
+                  "t": "Дониш",
+                  "e": "💡",
+                  "ipa": "/ˈnɒlɪdʒ/",
+                  "ex": "Knowledge is power.",
+                  "exT": "Дониш қудрат аст."
+                },
+                {
+                  "w": "University",
+                  "t": "Донишгоҳ",
+                  "e": "🏛️",
+                  "ipa": "/ˌjuːnɪˈvɜːrsəti/",
+                  "ex": "A famous university.",
+                  "exT": "Донишгоҳи машҳур."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Technology",
+          "titleTranslated": "Технология",
+          "emoji": "💻",
+          "lessons": [
+            {
+              "title": "Technology · Part 1",
+              "titleTranslated": "Технология · Қисми 1",
+              "type": "vocab",
+              "emoji": "💻",
+              "words": [
+                {
+                  "w": "Internet",
+                  "t": "Интернет",
+                  "e": "🌐",
+                  "ipa": "/ˈɪntərnet/",
+                  "ex": "Fast internet.",
+                  "exT": "Интернети тез."
+                },
+                {
+                  "w": "Software",
+                  "t": "Нармафзор",
+                  "e": "💾",
+                  "ipa": "/ˈsɔːftwer/",
+                  "ex": "New software.",
+                  "exT": "Нармафзори нав."
+                },
+                {
+                  "w": "Screen",
+                  "t": "Экран",
+                  "e": "🖥️",
+                  "ipa": "/skriːn/",
+                  "ex": "A bright screen.",
+                  "exT": "Экрани равшан."
+                },
+                {
+                  "w": "Password",
+                  "t": "Рамзи махфӣ",
+                  "e": "🔑",
+                  "ipa": "/ˈpæswɜːrd/",
+                  "ex": "A strong password.",
+                  "exT": "Рамзи махфии қавӣ."
+                }
+              ]
+            },
+            {
+              "title": "Technology · Part 2",
+              "titleTranslated": "Технология · Қисми 2",
+              "type": "vocab",
+              "emoji": "💻",
+              "words": [
+                {
+                  "w": "Data",
+                  "t": "Маълумот",
+                  "e": "📊",
+                  "ipa": "/ˈdeɪtə/",
+                  "ex": "Important data.",
+                  "exT": "Маълумоти муҳим."
+                },
+                {
+                  "w": "Network",
+                  "t": "Шабака",
+                  "e": "🔗",
+                  "ipa": "/ˈnetwɜːrk/",
+                  "ex": "A social network.",
+                  "exT": "Шабакаи иҷтимоӣ."
+                },
+                {
+                  "w": "Device",
+                  "t": "Дастгоҳ",
+                  "e": "📲",
+                  "ipa": "/dɪˈvaɪs/",
+                  "ex": "A smart device.",
+                  "exT": "Дастгоҳи ҳушманд."
+                },
+                {
+                  "w": "Code",
+                  "t": "Код",
+                  "e": "👨‍💻",
+                  "ipa": "/koʊd/",
+                  "ex": "Clean code.",
+                  "exT": "Коди тоза."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Nature",
+          "titleTranslated": "Табиат",
+          "emoji": "🌳",
+          "lessons": [
+            {
+              "title": "Nature · Part 1",
+              "titleTranslated": "Табиат · Қисми 1",
+              "type": "vocab",
+              "emoji": "🌳",
+              "words": [
+                {
+                  "w": "Tree",
+                  "t": "Дарахт",
+                  "e": "🌳",
+                  "ipa": "/triː/",
+                  "ex": "A tall tree.",
+                  "exT": "Дарахти баланд."
+                },
+                {
+                  "w": "Flower",
+                  "t": "Гул",
+                  "e": "🌸",
+                  "ipa": "/ˈflaʊər/",
+                  "ex": "A red flower.",
+                  "exT": "Гули сурх."
+                },
+                {
+                  "w": "River",
+                  "t": "Дарё",
+                  "e": "🏞️",
+                  "ipa": "/ˈrɪvər/",
+                  "ex": "A wide river.",
+                  "exT": "Дарёи васеъ."
+                },
+                {
+                  "w": "Mountain",
+                  "t": "Кӯҳ",
+                  "e": "⛰️",
+                  "ipa": "/ˈmaʊntən/",
+                  "ex": "A high mountain.",
+                  "exT": "Кӯҳи баланд."
+                }
+              ]
+            },
+            {
+              "title": "Nature · Part 2",
+              "titleTranslated": "Табиат · Қисми 2",
+              "type": "vocab",
+              "emoji": "🌳",
+              "words": [
+                {
+                  "w": "Sea",
+                  "t": "Баҳр",
+                  "e": "🌊",
+                  "ipa": "/siː/",
+                  "ex": "The deep sea.",
+                  "exT": "Баҳри чуқур."
+                },
+                {
+                  "w": "Sky",
+                  "t": "Осмон",
+                  "e": "🌌",
+                  "ipa": "/skaɪ/",
+                  "ex": "A clear sky.",
+                  "exT": "Осмони соф."
+                },
+                {
+                  "w": "Animal",
+                  "t": "Ҳайвон",
+                  "e": "🐾",
+                  "ipa": "/ˈænɪməl/",
+                  "ex": "A wild animal.",
+                  "exT": "Ҳайвони ваҳшӣ."
+                },
+                {
+                  "w": "Bird",
+                  "t": "Парранда",
+                  "e": "🐦",
+                  "ipa": "/bɜːrd/",
+                  "ex": "A small bird.",
+                  "exT": "Паррандаи хурд."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Emotions",
+          "titleTranslated": "Эҳсосот",
+          "emoji": "😊",
+          "lessons": [
+            {
+              "title": "Emotions · Part 1",
+              "titleTranslated": "Эҳсосот · Қисми 1",
+              "type": "vocab",
+              "emoji": "😊",
+              "words": [
+                {
+                  "w": "Happy",
+                  "t": "Хушбахт",
+                  "e": "😊",
+                  "ipa": "/ˈhæpi/",
+                  "ex": "I am happy.",
+                  "exT": "Ман хушбахтам."
+                },
+                {
+                  "w": "Sad",
+                  "t": "Ғамгин",
+                  "e": "😢",
+                  "ipa": "/sæd/",
+                  "ex": "Why are you sad?",
+                  "exT": "Чаро ғамгинӣ?"
+                },
+                {
+                  "w": "Angry",
+                  "t": "Хашмгин",
+                  "e": "😠",
+                  "ipa": "/ˈæŋɡri/",
+                  "ex": "Don’t be angry.",
+                  "exT": "Хашмгин нашав."
+                },
+                {
+                  "w": "Afraid",
+                  "t": "Тарсон",
+                  "e": "😨",
+                  "ipa": "/əˈfreɪd/",
+                  "ex": "I am not afraid.",
+                  "exT": "Ман наметарсам."
+                }
+              ]
+            },
+            {
+              "title": "Emotions · Part 2",
+              "titleTranslated": "Эҳсосот · Қисми 2",
+              "type": "vocab",
+              "emoji": "😊",
+              "words": [
+                {
+                  "w": "Love",
+                  "t": "Муҳаббат",
+                  "e": "❤️",
+                  "ipa": "/lʌv/",
+                  "ex": "Love is beautiful.",
+                  "exT": "Муҳаббат зебо аст."
+                },
+                {
+                  "w": "Hope",
+                  "t": "Умед",
+                  "e": "🌟",
+                  "ipa": "/hoʊp/",
+                  "ex": "Never lose hope.",
+                  "exT": "Ҳеҷ гоҳ умедро гум накун."
+                },
+                {
+                  "w": "Fear",
+                  "t": "Тарс",
+                  "e": "😰",
+                  "ipa": "/fɪr/",
+                  "ex": "Fear is normal.",
+                  "exT": "Тарс муқаррарӣ аст."
+                },
+                {
+                  "w": "Joy",
+                  "t": "Шодӣ",
+                  "e": "😄",
+                  "ipa": "/dʒɔɪ/",
+                  "ex": "Pure joy.",
+                  "exT": "Шодии холис."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "City",
+          "titleTranslated": "Шаҳр",
+          "emoji": "🏙️",
+          "lessons": [
+            {
+              "title": "City · Part 1",
+              "titleTranslated": "Шаҳр · Қисми 1",
+              "type": "vocab",
+              "emoji": "🏙️",
+              "words": [
+                {
+                  "w": "City",
+                  "t": "Шаҳр",
+                  "e": "🏙️",
+                  "ipa": "/ˈsɪti/",
+                  "ex": "A big city.",
+                  "exT": "Шаҳри калон."
+                },
+                {
+                  "w": "Street",
+                  "t": "Кӯча",
+                  "e": "🛣️",
+                  "ipa": "/striːt/",
+                  "ex": "A quiet street.",
+                  "exT": "Кӯчаи ором."
+                },
+                {
+                  "w": "Building",
+                  "t": "Бино",
+                  "e": "🏢",
+                  "ipa": "/ˈbɪldɪŋ/",
+                  "ex": "A tall building.",
+                  "exT": "Бинои баланд."
+                },
+                {
+                  "w": "Park",
+                  "t": "Боғ",
+                  "e": "🌳",
+                  "ipa": "/pɑːrk/",
+                  "ex": "A green park.",
+                  "exT": "Боғи сабз."
+                }
+              ]
+            },
+            {
+              "title": "City · Part 2",
+              "titleTranslated": "Шаҳр · Қисми 2",
+              "type": "vocab",
+              "emoji": "🏙️",
+              "words": [
+                {
+                  "w": "Bridge",
+                  "t": "Пул",
+                  "e": "🌉",
+                  "ipa": "/brɪdʒ/",
+                  "ex": "An old bridge.",
+                  "exT": "Пули кӯҳна."
+                },
+                {
+                  "w": "Bank",
+                  "t": "Бонк",
+                  "e": "🏦",
+                  "ipa": "/bæŋk/",
+                  "ex": "Go to the bank.",
+                  "exT": "Ба бонк равед."
+                },
+                {
+                  "w": "Hospital",
+                  "t": "Беморхона",
+                  "e": "🏥",
+                  "ipa": "/ˈhɒspɪtl/",
+                  "ex": "A new hospital.",
+                  "exT": "Беморхонаи нав."
+                },
+                {
+                  "w": "Library",
+                  "t": "Китобхона",
+                  "e": "📚",
+                  "ipa": "/ˈlaɪbreri/",
+                  "ex": "A quiet library.",
+                  "exT": "Китобхонаи ором."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Hobbies",
+          "titleTranslated": "Шуғлҳо",
+          "emoji": "🎨",
+          "lessons": [
+            {
+              "title": "Hobbies · Part 1",
+              "titleTranslated": "Шуғлҳо · Қисми 1",
+              "type": "vocab",
+              "emoji": "🎨",
+              "words": [
+                {
+                  "w": "Music",
+                  "t": "Мусиқӣ",
+                  "e": "🎵",
+                  "ipa": "/ˈmjuːzɪk/",
+                  "ex": "I love music.",
+                  "exT": "Ман мусиқиро дӯст медорам."
+                },
+                {
+                  "w": "Sport",
+                  "t": "Варзиш",
+                  "e": "⚽",
+                  "ipa": "/spɔːrt/",
+                  "ex": "Play sport.",
+                  "exT": "Бо варзиш машғул шавед."
+                },
+                {
+                  "w": "Game",
+                  "t": "Бозӣ",
+                  "e": "🎮",
+                  "ipa": "/ɡeɪm/",
+                  "ex": "A fun game.",
+                  "exT": "Бозии шавқовар."
+                },
+                {
+                  "w": "Film",
+                  "t": "Филм",
+                  "e": "🎬",
+                  "ipa": "/fɪlm/",
+                  "ex": "A good film.",
+                  "exT": "Филми хуб."
+                }
+              ]
+            },
+            {
+              "title": "Hobbies · Part 2",
+              "titleTranslated": "Шуғлҳо · Қисми 2",
+              "type": "vocab",
+              "emoji": "🎨",
+              "words": [
+                {
+                  "w": "Dance",
+                  "t": "Рақс",
+                  "e": "💃",
+                  "ipa": "/dæns/",
+                  "ex": "Let’s dance.",
+                  "exT": "Биё рақс кунем."
+                },
+                {
+                  "w": "Travel",
+                  "t": "Сайёҳат",
+                  "e": "🧳",
+                  "ipa": "/ˈtrævəl/",
+                  "ex": "I like to travel.",
+                  "exT": "Ман сайёҳатро дӯст медорам."
+                },
+                {
+                  "w": "Painting",
+                  "t": "Наққошӣ",
+                  "e": "🎨",
+                  "ipa": "/ˈpeɪntɪŋ/",
+                  "ex": "A beautiful painting.",
+                  "exT": "Наққошии зебо."
+                },
+                {
+                  "w": "Reading",
+                  "t": "Хониш",
+                  "e": "📖",
+                  "ipa": "/ˈriːdɪŋ/",
+                  "ex": "Reading is useful.",
+                  "exT": "Хониш муфид аст."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": "B2",
+      "title": "Забони англисӣ — B2",
+      "emoji": "📙",
+      "color": "#FB923C",
+      "description": "Мавзӯъҳои мураккаб ва касбӣ",
+      "modules": [
+        {
+          "title": "Business",
+          "titleTranslated": "Тиҷорат",
+          "emoji": "📈",
+          "lessons": [
+            {
+              "title": "Business · Part 1",
+              "titleTranslated": "Тиҷорат · Қисми 1",
+              "type": "vocab",
+              "emoji": "📈",
+              "words": [
+                {
+                  "w": "Company",
+                  "t": "Ширкат",
+                  "e": "🏢",
+                  "ipa": "/ˈkʌmpəni/",
+                  "ex": "A big company.",
+                  "exT": "Ширкати калон."
+                },
+                {
+                  "w": "Profit",
+                  "t": "Фоида",
+                  "e": "💰",
+                  "ipa": "/ˈprɒfɪt/",
+                  "ex": "High profit.",
+                  "exT": "Фоидаи баланд."
+                }
+              ]
+            },
+            {
+              "title": "Business · Part 2",
+              "titleTranslated": "Тиҷорат · Қисми 2",
+              "type": "vocab",
+              "emoji": "📈",
+              "words": [
+                {
+                  "w": "Market",
+                  "t": "Бозор",
+                  "e": "📊",
+                  "ipa": "/ˈmɑːrkɪt/",
+                  "ex": "The world market.",
+                  "exT": "Бозори ҷаҳонӣ."
+                },
+                {
+                  "w": "Contract",
+                  "t": "Шартнома",
+                  "e": "📜",
+                  "ipa": "/ˈkɒntrækt/",
+                  "ex": "Sign the contract.",
+                  "exT": "Шартномаро имзо кунед."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Science",
+          "titleTranslated": "Илм",
+          "emoji": "🔬",
+          "lessons": [
+            {
+              "title": "Science · Part 1",
+              "titleTranslated": "Илм · Қисми 1",
+              "type": "vocab",
+              "emoji": "🔬",
+              "words": [
+                {
+                  "w": "Science",
+                  "t": "Илм",
+                  "e": "🔬",
+                  "ipa": "/ˈsaɪəns/",
+                  "ex": "Modern science.",
+                  "exT": "Илми муосир."
+                },
+                {
+                  "w": "Energy",
+                  "t": "Энергия",
+                  "e": "⚡",
+                  "ipa": "/ˈenərdʒi/",
+                  "ex": "Solar energy.",
+                  "exT": "Энергияи офтобӣ."
+                }
+              ]
+            },
+            {
+              "title": "Science · Part 2",
+              "titleTranslated": "Илм · Қисми 2",
+              "type": "vocab",
+              "emoji": "🔬",
+              "words": [
+                {
+                  "w": "Theory",
+                  "t": "Назария",
+                  "e": "📐",
+                  "ipa": "/ˈθɪəri/",
+                  "ex": "A new theory.",
+                  "exT": "Назарияи нав."
+                },
+                {
+                  "w": "Research",
+                  "t": "Тадқиқот",
+                  "e": "🧪",
+                  "ipa": "/rɪˈsɜːrtʃ/",
+                  "ex": "Scientific research.",
+                  "exT": "Тадқиқоти илмӣ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Culture",
+          "titleTranslated": "Фарҳанг",
+          "emoji": "🎭",
+          "lessons": [
+            {
+              "title": "Culture · Part 1",
+              "titleTranslated": "Фарҳанг · Қисми 1",
+              "type": "vocab",
+              "emoji": "🎭",
+              "words": [
+                {
+                  "w": "Culture",
+                  "t": "Фарҳанг",
+                  "e": "🎭",
+                  "ipa": "/ˈkʌltʃər/",
+                  "ex": "A rich culture.",
+                  "exT": "Фарҳанги бой."
+                },
+                {
+                  "w": "History",
+                  "t": "Таърих",
+                  "e": "📜",
+                  "ipa": "/ˈhɪstri/",
+                  "ex": "Ancient history.",
+                  "exT": "Таърихи қадим."
+                }
+              ]
+            },
+            {
+              "title": "Culture · Part 2",
+              "titleTranslated": "Фарҳанг · Қисми 2",
+              "type": "vocab",
+              "emoji": "🎭",
+              "words": [
+                {
+                  "w": "Tradition",
+                  "t": "Анъана",
+                  "e": "🎎",
+                  "ipa": "/trəˈdɪʃən/",
+                  "ex": "An old tradition.",
+                  "exT": "Анъанаи кӯҳна."
+                },
+                {
+                  "w": "Art",
+                  "t": "Санъат",
+                  "e": "🖼️",
+                  "ipa": "/ɑːrt/",
+                  "ex": "Modern art.",
+                  "exT": "Санъати муосир."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Media",
+          "titleTranslated": "Расона",
+          "emoji": "📰",
+          "lessons": [
+            {
+              "title": "Media · Part 1",
+              "titleTranslated": "Расона · Қисми 1",
+              "type": "vocab",
+              "emoji": "📰",
+              "words": [
+                {
+                  "w": "News",
+                  "t": "Хабар",
+                  "e": "📰",
+                  "ipa": "/njuːz/",
+                  "ex": "Good news.",
+                  "exT": "Хабари хуш."
+                },
+                {
+                  "w": "Article",
+                  "t": "Мақола",
+                  "e": "📄",
+                  "ipa": "/ˈɑːrtɪkəl/",
+                  "ex": "A long article.",
+                  "exT": "Мақолаи дароз."
+                }
+              ]
+            },
+            {
+              "title": "Media · Part 2",
+              "titleTranslated": "Расона · Қисми 2",
+              "type": "vocab",
+              "emoji": "📰",
+              "words": [
+                {
+                  "w": "Report",
+                  "t": "Гузориш",
+                  "e": "📋",
+                  "ipa": "/rɪˈpɔːrt/",
+                  "ex": "A weekly report.",
+                  "exT": "Гузориши ҳафтаина."
+                },
+                {
+                  "w": "Story",
+                  "t": "Ҳикоя",
+                  "e": "📖",
+                  "ipa": "/ˈstɔːri/",
+                  "ex": "A true story.",
+                  "exT": "Ҳикояи воқеӣ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Law & Politics",
+          "titleTranslated": "Қонун ва сиёсат",
+          "emoji": "⚖️",
+          "lessons": [
+            {
+              "title": "Law & Politics · Part 1",
+              "titleTranslated": "Қонун ва сиёсат · Қисми 1",
+              "type": "vocab",
+              "emoji": "⚖️",
+              "words": [
+                {
+                  "w": "Law",
+                  "t": "Қонун",
+                  "e": "⚖️",
+                  "ipa": "/lɔː/",
+                  "ex": "Obey the law.",
+                  "exT": "Қонунро риоя кунед."
+                },
+                {
+                  "w": "Government",
+                  "t": "Ҳукумат",
+                  "e": "🏛️",
+                  "ipa": "/ˈɡʌvərnmənt/",
+                  "ex": "The government decided.",
+                  "exT": "Ҳукумат қарор қабул кард."
+                }
+              ]
+            },
+            {
+              "title": "Law & Politics · Part 2",
+              "titleTranslated": "Қонун ва сиёсат · Қисми 2",
+              "type": "vocab",
+              "emoji": "⚖️",
+              "words": [
+                {
+                  "w": "Right",
+                  "t": "Ҳуқуқ",
+                  "e": "✊",
+                  "ipa": "/raɪt/",
+                  "ex": "Human rights.",
+                  "exT": "Ҳуқуқи инсон."
+                },
+                {
+                  "w": "Freedom",
+                  "t": "Озодӣ",
+                  "e": "🕊️",
+                  "ipa": "/ˈfriːdəm/",
+                  "ex": "Freedom of speech.",
+                  "exT": "Озодии сухан."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Environment",
+          "titleTranslated": "Муҳити зист",
+          "emoji": "🌍",
+          "lessons": [
+            {
+              "title": "Environment · Part 1",
+              "titleTranslated": "Муҳити зист · Қисми 1",
+              "type": "vocab",
+              "emoji": "🌍",
+              "words": [
+                {
+                  "w": "Earth",
+                  "t": "Замин",
+                  "e": "🌍",
+                  "ipa": "/ɜːrθ/",
+                  "ex": "Protect the Earth.",
+                  "exT": "Заминро ҳифз кунед."
+                },
+                {
+                  "w": "Climate",
+                  "t": "Иқлим",
+                  "e": "🌡️",
+                  "ipa": "/ˈklaɪmət/",
+                  "ex": "Climate change.",
+                  "exT": "Тағйири иқлим."
+                }
+              ]
+            },
+            {
+              "title": "Environment · Part 2",
+              "titleTranslated": "Муҳити зист · Қисми 2",
+              "type": "vocab",
+              "emoji": "🌍",
+              "words": [
+                {
+                  "w": "Pollution",
+                  "t": "Ифлосшавӣ",
+                  "e": "🏭",
+                  "ipa": "/pəˈluːʃən/",
+                  "ex": "Air pollution.",
+                  "exT": "Ифлосшавии ҳаво."
+                },
+                {
+                  "w": "Future",
+                  "t": "Оянда",
+                  "e": "🔮",
+                  "ipa": "/ˈfjuːtʃər/",
+                  "ex": "A bright future.",
+                  "exT": "Ояндаи дурахшон."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": "C1",
+      "title": "Забони англисӣ — C1",
+      "emoji": "📕",
+      "color": "#F472B6",
+      "description": "Сатҳи пешрафта ва мафҳумҳои абстрактӣ",
+      "modules": [
+        {
+          "title": "Abstract Ideas",
+          "titleTranslated": "Мафҳумҳои абстрактӣ",
+          "emoji": "💭",
+          "lessons": [
+            {
+              "title": "Abstract Ideas · Part 1",
+              "titleTranslated": "Мафҳумҳои абстрактӣ · Қисми 1",
+              "type": "vocab",
+              "emoji": "💭",
+              "words": [
+                {
+                  "w": "Idea",
+                  "t": "Андеша",
+                  "e": "💭",
+                  "ipa": "/aɪˈdɪə/",
+                  "ex": "A brilliant idea.",
+                  "exT": "Андешаи олӣ."
+                },
+                {
+                  "w": "Truth",
+                  "t": "Ҳақиқат",
+                  "e": "💡",
+                  "ipa": "/truːθ/",
+                  "ex": "Tell the truth.",
+                  "exT": "Ҳақиқатро бигӯ."
+                }
+              ]
+            },
+            {
+              "title": "Abstract Ideas · Part 2",
+              "titleTranslated": "Мафҳумҳои абстрактӣ · Қисми 2",
+              "type": "vocab",
+              "emoji": "💭",
+              "words": [
+                {
+                  "w": "Meaning",
+                  "t": "Маъно",
+                  "e": "📖",
+                  "ipa": "/ˈmiːnɪŋ/",
+                  "ex": "The meaning of life.",
+                  "exT": "Маънои ҳаёт."
+                },
+                {
+                  "w": "Reason",
+                  "t": "Сабаб",
+                  "e": "🤔",
+                  "ipa": "/ˈriːzən/",
+                  "ex": "The main reason.",
+                  "exT": "Сабаби асосӣ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Academic",
+          "titleTranslated": "Илмӣ",
+          "emoji": "📚",
+          "lessons": [
+            {
+              "title": "Academic · Part 1",
+              "titleTranslated": "Илмӣ · Қисми 1",
+              "type": "vocab",
+              "emoji": "📚",
+              "words": [
+                {
+                  "w": "Analysis",
+                  "t": "Таҳлил",
+                  "e": "📊",
+                  "ipa": "/əˈnæləsɪs/",
+                  "ex": "A deep analysis.",
+                  "exT": "Таҳлили амиқ."
+                },
+                {
+                  "w": "Argument",
+                  "t": "Баҳс",
+                  "e": "🗣️",
+                  "ipa": "/ˈɑːrɡjumənt/",
+                  "ex": "A strong argument.",
+                  "exT": "Баҳси қавӣ."
+                }
+              ]
+            },
+            {
+              "title": "Academic · Part 2",
+              "titleTranslated": "Илмӣ · Қисми 2",
+              "type": "vocab",
+              "emoji": "📚",
+              "words": [
+                {
+                  "w": "Concept",
+                  "t": "Мафҳум",
+                  "e": "🧩",
+                  "ipa": "/ˈkɒnsept/",
+                  "ex": "An abstract concept.",
+                  "exT": "Мафҳуми абстрактӣ."
+                },
+                {
+                  "w": "Evidence",
+                  "t": "Далел",
+                  "e": "🔍",
+                  "ipa": "/ˈevɪdəns/",
+                  "ex": "Clear evidence.",
+                  "exT": "Далели равшан."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Literature",
+          "titleTranslated": "Адабиёт",
+          "emoji": "📖",
+          "lessons": [
+            {
+              "title": "Literature · Part 1",
+              "titleTranslated": "Адабиёт · Қисми 1",
+              "type": "vocab",
+              "emoji": "📖",
+              "words": [
+                {
+                  "w": "Poem",
+                  "t": "Шеър",
+                  "e": "📜",
+                  "ipa": "/ˈpoʊɪm/",
+                  "ex": "A famous poem.",
+                  "exT": "Шеъри машҳур."
+                },
+                {
+                  "w": "Novel",
+                  "t": "Роман",
+                  "e": "📕",
+                  "ipa": "/ˈnɒvəl/",
+                  "ex": "A long novel.",
+                  "exT": "Романи дароз."
+                }
+              ]
+            },
+            {
+              "title": "Literature · Part 2",
+              "titleTranslated": "Адабиёт · Қисми 2",
+              "type": "vocab",
+              "emoji": "📖",
+              "words": [
+                {
+                  "w": "Writer",
+                  "t": "Нависанда",
+                  "e": "✍️",
+                  "ipa": "/ˈraɪtər/",
+                  "ex": "A great writer.",
+                  "exT": "Нависандаи бузург."
+                },
+                {
+                  "w": "Poetry",
+                  "t": "Назм",
+                  "e": "🪶",
+                  "ipa": "/ˈpoʊətri/",
+                  "ex": "Classical poetry.",
+                  "exT": "Назми классикӣ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Philosophy",
+          "titleTranslated": "Фалсафа",
+          "emoji": "🧠",
+          "lessons": [
+            {
+              "title": "Philosophy · Part 1",
+              "titleTranslated": "Фалсафа · Қисми 1",
+              "type": "vocab",
+              "emoji": "🧠",
+              "words": [
+                {
+                  "w": "Wisdom",
+                  "t": "Хирад",
+                  "e": "🦉",
+                  "ipa": "/ˈwɪzdəm/",
+                  "ex": "Ancient wisdom.",
+                  "exT": "Хиради қадим."
+                },
+                {
+                  "w": "Soul",
+                  "t": "Рӯҳ",
+                  "e": "🌬️",
+                  "ipa": "/soʊl/",
+                  "ex": "A pure soul.",
+                  "exT": "Рӯҳи пок."
+                }
+              ]
+            },
+            {
+              "title": "Philosophy · Part 2",
+              "titleTranslated": "Фалсафа · Қисми 2",
+              "type": "vocab",
+              "emoji": "🧠",
+              "words": [
+                {
+                  "w": "Mind",
+                  "t": "Ақл",
+                  "e": "🧠",
+                  "ipa": "/maɪnd/",
+                  "ex": "A sharp mind.",
+                  "exT": "Ақли тез."
+                },
+                {
+                  "w": "Belief",
+                  "t": "Эътиқод",
+                  "e": "🙏",
+                  "ipa": "/bɪˈliːf/",
+                  "ex": "A strong belief.",
+                  "exT": "Эътиқоди қавӣ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Society",
+          "titleTranslated": "Ҷомеа",
+          "emoji": "👥",
+          "lessons": [
+            {
+              "title": "Society · Part 1",
+              "titleTranslated": "Ҷомеа · Қисми 1",
+              "type": "vocab",
+              "emoji": "👥",
+              "words": [
+                {
+                  "w": "Society",
+                  "t": "Ҷомеа",
+                  "e": "👥",
+                  "ipa": "/səˈsaɪəti/",
+                  "ex": "Modern society.",
+                  "exT": "Ҷомеаи муосир."
+                },
+                {
+                  "w": "People",
+                  "t": "Мардум",
+                  "e": "🧑‍🤝‍🧑",
+                  "ipa": "/ˈpiːpəl/",
+                  "ex": "Kind people.",
+                  "exT": "Мардуми меҳрубон."
+                }
+              ]
+            },
+            {
+              "title": "Society · Part 2",
+              "titleTranslated": "Ҷомеа · Қисми 2",
+              "type": "vocab",
+              "emoji": "👥",
+              "words": [
+                {
+                  "w": "Community",
+                  "t": "Ҷамоат",
+                  "e": "🏘️",
+                  "ipa": "/kəˈmjuːnəti/",
+                  "ex": "A small community.",
+                  "exT": "Ҷамоати хурд."
+                },
+                {
+                  "w": "Nation",
+                  "t": "Миллат",
+                  "e": "🌐",
+                  "ipa": "/ˈneɪʃən/",
+                  "ex": "A proud nation.",
+                  "exT": "Миллати ифтихорманд."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Achievement",
+          "titleTranslated": "Дастовард",
+          "emoji": "🏆",
+          "lessons": [
+            {
+              "title": "Achievement · Part 1",
+              "titleTranslated": "Дастовард · Қисми 1",
+              "type": "vocab",
+              "emoji": "🏆",
+              "words": [
+                {
+                  "w": "Success",
+                  "t": "Муваффақият",
+                  "e": "🏆",
+                  "ipa": "/səkˈses/",
+                  "ex": "Great success.",
+                  "exT": "Муваффақияти бузург."
+                },
+                {
+                  "w": "Goal",
+                  "t": "Ҳадаф",
+                  "e": "🎯",
+                  "ipa": "/ɡoʊl/",
+                  "ex": "Reach your goal.",
+                  "exT": "Ба ҳадафатон бирасед."
+                }
+              ]
+            },
+            {
+              "title": "Achievement · Part 2",
+              "titleTranslated": "Дастовард · Қисми 2",
+              "type": "vocab",
+              "emoji": "🏆",
+              "words": [
+                {
+                  "w": "Effort",
+                  "t": "Кӯшиш",
+                  "e": "💪",
+                  "ipa": "/ˈefərt/",
+                  "ex": "Great effort.",
+                  "exT": "Кӯшиши зиёд."
+                },
+                {
+                  "w": "Victory",
+                  "t": "Ғалаба",
+                  "e": "🥇",
+                  "ipa": "/ˈvɪktəri/",
+                  "ex": "A sweet victory.",
+                  "exT": "Ғалабаи ширин."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ui": {
+    "common.continue": {
+      "tg": "Идома",
+      "ru": "Продолжить",
+      "uz": "Davom etish",
+      "en": "Continue"
+    },
+    "common.back": {
+      "tg": "Бозгашт",
+      "ru": "Назад",
+      "uz": "Orqaga",
+      "en": "Back"
+    },
+    "common.start": {
+      "tg": "Шурӯъ",
+      "ru": "Начать",
+      "uz": "Boshlash",
+      "en": "Start"
+    },
+    "common.next": {
+      "tg": "Баъдӣ",
+      "ru": "Далее",
+      "uz": "Keyingi",
+      "en": "Next"
+    },
+    "common.cancel": {
+      "tg": "Бекор кардан",
+      "ru": "Отмена",
+      "uz": "Bekor qilish",
+      "en": "Cancel"
+    },
+    "common.save": {
+      "tg": "Захира кардан",
+      "ru": "Сохранить",
+      "uz": "Saqlash",
+      "en": "Save"
+    },
+    "common.loading": {
+      "tg": "Боргузорӣ...",
+      "ru": "Загрузка...",
+      "uz": "Yuklanmoqda...",
+      "en": "Loading..."
+    },
+    "common.error": {
+      "tg": "Хатогӣ рӯй дод",
+      "ru": "Произошла ошибка",
+      "uz": "Xatolik yuz berdi",
+      "en": "An error occurred"
+    },
+    "common.retry": {
+      "tg": "Аз нав кӯшиш кунед",
+      "ru": "Повторить",
+      "uz": "Qayta urinish",
+      "en": "Retry"
+    },
+    "onboarding.step1.title": {
+      "tg": "Кадом забонро медонед?",
+      "ru": "Какой язык вы знаете?",
+      "uz": "Qaysi tilni bilasiz?",
+      "en": "Which language do you know?"
+    },
+    "onboarding.step1.subtitle": {
+      "tg": "Забони модарии худро интихоб кунед",
+      "ru": "Выберите ваш родной язык",
+      "uz": "Ona tilingizni tanlang",
+      "en": "Choose your native language"
+    },
+    "onboarding.step2.title": {
+      "tg": "Кадомро меомӯзед?",
+      "ru": "Что хотите изучать?",
+      "uz": "Nimani o‘rganmoqchisiz?",
+      "en": "What do you want to learn?"
+    },
+    "onboarding.step2.subtitle": {
+      "tg": "Забони омӯзишро интихоб кунед",
+      "ru": "Выберите язык для изучения",
+      "uz": "O‘rganish tilini tanlang",
+      "en": "Choose a language to learn"
+    },
+    "onboarding.step3.title": {
+      "tg": "Сатҳи донишатон чӣ гуна аст?",
+      "ru": "Какой у вас уровень?",
+      "uz": "Darajangiz qanday?",
+      "en": "What is your level?"
+    },
+    "onboarding.step3.subtitle": {
+      "tg": "Аз ҳар куҷо шурӯъ кардан мумкин",
+      "ru": "Можно начать с любого уровня",
+      "uz": "Istalgan darajadan boshlash mumkin",
+      "en": "You can start at any level"
+    },
+    "home.title": {
+      "tg": "Хона",
+      "ru": "Главная",
+      "uz": "Bosh sahifa",
+      "en": "Home"
+    },
+    "home.daily_goal": {
+      "tg": "Ҳадафи рӯзона",
+      "ru": "Дневная цель",
+      "uz": "Kunlik maqsad",
+      "en": "Daily goal"
+    },
+    "home.streak": {
+      "tg": "Силсила",
+      "ru": "Серия",
+      "uz": "Ketma-ketlik",
+      "en": "Streak"
+    },
+    "home.continue_learning": {
+      "tg": "Идома диҳед",
+      "ru": "Продолжить обучение",
+      "uz": "O‘rganishni davom ettiring",
+      "en": "Continue learning"
+    },
+    "home.xp": {
+      "tg": "Таҷриба",
+      "ru": "Опыт",
+      "uz": "Tajriba",
+      "en": "XP"
+    },
+    "home.hearts": {
+      "tg": "Дилҳо",
+      "ru": "Сердца",
+      "uz": "Yuraklar",
+      "en": "Hearts"
+    },
+    "lesson.complete": {
+      "tg": "Дарс тамом шуд",
+      "ru": "Урок завершён",
+      "uz": "Dars tugadi",
+      "en": "Lesson complete"
+    },
+    "lesson.continue": {
+      "tg": "Идома додан",
+      "ru": "Продолжить",
+      "uz": "Davom etish",
+      "en": "Continue"
+    },
+    "lesson.practice_again": {
+      "tg": "Аз нав машқ кунед",
+      "ru": "Повторить",
+      "uz": "Yana mashq qilish",
+      "en": "Practice again"
+    },
+    "lesson.lives_empty": {
+      "tg": "Дилҳо тамом шуданд",
+      "ru": "Сердца закончились",
+      "uz": "Yuraklar tugadi",
+      "en": "Out of hearts"
+    },
+    "lesson.new_word": {
+      "tg": "Калимаи нав",
+      "ru": "Новое слово",
+      "uz": "Yangi so‘z",
+      "en": "New word"
+    },
+    "lesson.choose_translation": {
+      "tg": "Тарҷумаро интихоб кунед",
+      "ru": "Выберите перевод",
+      "uz": "Tarjimani tanlang",
+      "en": "Choose the translation"
+    },
+    "lesson.listen": {
+      "tg": "Гӯш кунед",
+      "ru": "Слушайте",
+      "uz": "Tinglang",
+      "en": "Listen"
+    },
+    "lesson.speak": {
+      "tg": "Гӯед",
+      "ru": "Говорите",
+      "uz": "Gapiring",
+      "en": "Speak"
+    },
+    "lesson.type_answer": {
+      "tg": "Ҷавобро нависед",
+      "ru": "Введите ответ",
+      "uz": "Javobni yozing",
+      "en": "Type the answer"
+    },
+    "lesson.correct": {
+      "tg": "Дуруст!",
+      "ru": "Верно!",
+      "uz": "To‘g‘ri!",
+      "en": "Correct!"
+    },
+    "lesson.wrong": {
+      "tg": "Хато шуд",
+      "ru": "Неверно",
+      "uz": "Noto‘g‘ri",
+      "en": "Wrong"
+    },
+    "lesson.streak_days": {
+      "tg": "рӯзи паиҳам",
+      "ru": "дней подряд",
+      "uz": "kun ketma-ket",
+      "en": "day streak"
+    },
+    "profile.title": {
+      "tg": "Профил",
+      "ru": "Профиль",
+      "uz": "Profil",
+      "en": "Profile"
+    },
+    "profile.settings": {
+      "tg": "Танзимот",
+      "ru": "Настройки",
+      "uz": "Sozlamalar",
+      "en": "Settings"
+    },
+    "profile.logout": {
+      "tg": "Баромадан",
+      "ru": "Выйти",
+      "uz": "Chiqish",
+      "en": "Log out"
+    },
+    "profile.change_native": {
+      "tg": "Иваз кардани забони интерфейс",
+      "ru": "Сменить язык интерфейса",
+      "uz": "Interfeys tilini o‘zgartirish",
+      "en": "Change interface language"
+    },
+    "profile.change_target": {
+      "tg": "Иваз кардани забони ёдгирӣ",
+      "ru": "Сменить язык изучения",
+      "uz": "O‘rganish tilini o‘zgartirish",
+      "en": "Change learning language"
+    },
+    "nav.home": {
+      "tg": "Хона",
+      "ru": "Главная",
+      "uz": "Bosh",
+      "en": "Home"
+    },
+    "nav.learn": {
+      "tg": "Омӯзиш",
+      "ru": "Учёба",
+      "uz": "O‘rganish",
+      "en": "Learn"
+    },
+    "nav.leaderboard": {
+      "tg": "Рейтинг",
+      "ru": "Рейтинг",
+      "uz": "Reyting",
+      "en": "Leaderboard"
+    },
+    "nav.profile": {
+      "tg": "Профил",
+      "ru": "Профиль",
+      "uz": "Profil",
+      "en": "Profile"
+    },
+    "level.beginner": {
+      "tg": "Навомӯз",
+      "ru": "Начинающий",
+      "uz": "Boshlang‘ich",
+      "en": "Beginner"
+    },
+    "level.elementary": {
+      "tg": "Ибтидоӣ",
+      "ru": "Элементарный",
+      "uz": "Elementar",
+      "en": "Elementary"
+    },
+    "level.intermediate": {
+      "tg": "Миёна",
+      "ru": "Средний",
+      "uz": "O‘rta",
+      "en": "Intermediate"
+    },
+    "level.upper": {
+      "tg": "Болотар аз миёна",
+      "ru": "Выше среднего",
+      "uz": "O‘rtadan yuqori",
+      "en": "Upper-intermediate"
+    },
+    "level.advanced": {
+      "tg": "Пешрафта",
+      "ru": "Продвинутый",
+      "uz": "Ilg‘or",
+      "en": "Advanced"
+    },
+    "course.locked": {
+      "tg": "Баста",
+      "ru": "Заблокировано",
+      "uz": "Qulflangan",
+      "en": "Locked"
+    },
+    "course.unlock_premium": {
+      "tg": "Бо Premium кушоед",
+      "ru": "Откройте с Premium",
+      "uz": "Premium bilan oching",
+      "en": "Unlock with Premium"
+    },
+    "words.learned": {
+      "tg": "Калимаҳои омӯхташуда",
+      "ru": "Изучено слов",
+      "uz": "O‘rganilgan so‘zlar",
+      "en": "Words learned"
+    },
+    "achievements.title": {
+      "tg": "Дастовардҳо",
+      "ru": "Достижения",
+      "uz": "Yutuqlar",
+      "en": "Achievements"
+    }
+  }
+}

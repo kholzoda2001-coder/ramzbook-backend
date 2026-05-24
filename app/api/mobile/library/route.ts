@@ -16,22 +16,19 @@ export async function GET(req: NextRequest) {
 
     const isPremium = !!user?.isPremium;
 
-    // Fetch all active courses with their full tree: Unit -> Lesson -> Word
+    // Fetch all active courses with their full tree: Module -> Lesson -> Word
     const courses = await prisma.course.findMany({
       where: { isActive: true },
-      orderBy: { sortOrder: 'asc' },
+      orderBy: { order: 'asc' },
       include: {
-        language: true,
-        units: {
-          orderBy: { sortOrder: 'asc' },
+        targetLanguage: true,
+        modules: {
+          orderBy: { order: 'asc' },
           include: {
             lessons: {
-              orderBy: { sortOrder: 'asc' },
+              orderBy: { order: 'asc' },
               include: {
-                words: {
-                  orderBy: { sortOrder: 'asc' },
-                  include: { word: true }
-                }
+                words: { orderBy: { order: 'asc' } }
               }
             }
           }
@@ -48,36 +45,36 @@ export async function GET(req: NextRequest) {
         author: 'RAMZ',
         coverUrl: '', // Can be replaced with actual image later
         description: c.description || '',
-        category: c.language.name,
+        category: c.targetLanguage.name,
         rating: 5.0,
         isFree: c.level === 'A1',
-        languageCode: c.language.code,
+        languageCode: c.targetLanguage.code,
         isOwned: isPremium || c.level === 'A1',
         isLocked: !isPremium && c.level !== 'A1',
         expiresAt: user?.premiumExpiresAt?.toISOString() ?? null,
         progress: 0, // Simplified for now, can map from userProgress if needed
         lastReadPageIndex: 0,
-        modules: c.units.map((u) => {
-          // Flatten all words in all lessons of this unit into the module's vocabulary
-          const words = u.lessons.flatMap(l => 
-            l.words.map(lw => ({
-              id: lw.word.id,
-              originalWord: lw.word.word,
-              transcription: lw.word.ipa || '',
-              pronunciation: lw.word.ipa || '',
-              translation: lw.word.translation || '',
-              audioUrl: lw.word.audioUrl || '',
-              emoji: lw.word.emoji || ''
+        modules: c.modules.map((m) => {
+          // Flatten all words in all lessons of this module.
+          const words = m.lessons.flatMap(l =>
+            l.words.map(w => ({
+              id: w.id,
+              originalWord: w.word,
+              transcription: w.ipa || '',
+              pronunciation: w.ipa || '',
+              translation: w.translation || '',
+              audioUrl: w.audioUrl || '',
+              emoji: w.emoji || ''
             }))
           );
 
           return {
-            id: u.id,
-            title: u.title,
-            orderIndex: u.sortOrder,
-            isFreePreview: !u.isPremium,
+            id: m.id,
+            title: m.title,
+            orderIndex: m.order,
+            isFreePreview: !m.isPremium,
             words: words,
-            quizzes: [] // We'll leave this empty or populate it later
+            quizzes: []
           };
         })
       };

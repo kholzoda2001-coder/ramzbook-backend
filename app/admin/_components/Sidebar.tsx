@@ -52,6 +52,9 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         <Link href="/admin/words" className={`ni ${isActive('/admin/words') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">💬</span>Калимаҳо<span className="nb nb-t">5.2K</span>
         </Link>
+        <Link href="/admin/ui-translations" className={`ni ${isActive('/admin/ui-translations') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🌐</span>Тарҷумаҳои UI
+        </Link>
 
         <div className="sh">МОЛИЯ</div>
         <Link href="/admin/revenue" className={`ni ${isActive('/admin/revenue') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>

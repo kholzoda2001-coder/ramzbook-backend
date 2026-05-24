@@ -14,8 +14,9 @@ model User {
   passwordHash      String
   name              String
   avatarUrl         String?
-  nativeLang        String    @default("tg")
+  nativeLang        String    @default("tg") // UI / interface language code
   interfaceLang     String    @default("tg")
+  targetLang        String?   // currently-learning language code
   
   // Stats
   totalXp           Int       @default(0)
@@ -81,14 +82,20 @@ model RefreshToken {
 model Language {
   id                String   @id @default(cuid())
   code              String   @unique // en, ru, tr, etc
-  name              String
-  nativeName        String
-  flag              String
+  name              String              // English exonym, e.g. "Tajik"
+  nativeName        String              // endonym, e.g. "Тоҷикӣ"
+  flag              String              // emoji flag
+  canBeNative       Boolean  @default(false) // usable as UI / interface language
+  canBeTarget       Boolean  @default(true)  // usable as a learnable language
+  badge             String?             // HOT | LIVE | SOON
+  learnerCount      String?             // "1.5B learners"
+  order             Int      @default(0)
   isActive          Boolean  @default(true)
-  speakersCount     String?  // "1.5B"
-  sortOrder         Int      @default(0)
-  
-  courses           Course[]
+  createdAt         DateTime @default(now())
+
+  coursesAsTarget   Course[]        @relation("TargetLang")
+  coursesAsNative   Course[]        @relation("NativeLang")
+  uiTranslations    UiTranslation[]
   userLanguages     UserLanguage[]
 }
 
@@ -113,79 +120,91 @@ model UserLanguage {
 
 model Course {
   id                String   @id @default(cuid())
-  languageId        String
-  language          Language @relation(fields: [languageId], references: [id])
+  // A course is bound to a (target, native) language PAIR.
+  targetLanguageId  String
+  targetLanguage    Language @relation("TargetLang", fields: [targetLanguageId], references: [id])
+  nativeLanguageId  String
+  nativeLanguage    Language @relation("NativeLang", fields: [nativeLanguageId], references: [id])
   level             String   // A1, A2, B1, B2, C1
-  title             String
+  title             String              // shown in native language
   description       String?
   emoji             String
   color             String   // hex color
-  sortOrder         Int      @default(0)
+  order             Int      @default(0)
   isActive          Boolean  @default(true)
-  
-  units             Unit[]
+  createdAt         DateTime @default(now())
+
+  modules           Module[]
+
+  @@unique([targetLanguageId, nativeLanguageId, level])
+  @@index([targetLanguageId])
+  @@index([nativeLanguageId])
 }
 
-model Unit {
+model Module {
   id                String   @id @default(cuid())
   courseId          String
-  course            Course   @relation(fields: [courseId], references: [id])
-  title             String
-  description       String?
+  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title             String              // target-language title, e.g. "Foundations"
+  titleTranslated   String              // native-language title, e.g. "Асосҳо"
   emoji             String
-  color             String
-  sortOrder         Int      @default(0)
+  color             String   @default("#10B981")
+  order             Int      @default(0)
   isPremium         Boolean  @default(false) // requires Premium
-  isBoss            Boolean  @default(false) // boss unit
-  
+  isBoss            Boolean  @default(false) // boss module
+  isActive          Boolean  @default(true)
+
   lessons           Lesson[]
+
+  @@index([courseId])
 }
 
 model Lesson {
   id                String   @id @default(cuid())
-  unitId            String
-  unit              Unit     @relation(fields: [unitId], references: [id])
-  title             String
-  titleTranslations Json     // { tg: "...", ru: "...", en: "...", uz: "..." }
+  moduleId          String
+  module            Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title             String              // target-language title, e.g. "Greetings"
+  titleTranslated   String              // native-language title, e.g. "Саломҳо"
+  type              String   @default("vocab") // "vocab" | "quiz"
   emoji             String
   xpReward          Int      @default(60)
-  estimatedMin      Int      @default(5)
-  sortOrder         Int      @default(0)
+  duration          Int      @default(5) // minutes
+  order             Int      @default(0)
   isPremium         Boolean  @default(false)
   isActive          Boolean  @default(true)
-  
-  words             LessonWord[]
+
+  words             Word[]
   progress          UserProgress[]
+
+  @@index([moduleId])
 }
 
 model Word {
   id                String   @id @default(cuid())
-  langFrom          String
-  langTo            String
-  word              String
-  translation       String
-  ipa               String?
-  audioUrl          String?
+  lessonId          String
+  lesson            Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  word              String              // target-language word, e.g. "Hello"
+  translation       String              // native-language translation, e.g. "Салом"
   emoji             String?
-  imageUrl          String?
-  example           String?
-  exampleTranslation String?
+  ipa               String?             // /həˈloʊ/
+  example           String?             // target-language example sentence
+  exampleTrans      String?             // native-language translation of the example
+  audioUrl          String?
   difficulty        Int      @default(1) // 1-5
-  
-  lessons           LessonWord[]
-  
-  @@index([langFrom, langTo])
+  order             Int      @default(0)
+
+  @@index([lessonId])
 }
 
-model LessonWord {
-  id                String   @id @default(cuid())
-  lessonId          String
-  lesson            Lesson   @relation(fields: [lessonId], references: [id])
-  wordId            String
-  word              Word     @relation(fields: [wordId], references: [id])
-  sortOrder         Int      @default(0)
-  
-  @@unique([lessonId, wordId])
+model UiTranslation {
+  id          String   @id @default(cuid())
+  languageId  String
+  language    Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+  key         String              // "home.title"
+  value       String   @db.Text   // "Хона"
+
+  @@unique([languageId, key])
+  @@index([languageId])
 }
 
 model UserProgress {

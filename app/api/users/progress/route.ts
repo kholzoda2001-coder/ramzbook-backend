@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic';
  * - totalLessons: number
  * - completedLessons: number
  * - percentComplete: number (0–100)
- * - units: { id, title, completedLessons, totalLessons, percentComplete }[]
+ * - modules: { id, title, completedLessons, totalLessons, percentComplete }[]
  */
 export async function GET(req: NextRequest) {
   try {
@@ -26,16 +26,16 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'courseId is required' }, { status: 400 });
     }
 
-    // Fetch the course with its units and lessons
+    // Fetch the course with its modules and lessons
     const course = await prisma.course.findUnique({
       where: { id: courseId },
       include: {
-        units: {
-          orderBy: { sortOrder: 'asc' },
+        modules: {
+          orderBy: { order: 'asc' },
           include: {
             lessons: {
-              select: { id: true, title: true, sortOrder: true },
-              orderBy: { sortOrder: 'asc' },
+              select: { id: true, title: true, order: true },
+              orderBy: { order: 'asc' },
             },
           },
         },
@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
     }
 
     // Gather all lesson IDs in this course
-    const allLessonIds = course.units.flatMap((u) => u.lessons.map((l) => l.id));
+    const allLessonIds = course.modules.flatMap((m) => m.lessons.map((l) => l.id));
 
     // Fetch user progress for all lessons in this course
     const progressRecords = await prisma.userProgress.findMany({
@@ -61,13 +61,13 @@ export async function GET(req: NextRequest) {
 
     const completedLessonIds = new Set(progressRecords.map((p) => p.lessonId));
 
-    // Build per-unit stats
-    const units = course.units.map((unit) => {
-      const totalLessons = unit.lessons.length;
-      const completedLessons = unit.lessons.filter((l) => completedLessonIds.has(l.id)).length;
+    // Build per-module stats
+    const modules = course.modules.map((module) => {
+      const totalLessons = module.lessons.length;
+      const completedLessons = module.lessons.filter((l) => completedLessonIds.has(l.id)).length;
       return {
-        id: unit.id,
-        title: unit.title,
+        id: module.id,
+        title: module.title,
         totalLessons,
         completedLessons,
         percentComplete: totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
@@ -83,7 +83,7 @@ export async function GET(req: NextRequest) {
       totalLessons,
       completedLessons,
       percentComplete: totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
-      units,
+      modules,
     });
   } catch (error: any) {
     console.error('[users/progress]', error);

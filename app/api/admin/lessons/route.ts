@@ -2,47 +2,45 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
 /**
- * GET /api/admin/lessons?unitId=X — lessons for a unit
- * GET /api/admin/lessons?courseId=X — all lessons for a course
+ * GET /api/admin/lessons?moduleId=X — lessons for a module
+ * GET /api/admin/lessons?courseId=X — all lessons across a course's modules
+ * GET /api/admin/lessons            — all lessons (limited)
  */
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = req.nextUrl;
-    const unitId = searchParams.get('unitId');
+    const moduleId = searchParams.get('moduleId');
     const courseId = searchParams.get('courseId');
 
-    if (unitId) {
+    if (moduleId) {
       const lessons = await prisma.lesson.findMany({
-        where: { unitId },
-        orderBy: { sortOrder: 'asc' },
-        include: {
-          _count: { select: { words: true } },
-        },
+        where: { moduleId },
+        orderBy: { order: 'asc' },
+        include: { _count: { select: { words: true } } },
       });
       return NextResponse.json({ lessons });
     }
 
     if (courseId) {
-      const units = await prisma.unit.findMany({
+      const modules = await prisma.module.findMany({
         where: { courseId },
-        orderBy: { sortOrder: 'asc' },
+        orderBy: { order: 'asc' },
         include: {
           lessons: {
-            orderBy: { sortOrder: 'asc' },
+            orderBy: { order: 'asc' },
             include: { _count: { select: { words: true } } },
           },
         },
       });
-      const lessons = units.flatMap(u => u.lessons.map(l => ({ ...l, unitTitle: u.title })));
+      const lessons = modules.flatMap(m => m.lessons.map(l => ({ ...l, moduleTitle: m.title })));
       return NextResponse.json({ lessons });
     }
 
-    // Return all lessons (limited)
     const lessons = await prisma.lesson.findMany({
       take: 200,
-      orderBy: { sortOrder: 'asc' },
+      orderBy: { order: 'asc' },
       include: {
-        unit: { select: { title: true, course: { select: { title: true, level: true } } } },
+        module: { select: { title: true, course: { select: { title: true, level: true } } } },
         _count: { select: { words: true } },
       },
     });
@@ -55,37 +53,38 @@ export async function GET(req: NextRequest) {
 
 /**
  * POST /api/admin/lessons — create a lesson
+ * Body: { moduleId, title, titleTranslated, type, emoji, xpReward, duration, order, isPremium }
  */
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as {
-      unitId: string;
+      moduleId: string;
       title: string;
+      titleTranslated?: string;
+      type?: string;
       emoji?: string;
       xpReward?: number;
-      estimatedMin?: number;
-      sortOrder?: number;
+      duration?: number;
+      order?: number;
       isPremium?: boolean;
     };
 
-    if (!body.unitId || !body.title) {
-      return NextResponse.json({ error: 'unitId and title are required' }, { status: 400 });
+    if (!body.moduleId || !body.title) {
+      return NextResponse.json({ error: 'moduleId and title are required' }, { status: 400 });
     }
+
+    const order = body.order ?? (await prisma.lesson.count({ where: { moduleId: body.moduleId } }));
 
     const lesson = await prisma.lesson.create({
       data: {
-        unitId: body.unitId,
+        moduleId: body.moduleId,
         title: body.title.trim(),
-        titleTranslations: {
-          tg: body.title.trim(),
-          ru: body.title.trim(),
-          en: body.title.trim(),
-          uz: body.title.trim(),
-        },
+        titleTranslated: (body.titleTranslated ?? body.title).trim(),
+        type: body.type ?? 'vocab',
         emoji: body.emoji ?? '📝',
         xpReward: body.xpReward ?? 60,
-        estimatedMin: body.estimatedMin ?? 5,
-        sortOrder: body.sortOrder ?? 0,
+        duration: body.duration ?? 5,
+        order,
         isPremium: body.isPremium ?? false,
         isActive: true,
       },

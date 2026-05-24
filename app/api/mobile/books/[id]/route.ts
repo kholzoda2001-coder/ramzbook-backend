@@ -6,40 +6,29 @@ export const dynamic = 'force-dynamic';
 
 /**
  * GET /api/mobile/books/:id
- * Returns a single course (mapped as Book) with full modules/words data.
- * Authenticated version: checks user ownership and premium status.
+ * A single course mapped to the legacy "Book" shape, with ownership/premium flags.
  */
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    // Extract user ID from token if present
     let userId: string | null = null;
     const authHeader = req.headers.get('authorization');
     if (authHeader?.startsWith('Bearer ')) {
       try {
-        const payload = verifyAccessToken(authHeader.slice(7));
-        userId = payload.userId;
+        userId = verifyAccessToken(authHeader.slice(7)).userId;
       } catch (_) {}
     }
 
     const course = await prisma.course.findUnique({
       where: { id: params.id },
       include: {
-        language: true,
-        units: {
-          orderBy: { sortOrder: 'asc' },
+        targetLanguage: true,
+        modules: {
+          orderBy: { order: 'asc' },
           include: {
             lessons: {
               where: { isActive: true },
-              orderBy: { sortOrder: 'asc' },
-              include: {
-                words: {
-                  orderBy: { sortOrder: 'asc' },
-                  include: { word: true },
-                },
-              },
+              orderBy: { order: 'asc' },
+              include: { words: { orderBy: { order: 'asc' } } },
             },
           },
         },
@@ -50,17 +39,12 @@ export async function GET(
       return NextResponse.json({ error: 'Book not found' }, { status: 404 });
     }
 
-    // Check user premium/ownership
-    let isOwned = false;
     let isPremiumUser = false;
     if (userId) {
-      const user = await prisma.user.findUnique({
-        where: { id: userId },
-        select: { isPremium: true },
-      });
+      const user = await prisma.user.findUnique({ where: { id: userId }, select: { isPremium: true } });
       isPremiumUser = user?.isPremium ?? false;
-      isOwned = isPremiumUser; // Premium users own all courses
     }
+    const isOwned = isPremiumUser;
 
     const book = {
       id: course.id,
@@ -73,24 +57,24 @@ export async function GET(
       isLocked: !isOwned && !isPremiumUser,
       isFree: true,
       lastReadPageIndex: 0,
-      category: course.language.name,
-      languageCode: course.language.code,
+      category: course.targetLanguage.name,
+      languageCode: course.targetLanguage.code,
       description: course.description || `${course.title} — ${course.level}`,
-      modules: course.units.map((unit) => ({
-        id: unit.id,
-        title: unit.title,
-        orderIndex: unit.sortOrder,
-        isFreePreview: !unit.isPremium,
-        words: unit.lessons.flatMap((lesson) =>
-          lesson.words.map((lw) => ({
-            id: lw.word.id,
-            originalWord: lw.word.word,
-            transcription: lw.word.ipa || '',
-            pronunciation: lw.word.audioUrl || '',
-            translation: lw.word.translation,
-            audioUrl: lw.word.audioUrl || '',
-            exampleSentence: lw.word.example || '',
-            exampleTranslation: lw.word.exampleTranslation || '',
+      modules: course.modules.map((module) => ({
+        id: module.id,
+        title: module.title,
+        orderIndex: module.order,
+        isFreePreview: !module.isPremium,
+        words: module.lessons.flatMap((lesson) =>
+          lesson.words.map((w) => ({
+            id: w.id,
+            originalWord: w.word,
+            transcription: w.ipa || '',
+            pronunciation: w.audioUrl || '',
+            translation: w.translation,
+            audioUrl: w.audioUrl || '',
+            exampleSentence: w.example || '',
+            exampleTranslation: w.exampleTrans || '',
           }))
         ),
         quizzes: [],
@@ -100,9 +84,6 @@ export async function GET(
     return NextResponse.json(book);
   } catch (error: any) {
     console.error('[api/mobile/books/[id]] Error:', error);
-    return NextResponse.json(
-      { error: error?.message || 'Server Error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error?.message || 'Server Error' }, { status: 500 });
   }
 }
