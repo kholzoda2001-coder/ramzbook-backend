@@ -183,7 +183,7 @@ export async function GET(req: Request) {
               words: [
                 { w: 'School',   t: 'Мактаб',      ipa: '/skuːl/',    ex: 'I go to school.',          exTj: 'Ман ба мактаб мераям.',    emoji: '🏫' },
                 { w: 'Market',   t: 'Бозор',       ipa: '/ˈmɑːrkɪt/', ex: 'We buy food at the market.', exTj: 'Мо дар бозор хӯрок мехарем.', emoji: '🛒' },
-                { w: 'Hospital', t: 'Беморхона',   ipa: '/ˈhɒspɪtl/, ex: 'He is in the hospital.', exTj: 'Ӯ дар беморхона аст.',   emoji: '🏥' },
+                { w: 'Hospital', t: 'Беморхона',   ipa: '/ˈhɒspɪtl/', ex: 'He is in the hospital.', exTj: 'Ӯ дар беморхона аст.',   emoji: '🏥' },
                 { w: 'Park',     t: 'Боғ / Парк',  ipa: '/pɑːrk/',   ex: 'Children play in the park.', exTj: 'Кӯдакон дар боғ мебозанд.', emoji: '🌳' },
                 { w: 'Street',   t: 'Кӯча',        ipa: '/striːt/',   ex: 'The street is busy.',      exTj: 'Кӯча шулуғ аст.',         emoji: '🛣️' },
               ]
