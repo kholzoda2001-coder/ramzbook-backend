@@ -469,7 +469,6 @@ export async function GET(req: Request) {
                 color: courseColors[level] ?? '#10B981',
                 sortOrder: u + 1,
                 isPremium: level !== 'A1',
-                isActive: true,
               }
             });
 
