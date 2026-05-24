@@ -1,10 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
+// Full module→course→languages shape used by the admin lessons UI
+const LESSON_INCLUDE = {
+  _count: { select: { words: true } },
+  module: {
+    select: {
+      id: true,
+      title: true,
+      course: {
+        select: {
+          id: true,
+          title: true,
+          emoji: true,
+          level: true,
+          targetLanguage: { select: { flag: true, name: true } },
+          nativeLanguage: { select: { flag: true, nativeName: true } },
+        },
+      },
+    },
+  },
+} as const;
+
 /**
  * GET /api/admin/lessons?moduleId=X — lessons for a module
  * GET /api/admin/lessons?courseId=X — all lessons across a course's modules
- * GET /api/admin/lessons            — all lessons (limited)
+ * GET /api/admin/lessons            — all lessons (limited to 500)
  */
 export async function GET(req: NextRequest) {
   try {
@@ -12,38 +33,15 @@ export async function GET(req: NextRequest) {
     const moduleId = searchParams.get('moduleId');
     const courseId = searchParams.get('courseId');
 
-    if (moduleId) {
-      const lessons = await prisma.lesson.findMany({
-        where: { moduleId },
-        orderBy: { order: 'asc' },
-        include: { _count: { select: { words: true } } },
-      });
-      return NextResponse.json({ lessons });
-    }
-
-    if (courseId) {
-      const modules = await prisma.module.findMany({
-        where: { courseId },
-        orderBy: { order: 'asc' },
-        include: {
-          lessons: {
-            orderBy: { order: 'asc' },
-            include: { _count: { select: { words: true } } },
-          },
-        },
-      });
-      const lessons = modules.flatMap(m => m.lessons.map(l => ({ ...l, moduleTitle: m.title })));
-      return NextResponse.json({ lessons });
-    }
+    const where = moduleId ? { moduleId } : courseId ? { module: { courseId } } : {};
 
     const lessons = await prisma.lesson.findMany({
-      take: 200,
+      where,
       orderBy: { order: 'asc' },
-      include: {
-        module: { select: { title: true, course: { select: { title: true, level: true } } } },
-        _count: { select: { words: true } },
-      },
+      take: 500,
+      include: LESSON_INCLUDE,
     });
+
     return NextResponse.json({ lessons });
   } catch (err: any) {
     console.error('[admin/lessons GET]', err);

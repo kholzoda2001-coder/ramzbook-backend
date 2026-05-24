@@ -354,9 +354,9 @@ export default function AdminLessonsPage() {
                       </span>
                     </td>
                     <td style={{ padding: '12px 8px', color: 'var(--text3)', fontSize: '12px' }}>
-                      {lesson.module ? (
+                      {lesson.module?.course ? (
                         <span>
-                          {lesson.module.course.emoji} {lesson.module.course.targetLanguage.flag} {lesson.module.course.level}
+                          {lesson.module.course.emoji} {lesson.module.course.targetLanguage?.flag ?? ''} {lesson.module.course.level}
                           <span style={{ color: 'var(--text3)', opacity: 0.5 }}> › </span>
                           {lesson.module.title}
                         </span>
