@@ -25,8 +25,8 @@ import {
 
 type User = {
   id: string;
-  name: string;
-  email: string;
+  name: string | null;
+  email: string | null;
   phone: string | null;
   isActive: boolean;
   createdAt: string;
@@ -288,7 +288,7 @@ function AccessPanel({
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: 15, fontWeight: 700, color: '#fff', flexShrink: 0,
           }}>
-            {user.name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)}
+            {(user.name ?? '?').split(' ').map((n) => n[0] ?? '').join('').toUpperCase().slice(0, 2) || '?'}
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.name}</p>
@@ -461,9 +461,9 @@ export default function UsersPage() {
 
   const filtered = users.filter(
     (u) =>
-      u.name.toLowerCase().includes(search.toLowerCase()) ||
+      (u.name ?? '').toLowerCase().includes(search.toLowerCase()) ||
       displayContact(u).toLowerCase().includes(search.toLowerCase()) ||
-      u.email.toLowerCase().includes(search.toLowerCase())
+      (u.email ?? '').toLowerCase().includes(search.toLowerCase())
   );
 
   const dismissToast = useCallback(() => setToast(null), []);
@@ -532,7 +532,7 @@ export default function UsersPage() {
               </thead>
               <tbody>
                 {filtered.map((user, idx) => {
-                  const initials = user.name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2);
+                  const initials = (user.name ?? '?').split(' ').map((n) => n[0] ?? '').join('').toUpperCase().slice(0, 2) || '?';
                   return (
                     <tr
                       key={user.id}
@@ -553,7 +553,7 @@ export default function UsersPage() {
                       {/* Email / Phone */}
                       <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text-secondary)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                          {user.phone || user.email.endsWith('@ramzbook.tj') ? (
+                          {user.phone || user.email?.endsWith('@ramzbook.tj') ? (
                             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 700, padding: '2px 7px', borderRadius: 99, background: 'rgba(16,185,129,0.1)', color: '#10b981', border: '1px solid rgba(16,185,129,0.25)', flexShrink: 0 }}>📱</span>
                           ) : (
                             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 700, padding: '2px 7px', borderRadius: 99, background: 'rgba(99,102,241,0.1)', color: '#818cf8', border: '1px solid rgba(99,102,241,0.25)', flexShrink: 0 }}>✉️</span>
