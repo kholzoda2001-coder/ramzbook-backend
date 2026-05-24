@@ -14,6 +14,7 @@ model User {
   passwordHash      String
   name              String
   avatarUrl         String?
+  isActive          Boolean   @default(true)
   nativeLang        String    @default("tg") // UI / interface language code
   interfaceLang     String    @default("tg")
   targetLang        String?   // currently-learning language code
@@ -205,6 +206,26 @@ model UiTranslation {
 
   @@unique([languageId, key])
   @@index([languageId])
+}
+
+model OtpCode {
+  id             String   @id @default(cuid())
+  identifier     String              // normalized email or phone
+  channel        String              // "email" | "phone"
+  otpHash        String              // HMAC-SHA256 of the code
+  expiresAt      DateTime
+  used           Boolean  @default(false)
+  verifyAttempts Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  @@index([identifier, createdAt])
+  @@index([identifier, used])
+}
+
+model AppSetting {
+  key       String   @id              // e.g. "login_settings", "auth_providers"
+  valueJson String   @db.Text
+  updatedAt DateTime @updatedAt
 }
 
 model UserProgress {

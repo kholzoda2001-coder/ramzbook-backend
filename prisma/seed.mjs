@@ -336,6 +336,7 @@ const UI = {
   'nav.home':               { tg: 'Хона', ru: 'Главная', uz: 'Bosh', en: 'Home' },
   'nav.learn':              { tg: 'Омӯзиш', ru: 'Учёба', uz: 'O‘rganish', en: 'Learn' },
   'nav.leaderboard':        { tg: 'Рейтинг', ru: 'Рейтинг', uz: 'Reyting', en: 'Leaderboard' },
+  'nav.roadmap':            { tg: 'Роҳнамо', ru: 'Карта', uz: 'Yo‘l xaritasi', en: 'Roadmap' },
   'nav.profile':            { tg: 'Профил', ru: 'Профиль', uz: 'Profil', en: 'Profile' },
   'level.beginner':         { tg: 'Навомӯз', ru: 'Начинающий', uz: 'Boshlang‘ich', en: 'Beginner' },
   'level.elementary':       { tg: 'Ибтидоӣ', ru: 'Элементарный', uz: 'Elementar', en: 'Elementary' },
