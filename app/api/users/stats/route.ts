@@ -42,8 +42,20 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
+    // Real lesson/word counts for the home stats grid.
+    const completed = await prisma.userProgress.findMany({
+      where: { userId: user.id, isCompleted: true },
+      select: { lessonId: true },
+    });
+    const lessonsCompleted = completed.length;
+    const wordsLearned = completed.length
+      ? await prisma.word.count({ where: { lessonId: { in: completed.map((c) => c.lessonId) } } })
+      : 0;
+
     return NextResponse.json({
       ...freshUser,
+      lessonsCompleted,
+      wordsLearned,
       hearts: heartsData.hearts,
       maxHearts: heartsData.maxHearts,
       nextRegenSeconds: heartsData.nextRegenSeconds,
