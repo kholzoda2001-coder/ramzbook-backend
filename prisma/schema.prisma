@@ -62,7 +62,8 @@ model User {
   gemTransactions   GemTransaction[]
   userLanguages     UserLanguage[]
   refreshTokens     RefreshToken[]
-  
+  dailyXp           DailyXp[]
+
   @@index([email])
   @@index([phone])
   @@index([isPremium])
@@ -333,7 +334,21 @@ model DailyTask {
   reward            Int      // gems
   date              String   // YYYY-MM-DD
   completed         Boolean  @default(false)
-  
+
   @@unique([userId, date, taskType])
+  @@index([userId, date])
+}
+
+// Per-day XP log — drives the weekly activity chart and analytics.
+// One row per user per day; `source` is a JSON breakdown by XP type.
+model DailyXp {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id])
+  date              DateTime @db.Date
+  xp                Int      @default(0)
+  source            Json?    // { lesson: 60, perfect: 20, achievement: 50, ... }
+
+  @@unique([userId, date])
   @@index([userId, date])
 }

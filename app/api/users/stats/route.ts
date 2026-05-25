@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { authenticate } from '@/lib/auth';
 import { getHearts } from '@/lib/hearts';
-import { updateStreak } from '@/lib/streak';
+import { checkStreakDecay } from '@/lib/xp';
 import { checkAndUpdatePremium } from '@/lib/premium';
 
 export async function GET(req: Request) {
@@ -10,9 +10,11 @@ export async function GET(req: Request) {
     const user = await authenticate(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    // Update dynamic stats
+    // Update dynamic stats.
+    // NOTE: streak is ADVANCED only when XP is earned (see lib/xp.ts awardXp).
+    // Here we only DECAY a broken streak — opening the app must never fake a streak.
     await checkAndUpdatePremium(user.id);
-    await updateStreak(user.id);
+    await checkStreakDecay(user.id);
     const heartsData = await getHearts(user.id);
 
     // Fetch fresh user data
