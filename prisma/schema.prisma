@@ -38,13 +38,19 @@ model User {
   streakFreezesAvailable Int  @default(1)
   streakFreezesUsed Int       @default(0)
   
-  // Premium
+  // Premium (legacy fields — kept for the Google Play webhook flow)
   isPremium         Boolean   @default(false)
   premiumPlan       String?   // "monthly" | "yearly" | "lifetime"
   premiumStartedAt  DateTime?
   premiumExpiresAt  DateTime?
   trialUsed         Boolean   @default(false)
   trialStartedAt    DateTime?
+
+  // Freemium subscription system (canonical going forward)
+  subscriptionTier   String    @default("free") // free | premium
+  subscriptionPlan   String?   // monthly | yearly
+  trialEndsAt        DateTime?
+  subscriptionEndsAt DateTime?
   
   // AI Tutor
   aiConversationsToday Int    @default(0)
@@ -63,10 +69,13 @@ model User {
   userLanguages     UserLanguage[]
   refreshTokens     RefreshToken[]
   dailyXp           DailyXp[]
+  promoRedemptions  PromoRedemption[]
+  paymentTransactions PaymentTransaction[]
 
   @@index([email])
   @@index([phone])
   @@index([isPremium])
+  @@index([subscriptionTier])
 }
 
 model RefreshToken {
@@ -351,4 +360,68 @@ model DailyXp {
 
   @@unique([userId, date])
   @@index([userId, date])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Freemium subscription system
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Gateway-agnostic transaction log: subscriptions, gem packs, trials.
+/// Canonical record for Alif Mobi / DC Pay / Stripe / Apple / Google / mock.
+model PaymentTransaction {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  type         String   // subscription | gems | trial
+  provider     String   // alif | dcpay | stripe | apple | google | mock
+  amount       Float    // currency major units (e.g. 4.99)
+  currency     String   @default("USD")
+  status       String   @default("pending") // pending | success | failed | refunded
+  plan         String?  // monthly | yearly (subscription)
+  gemsAmount   Int?     // gems credited (gem purchases)
+  promoCodeId  String?  // applied promo, if any
+  externalId   String?  // gateway transaction / order id
+  metadata     Json?    // raw gateway payload, A/B variant, trigger, etc.
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([provider])
+  @@index([externalId])
+}
+
+/// Reusable discount / trial-extension codes.
+model PromoCode {
+  id              String   @id @default(cuid())
+  code            String   @unique
+  description     String?
+  discountType    String   // percent | fixed | trial_days
+  discountValue   Int      // percent 0-100 | cents | days
+  appliesTo       String   @default("both") // monthly | yearly | both | gems
+  maxRedemptions  Int?     // null = unlimited
+  timesRedeemed   Int      @default(0)
+  perUserLimit    Int      @default(1)
+  startsAt        DateTime?
+  expiresAt       DateTime?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  redemptions     PromoRedemption[]
+
+  @@index([code])
+  @@index([isActive])
+}
+
+/// One row per (promo, user) redemption — enforces perUserLimit + analytics.
+model PromoRedemption {
+  id           String    @id @default(cuid())
+  promoCodeId  String
+  promoCode    PromoCode @relation(fields: [promoCodeId], references: [id])
+  userId       String
+  user         User      @relation(fields: [userId], references: [id])
+  redeemedAt   DateTime  @default(now())
+
+  @@unique([promoCodeId, userId])
+  @@index([userId])
 }
