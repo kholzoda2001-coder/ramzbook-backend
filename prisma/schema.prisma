@@ -71,6 +71,7 @@ model User {
   dailyXp           DailyXp[]
   promoRedemptions  PromoRedemption[]
   paymentTransactions PaymentTransaction[]
+  paywallEvents     PaywallEvent[]
 
   @@index([email])
   @@index([phone])
@@ -424,4 +425,21 @@ model PromoRedemption {
 
   @@unique([promoCodeId, userId])
   @@index([userId])
+}
+
+/// Paywall impressions + outcomes. Powers frequency-capping (so we stay
+/// non-aggressive) and the Phase 7 conversion funnel.
+model PaywallEvent {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  trigger   String   // streak_at_risk | lives_empty | lesson_5 | level_locked | league_promoted | weekly_recap | inactive_14d | manual
+  action    String   @default("shown") // shown | dismissed | started_trial | purchased
+  variant   String?  // A/B variant label
+  context   Json?    // user segment, offer shown, etc.
+  createdAt DateTime @default(now())
+
+  @@index([userId, trigger])
+  @@index([trigger, action])
+  @@index([createdAt])
 }
