@@ -18,8 +18,8 @@ export const PACKAGE_NAME = process.env.GOOGLE_PLAY_PACKAGE_NAME || 'com.ramzboo
 export type Plan = 'monthly' | 'yearly' | 'lifetime';
 
 export const PRODUCT_PLAN: Record<string, Plan> = {
-  ramz_monthly: 'monthly',
-  ramz_yearly: 'yearly',
+  vip_monthly: 'monthly',
+  vip_yearly: 'yearly',
   ramz_lifetime: 'lifetime',
 };
 

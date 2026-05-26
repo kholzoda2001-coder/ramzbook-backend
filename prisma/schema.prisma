@@ -295,7 +295,7 @@ model Subscription {
   // Google Play
   googlePurchaseToken String? @unique
   googleOrderId       String?
-  googleProductId     String  // ramz_monthly, ramz_yearly, ramz_lifetime
+  googleProductId     String  // vip_monthly, vip_yearly, ramz_lifetime
   
   startedAt         DateTime @default(now())
   expiresAt         DateTime?

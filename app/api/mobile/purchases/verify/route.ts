@@ -112,13 +112,13 @@ export async function POST(req: NextRequest) {
       }
       // Dev fallback
       parsedExpiryTime = new Date();
-      if (productId === 'ramz_yearly') parsedExpiryTime.setFullYear(parsedExpiryTime.getFullYear() + 1);
+      if (productId === 'vip_yearly') parsedExpiryTime.setFullYear(parsedExpiryTime.getFullYear() + 1);
       else if (productId === 'ramz_lifetime') parsedExpiryTime.setFullYear(parsedExpiryTime.getFullYear() + 100);
       else parsedExpiryTime.setMonth(parsedExpiryTime.getMonth() + 1);
       orderId = 'dev_order_' + Date.now();
     }
 
-    const plan = productId === 'ramz_yearly' ? 'yearly' : (productId === 'ramz_lifetime' ? 'lifetime' : 'monthly');
+    const plan = productId === 'vip_yearly' ? 'yearly' : (productId === 'ramz_lifetime' ? 'lifetime' : 'monthly');
 
     // Save to database
     await prisma.$transaction(async (tx) => {

@@ -87,7 +87,7 @@ export async function POST(req: Request) {
         ? new Date(parseInt(result.data.expiryTimeMillis))
         : null;
       
-      const plan = productId === 'ramz_monthly' ? 'monthly' : 'yearly';
+      const plan = productId === 'vip_monthly' ? 'monthly' : 'yearly';
       
       await activatePremium(
         user.id,

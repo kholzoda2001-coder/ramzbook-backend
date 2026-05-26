@@ -239,7 +239,7 @@ paste the single line as the value (or wrap in single quotes in `.env`).
 - `POST /api/users/subscription/start-trial` — **DEPRECATED** mock endpoint;
   kept for non-production testing only. The Flutter app no longer calls it.
 
-Product IDs (matching the Play Console): `ramz_monthly`, `ramz_yearly`, `ramz_lifetime`.
+Product IDs (matching the Play Console): `vip_monthly`, `vip_yearly`, `ramz_lifetime`.
 
 ### Testing on Google Play (Internal Testing track)
 
@@ -248,7 +248,7 @@ Product IDs (matching the Play Console): `ramz_monthly`, `ramz_yearly`, `ramz_li
 2. Add your tester emails on the same page (max 100). Share the opt-in URL.
 3. **Setup → License testing**: add the same emails — license testers see test
    pricing and auto-approve, and Google substitutes a fake card.
-4. **Monetize → Subscriptions**: create `ramz_monthly` and `ramz_yearly` with a
+4. **Monetize → Subscriptions**: create `vip_monthly` and `vip_yearly` with a
    7-day free trial under "Base plan → Offers". Activate the subscriptions.
 5. **Time compression for testing**: in the Play Console testing menu, the
    subscription renewal period is compressed — a "monthly" subscription renews
@@ -271,4 +271,5 @@ Product IDs (matching the Play Console): `ramz_monthly`, `ramz_yearly`, `ramz_li
 curl -i https://admin.ramz.tj/api/users/subscription/google-verify
 curl -i https://admin.ramz.tj/api/webhooks/google-play
 ```
+
 
