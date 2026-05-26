@@ -209,3 +209,66 @@ Once you confirm this backend is working, the Flutter integration phase will:
 1. Update `api_providers.dart` to point to `/api/mobile/...`
 2. Refactor `HomeScreen` to load real catalog + library data via `FutureBuilder`
 3. Refactor `BookReaderScreen` to fetch `/api/mobile/books/[id]` and POST progress on every swipe
+
+---
+
+## Phase 4A — Google Play Billing
+
+Real Google Play subscription verification (server-side only). The Flutter
+client buys via `in_app_purchase`, then posts the receipt to
+`POST /api/users/subscription/google-verify`, which verifies with Google,
+acknowledges the purchase, activates premium, and writes a `PaymentTransaction`
+audit row. Renewals/cancellations flow through `POST /api/webhooks/google-play`
+(Real-time Developer Notifications via Pub/Sub).
+
+### Required env vars
+
+| Variable | Description |
+|----------|-------------|
+| `GOOGLE_PLAY_PACKAGE_NAME` | Android applicationId. Defaults to `com.ramzbook.tj`. |
+| `GOOGLE_PLAY_CREDENTIALS` | **Stringified JSON** of the service-account key with the `androidpublisher` scope. Required in production; in dev (NODE_ENV !== production) the verify endpoint falls back to a local dev-activation so the team can test without a key. |
+
+To stringify the service-account JSON for the env: `cat key.json \| jq -c .` and
+paste the single line as the value (or wrap in single quotes in `.env`).
+
+### Endpoints
+
+- `POST /api/users/subscription/google-verify` — verify a Play receipt, grant
+  premium, write `PaymentTransaction`. Body: `{ productId, purchaseToken, orderId? }`.
+- `POST /api/webhooks/google-play` — RTDN webhook. Wire to Pub/Sub topic.
+- `POST /api/users/subscription/start-trial` — **DEPRECATED** mock endpoint;
+  kept for non-production testing only. The Flutter app no longer calls it.
+
+Product IDs (matching the Play Console): `ramz_monthly`, `ramz_yearly`, `ramz_lifetime`.
+
+### Testing on Google Play (Internal Testing track)
+
+1. **Play Console → Testing → Internal testing** → create a release with the
+   signed APK/AAB whose `applicationId` matches `GOOGLE_PLAY_PACKAGE_NAME`.
+2. Add your tester emails on the same page (max 100). Share the opt-in URL.
+3. **Setup → License testing**: add the same emails — license testers see test
+   pricing and auto-approve, and Google substitutes a fake card.
+4. **Monetize → Subscriptions**: create `ramz_monthly` and `ramz_yearly` with a
+   7-day free trial under "Base plan → Offers". Activate the subscriptions.
+5. **Time compression for testing**: in the Play Console testing menu, the
+   subscription renewal period is compressed — a "monthly" subscription renews
+   roughly every 5 minutes and a "yearly" every ~30 minutes, so renewals and
+   the RTDN webhook can be exercised end-to-end in a session.
+6. **Service account** for verification:
+   `Play Console → Setup → API access` → link a Google Cloud project → create a
+   service account → grant **View financial data** + **Manage orders and
+   subscriptions** → download the JSON key → paste stringified into
+   `GOOGLE_PLAY_CREDENTIALS`.
+7. **Pub/Sub** for the webhook: create a topic, give the Play publisher service
+   account the Publisher role, add the topic name under **Monetization setup →
+   Real-time developer notifications**, and add a push subscription to
+   `https://admin.ramz.tj/api/webhooks/google-play`.
+
+### Sanity checks
+
+```bash
+# returns 401 (deployed + guarded), never 404
+curl -i https://admin.ramz.tj/api/users/subscription/google-verify
+curl -i https://admin.ramz.tj/api/webhooks/google-play
+```
+

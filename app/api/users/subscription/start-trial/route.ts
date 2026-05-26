@@ -10,10 +10,13 @@ const TRIAL_DAYS = 7;
  * POST /api/users/subscription/start-trial
  * Body: { plan: 'monthly' | 'yearly' }
  *
- * MOCK trial activation (no real gateway yet). Grants 7 days of premium and
- * records a mock PaymentTransaction. Real card capture + auto-charge land in the
- * payment-integration phase. Idempotent: re-calling while premium just returns
- * the current status.
+ * @deprecated DEPRECATED — use google-verify instead
+ * (POST /api/users/subscription/google-verify, real Google Play Billing).
+ * Kept only for non-production testing. The Flutter app no longer calls this;
+ * trials now flow through Google Play's free-trial period + server verification.
+ *
+ * MOCK trial activation (no real gateway). Grants 7 days of premium and records
+ * a mock PaymentTransaction. Idempotent while already premium.
  */
 export async function POST(req: NextRequest) {
   try {
