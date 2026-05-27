@@ -48,15 +48,23 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 /** DELETE /api/admin/languages/:id — blocked if courses reference it */
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const inUse = await prisma.course.count({
-      where: { OR: [{ targetLanguageId: params.id }, { nativeLanguageId: params.id }] },
+    // Cascade delete: First delete any UserLanguages associated with this language
+    await prisma.userLanguage.deleteMany({
+      where: { languageId: params.id }
     });
-    if (inUse > 0) {
-      return NextResponse.json(
-        { error: `Cannot delete: ${inUse} course(s) still use this language.` },
-        { status: 409 }
-      );
-    }
+
+    // Then delete all Courses where this language is either native or target
+    // (Due to Prisma relation setup, Course -> Module -> Lesson -> Word will cascade)
+    await prisma.course.deleteMany({
+      where: {
+        OR: [
+          { targetLanguageId: params.id },
+          { nativeLanguageId: params.id }
+        ]
+      }
+    });
+
+    // Finally, delete the language itself
     await prisma.language.delete({ where: { id: params.id } });
     revalidatePath('/admin/languages');
     return NextResponse.json({ success: true });
