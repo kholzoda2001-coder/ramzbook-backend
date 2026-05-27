@@ -53,30 +53,30 @@ export default function NewCoursePage() {
   return (
     <div style={{ maxWidth: 720 }}>
       <div style={{ fontSize: '12px', color: 'var(--text3)', marginBottom: '8px' }}>
-        <Link href="/admin/courses" style={{ color: 'var(--text3)' }}>Курсҳо</Link> › Курси нав
+        <Link href="/admin/courses" style={{ color: 'var(--text3)' }}>Забонҳои Омӯзишӣ</Link> › Забони нави омӯзишӣ
       </div>
-      <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>Курси нав</h1>
+      <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>Забони нави омӯзишӣ</h1>
       <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '20px' }}>
-        Аввал ҷуфти забон (омӯзишӣ + модарӣ), сипас тафсилот.
+        Аввал ҷуфти забонро интихоб кунед (забоне ки меомӯзанд + забони модарии онҳо), сипас тафсилотро пур кунед.
       </p>
 
       {(target || native) && (
         <div style={{ padding: '10px 14px', borderRadius: '10px', background: 'rgba(20,184,166,0.1)', border: '1px solid rgba(20,184,166,0.3)', marginBottom: '20px', color: 'var(--text-primary)', fontSize: '14px' }}>
-          Курси <b>{target ? `${target.flag} ${target.name}` : '…'}</b> барои <b>{native ? `${native.flag} ${native.nativeName}` : '…'}</b>
+          Омӯзиши <b>{target ? `${target.flag} ${target.name}` : '…'}</b> барои тоифаи <b>{native ? `${native.flag} ${native.nativeName}` : '…'}</b>
         </div>
       )}
 
       <form onSubmit={submit} className="glass-card" style={{ padding: '24px', borderRadius: '16px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px,1fr))', gap: '16px' }}>
           <div>
-            <label style={LABEL}>1. Забони омӯзишӣ (Target)</label>
+            <label style={LABEL}>1. Забони омӯзишӣ (Чӣ меомӯзанд?)</label>
             <select required value={form.targetLanguageId} onChange={e => setForm(f => ({ ...f, targetLanguageId: e.target.value }))} style={FIELD}>
               <option value="">Интихоб кунед…</option>
               {targets.map(l => <option key={l.id} value={l.id}>{l.flag} {l.name}</option>)}
             </select>
           </div>
           <div>
-            <label style={LABEL}>2. Забони модарӣ (Native)</label>
+            <label style={LABEL}>2. Забони модарӣ (Бо кадом забон мефаҳмонед?)</label>
             <select required value={form.nativeLanguageId} onChange={e => setForm(f => ({ ...f, nativeLanguageId: e.target.value }))} style={FIELD}>
               <option value="">Интихоб кунед…</option>
               {natives.map(l => <option key={l.id} value={l.id}>{l.flag} {l.nativeName}</option>)}

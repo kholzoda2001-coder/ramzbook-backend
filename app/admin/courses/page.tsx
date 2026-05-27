@@ -38,15 +38,15 @@ export default async function AdminCoursesPage({
       <div>
         <div className="fade-up" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '12px', gap: '16px', flexWrap: 'wrap' }}>
           <div>
-            <h1 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--text-primary)' }}>Курсҳо</h1>
+            <h1 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--text-primary)' }}>Забонҳои Омӯзишӣ</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '4px' }}>
               {selTarget || selNative
-                ? `Курсҳои ${selTarget ? selTarget.flag + ' ' + selTarget.name : 'ҳама'} барои ${selNative ? selNative.flag + ' ' + selNative.nativeName : 'ҳама'} (${courses.length})`
-                : `Ҳамаи курсҳо (${courses.length})`}
+                ? `Забонҳои ${selTarget ? selTarget.flag + ' ' + selTarget.name : 'ҳама'} барои ${selNative ? selNative.flag + ' ' + selNative.nativeName : 'ҳама'} (${courses.length})`
+                : `Ҳамаи забонҳои омӯзишӣ (${courses.length})`}
             </p>
           </div>
           <Link href="/admin/courses/new" style={{ background: 'linear-gradient(135deg, var(--teal), #0d9488)', color: '#fff', padding: '10px 20px', borderRadius: '10px', textDecoration: 'none', fontWeight: 600, fontSize: '14px' }}>
-            + Курси нав
+            + Иловаи забони омӯзишӣ
           </Link>
         </div>
 
@@ -71,8 +71,8 @@ export default async function AdminCoursesPage({
         {courses.length === 0 ? (
           <div className="glass-card fade-up" style={{ padding: '60px 20px', textAlign: 'center' }}>
             <div style={{ fontSize: '48px', marginBottom: '16px' }}>🗺️</div>
-            <h3 style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>Ягон курс ёфт нашуд</h3>
-            <p style={{ color: 'var(--text3)', fontSize: '13px' }}>Курси нав созед ё филтрро тағйир диҳед.</p>
+            <h3 style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>Ягон забон ёфт нашуд</h3>
+            <p style={{ color: 'var(--text3)', fontSize: '13px' }}>Забони нави омӯзишӣ илова кунед ё филтрро тағйир диҳед.</p>
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
