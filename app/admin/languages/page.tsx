@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+import DeleteLanguageBtn from './_components/DeleteLanguageBtn';
 
 export const dynamic = 'force-dynamic';
 
@@ -38,11 +39,12 @@ export default async function AdminLanguagesPage() {
                   <th style={TH}>Нишон</th>
                   <th style={TH}>Курсҳо</th>
                   <th style={TH}>Ҳолат</th>
+                  <th style={TH}>Амалҳо</th>
                 </tr>
               </thead>
               <tbody>
                 {languages.length === 0 ? (
-                  <tr><td colSpan={7} style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text3)' }}>Ягон забон нест.</td></tr>
+                  <tr><td colSpan={8} style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text3)' }}>Ягон забон нест.</td></tr>
                 ) : (
                   languages.map(lang => (
                     <tr key={lang.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
@@ -61,6 +63,9 @@ export default async function AdminLanguagesPage() {
                       <td style={{ ...TD, color: 'var(--text-secondary)' }}>{lang._count.coursesAsTarget} омӯзишӣ / {lang._count.coursesAsNative} модарӣ</td>
                       <td style={TD}>
                         <span className={`pill ${lang.isActive ? 'pp' : 'pa'}`} style={{ padding: '4px 10px', fontSize: '11px' }}>{lang.isActive ? 'Фаъол' : 'Ғайрифаъол'}</span>
+                      </td>
+                      <td style={TD}>
+                        <DeleteLanguageBtn id={lang.id} name={lang.name} />
                       </td>
                     </tr>
                   ))
