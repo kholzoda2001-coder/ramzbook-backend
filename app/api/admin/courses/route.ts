@@ -39,7 +39,9 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as {
-      targetLanguageId?: string;
+      targetName?: string;
+      targetCode?: string;
+      targetFlag?: string;
       nativeLanguageId?: string;
       level?: string;
       title?: string;
@@ -50,27 +52,41 @@ export async function POST(req: NextRequest) {
       isActive?: boolean;
     };
 
-    const { targetLanguageId, nativeLanguageId, level } = body;
-    if (!targetLanguageId || !nativeLanguageId || !level || !body.title) {
+    const { targetName, targetCode, targetFlag, nativeLanguageId, level } = body;
+    if (!targetName || !targetCode || !targetFlag || !nativeLanguageId || !level || !body.title) {
       return NextResponse.json(
-        { error: 'targetLanguageId, nativeLanguageId, level and title are required' },
+        { error: 'targetName, targetCode, targetFlag, nativeLanguageId, level and title are required' },
         { status: 400 }
       );
     }
 
-    const [target, native] = await Promise.all([
-      prisma.language.findUnique({ where: { id: targetLanguageId } }),
-      prisma.language.findUnique({ where: { id: nativeLanguageId } }),
-    ]);
-    if (!target || !target.canBeTarget) {
-      return NextResponse.json({ error: 'Invalid target language (must have canBeTarget=true)' }, { status: 400 });
+    let target = await prisma.language.findUnique({ where: { code: targetCode.toLowerCase() } });
+    if (!target) {
+      target = await prisma.language.create({
+        data: {
+          code: targetCode.toLowerCase(),
+          name: targetName.trim(),
+          nativeName: targetName.trim(),
+          flag: targetFlag.trim(),
+          canBeNative: false,
+          canBeTarget: true,
+          isActive: true
+        }
+      });
+    } else if (!target.canBeTarget) {
+      target = await prisma.language.update({
+        where: { id: target.id },
+        data: { canBeTarget: true }
+      });
     }
+
+    const native = await prisma.language.findUnique({ where: { id: nativeLanguageId } });
     if (!native || !native.canBeNative) {
       return NextResponse.json({ error: 'Invalid native language (must have canBeNative=true)' }, { status: 400 });
     }
 
     const dup = await prisma.course.findUnique({
-      where: { targetLanguageId_nativeLanguageId_level: { targetLanguageId, nativeLanguageId, level } },
+      where: { targetLanguageId_nativeLanguageId_level: { targetLanguageId: target.id, nativeLanguageId, level } },
     });
     if (dup) {
       return NextResponse.json(
@@ -81,7 +97,7 @@ export async function POST(req: NextRequest) {
 
     const course = await prisma.course.create({
       data: {
-        targetLanguageId,
+        targetLanguageId: target.id,
         nativeLanguageId,
         level,
         title: body.title.trim(),
