@@ -41,19 +41,10 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         
         <div className="sh">МУНДАРИҶА</div>
         <Link href="/admin/languages" className={`ni ${isActive('/admin/languages') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">🌍</span>Забонҳо
+          <span className="ni-icon">🌍</span>Забонҳои Модарӣ
         </Link>
-        <Link href="/admin/courses" className={`ni ${isActive('/admin/courses') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">🗺️</span>Курсҳо
-        </Link>
-        <Link href="/admin/modules" className={`ni ${isActive('/admin/modules') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">📦</span>Модулҳо
-        </Link>
-        <Link href="/admin/lessons" className={`ni ${isActive('/admin/lessons') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">📚</span>Дарсҳо
-        </Link>
-        <Link href="/admin/words" className={`ni ${isActive('/admin/words') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">💬</span>Калимаҳо<span className="nb nb-t">5.2K</span>
+        <Link href="/admin/courses" className={`ni ${isActive('/admin/courses') || isActive('/admin/modules') || isActive('/admin/lessons') || isActive('/admin/words') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🏗️</span>Забонҳои Омӯзишӣ
         </Link>
         <Link href="/admin/ui-translations" className={`ni ${isActive('/admin/ui-translations') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">🌐</span>Тарҷумаҳои UI

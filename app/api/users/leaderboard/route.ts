@@ -26,7 +26,14 @@ export async function GET(req: Request) {
     } as const;
 
     const top = await prisma.user.findMany({
-      where: { isActive: true },
+      where: { 
+        isActive: true,
+        NOT: {
+          name: {
+            startsWith: 'Test User'
+          }
+        }
+      },
       orderBy: [{ totalXp: 'desc' }, { createdAt: 'asc' }],
       take: 50,
       select,

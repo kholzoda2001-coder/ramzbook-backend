@@ -1,5 +1,7 @@
 'use client';
-import { useEffect, useState, useCallback } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+import Link from 'next/link';
 
 interface Course {
   id: string;
@@ -41,15 +43,24 @@ const EMPTY_FORM = {
   isPremium: false, isBoss: false,
 };
 
-export default function AdminModulesPage() {
+function ModulesContent() {
+  const searchParams = useSearchParams();
+  const initialCourseId = searchParams.get('courseId') || '';
+
   const [courses, setCourses] = useState<Course[]>([]);
   const [modules, setModules] = useState<Module[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [courseFilter, setCourseFilter] = useState('');
+  const [courseFilter, setCourseFilter] = useState(initialCourseId);
 
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState(EMPTY_FORM);
+  const [form, setForm] = useState({ ...EMPTY_FORM, courseId: initialCourseId });
+
+  // Update form if filter changes
+  useEffect(() => {
+    setForm(f => ({ ...f, courseId: courseFilter }));
+  }, [courseFilter]);
+
   const [saving, setSaving] = useState(false);
 
   const filtered = courseFilter ? modules.filter(m => m.courseId === courseFilter) : modules;
@@ -273,7 +284,11 @@ export default function AdminModulesPage() {
                     <td style={{ padding: '12px 8px' }}>
                       <div style={{ width: '14px', height: '14px', borderRadius: '50%', background: mod.color, display: 'inline-block', border: '1px solid rgba(255,255,255,0.2)' }} />
                     </td>
-                    <td style={{ padding: '12px 8px', color: 'var(--text3)' }}>📚 {mod._count.lessons} дарс</td>
+                    <td style={{ padding: '12px 8px' }}>
+                      <Link href={`/admin/lessons?moduleId=${mod.id}`} style={{ color: 'var(--teal)', textDecoration: 'none', fontWeight: 600, background: 'rgba(20,184,166,0.1)', padding: '6px 12px', borderRadius: '6px' }}>
+                        📚 {mod._count.lessons} дарс →
+                      </Link>
+                    </td>
                     <td style={{ padding: '12px 8px', display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap' }}>
                       {mod.isPremium && <span style={{ fontSize: '10px', padding: '2px 7px', borderRadius: '5px', background: 'rgba(251,191,36,0.15)', color: '#FBBF24', fontWeight: 600 }}>👑 Premium</span>}
                       {mod.isBoss && <span style={{ fontSize: '10px', padding: '2px 7px', borderRadius: '5px', background: 'rgba(239,68,68,0.15)', color: '#F87171', fontWeight: 600 }}>🏆 Boss</span>}
@@ -298,5 +313,13 @@ export default function AdminModulesPage() {
         ))
       )}
     </div>
+  );
+}
+
+export default function AdminModulesPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40, color: 'var(--text3)' }}>⏳ Бор мешавад...</div>}>
+      <ModulesContent />
+    </Suspense>
   );
 }

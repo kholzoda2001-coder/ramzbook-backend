@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState, useCallback } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 
 interface Course {
@@ -50,7 +51,10 @@ const EMPTY_FORM = {
   type: 'vocab', emoji: '📝', xpReward: 60, duration: 5, order: '',
 };
 
-export default function AdminLessonsPage() {
+function LessonsContent() {
+  const searchParams = useSearchParams();
+  const initialModuleId = searchParams.get('moduleId') || '';
+
   const [courses, setCourses] = useState<Course[]>([]);
   const [allModules, setAllModules] = useState<Module[]>([]);
   const [lessons, setLessons] = useState<Lesson[]>([]);
@@ -60,12 +64,23 @@ export default function AdminLessonsPage() {
 
   // Filters
   const [courseFilter, setCourseFilter] = useState('');
-  const [moduleFilter, setModuleFilter] = useState('');
+  const [moduleFilter, setModuleFilter] = useState(initialModuleId);
 
   // Create form
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState(EMPTY_FORM);
+  const [form, setForm] = useState({ ...EMPTY_FORM, moduleId: initialModuleId });
   const [saving, setSaving] = useState(false);
+
+  // Auto-fill courseId in form and filter when initialModuleId is present
+  useEffect(() => {
+    if (initialModuleId && allModules.length > 0) {
+      const mod = allModules.find(m => m.id === initialModuleId);
+      if (mod) {
+        setCourseFilter(mod.courseId);
+        setForm(f => ({ ...f, formCourseId: mod.courseId, moduleId: initialModuleId }));
+      }
+    }
+  }, [initialModuleId, allModules]);
 
   // Derived: modules for filter bar (filtered by courseFilter)
   const filterModules = courseFilter
@@ -393,5 +408,13 @@ export default function AdminLessonsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function AdminLessonsPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40, color: 'var(--text3)' }}>⏳ Бор мешавад...</div>}>
+      <LessonsContent />
+    </Suspense>
   );
 }

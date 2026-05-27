@@ -77,7 +77,7 @@ export default async function AdminCoursesPage({
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
             {courses.map(course => (
-              <Link key={course.id} href={`/admin/lessons?courseId=${course.id}`} className="glass-card fade-up" style={{ padding: '24px', borderRadius: '16px', borderTop: `4px solid ${course.color}`, textDecoration: 'none', display: 'block' }}>
+              <Link key={course.id} href={`/admin/modules?courseId=${course.id}`} className="glass-card fade-up" style={{ padding: '24px', borderRadius: '16px', borderTop: `4px solid ${course.color}`, textDecoration: 'none', display: 'block' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                   <div style={{ fontSize: '32px' }}>{course.emoji}</div>
                   <div>

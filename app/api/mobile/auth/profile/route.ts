@@ -27,6 +27,7 @@ export async function GET(req: NextRequest) {
         id: true, 
         name: true, 
         email: true, 
+        phone: true,
         isPremium: true, 
         premiumExpiresAt: true,
         totalXp: true,

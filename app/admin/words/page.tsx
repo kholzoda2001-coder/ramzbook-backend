@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState, useCallback } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useEffect, useState, useCallback } from 'react';
 
 interface Word {
   id: string;
@@ -30,7 +31,10 @@ interface Lesson {
   module?: { title: string; course: { id: string; title: string; level: string } };
 }
 
-export default function AdminWordsPage() {
+function WordsContent() {
+  const searchParams = useSearchParams();
+  const initialLessonId = searchParams.get('lessonId') || '';
+
   const [words, setWords] = useState<Word[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
   const [lessons, setLessons] = useState<Lesson[]>([]);
@@ -40,9 +44,9 @@ export default function AdminWordsPage() {
   const [showForm, setShowForm] = useState(false);
   const [seeding, setSeeding] = useState(false);
   const [courseFilter, setCourseFilter] = useState<string>('');
-  const [lessonFilter, setLessonFilter] = useState<string>('');
+  const [lessonFilter, setLessonFilter] = useState<string>(initialLessonId);
   const [form, setForm] = useState({
-    lessonId: '', word: '', translation: '', ipa: '', emoji: '', example: '', exampleTrans: '', difficulty: 1,
+    lessonId: initialLessonId, word: '', translation: '', ipa: '', emoji: '', example: '', exampleTrans: '', difficulty: 1,
   });
 
   // Lessons visible in filters/form — restricted to selected course
@@ -50,11 +54,16 @@ export default function AdminWordsPage() {
     ? lessons.filter(l => l.module?.course?.id === courseFilter)
     : lessons;
 
-  // Pre-select lesson from ?lessonId=
+  // Auto-fill courseFilter when initialLessonId is present
   useEffect(() => {
-    const id = new URLSearchParams(window.location.search).get('lessonId');
-    if (id) { setLessonFilter(id); setForm(f => ({ ...f, lessonId: id })); }
-  }, []);
+    if (initialLessonId && lessons.length > 0) {
+      const les = lessons.find(l => l.id === initialLessonId);
+      if (les && les.module && les.module.course) {
+        setCourseFilter(les.module.course.id);
+        setForm(f => ({ ...f, lessonId: initialLessonId }));
+      }
+    }
+  }, [initialLessonId, lessons]);
 
   const fetchWords = useCallback(async (lessonId: string) => {
     setLoading(true); setError(null);
@@ -244,5 +253,13 @@ export default function AdminWordsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function AdminWordsPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40, color: 'var(--text3)' }}>⏳ Бор мешавад...</div>}>
+      <WordsContent />
+    </Suspense>
   );
 }

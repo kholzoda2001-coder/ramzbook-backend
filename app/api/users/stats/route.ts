@@ -24,6 +24,7 @@ export async function GET(req: Request) {
         id: true,
         name: true,
         email: true,
+        phone: true,
         totalXp: true,
         weeklyXp: true,
         gems: true,
