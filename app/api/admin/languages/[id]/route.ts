@@ -53,6 +53,22 @@ export async function DELETE(_req: NextRequest, { params }: { params: { id: stri
       where: { languageId: params.id }
     });
 
+    // Cascade delete: Delete UserProgress for lessons belonging to courses of this language
+    await prisma.userProgress.deleteMany({
+      where: {
+        lesson: {
+          module: {
+            course: {
+              OR: [
+                { targetLanguageId: params.id },
+                { nativeLanguageId: params.id }
+              ]
+            }
+          }
+        }
+      }
+    });
+
     // Then delete all Courses where this language is either native or target
     // (Due to Prisma relation setup, Course -> Module -> Lesson -> Word will cascade)
     await prisma.course.deleteMany({
