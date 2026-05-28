@@ -16,7 +16,11 @@ export async function GET(req: NextRequest) {
     }
 
     const targets = await prisma.language.findMany({
-      where: { isActive: true, canBeTarget: true },
+      where: { 
+        isActive: true, 
+        canBeTarget: true,
+        id: { not: nativeLanguageId } // Exclude the native language itself
+      },
       orderBy: { order: 'asc' },
       select: {
         id: true, code: true, name: true, nativeName: true,
