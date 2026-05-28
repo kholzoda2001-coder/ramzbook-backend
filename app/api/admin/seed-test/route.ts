@@ -46,11 +46,11 @@ export async function GET() {
 
     // 4. Create Words
     const words = [
-      { original: 'Hello', translation: 'Салом', romanization: 'hɛˈloʊ', type: 'WORD', emoji: '👋' },
-      { original: 'Good morning', translation: 'Субҳ ба хайр', romanization: 'gʊd ˈmɔrnɪŋ', type: 'PHRASE', emoji: '🌅' },
-      { original: 'How are you?', translation: 'Шумо чӣ хел?', romanization: 'haʊ ɑr ju', type: 'PHRASE', emoji: '🤔' },
-      { original: 'Thank you', translation: 'Ташаккур', romanization: 'θæŋk ju', type: 'PHRASE', emoji: '🙏' },
-      { original: 'Goodbye', translation: 'Хайр', romanization: 'gʊdˈbaɪ', type: 'WORD', emoji: '🚶' }
+      { word: 'Hello', translation: 'Салом', romanization: 'hɛˈloʊ', type: 'WORD', emoji: '👋' },
+      { word: 'Good morning', translation: 'Субҳ ба хайр', romanization: 'gʊd ˈmɔrnɪŋ', type: 'PHRASE', emoji: '🌅' },
+      { word: 'How are you?', translation: 'Шумо чӣ хел?', romanization: 'haʊ ɑr ju', type: 'PHRASE', emoji: '🤔' },
+      { word: 'Thank you', translation: 'Ташаккур', romanization: 'θæŋk ju', type: 'PHRASE', emoji: '🙏' },
+      { word: 'Goodbye', translation: 'Хайр', romanization: 'gʊdˈbaɪ', type: 'WORD', emoji: '🚶' }
     ];
 
     for (let i = 0; i < words.length; i++) {
