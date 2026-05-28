@@ -9,6 +9,7 @@ const TD: React.CSSProperties = { padding: '14px 20px' };
 export default async function AdminLanguagesPage() {
   try {
     const languages = await prisma.language.findMany({
+      where: { canBeNative: true },
       include: { _count: { select: { coursesAsTarget: true, coursesAsNative: true, userLanguages: true } } },
       orderBy: { order: 'asc' },
     });
@@ -17,9 +18,9 @@ export default async function AdminLanguagesPage() {
       <div>
         <div className="fade-up" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '28px', gap: '16px', flexWrap: 'wrap' }}>
           <div>
-            <h1 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--text-primary)' }}>Забонҳо</h1>
+            <h1 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--text-primary)' }}>Забонҳои Модарӣ</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '4px' }}>
-              Идоракунии забонҳо ({languages.length})
+              Идоракунии забонҳои модарӣ ({languages.length})
             </p>
           </div>
           <a href="/admin/languages/new" style={{ background: 'linear-gradient(135deg, var(--teal), #0d9488)', color: '#fff', padding: '10px 20px', borderRadius: '10px', textDecoration: 'none', fontWeight: 600, fontSize: '14px' }}>

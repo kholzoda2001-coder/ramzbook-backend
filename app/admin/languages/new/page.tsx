@@ -15,7 +15,7 @@ export default function NewLanguagePage() {
   const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({
     name: '', nativeName: '', code: '', flag: '',
-    canBeNative: false, canBeTarget: true,
+    canBeNative: true, canBeTarget: true,
     badge: '', learnerCount: '', order: 0, isActive: true,
   });
 
@@ -40,7 +40,7 @@ export default function NewLanguagePage() {
   return (
     <div style={{ maxWidth: 720 }}>
       <div style={{ fontSize: '12px', color: 'var(--text3)', marginBottom: '8px' }}>
-        <Link href="/admin/languages" style={{ color: 'var(--text3)' }}>Забонҳо</Link> › Забони нав
+        <Link href="/admin/languages" style={{ color: 'var(--text3)' }}>Забонҳои Модарӣ</Link> › Забони нав
       </div>
       <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '20px' }}>Забони нав</h1>
 
