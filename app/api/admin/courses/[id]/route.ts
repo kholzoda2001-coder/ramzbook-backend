@@ -49,10 +49,25 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-/** DELETE /api/admin/courses/:id — cascades to modules/lessons/words */
+/** DELETE /api/admin/courses/:id — cascades UserProgress, modules, lessons, words */
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    await prisma.course.delete({ where: { id: params.id } });
+    await prisma.$transaction(async (tx) => {
+      // 1. Delete UserProgress for all lessons in this course
+      await tx.userProgress.deleteMany({
+        where: {
+          lesson: {
+            module: {
+              courseId: params.id
+            }
+          }
+        }
+      });
+
+      // 2. Delete the course (Module → Lesson → Word cascade via Prisma onDelete)
+      await tx.course.delete({ where: { id: params.id } });
+    });
+
     revalidatePath('/admin/courses');
     return NextResponse.json({ success: true });
   } catch (err: any) {

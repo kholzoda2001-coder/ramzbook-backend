@@ -45,43 +45,43 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-/** DELETE /api/admin/languages/:id — blocked if courses reference it */
+/** DELETE /api/admin/languages/:id — cascades all related data */
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    // Cascade delete: First delete any UserLanguages associated with this language
-    await prisma.userLanguage.deleteMany({
-      where: { languageId: params.id }
-    });
+    await prisma.$transaction(async (tx) => {
+      // 1. Delete UserLanguage entries
+      await tx.userLanguage.deleteMany({ where: { languageId: params.id } });
 
-    // Cascade delete: Delete UserProgress for lessons belonging to courses of this language
-    await prisma.userProgress.deleteMany({
-      where: {
-        lesson: {
-          module: {
-            course: {
-              OR: [
-                { targetLanguageId: params.id },
-                { nativeLanguageId: params.id }
-              ]
+      // 2. Delete UserProgress for lessons in courses of this language
+      await tx.userProgress.deleteMany({
+        where: {
+          lesson: {
+            module: {
+              course: {
+                OR: [
+                  { targetLanguageId: params.id },
+                  { nativeLanguageId: params.id }
+                ]
+              }
             }
           }
         }
-      }
+      });
+
+      // 3. Delete all Courses (Module → Lesson → Word cascade via Prisma)
+      await tx.course.deleteMany({
+        where: {
+          OR: [
+            { targetLanguageId: params.id },
+            { nativeLanguageId: params.id }
+          ]
+        }
+      });
+
+      // 4. Delete the language itself (UiTranslation cascades via onDelete)
+      await tx.language.delete({ where: { id: params.id } });
     });
 
-    // Then delete all Courses where this language is either native or target
-    // (Due to Prisma relation setup, Course -> Module -> Lesson -> Word will cascade)
-    await prisma.course.deleteMany({
-      where: {
-        OR: [
-          { targetLanguageId: params.id },
-          { nativeLanguageId: params.id }
-        ]
-      }
-    });
-
-    // Finally, delete the language itself
-    await prisma.language.delete({ where: { id: params.id } });
     revalidatePath('/admin/languages');
     return NextResponse.json({ success: true });
   } catch (err: any) {

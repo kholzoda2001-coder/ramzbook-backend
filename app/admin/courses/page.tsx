@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
+import DeleteCourseBtn from './_components/DeleteCourseBtn';
 
 export const dynamic = 'force-dynamic';
 
@@ -93,6 +94,7 @@ export default async function AdminCoursesPage({
                   <span className={`pill ${course.isActive ? 'pp' : 'pa'}`} style={{ padding: '4px 10px', fontSize: '11px' }}>
                     {course.isActive ? 'Фаъол' : 'Ғайрифаъол'}
                   </span>
+                  <DeleteCourseBtn id={course.id} title={course.title} />
                 </div>
               </Link>
             ))}
