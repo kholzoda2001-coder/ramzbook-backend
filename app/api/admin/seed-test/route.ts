@@ -58,8 +58,7 @@ export async function GET() {
         data: {
           lessonId: lesson.id,
           ...words[i],
-          order: i + 1,
-          isActive: true
+          order: i + 1
         }
       });
     }
