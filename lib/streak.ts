@@ -1,7 +1,9 @@
 import { prisma } from './prisma';
 
 function getDateString(date: Date): string {
-  return date.toISOString().split('T')[0];
+  // Add 5 hours for Tajikistan (UTC+5) to get the correct local date string
+  const tjDate = new Date(date.getTime() + 5 * 60 * 60 * 1000);
+  return tjDate.toISOString().split('T')[0];
 }
 
 export async function updateStreak(userId: string) {

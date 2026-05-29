@@ -39,6 +39,12 @@ export async function POST(req: NextRequest) {
       learnerCount?: string | null;
       order?: number;
       isActive?: boolean;
+      ttsLocale?: string | null;
+      sttLocale?: string | null;
+      direction?: string;
+      fontFamily?: string | null;
+      hasIPA?: boolean;
+      exerciseConfig?: any;
     };
 
     const name = (body.name ?? '').trim();
@@ -64,6 +70,12 @@ export async function POST(req: NextRequest) {
         learnerCount: body.learnerCount?.trim() || null,
         order: body.order ?? 0,
         isActive: body.isActive ?? true,
+        ttsLocale: body.ttsLocale?.trim() || null,
+        sttLocale: body.sttLocale?.trim() || null,
+        direction: body.direction === 'rtl' ? 'rtl' : 'ltr',
+        fontFamily: body.fontFamily?.trim() || null,
+        hasIPA: body.hasIPA ?? true,
+        ...(body.exerciseConfig !== undefined && { exerciseConfig: body.exerciseConfig }),
       },
     });
 

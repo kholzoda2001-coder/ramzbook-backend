@@ -2,6 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import { CEFR_LEVELS, SKILL_TYPES } from '@/lib/cefr';
 
 interface Course {
   id: string;
@@ -25,6 +26,8 @@ interface Lesson {
   title: string;
   titleTranslated: string;
   type: string;
+  cefrLevel?: string | null;
+  skillType?: string;
   emoji: string;
   xpReward: number;
   duration: number;
@@ -48,7 +51,13 @@ const FIELD: React.CSSProperties = {
 
 const EMPTY_FORM = {
   formCourseId: '', moduleId: '', title: '', titleTranslated: '',
-  type: 'vocab', emoji: '📝', xpReward: 60, duration: 5, order: '',
+  type: 'vocab', cefrLevel: '', skillType: 'vocab', emoji: '📝', xpReward: 60, duration: 5, order: '',
+};
+
+// Icons per skill type for compact table display.
+const SKILL_EMOJI: Record<string, string> = {
+  vocab: '📚', grammar: '🔤', reading: '📖', listening: '🎧',
+  speaking: '🗣️', writing: '✍️', review: '🔁', test: '📝',
 };
 
 function LessonsContent() {
@@ -137,6 +146,8 @@ function LessonsContent() {
         title: form.title,
         titleTranslated: form.titleTranslated || form.title,
         type: form.type,
+        cefrLevel: form.cefrLevel || null,
+        skillType: form.skillType,
         emoji: form.emoji || '📝',
         xpReward: Number(form.xpReward),
         duration: Number(form.duration),
@@ -276,6 +287,21 @@ function LessonsContent() {
                   <option value="quiz">🧠 quiz</option>
                 </select>
               </div>
+              {/* CEFR level */}
+              <div>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Сатҳи CEFR</label>
+                <select value={form.cefrLevel} onChange={e => setForm(f => ({ ...f, cefrLevel: e.target.value }))} style={FIELD}>
+                  <option value="">↪ Аз курс мерос мегирад</option>
+                  {CEFR_LEVELS.map(lv => <option key={lv} value={lv}>{lv}</option>)}
+                </select>
+              </div>
+              {/* Skill type */}
+              <div>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Навъи маҳорат</label>
+                <select value={form.skillType} onChange={e => setForm(f => ({ ...f, skillType: e.target.value }))} style={FIELD}>
+                  {SKILL_TYPES.map(s => <option key={s} value={s}>{SKILL_EMOJI[s] ?? ''} {s}</option>)}
+                </select>
+              </div>
               {/* Emoji */}
               <div>
                 <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Эмоҷи</label>
@@ -364,9 +390,16 @@ function LessonsContent() {
                       </div>
                     </td>
                     <td style={{ padding: '12px 8px' }}>
-                      <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', background: lesson.type === 'quiz' ? 'rgba(139,92,246,0.15)' : 'rgba(20,184,166,0.15)', color: lesson.type === 'quiz' ? '#A78BFA' : '#2DD4BF', fontWeight: 600 }}>
-                        {lesson.type}
-                      </span>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'flex-start' }}>
+                        <span style={{ fontSize: '11px', padding: '3px 8px', borderRadius: '6px', background: 'rgba(20,184,166,0.15)', color: '#2DD4BF', fontWeight: 600 }}>
+                          {SKILL_EMOJI[lesson.skillType ?? 'vocab'] ?? ''} {lesson.skillType ?? lesson.type}
+                        </span>
+                        {lesson.cefrLevel && (
+                          <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '5px', background: 'rgba(139,92,246,0.15)', color: '#A78BFA', fontWeight: 700 }}>
+                            {lesson.cefrLevel}
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td style={{ padding: '12px 8px', color: 'var(--text3)', fontSize: '12px' }}>
                       {lesson.module?.course ? (

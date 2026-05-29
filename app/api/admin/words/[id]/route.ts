@@ -33,6 +33,8 @@ export async function PUT(
       exampleTrans?: string;
       audioUrl?: string;
       difficulty?: number;
+      partOfSpeech?: string;
+      frequencyRank?: number | null;
       order?: number;
     };
 
@@ -47,6 +49,8 @@ export async function PUT(
         ...(body.exampleTrans !== undefined && { exampleTrans: body.exampleTrans.trim() || null }),
         ...(body.audioUrl !== undefined && { audioUrl: body.audioUrl.trim() || null }),
         ...(body.difficulty !== undefined && { difficulty: body.difficulty }),
+        ...(body.partOfSpeech !== undefined && { partOfSpeech: body.partOfSpeech?.trim() || null }),
+        ...(body.frequencyRank !== undefined && { frequencyRank: typeof body.frequencyRank === 'number' ? body.frequencyRank : null }),
         ...(body.order !== undefined && { order: body.order }),
       },
     });

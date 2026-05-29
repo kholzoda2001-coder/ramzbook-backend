@@ -62,6 +62,8 @@ export async function GET(req: NextRequest) {
           title: l.title,
           titleTranslated: l.titleTranslated,
           type: l.type,
+          cefrLevel: l.cefrLevel ?? c.level,
+          skillType: l.skillType,
           emoji: l.emoji,
           xpReward: l.xpReward,
           duration: l.duration,

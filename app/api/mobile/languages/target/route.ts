@@ -25,6 +25,8 @@ export async function GET(req: NextRequest) {
       select: {
         id: true, code: true, name: true, nativeName: true,
         flag: true, badge: true, learnerCount: true,
+        ttsLocale: true, sttLocale: true, direction: true,
+        fontFamily: true, hasIPA: true,
       },
     });
 

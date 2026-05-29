@@ -35,6 +35,12 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         ...(body.learnerCount !== undefined && { learnerCount: body.learnerCount?.trim() || null }),
         ...(body.order !== undefined && { order: body.order }),
         ...(body.isActive !== undefined && { isActive: body.isActive }),
+        ...(body.ttsLocale !== undefined && { ttsLocale: body.ttsLocale?.trim() || null }),
+        ...(body.sttLocale !== undefined && { sttLocale: body.sttLocale?.trim() || null }),
+        ...(body.direction !== undefined && { direction: body.direction === 'rtl' ? 'rtl' : 'ltr' }),
+        ...(body.fontFamily !== undefined && { fontFamily: body.fontFamily?.trim() || null }),
+        ...(body.hasIPA !== undefined && { hasIPA: body.hasIPA }),
+        ...(body.exerciseConfig !== undefined && { exerciseConfig: body.exerciseConfig }),
       },
     });
     revalidatePath('/admin/languages');

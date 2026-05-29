@@ -17,6 +17,7 @@ export default function NewLanguagePage() {
     name: '', nativeName: '', code: '', flag: '',
     canBeNative: true, canBeTarget: true,
     badge: '', learnerCount: '', order: 0, isActive: true,
+    ttsLocale: '', sttLocale: '', direction: 'ltr', fontFamily: '', hasIPA: true,
   });
 
   async function submit(e: React.FormEvent) {
@@ -60,6 +61,20 @@ export default function NewLanguagePage() {
           <div><label style={LABEL}>Тартиб</label><input type="number" value={form.order} onChange={e => setForm(f => ({ ...f, order: parseInt(e.target.value) || 0 }))} style={FIELD} /></div>
         </div>
 
+        <div style={{ marginTop: '24px', marginBottom: '8px', fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)' }}>⚙️ Танзимоти забон (барои овоз ва намоиш)</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px,1fr))', gap: '16px' }}>
+          <div><label style={LABEL}>TTS Locale (овозхонӣ)</label><input value={form.ttsLocale} onChange={e => setForm(f => ({ ...f, ttsLocale: e.target.value }))} placeholder="en-US, ar-SA, ru-RU" style={FIELD} /></div>
+          <div><label style={LABEL}>STT Locale (шинохти нутқ)</label><input value={form.sttLocale} onChange={e => setForm(f => ({ ...f, sttLocale: e.target.value }))} placeholder="en-US (одатан = TTS)" style={FIELD} /></div>
+          <div>
+            <label style={LABEL}>Самти хат</label>
+            <select value={form.direction} onChange={e => setForm(f => ({ ...f, direction: e.target.value }))} style={FIELD}>
+              <option value="ltr">Чап → Рост (LTR)</option>
+              <option value="rtl">Рост → Чап (RTL — арабӣ, ибрӣ)</option>
+            </select>
+          </div>
+          <div><label style={LABEL}>Шрифт (ихтиёрӣ)</label><input value={form.fontFamily} onChange={e => setForm(f => ({ ...f, fontFamily: e.target.value }))} placeholder="Noto Sans Arabic" style={FIELD} /></div>
+        </div>
+
         <div style={{ display: 'flex', gap: '24px', marginTop: '18px', flexWrap: 'wrap' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', cursor: 'pointer' }}>
             <input type="checkbox" checked={form.canBeNative} onChange={e => setForm(f => ({ ...f, canBeNative: e.target.checked }))} /> Метавонад модарӣ бошад (UI)
@@ -69,6 +84,9 @@ export default function NewLanguagePage() {
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', cursor: 'pointer' }}>
             <input type="checkbox" checked={form.isActive} onChange={e => setForm(f => ({ ...f, isActive: e.target.checked }))} /> Фаъол
+          </label>
+          <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', cursor: 'pointer' }}>
+            <input type="checkbox" checked={form.hasIPA} onChange={e => setForm(f => ({ ...f, hasIPA: e.target.checked }))} /> Транскрипсияи фонетикӣ (IPA)
           </label>
         </div>
 

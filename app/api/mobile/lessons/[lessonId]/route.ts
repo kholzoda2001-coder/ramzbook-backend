@@ -37,6 +37,9 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
       title: lesson.title,
       titleTranslated: lesson.titleTranslated,
       type: lesson.type,
+      // CEFR framework: lesson level falls back to the course level when unset.
+      cefrLevel: lesson.cefrLevel ?? lesson.module.course.level,
+      skillType: lesson.skillType,
       emoji: lesson.emoji,
       xpReward: lesson.xpReward,
       duration: lesson.duration,
@@ -55,6 +58,8 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
         exampleTrans: w.exampleTrans ?? '',
         audioUrl: w.audioUrl ?? '',
         difficulty: w.difficulty,
+        partOfSpeech: w.partOfSpeech ?? '',
+        frequencyRank: w.frequencyRank ?? null,
       })),
     });
   } catch (err: any) {

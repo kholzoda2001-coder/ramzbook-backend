@@ -72,6 +72,7 @@ model User {
   promoRedemptions  PromoRedemption[]
   paymentTransactions PaymentTransaction[]
   paywallEvents     PaywallEvent[]
+  srsCards          SrsCard[]
 
   @@index([email])
   @@index([phone])
@@ -105,10 +106,21 @@ model Language {
   isActive          Boolean  @default(true)
   createdAt         DateTime @default(now())
 
+  // ── Language-agnostic runtime config (driven from admin, NOT code) ──
+  // Adding a new language requires only these DB fields — no app changes.
+  ttsLocale         String?             // BCP-47 for text-to-speech, e.g. "en-US", "ar-SA"
+  sttLocale         String?             // BCP-47 for speech-to-text (often == ttsLocale)
+  direction         String   @default("ltr") // "ltr" | "rtl" (Arabic, Hebrew, Farsi → rtl)
+  fontFamily        String?             // optional custom font, e.g. "Noto Sans Arabic"
+  hasIPA            Boolean  @default(true)   // show phonetic transcription for this language
+  exerciseConfig    Json?               // which exercise types are enabled for this language
+
   coursesAsTarget   Course[]        @relation("TargetLang")
   coursesAsNative   Course[]        @relation("NativeLang")
   uiTranslations    UiTranslation[]
   userLanguages     UserLanguage[]
+  cefrDescriptorsAsTarget CefrDescriptor[] @relation("DescriptorTarget")
+  cefrDescriptorsAsNative CefrDescriptor[] @relation("DescriptorNative")
 }
 
 model UserLanguage {
@@ -147,6 +159,10 @@ model Course {
   createdAt         DateTime @default(now())
 
   modules           Module[]
+  grammarTopics     GrammarTopic[]
+  phraseCollections PhraseCollection[]
+  dialogues         Dialogue[]
+  comprehensions    ComprehensionExercise[]
 
   @@unique([targetLanguageId, nativeLanguageId, level])
   @@index([targetLanguageId])
@@ -177,18 +193,25 @@ model Lesson {
   module            Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   title             String              // target-language title, e.g. "Greetings"
   titleTranslated   String              // native-language title, e.g. "Саломҳо"
-  type              String   @default("vocab") // "vocab" | "quiz"
+  type              String   @default("vocab") // "vocab" | "quiz" (legacy display tag)
+  // ── CEFR framework (Step 2) ──
+  cefrLevel         String?             // A1…C2 — falls back to the course level if null
+  skillType         String   @default("vocab") // vocab|grammar|reading|listening|speaking|writing|review|test
   emoji             String
   xpReward          Int      @default(60)
   duration          Int      @default(5) // minutes
   order             Int      @default(0)
   isPremium         Boolean  @default(false)
   isActive          Boolean  @default(true)
+  // ── Grammar (Step 3): a grammar lesson points at a GrammarTopic ──
+  grammarTopicId    String?
+  grammarTopic      GrammarTopic? @relation(fields: [grammarTopicId], references: [id], onDelete: SetNull)
 
   words             Word[]
   progress          UserProgress[]
 
   @@index([moduleId])
+  @@index([grammarTopicId])
 }
 
 model Word {
@@ -203,9 +226,230 @@ model Word {
   exampleTrans      String?             // native-language translation of the example
   audioUrl          String?
   difficulty        Int      @default(1) // 1-5
+  // ── CEFR framework (Step 2) ──
+  partOfSpeech      String?             // noun|verb|adjective|adverb|phrase|… (language-agnostic tag)
+  frequencyRank     Int?                // lower = more frequent → learn earlier
   order             Int      @default(0)
 
   @@index([lessonId])
+}
+
+// CEFR "can-do" descriptor — the measurable target per (target,native) pair + level.
+// Language-agnostic: defined entirely from the admin panel, never hardcoded.
+model CefrDescriptor {
+  id                String   @id @default(cuid())
+  targetLanguageId  String
+  targetLanguage    Language @relation("DescriptorTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId  String
+  nativeLanguage    Language @relation("DescriptorNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  cefrLevel         String   // A1…C2
+  skill             String   @default("overall") // overall|reading|writing|listening|speaking
+  canDo             String   @db.Text            // "can-do" statement shown in the native language
+  order             Int      @default(0)
+  createdAt         DateTime @default(now())
+
+  @@index([targetLanguageId, nativeLanguageId, cefrLevel])
+}
+
+// ── Grammar system (Step 3) — language-agnostic, admin-driven ──
+// A grammar topic belongs to a course (so it inherits the target/native pair).
+model GrammarTopic {
+  id                String   @id @default(cuid())
+  courseId          String
+  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel         String?             // A1…C2 — falls back to the course level if null
+  title             String              // target-language title, e.g. "Present Simple"
+  titleTranslated   String              // native-language title, e.g. "Замони ҳозираи содда"
+  explanation       String   @db.Text   // Markdown explanation, written in the native language
+  emoji             String   @default("🔤")
+  order             Int      @default(0)
+  isPremium         Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  examples          GrammarExample[]
+  rules             GrammarRule[]
+  exercises         GrammarExercise[]
+  lessons           Lesson[]            // lessons that teach this topic
+
+  @@index([courseId])
+}
+
+model GrammarExample {
+  id                String   @id @default(cuid())
+  topicId           String
+  topic             GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  sentence          String              // target-language example sentence
+  translation       String              // native-language translation
+  audioUrl          String?
+  highlight         String?             // substring of `sentence` to emphasise (e.g. the conjugated verb)
+  order             Int      @default(0)
+
+  @@index([topicId])
+}
+
+model GrammarRule {
+  id                String   @id @default(cuid())
+  topicId           String
+  topic             GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  pattern           String              // e.g. "Subject + do/does + base verb"
+  note              String?  @db.Text   // native-language note explaining the rule
+  order             Int      @default(0)
+
+  @@index([topicId])
+}
+
+model GrammarExercise {
+  id                String   @id @default(cuid())
+  topicId           String
+  topic             GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  type              String   @default("fill_blank") // fill_blank | choose | reorder | transform
+  prompt            String   @db.Text   // the question (target language, may contain "___")
+  promptTranslated  String?  @db.Text   // native-language hint/translation
+  answer            String              // the correct answer
+  options           Json?               // string[] of options for "choose" / "reorder" types
+  explanation       String?  @db.Text   // native-language reason the answer is correct
+  order             Int      @default(0)
+
+  @@index([topicId])
+}
+
+// ── Sentence / Phrase bank (Step 5) — language-agnostic, admin-driven ──
+// A phrase collection belongs to a course (inherits the target/native pair).
+// Used for teaching ready-made useful sentences/phrases (greetings, travel…),
+// each with target text, native translation, optional literal gloss + audio.
+model PhraseCollection {
+  id                String   @id @default(cuid())
+  courseId          String
+  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel         String?             // A1…C2 — falls back to the course level if null
+  category          String?             // free language-agnostic tag, e.g. "greetings", "travel"
+  title             String              // target-language title, e.g. "At the Restaurant"
+  titleTranslated   String              // native-language title, e.g. "Дар тарабхона"
+  emoji             String   @default("💬")
+  order             Int      @default(0)
+  isPremium         Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  phrases           Phrase[]
+
+  @@index([courseId])
+}
+
+model Phrase {
+  id                String   @id @default(cuid())
+  collectionId      String
+  collection        PhraseCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  text              String   @db.Text   // target-language phrase/sentence
+  translation       String   @db.Text   // native-language translation
+  literal           String?  @db.Text   // optional word-by-word / literal gloss
+  note              String?  @db.Text   // native-language usage note
+  audioUrl          String?
+  order             Int      @default(0)
+
+  @@index([collectionId])
+}
+
+// ── Dialogue system (Step 7) — language-agnostic, admin-driven ──
+// A dialogue belongs to a course (inherits the target/native pair). It is an
+// ordered conversation between two or more speakers, each line with target
+// text + native translation + optional audio. `isUser` marks "my" turns.
+model Dialogue {
+  id                String   @id @default(cuid())
+  courseId          String
+  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel         String?             // A1…C2 — falls back to the course level if null
+  title             String              // target-language title, e.g. "Ordering Coffee"
+  titleTranslated   String              // native-language title, e.g. "Фармоиши қаҳва"
+  scenario          String?  @db.Text   // native-language setup/description of the situation
+  emoji             String   @default("🎙️")
+  order             Int      @default(0)
+  isPremium         Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  lines             DialogueLine[]
+
+  @@index([courseId])
+}
+
+model DialogueLine {
+  id                String   @id @default(cuid())
+  dialogueId        String
+  dialogue          Dialogue @relation(fields: [dialogueId], references: [id], onDelete: Cascade)
+  speaker           String              // speaker name/label, e.g. "Barista", "Alex"
+  text              String   @db.Text   // target-language line
+  translation       String   @db.Text   // native-language translation
+  audioUrl          String?
+  isUser            Boolean  @default(false) // true → this line belongs to the learner ("me")
+  order             Int      @default(0)
+
+  @@index([dialogueId])
+}
+
+// Reading/listening comprehension: a passage (or audio transcript) plus
+// multiple-choice questions that test understanding. Language-agnostic — the
+// passage language is the course's target language; questions/options/native
+// hints all come from admin content, never hard-coded.
+model ComprehensionExercise {
+  id                 String   @id @default(cuid())
+  courseId           String
+  course             Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel          String?             // A1…C2 — falls back to the course level if null
+  kind               String   @default("reading") // reading | listening
+  title              String              // target-language title
+  titleTranslated    String              // native-language title
+  passage            String   @db.Text   // the reading text, or the transcript for a listening clip
+  passageTranslated  String?  @db.Text   // optional native-language translation of the passage
+  audioUrl           String?             // audio clip URL (used for "listening" kind)
+  emoji              String   @default("📖")
+  order              Int      @default(0)
+  isPremium          Boolean  @default(false)
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+
+  questions          ComprehensionQuestion[]
+
+  @@index([courseId])
+}
+
+model ComprehensionQuestion {
+  id                 String   @id @default(cuid())
+  exerciseId         String
+  exercise           ComprehensionExercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  question           String   @db.Text   // the question (usually target language)
+  questionTranslated String?  @db.Text   // optional native-language version of the question
+  options            Json                // string[] of answer choices
+  correctIndex       Int      @default(0) // index into options of the correct answer
+  explanation        String?  @db.Text   // native-language reason the answer is correct
+  order              Int      @default(0)
+
+  @@index([exerciseId])
+}
+
+// Spaced-repetition review card (SM-2). One row per (user, item). Item-agnostic
+// via (itemType, itemId) so the same engine serves vocabulary, phrases, grammar,
+// etc. — never hard-coded to a language. The scheduler stores only the SM-2
+// state; the underlying content (word/translation/…) is hydrated at read time.
+model SrsCard {
+  id             String    @id @default(cuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemType       String    @default("word") // word | phrase | grammar | dialogue_line | …
+  itemId         String              // id of the underlying content item
+  courseId       String?             // lets the review queue be filtered per course
+  easeFactor     Float     @default(2.5)   // SM-2 ease (min 1.3)
+  intervalDays   Int       @default(0)     // current interval in days
+  repetitions    Int       @default(0)     // consecutive correct reviews
+  lapses         Int       @default(0)     // times forgotten ("again")
+  dueAt          DateTime  @default(now())  // when this card next becomes reviewable
+  lastReviewedAt DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@unique([userId, itemType, itemId])
+  @@index([userId, dueAt])
+  @@index([userId, courseId])
 }
 
 model UiTranslation {

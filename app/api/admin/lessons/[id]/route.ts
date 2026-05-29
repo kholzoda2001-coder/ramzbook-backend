@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { normalizeCefrLevel, isSkillType } from '@/lib/cefr';
 
 /** GET /api/admin/lessons/:id — lesson with words */
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
@@ -25,6 +26,8 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         ...(body.title !== undefined && { title: body.title.trim() }),
         ...(body.titleTranslated !== undefined && { titleTranslated: body.titleTranslated.trim() }),
         ...(body.type !== undefined && { type: body.type }),
+        ...(body.cefrLevel !== undefined && { cefrLevel: normalizeCefrLevel(body.cefrLevel) ?? null }),
+        ...(body.skillType !== undefined && isSkillType(body.skillType) && { skillType: body.skillType }),
         ...(body.emoji !== undefined && { emoji: body.emoji.trim() }),
         ...(body.xpReward !== undefined && { xpReward: body.xpReward }),
         ...(body.duration !== undefined && { duration: body.duration }),

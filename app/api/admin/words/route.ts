@@ -55,6 +55,8 @@ export async function POST(req: NextRequest) {
       exampleTrans?: string;
       audioUrl?: string;
       difficulty?: number;
+      partOfSpeech?: string;
+      frequencyRank?: number;
       order?: number;
     };
 
@@ -81,6 +83,8 @@ export async function POST(req: NextRequest) {
         exampleTrans: body.exampleTrans?.trim() || null,
         audioUrl: body.audioUrl?.trim() || null,
         difficulty: body.difficulty ?? 1,
+        partOfSpeech: body.partOfSpeech?.trim() || null,
+        frequencyRank: typeof body.frequencyRank === 'number' ? body.frequencyRank : null,
         order,
       },
     });

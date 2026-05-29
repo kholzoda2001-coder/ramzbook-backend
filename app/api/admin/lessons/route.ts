@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { normalizeCefrLevel, isSkillType } from '@/lib/cefr';
 
 // Full module→course→languages shape used by the admin lessons UI
 const LESSON_INCLUDE = {
@@ -60,6 +61,8 @@ export async function POST(req: NextRequest) {
       title: string;
       titleTranslated?: string;
       type?: string;
+      cefrLevel?: string;
+      skillType?: string;
       emoji?: string;
       xpReward?: number;
       duration?: number;
@@ -79,6 +82,8 @@ export async function POST(req: NextRequest) {
         title: body.title.trim(),
         titleTranslated: (body.titleTranslated ?? body.title).trim(),
         type: body.type ?? 'vocab',
+        cefrLevel: normalizeCefrLevel(body.cefrLevel) ?? null,
+        skillType: isSkillType(body.skillType) ? body.skillType : 'vocab',
         emoji: body.emoji ?? '📝',
         xpReward: body.xpReward ?? 60,
         duration: body.duration ?? 5,
