@@ -91,7 +91,7 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
           prompt: ex.prompt,
           promptTranslated: ex.promptTranslated ?? '',
           answer: ex.answer,
-          options: Array.isArray(ex.options) ? ex.options : [],
+          options: Array.isArray(ex.options) ? ex.options : (typeof ex.options === 'string' ? (() => { try { return JSON.parse(ex.options as string); } catch { return []; } })() : []),
           explanation: ex.explanation ?? '',
         })),
       };
