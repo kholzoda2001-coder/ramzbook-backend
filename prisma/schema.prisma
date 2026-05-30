@@ -121,6 +121,8 @@ model Language {
   userLanguages     UserLanguage[]
   cefrDescriptorsAsTarget CefrDescriptor[] @relation("DescriptorTarget")
   cefrDescriptorsAsNative CefrDescriptor[] @relation("DescriptorNative")
+  placementAsTarget PlacementQuestion[] @relation("PlacementTarget")
+  placementAsNative PlacementQuestion[] @relation("PlacementNative")
 }
 
 model UserLanguage {
@@ -203,15 +205,25 @@ model Lesson {
   order             Int      @default(0)
   isPremium         Boolean  @default(false)
   isActive          Boolean  @default(true)
-  // ── Grammar (Step 3): a grammar lesson points at a GrammarTopic ──
+  // ── Unified path (Step 11): a lesson is one step in the sequence; by skillType
+  // it may link to any one component, which the player renders inline ──
   grammarTopicId    String?
   grammarTopic      GrammarTopic? @relation(fields: [grammarTopicId], references: [id], onDelete: SetNull)
+  phraseCollectionId String?
+  phraseCollection  PhraseCollection? @relation(fields: [phraseCollectionId], references: [id], onDelete: SetNull)
+  dialogueId        String?
+  dialogue          Dialogue? @relation(fields: [dialogueId], references: [id], onDelete: SetNull)
+  comprehensionId   String?
+  comprehension     ComprehensionExercise? @relation(fields: [comprehensionId], references: [id], onDelete: SetNull)
 
   words             Word[]
   progress          UserProgress[]
 
   @@index([moduleId])
   @@index([grammarTopicId])
+  @@index([phraseCollectionId])
+  @@index([dialogueId])
+  @@index([comprehensionId])
 }
 
 model Word {
@@ -249,6 +261,34 @@ model CefrDescriptor {
   createdAt         DateTime @default(now())
 
   @@index([targetLanguageId, nativeLanguageId, cefrLevel])
+}
+
+// ── Placement test (Phase 5) — language-agnostic, admin-driven ──
+// A placement question belongs to a (target, native) language PAIR, NOT a single
+// course, because a placement test spans MULTIPLE CEFR levels. Each question is
+// tagged with the level it probes; the scoring engine infers the learner's level
+// from which levels they answer correctly. Multiple-choice so it auto-grades
+// (no human evaluation needed). Nothing here is hardcoded per language.
+model PlacementQuestion {
+  id                String   @id @default(cuid())
+  targetLanguageId  String
+  targetLanguage    Language @relation("PlacementTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId  String
+  nativeLanguage    Language @relation("PlacementNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  cefrLevel         String              // A1…C2 — the level this question probes
+  skill             String   @default("overall") // overall|reading|writing|listening|speaking|grammar|vocab
+  prompt            String   @db.Text   // the question (usually target language)
+  promptTranslated  String?  @db.Text   // native-language hint/translation
+  options           Json                // string[] of answer options
+  answer            String   @db.Text   // the correct option (must equal one of options)
+  explanation       String?  @db.Text   // native-language reason shown after answering
+  audioUrl          String?             // for listening-type placement items
+  order             Int      @default(0)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  @@index([targetLanguageId, nativeLanguageId, cefrLevel])
+  @@index([targetLanguageId, nativeLanguageId, isActive])
 }
 
 // ── Grammar system (Step 3) — language-agnostic, admin-driven ──
@@ -333,6 +373,7 @@ model PhraseCollection {
   createdAt         DateTime @default(now())
 
   phrases           Phrase[]
+  lessons           Lesson[]            // lessons that teach this collection
 
   @@index([courseId])
 }
@@ -370,6 +411,7 @@ model Dialogue {
   createdAt         DateTime @default(now())
 
   lines             DialogueLine[]
+  lessons           Lesson[]            // lessons that play this dialogue
 
   @@index([courseId])
 }
@@ -410,6 +452,7 @@ model ComprehensionExercise {
   createdAt          DateTime @default(now())
 
   questions          ComprehensionQuestion[]
+  lessons            Lesson[]            // lessons that use this exercise
 
   @@index([courseId])
 }

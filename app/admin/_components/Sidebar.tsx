@@ -32,6 +32,9 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         <Link href="/admin" className={`ni ${isActive('/admin') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">📊</span>Dashboard<span className="live"></span>
         </Link>
+        <Link href="/admin/analytics" className={`ni ${isActive('/admin/analytics') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">📈</span>Аналитика
+        </Link>
         <Link href="/admin/users" className={`ni ${isActive('/admin/users') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">👥</span>Корбарон<span className="nb nb-r">12K</span>
         </Link>
@@ -58,8 +61,14 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         <Link href="/admin/comprehensions" className={`ni ${isActive('/admin/comprehensions') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">📖</span>Дарк (Хониш/Шунавоӣ)
         </Link>
+        <Link href="/admin/placement" className={`ni ${isActive('/admin/placement') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🎯</span>Санҷиши сатҳбандӣ
+        </Link>
         <Link href="/admin/ui-translations" className={`ni ${isActive('/admin/ui-translations') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">🌐</span>Тарҷумаҳои UI
+        </Link>
+        <Link href="/admin/import" className={`ni ${isActive('/admin/import') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">📥</span>Воридоти оммавӣ
         </Link>
 
         <div className="sh">МОЛИЯ</div>
@@ -68,6 +77,9 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         </Link>
         
         <div className="sh">СИСТЕМА</div>
+        <Link href="/admin/launch" className={`ni ${isActive('/admin/launch') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🚀</span>Омодагӣ ба нашр
+        </Link>
         <Link href="/admin/settings/otp" className={`ni ${isActive('/admin/settings/otp') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">⚙️</span>OTP Settings
         </Link>

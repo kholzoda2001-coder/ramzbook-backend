@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { normalizeCefrLevel, isSkillType } from '@/lib/cefr';
+import { buildLinkData } from '@/lib/lessonLinks';
 
-/** GET /api/admin/lessons/:id — lesson with words */
+/** GET /api/admin/lessons/:id — lesson with words + linked component info */
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
     const lesson = await prisma.lesson.findUnique({
       where: { id: params.id },
-      include: { words: { orderBy: { order: 'asc' } } },
+      include: {
+        words: { orderBy: { order: 'asc' } },
+        grammarTopic: { select: { id: true, title: true } },
+        phraseCollection: { select: { id: true, title: true } },
+        dialogue: { select: { id: true, title: true } },
+        comprehension: { select: { id: true, title: true } },
+      },
     });
     if (!lesson) return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     return NextResponse.json({ lesson });
@@ -34,6 +41,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         ...(body.order !== undefined && { order: body.order }),
         ...(body.isPremium !== undefined && { isPremium: body.isPremium }),
         ...(body.isActive !== undefined && { isActive: body.isActive }),
+        // Only touch component links when the client explicitly sends linkType
+        // (so unrelated updates like toggling "active" never wipe a link).
+        ...(body.linkType !== undefined && buildLinkData(body.linkType, body.linkId)),
       },
     });
     return NextResponse.json({ success: true, lesson: updated });

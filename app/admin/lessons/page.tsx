@@ -41,6 +41,37 @@ interface Lesson {
     course: { id: string; title: string; emoji: string; level: string; targetLanguage: { flag: string }; nativeLanguage: { flag: string } };
   };
   _count?: { words: number };
+  // The single linked component (at most one), for badges + the link editor.
+  grammarTopic?: { id: string; title: string } | null;
+  phraseCollection?: { id: string; title: string } | null;
+  dialogue?: { id: string; title: string } | null;
+  comprehension?: { id: string; title: string } | null;
+}
+
+type LinkType = 'grammar' | 'phrases' | 'dialogue' | 'comprehension';
+interface CompOption { id: string; title: string; titleTranslated?: string }
+type CompMap = Record<LinkType, CompOption[]>;
+const EMPTY_COMP: CompMap = { grammar: [], phrases: [], dialogue: [], comprehension: [] };
+
+// Component link kinds offered in the picker.
+const LINK_TYPES: { value: '' | LinkType; label: string }[] = [
+  { value: '', label: '— Бе компонент (танҳо калима)' },
+  { value: 'grammar', label: '🔤 Грамматика' },
+  { value: 'phrases', label: '💬 Ибораҳо' },
+  { value: 'dialogue', label: '🎙️ Муколама' },
+  { value: 'comprehension', label: '📖 Дарк' },
+];
+const LINK_LABEL: Record<LinkType, string> = {
+  grammar: '🔤 Грамматика', phrases: '💬 Ибора', dialogue: '🎙️ Муколама', comprehension: '📖 Дарк',
+};
+
+// Which component (if any) a lesson is currently linked to.
+function linkedOf(l: Lesson): { type: LinkType; id: string; title: string } | null {
+  if (l.grammarTopic) return { type: 'grammar', id: l.grammarTopic.id, title: l.grammarTopic.title };
+  if (l.phraseCollection) return { type: 'phrases', id: l.phraseCollection.id, title: l.phraseCollection.title };
+  if (l.dialogue) return { type: 'dialogue', id: l.dialogue.id, title: l.dialogue.title };
+  if (l.comprehension) return { type: 'comprehension', id: l.comprehension.id, title: l.comprehension.title };
+  return null;
 }
 
 const FIELD: React.CSSProperties = {
@@ -52,6 +83,7 @@ const FIELD: React.CSSProperties = {
 const EMPTY_FORM = {
   formCourseId: '', moduleId: '', title: '', titleTranslated: '',
   type: 'vocab', cefrLevel: '', skillType: 'vocab', emoji: '📝', xpReward: 60, duration: 5, order: '',
+  linkType: '' as '' | LinkType, linkId: '',
 };
 
 // Icons per skill type for compact table display.
@@ -79,6 +111,37 @@ function LessonsContent() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ ...EMPTY_FORM, moduleId: initialModuleId });
   const [saving, setSaving] = useState(false);
+
+  // Component options (per course) shared by the create form + link editor.
+  const [comp, setComp] = useState<CompMap>(EMPTY_COMP);
+  const [compCourseId, setCompCourseId] = useState('');
+  const [compLoading, setCompLoading] = useState(false);
+
+  // Per-row link editor modal.
+  const [linkEditor, setLinkEditor] = useState<{ lesson: Lesson; linkType: '' | LinkType; linkId: string } | null>(null);
+  const [linkSaving, setLinkSaving] = useState(false);
+
+  const loadComponents = useCallback(async (courseId: string) => {
+    if (!courseId) { setComp(EMPTY_COMP); setCompCourseId(''); return; }
+    setCompLoading(true);
+    try {
+      const [g, p, d, c] = await Promise.all([
+        fetch(`/api/admin/grammar?courseId=${courseId}`).then(r => r.json()),
+        fetch(`/api/admin/phrases?courseId=${courseId}`).then(r => r.json()),
+        fetch(`/api/admin/dialogues?courseId=${courseId}`).then(r => r.json()),
+        fetch(`/api/admin/comprehensions?courseId=${courseId}`).then(r => r.json()),
+      ]);
+      const pick = (rows: any[]): CompOption[] =>
+        (rows ?? []).map((t) => ({ id: t.id, title: t.title, titleTranslated: t.titleTranslated }));
+      setComp({
+        grammar: pick(g.topics),
+        phrases: pick(p.collections),
+        dialogue: pick(d.dialogues),
+        comprehension: pick(c.comprehensions),
+      });
+      setCompCourseId(courseId);
+    } catch { /* ignore */ } finally { setCompLoading(false); }
+  }, []);
 
   // Auto-fill courseId in form and filter when initialModuleId is present
   useEffect(() => {
@@ -137,6 +200,11 @@ function LessonsContent() {
   }, [courseFilter]);
   useEffect(() => { fetchLessons(); }, [fetchLessons]);
 
+  // Load this course's components for the create form's picker.
+  useEffect(() => {
+    if (showForm && form.formCourseId) loadComponents(form.formCourseId);
+  }, [showForm, form.formCourseId, loadComponents]);
+
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
@@ -152,6 +220,7 @@ function LessonsContent() {
         xpReward: Number(form.xpReward),
         duration: Number(form.duration),
       };
+      if (form.linkType) { payload.linkType = form.linkType; payload.linkId = form.linkId || null; }
       if (form.order !== '') payload.order = Number(form.order);
       const res = await fetch('/api/admin/lessons', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -172,6 +241,28 @@ function LessonsContent() {
       if (!res.ok) { const d = await res.json(); throw new Error(d.error ?? 'Хатогӣ'); }
       fetchLessons();
     } catch (e: any) { alert('Хатогӣ: ' + e.message); }
+  }
+
+  function openLinkEditor(lesson: Lesson) {
+    const cur = linkedOf(lesson);
+    setLinkEditor({ lesson, linkType: cur?.type ?? '', linkId: cur?.id ?? '' });
+    const cid = lesson.module?.course?.id;
+    if (cid) loadComponents(cid);
+  }
+
+  async function handleSaveLink() {
+    if (!linkEditor) return;
+    setLinkSaving(true);
+    try {
+      const res = await fetch(`/api/admin/lessons/${linkEditor.lesson.id}`, {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ linkType: linkEditor.linkType || '', linkId: linkEditor.linkType ? (linkEditor.linkId || null) : null }),
+      });
+      const d = await res.json();
+      if (!res.ok) throw new Error(d.error ?? 'Хатогӣ');
+      setLinkEditor(null);
+      fetchLessons();
+    } catch (e: any) { alert('Хатогӣ: ' + e.message); } finally { setLinkSaving(false); }
   }
 
   async function handleToggleActive(lesson: Lesson) {
@@ -241,7 +332,7 @@ function LessonsContent() {
                 <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Курс (барои филтри модул)</label>
                 <select
                   value={form.formCourseId}
-                  onChange={e => setForm(f => ({ ...f, formCourseId: e.target.value, moduleId: '' }))}
+                  onChange={e => setForm(f => ({ ...f, formCourseId: e.target.value, moduleId: '', linkType: '', linkId: '' }))}
                   style={FIELD}
                 >
                   <option value="">Курс интихоб кунед</option>
@@ -302,6 +393,41 @@ function LessonsContent() {
                   {SKILL_TYPES.map(s => <option key={s} value={s}>{SKILL_EMOJI[s] ?? ''} {s}</option>)}
                 </select>
               </div>
+              {/* Component link type */}
+              <div>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Компоненти пайваст</label>
+                <select
+                  value={form.linkType}
+                  onChange={e => setForm(f => ({ ...f, linkType: e.target.value as '' | LinkType, linkId: '' }))}
+                  disabled={!form.formCourseId}
+                  style={FIELD}
+                >
+                  {LINK_TYPES.map(lt => <option key={lt.value} value={lt.value}>{lt.label}</option>)}
+                </select>
+              </div>
+              {/* Component target */}
+              {form.linkType && (
+                <div>
+                  <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>
+                    {LINK_LABEL[form.linkType]} {compLoading ? '⏳' : ''}
+                  </label>
+                  <select
+                    value={form.linkId}
+                    onChange={e => setForm(f => ({ ...f, linkId: e.target.value }))}
+                    style={FIELD}
+                  >
+                    <option value="">Интихоб кунед…</option>
+                    {comp[form.linkType].map(o => (
+                      <option key={o.id} value={o.id}>{o.title}{o.titleTranslated && o.titleTranslated !== o.title ? ` — ${o.titleTranslated}` : ''}</option>
+                    ))}
+                  </select>
+                  {comp[form.linkType].length === 0 && !compLoading && (
+                    <div style={{ fontSize: '11px', color: '#F87171', marginTop: '4px' }}>
+                      Дар ин курс ягон {LINK_LABEL[form.linkType]} нест.
+                    </div>
+                  )}
+                </div>
+              )}
               {/* Emoji */}
               <div>
                 <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Эмоҷи</label>
@@ -399,6 +525,14 @@ function LessonsContent() {
                             {lesson.cefrLevel}
                           </span>
                         )}
+                        {(() => {
+                          const lk = linkedOf(lesson);
+                          return lk ? (
+                            <span title={lk.title} style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '5px', background: 'rgba(251,191,36,0.15)', color: '#FBBF24', fontWeight: 700, maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                              🔗 {LINK_LABEL[lk.type]}: {lk.title}
+                            </span>
+                          ) : null;
+                        })()}
                       </div>
                     </td>
                     <td style={{ padding: '12px 8px', color: 'var(--text3)', fontSize: '12px' }}>
@@ -428,6 +562,10 @@ function LessonsContent() {
                         style={{ background: 'rgba(99,102,241,0.1)', color: '#818CF8', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '6px', padding: '4px 10px', fontSize: '12px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
                         💬 Калимаҳо
                       </Link>
+                      <button onClick={() => openLinkEditor(lesson)}
+                        style={{ background: 'rgba(251,191,36,0.1)', color: '#FBBF24', border: '1px solid rgba(251,191,36,0.25)', borderRadius: '6px', padding: '4px 10px', cursor: 'pointer', fontSize: '12px', whiteSpace: 'nowrap' }}>
+                        🔗 Пайванд
+                      </button>
                       <button onClick={() => handleDelete(lesson.id, lesson.title)}
                         style={{ background: 'rgba(239,68,68,0.1)', color: '#EF4444', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px', padding: '4px 10px', cursor: 'pointer', fontSize: '12px' }}>
                         🗑️
@@ -440,6 +578,66 @@ function LessonsContent() {
           </div>
         )}
       </div>
+
+      {/* Link editor modal */}
+      {linkEditor && (
+        <div
+          onClick={() => !linkSaving && setLinkEditor(null)}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100, padding: 16 }}
+        >
+          <div onClick={e => e.stopPropagation()} className="glass-card" style={{ padding: 24, borderRadius: 16, width: 'min(460px, 100%)' }}>
+            <h3 style={{ color: 'var(--text-primary)', fontWeight: 600, marginBottom: 4 }}>🔗 Компоненти пайваст</h3>
+            <p style={{ color: 'var(--text3)', fontSize: 13, marginBottom: 16 }}>
+              {linkEditor.lesson.emoji} {linkEditor.lesson.title}
+            </p>
+
+            <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: 13, marginBottom: 6 }}>Намуд</label>
+            <select
+              value={linkEditor.linkType}
+              onChange={e => setLinkEditor(le => le ? { ...le, linkType: e.target.value as '' | LinkType, linkId: '' } : le)}
+              style={{ ...FIELD, marginBottom: 14 }}
+            >
+              {LINK_TYPES.map(lt => <option key={lt.value} value={lt.value}>{lt.label}</option>)}
+            </select>
+
+            {linkEditor.linkType && (
+              <>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: 13, marginBottom: 6 }}>
+                  {LINK_LABEL[linkEditor.linkType]} {compLoading ? '⏳' : ''}
+                </label>
+                <select
+                  value={linkEditor.linkId}
+                  onChange={e => setLinkEditor(le => le ? { ...le, linkId: e.target.value } : le)}
+                  style={FIELD}
+                >
+                  <option value="">Интихоб кунед…</option>
+                  {comp[linkEditor.linkType].map(o => (
+                    <option key={o.id} value={o.id}>{o.title}{o.titleTranslated && o.titleTranslated !== o.title ? ` — ${o.titleTranslated}` : ''}</option>
+                  ))}
+                </select>
+                {comp[linkEditor.linkType].length === 0 && !compLoading && (
+                  <div style={{ fontSize: 11, color: '#F87171', marginTop: 4 }}>
+                    Дар ин курс ягон {LINK_LABEL[linkEditor.linkType]} нест.
+                  </div>
+                )}
+              </>
+            )}
+
+            <div style={{ marginTop: 22, display: 'flex', gap: 12 }}>
+              <button
+                onClick={handleSaveLink}
+                disabled={linkSaving || (!!linkEditor.linkType && !linkEditor.linkId)}
+                style={{ background: 'linear-gradient(135deg, #14B8A6, #0d9488)', color: '#fff', padding: '10px 24px', borderRadius: 8, border: 'none', fontWeight: 600, cursor: linkSaving ? 'not-allowed' : 'pointer', opacity: (!!linkEditor.linkType && !linkEditor.linkId) ? 0.5 : 1 }}>
+                {linkSaving ? '⏳ Нигоҳ доштан…' : '✅ Нигоҳ доштан'}
+              </button>
+              <button type="button" onClick={() => setLinkEditor(null)} disabled={linkSaving}
+                style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-secondary)', padding: '10px 24px', borderRadius: 8, border: '1px solid var(--border)', cursor: 'pointer' }}>
+                Бекор
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

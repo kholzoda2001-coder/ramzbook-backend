@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { normalizeCefrLevel, isSkillType } from '@/lib/cefr';
+import { buildLinkData } from '@/lib/lessonLinks';
 
 // Full module→course→languages shape used by the admin lessons UI
 const LESSON_INCLUDE = {
   _count: { select: { words: true } },
+  grammarTopic: { select: { id: true, title: true } },
+  phraseCollection: { select: { id: true, title: true } },
+  dialogue: { select: { id: true, title: true } },
+  comprehension: { select: { id: true, title: true } },
   module: {
     select: {
       id: true,
@@ -68,6 +73,8 @@ export async function POST(req: NextRequest) {
       duration?: number;
       order?: number;
       isPremium?: boolean;
+      linkType?: string;
+      linkId?: string | null;
     };
 
     if (!body.moduleId || !body.title) {
@@ -90,6 +97,7 @@ export async function POST(req: NextRequest) {
         order,
         isPremium: body.isPremium ?? false,
         isActive: true,
+        ...buildLinkData(body.linkType, body.linkId),
       },
     });
     return NextResponse.json({ success: true, lesson });
