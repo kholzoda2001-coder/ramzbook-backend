@@ -1074,6 +1074,60 @@ CONTENT.modules.push(
     ],
   },
   {
+    title: 'Writing & Listening', titleTranslated: 'Навиштан ва шунавоӣ', emoji: '✍️', color: '#F59E0B',
+    lessons: [
+      {
+        skillType: 'listening', title: 'Listen: First words', titleTranslated: 'Шунавоӣ: Калимаҳои аввал', emoji: '🎧',
+        words: [
+          { word: 'Cat', translation: 'Гурба', emoji: '🐱' },
+          { word: 'Dog', translation: 'Саг', emoji: '🐶' },
+          { word: 'Sun', translation: 'Офтоб', emoji: '☀️' },
+          { word: 'Water', translation: 'Об', emoji: '💧' },
+          { word: 'Book', translation: 'Китоб', emoji: '📕' },
+        ],
+      },
+      {
+        skillType: 'listening', title: 'Listen: Greetings', titleTranslated: 'Шунавоӣ: Саломҳо', emoji: '🎧',
+        words: [
+          { word: 'Hello', translation: 'Салом' },
+          { word: 'Good morning', translation: 'Субҳ ба хайр' },
+          { word: 'Thank you', translation: 'Ташаккур' },
+          { word: 'Goodbye', translation: 'Хайр' },
+        ],
+      },
+      {
+        skillType: 'writing', title: 'Write: First words', titleTranslated: 'Навиштан: Калимаҳои аввал', emoji: '✍️',
+        words: [
+          { word: 'Cat', translation: 'Гурба', emoji: '🐱' },
+          { word: 'Dog', translation: 'Саг', emoji: '🐶' },
+          { word: 'Sun', translation: 'Офтоб', emoji: '☀️' },
+          { word: 'Book', translation: 'Китоб', emoji: '📕' },
+          { word: 'Water', translation: 'Об', emoji: '💧' },
+        ],
+      },
+      {
+        skillType: 'writing', title: 'Write: Greetings', titleTranslated: 'Навиштан: Саломҳо', emoji: '✍️',
+        words: [
+          { word: 'Hello', translation: 'Салом' },
+          { word: 'Thank you', translation: 'Ташаккур' },
+          { word: 'Yes', translation: 'Ҳа' },
+          { word: 'No', translation: 'Не' },
+          { word: 'Good', translation: 'Хуб' },
+        ],
+      },
+      {
+        skillType: 'writing', title: 'Write: Family', titleTranslated: 'Навиштан: Оила', emoji: '✍️',
+        words: [
+          { word: 'Mother', translation: 'Модар' },
+          { word: 'Father', translation: 'Падар' },
+          { word: 'Sister', translation: 'Хоҳар' },
+          { word: 'Brother', translation: 'Бародар' },
+          { word: 'Family', translation: 'Оила' },
+        ],
+      },
+    ],
+  },
+  {
     title: 'Shopping & Review', titleTranslated: 'Харидорӣ ва такрор', emoji: '🛍️', color: '#F87171',
     lessons: [
       {

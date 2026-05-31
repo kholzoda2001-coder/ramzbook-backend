@@ -960,6 +960,57 @@ CONTENT.modules.push(
     ],
   },
   {
+    title: 'Writing & Listening', titleTranslated: 'Навиштан ва шунавоӣ', emoji: '✍️', color: '#F59E0B',
+    lessons: [
+      {
+        skillType: 'listening', title: 'Listen: Past verbs', titleTranslated: 'Шунавоӣ: Феълҳои гузашта', emoji: '🎧',
+        words: [
+          { word: 'Went', translation: 'Рафт' },
+          { word: 'Saw', translation: 'Дид' },
+          { word: 'Bought', translation: 'Харид' },
+          { word: 'Ate', translation: 'Хӯрд' },
+        ],
+      },
+      {
+        skillType: 'listening', title: 'Listen: Travel', titleTranslated: 'Шунавоӣ: Сафар', emoji: '🎧',
+        words: [
+          { word: 'Airport', translation: 'Фурудгоҳ' },
+          { word: 'Ticket', translation: 'Чипта' },
+          { word: 'Hotel', translation: 'Меҳмонхона' },
+          { word: 'Weather', translation: 'Обу ҳаво' },
+        ],
+      },
+      {
+        skillType: 'writing', title: 'Write: Past verbs', titleTranslated: 'Навиштан: Феълҳои гузашта', emoji: '✍️',
+        words: [
+          { word: 'Went', translation: 'Рафт' },
+          { word: 'Saw', translation: 'Дид' },
+          { word: 'Bought', translation: 'Харид' },
+          { word: 'Ate', translation: 'Хӯрд' },
+          { word: 'Had', translation: 'Дошт' },
+        ],
+      },
+      {
+        skillType: 'writing', title: 'Write: Travel & health', titleTranslated: 'Навиштан: Сафар ва саломатӣ', emoji: '✍️',
+        words: [
+          { word: 'Airport', translation: 'Фурудгоҳ' },
+          { word: 'Ticket', translation: 'Чипта' },
+          { word: 'Medicine', translation: 'Дору' },
+          { word: 'Hotel', translation: 'Меҳмонхона' },
+          { word: 'Weather', translation: 'Обу ҳаво' },
+        ],
+      },
+      {
+        skillType: 'writing', title: 'Write: Short sentences', titleTranslated: 'Навиштан: Ҷумлаҳои кӯтоҳ', emoji: '✍️',
+        words: [
+          { word: 'I am going to study', translation: 'Ман ният дорам хонам' },
+          { word: 'She is taller than me', translation: 'Ӯ аз ман баландтар аст' },
+          { word: 'I will call you', translation: 'Ман ба ту занг мезанам' },
+        ],
+      },
+    ],
+  },
+  {
     title: 'A2 Review', titleTranslated: 'Такрори A2', emoji: '🏆', color: '#A78BFA',
     lessons: [
       {
