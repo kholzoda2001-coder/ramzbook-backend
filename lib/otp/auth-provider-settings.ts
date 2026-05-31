@@ -31,7 +31,10 @@ export interface AuthProvidersConfig {
 }
 
 export const defaultAuthProvidersConfig: AuthProvidersConfig = {
-  activeEmailProvider: 'mock',
+  // Email OTP delivered via Hostinger SMTP (credentials come from SMTP_* env
+  // vars when the stored smtp.host is empty — see lib/mailer.ts). Phone OTP
+  // stays 'mock' until an SMS provider is added; phone login is hidden in the app.
+  activeEmailProvider: 'smtp',
   activePhoneProvider: 'mock',
   smtp: {
     host: '',

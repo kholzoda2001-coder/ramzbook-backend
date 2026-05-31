@@ -34,8 +34,8 @@ function createTransport(cfg?: SmtpConfig) {
 
 /** Send a 6-digit OTP to the given address. */
 export async function sendOtpEmail(to: string, otp: string, cfg?: SmtpConfig): Promise<void> {
-  let fromName    = process.env.SMTP_FROM_NAME ?? 'RamzBook';
-  let fromAddress = process.env.SMTP_USER      ?? 'noreply@ramzbook.tj';
+  let fromName    = process.env.SMTP_FROM_NAME ?? 'RAMZ';
+  let fromAddress = process.env.SMTP_USER      ?? 'help@ramz.tj';
 
   if (cfg && cfg.host) {
     fromName = cfg.fromName || fromName;
@@ -73,7 +73,7 @@ export async function sendOtpEmail(to: string, otp: string, cfg?: SmtpConfig): P
 <body>
   <div class="card">
     <div class="header">
-      <h1>RamzBook</h1>
+      <h1>RAMZ</h1>
       <p>Забонро тез ва кафолатнок омӯзед</p>
     </div>
     <div class="body">
