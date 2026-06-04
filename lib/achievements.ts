@@ -1,9 +1,9 @@
-import { prisma } from './prisma';
+﻿import { prisma } from './prisma';
 
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Achievement definitions (source of truth). Seeded idempotently by `code`.
 // conditionType is matched against the metrics computed in computeMetrics().
-// ─────────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export type AchievementSeed = {
   code: string;
@@ -22,74 +22,74 @@ export type AchievementSeed = {
 export const ACHIEVEMENTS: AchievementSeed[] = [
   {
     code: 'first_step',
-    name: 'Қадами аввал',
-    nameTranslations: { tg: 'Қадами аввал', ru: 'Первый шаг', en: 'First Step', uz: 'Birinchi qadam' },
-    emoji: '👶',
-    description: 'Аввалин дарсро хатм кунед',
-    descriptionTranslations: { tg: 'Аввалин дарсро хатм кунед', ru: 'Завершите первый урок', en: 'Complete your first lesson', uz: 'Birinchi darsni tugating' },
+    name: 'ÒšÐ°Ð´Ð°Ð¼Ð¸ Ð°Ð²Ð²Ð°Ð»',
+    nameTranslations: { tg: 'ÒšÐ°Ð´Ð°Ð¼Ð¸ Ð°Ð²Ð²Ð°Ð»', ru: 'ÐŸÐµÑ€Ð²Ñ‹Ð¹ ÑˆÐ°Ð³', en: 'First Step'},
+    emoji: 'ðŸ‘¶',
+    description: 'ÐÐ²Ð²Ð°Ð»Ð¸Ð½ Ð´Ð°Ñ€ÑÑ€Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´',
+    descriptionTranslations: { tg: 'ÐÐ²Ð²Ð°Ð»Ð¸Ð½ Ð´Ð°Ñ€ÑÑ€Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´', ru: 'Ð—Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²Ñ‹Ð¹ ÑƒÑ€Ð¾Ðº', en: 'Complete your first lesson'},
     rarity: 'common', conditionType: 'lessons', conditionValue: 1, xpReward: 0, gemsReward: 10,
   },
   {
     code: 'streak_7',
-    name: 'Шогирди ҷидӣ',
-    nameTranslations: { tg: 'Шогирди ҷидӣ', ru: 'Усердный ученик', en: 'Dedicated Learner', uz: 'Tirishqoq shogird' },
-    emoji: '🔥',
-    description: '7 рӯзи паиҳам омӯзед',
-    descriptionTranslations: { tg: '7 рӯзи паиҳам омӯзед', ru: '7 дней подряд', en: '7-day streak', uz: '7 kun ketma-ket' },
+    name: 'Ð¨Ð¾Ð³Ð¸Ñ€Ð´Ð¸ Ò·Ð¸Ð´Ó£',
+    nameTranslations: { tg: 'Ð¨Ð¾Ð³Ð¸Ñ€Ð´Ð¸ Ò·Ð¸Ð´Ó£', ru: 'Ð£ÑÐµÑ€Ð´Ð½Ñ‹Ð¹ ÑƒÑ‡ÐµÐ½Ð¸Ðº', en: 'Dedicated Learner'},
+    emoji: 'ðŸ”¥',
+    description: '7 Ñ€Ó¯Ð·Ð¸ Ð¿Ð°Ð¸Ò³Ð°Ð¼ Ð¾Ð¼Ó¯Ð·ÐµÐ´',
+    descriptionTranslations: { tg: '7 Ñ€Ó¯Ð·Ð¸ Ð¿Ð°Ð¸Ò³Ð°Ð¼ Ð¾Ð¼Ó¯Ð·ÐµÐ´', ru: '7 Ð´Ð½ÐµÐ¹ Ð¿Ð¾Ð´Ñ€ÑÐ´', en: '7-day streak'},
     rarity: 'rare', conditionType: 'streak', conditionValue: 7, xpReward: 0, gemsReward: 50,
   },
   {
     code: 'xp_100',
     name: '100 XP',
-    nameTranslations: { tg: '100 XP', ru: '100 XP', en: '100 XP', uz: '100 XP' },
-    emoji: '⭐',
-    description: '100 XP ҷамъ кунед',
-    descriptionTranslations: { tg: '100 XP ҷамъ кунед', ru: 'Наберите 100 XP', en: 'Earn 100 XP', uz: '100 XP to‘plang' },
+    nameTranslations: { tg: '100 XP', ru: '100 XP', en: '100 XP'},
+    emoji: 'â­',
+    description: '100 XP Ò·Ð°Ð¼ÑŠ ÐºÑƒÐ½ÐµÐ´',
+    descriptionTranslations: { tg: '100 XP Ò·Ð°Ð¼ÑŠ ÐºÑƒÐ½ÐµÐ´', ru: 'ÐÐ°Ð±ÐµÑ€Ð¸Ñ‚Ðµ 100 XP', en: 'Earn 100 XP'},
     rarity: 'common', conditionType: 'xp', conditionValue: 100, xpReward: 0, gemsReward: 20,
   },
   {
     code: 'lessons_10',
-    name: '10 дарс',
-    nameTranslations: { tg: '10 дарс', ru: '10 уроков', en: '10 Lessons', uz: '10 dars' },
-    emoji: '📚',
-    description: '10 дарсро хатм кунед',
-    descriptionTranslations: { tg: '10 дарсро хатм кунед', ru: 'Завершите 10 уроков', en: 'Complete 10 lessons', uz: '10 darsni tugating' },
+    name: '10 Ð´Ð°Ñ€Ñ',
+    nameTranslations: { tg: '10 Ð´Ð°Ñ€Ñ', ru: '10 ÑƒÑ€Ð¾ÐºÐ¾Ð²', en: '10 Lessons'},
+    emoji: 'ðŸ“š',
+    description: '10 Ð´Ð°Ñ€ÑÑ€Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´',
+    descriptionTranslations: { tg: '10 Ð´Ð°Ñ€ÑÑ€Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´', ru: 'Ð—Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚Ðµ 10 ÑƒÑ€Ð¾ÐºÐ¾Ð²', en: 'Complete 10 lessons'},
     rarity: 'rare', conditionType: 'lessons', conditionValue: 10, xpReward: 0, gemsReward: 50,
   },
   {
     code: 'words_50',
-    name: '50 калима',
-    nameTranslations: { tg: '50 калима', ru: '50 слов', en: '50 Words', uz: '50 so‘z' },
-    emoji: '📖',
-    description: '50 калима омӯзед',
-    descriptionTranslations: { tg: '50 калима омӯзед', ru: 'Выучите 50 слов', en: 'Learn 50 words', uz: '50 so‘z o‘rganing' },
+    name: '50 ÐºÐ°Ð»Ð¸Ð¼Ð°',
+    nameTranslations: { tg: '50 ÐºÐ°Ð»Ð¸Ð¼Ð°', ru: '50 ÑÐ»Ð¾Ð²', en: '50 Words'},
+    emoji: 'ðŸ“–',
+    description: '50 ÐºÐ°Ð»Ð¸Ð¼Ð° Ð¾Ð¼Ó¯Ð·ÐµÐ´',
+    descriptionTranslations: { tg: '50 ÐºÐ°Ð»Ð¸Ð¼Ð° Ð¾Ð¼Ó¯Ð·ÐµÐ´', ru: 'Ð’Ñ‹ÑƒÑ‡Ð¸Ñ‚Ðµ 50 ÑÐ»Ð¾Ð²', en: 'Learn 50 words'},
     rarity: 'rare', conditionType: 'words', conditionValue: 50, xpReward: 0, gemsReward: 30,
   },
   {
     code: 'perfect_lesson',
-    name: 'Камолот',
-    nameTranslations: { tg: 'Камолот', ru: 'Совершенство', en: 'Perfection', uz: 'Mukammallik' },
-    emoji: '💎',
-    description: 'Дарсро бе хато хатм кунед',
-    descriptionTranslations: { tg: 'Дарсро бе хато хатм кунед', ru: 'Завершите урок без ошибок', en: 'Complete a lesson with no mistakes', uz: 'Darsni xatosiz tugating' },
+    name: 'ÐšÐ°Ð¼Ð¾Ð»Ð¾Ñ‚',
+    nameTranslations: { tg: 'ÐšÐ°Ð¼Ð¾Ð»Ð¾Ñ‚', ru: 'Ð¡Ð¾Ð²ÐµÑ€ÑˆÐµÐ½ÑÑ‚Ð²Ð¾', en: 'Perfection'},
+    emoji: 'ðŸ’Ž',
+    description: 'Ð”Ð°Ñ€ÑÑ€Ð¾ Ð±Ðµ Ñ…Ð°Ñ‚Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´',
+    descriptionTranslations: { tg: 'Ð”Ð°Ñ€ÑÑ€Ð¾ Ð±Ðµ Ñ…Ð°Ñ‚Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´', ru: 'Ð—Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚Ðµ ÑƒÑ€Ð¾Ðº Ð±ÐµÐ· Ð¾ÑˆÐ¸Ð±Ð¾Ðº', en: 'Complete a lesson with no mistakes'},
     rarity: 'rare', conditionType: 'perfect_lessons', conditionValue: 1, xpReward: 0, gemsReward: 25,
   },
   {
     code: 'streak_30',
-    name: '30 рӯзи Streak',
-    nameTranslations: { tg: '30 рӯзи Streak', ru: 'Серия 30 дней', en: '30-Day Streak', uz: '30 kunlik seriya' },
-    emoji: '🏆',
-    description: '30 рӯзи паиҳам омӯзед',
-    descriptionTranslations: { tg: '30 рӯзи паиҳам омӯзед', ru: '30 дней подряд', en: '30-day streak', uz: '30 kun ketma-ket' },
+    name: '30 Ñ€Ó¯Ð·Ð¸ Streak',
+    nameTranslations: { tg: '30 Ñ€Ó¯Ð·Ð¸ Streak', ru: 'Ð¡ÐµÑ€Ð¸Ñ 30 Ð´Ð½ÐµÐ¹', en: '30-Day Streak'},
+    emoji: 'ðŸ†',
+    description: '30 Ñ€Ó¯Ð·Ð¸ Ð¿Ð°Ð¸Ò³Ð°Ð¼ Ð¾Ð¼Ó¯Ð·ÐµÐ´',
+    descriptionTranslations: { tg: '30 Ñ€Ó¯Ð·Ð¸ Ð¿Ð°Ð¸Ò³Ð°Ð¼ Ð¾Ð¼Ó¯Ð·ÐµÐ´', ru: '30 Ð´Ð½ÐµÐ¹ Ð¿Ð¾Ð´Ñ€ÑÐ´', en: '30-day streak'},
     rarity: 'epic', conditionType: 'streak', conditionValue: 30, xpReward: 0, gemsReward: 200,
   },
   {
     code: 'course_complete',
-    name: 'Курс тамом',
-    nameTranslations: { tg: 'Курс тамом', ru: 'Курс завершён', en: 'Course Complete', uz: 'Kurs tugadi' },
-    emoji: '🎓',
-    description: 'Тамоми дарсҳои як курсро хатм кунед',
-    descriptionTranslations: { tg: 'Тамоми дарсҳои як курсро хатм кунед', ru: 'Завершите все уроки курса', en: 'Complete every lesson in a course', uz: 'Kursning barcha darslarini tugating' },
+    name: 'ÐšÑƒÑ€Ñ Ñ‚Ð°Ð¼Ð¾Ð¼',
+    nameTranslations: { tg: 'ÐšÑƒÑ€Ñ Ñ‚Ð°Ð¼Ð¾Ð¼', ru: 'ÐšÑƒÑ€Ñ Ð·Ð°Ð²ÐµÑ€ÑˆÑ‘Ð½', en: 'Course Complete'},
+    emoji: 'ðŸŽ“',
+    description: 'Ð¢Ð°Ð¼Ð¾Ð¼Ð¸ Ð´Ð°Ñ€ÑÒ³Ð¾Ð¸ ÑÐº ÐºÑƒÑ€ÑÑ€Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´',
+    descriptionTranslations: { tg: 'Ð¢Ð°Ð¼Ð¾Ð¼Ð¸ Ð´Ð°Ñ€ÑÒ³Ð¾Ð¸ ÑÐº ÐºÑƒÑ€ÑÑ€Ð¾ Ñ…Ð°Ñ‚Ð¼ ÐºÑƒÐ½ÐµÐ´', ru: 'Ð—Ð°Ð²ÐµÑ€ÑˆÐ¸Ñ‚Ðµ Ð²ÑÐµ ÑƒÑ€Ð¾ÐºÐ¸ ÐºÑƒÑ€ÑÐ°', en: 'Complete every lesson in a course'},
     rarity: 'legendary', conditionType: 'course_complete', conditionValue: 1, xpReward: 0, gemsReward: 500,
   },
 ];
@@ -185,7 +185,7 @@ export type UnlockedAchievement = {
 
 /**
  * Evaluates all achievements for a user and unlocks any newly-earned ones.
- * Awards gems (and xp, if any) directly — does NOT call awardXp to avoid recursion.
+ * Awards gems (and xp, if any) directly â€” does NOT call awardXp to avoid recursion.
  * Returns the list of newly-unlocked achievements (for client toasts).
  */
 export async function evaluateAchievements(userId: string): Promise<UnlockedAchievement[]> {
@@ -209,7 +209,7 @@ export async function evaluateAchievements(userId: string): Promise<UnlockedAchi
       try {
         await prisma.userAchievement.create({ data: { userId, achievementId: a.id } });
       } catch {
-        continue; // unique race — already earned
+        continue; // unique race â€” already earned
       }
       gemsToAdd += a.gemsReward;
       xpToAdd += a.xpReward;
@@ -235,3 +235,4 @@ export async function evaluateAchievements(userId: string): Promise<UnlockedAchi
 
   return newly;
 }
+

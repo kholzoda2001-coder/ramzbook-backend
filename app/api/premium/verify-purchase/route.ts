@@ -1,117 +1,57 @@
 import { NextResponse } from 'next/server';
-import { google } from 'googleapis';
-import { activatePremium } from '@/lib/premium';
 import { prisma } from '@/lib/prisma';
 import { authenticate } from '@/lib/auth';
+import { verifyAndActivate, GooglePlayError } from '@/lib/googlePlay';
 
-const PACKAGE_NAME = 'tj.ramz.app'; // ваш package name
+export const dynamic = 'force-dynamic';
 
-const auth = new google.auth.GoogleAuth({
-  keyFile: 'google-service-account.json',
-  scopes: ['https://www.googleapis.com/auth/androidpublisher'],
-});
-
-const androidPublisher = google.androidpublisher({ version: 'v3', auth });
-
+/**
+ * Legacy premium endpoint.
+ * Kept for compatibility, but verification is delegated to the canonical
+ * Google Play helper so package name/product handling stays consistent.
+ */
 export async function POST(req: Request) {
   try {
     const user = await authenticate(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    
-    const { productId, purchaseToken, orderId } = await req.json();
-    
-    if (!productId || !purchaseToken) {
-      return NextResponse.json({ error: 'Missing params' }, { status: 400 });
+
+    const body = (await req.json().catch(() => ({}))) as {
+      productId?: string;
+      purchaseToken?: string;
+    };
+
+    if (!body.productId || !body.purchaseToken) {
+      return NextResponse.json(
+        { error: 'productId and purchaseToken are required' },
+        { status: 400 },
+      );
     }
-    
-    // Check if token already used (prevent double-activation)
+
     const existing = await prisma.subscription.findUnique({
-      where: { googlePurchaseToken: purchaseToken },
+      where: { googlePurchaseToken: body.purchaseToken },
+      select: { userId: true },
     });
-    
     if (existing && existing.userId !== user.id) {
-      return NextResponse.json({ error: 'Token already used' }, { status: 400 });
+      return NextResponse.json({ error: 'Token already used' }, { status: 409 });
     }
-    
-    // Verify with Google
-    if (productId === 'ramz_lifetime') {
-      // One-time product
-      const result = await androidPublisher.purchases.products.get({
-        packageName: PACKAGE_NAME,
-        productId,
-        token: purchaseToken,
-      });
-      
-      // purchaseState: 0 = Purchased, 1 = Cancelled, 2 = Pending
-      if (result.data.purchaseState !== 0) {
-        return NextResponse.json({ error: 'Purchase not valid' }, { status: 400 });
-      }
-      
-      // Activate Lifetime
-      await activatePremium(
-        user.id,
-        'lifetime',
-        null,
-        purchaseToken,
-        orderId || result.data.orderId || '',
-        productId,
-      );
-      
-      // Acknowledge to prevent refund
-      if (result.data.acknowledgementState === 0) {
-        await androidPublisher.purchases.products.acknowledge({
-          packageName: PACKAGE_NAME,
-          productId,
-          token: purchaseToken,
-          requestBody: {},
-        });
-      }
-      
-      return NextResponse.json({ success: true, plan: 'lifetime' });
-      
-    } else {
-      // Subscription (monthly/yearly)
-      const result = await androidPublisher.purchases.subscriptions.get({
-        packageName: PACKAGE_NAME,
-        subscriptionId: productId,
-        token: purchaseToken,
-      });
-      
-      // paymentState: 0 = Pending, 1 = Paid, 2 = Free trial, 3 = Pending deferred
-      const paymentState = result.data.paymentState;
-      if (paymentState !== 1 && paymentState !== 2) {
-        return NextResponse.json({ error: 'Subscription not valid' }, { status: 400 });
-      }
-      
-      const expiresAt = result.data.expiryTimeMillis 
-        ? new Date(parseInt(result.data.expiryTimeMillis))
-        : null;
-      
-      const plan = productId === 'vip_monthly' ? 'monthly' : 'yearly';
-      
-      await activatePremium(
-        user.id,
-        plan,
-        expiresAt,
-        purchaseToken,
-        orderId || result.data.orderId || '',
-        productId,
-      );
-      
-      // Acknowledge
-      if (result.data.acknowledgementState === 0) {
-        await androidPublisher.purchases.subscriptions.acknowledge({
-          packageName: PACKAGE_NAME,
-          subscriptionId: productId,
-          token: purchaseToken,
-          requestBody: {},
-        });
-      }
-      
-      return NextResponse.json({ success: true, plan });
+
+    const verified = await verifyAndActivate({
+      userId: user.id,
+      productId: body.productId,
+      purchaseToken: body.purchaseToken,
+    });
+
+    return NextResponse.json({
+      success: true,
+      plan: verified.plan,
+      expiresAt: verified.expiresAt,
+      isTrial: verified.isTrial,
+    });
+  } catch (error) {
+    if (error instanceof GooglePlayError) {
+      return NextResponse.json({ error: error.message }, { status: error.status });
     }
-  } catch (error: any) {
-    console.error('Verify purchase error:', error);
-    return NextResponse.json({ error: error.message || 'Verification failed' }, { status: 500 });
+    console.error('[premium verify-purchase]', error);
+    return NextResponse.json({ error: 'Verification failed' }, { status: 500 });
   }
 }

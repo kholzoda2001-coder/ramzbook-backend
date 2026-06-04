@@ -5,8 +5,9 @@ export const dynamic = 'force-dynamic';
 
 /**
  * GET /api/mobile/languages/target?nativeLanguageId=XXX
- * All learnable languages, annotated with whether courses exist for the
- * given native language (available = courseCount > 0).
+ * Learnable languages that actually have at least one course for the given
+ * native language. Languages with no course for this native are omitted, so a
+ * native language with no content yet returns an empty list.
  */
 export async function GET(req: NextRequest) {
   try {
@@ -38,10 +39,15 @@ export async function GET(req: NextRequest) {
     });
     const countMap = new Map(counts.map(c => [c.targetLanguageId, c._count._all]));
 
-    const languages = targets.map(t => {
-      const courseCount = countMap.get(t.id) ?? 0;
-      return { ...t, courseCount, available: courseCount > 0 };
-    });
+    const languages = targets
+      .map(t => {
+        const courseCount = countMap.get(t.id) ?? 0;
+        return { ...t, courseCount, available: courseCount > 0 };
+      })
+      // Only show target languages that actually have a course for this native
+      // language. A native with no courses yet shows an empty list (the app then
+      // displays its "no course yet" message) instead of unbuilt teaser options.
+      .filter(l => l.courseCount > 0);
 
     return NextResponse.json({ languages });
   } catch (err: any) {

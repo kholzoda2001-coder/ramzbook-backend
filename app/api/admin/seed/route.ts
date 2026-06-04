@@ -114,7 +114,7 @@ export async function POST() {
 
     // 3. UI translations
     let ui = 0;
-    for (const code of ['tg', 'ru', 'uz', 'en']) {
+    for (const code of ['tg', 'ru', 'en']) {
       const lang = langByCode[code];
       if (!lang) continue;
       for (const [key, vals] of Object.entries(data.ui)) {
