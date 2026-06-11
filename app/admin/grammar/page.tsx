@@ -1,5 +1,6 @@
 'use client';
 import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { CEFR_LEVELS } from '@/lib/cefr';
 import { GRAMMAR_EXERCISE_TYPES } from '@/lib/grammar';
 
@@ -22,8 +23,10 @@ interface TopicDetail extends Topic { explanation: string; examples: Example[]; 
 const EMPTY_TOPIC = { title: '', titleTranslated: '', explanation: '', cefrLevel: '', emoji: '🔤', isPremium: false };
 
 function GrammarContent() {
+  const searchParams = useSearchParams();
+  const initialCourseId = searchParams.get('courseId') || '';
   const [courses, setCourses] = useState<Course[]>([]);
-  const [courseId, setCourseId] = useState('');
+  const [courseId, setCourseId] = useState(initialCourseId);
   const [topics, setTopics] = useState<Topic[]>([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);

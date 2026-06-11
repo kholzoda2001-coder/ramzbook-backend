@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
 
 /**
  * POST /api/admin/courses
- * Body: { targetLanguageId, nativeLanguageId, level, title, description, emoji, color, order, isActive }
+ * Body: { targetLanguageId?, targetName?, targetCode?, targetFlag?, nativeLanguageId, level, title, description, emoji, color, order, isActive }
  * Validates: both languages exist & have correct capability; no duplicate (target,native,level).
  */
 export async function POST(req: NextRequest) {
@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
       targetName?: string;
       targetCode?: string;
       targetFlag?: string;
+      targetLanguageId?: string;
       nativeLanguageId?: string;
       level?: string;
       title?: string;
@@ -52,28 +53,37 @@ export async function POST(req: NextRequest) {
       isActive?: boolean;
     };
 
-    const { targetName, targetCode, targetFlag, nativeLanguageId, level } = body;
-    if (!targetName || !targetCode || !targetFlag || !nativeLanguageId || !level || !body.title) {
+    const { targetName, targetCode, targetFlag, targetLanguageId, nativeLanguageId, level } = body;
+    if ((!targetLanguageId && (!targetName || !targetCode || !targetFlag)) || !nativeLanguageId || !level || !body.title) {
       return NextResponse.json(
-        { error: 'targetName, targetCode, targetFlag, nativeLanguageId, level and title are required' },
+        { error: 'targetLanguageId or targetName/targetCode/targetFlag, plus nativeLanguageId, level and title are required' },
         { status: 400 }
       );
     }
 
-    let target = await prisma.language.findUnique({ where: { code: targetCode.toLowerCase() } });
-    if (!target) {
+    let target = targetLanguageId
+      ? await prisma.language.findUnique({ where: { id: targetLanguageId } })
+      : await prisma.language.findUnique({ where: { code: targetCode!.toLowerCase() } });
+
+    if (!target && !targetLanguageId) {
       target = await prisma.language.create({
         data: {
-          code: targetCode.toLowerCase(),
-          name: targetName.trim(),
-          nativeName: targetName.trim(),
-          flag: targetFlag.trim(),
+          code: targetCode!.toLowerCase(),
+          name: targetName!.trim(),
+          nativeName: targetName!.trim(),
+          flag: targetFlag!.trim(),
           canBeNative: false,
           canBeTarget: true,
           isActive: true
         }
       });
-    } else if (!target.canBeTarget) {
+    }
+
+    if (!target) {
+      return NextResponse.json({ error: 'Target language not found' }, { status: 404 });
+    }
+
+    if (!target.canBeTarget) {
       target = await prisma.language.update({
         where: { id: target.id },
         data: { canBeTarget: true }
@@ -110,6 +120,7 @@ export async function POST(req: NextRequest) {
     });
 
     revalidatePath('/admin/courses');
+    revalidatePath(`/admin/courses/${target.id}`);
     return NextResponse.json({ success: true, course });
   } catch (err: any) {
     console.error('[admin/courses POST]', err);

@@ -80,6 +80,7 @@ export async function POST(req: NextRequest) {
     });
 
     revalidatePath('/admin/languages');
+    revalidatePath('/admin/courses');
     return NextResponse.json({ success: true, language });
   } catch (error: any) {
     console.error('[languages POST] Error:', error);

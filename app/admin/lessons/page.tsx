@@ -95,6 +95,7 @@ const SKILL_EMOJI: Record<string, string> = {
 function LessonsContent() {
   const searchParams = useSearchParams();
   const initialModuleId = searchParams.get('moduleId') || '';
+  const initialCourseId = searchParams.get('courseId') || '';
 
   const [courses, setCourses] = useState<Course[]>([]);
   const [allModules, setAllModules] = useState<Module[]>([]);
@@ -104,12 +105,12 @@ function LessonsContent() {
   const [error, setError] = useState<string | null>(null);
 
   // Filters
-  const [courseFilter, setCourseFilter] = useState('');
+  const [courseFilter, setCourseFilter] = useState(initialCourseId);
   const [moduleFilter, setModuleFilter] = useState(initialModuleId);
 
   // Create form
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ ...EMPTY_FORM, moduleId: initialModuleId });
+  const [form, setForm] = useState({ ...EMPTY_FORM, formCourseId: initialCourseId, moduleId: initialModuleId });
   const [saving, setSaving] = useState(false);
 
   // Component options (per course) shared by the create form + link editor.
