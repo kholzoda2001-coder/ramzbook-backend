@@ -16,7 +16,7 @@ export async function PATCH(req: NextRequest) {
 
     const body = await req.json() as {
       nativeLang?: string;
-      targetLang?: string;
+      targetLang?: string | null;
       currentCourseId?: string;
       level?: string;
     };
@@ -28,7 +28,10 @@ export async function PATCH(req: NextRequest) {
           nativeLang: body.nativeLang,
           interfaceLang: body.nativeLang,
         }),
-        ...(body.targetLang !== undefined && { targetLang: body.targetLang }),
+        ...(body.targetLang !== undefined && {
+          targetLang: body.targetLang,
+          ...(body.targetLang === null && { currentCourseId: null }),
+        }),
         ...(body.currentCourseId !== undefined && { currentCourseId: body.currentCourseId }),
         ...(body.level !== undefined && { level: body.level }),
       },

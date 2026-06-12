@@ -15,7 +15,7 @@ export default function NewLanguagePage() {
   const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({
     name: '', nativeName: '', code: '', flag: '',
-    canBeNative: true, canBeTarget: true,
+    canBeNative: true, canBeTarget: false,
     badge: '', learnerCount: '', order: 0, isActive: true,
     ttsLocale: '', sttLocale: '', direction: 'ltr', fontFamily: '', hasIPA: true,
   });
@@ -26,7 +26,13 @@ export default function NewLanguagePage() {
     try {
       const res = await fetch('/api/admin/languages', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, badge: form.badge || null, learnerCount: form.learnerCount || null }),
+        body: JSON.stringify({
+          ...form,
+          canBeNative: true,
+          canBeTarget: false,
+          badge: form.badge || null,
+          learnerCount: form.learnerCount || null,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Хатогӣ');
@@ -78,9 +84,6 @@ export default function NewLanguagePage() {
         <div style={{ display: 'flex', gap: '24px', marginTop: '18px', flexWrap: 'wrap' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', cursor: 'pointer' }}>
             <input type="checkbox" checked={form.canBeNative} onChange={e => setForm(f => ({ ...f, canBeNative: e.target.checked }))} /> Метавонад модарӣ бошад (UI)
-          </label>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', cursor: 'pointer' }}>
-            <input type="checkbox" checked={form.canBeTarget} onChange={e => setForm(f => ({ ...f, canBeTarget: e.target.checked }))} /> Метавонад омӯхта шавад
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px', cursor: 'pointer' }}>
             <input type="checkbox" checked={form.isActive} onChange={e => setForm(f => ({ ...f, isActive: e.target.checked }))} /> Фаъол

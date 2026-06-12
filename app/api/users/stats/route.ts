@@ -4,6 +4,7 @@ import { authenticate } from '@/lib/auth';
 import { getHearts } from '@/lib/hearts';
 import { checkStreakDecay } from '@/lib/xp';
 import { checkAndUpdatePremium } from '@/lib/premium';
+import { getClientIp, getCountryFromIp } from '@/lib/geo';
 
 export async function GET(req: Request) {
   try {
@@ -16,6 +17,25 @@ export async function GET(req: Request) {
     await checkAndUpdatePremium(user.id);
     await checkStreakDecay(user.id);
     const heartsData = await getHearts(user.id);
+
+    // ── Background IP Geolocation ────────────────────────────────────────────
+    // Check if the user has no country yet and detect it from their IP.
+    // This fires once per user and is completely non-blocking.
+    const userCountryCheck = await prisma.user.findUnique({
+      where: { id: user.id },
+      select: { country: true },
+    });
+    if (!userCountryCheck?.country) {
+      const clientIp = getClientIp(req);
+      getCountryFromIp(clientIp).then((countryCode) => {
+        if (countryCode) {
+          prisma.user
+            .update({ where: { id: user.id }, data: { country: countryCode } })
+            .catch(() => {});
+        }
+      }).catch(() => {});
+    }
+    // ─────────────────────────────────────────────────────────────────────────
 
     // Fetch fresh user data
     const freshUser = await prisma.user.findUnique({

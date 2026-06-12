@@ -28,14 +28,19 @@ export default async function AdminCoursesPage({
     const [languages, nativeLangs] = await Promise.all([
       prisma.language.findMany({
         where: {
-          canBeTarget: true,
+          OR: [
+            { canBeTarget: true },
+            { coursesAsTarget: { some: {} } },
+          ],
           ...(query
             ? {
-                OR: [
+                AND: [{
+                  OR: [
                   { name: { contains: query } },
                   { nativeName: { contains: query } },
                   { code: { contains: query } },
-                ],
+                  ],
+                }],
               }
             : {}),
         },

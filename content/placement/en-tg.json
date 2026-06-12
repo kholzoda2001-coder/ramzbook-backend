@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "purpose": "Extra placement questions for en->tg, spanning A1..B2 so the scoring engine can place a learner anywhere in the course. Appended to the existing 10.",
+    "fields": "cefrLevel, skill, prompt(EN), promptTranslated(TG hint), options[], answer(must equal one option), explanation(TG)"
+  },
+  "questions": [
+    { "cefrLevel": "A1", "skill": "grammar", "prompt": "I ___ a student.", "promptTranslated": "Ман донишҷӯ ҳастам.", "options": ["am", "is", "are", "be"], "answer": "am", "explanation": "Бо «I» феъли «am» меояд." },
+    { "cefrLevel": "A1", "skill": "grammar", "prompt": "She ___ from Dushanbe.", "promptTranslated": "Ӯ аз Душанбе аст.", "options": ["is", "am", "are", "be"], "answer": "is", "explanation": "Бо «she» феъли «is» меояд." },
+    { "cefrLevel": "A1", "skill": "grammar", "prompt": "___ is your name?", "promptTranslated": "Номи шумо чист?", "options": ["What", "Who", "Where", "When"], "answer": "What", "explanation": "Барои пурсидани ном «What» истифода мешавад." },
+
+    { "cefrLevel": "A2", "skill": "grammar", "prompt": "Yesterday I ___ to the market.", "promptTranslated": "Дирӯз ман ба бозор рафтам.", "options": ["went", "go", "going", "goes"], "answer": "went", "explanation": "«Yesterday» замони гузаштаро талаб мекунад → «went»." },
+    { "cefrLevel": "A2", "skill": "grammar", "prompt": "There ___ some milk in the fridge.", "promptTranslated": "Дар яхдон каме шир ҳаст.", "options": ["is", "are", "am", "be"], "answer": "is", "explanation": "«milk» исми ношумурданӣ аст → «is»." },
+    { "cefrLevel": "A2", "skill": "grammar", "prompt": "She is ___ than her brother.", "promptTranslated": "Ӯ аз бародараш қадбаландтар аст.", "options": ["taller", "tall", "tallest", "more tall"], "answer": "taller", "explanation": "Дараҷаи қиёсӣ: tall → taller." },
+
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "I have ___ here for five years.", "promptTranslated": "Ман панҷ сол боз ин ҷо зиндагӣ кардаам.", "options": ["lived", "live", "living", "lives"], "answer": "lived", "explanation": "Present perfect: have + lived." },
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "If it rains, we ___ at home.", "promptTranslated": "Агар борон борад, мо дар хона мемонем.", "options": ["will stay", "stayed", "stay", "would stay"], "answer": "will stay", "explanation": "First conditional: if + present, will + verb." },
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "This book is more interesting ___ that one.", "promptTranslated": "Ин китоб аз он ҷолибтар аст.", "options": ["than", "then", "as", "that"], "answer": "than", "explanation": "Баъди дараҷаи қиёсӣ «than» меояд." },
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "He asked me ___ I was tired.", "promptTranslated": "Ӯ аз ман пурсид, ки оё ман монда шудаам.", "options": ["if", "that", "what", "which"], "answer": "if", "explanation": "Саволи ғайримустақим бо «if/whether»." },
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "I am used to ___ early.", "promptTranslated": "Ман ба барвақт хестан одат кардаам.", "options": ["getting up", "get up", "got up", "gets up"], "answer": "getting up", "explanation": "«used to + V-ing» барои одат." },
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "She has been learning English ___ 2019.", "promptTranslated": "Ӯ аз соли 2019 боз англисӣ меомӯзад.", "options": ["since", "for", "from", "during"], "answer": "since", "explanation": "«since» бо нуқтаи замонӣ меояд." },
+    { "cefrLevel": "B1", "skill": "grammar", "prompt": "I wish I ___ more free time.", "promptTranslated": "Кошки ман вақти озоди бештар медоштам.", "options": ["had", "have", "has", "having"], "answer": "had", "explanation": "«wish» + past simple барои орзу." },
+
+    { "cefrLevel": "B2", "skill": "grammar", "prompt": "By the time we arrived, the film ___.", "promptTranslated": "То лаҳзаи омадани мо, филм сар шуда буд.", "options": ["had started", "started", "has started", "starts"], "answer": "had started", "explanation": "Past perfect барои амали пеш аз амали дигари гузашта." },
+    { "cefrLevel": "B2", "skill": "grammar", "prompt": "He talks ___ if he knew everything.", "promptTranslated": "Ӯ чунон гап мезанад, гӯё ҳама чизро медонад.", "options": ["as", "like", "such", "so"], "answer": "as", "explanation": "«as if» барои муқоисаи ғайривоқеӣ." },
+    { "cefrLevel": "B2", "skill": "grammar", "prompt": "I'd rather you ___ smoke here.", "promptTranslated": "Беҳтараш шумо ин ҷо тамоку накашед.", "options": ["didn't", "don't", "not", "won't"], "answer": "didn't", "explanation": "«would rather + past» барои хоҳиш аз дигарон." },
+    { "cefrLevel": "B2", "skill": "grammar", "prompt": "Not only ___ late, but he also forgot the keys.", "promptTranslated": "Ӯ на танҳо дер кард, балки калидҳоро ҳам фаромӯш кард.", "options": ["was he", "he was", "he is", "is he"], "answer": "was he", "explanation": "Баъди «Not only» сарвожагузории феъл (inversion)." },
+    { "cefrLevel": "B2", "skill": "grammar", "prompt": "The report, ___ took weeks, is ready.", "promptTranslated": "Ҳисобот, ки чанд ҳафта вақт гирифт, тайёр аст.", "options": ["which", "who", "what", "whose"], "answer": "which", "explanation": "Барои ашё дар ҷумлаи пайрав «which» меояд." }
+  ]
+}

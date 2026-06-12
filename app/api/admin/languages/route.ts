@@ -55,7 +55,24 @@ export async function POST(req: NextRequest) {
 
     const existing = await prisma.language.findUnique({ where: { code } });
     if (existing) {
-      return NextResponse.json({ error: `Language code "${code}" already exists` }, { status: 409 });
+      const updateData: Record<string, any> = {};
+      if (body.canBeNative === true && !existing.canBeNative) updateData.canBeNative = true;
+      if (body.canBeTarget === true && !existing.canBeTarget) updateData.canBeTarget = true;
+      if (body.isActive === true && !existing.isActive) updateData.isActive = true;
+      if (body.ttsLocale?.trim()) updateData.ttsLocale = body.ttsLocale.trim();
+      if (body.sttLocale?.trim()) updateData.sttLocale = body.sttLocale.trim();
+      if (body.direction === 'rtl') updateData.direction = 'rtl';
+      if (body.fontFamily?.trim()) updateData.fontFamily = body.fontFamily.trim();
+      if (body.exerciseConfig !== undefined) updateData.exerciseConfig = body.exerciseConfig;
+
+      const language = Object.keys(updateData).length
+        ? await prisma.language.update({ where: { id: existing.id }, data: updateData })
+        : existing;
+
+      revalidatePath('/admin/languages');
+      revalidatePath('/admin/courses');
+      revalidatePath(`/admin/courses/${language.id}`);
+      return NextResponse.json({ success: true, language, updatedExisting: true });
     }
 
     const language = await prisma.language.create({

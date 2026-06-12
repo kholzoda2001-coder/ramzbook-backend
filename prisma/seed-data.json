@@ -1652,61 +1652,93 @@
     },
     {
       "level": "B2",
-      "title": "Ð—Ð°Ð±Ð¾Ð½Ð¸ Ð°Ð½Ð³Ð»Ð¸ÑÓ£ â€” B2",
-      "emoji": "ðŸ“™",
+      "title": "Забони англисӣ — B2",
+      "emoji": "📙",
       "color": "#FB923C",
-      "description": "ÐœÐ°Ð²Ð·Ó¯ÑŠÒ³Ð¾Ð¸ Ð¼ÑƒÑ€Ð°ÐºÐºÐ°Ð± Ð²Ð° ÐºÐ°ÑÐ±Ó£",
+      "description": "Мавзӯъҳои мураккаб ва касбӣ",
       "modules": [
         {
           "title": "Business",
-          "titleTranslated": "Ð¢Ð¸Ò·Ð¾Ñ€Ð°Ñ‚",
-          "emoji": "ðŸ“ˆ",
+          "titleTranslated": "Тиҷорат",
+          "emoji": "📈",
           "lessons": [
             {
-              "title": "Business Â· Part 1",
-              "titleTranslated": "Ð¢Ð¸Ò·Ð¾Ñ€Ð°Ñ‚ Â· ÒšÐ¸ÑÐ¼Ð¸ 1",
+              "title": "Business · Part 1",
+              "titleTranslated": "Тиҷорат · Қисми 1",
               "type": "vocab",
-              "emoji": "ðŸ“ˆ",
+              "emoji": "📈",
               "words": [
                 {
                   "w": "Company",
-                  "t": "Ð¨Ð¸Ñ€ÐºÐ°Ñ‚",
-                  "e": "ðŸ¢",
-                  "ipa": "/ËˆkÊŒmpÉ™ni/",
-                  "ex": "A big company.",
-                  "exT": "Ð¨Ð¸Ñ€ÐºÐ°Ñ‚Ð¸ ÐºÐ°Ð»Ð¾Ð½."
+                  "t": "Ширкат",
+                  "e": "🏢",
+                  "ipa": "/ˈkʌmpəni/",
+                  "ex": "A large company.",
+                  "exT": "Ширкати калон."
                 },
                 {
                   "w": "Profit",
-                  "t": "Ð¤Ð¾Ð¸Ð´Ð°",
-                  "e": "ðŸ’°",
-                  "ipa": "/ËˆprÉ’fÉªt/",
+                  "t": "Фоида",
+                  "e": "💰",
+                  "ipa": "/ˈprɒfɪt/",
                   "ex": "High profit.",
-                  "exT": "Ð¤Ð¾Ð¸Ð´Ð°Ð¸ Ð±Ð°Ð»Ð°Ð½Ð´."
+                  "exT": "Фоидаи баланд."
+                },
+                {
+                  "w": "Strategy",
+                  "t": "Стратегия",
+                  "e": "🎯",
+                  "ipa": "/ˈstrætɪdʒi/",
+                  "ex": "A clear strategy.",
+                  "exT": "Стратегияи равшан."
+                },
+                {
+                  "w": "Investment",
+                  "t": "Сармоягузорӣ",
+                  "e": "📊",
+                  "ipa": "/ɪnˈvestmənt/",
+                  "ex": "Foreign investment.",
+                  "exT": "Сармоягузории хориҷӣ."
                 }
               ]
             },
             {
-              "title": "Business Â· Part 2",
-              "titleTranslated": "Ð¢Ð¸Ò·Ð¾Ñ€Ð°Ñ‚ Â· ÒšÐ¸ÑÐ¼Ð¸ 2",
+              "title": "Business · Part 2",
+              "titleTranslated": "Тиҷорат · Қисми 2",
               "type": "vocab",
-              "emoji": "ðŸ“ˆ",
+              "emoji": "📈",
               "words": [
                 {
                   "w": "Market",
-                  "t": "Ð‘Ð¾Ð·Ð¾Ñ€",
-                  "e": "ðŸ“Š",
-                  "ipa": "/ËˆmÉ‘ËrkÉªt/",
+                  "t": "Бозор",
+                  "e": "🛒",
+                  "ipa": "/ˈmɑːrkɪt/",
                   "ex": "The world market.",
-                  "exT": "Ð‘Ð¾Ð·Ð¾Ñ€Ð¸ Ò·Ð°Ò³Ð¾Ð½Ó£."
+                  "exT": "Бозори ҷаҳонӣ."
                 },
                 {
                   "w": "Contract",
-                  "t": "Ð¨Ð°Ñ€Ñ‚Ð½Ð¾Ð¼Ð°",
-                  "e": "ðŸ“œ",
-                  "ipa": "/ËˆkÉ’ntrÃ¦kt/",
+                  "t": "Шартнома",
+                  "e": "📜",
+                  "ipa": "/ˈkɒntrækt/",
                   "ex": "Sign the contract.",
-                  "exT": "Ð¨Ð°Ñ€Ñ‚Ð½Ð¾Ð¼Ð°Ñ€Ð¾ Ð¸Ð¼Ð·Ð¾ ÐºÑƒÐ½ÐµÐ´."
+                  "exT": "Шартномаро имзо кунед."
+                },
+                {
+                  "w": "Competition",
+                  "t": "Рақобат",
+                  "e": "🏆",
+                  "ipa": "/ˌkɒmpɪˈtɪʃən/",
+                  "ex": "Strong competition.",
+                  "exT": "Рақобати шадид."
+                },
+                {
+                  "w": "Negotiate",
+                  "t": "Музокира кардан",
+                  "e": "🤝",
+                  "ipa": "/nɪˈɡoʊʃieɪt/",
+                  "ex": "We must negotiate.",
+                  "exT": "Мо бояд музокира кунем."
                 }
               ]
             }
@@ -1714,54 +1746,86 @@
         },
         {
           "title": "Science",
-          "titleTranslated": "Ð˜Ð»Ð¼",
-          "emoji": "ðŸ”¬",
+          "titleTranslated": "Илм",
+          "emoji": "🔬",
           "lessons": [
             {
-              "title": "Science Â· Part 1",
-              "titleTranslated": "Ð˜Ð»Ð¼ Â· ÒšÐ¸ÑÐ¼Ð¸ 1",
+              "title": "Science · Part 1",
+              "titleTranslated": "Илм · Қисми 1",
               "type": "vocab",
-              "emoji": "ðŸ”¬",
+              "emoji": "🔬",
               "words": [
                 {
-                  "w": "Science",
-                  "t": "Ð˜Ð»Ð¼",
-                  "e": "ðŸ”¬",
-                  "ipa": "/ËˆsaÉªÉ™ns/",
-                  "ex": "Modern science.",
-                  "exT": "Ð˜Ð»Ð¼Ð¸ Ð¼ÑƒÐ¾ÑÐ¸Ñ€."
+                  "w": "Experiment",
+                  "t": "Озмоиш",
+                  "e": "⚗️",
+                  "ipa": "/ɪkˈsperɪmənt/",
+                  "ex": "A scientific experiment.",
+                  "exT": "Озмоиши илмӣ."
                 },
                 {
-                  "w": "Energy",
-                  "t": "Ð­Ð½ÐµÑ€Ð³Ð¸Ñ",
-                  "e": "âš¡",
-                  "ipa": "/ËˆenÉ™rdÊ’i/",
-                  "ex": "Solar energy.",
-                  "exT": "Ð­Ð½ÐµÑ€Ð³Ð¸ÑÐ¸ Ð¾Ñ„Ñ‚Ð¾Ð±Ó£."
+                  "w": "Evidence",
+                  "t": "Далел",
+                  "e": "🔍",
+                  "ipa": "/ˈevɪdəns/",
+                  "ex": "Strong evidence.",
+                  "exT": "Далели қавӣ."
+                },
+                {
+                  "w": "Research",
+                  "t": "Тадқиқот",
+                  "e": "📋",
+                  "ipa": "/rɪˈsɜːrtʃ/",
+                  "ex": "Scientific research.",
+                  "exT": "Тадқиқоти илмӣ."
+                },
+                {
+                  "w": "Hypothesis",
+                  "t": "Фарзия",
+                  "e": "💡",
+                  "ipa": "/haɪˈpɒθɪsɪs/",
+                  "ex": "Test the hypothesis.",
+                  "exT": "Фарзияро санҷед."
                 }
               ]
             },
             {
-              "title": "Science Â· Part 2",
-              "titleTranslated": "Ð˜Ð»Ð¼ Â· ÒšÐ¸ÑÐ¼Ð¸ 2",
+              "title": "Science · Part 2",
+              "titleTranslated": "Илм · Қисми 2",
               "type": "vocab",
-              "emoji": "ðŸ”¬",
+              "emoji": "🔬",
               "words": [
                 {
                   "w": "Theory",
-                  "t": "ÐÐ°Ð·Ð°Ñ€Ð¸Ñ",
-                  "e": "ðŸ“",
-                  "ipa": "/ËˆÎ¸ÉªÉ™ri/",
+                  "t": "Назария",
+                  "e": "📐",
+                  "ipa": "/ˈθɪəri/",
                   "ex": "A new theory.",
-                  "exT": "ÐÐ°Ð·Ð°Ñ€Ð¸ÑÐ¸ Ð½Ð°Ð²."
+                  "exT": "Назарияи нав."
                 },
                 {
-                  "w": "Research",
-                  "t": "Ð¢Ð°Ð´Ò›Ð¸Ò›Ð¾Ñ‚",
-                  "e": "ðŸ§ª",
-                  "ipa": "/rÉªËˆsÉœËrtÊƒ/",
-                  "ex": "Scientific research.",
-                  "exT": "Ð¢Ð°Ð´Ò›Ð¸Ò›Ð¾Ñ‚Ð¸ Ð¸Ð»Ð¼Ó£."
+                  "w": "Discovery",
+                  "t": "Кашф",
+                  "e": "🌟",
+                  "ipa": "/dɪˈskʌvəri/",
+                  "ex": "A major discovery.",
+                  "exT": "Кашфи бузург."
+                },
+                {
+                  "w": "Analysis",
+                  "t": "Таҳлил",
+                  "e": "📊",
+                  "ipa": "/əˈnælɪsɪs/",
+                  "ex": "Careful analysis.",
+                  "exT": "Таҳлили дақиқ."
+                },
+                {
+                  "w": "Innovation",
+                  "t": "Навоварӣ",
+                  "e": "🚀",
+                  "ipa": "/ˌɪnəˈveɪʃən/",
+                  "ex": "Technical innovation.",
+                  "exT": "Навоварии техникӣ."
                 }
               ]
             }
@@ -1769,54 +1833,86 @@
         },
         {
           "title": "Culture",
-          "titleTranslated": "Ð¤Ð°Ñ€Ò³Ð°Ð½Ð³",
-          "emoji": "ðŸŽ­",
+          "titleTranslated": "Фарҳанг",
+          "emoji": "🎭",
           "lessons": [
             {
-              "title": "Culture Â· Part 1",
-              "titleTranslated": "Ð¤Ð°Ñ€Ò³Ð°Ð½Ð³ Â· ÒšÐ¸ÑÐ¼Ð¸ 1",
+              "title": "Culture · Part 1",
+              "titleTranslated": "Фарҳанг · Қисми 1",
               "type": "vocab",
-              "emoji": "ðŸŽ­",
+              "emoji": "🎭",
               "words": [
                 {
-                  "w": "Culture",
-                  "t": "Ð¤Ð°Ñ€Ò³Ð°Ð½Ð³",
-                  "e": "ðŸŽ­",
-                  "ipa": "/ËˆkÊŒltÊƒÉ™r/",
-                  "ex": "A rich culture.",
-                  "exT": "Ð¤Ð°Ñ€Ò³Ð°Ð½Ð³Ð¸ Ð±Ð¾Ð¹."
+                  "w": "Heritage",
+                  "t": "Мерос",
+                  "e": "🏛️",
+                  "ipa": "/ˈherɪtɪdʒ/",
+                  "ex": "Cultural heritage.",
+                  "exT": "Мероси фарҳангӣ."
                 },
                 {
-                  "w": "History",
-                  "t": "Ð¢Ð°ÑŠÑ€Ð¸Ñ…",
-                  "e": "ðŸ“œ",
-                  "ipa": "/ËˆhÉªstri/",
-                  "ex": "Ancient history.",
-                  "exT": "Ð¢Ð°ÑŠÑ€Ð¸Ñ…Ð¸ Ò›Ð°Ð´Ð¸Ð¼."
+                  "w": "Tradition",
+                  "t": "Анъана",
+                  "e": "🎎",
+                  "ipa": "/trəˈdɪʃən/",
+                  "ex": "An ancient tradition.",
+                  "exT": "Анъанаи қадима."
+                },
+                {
+                  "w": "Exhibition",
+                  "t": "Намоишгоҳ",
+                  "e": "🖼️",
+                  "ipa": "/ˌeksɪˈbɪʃən/",
+                  "ex": "An art exhibition.",
+                  "exT": "Намоишгоҳи санъат."
+                },
+                {
+                  "w": "Contemporary",
+                  "t": "Муосир",
+                  "e": "✨",
+                  "ipa": "/kənˈtempərəri/",
+                  "ex": "Contemporary art.",
+                  "exT": "Санъати муосир."
                 }
               ]
             },
             {
-              "title": "Culture Â· Part 2",
-              "titleTranslated": "Ð¤Ð°Ñ€Ò³Ð°Ð½Ð³ Â· ÒšÐ¸ÑÐ¼Ð¸ 2",
+              "title": "Culture · Part 2",
+              "titleTranslated": "Фарҳанг · Қисми 2",
               "type": "vocab",
-              "emoji": "ðŸŽ­",
+              "emoji": "🎭",
               "words": [
                 {
-                  "w": "Tradition",
-                  "t": "ÐÐ½ÑŠÐ°Ð½Ð°",
-                  "e": "ðŸŽŽ",
-                  "ipa": "/trÉ™ËˆdÉªÊƒÉ™n/",
-                  "ex": "An old tradition.",
-                  "exT": "ÐÐ½ÑŠÐ°Ð½Ð°Ð¸ ÐºÓ¯Ò³Ð½Ð°."
+                  "w": "Ceremony",
+                  "t": "Маросим",
+                  "e": "🎊",
+                  "ipa": "/ˈserɪməni/",
+                  "ex": "A wedding ceremony.",
+                  "exT": "Маросими арӯсӣ."
                 },
                 {
-                  "w": "Art",
-                  "t": "Ð¡Ð°Ð½ÑŠÐ°Ñ‚",
-                  "e": "ðŸ–¼ï¸",
-                  "ipa": "/É‘Ërt/",
-                  "ex": "Modern art.",
-                  "exT": "Ð¡Ð°Ð½ÑŠÐ°Ñ‚Ð¸ Ð¼ÑƒÐ¾ÑÐ¸Ñ€."
+                  "w": "Influence",
+                  "t": "Таъсир",
+                  "e": "💫",
+                  "ipa": "/ˈɪnfluəns/",
+                  "ex": "Cultural influence.",
+                  "exT": "Таъсири фарҳангӣ."
+                },
+                {
+                  "w": "Diversity",
+                  "t": "Гуногунӣ",
+                  "e": "🌈",
+                  "ipa": "/daɪˈvɜːrsɪti/",
+                  "ex": "Cultural diversity.",
+                  "exT": "Гуногунии фарҳангӣ."
+                },
+                {
+                  "w": "Preserve",
+                  "t": "Ҳифз кардан",
+                  "e": "🛡️",
+                  "ipa": "/prɪˈzɜːrv/",
+                  "ex": "Preserve our culture.",
+                  "exT": "Фарҳанги моро ҳифз кунед."
                 }
               ]
             }
@@ -1824,54 +1920,86 @@
         },
         {
           "title": "Media",
-          "titleTranslated": "Ð Ð°ÑÐ¾Ð½Ð°",
-          "emoji": "ðŸ“°",
+          "titleTranslated": "Расона",
+          "emoji": "📺",
           "lessons": [
             {
-              "title": "Media Â· Part 1",
-              "titleTranslated": "Ð Ð°ÑÐ¾Ð½Ð° Â· ÒšÐ¸ÑÐ¼Ð¸ 1",
+              "title": "Media · Part 1",
+              "titleTranslated": "Расона · Қисми 1",
               "type": "vocab",
-              "emoji": "ðŸ“°",
+              "emoji": "📺",
               "words": [
                 {
-                  "w": "News",
-                  "t": "Ð¥Ð°Ð±Ð°Ñ€",
-                  "e": "ðŸ“°",
-                  "ipa": "/njuËz/",
-                  "ex": "Good news.",
-                  "exT": "Ð¥Ð°Ð±Ð°Ñ€Ð¸ Ñ…ÑƒÑˆ."
+                  "w": "Broadcast",
+                  "t": "Пахш кардан",
+                  "e": "📡",
+                  "ipa": "/ˈbrɔːdkæst/",
+                  "ex": "A live broadcast.",
+                  "exT": "Пахши бевосита."
                 },
                 {
-                  "w": "Article",
-                  "t": "ÐœÐ°Ò›Ð¾Ð»Ð°",
-                  "e": "ðŸ“„",
-                  "ipa": "/ËˆÉ‘ËrtÉªkÉ™l/",
-                  "ex": "A long article.",
-                  "exT": "ÐœÐ°Ò›Ð¾Ð»Ð°Ð¸ Ð´Ð°Ñ€Ð¾Ð·."
+                  "w": "Journalist",
+                  "t": "Рӯзноманигор",
+                  "e": "🎙️",
+                  "ipa": "/ˈdʒɜːrnəlɪst/",
+                  "ex": "A senior journalist.",
+                  "exT": "Рӯзноманигори аршад."
+                },
+                {
+                  "w": "Headline",
+                  "t": "Унвони хабар",
+                  "e": "📰",
+                  "ipa": "/ˈhedlaɪn/",
+                  "ex": "A shocking headline.",
+                  "exT": "Унвони хабари ҳайратовар."
+                },
+                {
+                  "w": "Editorial",
+                  "t": "Мақолаи сарвар",
+                  "e": "✏️",
+                  "ipa": "/ˌedɪˈtɔːriəl/",
+                  "ex": "A daily editorial.",
+                  "exT": "Мақолаи сарвари рӯзона."
                 }
               ]
             },
             {
-              "title": "Media Â· Part 2",
-              "titleTranslated": "Ð Ð°ÑÐ¾Ð½Ð° Â· ÒšÐ¸ÑÐ¼Ð¸ 2",
+              "title": "Media · Part 2",
+              "titleTranslated": "Расона · Қисми 2",
               "type": "vocab",
-              "emoji": "ðŸ“°",
+              "emoji": "📺",
               "words": [
                 {
-                  "w": "Report",
-                  "t": "Ð“ÑƒÐ·Ð¾Ñ€Ð¸Ñˆ",
-                  "e": "ðŸ“‹",
-                  "ipa": "/rÉªËˆpÉ”Ërt/",
-                  "ex": "A weekly report.",
-                  "exT": "Ð“ÑƒÐ·Ð¾Ñ€Ð¸ÑˆÐ¸ Ò³Ð°Ñ„Ñ‚Ð°Ð¸Ð½Ð°."
+                  "w": "Publish",
+                  "t": "Нашр кардан",
+                  "e": "📚",
+                  "ipa": "/ˈpʌblɪʃ/",
+                  "ex": "Publish an article.",
+                  "exT": "Як мақола нашр кунед."
                 },
                 {
-                  "w": "Story",
-                  "t": "Ò²Ð¸ÐºÐ¾Ñ",
-                  "e": "ðŸ“–",
-                  "ipa": "/ËˆstÉ”Ëri/",
-                  "ex": "A true story.",
-                  "exT": "Ò²Ð¸ÐºÐ¾ÑÐ¸ Ð²Ð¾Ò›ÐµÓ£."
+                  "w": "Censorship",
+                  "t": "Сензура",
+                  "e": "🚫",
+                  "ipa": "/ˈsensərʃɪp/",
+                  "ex": "Media censorship.",
+                  "exT": "Сензураи расона."
+                },
+                {
+                  "w": "Audience",
+                  "t": "Тамошобин",
+                  "e": "👥",
+                  "ipa": "/ˈɔːdiəns/",
+                  "ex": "A large audience.",
+                  "exT": "Тамошобини калон."
+                },
+                {
+                  "w": "Report",
+                  "t": "Гузориш",
+                  "e": "📄",
+                  "ipa": "/rɪˈpɔːrt/",
+                  "ex": "An official report.",
+                  "exT": "Гузоришии расмӣ."
                 }
               ]
             }
@@ -1879,54 +2007,86 @@
         },
         {
           "title": "Law & Politics",
-          "titleTranslated": "ÒšÐ¾Ð½ÑƒÐ½ Ð²Ð° ÑÐ¸Ñ‘ÑÐ°Ñ‚",
-          "emoji": "âš–ï¸",
+          "titleTranslated": "Ҳуқуқ ва Сиёсат",
+          "emoji": "⚖️",
           "lessons": [
             {
-              "title": "Law & Politics Â· Part 1",
-              "titleTranslated": "ÒšÐ¾Ð½ÑƒÐ½ Ð²Ð° ÑÐ¸Ñ‘ÑÐ°Ñ‚ Â· ÒšÐ¸ÑÐ¼Ð¸ 1",
+              "title": "Law & Politics · Part 1",
+              "titleTranslated": "Ҳуқуқ ва Сиёсат · Қисми 1",
               "type": "vocab",
-              "emoji": "âš–ï¸",
+              "emoji": "⚖️",
               "words": [
                 {
-                  "w": "Law",
-                  "t": "ÒšÐ¾Ð½ÑƒÐ½",
-                  "e": "âš–ï¸",
-                  "ipa": "/lÉ”Ë/",
-                  "ex": "Obey the law.",
-                  "exT": "ÒšÐ¾Ð½ÑƒÐ½Ñ€Ð¾ Ñ€Ð¸Ð¾Ñ ÐºÑƒÐ½ÐµÐ´."
+                  "w": "Democracy",
+                  "t": "Демократия",
+                  "e": "🗳️",
+                  "ipa": "/dɪˈmɒkrəsi/",
+                  "ex": "True democracy.",
+                  "exT": "Демократияи воқеӣ."
                 },
                 {
-                  "w": "Government",
-                  "t": "Ò²ÑƒÐºÑƒÐ¼Ð°Ñ‚",
-                  "e": "ðŸ›ï¸",
-                  "ipa": "/ËˆÉ¡ÊŒvÉ™rnmÉ™nt/",
-                  "ex": "The government decided.",
-                  "exT": "Ò²ÑƒÐºÑƒÐ¼Ð°Ñ‚ Ò›Ð°Ñ€Ð¾Ñ€ Ò›Ð°Ð±ÑƒÐ» ÐºÐ°Ñ€Ð´."
+                  "w": "Election",
+                  "t": "Интихобот",
+                  "e": "🗽",
+                  "ipa": "/ɪˈlekʃən/",
+                  "ex": "Free elections.",
+                  "exT": "Интихоботи озод."
+                },
+                {
+                  "w": "Policy",
+                  "t": "Сиёсат",
+                  "e": "📋",
+                  "ipa": "/ˈpɒlɪsi/",
+                  "ex": "Foreign policy.",
+                  "exT": "Сиёсати хориҷӣ."
+                },
+                {
+                  "w": "Parliament",
+                  "t": "Парлумон",
+                  "e": "🏛️",
+                  "ipa": "/ˈpɑːrləmənt/",
+                  "ex": "The national parliament.",
+                  "exT": "Парлумони миллӣ."
                 }
               ]
             },
             {
-              "title": "Law & Politics Â· Part 2",
-              "titleTranslated": "ÒšÐ¾Ð½ÑƒÐ½ Ð²Ð° ÑÐ¸Ñ‘ÑÐ°Ñ‚ Â· ÒšÐ¸ÑÐ¼Ð¸ 2",
+              "title": "Law & Politics · Part 2",
+              "titleTranslated": "Ҳуқуқ ва Сиёсат · Қисми 2",
               "type": "vocab",
-              "emoji": "âš–ï¸",
+              "emoji": "⚖️",
               "words": [
                 {
-                  "w": "Right",
-                  "t": "Ò²ÑƒÒ›ÑƒÒ›",
-                  "e": "âœŠ",
-                  "ipa": "/raÉªt/",
-                  "ex": "Human rights.",
-                  "exT": "Ò²ÑƒÒ›ÑƒÒ›Ð¸ Ð¸Ð½ÑÐ¾Ð½."
+                  "w": "Justice",
+                  "t": "Адолат",
+                  "e": "⚖️",
+                  "ipa": "/ˈdʒʌstɪs/",
+                  "ex": "Social justice.",
+                  "exT": "Адолати иҷтимоӣ."
                 },
                 {
-                  "w": "Freedom",
-                  "t": "ÐžÐ·Ð¾Ð´Ó£",
-                  "e": "ðŸ•Šï¸",
-                  "ipa": "/ËˆfriËdÉ™m/",
-                  "ex": "Freedom of speech.",
-                  "exT": "ÐžÐ·Ð¾Ð´Ð¸Ð¸ ÑÑƒÑ…Ð°Ð½."
+                  "w": "Equality",
+                  "t": "Баробарӣ",
+                  "e": "🤝",
+                  "ipa": "/ɪˈkwɒlɪti/",
+                  "ex": "Gender equality.",
+                  "exT": "Баробарии гендерӣ."
+                },
+                {
+                  "w": "Rights",
+                  "t": "Ҳуқуқ",
+                  "e": "✊",
+                  "ipa": "/raɪts/",
+                  "ex": "Human rights.",
+                  "exT": "Ҳуқуқи инсон."
+                },
+                {
+                  "w": "Protest",
+                  "t": "Эътироз",
+                  "e": "📢",
+                  "ipa": "/ˈproʊtest/",
+                  "ex": "A peaceful protest.",
+                  "exT": "Эътирози осоишта."
                 }
               ]
             }
@@ -1934,62 +2094,93 @@
         },
         {
           "title": "Environment",
-          "titleTranslated": "ÐœÑƒÒ³Ð¸Ñ‚Ð¸ Ð·Ð¸ÑÑ‚",
-          "emoji": "ðŸŒ",
+          "titleTranslated": "Муҳити Зист",
+          "emoji": "🌍",
           "lessons": [
             {
-              "title": "Environment Â· Part 1",
-              "titleTranslated": "ÐœÑƒÒ³Ð¸Ñ‚Ð¸ Ð·Ð¸ÑÑ‚ Â· ÒšÐ¸ÑÐ¼Ð¸ 1",
+              "title": "Environment · Part 1",
+              "titleTranslated": "Муҳити Зист · Қисми 1",
               "type": "vocab",
-              "emoji": "ðŸŒ",
+              "emoji": "🌍",
               "words": [
                 {
-                  "w": "Earth",
-                  "t": "Ð—Ð°Ð¼Ð¸Ð½",
-                  "e": "ðŸŒ",
-                  "ipa": "/ÉœËrÎ¸/",
-                  "ex": "Protect the Earth.",
-                  "exT": "Ð—Ð°Ð¼Ð¸Ð½Ñ€Ð¾ Ò³Ð¸Ñ„Ð· ÐºÑƒÐ½ÐµÐ´."
+                  "w": "Climate",
+                  "t": "Иқлим",
+                  "e": "🌡️",
+                  "ipa": "/ˈklaɪmɪt/",
+                  "ex": "The global climate.",
+                  "exT": "Иқлими ҷаҳонӣ."
                 },
                 {
-                  "w": "Climate",
-                  "t": "Ð˜Ò›Ð»Ð¸Ð¼",
-                  "e": "ðŸŒ¡ï¸",
-                  "ipa": "/ËˆklaÉªmÉ™t/",
-                  "ex": "Climate change.",
-                  "exT": "Ð¢Ð°Ò“Ð¹Ð¸Ñ€Ð¸ Ð¸Ò›Ð»Ð¸Ð¼."
+                  "w": "Pollution",
+                  "t": "Олудагӣ",
+                  "e": "💨",
+                  "ipa": "/pəˈluːʃən/",
+                  "ex": "Air pollution.",
+                  "exT": "Олудагии ҳаво."
+                },
+                {
+                  "w": "Renewable",
+                  "t": "Барқароршаванда",
+                  "e": "♻️",
+                  "ipa": "/rɪˈnjuːəbəl/",
+                  "ex": "Renewable energy.",
+                  "exT": "Энергияи барқароршаванда."
+                },
+                {
+                  "w": "Ecosystem",
+                  "t": "Экосистема",
+                  "e": "🌿",
+                  "ipa": "/ˈiːkoʊˌsɪstəm/",
+                  "ex": "A fragile ecosystem.",
+                  "exT": "Экосистемаи нозук."
                 }
               ]
             },
             {
-              "title": "Environment Â· Part 2",
-              "titleTranslated": "ÐœÑƒÒ³Ð¸Ñ‚Ð¸ Ð·Ð¸ÑÑ‚ Â· ÒšÐ¸ÑÐ¼Ð¸ 2",
+              "title": "Environment · Part 2",
+              "titleTranslated": "Муҳити Зист · Қисми 2",
               "type": "vocab",
-              "emoji": "ðŸŒ",
+              "emoji": "🌍",
               "words": [
                 {
-                  "w": "Pollution",
-                  "t": "Ð˜Ñ„Ð»Ð¾ÑÑˆÐ°Ð²Ó£",
-                  "e": "ðŸ­",
-                  "ipa": "/pÉ™ËˆluËÊƒÉ™n/",
-                  "ex": "Air pollution.",
-                  "exT": "Ð˜Ñ„Ð»Ð¾ÑÑˆÐ°Ð²Ð¸Ð¸ Ò³Ð°Ð²Ð¾."
+                  "w": "Sustainable",
+                  "t": "Устувор",
+                  "e": "🌱",
+                  "ipa": "/səˈsteɪnəbəl/",
+                  "ex": "Sustainable living.",
+                  "exT": "Зиндагии устувор."
                 },
                 {
-                  "w": "Future",
-                  "t": "ÐžÑÐ½Ð´Ð°",
-                  "e": "ðŸ”®",
-                  "ipa": "/ËˆfjuËtÊƒÉ™r/",
-                  "ex": "A bright future.",
-                  "exT": "ÐžÑÐ½Ð´Ð°Ð¸ Ð´ÑƒÑ€Ð°Ñ…ÑˆÐ¾Ð½."
+                  "w": "Emission",
+                  "t": "Партов",
+                  "e": "🏭",
+                  "ipa": "/ɪˈmɪʃən/",
+                  "ex": "Carbon emissions.",
+                  "exT": "Партовҳои карбон."
+                },
+                {
+                  "w": "Conservation",
+                  "t": "Ҳифозат",
+                  "e": "🦁",
+                  "ipa": "/ˌkɒnsəˈveɪʃən/",
+                  "ex": "Wildlife conservation.",
+                  "exT": "Ҳифозати ҳайвонот."
+                },
+                {
+                  "w": "Habitat",
+                  "t": "Зистгоҳ",
+                  "e": "🌲",
+                  "ipa": "/ˈhæbɪtæt/",
+                  "ex": "Natural habitat.",
+                  "exT": "Зистгоҳи табиӣ."
                 }
               ]
             }
           ]
         }
       ]
-    },
-    {
+    },    {
       "level": "C1",
       "title": "Ð—Ð°Ð±Ð¾Ð½Ð¸ Ð°Ð½Ð³Ð»Ð¸ÑÓ£ â€” C1",
       "emoji": "ðŸ“•",

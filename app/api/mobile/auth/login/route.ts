@@ -6,6 +6,7 @@ import {
   hashRefreshToken,
   signAccessTokenForUser,
 } from '@/lib/auth';
+import { getClientIp, getCountryFromIp } from '@/lib/geo';
 
 const REFRESH_TTL_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 
@@ -84,6 +85,22 @@ export async function POST(req: NextRequest) {
         expiresAt: new Date(Date.now() + REFRESH_TTL_MS),
       },
     });
+
+    // ── IP Geolocation (fire-and-forget, never blocks the response) ──────────
+    // Only update when the country is not yet stored, to avoid hammering the
+    // free ip-api.com service on every login.
+    const clientIp = getClientIp(req);
+    getCountryFromIp(clientIp).then((countryCode) => {
+      if (countryCode) {
+        prisma.user
+          .update({
+            where: { id: user!.id },
+            data: { country: countryCode },
+          })
+          .catch(() => { /* ignore — not critical */ });
+      }
+    }).catch(() => { /* ignore */ });
+    // ─────────────────────────────────────────────────────────────────────────
 
     return Response.json({
       user: { id: user.id, name: user.name, email: user.email, phone: user.phone },
