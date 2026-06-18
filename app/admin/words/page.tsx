@@ -7,6 +7,7 @@ interface Word {
   word: string;
   translation: string;
   ipa?: string | null;
+  ipaTajik?: string | null;
   emoji?: string | null;
   example?: string | null;
   exampleTrans?: string | null;
@@ -46,7 +47,7 @@ function WordsContent() {
   const [courseFilter, setCourseFilter] = useState<string>('');
   const [lessonFilter, setLessonFilter] = useState<string>(initialLessonId);
   const [form, setForm] = useState({
-    lessonId: initialLessonId, word: '', translation: '', ipa: '', emoji: '', example: '', exampleTrans: '', difficulty: 1,
+    lessonId: initialLessonId, word: '', translation: '', ipa: '', ipaTajik: '', emoji: '', example: '', exampleTrans: '', difficulty: 1,
   });
 
   // Lessons visible in filters/form — restricted to selected course
@@ -109,7 +110,7 @@ function WordsContent() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Хатогӣ');
-      setForm(f => ({ ...f, word: '', translation: '', ipa: '', emoji: '', example: '', exampleTrans: '', difficulty: 1 }));
+      setForm(f => ({ ...f, word: '', translation: '', ipa: '', ipaTajik: '', emoji: '', example: '', exampleTrans: '', difficulty: 1 }));
       setShowForm(false);
       fetchWords(lessonFilter);
     } catch (e: any) { alert('Хатогӣ: ' + e.message); }
@@ -187,7 +188,8 @@ function WordsContent() {
               {[
                 { key: 'word', label: 'Калима (омӯзишӣ)', placeholder: 'Hello', required: true },
                 { key: 'translation', label: 'Тарҷума (модарӣ)', placeholder: 'Салом' },
-                { key: 'ipa', label: 'IPA', placeholder: '/həˈloʊ/' },
+                { key: 'ipa', label: 'IPA (Англисӣ)', placeholder: '/həˈloʊ/' },
+                { key: 'ipaTajik', label: 'Транскрипсия (Тоҷикӣ)', placeholder: '[Ҳеллоу]' },
                 { key: 'emoji', label: 'Эмоҷи', placeholder: '👋' },
                 { key: 'example', label: 'Мисол (омӯзишӣ)', placeholder: 'Hello, how are you?' },
                 { key: 'exampleTrans', label: 'Тарҷумаи мисол (модарӣ)', placeholder: 'Салом, чӣ хел?' },
@@ -223,6 +225,7 @@ function WordsContent() {
                   <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}>Калима</th>
                   <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}>Тарҷума</th>
                   <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}>IPA</th>
+                  <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}>IPA (Тоҷ)</th>
                   <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}>Дарс</th>
                   <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}>Мушкилӣ</th>
                   <th style={{ padding: '16px 20px', color: 'var(--text3)', fontWeight: 600 }}></th>
@@ -239,6 +242,7 @@ function WordsContent() {
                       </td>
                       <td style={{ padding: '12px 20px', color: 'var(--text-secondary)' }}>{word.translation}</td>
                       <td style={{ padding: '12px 20px', color: 'var(--text3)', fontSize: '12px', fontFamily: 'monospace' }}>{word.ipa || '—'}</td>
+                      <td style={{ padding: '12px 20px', color: 'var(--text3)', fontSize: '12px' }}>{word.ipaTajik || '—'}</td>
                       <td style={{ padding: '12px 20px', color: 'var(--text3)', fontSize: '12px' }}>{word.lesson?.title || '—'}</td>
                       <td style={{ padding: '12px 20px' }}><div style={{ display: 'flex', gap: '2px' }}>{difficultyStars(word.difficulty)}</div></td>
                       <td style={{ padding: '12px 20px' }}>

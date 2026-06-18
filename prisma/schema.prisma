@@ -237,6 +237,7 @@ model Word {
   translation       String              // native-language translation, e.g. "Салом"
   emoji             String?
   ipa               String?             // /həˈloʊ/
+  ipaTajik          String?             // e.g. "Ҳеллоу"
   example           String?             // target-language example sentence
   exampleTrans      String?             // native-language translation of the example
   audioUrl          String?

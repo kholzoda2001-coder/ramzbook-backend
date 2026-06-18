@@ -50,6 +50,7 @@ export async function POST(req: NextRequest) {
       word?: string;
       translation?: string;
       ipa?: string;
+      ipaTajik?: string;
       emoji?: string;
       example?: string;
       exampleTrans?: string;
@@ -78,6 +79,7 @@ export async function POST(req: NextRequest) {
         word: wordText,
         translation,
         ipa: body.ipa?.trim() || null,
+        ipaTajik: body.ipaTajik?.trim() || null,
         emoji: body.emoji?.trim() || null,
         example: body.example?.trim() || null,
         exampleTrans: body.exampleTrans?.trim() || null,

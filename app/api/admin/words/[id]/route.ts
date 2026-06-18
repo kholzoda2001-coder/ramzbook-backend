@@ -28,6 +28,7 @@ export async function PUT(
       word?: string;
       translation?: string;
       ipa?: string;
+      ipaTajik?: string;
       emoji?: string;
       example?: string;
       exampleTrans?: string;
@@ -44,6 +45,7 @@ export async function PUT(
         ...(body.word !== undefined && { word: body.word.trim() }),
         ...(body.translation !== undefined && { translation: body.translation.trim() }),
         ...(body.ipa !== undefined && { ipa: body.ipa.trim() || null }),
+        ...(body.ipaTajik !== undefined && { ipaTajik: body.ipaTajik.trim() || null }),
         ...(body.emoji !== undefined && { emoji: body.emoji.trim() || null }),
         ...(body.example !== undefined && { example: body.example.trim() || null }),
         ...(body.exampleTrans !== undefined && { exampleTrans: body.exampleTrans.trim() || null }),
