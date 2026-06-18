@@ -141,7 +141,7 @@ function WordsContent() {
   const difficultyStars = (n: number) =>
     [1, 2, 3, 4, 5].map(s => <span key={s} style={{ color: s <= n ? 'var(--gold, #F59E0B)' : 'rgba(255,255,255,0.1)', fontSize: '12px' }}>★</span>);
 
-  const FIELD: React.CSSProperties = { width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border)', background: 'rgba(255,255,255,0.05)', color: 'var(--text-primary)', fontSize: '14px', boxSizing: 'border-box' };
+  const FIELD: React.CSSProperties = { width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid var(--border)', backgroundColor: '#1E293B', color: 'var(--text-primary)', fontSize: '14px', boxSizing: 'border-box' };
   const lessonLabel = (l: Lesson) => `${l.module ? `${l.module.course.level} › ${l.module.title} › ` : ''}${l.title}`;
 
   return (
