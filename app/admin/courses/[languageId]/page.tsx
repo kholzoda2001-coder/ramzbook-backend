@@ -99,11 +99,11 @@ export default async function AdminLearningLanguagePage({
 
                 <div className="fade-up" style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border)', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
           <div>
-            <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>?? ????? ??????? (Zero-Lesson)</h3>
-            <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>??????? ????? ?? ??????? ???????? ?? ????? ??? ???????? ?????? ????????. ????????? ???? (?????, ????) ?? ???????? ??????.</p>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>🎯 Дарси Шиносоӣ (Zero-Lesson)</h3>
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Аввалин дарсе ки ҳангоми интихоби ин забон дар барномаи мобилӣ мебарояд. Калимаҳои оддӣ (Салом, Бале) бо тарҷумаи модарӣ.</p>
           </div>
-          <Link href={/admin/courses//onboarding} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '8px 16px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '13px' }}>
-            ??????
+          <Link href={`/admin/courses/${language.id}/onboarding`} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '8px 16px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '13px' }}>
+            Таҳрир
           </Link>
         </div>
 

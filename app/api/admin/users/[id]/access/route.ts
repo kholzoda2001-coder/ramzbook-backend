@@ -42,32 +42,67 @@ export async function POST(
     const user = await prisma.user.findUnique({ where: { id: userId } });
     if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 });
 
-    if (action === 'grant_vip') {
-      const expiresAt = new Date();
-      expiresAt.setMonth(expiresAt.getMonth() + 1);
+    // Premium-ро бо ҳамаи имтиёзҳо медиҳад (мисли activatePremium) + сабти Subscription.
+    const grant = async (plan: 'monthly' | 'yearly' | 'lifetime', expiresAt: Date | null) => {
       await prisma.user.update({
         where: { id: userId },
-        data: { isPremium: true, premiumPlan: 'monthly', premiumStartedAt: new Date(), premiumExpiresAt: expiresAt },
+        data: {
+          isPremium: true,
+          premiumPlan: plan,
+          premiumStartedAt: new Date(),
+          premiumExpiresAt: expiresAt,
+          // имтиёзҳои premium
+          hearts: 999,
+          maxHearts: 999,
+          streakFreezesAvailable: 999,
+        },
       });
-      return NextResponse.json({ ok: true, message: 'Premium granted for 1 month.' });
+      // сабти обуна барои пайгирӣ (токени синтетикии админ — ягона)
+      try {
+        await prisma.subscription.create({
+          data: {
+            userId,
+            plan,
+            status: 'active',
+            googlePurchaseToken: `admin_${userId}_${Date.now()}`,
+            googleProductId: 'admin_grant',
+            expiresAt,
+            autoRenew: false,
+          },
+        });
+      } catch (_) {/* агар такрор шавад, нодида мегирем */}
     }
 
-    if (action === 'grant_vip_1y') {
-      const expiresAt = new Date();
-      expiresAt.setFullYear(expiresAt.getFullYear() + 1);
-      await prisma.user.update({
-        where: { id: userId },
-        data: { isPremium: true, premiumPlan: 'yearly', premiumStartedAt: new Date(), premiumExpiresAt: expiresAt },
-      });
-      return NextResponse.json({ ok: true, message: 'Premium granted for 1 year.' });
+    if (action === 'grant_vip' || action === 'grant_vip_monthly') {
+      const e = new Date(); e.setMonth(e.getMonth() + 1);
+      await grant('monthly', e);
+      return NextResponse.json({ ok: true, message: 'Premium (моҳона) дода шуд — 1 моҳ.' });
+    }
+
+    if (action === 'grant_vip_1y' || action === 'grant_vip_yearly') {
+      const e = new Date(); e.setFullYear(e.getFullYear() + 1);
+      await grant('yearly', e);
+      return NextResponse.json({ ok: true, message: 'Premium (солона) дода шуд — 1 сол.' });
+    }
+
+    if (action === 'grant_vip_lifetime') {
+      await grant('lifetime', null);
+      return NextResponse.json({ ok: true, message: 'Premium (якумра) дода шуд — доимӣ.' });
     }
 
     if (action === 'revoke_vip') {
       await prisma.user.update({
         where: { id: userId },
-        data: { isPremium: false, premiumPlan: null, premiumExpiresAt: null },
+        data: {
+          isPremium: false, premiumPlan: null, premiumExpiresAt: null,
+          hearts: 5, maxHearts: 5, streakFreezesAvailable: 1,
+        },
       });
-      return NextResponse.json({ ok: true, message: 'Premium revoked.' });
+      await prisma.subscription.updateMany({
+        where: { userId, status: 'active' },
+        data: { status: 'cancelled', cancelledAt: new Date() },
+      });
+      return NextResponse.json({ ok: true, message: 'Premium бекор шуд.' });
     }
 
     return NextResponse.json({ error: 'Unknown action' }, { status: 400 });

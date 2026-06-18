@@ -308,87 +308,60 @@ function AccessPanel({
             Обунаҳои глобалӣ (VIP)
           </p>
           <div style={{ display: 'flex', gap: 12 }}>
-            {/* 1 Month Card */}
-            <div style={{
-              flex: 1, padding: '16px', borderRadius: 16,
-              background: vipExpiresAt && subscriptionPlan?.includes('1m') ? 'rgba(16,185,129,0.04)' : 'var(--bg-elevated)',
-              border: `1px solid ${vipExpiresAt && subscriptionPlan?.includes('1m') ? 'rgba(16,185,129,0.3)' : 'var(--bg-border)'}`,
-              display: 'flex', flexDirection: 'column', gap: 12
-            }}>
-              <div>
-                <h4 style={{ fontSize: 14, fontWeight: 700, color: vipExpiresAt && subscriptionPlan?.includes('1m') ? '#10b981' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <ShieldCheck size={16} color={vipExpiresAt && subscriptionPlan?.includes('1m') ? '#10b981' : 'var(--text-muted)'} /> 1 Моҳ
-                </h4>
-                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>Дастрасӣ ба ҳама китобҳо</p>
-              </div>
-              {!vipExpiresAt ? (
-                <button
-                  onClick={() => executeAction(null, 'grant_vip')}
-                  disabled={toggling === 'vip'}
-                  style={{
-                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                    background: 'rgba(16,185,129,0.1)', color: '#10b981'
-                  }}
-                >
-                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
-                </button>
-              ) : subscriptionPlan?.includes('1m') ? (
-                <button
-                  onClick={() => executeAction(null, 'revoke_vip')}
-                  disabled={toggling === 'vip'}
-                  title={`Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`}
-                  style={{
-                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                    background: 'rgba(239,68,68,0.1)', color: '#ef4444'
-                  }}
-                >
-                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
-                </button>
-              ) : (
-                <div style={{ fontSize: 11, color: 'var(--text-muted)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
-              )}
-            </div>
-
-            {/* 1 Year Card */}
-            <div style={{
-              flex: 1, padding: '16px', borderRadius: 16,
-              background: vipExpiresAt && subscriptionPlan?.includes('1y') ? 'rgba(59,130,246,0.04)' : 'var(--bg-elevated)',
-              border: `1px solid ${vipExpiresAt && subscriptionPlan?.includes('1y') ? 'rgba(59,130,246,0.3)' : 'var(--bg-border)'}`,
-              display: 'flex', flexDirection: 'column', gap: 12
-            }}>
-              <div>
-                <h4 style={{ fontSize: 14, fontWeight: 700, color: vipExpiresAt && subscriptionPlan?.includes('1y') ? '#3b82f6' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <ShieldCheck size={16} color={vipExpiresAt && subscriptionPlan?.includes('1y') ? '#3b82f6' : 'var(--text-muted)'} /> 1 Сол
-                </h4>
-                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>Беҳтарин интихоб</p>
-              </div>
-              {!vipExpiresAt ? (
-                <button
-                  onClick={() => executeAction(null, 'grant_vip_1y')}
-                  disabled={toggling === 'vip'}
-                  style={{
-                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                    background: 'rgba(59,130,246,0.1)', color: '#3b82f6'
-                  }}
-                >
-                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
-                </button>
-              ) : subscriptionPlan?.includes('1y') ? (
-                <button
-                  onClick={() => executeAction(null, 'revoke_vip')}
-                  disabled={toggling === 'vip'}
-                  title={`Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`}
-                  style={{
-                    padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                    background: 'rgba(239,68,68,0.1)', color: '#ef4444'
-                  }}
-                >
-                  {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
-                </button>
-              ) : (
-                <div style={{ fontSize: 11, color: 'var(--text-muted)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
-              )}
-            </div>
+            {([
+              { key: 'monthly',  action: 'grant_vip_monthly',  label: '1 Моҳ',  sub: 'Обунаи моҳона', color: '#10b981' },
+              { key: 'yearly',   action: 'grant_vip_yearly',   label: '1 Сол',  sub: 'Беҳтарин интихоб', color: '#3b82f6' },
+              { key: 'lifetime', action: 'grant_vip_lifetime', label: 'Якумра', sub: 'Доимӣ — як бор', color: '#a855f7' },
+            ] as const).map((p) => {
+              const active = subscriptionPlan === p.key;
+              const otherActive = !!subscriptionPlan && !active;
+              return (
+                <div key={p.key} style={{
+                  flex: 1, padding: '16px', borderRadius: 16,
+                  background: active ? `${p.color}0d` : 'var(--bg-elevated)',
+                  border: `1px solid ${active ? p.color : 'var(--bg-border)'}`,
+                  display: 'flex', flexDirection: 'column', gap: 12,
+                }}>
+                  <div>
+                    <h4 style={{ fontSize: 14, fontWeight: 700, color: active ? p.color : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <ShieldCheck size={16} color={active ? p.color : 'var(--text-muted)'} /> {p.label}
+                    </h4>
+                    <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
+                      {active && p.key === 'lifetime'
+                        ? 'Фаъол — доимӣ'
+                        : active && vipExpiresAt
+                        ? `Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`
+                        : p.sub}
+                    </p>
+                  </div>
+                  {active ? (
+                    <button
+                      onClick={() => executeAction(null, 'revoke_vip')}
+                      disabled={toggling === 'vip'}
+                      style={{
+                        padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                        background: 'rgba(239,68,68,0.1)', color: '#ef4444',
+                      }}
+                    >
+                      {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
+                    </button>
+                  ) : otherActive ? (
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
+                  ) : (
+                    <button
+                      onClick={() => executeAction(null, p.action)}
+                      disabled={toggling === 'vip'}
+                      style={{
+                        padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
+                        background: `${p.color}1a`, color: p.color,
+                      }}
+                    >
+                      {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 

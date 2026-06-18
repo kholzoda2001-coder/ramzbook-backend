@@ -132,19 +132,25 @@ async function createComponents(courseId) {
         title: cap(g.title), titleTranslated: cap(g.titleTranslated),
         explanation: cap(g.explanation), emoji: g.emoji ?? '🔤',
         order: g.order ?? i, isActive: true,
-        examples: { create: (g.examples ?? []).map((e, j) => ({
-          sentence: cap(e.sentence), translation: cap(e.translation),
-          highlight: e.highlight ?? null, order: j,
-        })) },
-        rules: { create: (g.rules ?? []).map((r, j) => ({
-          pattern: r.pattern, note: cap(r.note) ?? null, order: j,
-        })) },
-        exercises: { create: (g.exercises ?? []).map((x, j) => ({
-          type: x.type ?? 'choose', prompt: cap(x.prompt),
-          promptTranslated: cap(x.promptTranslated) ?? null,
-          answer: x.answer, options: x.options ?? undefined, // match tokens — keep as authored
-          explanation: cap(x.explanation) ?? null, order: j,
-        })) },
+        examples: {
+          create: (g.examples ?? []).map((e, j) => ({
+            sentence: cap(e.sentence), translation: cap(e.translation),
+            highlight: e.highlight ?? null, order: j,
+          }))
+        },
+        rules: {
+          create: (g.rules ?? []).map((r, j) => ({
+            pattern: r.pattern, note: cap(r.note) ?? null, order: j,
+          }))
+        },
+        exercises: {
+          create: (g.exercises ?? []).map((x, j) => ({
+            type: x.type ?? 'choose', prompt: cap(x.prompt),
+            promptTranslated: cap(x.promptTranslated) ?? null,
+            answer: x.answer, options: x.options ?? undefined, // match tokens — keep as authored
+            explanation: cap(x.explanation) ?? null, order: j,
+          }))
+        },
       },
     });
     ids.grammar[g.key] = row.id;
@@ -156,10 +162,12 @@ async function createComponents(courseId) {
         courseId, cefrLevel: LEVEL,
         category: p.category ?? null, title: cap(p.title), titleTranslated: cap(p.titleTranslated),
         emoji: p.emoji ?? '💬', order: p.order ?? i, isActive: true,
-        phrases: { create: (p.phrases ?? []).map((ph, j) => ({
-          text: cap(ph.text), translation: cap(ph.translation),
-          literal: cap(ph.literal) ?? null, note: cap(ph.note) ?? null, order: j,
-        })) },
+        phrases: {
+          create: (p.phrases ?? []).map((ph, j) => ({
+            text: cap(ph.text), translation: cap(ph.translation),
+            literal: cap(ph.literal) ?? null, note: cap(ph.note) ?? null, order: j,
+          }))
+        },
       },
     });
     ids.phrases[p.key] = row.id;
@@ -172,10 +180,12 @@ async function createComponents(courseId) {
         title: cap(d.title), titleTranslated: cap(d.titleTranslated),
         scenario: cap(d.scenario) ?? null, emoji: d.emoji ?? '🎙️',
         order: d.order ?? i, isActive: true,
-        lines: { create: (d.lines ?? []).map((l, j) => ({
-          speaker: cap(l.speaker), text: cap(l.text), translation: cap(l.translation),
-          isUser: l.isUser ?? false, order: j,
-        })) },
+        lines: {
+          create: (d.lines ?? []).map((l, j) => ({
+            speaker: cap(l.speaker), text: cap(l.text), translation: cap(l.translation),
+            isUser: l.isUser ?? false, order: j,
+          }))
+        },
       },
     });
     ids.dialogues[d.key] = row.id;
@@ -188,12 +198,14 @@ async function createComponents(courseId) {
         title: cap(c.title), titleTranslated: cap(c.titleTranslated),
         passage: cap(c.passage), passageTranslated: cap(c.passageTranslated) ?? null,
         emoji: c.emoji ?? '📖', order: c.order ?? i, isActive: true,
-        questions: { create: (c.questions ?? []).map((q, j) => ({
-          question: cap(q.question), questionTranslated: cap(q.questionTranslated) ?? null,
-          options: (q.options ?? []).map(cap), // Json array; correctIndex is positional → safe to cap
-          correctIndex: q.correctIndex ?? 0,
-          explanation: cap(q.explanation) ?? null, order: j,
-        })) },
+        questions: {
+          create: (c.questions ?? []).map((q, j) => ({
+            question: cap(q.question), questionTranslated: cap(q.questionTranslated) ?? null,
+            options: (q.options ?? []).map(cap), // Json array; correctIndex is positional → safe to cap
+            correctIndex: q.correctIndex ?? 0,
+            explanation: cap(q.explanation) ?? null, order: j,
+          }))
+        },
       },
     });
     ids.comprehensions[c.key] = row.id;
@@ -235,13 +247,15 @@ async function createModules(courseId, ids) {
           duration: l.duration ?? 5,
           order: li, isPremium: false, isActive: true,
           ...link,
-          words: { create: (l.words ?? []).map((w, j) => ({
-            word: cap(w.word), translation: cap(w.translation),
-            emoji: w.emoji ?? null, ipa: w.ipa ?? null,
-            example: cap(w.example) ?? null, exampleTrans: cap(w.exampleTrans) ?? null,
-            partOfSpeech: w.partOfSpeech ?? null,
-            difficulty: w.difficulty ?? 1, order: j,
-          })) },
+          words: {
+            create: (l.words ?? []).map((w, j) => ({
+              word: cap(w.word), translation: cap(w.translation),
+              emoji: w.emoji ?? null, ipa: w.ipa ?? null,
+              example: cap(w.example) ?? null, exampleTrans: cap(w.exampleTrans) ?? null,
+              partOfSpeech: w.partOfSpeech ?? null,
+              difficulty: w.difficulty ?? 1, order: j,
+            }))
+          },
         },
       });
       totalLessons++;
@@ -715,7 +729,7 @@ CONTENT.modules.push(
     title: 'Alphabet & Sounds', titleTranslated: 'Алифбо ва садоҳо', emoji: '🔤', color: '#14B8A6',
     lessons: [
       {
-        skillType: 'vocab', title: 'The Alphabet A–M', titleTranslated: 'Алифбо A–M', emoji: '🔠',
+        skillType: 'vocab', title: 'Alphabet A–F', titleTranslated: 'Алифбо A–F', emoji: '🔠',
         words: [
           { word: 'A', translation: 'ҳарфи A', ipa: '/eɪ/', example: 'Apple', exampleTrans: 'Себ', emoji: '🍎' },
           { word: 'B', translation: 'ҳарфи B', ipa: '/biː/', example: 'Ball', exampleTrans: 'Тӯб', emoji: '⚽' },
@@ -723,6 +737,11 @@ CONTENT.modules.push(
           { word: 'D', translation: 'ҳарфи D', ipa: '/diː/', example: 'Dog', exampleTrans: 'Саг', emoji: '🐶' },
           { word: 'E', translation: 'ҳарфи E', ipa: '/iː/', example: 'Egg', exampleTrans: 'Тухм', emoji: '🥚' },
           { word: 'F', translation: 'ҳарфи F', ipa: '/ɛf/', example: 'Fish', exampleTrans: 'Моҳӣ', emoji: '🐟' },
+        ],
+      },
+      {
+        skillType: 'vocab', title: 'Alphabet G–M', titleTranslated: 'Алифбо G–M', emoji: '🔤',
+        words: [
           { word: 'G', translation: 'ҳарфи G', ipa: '/dʒiː/', example: 'Girl', exampleTrans: 'Духтар', emoji: '👧' },
           { word: 'H', translation: 'ҳарфи H', ipa: '/eɪtʃ/', example: 'House', exampleTrans: 'Хона', emoji: '🏠' },
           { word: 'I', translation: 'ҳарфи I', ipa: '/aɪ/', example: 'Ice', exampleTrans: 'Ях', emoji: '🧊' },
@@ -733,14 +752,19 @@ CONTENT.modules.push(
         ],
       },
       {
-        skillType: 'vocab', title: 'The Alphabet N–Z', titleTranslated: 'Алифбо N–Z', emoji: '🔡',
+        skillType: 'vocab', title: 'Alphabet N–S', titleTranslated: 'Алифбо N–S', emoji: '🔡',
         words: [
-          { word: 'N', translation: 'ҳарфи N', ipa: '/ɛn/', example: 'Name', exampleTrans: 'Ном' },
+          { word: 'N', translation: 'ҳарфи N', ipa: '/ɛn/', example: 'Name', exampleTrans: 'Ном', emoji: '📛' },
           { word: 'O', translation: 'ҳарфи O', ipa: '/oʊ/', example: 'Orange', exampleTrans: 'Афлесун', emoji: '🍊' },
           { word: 'P', translation: 'ҳарфи P', ipa: '/piː/', example: 'Pen', exampleTrans: 'Қалам', emoji: '🖊️' },
           { word: 'Q', translation: 'ҳарфи Q', ipa: '/kjuː/', example: 'Queen', exampleTrans: 'Малика', emoji: '👑' },
           { word: 'R', translation: 'ҳарфи R', ipa: '/ɑːr/', example: 'Rain', exampleTrans: 'Борон', emoji: '🌧️' },
           { word: 'S', translation: 'ҳарфи S', ipa: '/ɛs/', example: 'Sun', exampleTrans: 'Офтоб', emoji: '☀️' },
+        ],
+      },
+      {
+        skillType: 'vocab', title: 'Alphabet T–Z', titleTranslated: 'Алифбо T–Z', emoji: '🆎',
+        words: [
           { word: 'T', translation: 'ҳарфи T', ipa: '/tiː/', example: 'Tree', exampleTrans: 'Дарахт', emoji: '🌳' },
           { word: 'U', translation: 'ҳарфи U', ipa: '/juː/', example: 'Umbrella', exampleTrans: 'Чатр', emoji: '☂️' },
           { word: 'V', translation: 'ҳарфи V', ipa: '/viː/', example: 'Van', exampleTrans: 'Микроавтобус', emoji: '🚐' },
@@ -758,11 +782,7 @@ CONTENT.modules.push(
           { word: 'Please', translation: 'Лутфан', ipa: '/pliːz/' },
           { word: 'Thank you', translation: 'Ташаккур', ipa: '/ˈθæŋk juː/' },
           { word: 'Sorry', translation: 'Бубахшед', ipa: '/ˈsɒri/' },
-          { word: 'Water', translation: 'Об', ipa: '/ˈwɔːtər/', emoji: '💧' },
-          { word: 'Food', translation: 'Хӯрок', ipa: '/fuːd/', emoji: '🍲' },
-          { word: 'Friend', translation: 'Дӯст', ipa: '/frɛnd/', emoji: '🧑‍🤝‍🧑' },
           { word: 'Good', translation: 'Хуб', ipa: '/ɡʊd/' },
-          { word: 'Bad', translation: 'Бад', ipa: '/bæd/' },
         ],
       },
     ],
