@@ -97,6 +97,16 @@ export default async function AdminLearningLanguagePage({
           <MiniStat label="Грамматика" value={grammarCount} />
         </div>
 
+                <div className="fade-up" style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border)', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
+          <div>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>?? ????? ??????? (Zero-Lesson)</h3>
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>??????? ????? ?? ??????? ???????? ?? ????? ??? ???????? ?????? ????????. ????????? ???? (?????, ????) ?? ???????? ??????.</p>
+          </div>
+          <Link href={/admin/courses//onboarding} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '8px 16px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '13px' }}>
+            ??????
+          </Link>
+        </div>
+
         <form method="GET" className="fade-up" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
           <select name="native" defaultValue={searchParams.native ?? ''} style={controlStyle}>
             <option value="">Ҳамаи забонҳои модарӣ</option>
@@ -203,3 +213,4 @@ function MiniStat({ label, value }: { label: string; value: number }) {
     </div>
   );
 }
+

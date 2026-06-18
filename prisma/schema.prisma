@@ -124,6 +124,8 @@ model Language {
   cefrDescriptorsAsNative CefrDescriptor[] @relation("DescriptorNative")
   placementAsTarget PlacementQuestion[] @relation("PlacementTarget")
   placementAsNative PlacementQuestion[] @relation("PlacementNative")
+  onboardingAsTarget OnboardingWord[] @relation("OnboardingTarget")
+  onboardingAsNative OnboardingWord[] @relation("OnboardingNative")
 }
 
 model UserLanguage {
@@ -290,6 +292,29 @@ model PlacementQuestion {
 
   @@index([targetLanguageId, nativeLanguageId, cefrLevel])
   @@index([targetLanguageId, nativeLanguageId, isActive])
+}
+
+// 🎯 Onboarding Zero-Lesson
+// A very simple introductory lesson for a language pair
+model OnboardingWord {
+  id                String   @id @default(cuid())
+  targetLanguageId  String
+  targetLanguage    Language @relation("OnboardingTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId  String
+  nativeLanguage    Language @relation("OnboardingNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  word              String              // target-language word, e.g. "Hello"
+  translation       String              // native-language translation, e.g. "Салом"
+  transcription     String?             // IPA or transliteration
+  transcriptionTajik String?
+  emoji             String?             // e.g. "👋"
+  example           String?             // "Hello, friend!"
+  exampleTrans      String?             // "Салом, дӯстам!"
+  options           Json                // string[] of translation options for the quiz
+  audioUrl          String?
+  order             Int      @default(0)
+  createdAt         DateTime @default(now())
+
+  @@index([targetLanguageId, nativeLanguageId])
 }
 
 // ── Grammar system (Step 3) — language-agnostic, admin-driven ──
