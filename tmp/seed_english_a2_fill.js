@@ -2,7 +2,7 @@
 // Курс: cmptee4op0001z1hp7manp0fs. Матчинг бо titleTranslated.
 const https = require('https');
 const KEY = 'fed7e7577c761a598966f5a3f04a5b36fb3cea6fb4b6aca9a002a75f47a7f574d5fe49645fd78b75b3e53ff1fad892ad';
-const COURSE = 'cmptee4op0001z1hp7manp0fs';
+const COURSE = 'cmqk37tbq002kni4j3n8ez1sf';
 
 function api(method, p, body) {
   return new Promise((resolve, reject) => {

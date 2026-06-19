@@ -2,7 +2,7 @@
 const https = require('https');
 
 const API_KEY = 'fed7e7577c761a598966f5a3f04a5b36fb3cea6fb4b6aca9a002a75f47a7f574d5fe49645fd78b75b3e53ff1fad892ad';
-const COURSE_ID = 'cmqdhwb5q00021z597df2767m';
+const COURSE_ID = 'cmqk3iiuc0005qfwudzrz0uqr';
 
 function api(method, path, body) {
   return new Promise((resolve, reject) => {

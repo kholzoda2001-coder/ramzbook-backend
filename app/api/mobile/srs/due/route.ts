@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
       ? await prisma.word.findMany({
           where: { id: { in: wordIds } },
           select: {
-            id: true, word: true, translation: true, emoji: true, ipa: true,
+            id: true, word: true, translation: true, emoji: true, ipa: true, ipaTajik: true,
             example: true, exampleTrans: true, audioUrl: true,
           },
         })
@@ -54,6 +54,7 @@ export async function GET(req: NextRequest) {
               translation: w.translation,
               emoji: w.emoji ?? '',
               ipa: w.ipa ?? '',
+              ipaTajik: w.ipaTajik ?? '',
               example: w.example ?? '',
               exampleTrans: w.exampleTrans ?? '',
               audioUrl: w.audioUrl ?? '',

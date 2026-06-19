@@ -190,6 +190,7 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
         translation: w.translation,
         emoji: w.emoji ?? '',
         ipa: w.ipa ?? '',
+        ipaTajik: w.ipaTajik ?? '',
         example: w.example ?? '',
         exampleTrans: w.exampleTrans ?? '',
         audioUrl: w.audioUrl ?? '',

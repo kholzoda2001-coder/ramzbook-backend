@@ -7,7 +7,7 @@ const API_KEY = 'fed7e7577c761a598966f5a3f04a5b36fb3cea6fb4b6aca9a002a75f47a7f57
 const BASE_HOST = 'admin.ramz.tj';
 const TR_ID = 'cmqdgus870000c7nfz5z16xbx';  // Turkish language ID (аллакай сохта шудааст)
 const TG_ID = 'cmpk1cr9o0000bo0h1mheyoad';  // Tajik language ID
-const COURSE_ID = 'cmqdgwx740002c7nfgyzaaj8v'; // Course ID (аллакай сохта шудааст)
+const COURSE_ID = 'cmqk3ihwf0001qfwu8520a5vo'; // Course ID (аллакай сохта шудааст)
 
 function apiCall(method, path, body) {
   return new Promise((resolve, reject) => {
