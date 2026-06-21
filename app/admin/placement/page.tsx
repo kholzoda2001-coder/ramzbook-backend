@@ -1,5 +1,6 @@
 'use client';
 import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { CEFR_LEVELS } from '@/lib/cefr';
 
 const FIELD: React.CSSProperties = {
@@ -26,8 +27,9 @@ const EMPTY = {
 };
 
 function PlacementContent() {
+  const searchParams = useSearchParams();
   const [languages, setLanguages] = useState<Language[]>([]);
-  const [targetId, setTargetId] = useState('');
+  const [targetId, setTargetId] = useState(searchParams.get('targetLanguageId') || '');
   const [nativeId, setNativeId] = useState('');
   const [items, setItems] = useState<Question[]>([]);
   const [loading, setLoading] = useState(false);

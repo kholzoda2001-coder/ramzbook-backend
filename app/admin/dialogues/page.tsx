@@ -1,5 +1,6 @@
 'use client';
 import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { CEFR_LEVELS } from '@/lib/cefr';
 
 const FIELD: React.CSSProperties = {
@@ -19,8 +20,9 @@ interface DialogueDetail extends Dialogue { scenario: string | null; lines: Line
 const EMPTY_DIALOGUE = { title: '', titleTranslated: '', scenario: '', cefrLevel: '', emoji: '🎙️', isPremium: false };
 
 function DialoguesContent() {
+  const searchParams = useSearchParams();
   const [courses, setCourses] = useState<Course[]>([]);
-  const [courseId, setCourseId] = useState('');
+  const [courseId, setCourseId] = useState(searchParams.get('courseId') || '');
   const [dialogues, setDialogues] = useState<Dialogue[]>([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);

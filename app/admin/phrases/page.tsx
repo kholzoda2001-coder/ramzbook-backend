@@ -1,5 +1,6 @@
 'use client';
 import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { CEFR_LEVELS } from '@/lib/cefr';
 
 const FIELD: React.CSSProperties = {
@@ -19,8 +20,9 @@ interface CollectionDetail extends Collection { phrases: Phrase[]; }
 const EMPTY_COLLECTION = { title: '', titleTranslated: '', category: '', cefrLevel: '', emoji: '💬', isPremium: false };
 
 function PhrasesContent() {
+  const searchParams = useSearchParams();
   const [courses, setCourses] = useState<Course[]>([]);
-  const [courseId, setCourseId] = useState('');
+  const [courseId, setCourseId] = useState(searchParams.get('courseId') || '');
   const [collections, setCollections] = useState<Collection[]>([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);

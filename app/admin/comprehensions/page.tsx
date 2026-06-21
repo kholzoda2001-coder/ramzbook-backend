@@ -1,5 +1,6 @@
 'use client';
 import { Suspense, useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { CEFR_LEVELS } from '@/lib/cefr';
 
 const FIELD: React.CSSProperties = {
@@ -19,8 +20,9 @@ interface ComprehensionDetail extends Comprehension { passage: string; passageTr
 const EMPTY = { title: '', titleTranslated: '', passage: '', passageTranslated: '', kind: 'reading', audioUrl: '', cefrLevel: '', emoji: '📖', isPremium: false };
 
 function ComprehensionsContent() {
+  const searchParams = useSearchParams();
   const [courses, setCourses] = useState<Course[]>([]);
-  const [courseId, setCourseId] = useState('');
+  const [courseId, setCourseId] = useState(searchParams.get('courseId') || '');
   const [items, setItems] = useState<Comprehension[]>([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);

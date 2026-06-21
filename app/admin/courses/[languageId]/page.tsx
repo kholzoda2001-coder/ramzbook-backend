@@ -107,6 +107,16 @@ export default async function AdminLearningLanguagePage({
           </Link>
         </div>
 
+        <div className="fade-up" style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border)', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
+          <div>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>🎯 Санҷиши сатҳбандӣ (Placement Test)</h3>
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Санҷиши ибтидоӣ барои муайян кардани сатҳи дониши корбар (A1-C2).</p>
+          </div>
+          <Link href={`/admin/placement?targetLanguageId=${language.id}`} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '8px 16px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '13px' }}>
+            Таҳрир
+          </Link>
+        </div>
+
         <form method="GET" className="fade-up" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
           <select name="native" defaultValue={searchParams.native ?? ''} style={controlStyle}>
             <option value="">Ҳамаи забонҳои модарӣ</option>
@@ -173,6 +183,9 @@ export default async function AdminLearningLanguagePage({
                     <Link href={`/admin/modules?courseId=${course.id}`} style={actionStyle}>Модулҳо</Link>
                     <Link href={`/admin/lessons?courseId=${course.id}`} style={actionStyle}>Дарсҳо</Link>
                     <Link href={`/admin/grammar?courseId=${course.id}`} style={actionStyle}>Грамматика</Link>
+                    <Link href={`/admin/phrases?courseId=${course.id}`} style={actionStyle}>Ибораҳо</Link>
+                    <Link href={`/admin/dialogues?courseId=${course.id}`} style={actionStyle}>Муколамаҳо</Link>
+                    <Link href={`/admin/comprehensions?courseId=${course.id}`} style={actionStyle}>Дарк</Link>
                     <DeleteCourseBtn id={course.id} title={course.title} />
                   </div>
                 </div>
