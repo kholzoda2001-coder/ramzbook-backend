@@ -12,8 +12,10 @@ export interface AiSettingsConfig {
   enabled: boolean;
   freeLimit: number;     // messages/day for free users
   premiumLimit: number;  // messages/day for premium users
-  apiKey: string;        // OpenAI API key (secret — masked on read)
-  model: string;         // e.g. "gpt-4o-mini"
+  apiKey: string;        // API key (secret — masked on read)
+  model: string;         // e.g. "gpt-4o-mini" (OpenAI) or "gemini-2.0-flash" (Gemini)
+  baseUrl: string;       // OpenAI-compatible base URL; empty = OpenAI. e.g. Gemini:
+                         // https://generativelanguage.googleapis.com/v1beta/openai
   systemPrompt: string;  // base persona; {target}/{native}/{level} are substituted at call time
 }
 
@@ -41,6 +43,7 @@ export const defaultAiSettingsConfig: AiSettingsConfig = {
   premiumLimit: 20,
   apiKey: '',
   model: 'gpt-4o-mini',
+  baseUrl: '',
   systemPrompt: DEFAULT_SYSTEM_PROMPT,
 };
 
@@ -89,6 +92,7 @@ export function mergeAiSettingsUpdate(
   if (partial.freeLimit !== undefined) next.freeLimit = Math.max(0, Math.floor(partial.freeLimit));
   if (partial.premiumLimit !== undefined) next.premiumLimit = Math.max(0, Math.floor(partial.premiumLimit));
   if (partial.model !== undefined && partial.model.trim()) next.model = partial.model.trim();
+  if (partial.baseUrl !== undefined) next.baseUrl = partial.baseUrl.trim();
   if (partial.systemPrompt !== undefined && partial.systemPrompt.trim()) next.systemPrompt = partial.systemPrompt;
 
   if (partial.apiKey !== undefined) {

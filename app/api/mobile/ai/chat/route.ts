@@ -90,6 +90,7 @@ export async function POST(req: NextRequest) {
     const result = await openAiChat({
       apiKey,
       model: cfg.model,
+      baseUrl: cfg.baseUrl,
       messages: [{ role: 'system', content: systemContent }, ...history],
     });
 

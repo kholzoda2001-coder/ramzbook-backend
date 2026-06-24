@@ -1,7 +1,12 @@
 /**
- * Minimal OpenAI Chat Completions wrapper.
+ * Minimal OpenAI-compatible Chat Completions wrapper.
  * No SDK dependency — uses fetch with a hard timeout so a hung request can
- * never block the API route.
+ * never block the API route. Works with any provider that exposes the
+ * OpenAI Chat Completions format via `baseUrl`, e.g.:
+ *   - OpenAI:     https://api.openai.com/v1
+ *   - Gemini:     https://generativelanguage.googleapis.com/v1beta/openai
+ *   - Groq:       https://api.groq.com/openai/v1
+ *   - OpenRouter: https://openrouter.ai/api/v1
  */
 
 export interface ChatMessage {
@@ -16,7 +21,7 @@ export interface OpenAiChatResult {
   status?: number;
 }
 
-const ENDPOINT = 'https://api.openai.com/v1/chat/completions';
+const DEFAULT_BASE_URL = 'https://api.openai.com/v1';
 
 /**
  * Send a chat completion request. Returns { ok, reply } on success or
@@ -26,6 +31,7 @@ export async function openAiChat(params: {
   apiKey: string;
   model: string;
   messages: ChatMessage[];
+  baseUrl?: string;
   maxTokens?: number;
   temperature?: number;
   timeoutMs?: number;
@@ -33,8 +39,13 @@ export async function openAiChat(params: {
   const { apiKey, model, messages } = params;
   if (!apiKey) return { ok: false, error: 'No API key configured' };
 
+  // Normalise the base URL and build the chat-completions endpoint. Accepts a
+  // base with or without a trailing slash or a trailing /chat/completions.
+  const base = (params.baseUrl?.trim() || DEFAULT_BASE_URL).replace(/\/+$/, '');
+  const endpoint = base.endsWith('/chat/completions') ? base : `${base}/chat/completions`;
+
   try {
-    const res = await fetch(ENDPOINT, {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
