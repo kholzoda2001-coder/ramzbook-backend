@@ -75,6 +75,9 @@ model User {
   paymentTransactions PaymentTransaction[]
   paywallEvents     PaywallEvent[]
   srsCards          SrsCard[]
+  friendInvitesCreated  FriendInvite[]
+  friendStreaksAsUser1  FriendStreak[] @relation("FriendStreakUser1")
+  friendStreaksAsUser2  FriendStreak[] @relation("FriendStreakUser2")
 
   @@index([email])
   @@index([phone])
@@ -780,4 +783,55 @@ model StreakWager {
   resolvedAt     DateTime?
 
   @@index([userId, status])
+}
+
+/// Short-lived, single-use invite code for pairing a "Friend Streak" (see
+/// FriendStreak below). Deliberately NOT a friend-request/discovery system —
+/// the code itself, shared out-of-band via Share.share(), IS the consent
+/// mechanism: whoever redeems it deliberately typed in a secret the creator
+/// chose to hand them. 24h expiry + single-use keeps the blast radius small
+/// if a code leaks somewhere it shouldn't.
+model FriendInvite {
+  id               String    @id @default(cuid())
+  code             String    @unique // 6 chars, uppercase, unambiguous alphabet (see lib/friendStreak.ts)
+  creatorUserId    String
+  creator          User      @relation(fields: [creatorUserId], references: [id], onDelete: Cascade)
+  expiresAt        DateTime
+  consumedAt       DateTime?
+  consumedByUserId String?
+  createdAt        DateTime  @default(now())
+
+  @@index([creatorUserId])
+  @@index([code])
+}
+
+/// Duolingo's "Friend Streak" — a joint streak shared with exactly one other
+/// user (Duolingo reports +22% daily-lesson completion for users with an
+/// active one). v1 supports ONE active pairing per user (not Duolingo's
+/// up-to-5), matching this app's current ~30-user scale.
+///
+/// Resolution is lazy, exactly like StreakWager (see lib/friendStreak.ts's
+/// resolveFriendStreak() for the full reasoning) — no cron job. Each side
+/// tracks its OWN [startStreakN]/[lastSeenStreakN] against that same side's
+/// live User.streak, because the two users' streak counters are completely
+/// independent counters that happen to be compared. If EITHER side's live
+/// streak has dropped below that side's lastSeen checkpoint, the joint
+/// streak is broken for both. Otherwise the joint "days" shown to both users
+/// is min(user1.streak - startStreak1, user2.streak - startStreak2).
+model FriendStreak {
+  id              String    @id @default(cuid())
+  user1Id         String
+  user1           User      @relation("FriendStreakUser1", fields: [user1Id], references: [id], onDelete: Cascade)
+  user2Id         String
+  user2           User      @relation("FriendStreakUser2", fields: [user2Id], references: [id], onDelete: Cascade)
+  startStreak1    Int       // user1.streak at the moment the pairing was formed
+  startStreak2    Int       // user2.streak at the moment the pairing was formed
+  lastSeenStreak1 Int       // updated on each lazy check; a drop below this means user1's side broke
+  lastSeenStreak2 Int       // updated on each lazy check; a drop below this means user2's side broke
+  status          String    @default("active") // active | broken
+  createdAt       DateTime  @default(now())
+  brokenAt        DateTime?
+
+  @@index([user1Id, status])
+  @@index([user2Id, status])
 }
