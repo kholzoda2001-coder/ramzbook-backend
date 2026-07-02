@@ -67,6 +67,7 @@ model User {
   subscriptions     Subscription[]
   payments          Payment[]
   gemTransactions   GemTransaction[]
+  streakWagers      StreakWager[]
   userLanguages     UserLanguage[]
   refreshTokens     RefreshToken[]
   dailyXp           DailyXp[]
@@ -756,4 +757,27 @@ model PaywallEvent {
   @@index([userId, trigger])
   @@index([trigger, action])
   @@index([createdAt])
+}
+
+/// "Double or Nothing" streak wager — the single most concretely-proven
+/// individual retention mechanic found in the P0-P4 retention research pass
+/// (Duolingo reports +14% Day-7 retention from this exact feature). A user
+/// stakes gems on keeping their streak alive for [targetDays] more days; win
+/// pays back double, loss forfeits the stake. Resolution is lazy (checked on
+/// read, see lib/wager.ts) against [lastSeenStreak] so a break is detected
+/// even though we don't log day-by-day — see resolveWager()'s doc comment
+/// for why that's still correct.
+model StreakWager {
+  id             String    @id @default(cuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  gemsWagered    Int
+  targetDays     Int
+  startStreak    Int       // user.streak at the moment the wager was placed
+  lastSeenStreak Int       // updated on each lazy check; a drop below this means the streak broke
+  status         String    @default("active") // active | won | lost
+  createdAt      DateTime  @default(now())
+  resolvedAt     DateTime?
+
+  @@index([userId, status])
 }
