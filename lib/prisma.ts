@@ -18,6 +18,7 @@ import { PrismaClient } from '@prisma/client';
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
+  prismaVersionMiddlewareAttached: boolean | undefined;
 };
 
 export const prisma =
@@ -27,3 +28,50 @@ export const prisma =
   });
 
 globalForPrisma.prisma = prisma;
+
+/**
+ * Content-version cache-busting (hybrid cache system).
+ *
+ * The mobile app caches admin-driven content (courses/lessons/words/grammar/…)
+ * on-device with a multi-hour TTL to cut server load. Without this, an admin
+ * edit wouldn't reach already-cached learners for up to a day. To fix that
+ * without giving up the caching benefit, every write to a content model here
+ * bumps `AppSetting.content_version`'s `updatedAt` — a single cheap row the
+ * app polls on every open via GET /api/mobile/content-version. If the app's
+ * locally stored version differs, it invalidates its cache and refetches;
+ * otherwise the existing TTL cache keeps serving with zero extra server load.
+ */
+const CONTENT_MODELS = new Set([
+  'Course', 'Module', 'Lesson', 'Word', 'GrammarTopic', 'GrammarExample',
+  'GrammarRule', 'GrammarExercise', 'PhraseCollection', 'Phrase', 'Dialogue',
+  'DialogueLine', 'ComprehensionExercise', 'ComprehensionQuestion', 'Language',
+  'CefrDescriptor', 'OnboardingWord', 'PlacementQuestion', 'UiTranslation',
+]);
+const WRITE_ACTIONS = new Set([
+  'create', 'createMany', 'update', 'updateMany', 'upsert', 'delete', 'deleteMany',
+]);
+
+if (!globalForPrisma.prismaVersionMiddlewareAttached) {
+  globalForPrisma.prismaVersionMiddlewareAttached = true;
+  prisma.$use(async (params, next) => {
+    const result = await next(params);
+    if (params.model && CONTENT_MODELS.has(params.model) && WRITE_ACTIONS.has(params.action)) {
+      // Awaited (not fire-and-forget): on Vercel serverless, work started
+      // after the response is sent isn't guaranteed to finish, so this must
+      // complete before the admin request returns. It's a single cheap
+      // upsert and admin writes aren't a hot path, so the added latency is
+      // negligible. Wrapped so a bump failure never fails the real write,
+      // which has already succeeded above.
+      try {
+        await prisma.appSetting.upsert({
+          where: { key: 'content_version' },
+          create: { key: 'content_version', valueJson: '"1"' },
+          update: { valueJson: '"1"' },
+        });
+      } catch (e) {
+        console.error('[content_version bump failed]', e);
+      }
+    }
+    return result;
+  });
+}
