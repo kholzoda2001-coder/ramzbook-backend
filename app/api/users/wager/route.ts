@@ -19,6 +19,6 @@ export async function GET(req: Request) {
     return NextResponse.json(result);
   } catch (error) {
     console.error('[wager GET]', error);
-    return NextResponse.json({ error: 'Failed to load wager status' }, { status: 500 });
+    return NextResponse.json({ error: 'Хатогӣ ҳангоми гирифтани ҳолати гарав.' }, { status: 500 });
   }
 }

@@ -21,7 +21,8 @@ export async function POST(req: Request) {
     // block starting a fresh one.
     const existing = await resolveActiveWager(auth.id);
     if (existing.status === 'active') {
-      return NextResponse.json({ error: 'You already have an active wager.' }, { status: 400 });
+      // Tajik: user-facing (surfaced verbatim in the mobile app's error snackbar).
+      return NextResponse.json({ error: 'Шумо аллакай як гарав доред.' }, { status: 400 });
     }
 
     const user = await prisma.user.findUnique({
@@ -31,7 +32,8 @@ export async function POST(req: Request) {
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     if (user.gems < WAGER_GEM_COST) {
-      return NextResponse.json({ error: 'Not enough gems' }, { status: 400 });
+      // Tajik: user-facing.
+      return NextResponse.json({ error: `Гемҳои шумо кофӣ нест (${WAGER_GEM_COST} гем лозим аст).` }, { status: 400 });
     }
 
     const [, wager] = await prisma.$transaction([
@@ -62,6 +64,6 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error('[wager/start POST]', error);
-    return NextResponse.json({ error: 'Failed to start wager' }, { status: 500 });
+    return NextResponse.json({ error: 'Хатогӣ ҳангоми гузоштани гарав.' }, { status: 500 });
   }
 }
