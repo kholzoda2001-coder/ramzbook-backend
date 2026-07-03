@@ -61,8 +61,9 @@ export async function POST(req: NextRequest) {
         email = `mock_${slug}@ramzbook.dev`;
         name = 'Dev Google';
       } else if (clientId) {
-        const client = new OAuth2Client(clientId);
-        const ticket = await client.verifyIdToken({ idToken, audience: clientId });
+        const clientIds = clientId.split(',').map(s => s.trim());
+        const client = new OAuth2Client(clientIds[0]);
+        const ticket = await client.verifyIdToken({ idToken, audience: clientIds });
         const payload = ticket.getPayload();
         if (!payload?.email) {
           return Response.json({ error: 'Google token бе email.' }, { status: 400, headers: CORS });
