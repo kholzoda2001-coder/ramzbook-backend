@@ -52,14 +52,17 @@ export const PAYWALL_OFFERS: Record<PaywallTrigger, PaywallOffer> = {
     message: '5 дарс тамом! Бо 7 рӯзи озмоиши ройгон тезтар пеш равед',
     cta: '7 рӯз ройгон',
   },
+  // Fired when a learner finishes a level. Content is FREE (never gated), so
+  // this celebrates the milestone and sells CONVENIENCE — unlimited hearts + AI
+  // — not locked content. Keeps the trigger key for cooldown/analytics history.
   level_locked: {
     trigger: 'level_locked',
     priority: 85,
     cooldownHours: 24 * 7,
     offer: 'trial',
-    title: 'Табрик! A1 тамом шуд 🏆',
-    message: 'Сатҳи A2–C1 бо Premium кушода мешавад',
-    cta: 'Кушодани A2',
+    title: 'Табрик! Сатҳи A1 тамом шуд 🏆',
+    message: '♾️ Бо Premium дили бемаҳдуд ва AI-тютори номаҳдуд гир — бе таваққуф омӯз',
+    cta: 'Озмоиши ройгон',
   },
   league_promoted: {
     trigger: 'league_promoted',
