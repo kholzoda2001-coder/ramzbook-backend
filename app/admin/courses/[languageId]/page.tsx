@@ -109,6 +109,16 @@ export default async function AdminLearningLanguagePage({
 
         <div className="fade-up" style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border)', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
           <div>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>🔤 Алифбо</h3>
+            <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Ҳарфҳои алифбои ин забон (садонок/ҳамсадо/аломат), бо IPA ва транскрипсияи тоҷикӣ — дар барномаи мобилӣ тавассути тугмаи «Алифбо» нишон дода мешавад.</p>
+          </div>
+          <Link href={`/admin/courses/${language.id}/alphabet`} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border)', color: 'var(--text-primary)', padding: '8px 16px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '13px' }}>
+            Таҳрир
+          </Link>
+        </div>
+
+        <div className="fade-up" style={{ background: 'rgba(255,255,255,0.02)', padding: '16px', borderRadius: '12px', border: '1px solid var(--border)', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
+          <div>
             <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>🎯 Санҷиши сатҳбандӣ (Placement Test)</h3>
             <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Санҷиши ибтидоӣ барои муайян кардани сатҳи дониши корбар (A1-C2).</p>
           </div>

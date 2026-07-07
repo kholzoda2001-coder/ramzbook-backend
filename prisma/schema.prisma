@@ -130,6 +130,8 @@ model Language {
   placementAsNative PlacementQuestion[] @relation("PlacementNative")
   onboardingAsTarget OnboardingWord[] @relation("OnboardingTarget")
   onboardingAsNative OnboardingWord[] @relation("OnboardingNative")
+  alphabetAsTarget  AlphabetLetter[] @relation("AlphabetTarget")
+  alphabetAsNative  AlphabetLetter[] @relation("AlphabetNative")
 }
 
 model UserLanguage {
@@ -320,6 +322,26 @@ model OnboardingWord {
   createdAt         DateTime @default(now())
 
   @@index([targetLanguageId, nativeLanguageId])
+}
+
+// 🔤 Alphabet — one row per letter of the target language's script, scoped to
+// a (target, native) language pair like OnboardingWord (an alphabet doesn't
+// vary by course/CEFR level, only by which script the target language uses).
+model AlphabetLetter {
+  id                 String   @id @default(cuid())
+  targetLanguageId   String
+  targetLanguage     Language @relation("AlphabetTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId   String
+  nativeLanguage     Language @relation("AlphabetNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  uppercase          String              // "A", "Б", ...
+  lowercase          String              // "a", "б", ...
+  ipa                String?             // international phonetic symbol, e.g. "/eɪ/"
+  tajikTranscription String?             // Tajik-script pronunciation hint, e.g. "Эй"
+  category           String              // "vowel" | "consonant" | "sign"
+  order              Int      @default(0)
+  createdAt          DateTime @default(now())
+
+  @@index([targetLanguageId, nativeLanguageId, order])
 }
 
 // ── Grammar system (Step 3) — language-agnostic, admin-driven ──
