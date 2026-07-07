@@ -16,10 +16,10 @@ const SMALL_DEL: React.CSSProperties = { background: 'rgba(239,68,68,0.1)', colo
 interface Language { id: string; code: string; name: string; nativeName: string; flag: string; canBeTarget: boolean; canBeNative: boolean; }
 interface Letter {
   id: string; uppercase: string; lowercase: string; ipa: string | null;
-  tajikTranscription: string | null; category: string; order: number;
+  tajikTranscription: string | null; category: string; audioUrl: string | null; order: number;
 }
 
-const EMPTY = { uppercase: '', lowercase: '', ipa: '', tajikTranscription: '', category: 'vowel', order: 0 };
+const EMPTY = { uppercase: '', lowercase: '', ipa: '', tajikTranscription: '', category: 'vowel', audioUrl: '', order: 0 };
 
 const CATEGORY_LABEL: Record<string, string> = { vowel: 'Садонок', consonant: 'Ҳамсадо', sign: 'Аломат' };
 
@@ -67,7 +67,7 @@ function AlphabetContent() {
       const payload = {
         targetLanguageId: targetId, nativeLanguageId: nativeId,
         uppercase: form.uppercase, lowercase: form.lowercase, ipa: form.ipa,
-        tajikTranscription: form.tajikTranscription, category: form.category, order: form.order,
+        tajikTranscription: form.tajikTranscription, category: form.category, audioUrl: form.audioUrl, order: form.order,
       };
 
       const m = editId ? 'PUT' : 'POST';
@@ -93,7 +93,7 @@ function AlphabetContent() {
   function editL(l: Letter) {
     setForm({
       uppercase: l.uppercase, lowercase: l.lowercase, ipa: l.ipa || '',
-      tajikTranscription: l.tajikTranscription || '', category: l.category, order: l.order,
+      tajikTranscription: l.tajikTranscription || '', category: l.category, audioUrl: l.audioUrl || '', order: l.order,
     });
     setEditId(l.id); setShowForm(true);
   }
@@ -147,7 +147,7 @@ function AlphabetContent() {
                 <div><span style={LABEL}>Транскрипсияи тоҷикӣ</span><input style={FIELD} value={form.tajikTranscription} onChange={e => setForm({...form, tajikTranscription: e.target.value})} placeholder="e.g. Эй" /></div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px', gap: '16px', marginBottom: '20px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px', gap: '16px', marginBottom: '16px' }}>
                 <div>
                   <span style={LABEL}>Навъ</span>
                   <select style={FIELD} value={form.category} onChange={e => setForm({...form, category: e.target.value})}>
@@ -157,6 +157,11 @@ function AlphabetContent() {
                   </select>
                 </div>
                 <div><span style={LABEL}>Order</span><input type="number" style={FIELD} value={form.order} onChange={e => setForm({...form, order: parseInt(e.target.value)||0})} /></div>
+              </div>
+
+              <div style={{ marginBottom: '20px' }}>
+                <span style={LABEL}>Audio URL (овози воқеӣ — тавассути скрипти TTS пур мешавад)</span>
+                <input style={FIELD} value={form.audioUrl} onChange={e => setForm({...form, audioUrl: e.target.value})} placeholder="https://cdn.jsdelivr.net/..." />
               </div>
 
               <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
@@ -181,6 +186,9 @@ function AlphabetContent() {
                     <div style={{ color: 'var(--text-primary)', fontSize: '14px' }}>
                       {l.tajikTranscription ? `[${l.tajikTranscription}]` : '—'}
                     </div>
+                  </div>
+                  <div style={{ fontSize: '16px' }} title={l.audioUrl ? 'Овози воқеӣ мавҷуд' : 'Ҳанӯз овоз нест — device TTS истифода мешавад'}>
+                    {l.audioUrl ? '🔊' : '🔇'}
                   </div>
                   <div style={{ color: 'var(--text3)', fontSize: '12px' }}>order: {l.order}</div>
                   <div style={{ display: 'flex', gap: '8px' }}>

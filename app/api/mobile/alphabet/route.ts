@@ -33,6 +33,7 @@ export async function GET(req: NextRequest) {
         ipa: l.ipa ?? '',
         tajikTranscription: l.tajikTranscription ?? '',
         category: l.category,
+        audioUrl: l.audioUrl ?? '',
         order: l.order,
       })),
     });
