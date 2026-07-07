@@ -338,7 +338,6 @@ model AlphabetLetter {
   ipa                String?             // international phonetic symbol, e.g. "/eɪ/"
   tajikTranscription String?             // Tajik-script pronunciation hint, e.g. "Эй"
   category           String              // "vowel" | "consonant" | "sign"
-  audioUrl           String?             // real recorded pronunciation (TTS-generated), not the device's on-device TTS
   order              Int      @default(0)
   createdAt          DateTime @default(now())
 
