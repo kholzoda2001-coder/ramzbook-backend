@@ -82,9 +82,15 @@ const russianSigns = [
   ['Ь', 'ь', '—', 'Аломати нарм (мулоим мекунад)'],
 ];
 
-async function seed(targetLanguageId, group, category, { includeIpa = true } = {}) {
-  for (let i = 0; i < group.length; i++) {
-    const [uppercase, lowercase, ipa, tajikTranscription] = group[i];
+// Full alphabet in true alphabetical order — `order` is the letter's GLOBAL
+// position here, NOT its index within its category. This is what makes the
+// combined "Алфавит" tab read A,B,C,D,E… instead of interleaving vowels and
+// consonants (each of which used to restart at 0).
+const EN_ORDER = 'abcdefghijklmnopqrstuvwxyz';
+const RU_ORDER = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+
+async function seed(targetLanguageId, group, category, orderStr, { includeIpa = true } = {}) {
+  for (const [uppercase, lowercase, ipa, tajikTranscription] of group) {
     await prisma.alphabetLetter.create({
       data: {
         targetLanguageId,
@@ -99,7 +105,7 @@ async function seed(targetLanguageId, group, category, { includeIpa = true } = {
         ipa: includeIpa ? ipa : null,
         tajikTranscription,
         category,
-        order: i,
+        order: orderStr.indexOf(lowercase.toLowerCase()),
       },
     });
   }
@@ -115,11 +121,11 @@ async function main() {
     },
   });
 
-  await seed(ENGLISH_TARGET_ID, englishVowels, 'vowel');
-  await seed(ENGLISH_TARGET_ID, englishConsonants, 'consonant');
-  await seed(RUSSIAN_TARGET_ID, russianVowels, 'vowel', { includeIpa: false });
-  await seed(RUSSIAN_TARGET_ID, russianConsonants, 'consonant', { includeIpa: false });
-  await seed(RUSSIAN_TARGET_ID, russianSigns, 'sign', { includeIpa: false });
+  await seed(ENGLISH_TARGET_ID, englishVowels, 'vowel', EN_ORDER);
+  await seed(ENGLISH_TARGET_ID, englishConsonants, 'consonant', EN_ORDER);
+  await seed(RUSSIAN_TARGET_ID, russianVowels, 'vowel', RU_ORDER, { includeIpa: false });
+  await seed(RUSSIAN_TARGET_ID, russianConsonants, 'consonant', RU_ORDER, { includeIpa: false });
+  await seed(RUSSIAN_TARGET_ID, russianSigns, 'sign', RU_ORDER, { includeIpa: false });
 
   const enCount = await prisma.alphabetLetter.count({ where: { targetLanguageId: ENGLISH_TARGET_ID } });
   const ruCount = await prisma.alphabetLetter.count({ where: { targetLanguageId: RUSSIAN_TARGET_ID } });
