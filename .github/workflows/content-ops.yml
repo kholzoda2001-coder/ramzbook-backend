@@ -1,0 +1,53 @@
+name: Content Ops
+
+# Runs seeding / audio scripts on a fast GitHub runner (a datacenter near Neon)
+# instead of a laptop in Tajikistan. Free (2000 min/month) and immune to the
+# flaky TJ→Europe link and Neon cold starts that break local runs. Trigger it
+# manually from the repo's "Actions" tab → "Content Ops" → "Run workflow".
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   DATABASE_URL     — the Neon connection string (same as local .env)
+#   OPENAI_API_KEY   — only for audio jobs
+#   RAMZ_AUDIO_PAT   — only for audio jobs: a GitHub token with write access to
+#                      the kholzoda2001-coder/ramz-audio repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: 'Script under prisma/ (e.g. a2-m3.mjs or gen-all-audio.mjs)'
+        required: true
+        default: 'gen-all-audio.mjs'
+      audio:
+        description: 'Audio job? (clones + pushes ramz-audio)'
+        type: boolean
+        default: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Prisma generate
+        run: npx prisma generate
+      - name: Clone ramz-audio (audio jobs only)
+        if: ${{ inputs.audio }}
+        run: git clone --depth 1 --filter=blob:none "https://x-access-token:${{ secrets.RAMZ_AUDIO_PAT }}@github.com/kholzoda2001-coder/ramz-audio.git" "$RUNNER_TEMP/ramz-audio"
+      - name: Run script
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          mkdir -p tmp
+          if [ "${{ inputs.audio }}" = "true" ]; then
+            node prisma/gen-audio-fetch.mjs
+            node "prisma/${{ inputs.script }}" "$RUNNER_TEMP/ramz-audio/audio/en"
+          else
+            node "prisma/${{ inputs.script }}"
+          fi
