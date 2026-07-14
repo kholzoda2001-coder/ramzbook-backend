@@ -1,6 +1,6 @@
 import { W, buildModule, refreshExisting, bumpVersion, done } from './b1-module-builder.mjs';
 
-const M = {
+export const M = {
   order: 3, title: 'Module 3: Entertainment and Media', titleTranslated: 'Модули 3: Вақтхушӣ ва ВАО',
   emoji: '🍿', color: '#F59E0B',
   vocab: [
@@ -198,9 +198,3 @@ const M = {
     ],
   },
 };
-
-await buildModule(M);
-await refreshExisting();
-await bumpVersion();
-await done();
-console.log('✅ Модули 3 (B1) тайёр.');

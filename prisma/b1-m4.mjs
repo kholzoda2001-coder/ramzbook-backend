@@ -1,6 +1,6 @@
 import { W, buildModule, refreshExisting, bumpVersion, done } from './b1-module-builder.mjs';
 
-const M = {
+export const M = {
   order: 4, title: 'Module 4: Environment and Nature', titleTranslated: 'Модули 4: Муҳити Зист ва Табиат',
   emoji: '🌍', color: '#10B981',
   vocab: [
@@ -194,9 +194,3 @@ Unless маънои "if not"-ро дорад. Баъди unless мо феъли 
     ],
   },
 };
-
-await buildModule(M);
-await refreshExisting();
-await bumpVersion();
-await done();
-console.log('✅ Модули 4 (B1) тайёр.');
