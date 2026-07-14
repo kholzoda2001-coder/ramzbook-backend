@@ -145,11 +145,11 @@ const M = {
     passage: 'Next month my family is going to travel to Turkey. We are going to fly from Dushanbe. My father already booked the flight and the hotel. The hotel is near the beach and has a wonderful view. We are going to sunbathe, explore the old city, and buy souvenirs. My sister thinks the weather will be sunny and hot. I hope our flight will not be delayed. I am sure it will be an amazing holiday.',
     passageTranslated: 'Моҳи оянда оилаи ман ба Туркия сафар мекунад. Мо аз Душанбе парвоз мекунем. Падарам аллакай парвоз ва меҳмонхонаро банд кардааст. Меҳмонхона наздики соҳил аст ва манзараи аҷоиб дорад. Мо офтобхӯрӣ мекунем, шаҳри кӯҳнаро мегардем ва тӯҳфаҳои ёдгорӣ мехарем. Хоҳарам фикр мекунад, ки ҳаво офтобӣ ва гарм мешавад. Умедворам, ки парвози мо таъхир намешавад. Боварӣ дорам, ки ин таътили аҷоиб мешавад.',
     questions: [
-      { question:'Where is the family going?', questionTranslated:'Оила ба куҷо меравад?', options:['Turkey','Dubai','Russia'], correctIndex:0, explanation:'going to travel to Turkey.' },
-      { question:'Who booked the flight?', questionTranslated:'Парвозро кӣ банд кард?', options:['His father','His sister','He'], correctIndex:0, explanation:'My father already booked.' },
+      { question:'Where is the family going?', questionTranslated:'Оила ба куҷо меравад?', options:['Russia','Dubai','Turkey'], correctIndex:2, explanation:'going to travel to Turkey.' },
+      { question:'Who booked the flight?', questionTranslated:'Парвозро кӣ банд кард?', options:['He','His father','His sister'], correctIndex:1, explanation:'My father already booked.' },
       { question:'What is near the hotel?', questionTranslated:'Наздики меҳмонхона чӣ ҳаст?', options:['A mountain','The beach','An airport'], correctIndex:1, explanation:'near the beach.' },
       { question:'What does the sister think about the weather?', questionTranslated:'Хоҳараш дар бораи ҳаво чӣ фикр мекунад?', options:['It will rain','It will be sunny and hot','It will be cold'], correctIndex:1, explanation:'the weather will be sunny and hot.' },
-      { question:'What does the writer hope?', questionTranslated:'Нависанда чӣ умед дорад?', options:['The flight will not be delayed','The hotel is cheap','The trip is short'], correctIndex:0, explanation:'our flight will not be delayed.' },
+      { question:'What does the writer hope?', questionTranslated:'Нависанда чӣ умед дорад?', options:['The trip is short','The hotel is cheap','The flight will not be delayed'], correctIndex:2, explanation:'our flight will not be delayed.' },
     ],
   },
   dialogue: {
@@ -174,7 +174,7 @@ const M = {
     passageTranslated: 'Соли гузашта ману дӯстонам нақша кашидем. Мо мехостем як рӯзи истироҳатро дар кӯҳҳои Тоҷикистон гузаронем. Мо рюкзакҳоямонро бо либоси гарм ва хӯрок ҷамъ кардем. Сафар дароз, вале зебо буд. Вақте расидем, дар назди кӯли осоишта хайма задем. Ҷой дурдаст ва ором буд, бе мошинҳои пурғавғо. Шом мо оташ афрӯхтем ва ба ситораҳо нигоҳ кардем. Субҳи дигар мо ноҳияро гаштем ва аксҳои зиёд гирифтем. Ин саргузашти аҷоиб буд ва мо тобистони оянда боз ба он ҷо меравем.',
     questions: [
       { question:'Where did they go?', questionTranslated:'Онҳо ба куҷо рафтанд?', options:['To the sea','To the mountains','To a city'], correctIndex:1, explanation:'a weekend in the mountains.' },
-      { question:'What did they pack?', questionTranslated:'Онҳо чӣ ҷамъ карданд?', options:['Warm clothes and food','Only phones','Books'], correctIndex:0, explanation:'warm clothes and food.' },
+      { question:'What did they pack?', questionTranslated:'Онҳо чӣ ҷамъ карданд?', options:['Only phones','Books','Warm clothes and food'], correctIndex:2, explanation:'warm clothes and food.' },
       { question:'How was the place?', questionTranslated:'Ҷой чӣ гуна буд?', options:['Crowded and noisy','Faraway and quiet','Hot and busy'], correctIndex:1, explanation:'faraway and quiet.' },
       { question:'What did they do in the evening?', questionTranslated:'Онҳо шом чӣ карданд?', options:['Made a fire','Went shopping','Slept early'], correctIndex:0, explanation:'we made a fire.' },
       { question:'What is their future plan?', questionTranslated:'Нақшаи ояндаи онҳо чист?', options:['Go there again next summer','Never return','Move there'], correctIndex:0, explanation:'going to go there again next summer.' },
@@ -184,11 +184,11 @@ const M = {
     passage: 'Malika is going to travel to London next week. It is her first trip abroad, so she is a little nervous. She has already got her passport and visa. She is going to fly on Monday morning. Her friend told her that London will be cold and rainy, so she is going to pack a warm coat. In London she is going to visit famous historic places and take a lot of photos. She thinks she will love the city. She is not going to buy expensive things, only a few small souvenirs for her family.',
     passageTranslated: 'Малика ҳафтаи оянда ба Лондон сафар мекунад. Ин аввалин сафари ӯ ба хориҷ аст, бинобар ин ӯ каме ба ташвиш аст. Ӯ аллакай шиноснома ва раводидашро гирифтааст. Ӯ рӯзи душанбе субҳ парвоз мекунад. Дӯсташ ба ӯ гуфт, ки Лондон хунук ва боронӣ мешавад, бинобар ин ӯ пальтои гарм мегирад. Дар Лондон ӯ ҷойҳои машҳури таърихиро мебинад ва аксҳои зиёд мегирад. Ӯ фикр мекунад, ки шаҳрро дӯст медорад. Ӯ чизҳои гарон намехарад, танҳо якчанд тӯҳфаи хурд барои оилааш.',
     questions: [
-      { question:'Where is Malika going?', questionTranslated:'Малика ба куҷо меравад?', options:['London','Paris','Dubai'], correctIndex:0, explanation:'going to travel to London.' },
-      { question:'What has she already got?', questionTranslated:'Ӯ аллакай чӣ гирифтааст?', options:['Her passport and visa','A new car','A hotel job'], correctIndex:0, explanation:'already got her passport and visa.' },
-      { question:'Why is she going to pack a warm coat?', questionTranslated:'Чаро ӯ пальтои гарм мегирад?', options:['London will be cold and rainy','It is winter here','She is cold'], correctIndex:0, explanation:'London will be cold and rainy.' },
+      { question:'Where is Malika going?', questionTranslated:'Малика ба куҷо меравад?', options:['Paris','London','Dubai'], correctIndex:1, explanation:'going to travel to London.' },
+      { question:'What has she already got?', questionTranslated:'Ӯ аллакай чӣ гирифтааст?', options:['Her passport and visa','A hotel job','A new car'], correctIndex:0, explanation:'already got her passport and visa.' },
+      { question:'Why is she going to pack a warm coat?', questionTranslated:'Чаро ӯ пальтои гарм мегирад?', options:['London will be cold and rainy','She is cold','It is winter here'], correctIndex:0, explanation:'London will be cold and rainy.' },
       { question:'What is she going to buy?', questionTranslated:'Ӯ чӣ мехарад?', options:['Expensive things','A few small souvenirs','Nothing'], correctIndex:1, explanation:'only a few small souvenirs.' },
-      { question:'How does she feel?', questionTranslated:'Ӯ чӣ ҳис мекунад?', options:['A little nervous','Very bored','Angry'], correctIndex:0, explanation:'she is a little nervous.' },
+      { question:'How does she feel?', questionTranslated:'Ӯ чӣ ҳис мекунад?', options:['Angry','A little nervous','Very bored'], correctIndex:1, explanation:'she is a little nervous.' },
     ],
   },
   exam: {
@@ -197,9 +197,9 @@ const M = {
     questions: [
       { question:'How are they going to travel?', questionTranslated:'Онҳо чӣ хел сафар мекунанд?', options:['By plane','By car','By train'], correctIndex:1, explanation:'going to drive to the countryside.' },
       { question:'Where will they stay?', questionTranslated:'Онҳо дар куҷо мемонанд?', options:['A hotel','A small house near a river','A tent in a city'], correctIndex:1, explanation:'a small house near a river.' },
-      { question:'Why are the children excited?', questionTranslated:'Чаро кӯдакон шоданд?', options:['They will swim, fish and camp','They will fly','They will shop'], correctIndex:0, explanation:'going to swim, fish, and camp.' },
-      { question:'What does Mrs Karimova think?', questionTranslated:'Хонум Каримова чӣ фикр мекунад?', options:['The fresh air will be good','The trip is too long','It will rain'], correctIndex:0, explanation:'the fresh air will be good for the children.' },
-      { question:'What is the most important thing?', questionTranslated:'Муҳимтарин чиз чист?', options:['Spending time together','Saving money','Seeing the sea'], correctIndex:0, explanation:'We will spend time together.' },
+      { question:'Why are the children excited?', questionTranslated:'Чаро кӯдакон шоданд?', options:[fish and camp','They will fly','They will shop','They will swim], correctIndex:3, explanation:'going to swim, fish, and camp.' },
+      { question:'What does Mrs Karimova think?', questionTranslated:'Хонум Каримова чӣ фикр мекунад?', options:['It will rain','The trip is too long','The fresh air will be good'], correctIndex:2, explanation:'the fresh air will be good for the children.' },
+      { question:'What is the most important thing?', questionTranslated:'Муҳимтарин чиз чист?', options:['Seeing the sea','Spending time together','Saving money'], correctIndex:1, explanation:'We will spend time together.' },
     ],
   },
 };

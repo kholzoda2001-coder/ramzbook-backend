@@ -143,7 +143,7 @@ const M = {
     passage: 'I have two brothers, Aziz and Farrukh. Aziz is older than Farrukh. He is tall and hardworking. Farrukh is shorter, but he is the funniest person in our family. Aziz is more serious than Farrukh. They are both kind and friendly. I think Farrukh is the cleverest, but Aziz is the strongest. I love them both.',
     passageTranslated: 'Ман ду бародар дорам — Азиз ва Фаррух. Азиз аз Фаррух калонтар аст. Ӯ қадбаланд ва меҳнатдӯст аст. Фаррух пасттар аст, вале ӯ хандаовартарин шахс дар оилаи мост. Азиз аз Фаррух ҷиддитар аст. Ҳарду меҳрубон ва дӯстонаанд. Ба фикрам, Фаррух зирактарин аст, вале Азиз пурқувваттарин. Ман ҳардуро дӯст медорам.',
     questions: [
-      { question:'Who is older?', questionTranslated:'Кӣ калонтар аст?', options:['Aziz','Farrukh','The same age'], correctIndex:0, explanation:'Aziz is older than Farrukh.' },
+      { question:'Who is older?', questionTranslated:'Кӣ калонтар аст?', options:['Farrukh','Aziz','The same age'], correctIndex:1, explanation:'Aziz is older than Farrukh.' },
       { question:'Who is the funniest?', questionTranslated:'Кӣ хандаовартарин аст?', options:['Aziz','Farrukh','The writer'], correctIndex:1, explanation:'Farrukh ... the funniest person.' },
       { question:'Who is more serious?', questionTranslated:'Кӣ ҷиддитар аст?', options:['Farrukh','Aziz','Both'], correctIndex:1, explanation:'Aziz is more serious.' },
       { question:'Who is the cleverest?', questionTranslated:'Кӣ зирактарин аст?', options:['Aziz','Farrukh','Neither'], correctIndex:1, explanation:'Farrukh is the cleverest.' },
@@ -172,7 +172,7 @@ const M = {
     passageTranslated: 'Дӯсти беҳтарини ман Сардор аст. Ӯ аз ман қадбаландтар ва каме калонтар аст. Ӯ мӯи кӯтоҳи сиёҳ ва табассуми дӯстона дорад. Сардор дар синфи мо зирактарин писар аст, вале ҳеҷ гоҳ дағал нест. Ӯ аз ман сабртар аст ва ҳамеша ба дигарон кӯмак мекунад. Оилаи ӯ аз оилаи ман калонтар аст — ӯ чор бародар дорад. Ба фикрам, ӯ меҳрубонтарин шахсест, ки ман медонам.',
     questions: [
       { question:'How is Sardor compared to the writer?', questionTranslated:'Сардор нисбат ба нависанда чӣ гуна аст?', options:['Shorter and younger','Taller and older','The same'], correctIndex:1, explanation:'taller than me and a bit older.' },
-      { question:'How clever is Sardor?', questionTranslated:'Сардор чӣ қадар зирак аст?', options:['The cleverest in the class','Average','Not clever'], correctIndex:0, explanation:'the cleverest boy in our class.' },
+      { question:'How clever is Sardor?', questionTranslated:'Сардор чӣ қадар зирак аст?', options:['Average','Not clever','The cleverest in the class'], correctIndex:2, explanation:'the cleverest boy in our class.' },
       { question:'Is Sardor rude?', questionTranslated:'Сардор дағал аст?', options:['Yes, often','Never','Sometimes'], correctIndex:1, explanation:'he is never rude.' },
       { question:'How many brothers does he have?', questionTranslated:'Ӯ чанд бародар дорад?', options:['Two','Three','Four'], correctIndex:2, explanation:'he has four brothers.' },
     ],
@@ -181,7 +181,7 @@ const M = {
     passage: 'Anvar and Bek are friends. Anvar is taller and older, but Bek is stronger. Anvar has a modern car; Bek has an older one. Anvar\'s car is faster, but Bek\'s car is more comfortable. On Sunday they went to the mountains. The road was narrow and dangerous, so they drove slowly. It was the best trip of the summer.',
     passageTranslated: 'Анвар ва Бек дӯстанд. Анвар қадбаландтар ва калонтар аст, вале Бек пурқувваттар аст. Анвар мошини муосир дорад; Бек мошини кӯҳнатар дорад. Мошини Анвар тезтар аст, вале мошини Бек бароҳаттар аст. Рӯзи якшанбе онҳо ба кӯҳҳо рафтанд. Роҳ танг ва хатарнок буд, бинобар ин оҳиста ронданд. Ин беҳтарин сафари тобистон буд.',
     questions: [
-      { question:'Who is taller?', questionTranslated:'Кӣ қадбаландтар аст?', options:['Anvar','Bek','Same'], correctIndex:0, explanation:'Anvar is taller and older.' },
+      { question:'Who is taller?', questionTranslated:'Кӣ қадбаландтар аст?', options:['Same','Anvar','Bek'], correctIndex:1, explanation:'Anvar is taller and older.' },
       { question:'Who is stronger?', questionTranslated:'Кӣ пурқувваттар аст?', options:['Anvar','Bek','Same'], correctIndex:1, explanation:'Bek is stronger.' },
       { question:'Whose car is more comfortable?', questionTranslated:'Мошини кӣ бароҳаттар аст?', options:["Anvar's","Bek's","Neither"], correctIndex:1, explanation:"Bek's car is more comfortable." },
       { question:'How was the road?', questionTranslated:'Роҳ чӣ гуна буд?', options:['Wide and safe','Narrow and dangerous','Smooth'], correctIndex:1, explanation:'narrow and dangerous.' },
@@ -196,7 +196,7 @@ const M = {
       { question:'Who is the funniest?', questionTranslated:'Кӣ хандаовартарин аст?', options:['Zarina','Nigina','Malika'], correctIndex:1, explanation:'Nigina ... the funniest.' },
       { question:'How is Malika compared to her sisters?', questionTranslated:'Малика нисбат ба хоҳаронаш чӣ гуна аст?', options:['Louder','Quieter','Taller'], correctIndex:1, explanation:'Malika is quieter.' },
       { question:'How is their house?', questionTranslated:'Хонаи онҳо чӣ гуна аст?', options:['Big and modern','Small but comfortable','Old and cold'], correctIndex:1, explanation:'small but comfortable.' },
-      { question:'How does Malika feel?', questionTranslated:'Малика чӣ ҳис мекунад?', options:['The luckiest girl','Lonely','Bored'], correctIndex:0, explanation:'the luckiest girl to have them.' },
+      { question:'How does Malika feel?', questionTranslated:'Малика чӣ ҳис мекунад?', options:['Bored','Lonely','The luckiest girl'], correctIndex:2, explanation:'the luckiest girl to have them.' },
     ],
   },
 };

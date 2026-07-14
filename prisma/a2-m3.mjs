@@ -149,7 +149,7 @@ const M = {
       { question:'What does he usually do in the morning?', questionTranslated:'Ӯ одатан субҳ чӣ мекунад?', options:['Watches TV','Jogs in the park','Sleeps'], correctIndex:1, explanation:'usually jogs in the park.' },
       { question:'How does he go to work?', questionTranslated:'Ӯ чӣ хел ба кор меравад?', options:['By car','By bus','On foot'], correctIndex:1, explanation:'by bus every morning.' },
       { question:'Does he often eat lunch outside?', questionTranslated:'Ӯ аксаран берун хӯроки нисфирӯзӣ мехӯрад?', options:['Yes, always','No, rarely','Every day'], correctIndex:1, explanation:'He rarely eats lunch outside.' },
-      { question:'What does he do before sleep?', questionTranslated:'Ӯ пеш аз хоб чӣ мекунад?', options:['Reads for ten minutes','Jogs','Cooks'], correctIndex:0, explanation:'always reads for ten minutes.' },
+      { question:'What does he do before sleep?', questionTranslated:'Ӯ пеш аз хоб чӣ мекунад?', options:['Reads for ten minutes','Cooks','Jogs'], correctIndex:0, explanation:'always reads for ten minutes.' },
     ],
   },
   dialogue: {
@@ -175,7 +175,7 @@ const M = {
     questions: [
       { question:'When does the writer wake up on Saturday?', questionTranslated:'Нависанда рӯзи шанбе кай мехезад?', options:['At six','At nine','At noon'], correctIndex:1, explanation:'wake up at nine.' },
       { question:'What does the writer do first?', questionTranslated:'Нависанда аввал чӣ мекунад?', options:['Meets friends','Does the housework','Goes shopping'], correctIndex:1, explanation:'First, I do the housework.' },
-      { question:'What do they sometimes do?', questionTranslated:'Онҳо баъзан чӣ мекунанд?', options:['Go for an evening walk','Cook together','Play football'], correctIndex:0, explanation:'sometimes go for an evening walk.' },
+      { question:'What do they sometimes do?', questionTranslated:'Онҳо баъзан чӣ мекунанд?', options:['Play football','Go for an evening walk','Cook together'], correctIndex:1, explanation:'sometimes go for an evening walk.' },
       { question:'What does the writer do on Sunday?', questionTranslated:'Нависанда рӯзи якшанбе чӣ мекунад?', options:['Goes out a lot','Stays home and rests','Works'], correctIndex:1, explanation:'I stay home, rest.' },
     ],
   },
@@ -183,18 +183,18 @@ const M = {
     passage: 'Nodira has a simple daily routine. She always gets up early and usually does some stretches. She has breakfast at seven and goes to work at eight. Nodira often walks to the office because it is good exercise. She rarely eats fast food. In the evening she tidies the house and sometimes calls her sister. Twice a week she goes to an English class. She never goes to bed late, so she always feels fresh in the morning.',
     passageTranslated: 'Нодира тартиби ҳаррӯзаи содда дорад. Ӯ ҳамеша барвақт мехезад ва одатан каме машқ мекунад. Ӯ соати ҳафт наҳорӣ мекунад ва соати ҳашт ба кор меравад. Нодира аксаран пиёда ба идора меравад, зеро ин машқи хуб аст. Ӯ кам-кам хӯроки тез мехӯрад. Шом ӯ хонаро тартиб медиҳад ва баъзан ба хоҳараш занг мезанад. Ҳафтае ду бор ӯ ба дарси англисӣ меравад. Ӯ ҳеҷ гоҳ дер намехобад, бинобар ин ҳамеша субҳ худро тару тоза ҳис мекунад.',
     questions: [
-      { question:'When does Nodira get up?', questionTranslated:'Нодира кай мехезад?', options:['Early','Late','At noon'], correctIndex:0, explanation:'always gets up early.' },
+      { question:'When does Nodira get up?', questionTranslated:'Нодира кай мехезад?', options:['At noon','Early','Late'], correctIndex:1, explanation:'always gets up early.' },
       { question:'How does she often go to work?', questionTranslated:'Ӯ аксаран чӣ хел ба кор меравад?', options:['By bus','On foot','By car'], correctIndex:1, explanation:'often walks to the office.' },
       { question:'How often does she go to English class?', questionTranslated:'Ӯ чанд бор ба дарси англисӣ меравад?', options:['Once a week','Twice a week','Every day'], correctIndex:1, explanation:'Twice a week.' },
       { question:'Does she eat fast food often?', questionTranslated:'Ӯ аксаран хӯроки тез мехӯрад?', options:['Yes','No, rarely','Every day'], correctIndex:1, explanation:'She rarely eats fast food.' },
-      { question:'Why does she feel fresh?', questionTranslated:'Чаро ӯ худро тару тоза ҳис мекунад?', options:['She never goes to bed late','She drinks coffee','She sleeps all day'], correctIndex:0, explanation:'never goes to bed late.' },
+      { question:'Why does she feel fresh?', questionTranslated:'Чаро ӯ худро тару тоза ҳис мекунад?', options:['She never goes to bed late','She sleeps all day','She drinks coffee'], correctIndex:0, explanation:'never goes to bed late.' },
     ],
   },
   exam: {
     passage: 'Two brothers, Jamshed and Sam, have very different routines. Jamshed is an early bird. He always wakes up at five, jogs daily, and never skips breakfast. His day is organised and he follows a strict schedule. Sam is the opposite. He usually gets up late and often stays awake until midnight. He rarely exercises and sometimes forgets to eat lunch. Their mother says Jamshed has healthier habits, but Sam is happier with his free routine. Both agree that a good balance is the best choice.',
     passageTranslated: 'Ду бародар — Ҷамшед ва Сэм — тартиботи хеле гуногун доранд. Ҷамшед барвақтхез аст. Ӯ ҳамеша соати панҷ мехезад, ҳаррӯза медавад ва ҳеҷ гоҳ наҳориро намепартояд. Рӯзи ӯ муназзам аст ва ӯ ҷадвали қатъиро риоя мекунад. Сэм баръакс аст. Ӯ одатан дер мехезад ва аксаран то нисфи шаб бедор мемонад. Ӯ кам-кам машқ мекунад ва баъзан хӯроки нисфирӯзиро фаромӯш мекунад. Модарашон мегӯяд, ки Ҷамшед одатҳои солимтар дорад, вале Сэм бо тартиби озодаш хушбахттар аст. Ҳарду розӣ ҳастанд, ки тавозуни хуб беҳтарин интихоб аст.',
     questions: [
-      { question:'What time does Jamshed wake up?', questionTranslated:'Ҷамшед соати чанд мехезад?', options:['At five','At late','At midnight'], correctIndex:0, explanation:'always wakes up at five.' },
+      { question:'What time does Jamshed wake up?', questionTranslated:'Ҷамшед соати чанд мехезад?', options:['At late','At five','At midnight'], correctIndex:1, explanation:'always wakes up at five.' },
       { question:'How often does Jamshed jog?', questionTranslated:'Ҷамшед чанд бор медавад?', options:['Rarely','Daily','Never'], correctIndex:1, explanation:'jogs daily.' },
       { question:'What does Sam often do?', questionTranslated:'Сэм аксаран чӣ мекунад?', options:['Stays awake until midnight','Wakes up early','Exercises'], correctIndex:0, explanation:'often stays awake until midnight.' },
       { question:'Who has healthier habits?', questionTranslated:'Кӣ одатҳои солимтар дорад?', options:['Sam','Jamshed','Neither'], correctIndex:1, explanation:'Jamshed has healthier habits.' },

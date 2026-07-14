@@ -148,26 +148,71 @@ const GRAMMAR = [
       { type:'transform', prompt:'Ба инкор гузаронед: He saw the film.', promptTranslated:'Хабарӣ → инкорӣ.', answer:"He didn't see the film.", explanation:'didn\'t + see (асосӣ).' },
     ],
   },
+  {
+    lessonTitle: 'Lesson 8: Grammar — Past Simple (Irregular Verbs)',
+    lessonTitleTg: 'Дарси 8: Грамматика — Замони гузашта (Феълҳои нодуруст)',
+    title: 'Past Simple — Irregular Verbs',
+    titleTranslated: 'Замони гузашта — Феълҳои нодуруст',
+    emoji: '🔥',
+    explanation:
+`Дар забони англисӣ баъзе феълҳо қоидавиро (-ed) қабул намекунанд ва шакли худро пурра дигар мекунанд. Онҳоро **феълҳои нодуруст** (Irregular verbs) меноманд.
+Шумо бояд шакли гузаштаи онҳоро (V2) аз ёд кунед.
+
+Инак, муҳимтарин феълҳои нодуруст барои сатҳи A2:
+- **be** → was / were (будан)
+- **go** → went (рафтан)
+- **have** → had (доштан)
+- **do** → did (иҷро кардан)
+- **see** → saw (дидан)
+- **make** → made (сохтан/кардан)
+- **take** → took (гирифтан)
+- **come** → came (омадан)
+- **give** → gave (додан)
+- **tell** → told (гуфтан)`,
+    rules: [
+      { pattern: 'go → went', note: 'I went home.' },
+      { pattern: 'have → had', note: 'She had a dog.' },
+      { pattern: 'see → saw', note: 'We saw a film.' },
+      { pattern: 'take → took', note: 'He took a taxi.' },
+    ],
+    examples: [
+      { sentence: 'I went to school yesterday.', translation: 'Ман дирӯз ба мактаб рафтам.', highlight: 'went' },
+      { sentence: 'She had a big house.', translation: 'Ӯ хонаи калон дошт.', highlight: 'had' },
+      { sentence: 'We saw our friends.', translation: 'Мо дӯстони худро дидем.', highlight: 'saw' },
+      { sentence: 'He took a taxi.', translation: 'Ӯ таксӣ гирифт.', highlight: 'took' },
+      { sentence: 'They came late.', translation: 'Онҳо дер омаданд.', highlight: 'came' },
+    ],
+    exercises: [
+      { type:'choose', prompt:'I ___ (go) to the park yesterday.', promptTranslated:'Ман дирӯз ба боғ рафтам.', options:['went','goed','go','was'], answer:'went', explanation:'go → went.' },
+      { type:'choose', prompt:'She ___ (have) a cat.', promptTranslated:'Ӯ гурба дошт.', options:['had','haved','has','have'], answer:'had', explanation:'have → had.' },
+      { type:'choose', prompt:'We ___ (see) a good film.', promptTranslated:'Мо филми хуб дидем.', options:['saw','seed','see','seen'], answer:'saw', explanation:'see → saw.' },
+      { type:'fill_blank', prompt:'He ___ (take) my book.', promptTranslated:'Ӯ китоби маро гирифт.', answer:'took', explanation:'take → took.' },
+      { type:'fill_blank', prompt:'They ___ (come) home early.', promptTranslated:'Онҳо барвақт ба хона омаданд.', answer:'came', explanation:'come → came.' },
+      { type:'reorder', prompt:'Ҷумларо сохт кунед:', promptTranslated:'Ман дирӯз ба мактаб рафтам.', options:['I','went','to','school','yesterday'], answer:'I went to school yesterday.', explanation:'I went to school yesterday.' },
+      { type:'transform', prompt:'Ислоҳ кунед: I goed home.', promptTranslated:'go нодуруст аст.', answer:'I went home.', explanation:'go → went.' },
+      { type:'transform', prompt:'Ба гузашта гузаронед: She makes tea.', promptTranslated:'make → made.', answer:'She made tea.', explanation:'make → made.' },
+    ],
+  },
 ];
 
 const LISTENING = {
-  lessonTitle: 'Lesson 8: Listening — A Trip to the Mountains',
-  lessonTitleTg: 'Дарси 8: Шунавоӣ — Сафар ба кӯҳҳо',
+  lessonTitle: 'Lesson 9: Listening — A Trip to the Mountains',
+  lessonTitleTg: 'Дарси 9: Шунавоӣ — Сафар ба кӯҳҳо',
   title: 'A Trip to the Mountains', titleTranslated: 'Сафар ба кӯҳҳо', emoji: '⛰️', kind: 'listening',
   passage: 'Last summer, my family and I went on a trip to the mountains. We left early in the morning. The weather was sunny and warm. We walked for three hours and saw a beautiful lake. In the evening, we made a fire and my father told funny stories. I felt very happy. It was one of the best days of my life.',
   passageTranslated: 'Тобистони гузашта ман бо оилаам ба кӯҳҳо сафар кардем. Мо субҳи барвақт баромадем. Обу ҳаво офтобӣ ва гарм буд. Мо се соат роҳ рафтем ва кӯли зеборо дидем. Бегоҳӣ мо оташ афрӯхтем ва падарам ҳикояҳои хандаовар гуфт. Ман хеле хушҳол будам. Ин яке аз беҳтарин рӯзҳои умрам буд.',
   questions: [
-    { question:'When did they go on the trip?', questionTranslated:'Онҳо кай ба сафар рафтанд?', options:['Last summer','Last winter','Yesterday'], correctIndex:0, explanation:'Last summer ... went on a trip.' },
+    { question:'When did they go on the trip?', questionTranslated:'Онҳо кай ба сафар рафтанд?', options:['Last winter','Last summer','Yesterday'], correctIndex:1, explanation:'Last summer ... went on a trip.' },
     { question:'What time did they leave?', questionTranslated:'Онҳо соати чанд баромаданд?', options:['In the evening','Early in the morning','At noon'], correctIndex:1, explanation:'We left early in the morning.' },
     { question:'What did they see?', questionTranslated:'Онҳо чӣ диданд?', options:['A river','A city','A lake'], correctIndex:2, explanation:'... saw a beautiful lake.' },
-    { question:'What did the father do in the evening?', questionTranslated:'Падар бегоҳӣ чӣ кор кард?', options:['Told stories','Cooked dinner','Slept'], correctIndex:0, explanation:'my father told funny stories.' },
+    { question:'What did the father do in the evening?', questionTranslated:'Падар бегоҳӣ чӣ кор кард?', options:['Slept','Cooked dinner','Told stories'], correctIndex:2, explanation:'my father told funny stories.' },
     { question:'How did the writer feel?', questionTranslated:'Нависанда чӣ ҳис кард?', options:['Bored','Happy','Tired'], correctIndex:1, explanation:'I felt very happy.' },
   ],
 };
 
 const DIALOGUE = {
-  lessonTitle: 'Lesson 9: Speaking — My Weekend',
-  lessonTitleTg: 'Дарси 9: Гуфтугӯ — Ҳафтаи истироҳати ман',
+  lessonTitle: 'Lesson 10: Speaking — My Weekend',
+  lessonTitleTg: 'Дарси 10: Гуфтугӯ — Ҳафтаи истироҳати ман',
   title: 'My Weekend', titleTranslated: 'Ҳафтаи истироҳати ман', emoji: '🗣️',
   scenario: 'Ду дӯст дар бораи ҳафтаи истироҳати гузаштаи худ гап мезананд (замони гузашта).',
   lines: [
@@ -183,14 +228,14 @@ const DIALOGUE = {
 };
 
 const READING = {
-  lessonTitle: 'Lesson 10: Reading — My Childhood',
-  lessonTitleTg: 'Дарси 10: Хониш — Кӯдакии ман',
+  lessonTitle: 'Lesson 11: Reading — My Childhood',
+  lessonTitleTg: 'Дарси 11: Хониш — Кӯдакии ман',
   title: 'My Childhood', titleTranslated: 'Кӯдакии ман', emoji: '🧸', kind: 'reading',
   passage: 'When I was a child, I lived in a small village with my grandparents. Every morning I helped my grandfather in the garden. In the afternoon, I played with my friends near the river. We didn\'t have phones, but we were very happy. In the evening, my grandmother told us old stories. I still remember those days with a smile.',
   passageTranslated: 'Вақте ки ман кӯдак будам, дар деҳаи хурд бо бобою бибиям зиндагӣ мекардам. Ҳар субҳ ба бобоям дар боғ кӯмак мекардам. Баъдаззуҳр бо дӯстонам дар назди дарё бозӣ мекардам. Мо телефон надоштем, вале хеле хушбахт будем. Бегоҳӣ бибиям ба мо ҳикояҳои кӯҳна нақл мекард. Ман ҳанӯз он рӯзҳоро бо табассум ба ёд меорам.',
   questions: [
     { question:'Where did the writer live as a child?', questionTranslated:'Нависанда дар кӯдакӣ дар куҷо зиндагӣ мекард?', options:['In a city','In a small village','At the seaside'], correctIndex:1, explanation:'... lived in a small village.' },
-    { question:'Who did the writer help in the morning?', questionTranslated:'Нависанда субҳ ба кӣ кӯмак мекард?', options:['Grandfather','Grandmother','Friends'], correctIndex:0, explanation:'I helped my grandfather.' },
+    { question:'Who did the writer help in the morning?', questionTranslated:'Нависанда субҳ ба кӣ кӯмак мекард?', options:['Friends','Grandfather','Grandmother'], correctIndex:1, explanation:'I helped my grandfather.' },
     { question:'Did they have phones?', questionTranslated:'Онҳо телефон доштанд?', options:['Yes','No','Only one'], correctIndex:1, explanation:"We didn't have phones." },
     { question:'Who told stories in the evening?', questionTranslated:'Бегоҳӣ кӣ ҳикоя мегуфт?', options:['Grandfather','Grandmother','The writer'], correctIndex:1, explanation:'my grandmother told us old stories.' },
   ],
@@ -202,8 +247,8 @@ const REVIEW = {
   passageTranslated: 'Карим дирӯз рӯзи серкоре дошт. Ӯ соати ҳафт бедор шуд ва бо автобус ба кор рафт. Дар кор бо ҳамкори нав вохӯрд ва онҳо дар бораи ҳафтаи истироҳаташон гап заданд. Баъди кор ӯ каме хӯрок харид ва хӯроки шом пухт. Бегоҳӣ ӯ бозии футболро тамошо кард. Дастаи ӯ ғолиб шуд! Ӯ хеле хушҳол шуд ва дер хоб рафт.',
   questions: [
     { question:'When did Karim have a busy day?', questionTranslated:'Карим кай рӯзи серкор дошт?', options:['Today','Yesterday','Last week'], correctIndex:1, explanation:'... a busy day yesterday.' },
-    { question:'How did he go to work?', questionTranslated:'Ӯ бо чӣ ба кор рафт?', options:['By bus','By car','On foot'], correctIndex:0, explanation:'... went to work by bus.' },
-    { question:'Who did he meet at work?', questionTranslated:'Ӯ дар кор бо кӣ вохӯрд?', options:['A new colleague','A friend','His boss'], correctIndex:0, explanation:'... met a new colleague.' },
+    { question:'How did he go to work?', questionTranslated:'Ӯ бо чӣ ба кор рафт?', options:['By car','On foot','By bus'], correctIndex:2, explanation:'... went to work by bus.' },
+    { question:'Who did he meet at work?', questionTranslated:'Ӯ дар кор бо кӣ вохӯрд?', options:['His boss','A new colleague','A friend'], correctIndex:1, explanation:'... met a new colleague.' },
     { question:'What did he do in the evening?', questionTranslated:'Ӯ бегоҳӣ чӣ кор кард?', options:['Cooked dinner','Watched football','Went shopping'], correctIndex:1, explanation:'... watched a football match.' },
     { question:'How did he feel?', questionTranslated:'Ӯ чӣ ҳис кард?', options:['Tired','Sad','Happy'], correctIndex:2, explanation:'He felt very happy.' },
   ],
@@ -216,7 +261,7 @@ const EXAM = {
   questions: [
     { question:'What did Nigora do last year?', questionTranslated:'Нигора соли гузашта чӣ кард?', options:['Started a job','Finished school and started university','Moved abroad','Got married'], correctIndex:1, explanation:'... finished school and started university.' },
     { question:'How did she feel at first?', questionTranslated:'Ӯ дар аввал чӣ ҳис кард?', options:['Excited','Bored','Nervous','Proud'], correctIndex:2, explanation:'... she felt nervous.' },
-    { question:'Why was she nervous?', questionTranslated:'Чаро ӯ ба ташвиш буд?', options:['Everything was new','She was ill','It was far','She had no money'], correctIndex:0, explanation:'... everything was new and she didn\'t know anyone.' },
+    { question:'Why was she nervous?', questionTranslated:'Чаро ӯ ба ташвиш буд?', options:['It was far','She had no money','Everything was new','She was ill'], correctIndex:2, explanation:'... everything was new and she didn\'t know anyone.' },
     { question:'What did she learn?', questionTranslated:'Ӯ чӣ омӯхт?', options:['To drive','To play the guitar','To cook','To swim'], correctIndex:1, explanation:'... learned to play the guitar.' },
     { question:'How did she feel by the end of the year?', questionTranslated:'То охири сол ӯ чӣ ҳис кард?', options:['Lonely','Worried','Confident and happy','Bored'], correctIndex:2, explanation:'... she felt confident and happy.' },
   ],
@@ -290,15 +335,15 @@ async function main() {
   qo = 0; for (const q of READING.questions) await prisma.comprehensionQuestion.create({ data: { exerciseId: read.id, question: q.question, questionTranslated: q.questionTranslated, options: q.options, correctIndex: q.correctIndex, explanation: q.explanation, order: qo++ } });
   await prisma.lesson.create({ data: { moduleId: mod.id, title: READING.lessonTitle, titleTranslated: READING.lessonTitleTg, type: 'quiz', skillType: 'reading', cefrLevel: 'A2', emoji: '📖', xpReward: XP.review, duration: 5, order: order++, comprehensionId: read.id } });
 
-  // 11: review
+  // 12: review
   const rev = await prisma.comprehensionExercise.create({ data: { courseId: course.id, cefrLevel: 'A2', kind: REVIEW.kind, title: REVIEW.title, titleTranslated: REVIEW.titleTranslated, passage: REVIEW.passage, passageTranslated: REVIEW.passageTranslated, emoji: REVIEW.emoji, order: 62 } });
   qo = 0; for (const q of REVIEW.questions) await prisma.comprehensionQuestion.create({ data: { exerciseId: rev.id, question: q.question, questionTranslated: q.questionTranslated, options: q.options, correctIndex: q.correctIndex, explanation: q.explanation, order: qo++ } });
-  await prisma.lesson.create({ data: { moduleId: mod.id, title: 'Lesson 11: Module Review', titleTranslated: 'Дарси 11: Такрори модул', type: 'quiz', skillType: 'review', cefrLevel: 'A2', emoji: '📖', xpReward: XP.review, duration: 5, order: order++, comprehensionId: rev.id } });
+  await prisma.lesson.create({ data: { moduleId: mod.id, title: 'Lesson 12: Module Review', titleTranslated: 'Дарси 12: Такрори модул', type: 'quiz', skillType: 'review', cefrLevel: 'A2', emoji: '📖', xpReward: XP.review, duration: 5, order: order++, comprehensionId: rev.id } });
 
-  // 12: exam
+  // 13: exam
   const exam = await prisma.comprehensionExercise.create({ data: { courseId: course.id, cefrLevel: 'A2', kind: EXAM.kind, title: EXAM.title, titleTranslated: EXAM.titleTranslated, passage: EXAM.passage, passageTranslated: EXAM.passageTranslated, emoji: EXAM.emoji, order: 63 } });
   qo = 0; for (const q of EXAM.questions) await prisma.comprehensionQuestion.create({ data: { exerciseId: exam.id, question: q.question, questionTranslated: q.questionTranslated, options: q.options, correctIndex: q.correctIndex, explanation: q.explanation, order: qo++ } });
-  await prisma.lesson.create({ data: { moduleId: mod.id, title: 'Lesson 12: Final Exam', titleTranslated: 'Дарси 12: Имтиҳони ниҳоӣ', type: 'quiz', skillType: 'test', cefrLevel: 'A2', emoji: '🏆', xpReward: XP.test, duration: 5, order: order++, comprehensionId: exam.id } });
+  await prisma.lesson.create({ data: { moduleId: mod.id, title: 'Lesson 13: Final Exam', titleTranslated: 'Дарси 13: Имтиҳони ниҳоӣ', type: 'quiz', skillType: 'test', cefrLevel: 'A2', emoji: '🏆', xpReward: XP.test, duration: 5, order: order++, comprehensionId: exam.id } });
 
   await prisma.appSetting.update({ where: { key: 'content_version' }, data: { valueJson: '"1"' } });
 

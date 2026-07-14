@@ -146,7 +146,7 @@ const M = {
       { question:'What do they do with the onion?', questionTranslated:'Бо пиёз чӣ мекунанд?', options:['Boil it','Fry it','Bake it'], correctIndex:1, explanation:'fry the onion.' },
       { question:'How long do they boil everything?', questionTranslated:'Ҳамаро чанд дақиқа меҷӯшонанд?', options:['Ten minutes','Twenty minutes','One hour'], correctIndex:1, explanation:'boil everything for twenty minutes.' },
       { question:'What do they add at the end?', questionTranslated:'Дар охир чӣ илова мекунанд?', options:['Sugar and honey','Salt, pepper and butter','Flour'], correctIndex:1, explanation:'salt, pepper, and a spoonful of butter.' },
-      { question:'How does the soup taste?', questionTranslated:'Шӯрбо чӣ таъм дорад?', options:['Delicious','Too salty','Bitter'], correctIndex:0, explanation:'It is delicious!' },
+      { question:'How does the soup taste?', questionTranslated:'Шӯрбо чӣ таъм дорад?', options:['Bitter','Delicious','Too salty'], correctIndex:1, explanation:'It is delicious!' },
     ],
   },
   dialogue: {
@@ -173,7 +173,7 @@ const M = {
       { question:'What is the writer\'s favourite dish?', questionTranslated:'Хӯроки дӯстдоштаи нависанда чист?', options:['Soup','Osh','Cake'], correctIndex:1, explanation:'My favourite dish is osh.' },
       { question:'Who cooks it?', questionTranslated:'Онро кӣ мепазад?', options:['His mother','His sister','He'], correctIndex:0, explanation:'My mother cooks it.' },
       { question:'Does she use much salt?', questionTranslated:'Ӯ намаки зиёд истифода мебарад?', options:['Yes, a lot','No, not much','Only salt'], correctIndex:1, explanation:'She does not use much salt.' },
-      { question:'How long does it take?', questionTranslated:'Чанд вақт мегирад?', options:['Two hours','Twenty minutes','All day'], correctIndex:0, explanation:'It takes about two hours.' },
+      { question:'How long does it take?', questionTranslated:'Чанд вақт мегирад?', options:['All day','Twenty minutes','Two hours'], correctIndex:2, explanation:'It takes about two hours.' },
       { question:'What does the writer think of osh?', questionTranslated:'Нависанда дар бораи ош чӣ фикр мекунад?', options:['It is boring','The tastiest meal','Too salty'], correctIndex:1, explanation:'the tastiest meal in the world.' },
     ],
   },
@@ -182,17 +182,17 @@ const M = {
     passageTranslated: 'Фарида пухтупазро дӯст медорад. Рӯзи ҷумъа ӯ ба бозор рафта, сабзавоти тару тозаи зиёд, як бастаи биринҷ ва як шиша равған мехарад. Ӯ гӯшти зиёд намехарад, зеро он гарон аст. Дар хона ӯ сабзавотро пӯст канда, майда мекунад. Каме пиёз бирён мекунад ва биринҷро меҷӯшонад. Ӯ хушбӯиҳои зиёд, вале намаки кам истифода мебарад. Ошхонаи ӯ бӯи аҷоиб медиҳад. Оилаи ӯ мегӯяд, ки хӯроки ӯ ҳамеша болаззат аст. Барои ширинӣ ӯ бо орд, тухм ва асал торт мепазад.',
     questions: [
       { question:'What does Farida buy a lot of?', questionTranslated:'Фарида чиро зиёд мехарад?', options:['Meat','Fresh vegetables','Honey'], correctIndex:1, explanation:'a lot of fresh vegetables.' },
-      { question:'Why doesn\'t she buy much meat?', questionTranslated:'Чаро ӯ гӯшти зиёд намехарад?', options:['It is expensive','She hates it','No meat'], correctIndex:0, explanation:'because it is expensive.' },
+      { question:'Why doesn\'t she buy much meat?', questionTranslated:'Чаро ӯ гӯшти зиёд намехарад?', options:['No meat','It is expensive','She hates it'], correctIndex:1, explanation:'because it is expensive.' },
       { question:'How much salt does she use?', questionTranslated:'Ӯ чӣ қадар намак истифода мебарад?', options:['A lot','Not much','None'], correctIndex:1, explanation:'not much salt.' },
       { question:'What does she make for dessert?', questionTranslated:'Барои ширинӣ чӣ мепазад?', options:['Soup','A cake','Bread'], correctIndex:1, explanation:'she makes a cake.' },
-      { question:'What does she put in the cake?', questionTranslated:'Ба торт чӣ меандозад?', options:['Flour, eggs and honey','Rice and oil','Meat'], correctIndex:0, explanation:'flour, eggs, and honey.' },
+      { question:'What does she put in the cake?', questionTranslated:'Ба торт чӣ меандозад?', options:[eggs and honey','Rice and oil','Flour,'Meat'], correctIndex:2, explanation:'flour, eggs, and honey.' },
     ],
   },
   exam: {
     passage: 'Two friends, Omad and Rustam, opened a small restaurant. Omad is the cook. Every morning he buys fresh food: some meat, a lot of vegetables, and many eggs. He never uses much oil because he wants healthy food. Rustam serves the guests. The most popular dish is their soup, and the tastiest dessert is honey cake. Many people come every day, so the friends are very busy. They say the secret is simple: fresh food, good recipes, and a lot of love. Their restaurant is now the best in the town.',
     passageTranslated: 'Ду дӯст — Омад ва Рустам — тарабхонаи хурд кушоданд. Омад ошпаз аст. Ҳар субҳ ӯ хӯроки тару тоза мехарад: каме гӯшт, сабзавоти зиёд ва тухмҳои бисёр. Ӯ ҳеҷ гоҳ равғани зиёд истифода намебарад, зеро хӯроки солим мехоҳад. Рустам ба меҳмонон хизмат мекунад. Машҳуртарин хӯрок шӯрбои онҳост ва бомазатарин ширинӣ торти асал аст. Ҳар рӯз одамони зиёд меоянд, бинобар ин дӯстон хеле банданд. Онҳо мегӯянд, ки роз содда аст: хӯроки тару тоза, дастурҳои хуб ва меҳри зиёд. Тарабхонаи онҳо акнун беҳтарин дар шаҳр аст.',
     questions: [
-      { question:'Who is the cook?', questionTranslated:'Ошпаз кӣ аст?', options:['Omad','Rustam','Both'], correctIndex:0, explanation:'Omad is the cook.' },
+      { question:'Who is the cook?', questionTranslated:'Ошпаз кӣ аст?', options:['Rustam','Both','Omad'], correctIndex:2, explanation:'Omad is the cook.' },
       { question:'How much oil does he use?', questionTranslated:'Ӯ чӣ қадар равған истифода мебарад?', options:['A lot','Not much','None'], correctIndex:1, explanation:'never uses much oil.' },
       { question:'What is the most popular dish?', questionTranslated:'Машҳуртарин хӯрок чист?', options:['Their soup','Honey cake','Rice'], correctIndex:0, explanation:'the most popular dish is their soup.' },
       { question:'What is the tastiest dessert?', questionTranslated:'Бомазатарин ширинӣ чист?', options:['Ice cream','Honey cake','Fruit'], correctIndex:1, explanation:'the tastiest dessert is honey cake.' },
