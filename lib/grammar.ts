@@ -6,6 +6,7 @@ export const GRAMMAR_EXERCISE_TYPES = [
   'choose',     // learner picks the correct option
   'reorder',    // learner orders shuffled tokens into a correct sentence
   'transform',  // learner rewrites a sentence into a target form
+  'error_correction', // learner finds the wrong word in a sentence and fixes it
 ] as const;
 export type GrammarExerciseType = (typeof GRAMMAR_EXERCISE_TYPES)[number];
 
