@@ -23,17 +23,25 @@ export async function GET(req: NextRequest) {
   try {
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { 
-        id: true, 
-        name: true, 
-        email: true, 
+      select: {
+        id: true,
+        name: true,
+        email: true,
         phone: true,
-        isPremium: true, 
+        isPremium: true,
         premiumExpiresAt: true,
         totalXp: true,
         streak: true,
         gems: true,
         hearts: true,
+        // Which language pair the learner is studying, and at what level.
+        // Needed so the app can RESTORE a returning learner after a reinstall:
+        // the local onboarding flag lives in SharedPreferences and is wiped
+        // with the app, so without these the app re-asked everything and the
+        // account's real progress was orphaned behind a fresh guest setup.
+        nativeLang: true,
+        targetLang: true,
+        level: true,
       },
     });
 
