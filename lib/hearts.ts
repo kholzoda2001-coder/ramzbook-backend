@@ -115,7 +115,7 @@ export async function refillHearts(userId: string) {
 ///
 /// The daily counter reuses the GemTransaction ledger (amount 0, a dedicated
 /// reason) so no schema migration is needed against the live database.
-export const AD_HEARTS_PER_DAY = 5;
+export const AD_HEARTS_PER_DAY = 15;
 const AD_HEART_REASON = 'ad_heart';
 
 export async function grantAdHeart(userId: string) {
