@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
+import ToggleLanguageBtn from './_components/ToggleLanguageBtn';
 
 export const dynamic = 'force-dynamic';
 
@@ -147,6 +148,16 @@ export default async function AdminCoursesPage({
                       Барои: {nativeNames.slice(0, 3).join(', ')}{nativeNames.length > 3 ? ` +${nativeNames.length - 3}` : ''}
                     </div>
                   )}
+
+                  {/* Калиди «ҳамаҷо»: забон + ҳамаи курсҳояш якбора. */}
+                  <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                    <ToggleLanguageBtn id={lang.id} name={lang.name} isActive={lang.isActive} />
+                    {!lang.isActive && (
+                      <span className="pill" style={{ background: 'rgba(251,191,36,0.12)', color: '#FBBF24', fontSize: '11px', fontWeight: 700 }}>
+                        Дар барнома нест
+                      </span>
+                    )}
+                  </div>
                 </Link>
               );
             })}
