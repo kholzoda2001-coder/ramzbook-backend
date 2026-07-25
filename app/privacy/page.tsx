@@ -9,7 +9,7 @@ import { useState } from 'react';
  * Trilingual (Tajik / Russian / English) for users + Google Play review.
  */
 
-const EFFECTIVE_DATE = '07.06.2026';
+const EFFECTIVE_DATE = '25.07.2026';
 const APP_NAME = 'RAMZ';
 const SUPPORT_EMAIL = 'kholzoda2001@gmail.com';
 const WEBSITE = 'https://ramz.tj';
@@ -80,6 +80,9 @@ function Tg() {
           <li><b>Обунаҳо:</b> ҳолати обунаи Premium тавассути Google Play Billing. Мо маълумоти кортатонро <b>намебинем ва нигоҳ намедорем</b>.</li>
           <li><b>Маълумоти дастгоҳ:</b> намуди дастгоҳ, версияи система, амалҳо дар барнома ва маълумоти корношоямӣ (crash) барои беҳсозӣ.</li>
           <li><b>Огоҳиҳо:</b> рамзи огоҳӣ (token) барои фиристодани ёдоварҳои омӯзишӣ.</li>
+          <li><b>Рақами рекламавӣ (Advertising ID):</b> барои нишон додани реклама ва ҳисоби оморӣ истифода мешавад. Шумо метавонед онро дар танзимоти Android аз нав созед ё реклами шахсиро хомӯш кунед.</li>
+          <li><b>Ҷойгиршавии тахминӣ (аз рӯи IP):</b> танҳо рамзи кишвар (мисли «TJ») барои нишон додани нархи мувофиқи минтақа. Суроғаи дақиқи шумо муайян ва нигоҳ дошта намешавад.</li>
+          <li><b>Паёмҳои чати AI:</b> саволҳое ки ба муаллими AI менависед, барои гирифтани ҷавоб коркард мешаванд.</li>
         </ul>
       </Sec>
 
@@ -101,10 +104,34 @@ function Tg() {
         </ul>
       </Sec>
 
-      <Sec n="5" t="Мубодила бо тарафи сеюм">
+      <Sec n="5" t="Реклама">
+        Барнома <b>реклама нишон медиҳад</b>. Мо танҳо як шакли рекламаро истифода
+        мебарем: <b>видеои мукофотӣ</b> — вақте ҷонҳоятон тамом мешавад, шумо
+        метавонед бо хоҳиши худ видео тамошо карда, як ҷон гиред. Реклама дар дохили
+        дарсҳо нест ва ҳеҷ гоҳ маҷбурӣ нишон дода намешавад.
+        <ul style={s.ul}>
+          <li>Рекламаро <b>Google AdMob</b> таъмин мекунад. AdMob барои интихоби
+            реклама рақами рекламавӣ ва маълумоти умумии дастгоҳро истифода мебарад:{' '}
+            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>.</li>
+          <li>Мо рекламаро танҳо бо рейтинги <b>«G» (барои ҳама)</b> маҳдуд кардаем.</li>
+          <li><b>Обунаи Premium реклама надорад.</b></li>
+          <li>Барои хомӯш кардани реклами шахсӣ: Танзимоти Android → Google → Реклама →
+            «Delete advertising ID» ё «Opt out of Ads Personalisation».</li>
+        </ul>
+      </Sec>
+
+      <Sec n="5.1" t="Мубодила бо тарафи сеюм">
         Мо маълумоти шуморо <b>намефурӯшем</b>. Маълумот танҳо бо хидматрасонҳои зарурӣ
-        мубодила мешавад: Google Play Services ва Google Sign-In (воридшавӣ ва пардохт),
-        Firebase (зерсохтор) ва провайдери ҳостинг. Ин хидматҳо сиёсати махфияти худро доранд.
+        мубодила мешавад:
+        <ul style={s.ul}>
+          <li><b>Google Play Services / Google Sign-In</b> — воридшавӣ ва пардохт;</li>
+          <li><b>Google AdMob</b> — намоиши реклама (рақами рекламавӣ);</li>
+          <li><b>Firebase Analytics</b> — омори истифода;</li>
+          <li><b>Провайдери AI</b> — паёмҳои чати AI барои гирифтани ҷавоб фиристода мешаванд;</li>
+          <li><b>Хидмати муайянкунии кишвар аз рӯи IP</b> — танҳо барои нархи минтақавӣ;</li>
+          <li><b>Провайдери ҳостинг</b> — нигоҳдории маълумот.</li>
+        </ul>
+        Ин хидматҳо сиёсати махфияти худро доранд.
       </Sec>
 
       <Sec n="6" t="Нигоҳдории маълумот">
@@ -116,6 +143,7 @@ function Tg() {
         Шумо метавонед маълумоти худро бубинед, ислоҳ кунед ё ҳисобатонро нест кунед.
         <ul style={s.ul}>
           <li><b>Дар барнома:</b> Профил → Танзимот → «Нест кардани ҳисоб».</li>
+          <li><b>Дар вебсайт:</b> <A href="/delete-account">саҳифаи нест кардани ҳисоб</A> — дастур ва шакли дархост.</li>
           <li><b>Бо почта:</b> дархост ба <A href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</A> фиристед — мо дар муддати 30 рӯз ҳисоб ва маълумоти шуморо нест мекунем.</li>
         </ul>
       </Sec>
@@ -171,6 +199,9 @@ function Ru() {
           <li><b>Подписки:</b> статус Premium через Google Play Billing. Данные карты мы <b>не видим и не храним</b>.</li>
           <li><b>Данные устройства:</b> модель, версия ОС, действия в приложении и данные о сбоях.</li>
           <li><b>Уведомления:</b> токен для учебных напоминаний.</li>
+          <li><b>Рекламный идентификатор (Advertising ID):</b> используется для показа рекламы и аналитики. Вы можете сбросить его или отключить персонализацию в настройках Android.</li>
+          <li><b>Приблизительное местоположение (по IP):</b> только код страны (например «TJ») — для показа цен вашего региона. Точный адрес не определяется и не хранится.</li>
+          <li><b>Сообщения AI-чата:</b> вопросы, которые вы пишете AI-репетитору, обрабатываются для получения ответа.</li>
         </ul>
       </Sec>
 
@@ -192,9 +223,33 @@ function Ru() {
         </ul>
       </Sec>
 
-      <Sec n="5" t="Передача третьим лицам">
+      <Sec n="5" t="Реклама">
+        Приложение <b>показывает рекламу</b>. Мы используем только один формат:{' '}
+        <b>видео с вознаграждением</b> — когда заканчиваются жизни, вы можете по своему
+        желанию посмотреть видео и получить одну жизнь. Внутри уроков рекламы нет, и она
+        никогда не показывается принудительно.
+        <ul style={s.ul}>
+          <li>Рекламу предоставляет <b>Google AdMob</b>, который использует рекламный
+            идентификатор и общие данные устройства:{' '}
+            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>.</li>
+          <li>Мы ограничили рекламу рейтингом <b>«G» (для всех)</b>.</li>
+          <li><b>В подписке Premium рекламы нет.</b></li>
+          <li>Отключить персонализацию: Настройки Android → Google → Реклама →
+            «Удалить рекламный идентификатор» или «Отключить персонализацию рекламы».</li>
+        </ul>
+      </Sec>
+
+      <Sec n="5.1" t="Передача третьим лицам">
         Мы <b>не продаём</b> ваши данные. Данные передаются только необходимым сервисам:
-        Google Play Services и Google Sign-In, Firebase и хостинг-провайдеру.
+        <ul style={s.ul}>
+          <li><b>Google Play Services / Google Sign-In</b> — вход и оплата;</li>
+          <li><b>Google AdMob</b> — показ рекламы (рекламный идентификатор);</li>
+          <li><b>Firebase Analytics</b> — статистика использования;</li>
+          <li><b>AI-провайдер</b> — сообщения AI-чата отправляются для получения ответа;</li>
+          <li><b>Сервис определения страны по IP</b> — только для региональных цен;</li>
+          <li><b>Хостинг-провайдер</b> — хранение данных.</li>
+        </ul>
+        У этих сервисов свои политики конфиденциальности.
       </Sec>
 
       <Sec n="6" t="Хранение данных">
@@ -205,6 +260,7 @@ function Ru() {
       <Sec n="7" t="Ваши права и удаление аккаунта">
         <ul style={s.ul}>
           <li><b>В приложении:</b> Профиль → Настройки → «Удалить аккаунт».</li>
+          <li><b>На сайте:</b> <A href="/delete-account">страница удаления аккаунта</A> — инструкции и форма запроса.</li>
           <li><b>По email:</b> запрос на <A href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</A> — удалим в течение 30 дней.</li>
         </ul>
       </Sec>
@@ -256,6 +312,9 @@ function En() {
           <li><b>Subscriptions:</b> Premium status via Google Play Billing. We <b>do not see or store</b> your card details.</li>
           <li><b>Device data:</b> device model, OS version, in-app actions, and crash data for improvement.</li>
           <li><b>Notifications:</b> a push token to send learning reminders.</li>
+          <li><b>Advertising ID:</b> used to serve ads and for analytics. You can reset it or opt out of personalised ads in your Android settings.</li>
+          <li><b>Approximate location (from IP):</b> country code only (e.g. “TJ”) to show prices for your region. We do not determine or store your precise address.</li>
+          <li><b>AI chat messages:</b> questions you write to the AI tutor are processed to generate a reply.</li>
         </ul>
       </Sec>
 
@@ -277,10 +336,32 @@ function En() {
         </ul>
       </Sec>
 
-      <Sec n="5" t="Sharing with third parties">
+      <Sec n="5" t="Advertising">
+        The app <b>shows ads</b>. We use a single format: <b>rewarded video</b> — when you
+        run out of hearts you may choose to watch a video and earn one heart back. There
+        are no ads inside lessons, and an ad is never forced on you.
+        <ul style={s.ul}>
+          <li>Ads are served by <b>Google AdMob</b>, which uses the advertising ID and
+            general device data to select ads:{' '}
+            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>.</li>
+          <li>We restrict ads to a <b>“G” (general audiences)</b> content rating.</li>
+          <li><b>Premium subscribers see no ads.</b></li>
+          <li>To opt out of personalised ads: Android Settings → Google → Ads →
+            “Delete advertising ID” or “Opt out of Ads Personalisation”.</li>
+        </ul>
+      </Sec>
+
+      <Sec n="5.1" t="Sharing with third parties">
         We <b>do not sell</b> your data. Data is shared only with necessary services:
-        Google Play Services and Google Sign-In (login &amp; payments), Firebase
-        (infrastructure), and our hosting provider. Each has its own privacy policy.
+        <ul style={s.ul}>
+          <li><b>Google Play Services / Google Sign-In</b> — login &amp; payments;</li>
+          <li><b>Google AdMob</b> — serving ads (advertising ID);</li>
+          <li><b>Firebase Analytics</b> — usage statistics;</li>
+          <li><b>AI provider</b> — AI chat messages are sent to generate a reply;</li>
+          <li><b>IP-to-country lookup service</b> — for regional pricing only;</li>
+          <li><b>Hosting provider</b> — data storage.</li>
+        </ul>
+        Each has its own privacy policy.
       </Sec>
 
       <Sec n="6" t="Data retention">
@@ -292,6 +373,7 @@ function En() {
         You can view, edit, or delete your data:
         <ul style={s.ul}>
           <li><b>In the app:</b> Profile → Settings → “Delete account”.</li>
+          <li><b>On the web:</b> <A href="/delete-account">account deletion page</A> — instructions and a request form.</li>
           <li><b>By email:</b> request to <A href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</A> — we delete your account and data within 30 days.</li>
         </ul>
       </Sec>
