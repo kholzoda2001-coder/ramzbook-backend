@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import DeleteCourseBtn from '../_components/DeleteCourseBtn';
+import ToggleCourseBtn from '../_components/ToggleCourseBtn';
 
 export const dynamic = 'force-dynamic';
 
@@ -196,6 +197,7 @@ export default async function AdminLearningLanguagePage({
                     <Link href={`/admin/phrases?courseId=${course.id}`} style={actionStyle}>Ибораҳо</Link>
                     <Link href={`/admin/dialogues?courseId=${course.id}`} style={actionStyle}>Муколамаҳо</Link>
                     <Link href={`/admin/comprehensions?courseId=${course.id}`} style={actionStyle}>Дарк</Link>
+                    <ToggleCourseBtn id={course.id} title={course.title} isActive={course.isActive} />
                     <DeleteCourseBtn id={course.id} title={course.title} />
                   </div>
                 </div>
