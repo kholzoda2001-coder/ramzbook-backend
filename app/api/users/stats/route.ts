@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { authenticate } from '@/lib/auth';
 import { getHearts } from '@/lib/hearts';
-import { checkStreakDecay } from '@/lib/xp';
+import { checkStreakDecayDetailed } from '@/lib/xp';
 import { checkAndUpdatePremium } from '@/lib/premium';
 import { getClientIp, getCountryFromIp } from '@/lib/geo';
 
@@ -15,7 +15,9 @@ export async function GET(req: Request) {
     // NOTE: streak is ADVANCED only when XP is earned (see lib/xp.ts awardXp).
     // Here we only DECAY a broken streak — opening the app must never fake a streak.
     await checkAndUpdatePremium(user.id);
-    await checkStreakDecay(user.id);
+    // Натиҷаро нигоҳ медорем: барнома бояд ДОНАД, ки freeze сарф шуд ё
+    // streak шикаст — вагарна ин лаҳзаҳо хомӯш мемонанд (ниг. поён).
+    const streakEvent = await checkStreakDecayDetailed(user.id);
     const heartsData = await getHearts(user.id);
 
     // ── Background IP Geolocation ────────────────────────────────────────────
@@ -81,6 +83,12 @@ export async function GET(req: Request) {
       maxHearts: heartsData.maxHearts,
       nextRegenSeconds: heartsData.nextRegenSeconds,
       regenMinutes: (heartsData as any).regenMinutes ?? 30,
+      // Ду рӯйдоди ЯКБОРА (танҳо дар ҳамон дархосте ки онҳо рух доданд):
+      //   streakFreezeUsed — freeze streak-ро наҷот дод → лаҳзаи ҷашн;
+      //   streakLost       — streak шикаст → пешниҳоди барқарорсозӣ.
+      // Бе инҳо ҳарду хомӯш мемонданд ва корбар намефаҳмид чӣ шуд.
+      streakFreezeUsed: streakEvent.freezeUsed,
+      streakLost: streakEvent.streakLost,
     });
   } catch (error: any) {
     console.error('Stats fetch error:', error);

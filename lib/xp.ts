@@ -117,18 +117,36 @@ export async function advanceStreak(userId: string, now = new Date()): Promise<n
  * (consuming a freeze first, if available). Keeps the displayed streak honest.
  */
 export async function checkStreakDecay(userId: string, now = new Date()): Promise<number> {
+  return (await checkStreakDecayDetailed(userId, now)).streak;
+}
+
+/**
+ * Ҳамон мантиқ, вале мегӯяд ки ЧӢ рӯй дод.
+ *
+ * Чаро лозим шуд: freeze хомӯшона сарф мешуд — корбар ҳеҷ гоҳ намедонист, ки
+ * streak-и 12-рӯзааш наҷот ёфт. Ин яке аз қавитарин лаҳзаҳои нигоҳдорӣ аст ва
+ * бе он арзиши freeze (ва Premium, ки онро мефурӯшад) ноаён мемонад.
+ */
+export async function checkStreakDecayDetailed(
+  userId: string,
+  now = new Date(),
+): Promise<{ streak: number; freezeUsed: boolean; streakLost: number }> {
   const user = await prisma.user.findUnique({
     where: { id: userId },
     select: { streak: true, lastActiveDate: true, streakFreezesAvailable: true, streakFreezesUsed: true },
   });
-  if (!user) return 0;
-  if (!user.lastActiveDate || user.streak === 0) return user.streak;
+  if (!user) return { streak: 0, freezeUsed: false, streakLost: 0 };
+  if (!user.lastActiveDate || user.streak === 0) {
+    return { streak: user.streak, freezeUsed: false, streakLost: 0 };
+  }
 
   const today = dateString(now);
   const yesterday = dateString(new Date(now.getTime() - 86400000));
   const last = dateString(user.lastActiveDate);
 
-  if (last === today || last === yesterday) return user.streak; // still valid
+  if (last === today || last === yesterday) {
+    return { streak: user.streak, freezeUsed: false, streakLost: 0 }; // still valid
+  }
 
   // Missed 2+ days → use a freeze if available, else reset.
   if (user.streakFreezesAvailable > 0) {
@@ -140,9 +158,10 @@ export async function checkStreakDecay(userId: string, now = new Date()): Promis
         lastActiveDate: new Date(now.getTime() - 86400000), // treat as if active yesterday
       },
     });
-    return user.streak;
+    return { streak: user.streak, freezeUsed: true, streakLost: 0 };
   }
 
   await prisma.user.update({ where: { id: userId }, data: { streak: 0 } });
-  return 0;
+  // `streakLost` — барномаро имкон медиҳад пешниҳоди барқарорсозӣ нишон диҳад.
+  return { streak: 0, freezeUsed: false, streakLost: user.streak };
 }
