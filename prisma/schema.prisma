@@ -78,11 +78,26 @@ model User {
   friendInvitesCreated  FriendInvite[]
   friendStreaksAsUser1  FriendStreak[] @relation("FriendStreakUser1")
   friendStreaksAsUser2  FriendStreak[] @relation("FriendStreakUser2")
+  deviceTokens      DeviceToken[]
 
   @@index([email])
   @@index([phone])
   @@index([isPremium])
   @@index([subscriptionTier])
+}
+
+/// FCM device tokens барои push-и серверӣ. Як корбар метавонад чанд дастгоҳ
+/// дошта бошад; token уникал аст (як дастгоҳ = як token).
+model DeviceToken {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token      String   @unique
+  platform   String   @default("android") // android | ios
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model RefreshToken {
