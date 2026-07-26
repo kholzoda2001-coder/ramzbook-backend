@@ -179,26 +179,26 @@ function AccessPanel({
       <div style={{
         display: 'flex', alignItems: 'center', gap: 12,
         padding: '12px 16px', borderRadius: 10,
-        background: isGranted ? 'rgba(16,185,129,0.06)' : 'var(--bg-elevated)',
-        border: `1px solid ${isGranted ? 'rgba(16,185,129,0.2)' : 'var(--bg-border)'}`,
+        background: isGranted ? 'rgba(16,185,129,0.06)' : 'var(--card2)',
+        border: `1px solid ${isGranted ? 'rgba(16,185,129,0.2)' : 'var(--border)'}`,
         marginBottom: 8, transition: 'all 0.15s ease',
       }}>
         {/* Cover */}
         <div style={{
           width: 36, height: 44, borderRadius: 6, flexShrink: 0, overflow: 'hidden',
-          background: 'var(--bg-surface)', border: '1px solid var(--bg-border)',
+          background: 'var(--card)', border: '1px solid var(--border)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
           {book.coverUrl
             ? <img src={book.coverUrl} alt={book.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')} />
-            : <BookOpen size={14} color="var(--text-muted)" />}
+            : <BookOpen size={14} color="var(--text2)" />}
         </div>
 
         {/* Info */}
         <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{book.title}</p>
+          <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{book.title}</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <p style={{ fontSize: 11, color: 'var(--text-muted)' }}>{book.author}</p>
+            <p style={{ fontSize: 11, color: 'var(--text2)' }}>{book.author}</p>
             {book.expiresAt && <span style={{ fontSize: 10, color: '#ef4444' }}>• Exp: {new Date(book.expiresAt).toLocaleDateString()}</span>}
           </div>
         </div>
@@ -257,7 +257,7 @@ function AccessPanel({
   const Section = ({ title, items, count }: { title: string; items: BookAccess[]; count: number }) =>
     items.length === 0 ? null : (
       <div style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 8 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', marginBottom: 8 }}>
           {title} ({count})
         </p>
         {items.map((b) => <BookRow key={b.id} book={b} />)}
@@ -275,26 +275,26 @@ function AccessPanel({
       {/* Panel */}
       <div style={{
         width: 480, maxWidth: '100vw', height: '100%',
-        background: 'var(--bg-surface)',
-        borderLeft: '1px solid var(--bg-border)',
+        background: 'var(--card)',
+        borderLeft: '1px solid var(--border)',
         display: 'flex', flexDirection: 'column',
         boxShadow: '-20px 0 60px rgba(0,0,0,0.5)',
       }}>
         {/* Header */}
-        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{
             width: 40, height: 40, borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--accent-from), var(--accent-to))',
+            background: 'linear-gradient(135deg, #14B8A6, #0D9488)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: 15, fontWeight: 700, color: '#fff', flexShrink: 0,
           }}>
             {(user.name ?? '?').split(' ').map((n) => n[0] ?? '').join('').toUpperCase().slice(0, 2) || '?'}
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.name}</p>
-            <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{displayContact(user)}</p>
+            <p style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{user.name}</p>
+            <p style={{ fontSize: 12, color: 'var(--text2)' }}>{displayContact(user)}</p>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', borderRadius: 8, padding: 4 }}>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text2)', borderRadius: 8, padding: 4 }}>
             <X size={18} />
           </button>
         </div>
@@ -303,8 +303,8 @@ function AccessPanel({
         </div>
 
         {/* Premium VIP Plans */}
-        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', background: 'var(--bg-surface)' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: 12 }}>
+        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', background: 'var(--card)' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', marginBottom: 12 }}>
             Обунаҳои глобалӣ (VIP)
           </p>
           <div style={{ display: 'flex', gap: 12 }}>
@@ -318,15 +318,15 @@ function AccessPanel({
               return (
                 <div key={p.key} style={{
                   flex: 1, padding: '16px', borderRadius: 16,
-                  background: active ? `${p.color}0d` : 'var(--bg-elevated)',
-                  border: `1px solid ${active ? p.color : 'var(--bg-border)'}`,
+                  background: active ? `${p.color}0d` : 'var(--card2)',
+                  border: `1px solid ${active ? p.color : 'var(--border)'}`,
                   display: 'flex', flexDirection: 'column', gap: 12,
                 }}>
                   <div>
-                    <h4 style={{ fontSize: 14, fontWeight: 700, color: active ? p.color : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <ShieldCheck size={16} color={active ? p.color : 'var(--text-muted)'} /> {p.label}
+                    <h4 style={{ fontSize: 14, fontWeight: 700, color: active ? p.color : 'var(--text)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <ShieldCheck size={16} color={active ? p.color : 'var(--text2)'} /> {p.label}
                     </h4>
-                    <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
+                    <p style={{ fontSize: 11, color: 'var(--text2)', marginTop: 4 }}>
                       {active && p.key === 'lifetime'
                         ? 'Фаъол — доимӣ'
                         : active && vipExpiresAt
@@ -346,7 +346,7 @@ function AccessPanel({
                       {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
                     </button>
                   ) : otherActive ? (
-                    <div style={{ fontSize: 11, color: 'var(--text-muted)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
+                    <div style={{ fontSize: 11, color: 'var(--text2)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
                   ) : (
                     <button
                       onClick={() => executeAction(null, p.action)}
@@ -366,9 +366,9 @@ function AccessPanel({
         </div>
 
         {/* Book search */}
-        <div style={{ padding: '16px 24px', borderBottom: '1px solid var(--bg-border)' }}>
+        <div style={{ padding: '16px 24px', borderBottom: '1px solid var(--border)' }}>
           <div style={{ position: 'relative' }}>
-            <Search size={14} color="var(--text-muted)" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+            <Search size={14} color="var(--text2)" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
             <input
               className="input-field"
               placeholder="Китобро ҷустуҷӯ кунед…"
@@ -382,12 +382,12 @@ function AccessPanel({
         {/* Book list */}
         <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
           {loading ? (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: 12, color: 'var(--text-muted)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: 12, color: 'var(--text2)' }}>
               <Loader2 size={28} style={{ animation: 'spin 0.8s linear infinite' }} />
               <p style={{ fontSize: 14 }}>Китобҳо бор мешаванд…</p>
             </div>
           ) : books.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text-muted)' }}>
+            <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text2)' }}>
               <BookOpen size={36} style={{ marginBottom: 12, opacity: 0.2 }} />
               <p style={{ fontSize: 14 }}>Китобе ёфт нашуд</p>
             </div>
@@ -401,7 +401,7 @@ function AccessPanel({
         </div>
 
         {/* Footer summary */}
-        <div style={{ padding: '14px 24px', borderTop: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'var(--text-muted)' }}>
+        <div style={{ padding: '14px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'var(--text2)' }}>
           <span>{books.filter((b) => b.isPurchased).length} китоб кушода шудааст</span>
           <span>{books.length} китоби умумӣ</span>
         </div>
@@ -456,8 +456,8 @@ export default function UsersPage() {
             <Users size={18} color="#818cf8" />
           </div>
           <div>
-            <h1 style={{ fontSize: 26, fontWeight: 700, color: 'var(--text-primary)' }}>Users</h1>
-            <p style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 2 }}>
+            <h1 style={{ fontSize: 26, fontWeight: 700, color: 'var(--text)' }}>Users</h1>
+            <p style={{ fontSize: 13, color: 'var(--text2)', marginTop: 2 }}>
               {loading ? 'Бор мешавад…' : `${users.length} корбари бақайдгирифташуда`}
             </p>
           </div>
@@ -465,7 +465,7 @@ export default function UsersPage() {
 
         {/* Search */}
         <div style={{ position: 'relative', flex: '1 1 240px', maxWidth: 340 }}>
-          <Search size={14} color="var(--text-muted)" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+          <Search size={14} color="var(--text2)" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
           <input
             className="input-field"
             placeholder="Ном ё почтаро ҷустуҷӯ кунед…"
@@ -479,14 +479,14 @@ export default function UsersPage() {
       {/* Table */}
       <div className="glass-card fade-up delay-1" style={{ overflow: 'hidden' }}>
         {loading ? (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 20px', color: 'var(--text-muted)', gap: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 20px', color: 'var(--text2)', gap: 12 }}>
             <Loader2 size={22} style={{ animation: 'spin 0.8s linear infinite' }} />
             <span>Корбарон бор мешаванд…</span>
           </div>
         ) : filtered.length === 0 ? (
-          <div style={{ padding: '80px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>
+          <div style={{ padding: '80px 20px', textAlign: 'center', color: 'var(--text2)' }}>
             <Users size={40} style={{ marginBottom: 16, opacity: 0.2 }} />
-            <p style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-secondary)' }}>
+            <p style={{ fontSize: 16, fontWeight: 600, color: 'var(--text2)' }}>
               {search ? 'Корбар ёфт нашуд' : 'Корбаре вуҷуд надорад'}
             </p>
             {!search && <p style={{ fontSize: 13, marginTop: 8 }}>Корбарон пас аз бақайдгирӣ дар замима намоён мешаванд.</p>}
@@ -495,9 +495,9 @@ export default function UsersPage() {
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
-                <tr style={{ borderBottom: '1px solid var(--bg-border)' }}>
+                <tr style={{ borderBottom: '1px solid var(--border)' }}>
                   {['Корбар', 'Почтаи электронӣ', 'ID', 'Вазъ', 'Санаи бақайд', ''].map((h) => (
-                    <th key={h} style={{ padding: '14px 20px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
+                    <th key={h} style={{ padding: '14px 20px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', whiteSpace: 'nowrap' }}>
                       {h}
                     </th>
                   ))}
@@ -509,22 +509,22 @@ export default function UsersPage() {
                   return (
                     <tr
                       key={user.id}
-                      style={{ borderBottom: idx < filtered.length - 1 ? '1px solid var(--bg-border)' : 'none', transition: 'background 0.15s ease' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--bg-elevated)')}
+                      style={{ borderBottom: idx < filtered.length - 1 ? '1px solid var(--border)' : 'none', transition: 'background 0.15s ease' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--card2)')}
                       onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                     >
                       {/* Avatar + Name */}
                       <td style={{ padding: '16px 20px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                          <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg, var(--accent-from), var(--accent-to))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, color: '#fff', flexShrink: 0 }}>
+                          <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'linear-gradient(135deg, #14B8A6, #0D9488)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, color: '#fff', flexShrink: 0 }}>
                             {initials}
                           </div>
-                          <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)' }}>{user.name}</span>
+                          <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>{user.name}</span>
                         </div>
                       </td>
 
                       {/* Email / Phone */}
-                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text-secondary)' }}>
+                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text2)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                           {user.phone || user.email?.endsWith('@ramzbook.tj') ? (
                             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 700, padding: '2px 7px', borderRadius: 99, background: 'rgba(16,185,129,0.1)', color: '#10b981', border: '1px solid rgba(16,185,129,0.25)', flexShrink: 0 }}>📱</span>
@@ -537,7 +537,7 @@ export default function UsersPage() {
 
                       {/* ID */}
                       <td style={{ padding: '16px 20px' }}>
-                        <code style={{ fontSize: 11, background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', padding: '2px 8px', borderRadius: 6, color: 'var(--text-muted)' }}>
+                        <code style={{ fontSize: 11, background: 'var(--card2)', border: '1px solid var(--border)', padding: '2px 8px', borderRadius: 6, color: 'var(--text2)' }}>
                           {user.id.slice(0, 12)}…
                         </code>
                       </td>
@@ -551,7 +551,7 @@ export default function UsersPage() {
                       </td>
 
                       {/* Joined */}
-                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text-muted)' }}>
+                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text2)' }}>
                         {new Date(user.createdAt).toLocaleDateString('tg-TJ', { month: 'short', day: 'numeric', year: 'numeric' })}
                       </td>
 
@@ -580,8 +580,8 @@ export default function UsersPage() {
               </tbody>
             </table>
 
-            <div style={{ padding: '14px 20px', borderTop: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between' }}>
-              <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{filtered.length} корбар</p>
+            <div style={{ padding: '14px 20px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between' }}>
+              <p style={{ fontSize: 12, color: 'var(--text2)' }}>{filtered.length} корбар</p>
             </div>
           </div>
         )}
