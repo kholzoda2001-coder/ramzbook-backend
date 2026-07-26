@@ -80,6 +80,7 @@ export async function GET(req: Request) {
       hearts: heartsData.hearts,
       maxHearts: heartsData.maxHearts,
       nextRegenSeconds: heartsData.nextRegenSeconds,
+      regenMinutes: (heartsData as any).regenMinutes ?? 30,
     });
   } catch (error: any) {
     console.error('Stats fetch error:', error);

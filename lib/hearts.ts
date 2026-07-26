@@ -1,8 +1,35 @@
 import { prisma } from './prisma';
 
-const REGEN_INTERVAL_MIN = 30; // 1 heart per 30 minutes
+const DEFAULT_REGEN_MIN = 30;
 const MAX_HEARTS_FREE = 5;
 const MAX_HEARTS_PREMIUM = 999;
+
+/**
+ * Суръати барқароршавии дил (дақиқа) вобаста ба сатҳ ва модул. Ҳадаф:
+ * сатҳи болотар → фишори бештар барои реклама/обуна (даромад барои сервер).
+ *   • A1 M1 → 1 дақ (амалан бемаҳдуд — навомӯз азоб намебинад)
+ *   • A1 M2 → 30 дақ
+ *   • A1 M3+ → 60 дақ
+ *   • A2 → 5 соат, B1 → 12 соат, B2 → 18 соат, C1+ → 24 соат
+ */
+export function regenMinutesFor(level: string, moduleIndex: number): number {
+  const lvl = (level || 'a1').toLowerCase();
+  const idx = Number.isFinite(moduleIndex) ? moduleIndex : 0;
+  switch (lvl) {
+    case 'a1':
+      if (idx <= 0) return 1;
+      if (idx === 1) return 30;
+      return 60;
+    case 'a2':
+      return 300;
+    case 'b1':
+      return 720;
+    case 'b2':
+      return 1080;
+    default: // c1, c2 ва болотар
+      return 1440;
+  }
+}
 
 export async function getHearts(userId: string) {
   const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -17,39 +44,54 @@ export async function getHearts(userId: string) {
     };
   }
   
-  // Regenerate
+  // Regenerate — интервал вобаста ба сатҳ+модули охирини корбар (динамикӣ).
+  const regenMin = user.heartsRegenMinutes > 0 ? user.heartsRegenMinutes : DEFAULT_REGEN_MIN;
   const now = new Date();
   const lastRegen = new Date(user.lastHeartRegen);
   const minutesPassed = Math.floor((now.getTime() - lastRegen.getTime()) / 1000 / 60);
-  const heartsToAdd = Math.floor(minutesPassed / REGEN_INTERVAL_MIN);
-  
+  const heartsToAdd = Math.floor(minutesPassed / regenMin);
+
   let newHearts = user.hearts;
   let newLastRegen = user.lastHeartRegen;
-  
+
   if (heartsToAdd > 0 && user.hearts < MAX_HEARTS_FREE) {
     newHearts = Math.min(MAX_HEARTS_FREE, user.hearts + heartsToAdd);
-    const remainingMin = minutesPassed - (heartsToAdd * REGEN_INTERVAL_MIN);
+    const remainingMin = minutesPassed - (heartsToAdd * regenMin);
     newLastRegen = new Date(now.getTime() - remainingMin * 60 * 1000);
-    
+
     await prisma.user.update({
       where: { id: userId },
       data: { hearts: newHearts, lastHeartRegen: newLastRegen },
     });
   }
-  
+
   // Calculate time to next heart
   let nextRegenSeconds = 0;
   if (newHearts < MAX_HEARTS_FREE) {
     const sinceLastRegen = (now.getTime() - newLastRegen.getTime()) / 1000;
-    nextRegenSeconds = Math.max(0, REGEN_INTERVAL_MIN * 60 - sinceLastRegen);
+    nextRegenSeconds = Math.max(0, regenMin * 60 - sinceLastRegen);
   }
-  
+
   return {
     hearts: newHearts,
     maxHearts: MAX_HEARTS_FREE,
     nextRegenSeconds: Math.ceil(nextRegenSeconds),
     isPremium: false,
+    regenMinutes: regenMin,
   };
+}
+
+/**
+ * Суръати regen-и корбарро вобаста ба сатҳ+модуле, ки ҳозир мехонад, нав
+ * мекунад. Барномаи мобилӣ ҳангоми кушодани дарс инро даъват мекунад.
+ */
+export async function setRegenRate(userId: string, level: string, moduleIndex: number) {
+  const minutes = regenMinutesFor(level, moduleIndex);
+  await prisma.user.update({
+    where: { id: userId },
+    data: { heartsRegenMinutes: minutes },
+  });
+  return { regenMinutes: minutes };
 }
 
 export async function loseHeart(userId: string) {

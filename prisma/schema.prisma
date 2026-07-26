@@ -31,7 +31,10 @@ model User {
   hearts            Int       @default(5)
   maxHearts         Int       @default(5)
   lastHeartRegen    DateTime  @default(now())
-  
+  // Суръати барқароршавии дил (дақиқа) — вобаста ба сатҳ+модули охирине, ки
+  // корбар мехонад. A1 M1=1, A1 M2=30, A1 M3+=60, A2=300, B1=720, B2=1080, C1=1440.
+  heartsRegenMinutes Int      @default(30)
+
   // Streak
   streak            Int       @default(0)
   longestStreak     Int       @default(0)
