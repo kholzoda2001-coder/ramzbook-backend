@@ -15,10 +15,17 @@ import { prisma } from './prisma';
 
 export const PACKAGE_NAME = process.env.GOOGLE_PLAY_PACKAGE_NAME || 'com.ramzbook.tj';
 
-export type Plan = 'monthly' | 'yearly' | 'lifetime';
+export type Plan = 'monthly' | 'sixmonths' | 'yearly' | 'lifetime';
 
+// ⚠️ Ин харита ЯГОНА дарвозаест, ки ба productId иҷозаи фаъолсозӣ медиҳад —
+// productId-и набуда бо «Unknown productId» рад мешавад. Пас плани нав ба
+// Play Console илова кардан кофӣ НЕСТ; бояд ин ҷо ҳам бошад, вагарна Google
+// пул мегирад, аммо сервер Premium намедиҳад.
+//
+// ID-ҳо бояд бо frontend PlanIds мувофиқ бошанд (lib/services/billing_service.dart).
 export const PRODUCT_PLAN: Record<string, Plan> = {
   vip_monthly: 'monthly',
+  vip_6_months: 'sixmonths',
   vip_yearly: 'yearly',
   ramz_lifetime: 'lifetime',
 };
@@ -28,6 +35,8 @@ export function planPrice(plan: Plan): number {
   switch (plan) {
     case 'yearly':
       return 29.99;
+    case 'sixmonths':
+      return 17.99;
     case 'lifetime':
       return 99.99;
     default:
