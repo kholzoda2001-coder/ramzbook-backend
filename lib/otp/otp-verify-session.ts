@@ -9,10 +9,9 @@ import {
   generateRefreshToken,
   hashRefreshToken,
   signAccessTokenForUser,
+  REFRESH_TTL_MS,
 } from '@/lib/auth';
 import { verifyOtpInDb, normalizeIdentifier, type OtpChannel } from '@/lib/otp/otp-core';
-
-const REFRESH_TTL_DAYS = 30;
 
 export type VerifyOtpSessionResult =
   | {
@@ -82,7 +81,7 @@ export async function runVerifyOtpSession(
   const accessToken = signAccessTokenForUser(user.id);
   const rawRefresh = generateRefreshToken();
   const hashedRefresh = hashRefreshToken(rawRefresh);
-  const refreshExpires = new Date(Date.now() + REFRESH_TTL_DAYS * 24 * 60 * 60 * 1000);
+  const refreshExpires = new Date(Date.now() + REFRESH_TTL_MS);
 
   await prisma.refreshToken.create({
     data: {

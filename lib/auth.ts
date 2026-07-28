@@ -86,6 +86,17 @@ export function signAccessTokenForUser(userId: string): string {
  */
 export const signTokenForUser = signAccessTokenForUser;
 
+/**
+ * Refresh-token умри — ЯГОНА манбаъ барои ҳамаи эндпоинтҳо (login, register,
+ * social, otp, refresh).
+ *
+ * ⚠️ ЧАРО 10 сол: талаби маҳсулот — то барнома дар телефон аст (uninstall
+ * нашуда), корбар набояд ҳеҷ гоҳ аз нав логин пурсида шавад. Refresh дар ҳар
+ * даъват мӯҳлатро ба пеш мекашад (sliding), пас корбари фаъол амалан ҳеҷ гоҳ
+ * тамом намешавад; 10 сол танҳо fallback барои бефаъолии тӯлонист.
+ */
+export const REFRESH_TTL_MS = 1000 * 60 * 60 * 24 * 3650; // ~10 сол
+
 export function generateRefreshToken(): string {
   return crypto.randomBytes(48).toString('hex');
 }

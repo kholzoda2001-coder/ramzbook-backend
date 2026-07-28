@@ -18,6 +18,7 @@ import {
   generateRefreshToken,
   hashRefreshToken,
   signAccessTokenForUser,
+  REFRESH_TTL_MS,
 } from '@/lib/auth';
 import { loadLoginSettingsConfig } from '@/lib/auth/login-settings';
 import { verifyTelegramLoginWidget } from '@/lib/social/telegram-widget';
@@ -28,7 +29,6 @@ const CORS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-const REFRESH_TTL_DAYS = 30;
 
 export async function OPTIONS() {
   return new Response(null, { status: 204, headers: CORS });
@@ -130,7 +130,7 @@ export async function POST(req: NextRequest) {
     const accessToken = signAccessTokenForUser(user.id);
     const rawRefresh = generateRefreshToken();
     const hashedRefresh = hashRefreshToken(rawRefresh);
-    const refreshExpires = new Date(Date.now() + REFRESH_TTL_DAYS * 24 * 60 * 60 * 1000);
+    const refreshExpires = new Date(Date.now() + REFRESH_TTL_MS);
 
     await prisma.refreshToken.create({
       data: {

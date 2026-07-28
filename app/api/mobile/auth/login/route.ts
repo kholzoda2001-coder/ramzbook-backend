@@ -5,10 +5,9 @@ import {
   generateRefreshToken,
   hashRefreshToken,
   signAccessTokenForUser,
+  REFRESH_TTL_MS,
 } from '@/lib/auth';
 import { getClientIp, getCountryFromIp } from '@/lib/geo';
-
-const REFRESH_TTL_MS = 1000 * 60 * 60 * 24 * 30; // 30 days
 
 export async function POST(req: NextRequest) {
   try {
