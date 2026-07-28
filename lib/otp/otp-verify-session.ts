@@ -18,7 +18,7 @@ export type VerifyOtpSessionResult =
       ok: true;
       accessToken: string;
       refreshToken: string;
-      user: { id: string; name: string; email: string; phone: string | null };
+      user: { id: string; name: string; email: string; phone: string | null; isPremium: boolean; vipExpiresAt: Date | null };
       isNewUser: boolean;
     }
   | { ok: false; status: number; error: string };
@@ -100,6 +100,8 @@ export async function runVerifyOtpSession(
       name: user.name,
       email: user.email ?? '',
       phone: user.phone,
+      isPremium: user.isPremium,
+      vipExpiresAt: user.premiumExpiresAt,
     },
     isNewUser,
   };

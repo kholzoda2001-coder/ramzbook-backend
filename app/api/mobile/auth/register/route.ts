@@ -78,7 +78,12 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return Response.json({ user, accessToken, refreshToken }, { status: 201 });
+    // Корбари нав ҳеҷ гоҳ premium нест — возеҳ мегузорем, то модели барнома
+    // ҳамон майдонҳоро дошта бошад.
+    return Response.json(
+      { user: { ...user, isPremium: false, vipExpiresAt: null }, accessToken, refreshToken },
+      { status: 201 },
+    );
   } catch (err: any) {
     console.error('[auth/register]', err);
     return Response.json({ error: 'Failed to register user', details: err.message }, { status: 500 });

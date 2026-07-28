@@ -145,7 +145,11 @@ export async function POST(req: NextRequest) {
         accessToken,
         refreshToken: rawRefresh,
         isNewUser,
-        user: { id: user.id, name: user.name, email: user.email },
+        user: {
+          id: user.id, name: user.name, email: user.email,
+          isPremium: user.isPremium,
+          vipExpiresAt: user.premiumExpiresAt,
+        },
       },
       { status: 200, headers: CORS },
     );
