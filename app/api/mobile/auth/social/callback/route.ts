@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
 
     let email: string;
     let name: string;
+    let picture: string | null = null; // profile photo from the social provider
     let isNewUser = false;
     
     const loginCfg = await loadLoginSettingsConfig(prisma);
@@ -70,6 +71,7 @@ export async function POST(req: NextRequest) {
         }
         email = payload.email.toLowerCase();
         name = (payload.name ?? email.split('@')[0]) as string;
+        picture = (payload.picture as string | undefined) ?? null; // Google avatar
       } else {
         return Response.json(
           {
@@ -114,6 +116,7 @@ export async function POST(req: NextRequest) {
       const ln = authData.last_name ?? '';
       const un = authData.username ?? '';
       name = [fn, ln].filter(Boolean).join(' ').trim() || (un ? `@${un}` : `Telegram ${tgId}`);
+      picture = (authData.photo_url ?? '').trim() || null; // Telegram avatar
     } else {
       return Response.json({ error: 'Ношинохта provider.' }, { status: 400, headers: CORS });
     }
@@ -123,8 +126,12 @@ export async function POST(req: NextRequest) {
       isNewUser = true;
       const passwordHash = await bcrypt.hash(crypto.randomBytes(24).toString('hex'), 10);
       user = await prisma.user.create({
-        data: { email, name, passwordHash },
+        data: { email, name, passwordHash, avatarUrl: picture },
       });
+    } else if (picture && !user.avatarUrl) {
+      // Backfill the social profile photo the FIRST time only — never overwrite
+      // a photo the user has since chosen themselves.
+      user = await prisma.user.update({ where: { id: user.id }, data: { avatarUrl: picture } });
     }
 
     const accessToken = signAccessTokenForUser(user.id);
@@ -147,6 +154,7 @@ export async function POST(req: NextRequest) {
         isNewUser,
         user: {
           id: user.id, name: user.name, email: user.email,
+          avatarUrl: user.avatarUrl,
           isPremium: user.isPremium,
           vipExpiresAt: user.premiumExpiresAt,
         },

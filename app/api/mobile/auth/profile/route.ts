@@ -28,6 +28,7 @@ export async function GET(req: NextRequest) {
         name: true,
         email: true,
         phone: true,
+        avatarUrl: true,
         isPremium: true,
         premiumExpiresAt: true,
         totalXp: true,
@@ -86,11 +87,12 @@ export async function PATCH(req: NextRequest) {
     const user = await prisma.user.update({
       where: { id: userId },
       data: { name },
-      select: { 
-        id: true, 
-        name: true, 
-        email: true, 
-        isPremium: true, 
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        avatarUrl: true,
+        isPremium: true,
         premiumExpiresAt: true,
         totalXp: true,
         streak: true,
