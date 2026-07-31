@@ -38,12 +38,13 @@ export interface PromoConfig {
 export const defaultPromoConfig: PromoConfig = {
   enabled: true,
   days: 60,
-  eligibleWithinDays: 14,
-  badge: '{months} МОҲ РОЙГОН',
-  title: '🎁 Тӯҳфаи оғоз барои шумо',
-  message:
-    '{months} моҳ Premium комилан ройгон — дили бемаҳдуд, AI-тютори номаҳдуд ва ҳамаи имконот. Бе корт, бе пардохт.',
-  cta: 'Ройгон фаъол кардан',
+  // 0 = ҳар корбаре ки ҳанӯз тӯҳфаро нагирифтааст (талаби маҳсулот). Тиреза
+  // танҳо ҳамчун абзори ихтиёрии админ мемонад — пешфарз маҳдудият нест.
+  eligibleWithinDays: 0,
+  badge: 'ДАСТРАСИИ ОЗМОИШӢ',
+  title: 'Тӯҳфаи Махсус',
+  message: 'Premium-и пурра барои {months} моҳ — ройгон ва бе ягон шарт.',
+  cta: '{months} МОҲРО РОЙГОН ГИРЕД',
 };
 
 function deepClone<T>(o: T): T {
