@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { authenticate } from '@/lib/auth';
+import { prisma } from '@/lib/prisma';
 import { evaluatePaywall, logPaywallEvent, type PaywallContext } from '@/lib/paywall';
+import { getPromoStateFor } from '@/lib/promo';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,6 +36,26 @@ export async function GET(req: NextRequest) {
       await logPaywallEvent(me.id, offer.trigger, 'shown', null, { ctx });
     }
 
+    // The free-Premium gift rides along on EVERY trigger, so a new user meets
+    // the same offer no matter which paywall they hit first. Best-effort: a
+    // failure here must never suppress the paywall itself.
+    let promo = null;
+    try {
+      const state = await getPromoStateFor(prisma, me.id);
+      if (state.eligible) {
+        promo = {
+          days: state.days,
+          months: state.months,
+          badge: state.badge,
+          title: state.title,
+          message: state.message,
+          cta: state.cta,
+        };
+      }
+    } catch (e) {
+      console.error('[paywall GET] promo lookup failed', e);
+    }
+
     return NextResponse.json({
       trigger: offer.trigger,
       offer: offer.offer,
@@ -42,6 +64,7 @@ export async function GET(req: NextRequest) {
       title: offer.title,
       message: offer.message,
       cta: offer.cta,
+      promo,
     });
   } catch (error) {
     console.error('[paywall GET]', error);
