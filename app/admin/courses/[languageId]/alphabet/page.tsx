@@ -23,6 +23,12 @@ const EMPTY = { uppercase: '', lowercase: '', ipa: '', tajikTranscription: '', c
 
 const CATEGORY_LABEL: Record<string, string> = { vowel: 'Садонок', consonant: 'Ҳамсадо', sign: 'Аломат' };
 
+interface Rule { id: string; category: string; title: string; body: string; order: number; }
+const EMPTY_RULE = { category: 'vowel', title: '', body: '', order: 0 };
+// The app shows 'general' rules on the combined Алфавит tab, 'vowel' on the
+// Садонокҳо tab and 'consonant' on the Ҳамсадоҳо tab.
+const RULE_CATEGORY_LABEL: Record<string, string> = { vowel: 'Садонокҳо', consonant: 'Ҳамсадоҳо', general: 'Умумӣ (Алфавит)' };
+
 function AlphabetContent() {
   const params = useParams();
   const searchParams = useSearchParams();
@@ -39,6 +45,13 @@ function AlphabetContent() {
   const [saving, setSaving] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
 
+  // ── Rules (pronunciation/spelling notes shown above the letter grid) ──
+  const [rules, setRules] = useState<Rule[]>([]);
+  const [showRuleForm, setShowRuleForm] = useState(false);
+  const [ruleForm, setRuleForm] = useState(EMPTY_RULE);
+  const [ruleSaving, setRuleSaving] = useState(false);
+  const [ruleEditId, setRuleEditId] = useState<string | null>(null);
+
   const fetchLanguages = useCallback(async () => {
     try { const r = await fetch('/api/admin/languages'); const d = await r.json(); setLanguages(d.languages ?? []); } catch {}
   }, []);
@@ -52,8 +65,17 @@ function AlphabetContent() {
     } catch { setLetters([]); } finally { setLoading(false); }
   }, [targetId, nativeId]);
 
+  const fetchRules = useCallback(async () => {
+    if (!targetId || !nativeId) { setRules([]); return; }
+    try {
+      const r = await fetch(`/api/admin/alphabet-rules?targetLanguageId=${targetId}&nativeLanguageId=${nativeId}`);
+      const d = await r.json(); setRules(d.rules ?? []);
+    } catch { setRules([]); }
+  }, [targetId, nativeId]);
+
   useEffect(() => { fetchLanguages(); }, [fetchLanguages]);
   useEffect(() => { fetchLetters(); }, [fetchLetters]);
+  useEffect(() => { fetchRules(); }, [fetchRules]);
 
   const targetLang = languages.find(l => l.id === targetId);
   const natives = languages.filter(l => l.canBeNative);
@@ -96,6 +118,40 @@ function AlphabetContent() {
       tajikTranscription: l.tajikTranscription || '', category: l.category, order: l.order,
     });
     setEditId(l.id); setShowForm(true);
+  }
+
+  function resetRuleForm() { setRuleForm(EMPTY_RULE); setShowRuleForm(false); setRuleEditId(null); }
+
+  async function saveRule() {
+    if (!ruleForm.title || !ruleForm.body || !nativeId) return alert('Fill title and body and select native language');
+    setRuleSaving(true);
+    try {
+      const payload = {
+        targetLanguageId: targetId, nativeLanguageId: nativeId,
+        category: ruleForm.category, title: ruleForm.title, body: ruleForm.body, order: ruleForm.order,
+      };
+      const m = ruleEditId ? 'PUT' : 'POST';
+      const b = ruleEditId ? { id: ruleEditId, ...payload } : payload;
+      const r = await fetch('/api/admin/alphabet-rules', {
+        method: m, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b)
+      });
+      if (r.ok) { resetRuleForm(); fetchRules(); }
+      else { const d = await r.json(); alert(d.error || 'Error saving'); }
+    } catch (e: any) { alert(e.message); } finally { setRuleSaving(false); }
+  }
+
+  async function deleteRule(id: string) {
+    if (!confirm('Ҳатман нест мекунед?')) return;
+    try {
+      const r = await fetch(`/api/admin/alphabet-rules?id=${id}`, { method: 'DELETE' });
+      if (r.ok) fetchRules();
+      else alert('Error deleting');
+    } catch (e: any) { alert(e.message); }
+  }
+
+  function editR(r: Rule) {
+    setRuleForm({ category: r.category, title: r.title, body: r.body, order: r.order });
+    setRuleEditId(r.id); setShowRuleForm(true);
   }
 
   return (
@@ -196,6 +252,69 @@ function AlphabetContent() {
               )}
             </div>
           )}
+
+          {/* ── Rules section ────────────────────────────────────────────── */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '32px 0 16px' }}>
+            <h2 style={{ fontSize: '18px', fontWeight: 700 }}>Қоидаҳо ({rules.length})</h2>
+            <button style={BTN} onClick={() => { resetRuleForm(); setShowRuleForm(true); }}>+ Иловаи қоида</button>
+          </div>
+
+          {showRuleForm && (
+            <div className="fade-up" style={{ background: 'rgba(20,184,166,0.03)', border: '1px solid rgba(20,184,166,0.2)', borderRadius: '12px', padding: '20px', marginBottom: '24px' }}>
+              <h3 style={{ marginTop: 0, marginBottom: '16px' }}>{ruleEditId ? 'Таҳрири қоида' : 'Қоидаи нав'}</h3>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 80px', gap: '16px', marginBottom: '16px' }}>
+                <div>
+                  <span style={LABEL}>Гурӯҳ (кадом таб)</span>
+                  <select style={FIELD} value={ruleForm.category} onChange={e => setRuleForm({...ruleForm, category: e.target.value})}>
+                    <option value="general">Умумӣ (таби Алфавит)</option>
+                    <option value="vowel">Садонокҳо</option>
+                    <option value="consonant">Ҳамсадоҳо</option>
+                  </select>
+                </div>
+                <div><span style={LABEL}>Order</span><input type="number" style={FIELD} value={ruleForm.order} onChange={e => setRuleForm({...ruleForm, order: parseInt(e.target.value)||0})} /></div>
+              </div>
+
+              <div style={{ marginBottom: '16px' }}>
+                <span style={LABEL}>Сарлавҳа*</span>
+                <input style={FIELD} value={ruleForm.title} onChange={e => setRuleForm({...ruleForm, title: e.target.value})} placeholder="мас. «e»-и хомӯш" />
+              </div>
+
+              <div style={{ marginBottom: '16px' }}>
+                <span style={LABEL}>Матни қоида* (бо забони модарии хонанда)</span>
+                <textarea style={{ ...FIELD, minHeight: '80px', resize: 'vertical' }} value={ruleForm.body} onChange={e => setRuleForm({...ruleForm, body: e.target.value})} placeholder="мас. Агар калима бо «e» тамом шавад, он садо намедиҳад, вале садоноки пешинро дароз мекунад: hat → hate." />
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
+                <button style={{ ...BTN, background: 'rgba(255,255,255,0.1)' }} onClick={resetRuleForm}>Бекор кардан</button>
+                <button style={BTN} onClick={saveRule} disabled={ruleSaving}>{ruleSaving ? 'Сабт мешавад...' : 'Сабт кардан'}</button>
+              </div>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {rules.map(r => (
+              <div key={r.id} style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border)', borderRadius: '10px', padding: '16px', display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                    <span style={{ fontWeight: 700, fontSize: '12px', color: 'var(--teal)' }}>{RULE_CATEGORY_LABEL[r.category] || r.category}</span>
+                  </div>
+                  <div style={{ color: 'var(--text-primary)', fontSize: '14px', fontWeight: 700, marginBottom: '2px' }}>{r.title}</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: 1.4 }}>{r.body}</div>
+                </div>
+                <div style={{ color: 'var(--text3)', fontSize: '12px' }}>order: {r.order}</div>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button style={{ ...SMALL_DEL, background: 'rgba(255,255,255,0.1)', color: 'var(--text-primary)', border: 'none' }} onClick={() => editR(r)}>Таҳрир</button>
+                  <button style={SMALL_DEL} onClick={() => deleteRule(r.id)}>Нест кардан</button>
+                </div>
+              </div>
+            ))}
+            {rules.length === 0 && !showRuleForm && (
+              <div style={{ padding: '40px', textAlign: 'center', color: 'var(--text3)', background: 'rgba(255,255,255,0.02)', borderRadius: '12px' }}>
+                Ҳанӯз ягон қоида илова нашудааст.
+              </div>
+            )}
+          </div>
         </>
       )}
     </div>

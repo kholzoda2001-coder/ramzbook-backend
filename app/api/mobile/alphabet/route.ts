@@ -25,6 +25,27 @@ export async function GET(req: NextRequest) {
       orderBy: { order: 'asc' },
     });
 
+    // Rules are optional and were added after the alphabet table. Query them in
+    // their own try/catch so a pair with no rules — or an environment where the
+    // AlphabetRule table hasn't been migrated yet — still returns the letters
+    // normally instead of failing the whole request.
+    let rules: Array<{ id: string; category: string; title: string; body: string; order: number }> = [];
+    try {
+      const rows = await prisma.alphabetRule.findMany({
+        where: { targetLanguageId: targetId, nativeLanguageId: nativeId },
+        orderBy: { order: 'asc' },
+      });
+      rules = rows.map((r) => ({
+        id: r.id,
+        category: r.category,
+        title: r.title,
+        body: r.body,
+        order: r.order,
+      }));
+    } catch (e) {
+      console.warn('[mobile/alphabet] rules unavailable (table not migrated?):', (e as any)?.message);
+    }
+
     return NextResponse.json({
       letters: letters.map((l) => ({
         id: l.id,
@@ -35,6 +56,7 @@ export async function GET(req: NextRequest) {
         category: l.category,
         order: l.order,
       })),
+      rules,
     });
   } catch (err: any) {
     console.error('[mobile/alphabet]', err);

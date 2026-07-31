@@ -77,6 +77,7 @@ model User {
   promoRedemptions  PromoRedemption[]
   paymentTransactions PaymentTransaction[]
   paywallEvents     PaywallEvent[]
+  feedbacks         Feedback[]
   srsCards          SrsCard[]
   friendInvitesCreated  FriendInvite[]
   friendStreaksAsUser1  FriendStreak[] @relation("FriendStreakUser1")
@@ -150,6 +151,8 @@ model Language {
   onboardingAsNative OnboardingWord[] @relation("OnboardingNative")
   alphabetAsTarget  AlphabetLetter[] @relation("AlphabetTarget")
   alphabetAsNative  AlphabetLetter[] @relation("AlphabetNative")
+  alphabetRulesAsTarget AlphabetRule[] @relation("AlphabetRuleTarget")
+  alphabetRulesAsNative AlphabetRule[] @relation("AlphabetRuleNative")
 }
 
 model UserLanguage {
@@ -356,6 +359,26 @@ model AlphabetLetter {
   ipa                String?             // international phonetic symbol, e.g. "/eɪ/"
   tajikTranscription String?             // Tajik-script pronunciation hint, e.g. "Эй"
   category           String              // "vowel" | "consonant" | "sign"
+  order              Int      @default(0)
+  createdAt          DateTime @default(now())
+
+  @@index([targetLanguageId, nativeLanguageId, order])
+}
+
+// ── Alphabet rules — short pronunciation/spelling notes shown above the
+// letter grid, one set per (target, native) pair, grouped by `category` so the
+// app can show vowel rules on the Садонокҳо tab, consonant rules on the
+// Ҳамсадоҳо tab, and `general` rules on the combined Алфавит tab. 100%
+// admin-managed, exactly like AlphabetLetter — no rules are hardcoded in the app.
+model AlphabetRule {
+  id                 String   @id @default(cuid())
+  targetLanguageId   String
+  targetLanguage     Language @relation("AlphabetRuleTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId   String
+  nativeLanguage     Language @relation("AlphabetRuleNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  category           String              // "vowel" | "consonant" | "general"
+  title              String              // short heading, e.g. "«e»-и хомӯш"
+  body               String              // the rule text, in the learner's native language
   order              Int      @default(0)
   createdAt          DateTime @default(now())
 
@@ -787,6 +810,76 @@ model PromoRedemption {
 
 /// Paywall impressions + outcomes. Powers frequency-capping (so we stay
 /// non-aggressive) and the Phase 7 conversion funnel.
+// ── Library — books, audiobooks, video courses and templates, 100%
+// admin-managed (nothing is hardcoded in the app). One table covers every
+// type; `type` decides which fields matter:
+//   book/template → pages[]        audio/video → mediaUrl + durationMin
+model LibraryItem {
+  id           String   @id @default(cuid())
+  type         String   @default("book") // book | audio | video | template
+  title        String
+  author       String?
+  description  String?  @db.Text
+  coverUrl     String?
+  /// CEFR level this item suits (A1…C2). Null = any level.
+  level        String?
+  /// Target language the item teaches, e.g. "en". Null = shown for all.
+  targetLang   String?
+  /// Streaming/download URL for audio and video items.
+  mediaUrl     String?
+  durationMin  Int?
+  rating       Float?
+  isPremium    Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  /// Lower first inside its type.
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  pages        LibraryPage[]
+
+  @@index([type, isActive, order])
+  @@index([targetLang])
+}
+
+model LibraryPage {
+  id        String      @id @default(cuid())
+  itemId    String
+  item      LibraryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  order     Int         @default(0)
+  title     String?
+  content   String      @db.Text
+  imageUrl  String?
+
+  @@index([itemId, order])
+}
+
+// ── In-app feedback — what learners actually think, in their own words.
+// Asked ONCE, after a configurable number of finished lessons (see
+// lib/feedback.ts), and always available from the profile. Deliberately NOT
+// wired to the Google Play review prompt: routing happy users to the store and
+// unhappy ones to a form is a banned dark pattern on both stores.
+model Feedback {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  rating           Int      // 1..5 (1 = 😠 … 5 = 😍)
+  message          String?  @db.Text
+  source           String   @default("lesson_milestone") // lesson_milestone | profile
+  // Context captured at submit time, so a comment can be read against where
+  // the learner actually was — without joining live (and changing) user rows.
+  lessonsCompleted Int      @default(0)
+  level            String?
+  targetLang       String?
+  platform         String?
+  isRead           Boolean  @default(false)
+  createdAt        DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([rating])
+  @@index([userId])
+}
+
 model PaywallEvent {
   id        String   @id @default(cuid())
   userId    String
