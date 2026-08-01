@@ -58,6 +58,8 @@ export default function AdminLibraryPage() {
   const [editing, setEditing] = useState<Item | null>(null);
   const [pages, setPages] = useState<Page[]>([]);
   const [seeding, setSeeding] = useState(false);
+  // Direct-to-Blob upload progress (null = no upload running).
+  const [uploadPct, setUploadPct] = useState<number | null>(null);
 
   useEffect(() => {
     if (status) {
@@ -192,8 +194,43 @@ export default function AdminLibraryPage() {
     setPages(next);
   }
 
-  const isMedia = editing?.type === 'audio' || editing?.type === 'video';
-  const hasPages = editing?.type === 'book' || editing?.type === 'template';
+  /**
+   * Uploads a big file (EPUB / audio) STRAIGHT from the browser to Blob storage.
+   * Going through /api/admin/upload would cap us at Vercel's ~4.5 MB request-body
+   * limit; this route only hands out a short-lived token, so the bytes bypass the
+   * serverless function entirely.
+   */
+  async function uploadBig(file: File) {
+    if (!editing) return;
+    setUploadPct(0);
+    try {
+      const { upload } = await import('@vercel/blob/client');
+      const isEpub = file.name.toLowerCase().endsWith('.epub');
+      const safe = file.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 80);
+      const blob = await upload(`${isEpub ? 'books' : 'audio'}/${safe}`, file, {
+        access: 'public',
+        handleUploadUrl: '/api/admin/upload/blob',
+        onUploadProgress: (p) => setUploadPct(Math.round(p.percentage)),
+      });
+      setEditing((prev) => (prev ? { ...prev, mediaUrl: blob.url } : prev));
+      setStatus({ type: 'success', msg: 'Файл бор шуд.' });
+    } catch (e: any) {
+      setStatus({ type: 'error', msg: e?.message || 'Бор кардан нашуд.' });
+    } finally {
+      setUploadPct(null);
+    }
+  }
+
+  /** youtu.be/ID, youtube.com/watch?v=ID and /embed/ID all count as valid. */
+  const youtubeOk = (url: string) =>
+    /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)[\w-]{11}/.test(url);
+
+  const isBook = editing?.type === 'book';
+  const isAudio = editing?.type === 'audio';
+  const isVideo = editing?.type === 'video';
+  const hasEpub = isBook && !!editing?.mediaUrl;
+  // Hand-written pages only make sense when there is no EPUB file driving the book.
+  const hasPages = (isBook && !hasEpub) || editing?.type === 'template';
   const input = 'w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]';
   const label = 'block text-xs text-[var(--text-muted)] mb-1';
 
@@ -277,17 +314,80 @@ export default function AdminLibraryPage() {
               <input type="number" value={editing.order} onChange={(e) => setEditing({ ...editing, order: Number(e.target.value) })} className={input} />
             </div>
 
-            {isMedia && (
-              <>
-                <div className="md:col-span-2">
-                  <label className={label}>URL-и медиа (аудио/видео) *</label>
-                  <input type="text" value={editing.mediaUrl ?? ''} onChange={(e) => setEditing({ ...editing, mediaUrl: e.target.value })} className={input} placeholder="https://…mp3 / https://youtu.be/…" />
+            {/* ── Файл / истинод вобаста ба навъ ─────────────────────────── */}
+            {(isBook || isAudio) && (
+              <div className="md:col-span-3">
+                <label className={label}>
+                  {isBook ? 'Файли китоб (EPUB)' : 'Файли аудио (MP3)'}
+                </label>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <label className="cursor-pointer px-4 py-2 rounded-lg border border-[var(--bg-border)] text-sm font-semibold text-[var(--text-primary)] hover:opacity-80">
+                    {uploadPct === null ? 'Файл интихоб кунед' : `Бор шуда истодааст… ${uploadPct}%`}
+                    <input
+                      type="file"
+                      accept={isBook ? '.epub,application/epub+zip' : 'audio/*,.mp3,.m4a'}
+                      disabled={uploadPct !== null}
+                      className="hidden"
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) uploadBig(f);
+                        e.target.value = '';
+                      }}
+                    />
+                  </label>
+                  {editing.mediaUrl && (
+                    <>
+                      <a href={editing.mediaUrl} target="_blank" rel="noreferrer"
+                        className="text-xs text-teal-500 underline break-all max-w-[320px]">
+                        {editing.mediaUrl.split('/').pop()}
+                      </a>
+                      <button
+                        onClick={() => setEditing({ ...editing, mediaUrl: '' })}
+                        className="text-xs text-red-500 hover:opacity-70">
+                        нест кардан
+                      </button>
+                    </>
+                  )}
                 </div>
-                <div>
-                  <label className={label}>Давомнокӣ (дақиқа)</label>
-                  <input type="number" min={0} value={editing.durationMin ?? ''} onChange={(e) => setEditing({ ...editing, durationMin: e.target.value === '' ? null : Number(e.target.value) })} className={input} />
-                </div>
-              </>
+                {uploadPct !== null && (
+                  <div className="mt-2 h-1.5 w-full rounded-full bg-[var(--bg-surface)] overflow-hidden">
+                    <div className="h-full bg-teal-500 transition-all" style={{ width: `${uploadPct}%` }} />
+                  </div>
+                )}
+                <p className="mt-1.5 text-xs text-[var(--text-muted)]">
+                  {isBook
+                    ? 'Файли EPUB бор кунед — хонанда онро дар дохили барнома мехонад. Агар EPUB бор кунед, саҳифаҳои дастӣ лозим намешаванд.'
+                    : 'Файли MP3 бор кунед — дар барнома плеер мебарояд. То 60MB.'}
+                </p>
+              </div>
+            )}
+
+            {isVideo && (
+              <div className="md:col-span-3">
+                <label className={label}>Истиноди YouTube *</label>
+                <input
+                  type="text"
+                  value={editing.mediaUrl ?? ''}
+                  onChange={(e) => setEditing({ ...editing, mediaUrl: e.target.value })}
+                  className={input}
+                  placeholder="https://youtu.be/… ё https://youtube.com/watch?v=…"
+                />
+                <p className={`mt-1.5 text-xs ${
+                  !editing.mediaUrl ? 'text-[var(--text-muted)]'
+                    : youtubeOk(editing.mediaUrl) ? 'text-green-600' : 'text-red-500'
+                }`}>
+                  {!editing.mediaUrl
+                    ? 'Видеоро ба YouTube ҳамчун «unlisted» бор кунед — трафик ройгон аст ва хонанда онро дар дохили барнома тамошо мекунад.'
+                    : youtubeOk(editing.mediaUrl) ? 'Истинод дуруст аст ✓' : 'Ин истиноди YouTube нест — барнома онро бозӣ карда наметавонад.'}
+                </p>
+              </div>
+            )}
+
+            {(isAudio || isVideo) && (
+              <div>
+                <label className={label}>Давомнокӣ (дақиқа)</label>
+                <input type="number" min={0} value={editing.durationMin ?? ''} onChange={(e) => setEditing({ ...editing, durationMin: e.target.value === '' ? null : Number(e.target.value) })} className={input} />
+              </div>
             )}
 
             <div className="flex items-center gap-5 md:col-span-3">
