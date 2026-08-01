@@ -10,10 +10,12 @@ export const dynamic = 'force-dynamic';
  * (with true rank even if outside the top 50), and the total player count.
  * The client shows an "alone in league" empty state when totalPlayers <= 1.
  *
- * scope="league"  → only users learning the SAME target language as the caller
- *                   (filtered by User.targetLang). Falls back to global if the
- *                   caller has no target language set yet.
- * scope="global"  → every active user (default).
+ * scope="league"  → only users on the SAME course as the caller — same native
+ *                   AND same target language (User.nativeLang + targetLang).
+ *                   A tg→en learner and a ru→zh learner see different content
+ *                   and difficulty, so they aren't real peers. Falls back to
+ *                   global if the caller has no target language set yet.
+ * scope="global"  → every active user, any language pair (default).
  */
 export async function GET(req: Request) {
   try {
@@ -22,15 +24,15 @@ export async function GET(req: Request) {
 
     const scope = new URL(req.url).searchParams.get('scope') ?? 'global';
 
-    // For the "league" scope, restrict to same-language learners. Need the
-    // caller's current target language for that.
+    // For the "league" scope, restrict to same-course learners. Need the
+    // caller's current language pair for that.
     const meFull = await prisma.user.findUnique({
       where: { id: me.id },
-      select: { targetLang: true },
+      select: { nativeLang: true, targetLang: true },
     });
     const sameLangFilter =
       scope === 'league' && meFull?.targetLang
-        ? { targetLang: meFull.targetLang }
+        ? { nativeLang: meFull.nativeLang, targetLang: meFull.targetLang }
         : {};
 
     const baseWhere = {
