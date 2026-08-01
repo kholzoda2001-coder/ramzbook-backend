@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { requireUserId, unauthorized } from '@/lib/auth';
+import { checkAndUpdatePremium } from '@/lib/premium';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,9 +18,21 @@ export async function OPTIONS() {
 /**
  * GET /api/mobile/library/[id]
  * One item with its full page content — what the reader screen opens.
+ *
+ * Premium-only, same as the list endpoint (see /api/mobile/library) — this is
+ * the one that actually leaks book/page CONTENT, so it needs the check even
+ * more than the list does.
  */
-export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
+    const userId = requireUserId(req);
+    if (!userId) return unauthorized('Missing or invalid Bearer token.');
+
+    const isPremium = await checkAndUpdatePremium(userId);
+    if (!isPremium) {
+      return NextResponse.json({ error: 'Premium required' }, { status: 403, headers: CORS });
+    }
+
     const item = await prisma.libraryItem.findFirst({
       where: { id: params.id, isActive: true },
       include: {
