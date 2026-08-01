@@ -34,20 +34,20 @@ export async function POST(req: NextRequest) {
     }
 
     // Build search conditions - support both old (synthetic email) and new (real phone field) formats
-    type UserRow = { id: string; name: string; email: string | null; phone: string | null; passwordHash: string; isPremium: boolean; premiumExpiresAt: Date | null };
+    type UserRow = { id: string; name: string; email: string | null; phone: string | null; passwordHash: string; isPremium: boolean; premiumPlan: string | null; premiumExpiresAt: Date | null };
     let user: UserRow | null = null;
 
     if (isEmail) {
       // Direct email lookup
       user = await prisma.user.findUnique({
         where: { email: rawIdentifier.toLowerCase() },
-        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumExpiresAt: true },
+        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true },
       });
     } else if (phone) {
       // 1) Try real phone field (new registrations)
       user = await prisma.user.findUnique({
         where: { phone },
-        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumExpiresAt: true },
+        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true },
       });
 
       if (!user) {
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
         const digits = phone.replace('+', '');
         user = await prisma.user.findUnique({
           where: { email: `${digits}@ramzbook.tj` },
-          select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumExpiresAt: true },
+          select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true },
         });
       }
     }
@@ -107,6 +107,7 @@ export async function POST(req: NextRequest) {
         // Барнома фавран баъди логин ҳолати premium-ро дуруст нишон диҳад
         // (обуна ва умрбод) — на танҳо баъди навсозии профил.
         isPremium: user.isPremium,
+        premiumPlan: user.premiumPlan,
         vipExpiresAt: user.premiumExpiresAt,
       },
       accessToken,
