@@ -5,21 +5,51 @@ export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboardPage() {
   try {
+    const now = new Date();
     const startOfDay = new Date();
     startOfDay.setHours(0, 0, 0, 0);
     const startOfMonth = new Date();
     startOfMonth.setDate(1);
     startOfMonth.setHours(0, 0, 0, 0);
 
+    // Excludes seeded/robo-test "Test User N" accounts (~10 of 104 total in
+    // production, likely Google Play's automated pre-launch testers) from
+    // every real-user metric — same convention already used by the
+    // leaderboard and the Analytics page.
+    const realUser = { NOT: { name: { startsWith: 'Test User' as const } } };
+
     const [totalUsers, premiumUsers, lessonsToday, monthlyPayments, topUsers, languages, recentUsers, recentPayments] = await Promise.all([
-      prisma.user.count(),
-      prisma.user.count({ where: { isPremium: true } }),
-      prisma.userProgress.count({ where: { completedAt: { gte: startOfDay } } }),
-      prisma.payment.findMany({ where: { status: 'success', createdAt: { gte: startOfMonth } } }),
-      prisma.user.findMany({ orderBy: { totalXp: 'desc' }, take: 5 }),
-      prisma.language.findMany({ include: { _count: { select: { userLanguages: true } } }, orderBy: { order: 'asc' } }),
-      prisma.user.findMany({ orderBy: { createdAt: 'desc' }, take: 3 }),
-      prisma.payment.findMany({ include: { user: true }, orderBy: { createdAt: 'desc' }, take: 2 }),
+      prisma.user.count({ where: realUser }),
+      // "Premium" must mean CURRENTLY premium. `isPremium` only gets lazily
+      // cleared on expiry when a user happens to hit one of a few specific
+      // routes (see lib/premium.ts checkAndUpdatePremium) — reading it
+      // directly over-counts anyone who has EVER had premium, including
+      // long-expired ones. Recompute the real answer from the expiry date.
+      prisma.user.count({
+        where: { ...realUser, isPremium: true, OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }] },
+      }),
+      prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: startOfDay }, user: realUser } }),
+      // ⚠️ The `Payment` model is DEAD — no code anywhere still writes to it
+      // (real purchases + the promo gift both write to `PaymentTransaction`,
+      // same table /api/admin/stats/dashboard already uses correctly). This
+      // page was never updated when that migration happened, so "income"
+      // silently showed $0.00 forever regardless of real revenue.
+      prisma.paymentTransaction.findMany({ where: { status: 'success', createdAt: { gte: startOfMonth } } }),
+      prisma.user.findMany({ where: realUser, orderBy: { totalXp: 'desc' }, take: 5 }),
+      prisma.language.findMany({
+        include: { _count: { select: { userLanguages: { where: { user: realUser } } } } },
+        orderBy: { order: 'asc' },
+      }),
+      prisma.user.findMany({ where: realUser, orderBy: { createdAt: 'desc' }, take: 3 }),
+      // Real paid purchases only (type:'subscription') — promo/trial grants
+      // are $0 and read oddly under the "Premium обуна шуд — $0.00" wording
+      // below, which specifically describes a PAID subscription event.
+      prisma.paymentTransaction.findMany({
+        where: { status: 'success', type: 'subscription' },
+        include: { user: true },
+        orderBy: { createdAt: 'desc' },
+        take: 2,
+      }),
     ]);
 
     const monthlyIncome = monthlyPayments.reduce((acc, p) => acc + p.amount, 0);
@@ -34,6 +64,11 @@ export default async function AdminDashboardPage() {
       ...recentPayments.map(p => ({ title: `${p.user?.name || 'Корбар'} Premium обуна шуд — $${p.amount.toFixed(2)}`, date: p.createdAt, color: 'var(--gold)' }))
     ].sort((a, b) => b.date.getTime() - a.date.getTime());
     const colors = ['var(--teal)', 'var(--blue)', 'var(--purple)', 'var(--gold)', 'var(--orange)', 'var(--red)'];
+
+    // "Premium" pill on the top-XP list — same freshness rule as the KPI
+    // above, computed per-row instead of trusting the raw stored flag.
+    const isReallyPremium = (u: { isPremium: boolean; premiumPlan: string | null; premiumExpiresAt: Date | null }) =>
+      u.isPremium && (u.premiumPlan === 'lifetime' || (!!u.premiumExpiresAt && u.premiumExpiresAt >= now));
 
     return (
       <div className="page active" id="page-dashboard">
@@ -77,7 +112,7 @@ export default async function AdminDashboardPage() {
                     <div className="mln">{u.name || 'Корбари Номаълум'}</div>
                     <div className="mls">🔥 {u.streak} рӯз • {u.totalXp.toLocaleString()} XP</div>
                   </div>
-                  {u.isPremium ? <span className="pill pp">Premium</span> : <span className="pill pa">Free</span>}
+                  {isReallyPremium(u) ? <span className="pill pp">Premium</span> : <span className="pill pa">Free</span>}
                 </div>
               ))}
             </div>

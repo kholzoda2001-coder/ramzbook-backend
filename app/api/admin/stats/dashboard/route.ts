@@ -13,6 +13,9 @@ export async function GET() {
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const startOf30DaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
     const startOf7DaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    // Excludes seeded/robo-test "Test User N" accounts — same convention as
+    // the leaderboard and the admin Analytics/Dashboard pages.
+    const realUser = { NOT: { name: { startsWith: 'Test User' as const } } };
 
     const [
       totalUsers,
@@ -30,18 +33,23 @@ export async function GET() {
       revenueTotal,
       revenueMonth,
     ] = await Promise.all([
-      prisma.user.count(),
-      prisma.user.count({ where: { createdAt: { gte: startOfToday } } }),
-      prisma.user.count({ where: { createdAt: { gte: startOf7DaysAgo } } }),
-      prisma.user.count({ where: { createdAt: { gte: startOf30DaysAgo } } }),
-      prisma.user.count({ where: { OR: [{ isPremium: true }, { subscriptionTier: 'premium' }] } }),
-      prisma.user.count({ where: { lastActiveAt: { gte: startOfToday } } }),
-      prisma.user.count({ where: { lastActiveAt: { gte: startOf7DaysAgo } } }),
+      prisma.user.count({ where: realUser }),
+      prisma.user.count({ where: { ...realUser, createdAt: { gte: startOfToday } } }),
+      prisma.user.count({ where: { ...realUser, createdAt: { gte: startOf7DaysAgo } } }),
+      prisma.user.count({ where: { ...realUser, createdAt: { gte: startOf30DaysAgo } } }),
+      // "Premium" = CURRENTLY premium — `isPremium`/`subscriptionTier` alone
+      // over-count anyone who has EVER had premium, since neither field gets
+      // reliably cleared on expiry (see lib/premium.ts checkAndUpdatePremium).
+      prisma.user.count({
+        where: { ...realUser, isPremium: true, OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }] },
+      }),
+      prisma.user.count({ where: { ...realUser, lastActiveAt: { gte: startOfToday } } }),
+      prisma.user.count({ where: { ...realUser, lastActiveAt: { gte: startOf7DaysAgo } } }),
       prisma.lesson.count({ where: { isActive: true } }),
       prisma.word.count(),
       prisma.course.count({ where: { isActive: true } }),
       prisma.module.count({ where: { isActive: true } }),
-      prisma.userProgress.count({ where: { completedAt: { gte: startOfToday } } }),
+      prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: startOfToday }, user: realUser } }),
       prisma.paymentTransaction.aggregate({
         _sum: { amount: true },
         where: { status: 'success' },
