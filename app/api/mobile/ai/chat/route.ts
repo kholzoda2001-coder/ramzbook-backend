@@ -25,6 +25,68 @@ function startOfTodayUtc(): Date {
 }
 
 /**
+ * Машинхони қисми промпт — ҚАСДАН дар код, на дар матни таҳриршавандаи админ.
+ *
+ * Барнома ҷавобро аз рӯи ҳамин аломат таҳлил карда, корти «❌ → ✅» мекашад.
+ * Агар ин дар матни админ мебуд, як таҳрири бепарво форматро мешикаст ва
+ * кортҳои ислоҳ хомӯшона нопадид мешуданд.
+ */
+const CORRECTION_CONTRACT = `
+CORRECTION FORMAT (strict)
+- If the student's message contains a mistake in {target}, start your reply with ONE line in exactly this shape:
+[FIX] <what they wrote> | <the corrected version> | <short reason in {native}>
+- Use the pipe character "|" as the separator. Keep the reason under 15 words.
+- Write ONLY one [FIX] line, then continue your normal reply on the next line.
+- If there is no mistake, do NOT output a [FIX] line at all.`;
+
+/**
+ * Он чи хонанда ҲОЗИР меомӯзад — то омӯзгор муколамаи умумӣ накунад.
+ *
+ * Бе ин, AI танҳо забон ва сатҳро медонист ва ҳар сӯҳбат аз сифр сар мешуд.
+ * Ҳама хатоҳо фурӯ бурда мешаванд: контекст «хуб мешуд», на шарт — чат набояд
+ * аз сабаби як дархости иловагӣ шикаст хӯрад.
+ */
+async function buildLearnerContext(userId: string): Promise<string> {
+  try {
+    const [lastLesson, dueCards] = await Promise.all([
+      prisma.userProgress.findFirst({
+        where: { userId, completedAt: { not: null } },
+        orderBy: { completedAt: 'desc' },
+        select: { lesson: { select: { title: true } } },
+      }),
+      prisma.srsCard.findMany({
+        where: { userId, itemType: 'word', dueAt: { lte: new Date() } },
+        orderBy: { dueAt: 'asc' },
+        take: 6,
+        select: { itemId: true },
+      }),
+    ]);
+
+    const lines: string[] = [];
+    const title = lastLesson?.lesson?.title?.trim();
+    if (title) lines.push(`- Their most recent completed lesson: "${title}".`);
+
+    if (dueCards.length) {
+      const words = await prisma.word.findMany({
+        where: { id: { in: dueCards.map((c) => c.itemId) } },
+        select: { word: true },
+        take: 6,
+      });
+      const list = words.map((w) => w.word).filter(Boolean);
+      if (list.length) {
+        lines.push(`- Words they are due to review: ${list.join(', ')}.`);
+      }
+    }
+
+    if (!lines.length) return '';
+    return `\n\nWHAT THIS STUDENT IS STUDYING RIGHT NOW\n${lines.join('\n')}\n- Prefer these topics and words when you choose examples or ask a practice question. Do not list them mechanically.`;
+  } catch (e) {
+    console.error('[ai/chat] learner context failed:', e);
+    return '';
+  }
+}
+
+/**
  * POST /api/mobile/ai/chat
  * Body: { messages: [{ role: 'user'|'assistant', content }] }
  * Returns: { reply, remaining, limit } — or 429 when the daily limit is reached.
@@ -82,7 +144,10 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Build prompt & call OpenAI ────────────────────────────────────────────
-    const systemContent = cfg.systemPrompt
+    // Персона аз админ таҳрир мешавад; шакли ислоҳ ва контексти хонанда дар код
+    // илова мешаванд, то онҳо ҳамеша ҷой дошта бошанд.
+    const learnerContext = await buildLearnerContext(userId);
+    const systemContent = (cfg.systemPrompt + '\n' + CORRECTION_CONTRACT + learnerContext)
       .replaceAll('{target}', langName(user.targetLang))
       .replaceAll('{native}', langName(user.nativeLang))
       .replaceAll('{level}', user.level || 'A1');
