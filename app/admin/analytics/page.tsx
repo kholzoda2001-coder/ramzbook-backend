@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+import PromoClaimsSection from './PromoClaimsSection';
 
 export const dynamic = 'force-dynamic';
 
@@ -210,6 +211,9 @@ export default async function AdminAnalyticsPage() {
             )}
           </div>
         </div>
+
+        {/* Promo (free 2-month gift) claims */}
+        <PromoClaimsSection />
 
         {/* Placement coverage */}
         <div className="sec">
