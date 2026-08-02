@@ -29,7 +29,12 @@ type User = {
   email: string | null;
   phone: string | null;
   isActive: boolean;
+  isPremium: boolean;
+  premiumPlan: string | null;
+  totalXp: number;
+  streak: number;
   createdAt: string;
+  lastActiveAt: string | null;
 };
 
 /** Returns the display contact: phone number if it's a phone-registered user, else email */
@@ -496,7 +501,7 @@ export default function UsersPage() {
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                  {['Корбар', 'Почтаи электронӣ', 'ID', 'Вазъ', 'Санаи бақайд', ''].map((h) => (
+                  {['Корбар', 'Почта/Телефон', 'XP', 'Тариф', 'ID', 'Вазъ', 'Санаи бақайд', ''].map((h) => (
                     <th key={h} style={{ padding: '14px 20px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', whiteSpace: 'nowrap' }}>
                       {h}
                     </th>
@@ -533,6 +538,23 @@ export default function UsersPage() {
                           )}
                           {displayContact(user)}
                         </div>
+                      </td>
+
+                      {/* XP + streak */}
+                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text)', whiteSpace: 'nowrap' }}>
+                        {user.totalXp.toLocaleString()} XP
+                        {user.streak > 0 && <span style={{ color: 'var(--text2)', fontSize: 12 }}> · 🔥{user.streak}</span>}
+                      </td>
+
+                      {/* Premium / Free */}
+                      <td style={{ padding: '16px 20px' }}>
+                        {user.isPremium ? (
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 11, fontWeight: 700, padding: '3px 10px', borderRadius: 99, background: 'rgba(234,179,8,0.12)', color: '#ca8a04', border: '1px solid rgba(234,179,8,0.3)' }}>
+                            👑 {user.premiumPlan === 'promo' ? 'Промо' : 'Premium'}
+                          </span>
+                        ) : (
+                          <span style={{ fontSize: 12, color: 'var(--text2)' }}>Ройгон</span>
+                        )}
                       </td>
 
                       {/* ID */}
