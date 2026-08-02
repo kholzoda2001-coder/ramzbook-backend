@@ -21,20 +21,39 @@ export default async function AdminAnalyticsPage() {
     const d30 = new Date(now); d30.setDate(d30.getDate() - 30);
     const d14 = new Date(now); d14.setDate(d14.getDate() - 13); d14.setHours(0, 0, 0, 0);
 
+    // Excludes seeded "Test User N" accounts from every real-user KPI —
+    // without this, ~10 fake dev accounts (out of ~104 total in production)
+    // inflated growth numbers by ~10%. `leaderboard` already used this same
+    // exclusion; the analytics KPIs hadn't.
+    const realUser = { NOT: { name: { startsWith: 'Test User' } } };
+
     const [
       totalUsers, active7, new7, premiumUsers, completions7, completions30, accuracyAgg,
       recentSignups, recentCompletions, lessonsBySkill, courses, placementGroups, languages,
       wordTotal, grammarExTotal, phraseTotal, dialogueLineTotal, comprQTotal, placementTotal,
     ] = await Promise.all([
-      prisma.user.count(),
-      prisma.user.count({ where: { lastActiveAt: { gte: d7 } } }),
-      prisma.user.count({ where: { createdAt: { gte: d7 } } }),
-      prisma.user.count({ where: { OR: [{ subscriptionTier: 'premium' }, { isPremium: true }] } }),
-      prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: d7 } } }),
-      prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: d30 } } }),
-      prisma.userProgress.aggregate({ _avg: { accuracy: true }, where: { isCompleted: true } }),
-      prisma.user.findMany({ where: { createdAt: { gte: d14 } }, select: { createdAt: true } }),
-      prisma.userProgress.findMany({ where: { isCompleted: true, completedAt: { gte: d14 } }, select: { completedAt: true } }),
+      prisma.user.count({ where: realUser }),
+      prisma.user.count({ where: { ...realUser, lastActiveAt: { gte: d7 } } }),
+      prisma.user.count({ where: { ...realUser, createdAt: { gte: d7 } } }),
+      // "Premium" must mean CURRENTLY premium, not "was ever granted premium".
+      // `subscriptionTier`/`isPremium` are set on grant but only the LEGACY
+      // isPremium flag gets lazily cleared on expiry (see lib/premium.ts
+      // checkAndUpdatePremium — and even that never touches subscriptionTier),
+      // and only for users who happen to hit one of the few routes that call
+      // it. Relying on those flags directly over-counts anyone who has EVER
+      // had premium — this recomputes the real answer straight from expiry.
+      prisma.user.count({
+        where: {
+          ...realUser,
+          isPremium: true,
+          OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }],
+        },
+      }),
+      prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: d7 }, user: realUser } }),
+      prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: d30 }, user: realUser } }),
+      prisma.userProgress.aggregate({ _avg: { accuracy: true }, where: { isCompleted: true, user: realUser } }),
+      prisma.user.findMany({ where: { ...realUser, createdAt: { gte: d14 } }, select: { createdAt: true } }),
+      prisma.userProgress.findMany({ where: { isCompleted: true, completedAt: { gte: d14 }, user: realUser }, select: { completedAt: true } }),
       prisma.lesson.groupBy({ by: ['skillType'], _count: { _all: true } }),
       prisma.course.findMany({
         orderBy: { order: 'asc' },
