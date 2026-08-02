@@ -4,15 +4,26 @@ export const dynamic = 'force-dynamic';
 
 export default async function AdminSubscriptionsPage() {
   try {
+    const now = new Date();
     const [subscriptions, payments] = await Promise.all([
       prisma.subscription.findMany({
         include: { user: true },
         orderBy: { startedAt: 'desc' }
       }),
-      prisma.payment.findMany({ where: { status: 'success' } })
+      // ⚠️ The `Payment` model is DEAD — nothing writes to it anymore (real
+      // purchases + admin grants both go to `PaymentTransaction`), so
+      // "Умумии Даромад" silently showed $0.00 regardless of real revenue.
+      // Same bug already found and fixed on the Dashboard page.
+      prisma.paymentTransaction.findMany({ where: { status: 'success' } }),
     ]);
 
-    const activeCount = subscriptions.filter(s => s.status === 'active').length;
+    // `Subscription.status` is only ever set to 'active'/'cancelled' — nothing
+    // flips it to 'expired' when the period just lapses on its own, so a
+    // naive `status === 'active'` count over-counts. Recompute from the
+    // actual expiry instead.
+    const isReallyActive = (s: (typeof subscriptions)[number]) =>
+      s.status === 'active' && (s.expiresAt === null || s.expiresAt >= now);
+    const activeCount = subscriptions.filter(isReallyActive).length;
     const totalRevenue = payments.reduce((sum, p) => sum + p.amount, 0);
 
     return (
@@ -74,8 +85,8 @@ export default async function AdminSubscriptionsPage() {
                         {sub.plan}
                       </td>
                       <td style={{ padding: '16px 20px' }}>
-                        <span className={`pill ${sub.status === 'active' ? 'pp' : 'pa'}`} style={{ padding: '4px 10px', fontSize: '11px' }}>
-                          {sub.status}
+                        <span className={`pill ${isReallyActive(sub) ? 'pp' : 'pa'}`} style={{ padding: '4px 10px', fontSize: '11px' }}>
+                          {isReallyActive(sub) ? 'active' : (sub.status === 'active' ? 'expired' : sub.status)}
                         </span>
                       </td>
                       <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>

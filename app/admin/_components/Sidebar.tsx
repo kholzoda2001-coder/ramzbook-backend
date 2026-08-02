@@ -2,10 +2,29 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+const compact = new Intl.NumberFormat('en', { notation: 'compact' });
 
 export default function AdminSidebar({ onClose, staticMode }: { onClose: () => void, staticMode?: boolean }) {
   const pathname = usePathname();
   const router = useRouter();
+
+  // The "12K"/"2.4K" badges next to Корбарон/Обунаҳо used to be plain
+  // hardcoded text (leftover mockup numbers) — real counts are currently
+  // in the low hundreds, nowhere near either figure. Fetched from the same
+  // endpoint the Dashboard page's stats already use.
+  const [userCount, setUserCount] = useState<number | null>(null);
+  const [premiumCount, setPremiumCount] = useState<number | null>(null);
+  useEffect(() => {
+    fetch('/api/admin/stats/dashboard')
+      .then((r) => r.json())
+      .then((d) => {
+        if (typeof d?.users?.total === 'number') setUserCount(d.users.total);
+        if (typeof d?.users?.premium === 'number') setPremiumCount(d.users.premium);
+      })
+      .catch(() => {});
+  }, []);
 
   async function handleLogout() {
     try {
@@ -36,10 +55,10 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
           <span className="ni-icon">📈</span>Аналитика
         </Link>
         <Link href="/admin/users" className={`ni ${isActive('/admin/users') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">👥</span>Корбарон<span className="nb nb-r">12K</span>
+          <span className="ni-icon">👥</span>Корбарон{userCount !== null && <span className="nb nb-r">{compact.format(userCount)}</span>}
         </Link>
         <Link href="/admin/subscriptions" className={`ni ${isActive('/admin/subscriptions') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
-          <span className="ni-icon">👑</span>Обунаҳо<span className="nb nb-y">2.4K</span>
+          <span className="ni-icon">👑</span>Обунаҳо{premiumCount !== null && <span className="nb nb-y">{compact.format(premiumCount)}</span>}
         </Link>
         
         <div className="sh">МУНДАРИҶА</div>
