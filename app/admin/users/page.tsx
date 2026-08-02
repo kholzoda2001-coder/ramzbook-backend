@@ -4,20 +4,19 @@
  * /admin/users/page.tsx
  *
  * Lists all registered users.
- * Each row has a "Manage Access" button that opens a side panel showing
- * every book in the catalog, with the user's current access status
- * and the ability to grant or revoke access instantly.
- *
- * Access is controlled via UserProgress.isPurchased — the exact same
- * field the mobile app reads. No secondary permission system.
+ * Each row has a "Дастрасӣ" button that opens a side panel for manually
+ * granting/revoking Premium — the same four plans the app actually sells
+ * (monthly / sixmonths / yearly / lifetime, see PlanIds in
+ * frontend/lib/services/billing_service.dart) — for support/promo/trial
+ * cases, per Google Play policy.
  *
  * Protected by the admin session (cookie-based) — no API key required.
  */
 
 import { useState, useEffect, useCallback, useTransition } from 'react';
 import {
-  Users, Search, BookOpen, ShieldCheck, ShieldOff,
-  X, Loader2, CheckCircle2, AlertCircle, Lock, Unlock,
+  Users, Search, ShieldCheck,
+  X, Loader2, CheckCircle2, AlertCircle,
   ChevronRight,
 } from 'lucide-react';
 
@@ -46,19 +45,6 @@ function displayContact(user: User): string {
   }
   return user.email || 'Номаълум';
 }
-
-type BookAccess = {
-  id: string;
-  title: string;
-  author: string;
-  coverUrl: string | null;
-  category: string | null;
-  isFree: boolean;
-  isPurchased: boolean;
-  isManualGrant: boolean;
-  isAccessible: boolean;
-  expiresAt: string | null;
-};
 
 type Toast = { type: 'success' | 'error'; message: string };
 
@@ -101,12 +87,10 @@ function AccessPanel({
   onClose: () => void;
   onToast: (t: Toast) => void;
 }) {
-  const [books, setBooks] = useState<BookAccess[]>([]);
   const [vipExpiresAt, setVipExpiresAt] = useState<string | null>(null);
   const [subscriptionPlan, setSubscriptionPlan] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const [bookSearch, setBookSearch] = useState('');
-  const [toggling, setToggling] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
 
   const fetchAccess = useCallback(async () => {
     setLoading(true);
@@ -114,11 +98,10 @@ function AccessPanel({
       const res = await fetch(`/api/admin/users/${user.id}/access`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Failed to load');
-      setBooks(data.books ?? []);
       setVipExpiresAt(data.user?.vipExpiresAt ?? null);
       setSubscriptionPlan(data.user?.subscriptionPlan ?? null);
     } catch (err: unknown) {
-      onToast({ type: 'error', message: err instanceof Error ? err.message : 'Failed to load books' });
+      onToast({ type: 'error', message: err instanceof Error ? err.message : 'Failed to load' });
     } finally {
       setLoading(false);
     }
@@ -126,148 +109,35 @@ function AccessPanel({
 
   useEffect(() => { fetchAccess(); }, [fetchAccess]);
 
-  const executeAction = async (bookId: string | null, action: string) => {
-    let reason = '';
-    if (action.startsWith('grant_')) {
-      const input = window.prompt('Сабаби додани дастрасиро нависед (Support/Promo/Trial):');
-      if (input === null) return; // Cancelled
-      reason = input.trim();
-    }
-
-    setToggling(bookId ?? 'vip');
+  const executeAction = async (action: string) => {
+    if (action === 'revoke' && !window.confirm(`Premium-и ${user.name}-ро пурра бекор кунем?`)) return;
+    setBusy(true);
     try {
       const res = await fetch(`/api/admin/users/${user.id}/access`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productId: bookId, action, reason }),
+        body: JSON.stringify({ action }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? 'Failed');
-      onToast({
-        type: 'success',
-        message: data.message ?? 'Success',
-      });
-      // Reload access entirely to ensure dates and calculation accuracy
+      onToast({ type: 'success', message: data.message ?? 'Success' });
+      // Reload to ensure dates and plan status reflect the server exactly.
       await fetchAccess();
     } catch (err: unknown) {
       onToast({ type: 'error', message: err instanceof Error ? err.message : 'Error' });
     } finally {
-      setToggling(null);
+      setBusy(false);
     }
   };
 
-  const filtered = books.filter(
-    (b) =>
-      b.title.toLowerCase().includes(bookSearch.toLowerCase()) ||
-      (b.author ?? '').toLowerCase().includes(bookSearch.toLowerCase())
-  );
-
-  const granted  = filtered.filter((b) => b.isPurchased);
-  const locked   = filtered.filter((b) => !b.isPurchased && !b.isFree);
-  const freeList = filtered.filter((b) => b.isFree);
-
-  const BookRow = ({ book }: { book: BookAccess }) => {
-    const isGranted = book.isPurchased;
-    const isManual = book.isManualGrant;
-    const isFree = book.isFree;
-    const busy = toggling === book.id;
-
-    let statusColor = '#6b7280';
-    let statusLabel = 'Locked';
-    let StatusIcon = Lock;
-
-    if (isFree) { statusColor = '#818cf8'; statusLabel = 'Free'; StatusIcon = Unlock; }
-    else if (isGranted && isManual) { statusColor = '#a855f7'; statusLabel = 'Granted (∞)'; StatusIcon = ShieldCheck; }
-    else if (isGranted && !isManual) { statusColor = '#10b981'; statusLabel = 'Purchased (∞)'; StatusIcon = ShieldCheck; }
-
-    return (
-      <div style={{
-        display: 'flex', alignItems: 'center', gap: 12,
-        padding: '12px 16px', borderRadius: 10,
-        background: isGranted ? 'rgba(16,185,129,0.06)' : 'var(--card2)',
-        border: `1px solid ${isGranted ? 'rgba(16,185,129,0.2)' : 'var(--border)'}`,
-        marginBottom: 8, transition: 'all 0.15s ease',
-      }}>
-        {/* Cover */}
-        <div style={{
-          width: 36, height: 44, borderRadius: 6, flexShrink: 0, overflow: 'hidden',
-          background: 'var(--card)', border: '1px solid var(--border)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          {book.coverUrl
-            ? <img src={book.coverUrl} alt={book.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => ((e.target as HTMLImageElement).style.display = 'none')} />
-            : <BookOpen size={14} color="var(--text2)" />}
-        </div>
-
-        {/* Info */}
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{book.title}</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <p style={{ fontSize: 11, color: 'var(--text2)' }}>{book.author}</p>
-            {book.expiresAt && <span style={{ fontSize: 10, color: '#ef4444' }}>• Exp: {new Date(book.expiresAt).toLocaleDateString()}</span>}
-          </div>
-        </div>
-
-        {/* Status badge */}
-        <span style={{
-          display: 'inline-flex', alignItems: 'center', gap: 4,
-          fontSize: 10, fontWeight: 700, padding: '3px 8px', borderRadius: 99,
-          background: `${statusColor}18`, color: statusColor, border: `1px solid ${statusColor}33`,
-          flexShrink: 0,
-        }}>
-          <StatusIcon size={10} />
-          {statusLabel}
-        </span>
-
-        {/* Action buttons (not for free books) */}
-        {!isFree && (
-          <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
-            {isGranted ? (
-              <button
-                onClick={() => executeAction(book.id, 'revoke')}
-                disabled={busy}
-                title="Бекор кардан (Revoke)"
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4,
-                  padding: '0 8px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
-                  background: 'rgba(239,68,68,0.12)', color: '#ef4444', fontSize: 11, fontWeight: 700,
-                  opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
-                }}
-              >
-                {busy && toggling === book.id ? <Loader2 size={12} className="spin" /> : <X size={14} />} Манъ
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={() => executeAction(book.id, 'grant_lifetime')}
-                  disabled={busy}
-                  title="Дастрасии якумра ба ин китоб"
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
-                    padding: '0 12px', height: 30, borderRadius: 6, border: 'none', cursor: busy ? 'wait' : 'pointer',
-                    background: 'linear-gradient(135deg, rgba(234,179,8,0.15), rgba(234,179,8,0.05))', color: '#ca8a04', fontSize: 11, fontWeight: 700,
-                    opacity: busy ? 0.6 : 1, transition: 'all 0.15s ease'
-                  }}
-                >
-                  {busy && toggling === book.id ? <Loader2 size={12} className="spin" /> : <ShieldCheck size={12} />} Китоби якумра
-                </button>
-              </>
-            )}
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  const Section = ({ title, items, count }: { title: string; items: BookAccess[]; count: number }) =>
-    items.length === 0 ? null : (
-      <div style={{ marginBottom: 20 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', marginBottom: 8 }}>
-          {title} ({count})
-        </p>
-        {items.map((b) => <BookRow key={b.id} book={b} />)}
-      </div>
-    );
+  // Same four plans the app actually sells (PlanIds in billing_service.dart) —
+  // an admin grant should look identical to a real purchase everywhere else.
+  const PLANS = [
+    { key: 'monthly',   action: 'grant_monthly',   label: 'Моҳона',  sub: '1 моҳ',  color: '#10b981' },
+    { key: 'sixmonths', action: 'grant_sixmonths', label: 'Шашмоҳа', sub: '6 моҳ',  color: '#06b6d4' },
+    { key: 'yearly',    action: 'grant_yearly',    label: 'Солона',  sub: 'Беҳтарин интихоб', color: '#3b82f6' },
+    { key: 'lifetime',  action: 'grant_lifetime',  label: 'Якумра',  sub: 'Доимӣ — як бор', color: '#a855f7' },
+  ] as const;
 
   return (
     <div style={{
@@ -304,111 +174,73 @@ function AccessPanel({
           </button>
         </div>
         <div style={{ padding: '10px 24px', background: 'rgba(234, 179, 8, 0.15)', borderBottom: '1px solid rgba(234, 179, 8, 0.2)', color: '#ca8a04', fontSize: 12, fontWeight: 500 }}>
-          ⚠️ <b>Огоҳӣ:</b> Функсияҳои додани дастрасӣ дар ин ҷо танҳо барои дастгирии техникӣ, промокодҳо ва давраҳои озмоишӣ мебошанд. Барои фурӯши муқаррарӣ истифода набаред (Google Play Policy).
+          ⚠️ <b>Огоҳӣ:</b> Ин ҷо танҳо барои дастгирии техникӣ, промокодҳо ва давраҳои озмоишӣ мебошад. Барои фурӯши муқаррарӣ истифода набаред (Google Play Policy).
         </div>
 
-        {/* Premium VIP Plans */}
-        <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border)', background: 'var(--card)' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', marginBottom: 12 }}>
-            Обунаҳои глобалӣ (VIP)
-          </p>
-          <div style={{ display: 'flex', gap: 12 }}>
-            {([
-              { key: 'monthly',  action: 'grant_vip_monthly',  label: '1 Моҳ',  sub: 'Обунаи моҳона', color: '#10b981' },
-              { key: 'yearly',   action: 'grant_vip_yearly',   label: '1 Сол',  sub: 'Беҳтарин интихоб', color: '#3b82f6' },
-              { key: 'lifetime', action: 'grant_vip_lifetime', label: 'Якумра', sub: 'Доимӣ — як бор', color: '#a855f7' },
-            ] as const).map((p) => {
-              const active = subscriptionPlan === p.key;
-              const otherActive = !!subscriptionPlan && !active;
-              return (
-                <div key={p.key} style={{
-                  flex: 1, padding: '16px', borderRadius: 16,
-                  background: active ? `${p.color}0d` : 'var(--card2)',
-                  border: `1px solid ${active ? p.color : 'var(--border)'}`,
-                  display: 'flex', flexDirection: 'column', gap: 12,
-                }}>
-                  <div>
-                    <h4 style={{ fontSize: 14, fontWeight: 700, color: active ? p.color : 'var(--text)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                      <ShieldCheck size={16} color={active ? p.color : 'var(--text2)'} /> {p.label}
-                    </h4>
-                    <p style={{ fontSize: 11, color: 'var(--text2)', marginTop: 4 }}>
-                      {active && p.key === 'lifetime'
-                        ? 'Фаъол — доимӣ'
-                        : active && vipExpiresAt
-                        ? `Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`
-                        : p.sub}
-                    </p>
-                  </div>
-                  {active ? (
-                    <button
-                      onClick={() => executeAction(null, 'revoke_vip')}
-                      disabled={toggling === 'vip'}
-                      style={{
-                        padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                        background: 'rgba(239,68,68,0.1)', color: '#ef4444',
-                      }}
-                    >
-                      {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
-                    </button>
-                  ) : otherActive ? (
-                    <div style={{ fontSize: 11, color: 'var(--text2)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
-                  ) : (
-                    <button
-                      onClick={() => executeAction(null, p.action)}
-                      disabled={toggling === 'vip'}
-                      style={{
-                        padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: toggling === 'vip' ? 'wait' : 'pointer', border: 'none',
-                        background: `${p.color}1a`, color: p.color,
-                      }}
-                    >
-                      {toggling === 'vip' ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
-                    </button>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Book search */}
-        <div style={{ padding: '16px 24px', borderBottom: '1px solid var(--border)' }}>
-          <div style={{ position: 'relative' }}>
-            <Search size={14} color="var(--text2)" style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
-            <input
-              className="input-field"
-              placeholder="Китобро ҷустуҷӯ кунед…"
-              value={bookSearch}
-              onChange={(e) => setBookSearch(e.target.value)}
-              style={{ paddingLeft: 36, height: 38, fontSize: 13 }}
-            />
-          </div>
-        </div>
-
-        {/* Book list */}
+        {/* Premium plans */}
         <div style={{ flex: 1, overflowY: 'auto', padding: '20px 24px' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', marginBottom: 12 }}>
+            Обунаи Premium
+          </p>
           {loading ? (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', gap: 12, color: 'var(--text2)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '60px 0', gap: 12, color: 'var(--text2)' }}>
               <Loader2 size={28} style={{ animation: 'spin 0.8s linear infinite' }} />
-              <p style={{ fontSize: 14 }}>Китобҳо бор мешаванд…</p>
-            </div>
-          ) : books.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text2)' }}>
-              <BookOpen size={36} style={{ marginBottom: 12, opacity: 0.2 }} />
-              <p style={{ fontSize: 14 }}>Китобе ёфт нашуд</p>
+              <p style={{ fontSize: 14 }}>Бор мешавад…</p>
             </div>
           ) : (
-            <>
-              <Section title="Дастрасӣ дода шудааст" items={granted} count={granted.length} />
-              <Section title="Қулфшуда" items={locked} count={locked.length} />
-              <Section title="Ройгон (ҳамешагӣ кушода)" items={freeList} count={freeList.length} />
-            </>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              {PLANS.map((p) => {
+                const active = subscriptionPlan === p.key;
+                const otherActive = !!subscriptionPlan && !active;
+                return (
+                  <div key={p.key} style={{
+                    padding: '16px', borderRadius: 16,
+                    background: active ? `${p.color}0d` : 'var(--card2)',
+                    border: `1px solid ${active ? p.color : 'var(--border)'}`,
+                    display: 'flex', flexDirection: 'column', gap: 12,
+                  }}>
+                    <div>
+                      <h4 style={{ fontSize: 14, fontWeight: 700, color: active ? p.color : 'var(--text)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <ShieldCheck size={16} color={active ? p.color : 'var(--text2)'} /> {p.label}
+                      </h4>
+                      <p style={{ fontSize: 11, color: 'var(--text2)', marginTop: 4 }}>
+                        {active && p.key === 'lifetime'
+                          ? 'Фаъол — доимӣ'
+                          : active && vipExpiresAt
+                          ? `Фаъол то: ${new Date(vipExpiresAt).toLocaleDateString()}`
+                          : p.sub}
+                      </p>
+                    </div>
+                    {active ? (
+                      <button
+                        onClick={() => executeAction('revoke')}
+                        disabled={busy}
+                        style={{
+                          padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: busy ? 'wait' : 'pointer', border: 'none',
+                          background: 'rgba(239,68,68,0.1)', color: '#ef4444',
+                        }}
+                      >
+                        {busy ? <Loader2 size={14} className="spin" /> : 'Қатъ кардан'}
+                      </button>
+                    ) : otherActive ? (
+                      <div style={{ fontSize: 11, color: 'var(--text2)', padding: '8px 0', textAlign: 'center', background: 'rgba(0,0,0,0.02)', borderRadius: 8 }}>Дигар обуна фаъол аст</div>
+                    ) : (
+                      <button
+                        onClick={() => executeAction(p.action)}
+                        disabled={busy}
+                        style={{
+                          padding: '8px 0', width: '100%', borderRadius: 8, fontSize: 12, fontWeight: 700, cursor: busy ? 'wait' : 'pointer', border: 'none',
+                          background: `${p.color}1a`, color: p.color,
+                        }}
+                      >
+                        {busy ? <Loader2 size={14} className="spin" /> : 'Иҷозат додан'}
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           )}
-        </div>
-
-        {/* Footer summary */}
-        <div style={{ padding: '14px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', fontSize: 12, color: 'var(--text2)' }}>
-          <span>{books.filter((b) => b.isPurchased).length} китоб кушода шудааст</span>
-          <span>{books.length} китоби умумӣ</span>
         </div>
       </div>
     </div>
