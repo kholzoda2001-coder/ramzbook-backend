@@ -1,16 +1,15 @@
-// English reading rules for the Alphabet screen (en → tg).
+// English reading rules for the Alphabet screen (en → tg) — letter by letter.
 //
-// The screen has had an empty "📘 Қоидаҳо" card since the feature was built:
-// 26 letters were filled in, 0 rules. For a Tajik speaker this is the missing
-// half — Tajik is read letter by letter, English is not, and nothing in the app
-// said so. These 22 rules cover exactly the gap: why the letter's NAME differs
-// from its SOUND, the short/long vowel split, and the consonant pairs (th, sh,
-// ch, ng) that have no Tajik equivalent.
+// The first version of this file explained the THEORY (open vs closed
+// syllables, stress, schwa). Correct, but useless at the moment a beginner is
+// staring at a word: they don't ask "is this syllable open?", they ask "this A
+// — how do I say it?". So every rule here is now one LETTER and all the
+// situations it appears in, each with the reading spelled out in Tajik letters
+// and two or three real words. Read top to bottom, a learner can decode any A1
+// word without knowing a single grammatical term.
 //
-// Rendering is plain Text (no markdown), so the bodies use no ** markers —
-// each is one short paragraph with real words and a Tajik reading hint.
-// `category` places the rule on a tab: general = Алфавит, vowel = Садонокҳо,
-// consonant = Ҳамсадоҳо.
+// The body is rendered by a plain Text widget: no markdown, but newlines work,
+// so each situation gets its own line.
 
 const KEY = 'fed7e7577c761a598966f5a3f04a5b36fb3cea6fb4b6aca9a002a75f47a7f574d5fe49645fd78b75b3e53ff1fad892ad';
 const BASE = 'https://admin.ramz.tj/api/admin';
@@ -29,55 +28,110 @@ async function api(path, method = 'GET', body) {
 }
 
 const RULES = [
-  // ── Алфавит: how English reading works at all ──
-  ['general', 'Номи ҳарф ва садои ҳарф ду чизи гуногунанд',
-    'Ҳарфи A номаш «эй» аст, вале дар калимаи cat садои «а» медиҳад. Аз ин рӯ дар англисӣ аввал бояд бубинед, ки ҳарф дар кадом калима истодааст — баъд онро хонед.'],
-  ['general', '26 ҳарф, вале 44 садо',
-    'Ҳарфҳо аз садоҳо камтаранд. Барои ҳамин як ҳарф метавонад чанд садо диҳад, ва ду ҳарф якҷоя як садои тамоман нав созанд (th, sh, ch). Англисиро ҳарф-ба-ҳарф хондан мумкин нест — калимаро пурра бубинед.'],
-  ['general', 'Ҳиҷои пӯшида ва кушода',
-    'Агар баъд аз садонок ҳамсадо истад — садонок КӮТОҲ хонда мешавад: cat (кэт), sit (сит), dog (дог). Агар садонок дар охири ҳиҷо бошад — номи худро мегӯяд: he (ҳи), go (гоу), my (май).'],
-  ['general', 'E-и хомӯш дар охири калима',
-    'E-и охирин худаш хонда намешавад, вале садоноки пеш аз худро дароз мекунад: hat (ҳэт) → hate (ҳейт), bit (бит) → bite (байт), not (нот) → note (ноут), cut (кат) → cute (кют).'],
-  ['general', 'Зада (ударение)',
-    'Дар ҳар калимаи англисӣ як ҳиҷо баландтар ва равшантар хонда мешавад: TEAcher, comPUter, aBOUT. Ҳиҷои бе зада суст мешавад — ин барои фаҳмидани гуфтори табиӣ хеле муҳим аст.'],
+  // ── Таби АЛФАВИТ: се чизи асосӣ, ҳамин ва бас ──
+  ['general', 'Аввал ин се чизро донед',
+    '1. Ҳарф як ном дорад ва садои дигар. A номаш «эй», вале дар cat «а» мешавад.\n' +
+    '2. Ҳамон ҳарф дар калимаҳои гуногун гуногун хонда мешавад.\n' +
+    '3. Барои ҳамин ҳамеша тамоми калимаро бубинед, на як ҳарфро.'],
+  ['general', 'Қоидаи №1: E-и охирин',
+    'E дар охири калима худаш хонда НАМЕШАВАД, вале садоноки пеш аз худро иваз мекунад:\n' +
+    'hat (ҳэт) → hate (ҳейт)\n' +
+    'bit (бит) → bite (байт)\n' +
+    'not (нот) → note (ноут)\n' +
+    'cut (кат) → cute (кют)\n' +
+    'Ин муҳимтарин қоидаи хониши англисист.'],
+  ['general', 'Қоидаи №2: ҳарфи R',
+    'R баъд аз садонок садоро тамоман дигар мекунад:\n' +
+    'car (кар), her (ҳё), bird (бёд), for (фо), turn (тён)\n' +
+    'Дар ин ҳолат қоидаҳои дигар кор намекунанд.'],
+  ['general', 'Ҳар садонок ду садои асосӣ дорад',
+    'КӮТОҲ — вақте баъд аз он ҳамсадо истад: cat, pen, sit, dog, cup\n' +
+    'НОМИ ХУД — вақте калима бо e тамом шавад ё садонок дар охир бошад: name, he, like, note, my'],
+  ['general', 'Дар ҳар калима як ҳиҷо баландтар хонда мешавад',
+    'TEA-cher, com-PU-ter, a-BOUT\n' +
+    'Ҳиҷои дигар суст ва норавшан мешавад. Барои ҳамин doctor «ДОКтэ» шунида мешавад, на «доктор».'],
 
-  // ── Садонокҳо ──
-  ['vowel', 'Панҷ садоноки кӯтоҳ',
-    'a — cat (кэт), e — pen (пен), i — sit (сит), o — dog (дог), u — cup (кап). Ин садоҳо вақте меоянд, ки баъд аз садонок ҳамсадо истода бошад.'],
-  ['vowel', 'Садоноки дароз — ҳарф номи худро мегӯяд',
-    'Дар ҳиҷои кушода ё бо e-и хомӯш: a — name (нейм), e — he (ҳи), i — like (лайк), o — note (ноут), u — tube (тюб).'],
-  ['vowel', 'Ду садонок паҳлӯи ҳам',
-    'Одатан якум номи худро мегӯяд, дуюм хомӯш мемонад: ea — tea (ти), ee — see (си), ai — rain (рейн), oa — boat (боут), ay — day (дей).'],
-  ['vowel', 'OO — ду садои гуногун',
-    'Кӯтоҳ: book (бук), good (гуд), look (лук). Дароз: moon (мун), food (фуд), school (скул). Ин ҷо қоидаи қатъӣ нест — калимаҳоро бо шунидан ёд гиред.'],
-  ['vowel', 'Y ҳам садонок шуда метавонад',
-    'Дар охири калимаи кӯтоҳ — «ай»: my (май), fly (флай), why (вай). Дар охири калимаи дароз — «и»: happy (ҳэпи), city (сити), study (стади).'],
-  ['vowel', 'R садоноки пеш аз худро тағйир медиҳад',
-    'car (кар), her (ҳё), bird (бёд), for (фо), turn (тён). Дар ин ҳолат қоидаи кӯтоҳ/дароз кор намекунад — r садоро тамоман дигар мекунад.'],
-  ['vowel', 'Садоноки бе зада норавшан мешавад',
-    'Дар ҳиҷои бе зада ҳар садонок ба як садои сусти «э» табдил меёбад: teacher (ТИчэ), about (эБАУТ), doctor (ДОКтэ), banana (бэНАнэ).'],
+  // ── Таби САДОНОКҲО: ҳарф ба ҳарф ──
+  ['vowel', 'Ҳарфи A — 4 ҳолат',
+    'A + ҳамсадо → «а»:  cat (кэт), bag (бэг), man (мэн)\n' +
+    'A + ҳамсадо + e → «эй»:  name (нейм), cake (кейк), late (лейт)\n' +
+    'A + r → «а»-и дароз:  car (кар), park (парк), star (стар)\n' +
+    'A + l ё w → «о»:  ball (бол), all (ол), water (вотэ)'],
+  ['vowel', 'Ҳарфи E — 4 ҳолат',
+    'E + ҳамсадо → «е»:  pen (пен), red (ред), bed (бед)\n' +
+    'E дар охири калима → ХОМӮШ:  name (нейм), like (лайк), nose (ноуз)\n' +
+    'E + r → «ё»:  her (ҳё), term (тём), person (пёсн)\n' +
+    'ee ё ea → «и»-и дароз:  see (си), tea (ти), week (вик)'],
+  ['vowel', 'Ҳарфи I — 3 ҳолат',
+    'I + ҳамсадо → «и»:  sit (сит), big (биг), fish (фиш)\n' +
+    'I + ҳамсадо + e → «ай»:  like (лайк), time (тайм), nice (найс)\n' +
+    'I + r → «ё»:  bird (бёд), girl (гёл), first (фёст)'],
+  ['vowel', 'Ҳарфи O — 4 ҳолат',
+    'O + ҳамсадо → «о»:  dog (дог), hot (ҳот), box (бокс)\n' +
+    'O + ҳамсадо + e → «оу»:  note (ноут), home (ҳоум), nose (ноуз)\n' +
+    'O + r → «о»-и дароз:  for (фо), short (шот), morning (монин)\n' +
+    'Баъзе калимаҳо → «а»:  son (сан), love (лав), money (мани)'],
+  ['vowel', 'Ҳарфи U — 4 ҳолат',
+    'U + ҳамсадо → «а»:  cup (кап), bus (бас), sun (сан)\n' +
+    'U + ҳамсадо + e → «ю»:  tube (тюб), cute (кют), use (юз)\n' +
+    'U + r → «ё»:  turn (тён), burn (бён), nurse (нёс)\n' +
+    'Баъзе калимаҳо → «у»:  put (пут), full (фул), push (пуш)'],
+  ['vowel', 'Ҳарфи Y — 3 ҳолат',
+    'Y дар АВВАЛИ калима → «й»:  yes (йес), you (ю), yellow (йелоу)\n' +
+    'Y дар охири калимаи КӮТОҲ → «ай»:  my (май), fly (флай), why (вай)\n' +
+    'Y дар охири калимаи ДАРОЗ → «и»:  happy (ҳэпи), city (сити), study (стади)'],
+  ['vowel', 'Ду садонок якҷоя',
+    'ee → «и»:  see (си), tree (три), green (грин)\n' +
+    'ea → «и»:  tea (ти), eat (ит), read (рид)\n' +
+    'ai ва ay → «эй»:  rain (рейн), day (дей), wait (вейт)\n' +
+    'oa → «оу»:  boat (боут), road (роуд), coat (коут)\n' +
+    'oo → «у»:  moon (мун), food (фуд)  /  кӯтоҳ:  book (бук), good (гуд)\n' +
+    'ou ва ow → «ау»:  house (ҳаус), now (нау), down (даун)'],
 
-  // ── Ҳамсадоҳо ──
+  // ── Таби ҲАМСАДОҲО: ҳарф ба ҳарф ──
+  ['consonant', 'Ҳарфи C — 2 ҳолат',
+    'C пеш аз a, o, u → «к»:  cat (кэт), cup (кап), come (кам)\n' +
+    'C пеш аз e, i, y → «с»:  city (сити), ice (айс), face (фейс)\n' +
+    'ck → «к»:  black (блэк), duck (дак)'],
+  ['consonant', 'Ҳарфи G — 2 ҳолат',
+    'G пеш аз a, o, u → «г»:  go (гоу), game (гейм), gun (ган)\n' +
+    'G пеш аз e, i, y → «ҷ»:  age (эйҷ), page (пейҷ), giant (ҷайэнт)\n' +
+    'Истисно (ҳамеша «г»):  get (гет), give (гив), girl (гёл)'],
+  ['consonant', 'Ҳарфи S — 2 ҳолат',
+    'S дар аввали калима → «с»:  sun (сан), see (си), school (скул)\n' +
+    'S байни садонокҳо ё дар охир баъд аз садои ҷарангдор → «з»:  his (ҳиз), music (мюзик), dogs (догз)'],
   ['consonant', 'TH — садое ки дар тоҷикӣ нест',
-    'Нӯги забонро байни дандонҳо мегузоред. Ду навъ дорад: ҷарангдор — this, that, the; беҷаранг — think, three, bath. «З» ва «С»-и тоҷикӣ наздиктаранд, вале айнан ҳамон нестанд — ҳатман бишнавед.'],
-  ['consonant', 'SH ва CH',
-    'sh — «ш»: she (ши), fish (фиш), shop (шоп). ch — «ч»: chair (чеэ), teacher (тичэ), lunch (ланч).'],
-  ['consonant', 'C — ду садо',
-    'Пеш аз a, o, u — «к»: cat (кэт), cup (кап), come (кам). Пеш аз e, i, y — «с»: city (сити), ice (айс), face (фейс).'],
-  ['consonant', 'G — ду садо',
-    'Пеш аз a, o, u — «г»: go (гоу), game (гейм), gun (ган). Пеш аз e, i, y — «ҷ»: age (эйҷ), page (пейҷ), giant (ҷайэнт). Истисно: get ва give «г» мемонанд.'],
+    'Нӯги забонро сабук байни дандонҳо мемонед.\n' +
+    'Ҷарангдор (наздик ба «з»):  this (зис), that (зэт), the (зэ), mother (мазэ)\n' +
+    'Беҷаранг (наздик ба «с»):  think (синк), three (сри), bath (бас)\n' +
+    'Ҳатман бишнавед — «з» ва «с»-и тоҷикӣ айнан ҳамон нестанд.'],
+  ['consonant', 'Ду ҳарф — як садо',
+    'sh → «ш»:  she (ши), fish (фиш), shop (шоп)\n' +
+    'ch → «ч»:  chair (чеэ), lunch (ланч), teacher (тичэ)\n' +
+    'ph → «ф»:  phone (фоун), photo (фоуто)\n' +
+    'wh → «в»:  what (вот), where (веэ), white (вайт)\n' +
+    'qu → «кв»:  question (квесчэн), quick (квик)'],
   ['consonant', 'NG ва NK — садои бинӣ',
-    'ng — садои бинӣ, «г»-и охир қариб шунида намешавад: sing (син), long (лон), morning (монин). nk — think (синк), thank (сэнк).'],
-  ['consonant', 'PH, WH, QU',
-    'ph — «ф»: phone (фоун), photo (фоуто). wh — «в»: what (вот), where (веэ), white (вайт). qu — «кв»: question (квесчэн), quick (квик).'],
-  ['consonant', 'Ҳарфҳои хомӯш',
-    'Баъзе ҳарфҳо навишта мешаванд, вале хонда намешаванд: know (ноу) — k хомӯш; write (райт) — w хомӯш; talk (ток) — l хомӯш; hour (ауэ) — h хомӯш.'],
+    'ng → садо аз бинӣ мебарояд, «г»-и охир қариб шунида намешавад:\n' +
+    'sing (син), long (лон), morning (монин)\n' +
+    'nk → think (синк), thank (сэнк), drink (дринк)'],
+  ['consonant', 'Ҳарфҳое ки навишта мешаванд, вале хонда намешаванд',
+    'k пеш аз n:  know (ноу), knife (найф)\n' +
+    'w пеш аз r:  write (райт), wrong (рон)\n' +
+    'l:  talk (ток), walk (вок), half (ҳаф)\n' +
+    'h:  hour (ауэ), honest (онист)\n' +
+    'b дар охир баъд аз m:  comb (коум), thumb (сам)'],
   ['consonant', 'Ҳамсадои дукарата — як садо',
-    'letter (летэ), dinner (динэ), happy (ҳэпи). Ду ҳарф як садо медиҳад, вале садоноки пеш аз он кӯтоҳ мемонад — маҳз барои ҳамин дукарата навишта мешавад.'],
-  ['consonant', 'Бандаки -s дар охир',
-    'Пас аз садои беҷаранг — «с»: cats (кэтс), books (букс). Пас аз садои ҷарангдор — «з»: dogs (догз), boys (бойз), friends (френдз).'],
-  ['consonant', 'Бандаки -ed дар охир',
-    'Пас аз t ё d — «ид»: wanted (вонтид), needed (нидид). Пас аз садои беҷаранг — «т»: worked (вокт), helped (ҳелпт). Дар дигар ҳолатҳо — «д»: played (плейд), lived (ливд).'],
+    'letter (летэ), dinner (динэ), happy (ҳэпи), summer (самэ)\n' +
+    'Ду ҳарф як садо медиҳад. Дукарата навишта мешавад, то садоноки пеш аз он КӮТОҲ монад.'],
+  ['consonant', 'Бандаки -s дар охири калима',
+    'Баъд аз садои беҷаранг (p, t, k, f) → «с»:  cats (кэтс), books (букс)\n' +
+    'Баъд аз садои ҷарангдор ва садонок → «з»:  dogs (догз), boys (бойз), friends (френдз)\n' +
+    'Баъд аз s, sh, ch, x → «из»:  buses (басиз), watches (вочиз)'],
+  ['consonant', 'Бандаки -ed дар охири феъл',
+    'Баъд аз t ё d → «ид»:  wanted (вонтид), needed (нидид)\n' +
+    'Баъд аз садои беҷаранг → «т»:  worked (вокт), helped (ҳелпт)\n' +
+    'Дар ҳамаи ҳолатҳои дигар → «д»:  played (плейд), lived (ливд)'],
 ];
 
 // Idempotent: clear whatever is there for this pair, then write the set fresh.
@@ -93,4 +147,4 @@ for (const [category, title, body] of RULES) {
   });
   console.log(`  ✓ [${category}] ${title}`);
 }
-console.log(`\n✅ ${RULES.length} қоида сохта шуд — general ${counters.general}, vowel ${counters.vowel}, consonant ${counters.consonant}`);
+console.log(`\n✅ ${RULES.length} қоида — Алфавит ${counters.general}, Садонокҳо ${counters.vowel}, Ҳамсадоҳо ${counters.consonant}`);
