@@ -47,6 +47,11 @@ const CONTENT_MODELS = new Set([
   'GrammarRule', 'GrammarExercise', 'PhraseCollection', 'Phrase', 'Dialogue',
   'DialogueLine', 'ComprehensionExercise', 'ComprehensionQuestion', 'Language',
   'CefrDescriptor', 'OnboardingWord', 'PlacementQuestion', 'UiTranslation',
+  // The Alphabet screen is admin-driven too and is cached on-device exactly
+  // like the rest (OfflineRepository.getAlphabet / getAlphabetRules). Left out
+  // of this list, an added letter or reading rule sat unseen behind the
+  // learner's cache until its TTL happened to expire.
+  'AlphabetLetter', 'AlphabetRule',
 ]);
 const WRITE_ACTIONS = new Set([
   'create', 'createMany', 'update', 'updateMany', 'upsert', 'delete', 'deleteMany',
