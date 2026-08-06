@@ -4,6 +4,10 @@ import { normalizeCefrLevel } from '@/lib/cefr';
 
 export const dynamic = 'force-dynamic';
 
+// reading / listening = comprehension passages; writing = a productive task
+// prompt answered by the learner (same content pipeline, different purpose).
+const KINDS = ['reading', 'listening', 'writing'];
+
 /**
  * GET /api/admin/comprehensions?courseId=X — comprehension exercises for a
  * course (or all). Returns light rows with question counts for the admin list.
@@ -59,7 +63,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'courseId, title and passage are required' }, { status: 400 });
     }
 
-    const kind = body.kind === 'listening' ? 'listening' : 'reading';
+    // 'writing' is a productive task (an exam-style prompt the learner answers),
+    // not a passage to read — it is stored here so it reuses the same content
+    // pipeline, but it must keep its own kind so reading stats and the admin
+    // lists stay honest.
+    const kind = KINDS.includes(body.kind ?? '') ? body.kind! : 'reading';
     const order = body.order ?? (await prisma.comprehensionExercise.count({ where: { courseId: body.courseId } }));
 
     const comprehension = await prisma.comprehensionExercise.create({

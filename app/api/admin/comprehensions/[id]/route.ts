@@ -4,6 +4,10 @@ import { normalizeCefrLevel } from '@/lib/cefr';
 
 export const dynamic = 'force-dynamic';
 
+// Kept in step with the create route: reading / listening are passages to
+// understand, writing is a task the learner answers.
+const KINDS = ['reading', 'listening', 'writing'];
+
 /** GET /api/admin/comprehensions/:id — full exercise with its ordered questions */
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -32,7 +36,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         ...(body.titleTranslated !== undefined && { titleTranslated: body.titleTranslated.trim() }),
         ...(body.passage !== undefined && { passage: body.passage.trim() }),
         ...(body.passageTranslated !== undefined && { passageTranslated: body.passageTranslated?.trim() || null }),
-        ...(body.kind !== undefined && { kind: body.kind === 'listening' ? 'listening' : 'reading' }),
+        ...(body.kind !== undefined && { kind: KINDS.includes(body.kind) ? body.kind : 'reading' }),
         ...(body.audioUrl !== undefined && { audioUrl: body.audioUrl?.trim() || null }),
         ...(body.cefrLevel !== undefined && { cefrLevel: normalizeCefrLevel(body.cefrLevel) ?? null }),
         ...(body.emoji !== undefined && { emoji: body.emoji.trim() || '📖' }),
