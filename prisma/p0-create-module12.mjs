@@ -100,7 +100,7 @@ const GRAMMAR = {
     { type:'choose', prompt:'She ___ got a fever.', promptTranslated:'Ӯ таб дорад.', options:['have','has','is','do'], answer:'has', explanation:'Бо She → has got.' },
     { type:'fill_blank', prompt:'___ is the problem? — A headache.', promptTranslated:'Мушкилӣ чист?', answer:'What', explanation:'Пурсиш → What.' },
     { type:'fill_blank', prompt:'I am ___ medicine now. (take)', promptTranslated:'Ман дору хӯрда истодаам.', answer:'taking', explanation:'take → taking (Present Continuous).' },
-    { type:'reorder', prompt:'Ҷумларо сохт кунед:', promptTranslated:'Ман дарди сар дорам.', options:['have','I','a','headache','got'], answer:'I have got a headache.', explanation:'I + have got + a + headache.' },
+    { type:'reorder', prompt:'Ҷумларо созед:', promptTranslated:'Ман дарди сар дорам.', options:['have','I','a','headache','got'], answer:'I have got a headache.', explanation:'I + have got + a + headache.' },
     { type:'transform', prompt:'Ислоҳ кунед: She have got a cold.', promptTranslated:'Шакл ғалат.', answer:'She has got a cold.', explanation:'Бо She → has got.' },
     { type:'transform', prompt:'Ба савол гузаронед: You can help me.', promptTranslated:'Хабарӣ → саволӣ.', answer:'Can you help me?', explanation:'Can-ро дар аввал гузор.' },
   ],

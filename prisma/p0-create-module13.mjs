@@ -130,7 +130,7 @@ const GRAMMAR = {
     { type:'choose', prompt:'___ is windy today.', promptTranslated:'Имрӯз шамол аст.', options:['It','He','I','They'], answer:'It', explanation:'Обу ҳаво → It.' },
     { type:'fill_blank', prompt:'The mountain ___ high.', promptTranslated:'Кӯҳ баланд аст.', answer:'is', explanation:'Исми танҳо → is.' },
     { type:'fill_blank', prompt:'We ___ happy at the beach.', promptTranslated:'Мо дар соҳил хушҳолем.', answer:'are', explanation:'Бо We → are.' },
-    { type:'reorder', prompt:'Ҷумларо сохт кунед:', promptTranslated:'Осмон кабуд аст.', options:['sky','is','The','blue'], answer:'The sky is blue.', explanation:'The + sky + is + blue.' },
+    { type:'reorder', prompt:'Ҷумларо созед:', promptTranslated:'Осмон кабуд аст.', options:['sky','is','The','blue'], answer:'The sky is blue.', explanation:'The + sky + is + blue.' },
     { type:'transform', prompt:'Ислоҳ кунед: It are cold in winter.', promptTranslated:'Шакл ғалат.', answer:'It is cold in winter.', explanation:'Бо It → is.' },
   ],
 };
