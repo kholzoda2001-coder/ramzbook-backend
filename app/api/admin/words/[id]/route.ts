@@ -25,6 +25,10 @@ export async function PUT(
 ) {
   try {
     const body = await req.json() as {
+      // Moving a word to another lesson has to keep the SAME record: the audio
+      // file is named after the word id and the picture after its text, so a
+      // delete-and-recreate would silently orphan both.
+      lessonId?: string;
       word?: string;
       translation?: string;
       ipa?: string;
@@ -39,9 +43,15 @@ export async function PUT(
       order?: number;
     };
 
+    if (body.lessonId !== undefined) {
+      const target = await prisma.lesson.findUnique({ where: { id: body.lessonId }, select: { id: true } });
+      if (!target) return NextResponse.json({ error: 'Target lesson not found' }, { status: 400 });
+    }
+
     const updated = await prisma.word.update({
       where: { id: params.id },
       data: {
+        ...(body.lessonId !== undefined && { lessonId: body.lessonId }),
         ...(body.word !== undefined && { word: body.word.trim() }),
         ...(body.translation !== undefined && { translation: body.translation.trim() }),
         ...(body.ipa !== undefined && { ipa: body.ipa.trim() || null }),
