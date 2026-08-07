@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 // reading / listening = comprehension passages; writing = a productive task
 // prompt answered by the learner (same content pipeline, different purpose).
-const KINDS = ['reading', 'listening', 'writing'];
+const KINDS = ['reading', 'listening', 'writing', 'speaking'];
 
 /**
  * GET /api/admin/comprehensions?courseId=X — comprehension exercises for a

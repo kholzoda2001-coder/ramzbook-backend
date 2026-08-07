@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 // Kept in step with the create route: reading / listening are passages to
 // understand, writing is a task the learner answers.
-const KINDS = ['reading', 'listening', 'writing'];
+const KINDS = ['reading', 'listening', 'writing', 'speaking'];
 
 /** GET /api/admin/comprehensions/:id — full exercise with its ordered questions */
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
