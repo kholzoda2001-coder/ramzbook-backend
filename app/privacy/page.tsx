@@ -9,9 +9,12 @@ import { useState } from 'react';
  * Trilingual (Tajik / Russian / English) for users + Google Play review.
  */
 
-const EFFECTIVE_DATE = '25.07.2026';
+const EFFECTIVE_DATE = '08.08.2026';
 const APP_NAME = 'RAMZ';
-const SUPPORT_EMAIL = 'kholzoda2001@gmail.com';
+// Як почтаи ягона дар ҳама ҷо: ин саҳифа, ramz.tj/privacy ва сиёсати дохили
+// барнома (frontend/lib/l10n/strings_*.dart). Онҳо набояд фарқ кунанд —
+// ревюери Google мухолифатро ҳамчун сиёсати бе соҳиб мебинад.
+const SUPPORT_EMAIL = 'help@ramz.tj';
 const WEBSITE = 'https://ramz.tj';
 
 type Lang = 'tg' | 'ru' | 'en';
@@ -104,15 +107,21 @@ function Tg() {
         </ul>
       </Sec>
 
-      <Sec n="5" t="Реклама">
-        Барнома <b>реклама нишон медиҳад</b>. Мо танҳо як шакли рекламаро истифода
-        мебарем: <b>видеои мукофотӣ</b> — вақте ҷонҳоятон тамом мешавад, шумо
-        метавонед бо хоҳиши худ видео тамошо карда, як ҷон гиред. Реклама дар дохили
-        дарсҳо нест ва ҳеҷ гоҳ маҷбурӣ нишон дода намешавад.
+      <Sec n="5" t="Реклама ва рақами рекламавӣ">
+        Дар нусхаи <b>ройгон</b> барнома <b>реклама нишон медиҳад</b> — ду шакл:
         <ul style={s.ul}>
-          <li>Рекламаро <b>Google AdMob</b> таъмин мекунад. AdMob барои интихоби
-            реклама рақами рекламавӣ ва маълумоти умумии дастгоҳро истифода мебарад:{' '}
-            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>.</li>
+          <li><b>Видеои мукофотӣ</b> — вақте ҷонҳоятон тамом мешавад, шумо метавонед
+            бо хоҳиши худ видео тамошо карда, як ҷон гиред.</li>
+          <li><b>Рекламаи пурраэкранӣ</b> — баъди анҷоми дарс.</li>
+        </ul>
+        Дар мобайни машқҳо реклама нест.
+        <ul style={s.ul}>
+          <li>Рекламаро <b>Google AdMob</b> ва <b>Yandex Mobile Ads (Yandex
+            Advertising Network)</b> таъмин мекунанд. Онҳо барои интихоби реклама
+            рақами рекламавии дастгоҳ (Google Advertising ID / GAID), суроғаи IP ва
+            маълумоти умумии дастгоҳро истифода мебаранд:{' '}
+            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>,{' '}
+            <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
           <li>Мо рекламаро танҳо бо рейтинги <b>«G» (барои ҳама)</b> маҳдуд кардаем.</li>
           <li><b>Обунаи Premium реклама надорад.</b></li>
           <li>Барои хомӯш кардани реклами шахсӣ: Танзимоти Android → Google → Реклама →
@@ -126,7 +135,10 @@ function Tg() {
         <ul style={s.ul}>
           <li><b>Google Play Services / Google Sign-In</b> — воридшавӣ ва пардохт;</li>
           <li><b>Google AdMob</b> — намоиши реклама (рақами рекламавӣ);</li>
-          <li><b>Firebase Analytics</b> — омори истифода;</li>
+          <li><b>Yandex Mobile Ads</b> — намоиши реклама (рақами рекламавӣ);</li>
+          <li><b>Meta (Facebook) App Events</b> — омор ва атрибутсияи насби барнома;
+            рақами рекламавиро мехонад;</li>
+          <li><b>Firebase Analytics / Crashlytics</b> — омори истифода ва ҳисоботи хатоҳо;</li>
           <li><b>Провайдери AI</b> — паёмҳои чати AI барои гирифтани ҷавоб фиристода мешаванд;</li>
           <li><b>Хидмати муайянкунии кишвар аз рӯи IP</b> — танҳо барои нархи минтақавӣ;</li>
           <li><b>Провайдери ҳостинг</b> — нигоҳдории маълумот.</li>
@@ -148,10 +160,12 @@ function Tg() {
         </ul>
       </Sec>
 
-      <Sec n="8" t="Махфияти кӯдакон">
-        Барнома барои омӯзиши умумӣ пешбинӣ шудааст. Мо дониставу маълумоти кӯдакони
-        зери 13-соларо ҷамъ намекунем. Агар чунин маълумот ҷамъ шуда бошад, ба мо хабар
-        диҳед — мо онро нест мекунем.
+      <Sec n="8" t="Синну сол">
+        Барномаи мо барои корбарони <b>13-сола ва калонтар</b> пешбинӣ шудааст. Мо
+        дидаву дониста аз кӯдакони зери 13-сола маълумот ҷамъ намекунем. Агар шумо
+        волид бошед ва фикр кунед, ки фарзандатон ба мо маълумот додааст, ба{' '}
+        <A href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</A> нависед — мо онро нест
+        мекунем.
       </Sec>
 
       <Sec n="9" t="Амният">
@@ -223,15 +237,21 @@ function Ru() {
         </ul>
       </Sec>
 
-      <Sec n="5" t="Реклама">
-        Приложение <b>показывает рекламу</b>. Мы используем только один формат:{' '}
-        <b>видео с вознаграждением</b> — когда заканчиваются жизни, вы можете по своему
-        желанию посмотреть видео и получить одну жизнь. Внутри уроков рекламы нет, и она
-        никогда не показывается принудительно.
+      <Sec n="5" t="Реклама и рекламный идентификатор">
+        В <b>бесплатной</b> версии приложение <b>показывает рекламу</b> — два формата:
         <ul style={s.ul}>
-          <li>Рекламу предоставляет <b>Google AdMob</b>, который использует рекламный
-            идентификатор и общие данные устройства:{' '}
-            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>.</li>
+          <li><b>Видео с вознаграждением</b> — когда заканчиваются жизни, вы можете по
+            своему желанию посмотреть видео и получить одну жизнь.</li>
+          <li><b>Полноэкранная реклама</b> — после завершения урока.</li>
+        </ul>
+        Внутри упражнений рекламы нет.
+        <ul style={s.ul}>
+          <li>Рекламу предоставляют <b>Google AdMob</b> и <b>Yandex Mobile Ads
+            (Рекламная сеть Яндекса)</b>. Они используют рекламный идентификатор
+            устройства (Google Advertising ID / GAID), IP-адрес и общие данные
+            устройства:{' '}
+            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>,{' '}
+            <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
           <li>Мы ограничили рекламу рейтингом <b>«G» (для всех)</b>.</li>
           <li><b>В подписке Premium рекламы нет.</b></li>
           <li>Отключить персонализацию: Настройки Android → Google → Реклама →
@@ -244,7 +264,10 @@ function Ru() {
         <ul style={s.ul}>
           <li><b>Google Play Services / Google Sign-In</b> — вход и оплата;</li>
           <li><b>Google AdMob</b> — показ рекламы (рекламный идентификатор);</li>
-          <li><b>Firebase Analytics</b> — статистика использования;</li>
+          <li><b>Yandex Mobile Ads</b> — показ рекламы (рекламный идентификатор);</li>
+          <li><b>Meta (Facebook) App Events</b> — статистика и атрибуция установок;
+            читает рекламный идентификатор;</li>
+          <li><b>Firebase Analytics / Crashlytics</b> — статистика использования и отчёты об ошибках;</li>
           <li><b>AI-провайдер</b> — сообщения AI-чата отправляются для получения ответа;</li>
           <li><b>Сервис определения страны по IP</b> — только для региональных цен;</li>
           <li><b>Хостинг-провайдер</b> — хранение данных.</li>
@@ -265,9 +288,11 @@ function Ru() {
         </ul>
       </Sec>
 
-      <Sec n="8" t="Конфиденциальность детей">
-        Мы сознательно не собираем данные детей младше 13 лет. Если это произошло,
-        сообщите нам — мы удалим данные.
+      <Sec n="8" t="Возраст">
+        Наше приложение предназначено для пользователей <b>13 лет и старше</b>. Мы
+        сознательно не собираем данные детей младше 13 лет. Если вы родитель и считаете,
+        что ваш ребёнок предоставил нам данные, напишите на{' '}
+        <A href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</A> — мы их удалим.
       </Sec>
 
       <Sec n="9" t="Безопасность">
@@ -336,14 +361,20 @@ function En() {
         </ul>
       </Sec>
 
-      <Sec n="5" t="Advertising">
-        The app <b>shows ads</b>. We use a single format: <b>rewarded video</b> — when you
-        run out of hearts you may choose to watch a video and earn one heart back. There
-        are no ads inside lessons, and an ad is never forced on you.
+      <Sec n="5" t="Advertising and advertising ID">
+        In the <b>free</b> version the app <b>shows ads</b> — two formats:
         <ul style={s.ul}>
-          <li>Ads are served by <b>Google AdMob</b>, which uses the advertising ID and
-            general device data to select ads:{' '}
-            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>.</li>
+          <li><b>Rewarded video</b> — when you run out of hearts you may choose to watch
+            a video and earn one heart back.</li>
+          <li><b>Full-screen ad</b> — after a lesson is completed.</li>
+        </ul>
+        There are no ads inside the exercises.
+        <ul style={s.ul}>
+          <li>Ads are served by <b>Google AdMob</b> and <b>Yandex Mobile Ads (Yandex
+            Advertising Network)</b>. They use the device advertising identifier (Google
+            Advertising ID / GAID), IP address and general device data to select ads:{' '}
+            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>,{' '}
+            <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
           <li>We restrict ads to a <b>“G” (general audiences)</b> content rating.</li>
           <li><b>Premium subscribers see no ads.</b></li>
           <li>To opt out of personalised ads: Android Settings → Google → Ads →
@@ -356,7 +387,10 @@ function En() {
         <ul style={s.ul}>
           <li><b>Google Play Services / Google Sign-In</b> — login &amp; payments;</li>
           <li><b>Google AdMob</b> — serving ads (advertising ID);</li>
-          <li><b>Firebase Analytics</b> — usage statistics;</li>
+          <li><b>Yandex Mobile Ads</b> — serving ads (advertising ID);</li>
+          <li><b>Meta (Facebook) App Events</b> — install analytics and attribution;
+            reads the advertising identifier;</li>
+          <li><b>Firebase Analytics / Crashlytics</b> — usage statistics and crash reports;</li>
           <li><b>AI provider</b> — AI chat messages are sent to generate a reply;</li>
           <li><b>IP-to-country lookup service</b> — for regional pricing only;</li>
           <li><b>Hosting provider</b> — data storage.</li>
@@ -378,9 +412,11 @@ function En() {
         </ul>
       </Sec>
 
-      <Sec n="8" t="Children’s privacy">
-        We do not knowingly collect data from children under 13. If such data was collected,
-        contact us and we will delete it.
+      <Sec n="8" t="Age">
+        Our app is intended for users aged <b>13 and over</b>. We do not knowingly collect
+        data from children under 13. If you are a parent and believe your child has provided
+        us with data, write to <A href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</A> and we
+        will delete it.
       </Sec>
 
       <Sec n="9" t="Security">
