@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
         { order: 'asc' },
       ],
       include: {
-        _count: { select: { items: true } },
+        _count: { select: { lessons: true } },
         targetLanguage: { select: { id: true, flag: true, name: true } },
         nativeLanguage: { select: { id: true, flag: true, nativeName: true } },
       },

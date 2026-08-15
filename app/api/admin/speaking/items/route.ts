@@ -3,17 +3,17 @@ import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
-/** Танҳо ду навъ: калима ё ҷумла — ҳарду дар як категория зиста метавонанд. */
+/** Танҳо ду навъ: калима ё ҷумла — ҳарду дар як дарс зиста метавонанд. */
 const KINDS = ['word', 'sentence'] as const;
 
 /**
- * POST /api/admin/speaking/items — воҳиди нав ба категория.
- * Body: { categoryId, text, translation, kind?, literal?, note?, audioUrl?, order? }
+ * POST /api/admin/speaking/items — воҳиди нав ба дарс.
+ * Body: { lessonId, text, translation, kind?, literal?, note?, audioUrl?, order? }
  */
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as {
-      categoryId?: string;
+      lessonId?: string;
       text?: string;
       translation?: string;
       kind?: string;
@@ -25,9 +25,9 @@ export async function POST(req: NextRequest) {
 
     const text = (body.text ?? '').trim();
     const translation = (body.translation ?? '').trim();
-    if (!body.categoryId || !text || !translation) {
+    if (!body.lessonId || !text || !translation) {
       return NextResponse.json(
-        { error: 'categoryId, text and translation are required' },
+        { error: 'lessonId, text and translation are required' },
         { status: 400 },
       );
     }
@@ -37,12 +37,12 @@ export async function POST(req: NextRequest) {
     const order =
       body.order ??
       (await prisma.speakingItem.count({
-        where: { categoryId: body.categoryId },
+        where: { lessonId: body.lessonId },
       }));
 
     const item = await prisma.speakingItem.create({
       data: {
-        categoryId: body.categoryId,
+        lessonId: body.lessonId,
         kind,
         text,
         translation,

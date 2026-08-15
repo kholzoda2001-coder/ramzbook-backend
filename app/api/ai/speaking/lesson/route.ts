@@ -7,24 +7,19 @@ export const dynamic = 'force-dynamic';
 /**
  * GET /api/ai/speaking/lesson?langId=<targetLanguageId>
  *
- * Категорияи навбатии «Устоди AI · Speaking» → `{ categoryId, chapter, exercises[] }`.
+ * Дарси навбатии «Устоди AI · Speaking» (услуби Falou).
  *
- * ⚠️ Ин бахш ба РОҲНАМОИ курс (Course/Module/Lesson/Word/UserProgress) ТАМОМАН
- * даст намезанад. Мазмун аз `SpeakingCategory` + `SpeakingItem` меояд, ки ба
- * ҶУФТИ ЗАБОН бастаанд, на ба курс ва на ба сатҳ. Прогресс дар
- * `SpeakingProgress` алоҳида нигоҳ дошта мешавад.
+ * ⚠️ Ба РОҲНАМОИ курс (Course/Module/Lesson/Word/UserProgress) ТАМОМАН даст
+ * намезанад. Занҷир: SpeakingCategory → SpeakingLesson → SpeakingItem,
+ * прогресс дар `SpeakingProgress`.
  *
- * `level` дигар хонда намешавад: тартиби категорияҳо (`order`) душвориро
- * муайян мекунад, айнан мисли бобҳои Falou.
+ * Категория = «боб» (мас. «Фармоиши нӯшокӣ»), дарс = як нишасти машқ.
+ * Дарсҳо пай дар пай мераванд; вақте ҳамаи дарсҳои категория гузаштанд,
+ * категорияи навбатӣ сар мешавад.
  */
 
-const MAX_EXERCISES = 10;
-
-/** Аз кадом ҷои категория машқи «худат бисоз» сар мешавад (0..1). */
-const TRANSLATE_FROM = 0.6;
-
-/** Ҷумлаи дарозро ба слотҳо тақсим кардан хонданашаванда мешавад. */
-const MAX_SLOT_WORDS = 6;
+/** Ҷумлаи дароз ба слотҳо тақсим намешавад — хонда намешавад. */
+const MAX_SLOT_WORDS = 8;
 
 export async function GET(req: NextRequest) {
   try {
@@ -53,7 +48,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Ҳамаи категорияҳои ин ҷуфти забон, бо тартиби худашон.
+    // Ҳамаи бобҳо ва дарсҳои ин ҷуфти забон, бо тартиби худашон.
     const categories = await prisma.speakingCategory.findMany({
       where: {
         targetLanguageId: langId,
@@ -64,77 +59,143 @@ export async function GET(req: NextRequest) {
       select: {
         id: true,
         titleTranslated: true,
-        items: {
+        emoji: true,
+        lessons: {
+          where: { isActive: true },
           orderBy: { order: 'asc' },
           select: {
-            text: true,
-            translation: true,
-            literal: true,
-            note: true,
+            id: true,
+            title: true,
+            items: {
+              orderBy: { order: 'asc' },
+              select: {
+                kind: true,
+                text: true,
+                translation: true,
+                literal: true,
+                note: true,
+                audioUrl: true,
+              },
+            },
           },
         },
       },
     });
 
-    // Категорияи бе воҳид машқ дода наметавонад — партофта мешавад.
-    const usable = categories.filter((c) =>
-      c.items.some((i) => i.text.trim() && i.translation.trim()),
-    );
+    // Дарси бе воҳид машқ дода наметавонад — партофта мешавад.
+    const chapters = categories
+      .map((c) => ({
+        ...c,
+        lessons: c.lessons.filter((l) =>
+          l.items.some((i) => i.text.trim() && i.translation.trim()),
+        ),
+      }))
+      .filter((c) => c.lessons.length > 0);
 
-    if (usable.length === 0) {
+    if (chapters.length === 0) {
       return NextResponse.json(
-        { error: 'No speaking categories for this language pair yet.' },
+        { error: 'No speaking lessons for this language pair yet.' },
         { status: 404 },
       );
     }
 
-    // Прогресси СПИКИНГ — на прогресси курс.
+    const allLessonIds = chapters.flatMap((c) => c.lessons.map((l) => l.id));
     const done = await prisma.speakingProgress.findMany({
-      where: { userId, categoryId: { in: usable.map((c) => c.id) } },
-      select: { categoryId: true },
+      where: { userId, lessonId: { in: allLessonIds } },
+      select: { lessonId: true },
     });
-    const doneIds = new Set(done.map((d) => d.categoryId));
+    const doneIds = new Set(done.map((d) => d.lessonId));
 
-    // Аввалин категорияи нагузашта; агар ҳама гузашта бошанд — охиринаш такрор.
-    const pending = usable.findIndex((c) => !doneIds.has(c.id));
-    const index = pending < 0 ? usable.length - 1 : pending;
-    const category = usable[index];
+    // Аввалин дарси нагузашта дар тамоми занҷир; ҳама тамом → охиринаш такрор.
+    let chapter = chapters[chapters.length - 1];
+    let lesson = chapter.lessons[chapter.lessons.length - 1];
+    let chapterIndex = chapters.length - 1;
+    let lessonIndex = chapter.lessons.length - 1;
 
-    const items = category.items
-      .filter((i) => i.text.trim() && i.translation.trim())
-      .slice(0, MAX_EXERCISES);
+    outer: for (let ci = 0; ci < chapters.length; ci++) {
+      for (let li = 0; li < chapters[ci].lessons.length; li++) {
+        if (!doneIds.has(chapters[ci].lessons[li].id)) {
+          chapter = chapters[ci];
+          lesson = chapters[ci].lessons[li];
+          chapterIndex = ci;
+          lessonIndex = li;
+          break outer;
+        }
+      }
+    }
 
-    // Категорияи нав → ҳама воҳидҳо нав; такрор → «ба ёд оред».
-    const badge = doneIds.has(category.id) ? 'remember' : 'newWord';
-    const translateFrom = Math.ceil(items.length * TRANSLATE_FROM);
+    const items = lesson.items.filter(
+      (i) => i.text.trim() && i.translation.trim(),
+    );
 
-    const exercises = items.map((item, i) => {
+    // Такрори дарс → «ба ёд оред», вагарна калимаи нав / машқи душвор.
+    const repeat = doneIds.has(lesson.id);
+
+    const exercises = items.map((item) => {
       const text = item.text.trim();
       const translation = item.translation.trim();
       const words = text.split(/\s+/).filter(Boolean);
 
-      // Нишеб: аввал «такрор кунед», баъд «худатон бисозед».
-      const produce = i >= translateFrom && words.length <= MAX_SLOT_WORDS;
-
       const shared = {
-        badge,
         translit: item.literal?.trim() ?? '',
         meaning: translation,
         grammar: item.note?.trim() ?? '',
+        audioUrl: item.audioUrl ?? '',
       };
 
-      return produce
-        ? { kind: 'translate', ...shared, prompt: translation, targetWords: words }
-        : { kind: 'say', ...shared, target: text };
+      // Калима → «бигӯед» (матн намоён). Ҷумла → «тарҷума кунед» (слотҳо).
+      if (item.kind === 'word') {
+        return {
+          kind: 'say',
+          badge: repeat ? 'remember' : 'newWord',
+          target: text,
+          ...shared,
+        };
+      }
+
+      // Ҷумлаи дароз ба слотҳо намеғунҷад — ҳамчун «бигӯед» нишон дода мешавад.
+      if (words.length > MAX_SLOT_WORDS) {
+        return {
+          kind: 'say',
+          badge: repeat ? 'remember' : 'none',
+          target: text,
+          ...shared,
+        };
+      }
+
+      return {
+        kind: 'translate',
+        badge: repeat ? 'remember' : 'none',
+        prompt: translation,
+        targetWords: words,
+        ...shared,
+      };
     });
 
+    const chapterLessons = chapter.lessons.length;
+    const chapterDone = chapter.lessons.filter((l) => doneIds.has(l.id)).length;
+
+    // Калимаҳои нави ин дарс — барои экрани оғоз («You have N words»).
+    const newWords = items
+      .filter((i) => i.kind === 'word')
+      .map((i) => ({
+        text: i.text.trim(),
+        translation: i.translation.trim(),
+        audioUrl: i.audioUrl ?? '',
+      }));
+
     return NextResponse.json({
-      categoryId: category.id,
+      lessonId: lesson.id,
+      lessonTitle: lesson.title ?? '',
+      lessonNumber: lessonIndex + 1,
+      newWords,
       chapter: {
-        number: index + 1,
-        title: category.titleTranslated,
-        lessonsToNext: Math.max(0, usable.length - doneIds.size),
-        progress: doneIds.size / usable.length,
+        number: chapterIndex + 1,
+        title: chapter.titleTranslated,
+        emoji: chapter.emoji,
+        // Чанд дарс то анҷоми ҳамин боб — ҳамон «N lessons for next chapter».
+        lessonsToNext: Math.max(0, chapterLessons - chapterDone),
+        progress: chapterLessons ? chapterDone / chapterLessons : 0,
       },
       exercises,
     });

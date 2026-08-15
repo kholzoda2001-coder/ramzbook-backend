@@ -12,9 +12,10 @@ const BTN: React.CSSProperties = { background: 'linear-gradient(135deg, #14B8A6,
 const SMALL_DEL: React.CSSProperties = { background: 'rgba(239,68,68,0.1)', color: '#EF4444', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px', padding: '3px 8px', cursor: 'pointer', fontSize: '12px' };
 
 interface Language { id: string; code: string; name: string; nativeName: string; flag: string; canBeNative: boolean; canBeTarget: boolean; }
-interface Category { id: string; title: string; titleTranslated: string; scenario: string | null; emoji: string; isPremium: boolean; isActive: boolean; order: number; _count?: { items: number }; }
+interface Category { id: string; title: string; titleTranslated: string; scenario: string | null; emoji: string; isPremium: boolean; isActive: boolean; order: number; _count?: { lessons: number }; }
 interface Item { id: string; kind: string; text: string; translation: string; literal: string | null; note: string | null; audioUrl: string | null; }
-interface CategoryDetail extends Category { items: Item[]; }
+interface Lesson { id: string; title: string | null; order: number; isActive: boolean; items: Item[]; }
+interface CategoryDetail extends Category { lessons: Lesson[]; }
 
 const EMPTY_CATEGORY = { title: '', titleTranslated: '', scenario: '', emoji: '🎙️', isPremium: false };
 const EMPTY_ITEM = { kind: 'sentence', text: '', translation: '', literal: '', note: '' };
@@ -144,7 +145,7 @@ function SpeakingContent() {
                 <span style={{ fontSize: '20px' }}>{cat.emoji}</span>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{cat.title} {cat.isPremium && <span style={{ fontSize: '11px', color: '#FBBF24' }}>👑</span>}</div>
-                  <div style={{ fontSize: '12px', color: 'var(--text3)' }}>{cat.titleTranslated} · 🗣️{cat._count?.items ?? 0}</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text3)' }}>{cat.titleTranslated} · 📚{cat._count?.lessons ?? 0} дарс</div>
                 </div>
                 <button onClick={ev => { ev.stopPropagation(); deleteCategory(cat.id, cat.title); }} style={SMALL_DEL}>🗑️</button>
               </div>
@@ -158,17 +159,23 @@ function SpeakingContent() {
   );
 }
 
+async function post(url: string, body: unknown) {
+  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const d = await r.json(); if (!r.ok) throw new Error(d.error ?? 'Хатогӣ'); return d;
+}
+async function del(url: string) { const r = await fetch(url, { method: 'DELETE' }); if (!r.ok) { const d = await r.json(); throw new Error(d.error); } }
+
 function CategoryEditor({ detail, onChange, onClose }: { detail: CategoryDetail; onChange: () => void; onClose: () => void }) {
-  const [iForm, setIForm] = useState(EMPTY_ITEM);
+  const [openLesson, setOpenLesson] = useState<string | null>(detail.lessons[0]?.id ?? null);
 
-  async function post(url: string, body: unknown) {
-    const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    const d = await r.json(); if (!r.ok) throw new Error(d.error ?? 'Хатогӣ'); return d;
+  async function addLesson() {
+    try { await post('/api/admin/speaking/lessons', { categoryId: detail.id }); onChange(); }
+    catch (e: any) { alert(e.message); }
   }
-  async function del(url: string) { const r = await fetch(url, { method: 'DELETE' }); if (!r.ok) { const d = await r.json(); throw new Error(d.error); } }
 
-  async function addItem() {
-    try { await post('/api/admin/speaking/items', { categoryId: detail.id, ...iForm }); setIForm(EMPTY_ITEM); onChange(); }
+  async function deleteLesson(id: string, n: number) {
+    if (!confirm(`Дарси ${n} нест карда шавад? Ҳамаи калима/ҷумлаҳои он низ нест мешаванд.`)) return;
+    try { await del(`/api/admin/speaking/lessons/${id}`); onChange(); }
     catch (e: any) { alert(e.message); }
   }
 
@@ -185,32 +192,78 @@ function CategoryEditor({ detail, onChange, onClose }: { detail: CategoryDetail;
         <p style={{ color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '16px' }}>{detail.scenario}</p>
       )}
 
-      <div style={{ marginBottom: '22px' }}>
-        <div style={H}>🗣️ Калима ва ҷумлаҳо ({detail.items.length})</div>
-        {detail.items.map(it => (
-          <div key={it.id} style={{ display: 'flex', gap: '8px', alignItems: 'center', padding: '8px', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-            <span style={{ fontSize: '11px', color: 'var(--text3)', minWidth: '52px' }}>{it.kind === 'word' ? '🔤 калима' : '💬 ҷумла'}</span>
-            <div style={{ flex: 1 }}>
-              <div style={{ color: 'var(--text-primary)', fontSize: '14px' }}>{it.text}</div>
-              <div style={{ color: 'var(--text3)', fontSize: '12px' }}>{it.translation}{it.literal ? ` · «${it.literal}»` : ''}</div>
-            </div>
-            <button onClick={async () => { try { await del(`/api/admin/speaking/items/${it.id}`); onChange(); } catch (e: any) { alert(e.message); } }} style={SMALL_DEL}>🗑️</button>
-          </div>
-        ))}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+        <div style={H}>📚 Дарсҳо ({detail.lessons.length})</div>
+        <button onClick={addLesson} style={BTN}>+ Дарси нав</button>
+      </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr 1fr', gap: '8px', marginTop: '10px' }}>
-          <select value={iForm.kind} onChange={e => setIForm(f => ({ ...f, kind: e.target.value }))} style={{ ...FIELD, width: 'auto' }}>
-            <option value="sentence">💬 Ҷумла</option>
-            <option value="word">🔤 Калима</option>
-          </select>
-          <input value={iForm.text} onChange={e => setIForm(f => ({ ...f, text: e.target.value }))} placeholder="I would like a coffee." style={FIELD} />
-          <input value={iForm.translation} onChange={e => setIForm(f => ({ ...f, translation: e.target.value }))} placeholder="Ман қаҳва мехоҳам." style={FIELD} />
+      {detail.lessons.length === 0 && (
+        <p style={{ color: 'var(--text3)', fontSize: '13px', padding: '16px 0' }}>
+          Ҳанӯз дарсе нест. «+ Дарси нав» — баъд ба ҳар дарс 3–5 калима ва ҷумлаҳои онҳоро андозед.
+        </p>
+      )}
+
+      {detail.lessons.map((lesson, i) => {
+        const words = lesson.items.filter(x => x.kind === 'word').length;
+        const open = openLesson === lesson.id;
+        return (
+          <div key={lesson.id} style={{ border: '1px solid var(--border)', borderRadius: '12px', marginBottom: '10px', overflow: 'hidden' }}>
+            <div
+              onClick={() => setOpenLesson(open ? null : lesson.id)}
+              style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px', cursor: 'pointer', background: open ? 'rgba(20,184,166,0.10)' : 'transparent' }}
+            >
+              <span style={{ color: 'var(--text3)', fontSize: '12px' }}>{open ? '▾' : '▸'}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '14px' }}>
+                  {lesson.title || `Дарси ${i + 1}`}
+                </div>
+                <div style={{ fontSize: '12px', color: 'var(--text3)' }}>
+                  🔤 {words} калима · 🗣️ {lesson.items.length} машқ
+                </div>
+              </div>
+              <button onClick={ev => { ev.stopPropagation(); deleteLesson(lesson.id, i + 1); }} style={SMALL_DEL}>🗑️</button>
+            </div>
+            {open && <LessonEditor lesson={lesson} onChange={onChange} />}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function LessonEditor({ lesson, onChange }: { lesson: Lesson; onChange: () => void }) {
+  const [iForm, setIForm] = useState(EMPTY_ITEM);
+
+  async function addItem() {
+    try { await post('/api/admin/speaking/items', { lessonId: lesson.id, ...iForm }); setIForm(EMPTY_ITEM); onChange(); }
+    catch (e: any) { alert(e.message); }
+  }
+
+  return (
+    <div style={{ padding: '4px 12px 14px' }}>
+      {lesson.items.map(it => (
+        <div key={it.id} style={{ display: 'flex', gap: '8px', alignItems: 'center', padding: '8px', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+          <span style={{ fontSize: '11px', color: 'var(--text3)', minWidth: '52px' }}>{it.kind === 'word' ? '🔤 калима' : '💬 ҷумла'}</span>
+          <div style={{ flex: 1 }}>
+            <div style={{ color: 'var(--text-primary)', fontSize: '14px' }}>{it.text}</div>
+            <div style={{ color: 'var(--text3)', fontSize: '12px' }}>{it.translation}{it.literal ? ` · «${it.literal}»` : ''}</div>
+          </div>
+          <button onClick={async () => { try { await del(`/api/admin/speaking/items/${it.id}`); onChange(); } catch (e: any) { alert(e.message); } }} style={SMALL_DEL}>🗑️</button>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '8px', marginTop: '8px' }}>
-          <input value={iForm.literal} onChange={e => setIForm(f => ({ ...f, literal: e.target.value }))} placeholder="Талаффуз / таҳтуллафзӣ (ихтиёрӣ)" style={FIELD} />
-          <input value={iForm.note} onChange={e => setIForm(f => ({ ...f, note: e.target.value }))} placeholder="Эзоҳ (ихтиёрӣ)" style={FIELD} />
-          <button onClick={addItem} disabled={!iForm.text || !iForm.translation} style={BTN}>+</button>
-        </div>
+      ))}
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr 1fr', gap: '8px', marginTop: '10px' }}>
+        <select value={iForm.kind} onChange={e => setIForm(f => ({ ...f, kind: e.target.value }))} style={{ ...FIELD, width: 'auto' }}>
+          <option value="word">🔤 Калима</option>
+          <option value="sentence">💬 Ҷумла</option>
+        </select>
+        <input value={iForm.text} onChange={e => setIForm(f => ({ ...f, text: e.target.value }))} placeholder="coffee  /  I would like a coffee." style={FIELD} />
+        <input value={iForm.translation} onChange={e => setIForm(f => ({ ...f, translation: e.target.value }))} placeholder="қаҳва  /  Ман қаҳва мехоҳам." style={FIELD} />
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '8px', marginTop: '8px' }}>
+        <input value={iForm.literal} onChange={e => setIForm(f => ({ ...f, literal: e.target.value }))} placeholder="Талаффуз (ихтиёрӣ)" style={FIELD} />
+        <input value={iForm.note} onChange={e => setIForm(f => ({ ...f, note: e.target.value }))} placeholder="Эзоҳ (ихтиёрӣ)" style={FIELD} />
+        <button onClick={addItem} disabled={!iForm.text || !iForm.translation} style={BTN}>+</button>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
-/** GET /api/admin/speaking/:id — категория бо ҳамаи воҳидҳояш */
+/** GET /api/admin/speaking/:id — категория бо дарсҳо ва воҳидҳои ҳар дарс */
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } },
@@ -12,7 +12,10 @@ export async function GET(
     const category = await prisma.speakingCategory.findUnique({
       where: { id: params.id },
       include: {
-        items: { orderBy: { order: 'asc' } },
+        lessons: {
+          orderBy: { order: 'asc' },
+          include: { items: { orderBy: { order: 'asc' } } },
+        },
         targetLanguage: { select: { id: true, flag: true, name: true } },
         nativeLanguage: { select: { id: true, flag: true, nativeName: true } },
       },

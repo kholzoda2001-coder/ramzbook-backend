@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 
 /**
  * POST /api/ai/speaking/complete
- * body: { categoryId, sentencesSpoken, newWords, seconds, xpEarned }
+ * body: { lessonId, sentencesSpoken, newWords, seconds, xpEarned }
  *
  * Боби гуфтор тамом шуд.
  *
@@ -32,17 +32,17 @@ export async function POST(req: NextRequest) {
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const body = (await req.json()) as {
-      categoryId?: string;
+      lessonId?: string;
       sentencesSpoken?: number;
       newWords?: number;
       seconds?: number;
       xpEarned?: number;
     };
 
-    const categoryId = body.categoryId?.trim();
-    if (!categoryId) {
+    const lessonId = body.lessonId?.trim();
+    if (!lessonId) {
       return NextResponse.json(
-        { error: 'categoryId is required.' },
+        { error: 'lessonId is required.' },
         { status: 400 },
       );
     }
@@ -51,33 +51,33 @@ export async function POST(req: NextRequest) {
     const newWords = Math.max(0, Math.round(body.newWords ?? 0));
     const seconds = Math.max(0, Math.round(body.seconds ?? 0));
 
-    const category = await prisma.speakingCategory.findUnique({
-      where: { id: categoryId },
+    const lesson = await prisma.speakingLesson.findUnique({
+      where: { id: lessonId },
       select: { id: true, _count: { select: { items: true } } },
     });
-    if (!category) {
+    if (!lesson) {
       return NextResponse.json(
-        { error: 'Speaking category not found.' },
+        { error: 'Speaking lesson not found.' },
         { status: 404 },
       );
     }
 
     // Сақфи XP = чанд ибора дар боб ҳаст. Бештар аз ин кас гирифта наметавонад.
-    const ceiling = category._count.items * XP_PER_SENTENCE;
+    const ceiling = lesson._count.items * XP_PER_SENTENCE;
     const requestedXp = Math.max(0, Math.round(body.xpEarned ?? 0));
     const awardAmount = Math.min(requestedXp || ceiling, ceiling);
 
     const prior = await prisma.speakingProgress.findUnique({
-      where: { userId_categoryId: { userId, categoryId } },
+      where: { userId_lessonId: { userId, lessonId } },
       select: { id: true },
     });
     const firstCompletion = !prior;
 
     await prisma.speakingProgress.upsert({
-      where: { userId_categoryId: { userId, categoryId } },
+      where: { userId_lessonId: { userId, lessonId } },
       create: {
         userId,
-        categoryId,
+        lessonId,
         timesCompleted: 1,
         xpEarned: awardAmount,
         timeSpent: seconds,

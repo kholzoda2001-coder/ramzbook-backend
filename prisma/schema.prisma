@@ -669,17 +669,40 @@ model SpeakingCategory {
   isActive          Boolean  @default(true)
   createdAt         DateTime @default(now())
 
-  items             SpeakingItem[]
-  progress          SpeakingProgress[]
+  lessons           SpeakingLesson[]
 
   @@index([targetLanguageId, nativeLanguageId])
 }
 
-// Як воҳиди машқ: калима Ё ҷумла — ҳарду дар як категория зиста метавонанд.
-model SpeakingItem {
+// Як дарси дохили категория — воҳиди ЯК нишасти машқ.
+//
+// Falou категорияро ба дарсҳои хурд мешиканад («2 lessons for next chapter»):
+// ҳар дарс чанд калимаи нав мегирад ва ҳамонҳоро дар ҷумлаҳо машқ мекунонад.
+// Прогресс маҳз ин ҷо ҳисоб мешавад — категория вақте тамом мешавад, ки ҳамаи
+// дарсҳояш гузашта бошанд.
+model SpeakingLesson {
   id                String   @id @default(cuid())
   categoryId        String
   category          SpeakingCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  title             String?             // ихтиёрӣ; холӣ бошад — «Дарси N»
+  order             Int      @default(0)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  items             SpeakingItem[]
+  progress          SpeakingProgress[]
+
+  @@index([categoryId])
+}
+
+// Як воҳиди машқ: калима Ё ҷумла — ҳарду дар як дарс зиста метавонанд.
+//
+// Тартиби Falou: калимаи нав (машқи «бигӯед») → ҷумлаҳое, ки ҳамон калимаро
+// кор мефармоянд (машқи «тарҷума кунед») → калимаи нави дигар…
+model SpeakingItem {
+  id                String   @id @default(cuid())
+  lessonId          String
+  lesson            SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   kind              String   @default("sentence") // "word" | "sentence"
   text              String   @db.Text   // матн ба забони омӯзиш
   translation       String   @db.Text   // тарҷума ба забони модарӣ
@@ -688,7 +711,7 @@ model SpeakingItem {
   audioUrl          String?
   order             Int      @default(0)
 
-  @@index([categoryId])
+  @@index([lessonId])
 }
 
 // Прогресси спикинг — ҚАСДАН аз `UserProgress` ҶУДО (ниг. шарҳи боло).
@@ -696,16 +719,16 @@ model SpeakingProgress {
   id                String   @id @default(cuid())
   userId            String
   user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  categoryId        String
-  category          SpeakingCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  lessonId          String
+  lesson            SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   timesCompleted    Int      @default(1)
   xpEarned          Int      @default(0)
   timeSpent         Int      @default(0) // сония
   completedAt       DateTime @default(now())
 
-  @@unique([userId, categoryId])
+  @@unique([userId, lessonId])
   @@index([userId])
-  @@index([categoryId])
+  @@index([lessonId])
 }
 
 model Achievement {
