@@ -175,15 +175,6 @@ export async function GET(req: NextRequest) {
     const chapterLessons = chapter.lessons.length;
     const chapterDone = chapter.lessons.filter((l) => doneIds.has(l.id)).length;
 
-    // Калимаҳои нави ин дарс — барои экрани оғоз («You have N words»).
-    const newWords = items
-      .filter((i) => i.kind === 'word')
-      .map((i) => ({
-        text: i.text.trim(),
-        translation: i.translation.trim(),
-        audioUrl: i.audioUrl ?? '',
-      }));
-
     return NextResponse.json({
       lessonId: lesson.id,
       lessonTitle: lesson.title ?? '',
@@ -191,7 +182,6 @@ export async function GET(req: NextRequest) {
       // Ҳанӯз ягон дарси гуфтор нагузаштааст → тугма «Оғози дарс» мешавад,
       // на «Дарси навбатӣ».
       firstEver: doneIds.size === 0,
-      newWords,
       chapter: {
         number: chapterIndex + 1,
         title: chapter.titleTranslated,
