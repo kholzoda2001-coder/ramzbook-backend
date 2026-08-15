@@ -54,6 +54,8 @@ export async function GET(req: NextRequest) {
         ipa: l.ipa ?? '',
         tajikTranscription: l.tajikTranscription ?? '',
         category: l.category,
+        // Empty string = no recording; the app then falls back to device TTS.
+        audioUrl: l.audioUrl ?? '',
         order: l.order,
       })),
       rules,

@@ -362,6 +362,12 @@ model AlphabetLetter {
   ipa                String?             // international phonetic symbol, e.g. "/eɪ/"
   tajikTranscription String?             // Tajik-script pronunciation hint, e.g. "Эй"
   category           String              // "vowel" | "consonant" | "sign"
+  // Studio recording of the letter's NAME. Without it the app falls back to the
+  // device's TTS, which on many phones has no voice installed for the target
+  // language (silence) or only a network voice (audible lag on rapid taps —
+  // exactly what the alphabet drill does). A hosted file is instant and always
+  // the same voice as the rest of the course.
+  audioUrl           String?
   order              Int      @default(0)
   createdAt          DateTime @default(now())
 

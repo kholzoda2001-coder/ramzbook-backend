@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { targetLanguageId, nativeLanguageId, uppercase, lowercase, ipa, tajikTranscription, category, order } = body;
+    const { targetLanguageId, nativeLanguageId, uppercase, lowercase, ipa, tajikTranscription, category, order, audioUrl } = body;
 
     if (!targetLanguageId || !nativeLanguageId || !uppercase || !lowercase || !category) {
       return apiError('Missing required fields', 400);
@@ -44,6 +44,7 @@ export async function POST(req: NextRequest) {
         ipa: ipa || null,
         tajikTranscription: tajikTranscription || null,
         category,
+        audioUrl: audioUrl || null,
         order: order ?? 0,
       },
     });
@@ -57,7 +58,7 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   try {
     const body = await req.json();
-    const { id, targetLanguageId, nativeLanguageId, uppercase, lowercase, ipa, tajikTranscription, category, order } = body;
+    const { id, targetLanguageId, nativeLanguageId, uppercase, lowercase, ipa, tajikTranscription, category, order, audioUrl } = body;
 
     if (!id) return apiError('Missing id', 400);
 
@@ -71,6 +72,7 @@ export async function PUT(req: NextRequest) {
     if (ipa !== undefined) data.ipa = ipa || null;
     if (tajikTranscription !== undefined) data.tajikTranscription = tajikTranscription || null;
     if (category !== undefined) data.category = category;
+    if (audioUrl !== undefined) data.audioUrl = audioUrl || null;
     if (order !== undefined) data.order = order ?? 0;
 
     const updated = await prisma.alphabetLetter.update({ where: { id }, data });
