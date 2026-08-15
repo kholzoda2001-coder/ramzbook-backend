@@ -83,6 +83,7 @@ model User {
   friendStreaksAsUser1  FriendStreak[] @relation("FriendStreakUser1")
   friendStreaksAsUser2  FriendStreak[] @relation("FriendStreakUser2")
   deviceTokens      DeviceToken[]
+  speakingProgress  SpeakingProgress[]
 
   @@index([email])
   @@index([phone])
@@ -153,6 +154,8 @@ model Language {
   alphabetAsNative  AlphabetLetter[] @relation("AlphabetNative")
   alphabetRulesAsTarget AlphabetRule[] @relation("AlphabetRuleTarget")
   alphabetRulesAsNative AlphabetRule[] @relation("AlphabetRuleNative")
+  speakingAsTarget  SpeakingCategory[] @relation("SpeakingTarget")
+  speakingAsNative  SpeakingCategory[] @relation("SpeakingNative")
 }
 
 model UserLanguage {
@@ -635,6 +638,74 @@ model UserProgress {
   
   @@unique([userId, lessonId])
   @@index([userId])
+}
+
+// ══ «Устоди AI · Speaking» — бахши ПУРРА МУСТАҚИЛ ═══════════════════════════
+//
+// ЧАРО ҷудо: спикинг як роҳи алоҳида аст (мисли Falou), НА қадами роҳнамои
+// курс. Он ба `Course`/`Module`/`Lesson`/`UserProgress` тамоман даст намезанад,
+// бинобар ин машқи гуфтор ҳеҷ гоҳ дарсҳои A1–B1-ро «гузашта» намекунад ва
+// қулфҳои роҳнаморо намекушояд.
+//
+// Ҳудуд — ҶУФТИ ЗАБОН (омӯзиш ← модарӣ), на курс ва на сатҳ: ҳамон намунае,
+// ки `AlphabetLetter`, `PlacementQuestion` ва `OnboardingWord` истифода
+// мебаранд. Пас барои «англисӣ ← тоҷикӣ» як маҷмӯи ягонаи категорияҳо ҳаст,
+// новобаста аз он ки хонанда дар кадом сатҳи роҳнамост.
+//
+// Сатҳ (A1/A2…) ҚАСДАН НЕСТ: тартиб (`order`) душвориро муайян мекунад,
+// айнан мисли бобҳои Falou.
+model SpeakingCategory {
+  id                String   @id @default(cuid())
+  targetLanguageId  String
+  targetLanguage    Language @relation("SpeakingTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId  String
+  nativeLanguage    Language @relation("SpeakingNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  title             String              // ба забони омӯзиш, мас. "Ordering a drink"
+  titleTranslated   String              // ба забони модарӣ, мас. "Фармоиши нӯшокӣ"
+  scenario          String?  @db.Text   // тавсифи вазъият ба забони модарӣ
+  emoji             String   @default("🎙️")
+  order             Int      @default(0) // тартиб = душворӣ
+  isPremium         Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  items             SpeakingItem[]
+  progress          SpeakingProgress[]
+
+  @@index([targetLanguageId, nativeLanguageId])
+}
+
+// Як воҳиди машқ: калима Ё ҷумла — ҳарду дар як категория зиста метавонанд.
+model SpeakingItem {
+  id                String   @id @default(cuid())
+  categoryId        String
+  category          SpeakingCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  kind              String   @default("sentence") // "word" | "sentence"
+  text              String   @db.Text   // матн ба забони омӯзиш
+  translation       String   @db.Text   // тарҷума ба забони модарӣ
+  literal           String?  @db.Text   // калима ба калима / транслитератсия
+  note              String?  @db.Text   // шарҳи истифода ба забони модарӣ
+  audioUrl          String?
+  order             Int      @default(0)
+
+  @@index([categoryId])
+}
+
+// Прогресси спикинг — ҚАСДАН аз `UserProgress` ҶУДО (ниг. шарҳи боло).
+model SpeakingProgress {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId        String
+  category          SpeakingCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  timesCompleted    Int      @default(1)
+  xpEarned          Int      @default(0)
+  timeSpent         Int      @default(0) // сония
+  completedAt       DateTime @default(now())
+
+  @@unique([userId, categoryId])
+  @@index([userId])
+  @@index([categoryId])
 }
 
 model Achievement {

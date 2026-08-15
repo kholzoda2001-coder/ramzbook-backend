@@ -8,69 +8,82 @@ export const dynamic = 'force-dynamic';
 
 /**
  * POST /api/ai/speaking/complete
- * body: { lessonId, sentencesSpoken, newWords, seconds, xpEarned }
+ * body: { categoryId, sentencesSpoken, newWords, seconds, xpEarned }
  *
- * Дарси гуфтор тамом шуд. ҚАСДАН ҳамон қубури мавҷуди прогресс истифода
- * мешавад, ки `/api/mobile/progress` дорад — `UserProgress` + `awardXp`
- * (тотал, логи рӯзона, streak, дастовардҳо) + `updateDailyTasks`. Ҳеҷ
- * ҳисоби нави XP/streak ин ҷо сохта намешавад.
+ * Боби гуфтор тамом шуд.
  *
- * XP-и клиент ТАВСИЯ аст, на ҳукм: он бо `lesson.xpReward` маҳдуд мешавад,
- * то такрори дарс XP-ро сунъӣ насозад.
+ * ⚠️ Ба `UserProgress` ЧИЗЕ НАМЕНАВИСАД — вагарна машқи гуфтор дарсҳои роҳнамои
+ * A1–B1-ро «гузашта» мекард ва қулфҳоро бе дидани дарс мекушод. Прогресси
+ * спикинг дар `SpeakingProgress` алоҳида нигоҳ дошта мешавад.
+ *
+ * XP/streak/вазифаҳои рӯзона бошанд, ҳамон қубури УМУМИИ мавҷуда мемонанд
+ * (`awardXp` + `updateDailyTasks`) — то ҳисоби ягона вайрон нашавад.
+ *
+ * XP-и клиент ТАВСИЯ аст, на ҳукм: он бо шумораи ибораҳои худи боб маҳдуд
+ * мешавад, то такрор ё дархости сохта XP-ро сунъӣ насозад.
  */
+
+/** Ҳадди XP барои як ҷумла — ҳамон қимате, ки клиент истифода мебарад. */
+const XP_PER_SENTENCE = 10;
+
 export async function POST(req: NextRequest) {
   try {
     const userId = requireUserId(req);
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const body = (await req.json()) as {
-      lessonId?: string;
+      categoryId?: string;
       sentencesSpoken?: number;
       newWords?: number;
       seconds?: number;
       xpEarned?: number;
     };
 
-    const lessonId = body.lessonId?.trim();
-    if (!lessonId) {
-      return NextResponse.json({ error: 'lessonId is required.' }, { status: 400 });
+    const categoryId = body.categoryId?.trim();
+    if (!categoryId) {
+      return NextResponse.json(
+        { error: 'categoryId is required.' },
+        { status: 400 },
+      );
     }
 
     const sentencesSpoken = Math.max(0, Math.round(body.sentencesSpoken ?? 0));
     const newWords = Math.max(0, Math.round(body.newWords ?? 0));
     const seconds = Math.max(0, Math.round(body.seconds ?? 0));
 
-    const lesson = await prisma.lesson.findUnique({
-      where: { id: lessonId },
-      select: { id: true, xpReward: true },
+    const category = await prisma.speakingCategory.findUnique({
+      where: { id: categoryId },
+      select: { id: true, _count: { select: { items: true } } },
     });
-    if (!lesson) {
-      return NextResponse.json({ error: 'Lesson not found.' }, { status: 404 });
+    if (!category) {
+      return NextResponse.json(
+        { error: 'Speaking category not found.' },
+        { status: 404 },
+      );
     }
 
+    // Сақфи XP = чанд ибора дар боб ҳаст. Бештар аз ин кас гирифта наметавонад.
+    const ceiling = category._count.items * XP_PER_SENTENCE;
     const requestedXp = Math.max(0, Math.round(body.xpEarned ?? 0));
-    const awardAmount = Math.min(requestedXp || lesson.xpReward, lesson.xpReward);
+    const awardAmount = Math.min(requestedXp || ceiling, ceiling);
 
-    const prior = await prisma.userProgress.findUnique({
-      where: { userId_lessonId: { userId, lessonId } },
-      select: { isCompleted: true },
+    const prior = await prisma.speakingProgress.findUnique({
+      where: { userId_categoryId: { userId, categoryId } },
+      select: { id: true },
     });
-    const firstCompletion = !prior?.isCompleted;
+    const firstCompletion = !prior;
 
-    await prisma.userProgress.upsert({
-      where: { userId_lessonId: { userId, lessonId } },
+    await prisma.speakingProgress.upsert({
+      where: { userId_categoryId: { userId, categoryId } },
       create: {
         userId,
-        lessonId,
-        isCompleted: true,
-        accuracy: 100,
+        categoryId,
+        timesCompleted: 1,
         xpEarned: awardAmount,
         timeSpent: seconds,
-        heartsLost: 0,
-        completedAt: new Date(),
       },
       update: {
-        isCompleted: true,
+        timesCompleted: { increment: 1 },
         // Танҳо бори АВВАЛ XP менависем — такрор XP намедиҳад.
         xpEarned: { increment: firstCompletion ? awardAmount : 0 },
         timeSpent: { increment: seconds },
