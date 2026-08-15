@@ -188,6 +188,9 @@ export async function GET(req: NextRequest) {
       lessonId: lesson.id,
       lessonTitle: lesson.title ?? '',
       lessonNumber: lessonIndex + 1,
+      // Ҳанӯз ягон дарси гуфтор нагузаштааст → тугма «Оғози дарс» мешавад,
+      // на «Дарси навбатӣ».
+      firstEver: doneIds.size === 0,
       newWords,
       chapter: {
         number: chapterIndex + 1,
