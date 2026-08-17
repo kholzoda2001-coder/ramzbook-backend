@@ -15,8 +15,14 @@
 
 import { CEFR_LEVELS, CefrLevel, normalizeCefrLevel } from './cefr';
 
-/** Default share of correct answers required to "pass" a level. */
-export const DEFAULT_PASS_THRESHOLD = 0.6;
+/**
+ * Default share of correct answers required to "pass" a level.
+ *
+ * Every tested level carries exactly 10 questions (prisma/placement-fill-to-10.mjs),
+ * so 0.85 means 9 of 10 — placing someone at B1 should mean they can actually
+ * sit in B1, not that they guessed their way past the middle of the ladder.
+ */
+export const DEFAULT_PASS_THRESHOLD = 0.85;
 
 /** Lowest level a learner can be placed at (courses begin at A1). */
 export const DEFAULT_FLOOR_LEVEL: CefrLevel = 'A1';

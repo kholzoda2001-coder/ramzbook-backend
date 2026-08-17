@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { writeFileSync } from 'fs';
 
-// Step 1 of audio generation: gather every A1+A2 item still missing audio and
+// Step 1 of audio generation: gather every item still missing audio and
 // dump it to tmp/audio-items.json. Small & quick when a Neon window is open;
 // retries very persistently so it survives long offline stretches. Once the
 // json exists, gen-all-audio.mjs does the long TTS work with NO database.
@@ -9,10 +9,21 @@ import { writeFileSync } from 'fs';
 const prisma = new PrismaClient();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// Сатҳҳо: аз argv, ё ҲАМА. Пештар ин ҷо `['A1','A2']`-и сахткодшуда буд ва
+// B1 (ва ҳар сатҳи баъдтар илова шаванда) хомӯшона берун мемонд — маҳз аз
+// ҳамин сабаб дарсҳои болотар бе овоз монданд.
+//
+//   node prisma/gen-audio-fetch.mjs            → ҳамаи сатҳҳо
+//   node prisma/gen-audio-fetch.mjs A2 B1      → танҳо инҳо
+const LEVELS = process.argv.slice(2).filter(Boolean);
+const levelFilter = LEVELS.length ? { level: { in: LEVELS } } : {};
+console.log(LEVELS.length ? `Сатҳҳо: ${LEVELS.join(', ')}` : 'Сатҳҳо: ҲАМА');
+
 async function gatherOnce() {
   const en = await prisma.language.findFirst({ where: { code: 'en' } });
   const tg = await prisma.language.findFirst({ where: { code: 'tg' } });
-  const courses = await prisma.course.findMany({ where: { targetLanguageId: en.id, nativeLanguageId: tg.id, level: { in: ['A1', 'A2'] } }, select: { id: true } });
+  const courses = await prisma.course.findMany({ where: { targetLanguageId: en.id, nativeLanguageId: tg.id, ...levelFilter }, select: { id: true, level: true } });
+  console.log(`Курсҳо: ${courses.map((c) => c.level).join(', ') || '(нест)'}`);
   const cids = courses.map((c) => c.id);
   const items = [];
   (await prisma.word.findMany({ where: { audioUrl: null, lesson: { module: { courseId: { in: cids } } } }, select: { id: true, word: true } }))

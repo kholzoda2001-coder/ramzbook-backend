@@ -39,7 +39,8 @@ export default function AdminFeedbackPage() {
   const [showSettings, setShowSettings] = useState(false);
   const [saving, setSaving] = useState(false);
   const [enabled, setEnabled] = useState(true);
-  const [afterLessons, setAfterLessons] = useState(12);
+  const [afterLessons, setAfterLessons] = useState(6);
+  const [repeat, setRepeat] = useState(true);
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [placeholder, setPlaceholder] = useState('');
@@ -81,6 +82,7 @@ export default function AdminFeedbackPage() {
       const c = data.config;
       setEnabled(c.enabled);
       setAfterLessons(c.afterLessons);
+      setRepeat(c.repeat !== false);
       setTitle(c.title);
       setMessage(c.message);
       setPlaceholder(c.placeholder);
@@ -99,7 +101,7 @@ export default function AdminFeedbackPage() {
       const res = await fetch('/api/admin/feedback-settings', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ config: { enabled, afterLessons, title, message, placeholder, thanks } }),
+        body: JSON.stringify({ config: { enabled, afterLessons, repeat, title, message, placeholder, thanks } }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
@@ -130,7 +132,9 @@ export default function AdminFeedbackPage() {
         <div>
           <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">Фикри хонандагон</h1>
           <p className="text-[var(--text-secondary)] text-sm">
-            Ҳар хонанда як бор — баъди {afterLessons} дарс — пурсида мешавад, ва ҳар вақт метавонад аз профил нависад.
+            {repeat
+              ? `Ҳар хонанда пас аз ҳар ${afterLessons} дарс пурсида мешавад (${afterLessons}, ${afterLessons * 2}, ${afterLessons * 3} …), ва ҳар вақт метавонад аз профил нависад.`
+              : `Ҳар хонанда як бор — баъди ${afterLessons} дарс — пурсида мешавад, ва ҳар вақт метавонад аз профил нависад.`}
           </p>
         </div>
         <button
@@ -180,8 +184,16 @@ export default function AdminFeedbackPage() {
                 Пурсиш фаъол {enabled ? '' : '— дар барнома нишон дода намешавад'}
               </span>
             </label>
+            <label className="flex items-center gap-3 cursor-pointer md:col-span-2">
+              <input type="checkbox" checked={repeat} onChange={(e) => setRepeat(e.target.checked)} className="w-4 h-4 rounded" />
+              <span className="text-sm font-medium text-[var(--text-primary)]">
+                Такрорӣ {repeat ? '— пас аз ҳар ' + afterLessons + ' дарс' : '— танҳо як бор дар умр'}
+              </span>
+            </label>
             <div>
-              <label className="block text-xs text-[var(--text-muted)] mb-1">Баъди чанд дарс пурсем</label>
+              <label className="block text-xs text-[var(--text-muted)] mb-1">
+                {repeat ? 'Фосила: пас аз ҳар чанд дарс' : 'Баъди чанд дарс пурсем'}
+              </label>
               <input type="number" min={1} max={500} value={afterLessons}
                 onChange={(e) => setAfterLessons(Number(e.target.value))}
                 className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" />

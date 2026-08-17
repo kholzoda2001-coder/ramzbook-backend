@@ -18,8 +18,13 @@ export const SETTING_KEY = 'feedback_settings';
 export interface FeedbackConfig {
   /** Master switch — false stops the prompt everywhere, instantly. */
   enabled: boolean;
-  /** Finished lessons before the prompt appears (the learner's Nth lesson). */
+  /**
+   * Lesson spacing. With `repeat` off this is "ask once, on the Nth lesson";
+   * with it on it is the gap between asks (6 → lessons 6, 12, 18 …).
+   */
   afterLessons: number;
+  /** Ask again every `afterLessons` lessons instead of only once, ever. */
+  repeat: boolean;
   title: string;
   message: string;
   placeholder: string;
@@ -29,7 +34,8 @@ export interface FeedbackConfig {
 
 export const defaultFeedbackConfig: FeedbackConfig = {
   enabled: true,
-  afterLessons: 12,
+  afterLessons: 6,
+  repeat: true,
   title: 'Фикри шумо барои мо муҳим аст',
   message: 'Шумо аллакай хуб пеш рафтед! Дар як ҷумла бигӯед: чӣ ба шумо маъқул аст ва чиро беҳтар кунем?',
   placeholder: 'Фикри худро ин ҷо нависед…',
@@ -65,6 +71,7 @@ export function mergeFeedbackUpdate(
 ): FeedbackConfig {
   const next = deepClone(current);
   if (partial.enabled !== undefined) next.enabled = !!partial.enabled;
+  if (partial.repeat !== undefined) next.repeat = !!partial.repeat;
   if (partial.afterLessons !== undefined) {
     next.afterLessons = Math.min(500, Math.max(1, Math.floor(Number(partial.afterLessons) || 0) || 1));
   }
@@ -79,7 +86,14 @@ export interface FeedbackState {
   /** The prompt may still be shown to this user at some point. */
   eligible: boolean;
   afterLessons: number;
+  repeat: boolean;
   alreadySubmitted: boolean;
+  /**
+   * Lesson count at the learner's last milestone answer, or null if never.
+   * The client spaces the next ask off this, so a reinstall (which wipes the
+   * local latch) cannot re-ask someone who just answered on another device.
+   */
+  lastAnsweredLessons: number | null;
   title: string;
   message: string;
   placeholder: string;
@@ -100,13 +114,18 @@ export async function getFeedbackStateFor(
 
   const submitted = await prisma.feedback.findFirst({
     where: { userId, source: 'lesson_milestone' },
-    select: { id: true },
+    orderBy: { createdAt: 'desc' },
+    select: { id: true, lessonsCompleted: true },
   });
   const alreadySubmitted = submitted != null;
 
   return {
-    eligible: cfg.enabled && !alreadySubmitted,
+    // With `repeat` on, answering once no longer closes the door — the spacing
+    // in lessons is what keeps it from becoming nagging.
+    eligible: cfg.enabled && (cfg.repeat || !alreadySubmitted),
     afterLessons: cfg.afterLessons,
+    repeat: cfg.repeat,
+    lastAnsweredLessons: submitted?.lessonsCompleted ?? null,
     alreadySubmitted,
     title: cfg.title,
     message: cfg.message,
