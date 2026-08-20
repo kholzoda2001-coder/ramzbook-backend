@@ -4,7 +4,7 @@
   "regions": ["fra1"],
   "crons": [
     {
-      "path": "/api/cron/winback",
+      "path": "/api/cron/push",
       "schedule": "0 15 * * *"
     }
   ]

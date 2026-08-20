@@ -8,82 +8,94 @@ datasource db {
 }
 
 model User {
-  id                String    @id @default(cuid())
-  email             String?   @unique
-  phone             String?   @unique
-  passwordHash      String
-  name              String
-  avatarUrl         String?
-  isActive          Boolean   @default(true)
-  nativeLang        String    @default("tg") // UI / interface language code
-  interfaceLang     String    @default("tg")
-  targetLang        String?   // currently-learning language code
-  country           String?   // ISO 3166-1 alpha-2, detected from IP on first login
-  
+  id            String  @id @default(cuid())
+  email         String? @unique
+  phone         String? @unique
+  passwordHash  String
+  name          String
+  avatarUrl     String?
+  isActive      Boolean @default(true)
+  nativeLang    String  @default("tg") // UI / interface language code
+  interfaceLang String  @default("tg")
+  targetLang    String? // currently-learning language code
+  country       String? // ISO 3166-1 alpha-2, detected from IP on first login
+
   // Stats
-  totalXp           Int       @default(0)
-  weeklyXp          Int       @default(0)
-  gems              Int       @default(0)
-  level             String    @default("A1")
-  currentCourseId   String?
-  
+  totalXp         Int     @default(0)
+  weeklyXp        Int     @default(0)
+  gems            Int     @default(0)
+  level           String  @default("A1")
+  currentCourseId String?
+
   // Hearts
-  hearts            Int       @default(5)
-  maxHearts         Int       @default(5)
-  lastHeartRegen    DateTime  @default(now())
+  hearts             Int      @default(5)
+  maxHearts          Int      @default(5)
+  lastHeartRegen     DateTime @default(now())
   // Суръати барқароршавии дил (дақиқа) — вобаста ба сатҳ+модули охирине, ки
   // корбар мехонад. A1 M1=1, A1 M2=30, A1 M3+=60, A2=300, B1=720, B2=1080, C1=1440.
   heartsRegenMinutes Int      @default(30)
 
   // Streak
-  streak            Int       @default(0)
-  longestStreak     Int       @default(0)
-  lastActiveDate    DateTime?
-  streakFreezesAvailable Int  @default(1)
-  streakFreezesUsed Int       @default(0)
-  
+  streak                 Int       @default(0)
+  longestStreak          Int       @default(0)
+  lastActiveDate         DateTime?
+  streakFreezesAvailable Int       @default(1)
+  streakFreezesUsed      Int       @default(0)
+
   // Premium (legacy fields — kept for the Google Play webhook flow)
-  isPremium         Boolean   @default(false)
-  premiumPlan       String?   // "monthly" | "yearly" | "lifetime"
-  premiumStartedAt  DateTime?
-  premiumExpiresAt  DateTime?
-  trialUsed         Boolean   @default(false)
-  trialStartedAt    DateTime?
+  isPremium        Boolean   @default(false)
+  premiumPlan      String? // "monthly" | "yearly" | "lifetime"
+  premiumStartedAt DateTime?
+  premiumExpiresAt DateTime?
+  trialUsed        Boolean   @default(false)
+  trialStartedAt   DateTime?
 
   // Freemium subscription system (canonical going forward)
   subscriptionTier   String    @default("free") // free | premium
-  subscriptionPlan   String?   // monthly | yearly
+  subscriptionPlan   String? // monthly | yearly
   trialEndsAt        DateTime?
   subscriptionEndsAt DateTime?
-  
+
   // AI Tutor
-  aiConversationsToday Int    @default(0)
+  aiConversationsToday   Int      @default(0)
   aiConversationsResetAt DateTime @default(now())
-  
+
   // Misc
-  createdAt         DateTime  @default(now())
-  lastActiveAt      DateTime  @default(now())
-  
+  createdAt    DateTime @default(now())
+  lastActiveAt DateTime @default(now())
+
+  // Push (FCM) — ниг. lib/push.ts ва lib/pushMessages.ts
+  /// Тугмаи «Огоҳномаҳо» дар профил. Пеш танҳо дар телефон (SharedPreferences)
+  /// нигоҳ дошта мешуд, бинобар ин сервер онро намедонист ва push ба корбари
+  /// хомӯшкарда ҳам мерафт. Акнун сервер онро эҳтиром мекунад.
+  pushEnabled  Boolean   @default(true)
+  /// Вақти охирини push — маҳдудкунандаи басомад (на бештар аз 1 дар рӯз).
+  lastPushAt   DateTime?
+  /// Марҳилаи охирини win-back, ки ба ин корбар фиристода шуд (3/7/14/30).
+  /// Ба ҷои «тирезаи 24-соата» — агар як cron нашавад, корбар гум намешавад.
+  winbackStage Int       @default(0)
+
   // Relations
-  progress          UserProgress[]
-  achievements      UserAchievement[]
-  subscriptions     Subscription[]
-  payments          Payment[]
-  gemTransactions   GemTransaction[]
-  streakWagers      StreakWager[]
-  userLanguages     UserLanguage[]
-  refreshTokens     RefreshToken[]
-  dailyXp           DailyXp[]
-  promoRedemptions  PromoRedemption[]
-  paymentTransactions PaymentTransaction[]
-  paywallEvents     PaywallEvent[]
-  feedbacks         Feedback[]
-  srsCards          SrsCard[]
-  friendInvitesCreated  FriendInvite[]
-  friendStreaksAsUser1  FriendStreak[] @relation("FriendStreakUser1")
-  friendStreaksAsUser2  FriendStreak[] @relation("FriendStreakUser2")
-  deviceTokens      DeviceToken[]
-  speakingProgress  SpeakingProgress[]
+  progress             UserProgress[]
+  achievements         UserAchievement[]
+  subscriptions        Subscription[]
+  payments             Payment[]
+  gemTransactions      GemTransaction[]
+  streakWagers         StreakWager[]
+  userLanguages        UserLanguage[]
+  refreshTokens        RefreshToken[]
+  dailyXp              DailyXp[]
+  promoRedemptions     PromoRedemption[]
+  paymentTransactions  PaymentTransaction[]
+  paywallEvents        PaywallEvent[]
+  feedbacks            Feedback[]
+  srsCards             SrsCard[]
+  friendInvitesCreated FriendInvite[]
+  friendStreaksAsUser1 FriendStreak[]       @relation("FriendStreakUser1")
+  friendStreaksAsUser2 FriendStreak[]       @relation("FriendStreakUser2")
+  deviceTokens         DeviceToken[]
+  pushSends            PushSend[]
+  speakingProgress     SpeakingProgress[]
 
   @@index([email])
   @@index([phone])
@@ -94,104 +106,174 @@ model User {
 /// FCM device tokens барои push-и серверӣ. Як корбар метавонад чанд дастгоҳ
 /// дошта бошад; token уникал аст (як дастгоҳ = як token).
 model DeviceToken {
-  id         String   @id @default(cuid())
-  userId     String
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  token      String   @unique
-  platform   String   @default("android") // android | ios
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  platform  String   @default("android") // android | ios
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([userId])
 }
 
+/// Кампанияи push — ПУРРА аз панели админ идора мешавад (ҳеҷ матн дар код нест).
+///
+/// Ду навъ:
+///  * `scheduled` — автоматӣ, ҳаррӯза дар вақти муайян (бо вақти МАҲАЛЛИИ
+///    интихобшуда, пешфарз Душанбе UTC+5);
+///  * `manual` — як бор аз панел фиристода мешавад (broadcast).
+///
+/// Матн барои ҳар забон ҷудо (`texts`) ва бо ҷойгузорҳо ({name}, {streak},
+/// {lesson}, {countdown}…) — ниг. `lib/pushTemplate.ts`.
+model PushCampaign {
+  id       String  @id @default(cuid())
+  name     String // «Огоҳии нарм 19:00 — тоҷикӣ»
+  kind     String  @default("scheduled") // scheduled | manual
+  isActive Boolean @default(true)
+
+  // ── Ҷадвал (вақти маҳаллӣ) ──
+  hour        Int     @default(19)
+  minute      Int     @default(0)
+  tzOffsetMin Int     @default(300) // Душанбе = UTC+5 = 300 дақиқа
+  weekdays    String? // "1,2,3,4,5" (1=Дш … 7=Яш); null = ҳаррӯза
+
+  // ── Сегмент (ҳама null = ҳама корбарони дорои token) ──
+  langs           String? // "tg,ru" — interfaceLang
+  tier            String? // free | premium
+  studiedToday    String? // yes | no
+  minStreak       Int?
+  maxStreak       Int?
+  minInactiveDays Int?
+  maxInactiveDays Int?
+  levels          String? // "A1,A2"
+  countries       String? // "TJ,RU"
+
+  // ── Мазмун ──
+  texts           Json // { tg: {title, body}, ru: {...}, en: {...} }
+  route           String @default("lesson") // тап → куҷо
+  /// Соати маҳаллии «дедлайн» барои ҷойгузори {countdown} (мас. 24 = нимишаб).
+  countdownToHour Int?
+
+  // ── Идора ──
+  priority      Int       @default(0) // хурдтар = аввалтар иҷро мешавад
+  cooldownHours Int       @default(20) // ҳамон кампания ба ҳамон корбар
+  lastRunAt     DateTime?
+  lastRunSent   Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sends PushSend[]
+
+  @@index([isActive, kind])
+}
+
+/// Таърихи ҳар як push — барои таърих, статистика ва ҳисоби маҳдудиятҳо.
+model PushSend {
+  id          String        @id @default(cuid())
+  campaignId  String?
+  campaign    PushCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  campaignKey String? // slug барои филтр (мас. streak_soft)
+  title       String
+  body        String
+  status      String // sent | failed | skipped
+  reason      String? // сабаби skip/fail
+  createdAt   DateTime      @default(now())
+
+  @@index([userId, createdAt])
+  @@index([campaignId, createdAt])
+  @@index([createdAt])
+}
+
 model RefreshToken {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  tokenHash String   @unique
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
   expiresAt DateTime
   revokedAt DateTime?
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
 
   @@index([userId])
 }
 
 model Language {
-  id                String   @id @default(cuid())
-  code              String   @unique // en, ru, tr, etc
-  name              String              // English exonym, e.g. "Tajik"
-  nativeName        String              // endonym, e.g. "Тоҷикӣ"
-  flag              String              // emoji flag
-  canBeNative       Boolean  @default(false) // usable as UI / interface language
-  canBeTarget       Boolean  @default(true)  // usable as a learnable language
-  badge             String?             // HOT | LIVE | SOON
-  learnerCount      String?             // "1.5B learners"
-  order             Int      @default(0)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id           String   @id @default(cuid())
+  code         String   @unique // en, ru, tr, etc
+  name         String // English exonym, e.g. "Tajik"
+  nativeName   String // endonym, e.g. "Тоҷикӣ"
+  flag         String // emoji flag
+  canBeNative  Boolean  @default(false) // usable as UI / interface language
+  canBeTarget  Boolean  @default(true) // usable as a learnable language
+  badge        String? // HOT | LIVE | SOON
+  learnerCount String? // "1.5B learners"
+  order        Int      @default(0)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
 
   // ── Language-agnostic runtime config (driven from admin, NOT code) ──
   // Adding a new language requires only these DB fields — no app changes.
-  ttsLocale         String?             // BCP-47 for text-to-speech, e.g. "en-US", "ar-SA"
-  sttLocale         String?             // BCP-47 for speech-to-text (often == ttsLocale)
-  direction         String   @default("ltr") // "ltr" | "rtl" (Arabic, Hebrew, Farsi → rtl)
-  fontFamily        String?             // optional custom font, e.g. "Noto Sans Arabic"
-  hasIPA            Boolean  @default(true)   // show phonetic transcription for this language
-  exerciseConfig    Json?               // which exercise types are enabled for this language
+  ttsLocale      String? // BCP-47 for text-to-speech, e.g. "en-US", "ar-SA"
+  sttLocale      String? // BCP-47 for speech-to-text (often == ttsLocale)
+  direction      String  @default("ltr") // "ltr" | "rtl" (Arabic, Hebrew, Farsi → rtl)
+  fontFamily     String? // optional custom font, e.g. "Noto Sans Arabic"
+  hasIPA         Boolean @default(true) // show phonetic transcription for this language
+  exerciseConfig Json? // which exercise types are enabled for this language
 
-  coursesAsTarget   Course[]        @relation("TargetLang")
-  coursesAsNative   Course[]        @relation("NativeLang")
-  uiTranslations    UiTranslation[]
-  userLanguages     UserLanguage[]
-  cefrDescriptorsAsTarget CefrDescriptor[] @relation("DescriptorTarget")
-  cefrDescriptorsAsNative CefrDescriptor[] @relation("DescriptorNative")
-  placementAsTarget PlacementQuestion[] @relation("PlacementTarget")
-  placementAsNative PlacementQuestion[] @relation("PlacementNative")
-  onboardingAsTarget OnboardingWord[] @relation("OnboardingTarget")
-  onboardingAsNative OnboardingWord[] @relation("OnboardingNative")
-  alphabetAsTarget  AlphabetLetter[] @relation("AlphabetTarget")
-  alphabetAsNative  AlphabetLetter[] @relation("AlphabetNative")
-  alphabetRulesAsTarget AlphabetRule[] @relation("AlphabetRuleTarget")
-  alphabetRulesAsNative AlphabetRule[] @relation("AlphabetRuleNative")
-  speakingAsTarget  SpeakingCategory[] @relation("SpeakingTarget")
-  speakingAsNative  SpeakingCategory[] @relation("SpeakingNative")
+  coursesAsTarget         Course[]            @relation("TargetLang")
+  coursesAsNative         Course[]            @relation("NativeLang")
+  uiTranslations          UiTranslation[]
+  userLanguages           UserLanguage[]
+  cefrDescriptorsAsTarget CefrDescriptor[]    @relation("DescriptorTarget")
+  cefrDescriptorsAsNative CefrDescriptor[]    @relation("DescriptorNative")
+  placementAsTarget       PlacementQuestion[] @relation("PlacementTarget")
+  placementAsNative       PlacementQuestion[] @relation("PlacementNative")
+  onboardingAsTarget      OnboardingWord[]    @relation("OnboardingTarget")
+  onboardingAsNative      OnboardingWord[]    @relation("OnboardingNative")
+  alphabetAsTarget        AlphabetLetter[]    @relation("AlphabetTarget")
+  alphabetAsNative        AlphabetLetter[]    @relation("AlphabetNative")
+  alphabetRulesAsTarget   AlphabetRule[]      @relation("AlphabetRuleTarget")
+  alphabetRulesAsNative   AlphabetRule[]      @relation("AlphabetRuleNative")
+  speakingAsTarget        SpeakingCategory[]  @relation("SpeakingTarget")
+  speakingAsNative        SpeakingCategory[]  @relation("SpeakingNative")
 }
 
 model UserLanguage {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  languageId        String
-  language          Language @relation(fields: [languageId], references: [id])
-  
-  fromLang          String   // tg, ru, etc
-  currentLevel      String   @default("A1")
-  xp                Int      @default(0)
-  streak            Int      @default(0)
-  isCurrent         Boolean  @default(false)
-  goal              String?  // travel, work, study, social, culture, tech
-  startedAt         DateTime @default(now())
-  
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  languageId String
+  language   Language @relation(fields: [languageId], references: [id])
+
+  fromLang     String // tg, ru, etc
+  currentLevel String   @default("A1")
+  xp           Int      @default(0)
+  streak       Int      @default(0)
+  isCurrent    Boolean  @default(false)
+  goal         String? // travel, work, study, social, culture, tech
+  startedAt    DateTime @default(now())
+
   @@unique([userId, languageId])
   @@index([userId])
 }
 
 model Course {
-  id                String   @id @default(cuid())
+  id               String   @id @default(cuid())
   // A course is bound to a (target, native) language PAIR.
-  targetLanguageId  String
-  targetLanguage    Language @relation("TargetLang", fields: [targetLanguageId], references: [id])
-  nativeLanguageId  String
-  nativeLanguage    Language @relation("NativeLang", fields: [nativeLanguageId], references: [id])
-  level             String   // A1, A2, B1, B2, C1
-  title             String              // shown in native language
-  description       String?
-  emoji             String
-  color             String   // hex color
-  order             Int      @default(0)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  targetLanguageId String
+  targetLanguage   Language @relation("TargetLang", fields: [targetLanguageId], references: [id])
+  nativeLanguageId String
+  nativeLanguage   Language @relation("NativeLang", fields: [nativeLanguageId], references: [id])
+  level            String // A1, A2, B1, B2, C1
+  title            String // shown in native language
+  description      String?
+  emoji            String
+  color            String // hex color
+  order            Int      @default(0)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
 
   modules           Module[]
   grammarTopics     GrammarTopic[]
@@ -205,52 +287,52 @@ model Course {
 }
 
 model Module {
-  id                String   @id @default(cuid())
-  courseId          String
-  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  title             String              // target-language title, e.g. "Foundations"
-  titleTranslated   String              // native-language title, e.g. "Асосҳо"
-  emoji             String
-  color             String   @default("#10B981")
-  order             Int      @default(0)
-  isPremium         Boolean  @default(false) // requires Premium
-  isBoss            Boolean  @default(false) // boss module
-  isActive          Boolean  @default(true)
+  id              String  @id @default(cuid())
+  courseId        String
+  course          Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title           String // target-language title, e.g. "Foundations"
+  titleTranslated String // native-language title, e.g. "Асосҳо"
+  emoji           String
+  color           String  @default("#10B981")
+  order           Int     @default(0)
+  isPremium       Boolean @default(false) // requires Premium
+  isBoss          Boolean @default(false) // boss module
+  isActive        Boolean @default(true)
 
-  lessons           Lesson[]
+  lessons Lesson[]
 
   @@index([courseId])
 }
 
 model Lesson {
-  id                String   @id @default(cuid())
-  moduleId          String
-  module            Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  title             String              // target-language title, e.g. "Greetings"
-  titleTranslated   String              // native-language title, e.g. "Саломҳо"
-  type              String   @default("vocab") // "vocab" | "quiz" (legacy display tag)
+  id                 String                 @id @default(cuid())
+  moduleId           String
+  module             Module                 @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title              String // target-language title, e.g. "Greetings"
+  titleTranslated    String // native-language title, e.g. "Саломҳо"
+  type               String                 @default("vocab") // "vocab" | "quiz" (legacy display tag)
   // ── CEFR framework (Step 2) ──
-  cefrLevel         String?             // A1…C2 — falls back to the course level if null
-  skillType         String   @default("vocab") // vocab|grammar|reading|listening|speaking|writing|review|test
-  emoji             String
-  xpReward          Int      @default(60)
-  duration          Int      @default(5) // minutes
-  order             Int      @default(0)
-  isPremium         Boolean  @default(false)
-  isActive          Boolean  @default(true)
+  cefrLevel          String? // A1…C2 — falls back to the course level if null
+  skillType          String                 @default("vocab") // vocab|grammar|reading|listening|speaking|writing|review|test
+  emoji              String
+  xpReward           Int                    @default(60)
+  duration           Int                    @default(5) // minutes
+  order              Int                    @default(0)
+  isPremium          Boolean                @default(false)
+  isActive           Boolean                @default(true)
   // ── Unified path (Step 11): a lesson is one step in the sequence; by skillType
   // it may link to any one component, which the player renders inline ──
-  grammarTopicId    String?
-  grammarTopic      GrammarTopic? @relation(fields: [grammarTopicId], references: [id], onDelete: SetNull)
+  grammarTopicId     String?
+  grammarTopic       GrammarTopic?          @relation(fields: [grammarTopicId], references: [id], onDelete: SetNull)
   phraseCollectionId String?
-  phraseCollection  PhraseCollection? @relation(fields: [phraseCollectionId], references: [id], onDelete: SetNull)
-  dialogueId        String?
-  dialogue          Dialogue? @relation(fields: [dialogueId], references: [id], onDelete: SetNull)
-  comprehensionId   String?
-  comprehension     ComprehensionExercise? @relation(fields: [comprehensionId], references: [id], onDelete: SetNull)
+  phraseCollection   PhraseCollection?      @relation(fields: [phraseCollectionId], references: [id], onDelete: SetNull)
+  dialogueId         String?
+  dialogue           Dialogue?              @relation(fields: [dialogueId], references: [id], onDelete: SetNull)
+  comprehensionId    String?
+  comprehension      ComprehensionExercise? @relation(fields: [comprehensionId], references: [id], onDelete: SetNull)
 
-  words             Word[]
-  progress          UserProgress[]
+  words    Word[]
+  progress UserProgress[]
 
   @@index([moduleId])
   @@index([grammarTopicId])
@@ -260,22 +342,22 @@ model Lesson {
 }
 
 model Word {
-  id                String   @id @default(cuid())
-  lessonId          String
-  lesson            Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  word              String              // target-language word, e.g. "Hello"
-  translation       String              // native-language translation, e.g. "Салом"
-  emoji             String?
-  ipa               String?             // /həˈloʊ/
-  ipaTajik          String?             // e.g. "Ҳеллоу"
-  example           String?             // target-language example sentence
-  exampleTrans      String?             // native-language translation of the example
-  audioUrl          String?
-  difficulty        Int      @default(1) // 1-5
+  id            String  @id @default(cuid())
+  lessonId      String
+  lesson        Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  word          String // target-language word, e.g. "Hello"
+  translation   String // native-language translation, e.g. "Салом"
+  emoji         String?
+  ipa           String? // /həˈloʊ/
+  ipaTajik      String? // e.g. "Ҳеллоу"
+  example       String? // target-language example sentence
+  exampleTrans  String? // native-language translation of the example
+  audioUrl      String?
+  difficulty    Int     @default(1) // 1-5
   // ── CEFR framework (Step 2) ──
-  partOfSpeech      String?             // noun|verb|adjective|adverb|phrase|… (language-agnostic tag)
-  frequencyRank     Int?                // lower = more frequent → learn earlier
-  order             Int      @default(0)
+  partOfSpeech  String? // noun|verb|adjective|adverb|phrase|… (language-agnostic tag)
+  frequencyRank Int? // lower = more frequent → learn earlier
+  order         Int     @default(0)
 
   @@index([lessonId])
 }
@@ -283,16 +365,16 @@ model Word {
 // CEFR "can-do" descriptor — the measurable target per (target,native) pair + level.
 // Language-agnostic: defined entirely from the admin panel, never hardcoded.
 model CefrDescriptor {
-  id                String   @id @default(cuid())
-  targetLanguageId  String
-  targetLanguage    Language @relation("DescriptorTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
-  nativeLanguageId  String
-  nativeLanguage    Language @relation("DescriptorNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
-  cefrLevel         String   // A1…C2
-  skill             String   @default("overall") // overall|reading|writing|listening|speaking
-  canDo             String   @db.Text            // "can-do" statement shown in the native language
-  order             Int      @default(0)
-  createdAt         DateTime @default(now())
+  id               String   @id @default(cuid())
+  targetLanguageId String
+  targetLanguage   Language @relation("DescriptorTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId String
+  nativeLanguage   Language @relation("DescriptorNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  cefrLevel        String // A1…C2
+  skill            String   @default("overall") // overall|reading|writing|listening|speaking
+  canDo            String   @db.Text // "can-do" statement shown in the native language
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
 
   @@index([targetLanguageId, nativeLanguageId, cefrLevel])
 }
@@ -304,22 +386,22 @@ model CefrDescriptor {
 // from which levels they answer correctly. Multiple-choice so it auto-grades
 // (no human evaluation needed). Nothing here is hardcoded per language.
 model PlacementQuestion {
-  id                String   @id @default(cuid())
-  targetLanguageId  String
-  targetLanguage    Language @relation("PlacementTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
-  nativeLanguageId  String
-  nativeLanguage    Language @relation("PlacementNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
-  cefrLevel         String              // A1…C2 — the level this question probes
-  skill             String   @default("overall") // overall|reading|writing|listening|speaking|grammar|vocab
-  prompt            String   @db.Text   // the question (usually target language)
-  promptTranslated  String?  @db.Text   // native-language hint/translation
-  options           Json                // string[] of answer options
-  answer            String   @db.Text   // the correct option (must equal one of options)
-  explanation       String?  @db.Text   // native-language reason shown after answering
-  audioUrl          String?             // for listening-type placement items
-  order             Int      @default(0)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id               String   @id @default(cuid())
+  targetLanguageId String
+  targetLanguage   Language @relation("PlacementTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId String
+  nativeLanguage   Language @relation("PlacementNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  cefrLevel        String // A1…C2 — the level this question probes
+  skill            String   @default("overall") // overall|reading|writing|listening|speaking|grammar|vocab
+  prompt           String   @db.Text // the question (usually target language)
+  promptTranslated String?  @db.Text // native-language hint/translation
+  options          Json // string[] of answer options
+  answer           String   @db.Text // the correct option (must equal one of options)
+  explanation      String?  @db.Text // native-language reason shown after answering
+  audioUrl         String? // for listening-type placement items
+  order            Int      @default(0)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
 
   @@index([targetLanguageId, nativeLanguageId, cefrLevel])
   @@index([targetLanguageId, nativeLanguageId, isActive])
@@ -328,22 +410,22 @@ model PlacementQuestion {
 // 🎯 Onboarding Zero-Lesson
 // A very simple introductory lesson for a language pair
 model OnboardingWord {
-  id                String   @id @default(cuid())
-  targetLanguageId  String
-  targetLanguage    Language @relation("OnboardingTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
-  nativeLanguageId  String
-  nativeLanguage    Language @relation("OnboardingNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
-  word              String              // target-language word, e.g. "Hello"
-  translation       String              // native-language translation, e.g. "Салом"
-  transcription     String?             // IPA or transliteration
+  id                 String   @id @default(cuid())
+  targetLanguageId   String
+  targetLanguage     Language @relation("OnboardingTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId   String
+  nativeLanguage     Language @relation("OnboardingNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  word               String // target-language word, e.g. "Hello"
+  translation        String // native-language translation, e.g. "Салом"
+  transcription      String? // IPA or transliteration
   transcriptionTajik String?
-  emoji             String?             // e.g. "👋"
-  example           String?             // "Hello, friend!"
-  exampleTrans      String?             // "Салом, дӯстам!"
-  options           Json                // string[] of translation options for the quiz
-  audioUrl          String?
-  order             Int      @default(0)
-  createdAt         DateTime @default(now())
+  emoji              String? // e.g. "👋"
+  example            String? // "Hello, friend!"
+  exampleTrans       String? // "Салом, дӯстам!"
+  options            Json // string[] of translation options for the quiz
+  audioUrl           String?
+  order              Int      @default(0)
+  createdAt          DateTime @default(now())
 
   @@index([targetLanguageId, nativeLanguageId])
 }
@@ -357,11 +439,11 @@ model AlphabetLetter {
   targetLanguage     Language @relation("AlphabetTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
   nativeLanguageId   String
   nativeLanguage     Language @relation("AlphabetNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
-  uppercase          String              // "A", "Б", ...
-  lowercase          String              // "a", "б", ...
-  ipa                String?             // international phonetic symbol, e.g. "/eɪ/"
-  tajikTranscription String?             // Tajik-script pronunciation hint, e.g. "Эй"
-  category           String              // "vowel" | "consonant" | "sign"
+  uppercase          String // "A", "Б", ...
+  lowercase          String // "a", "б", ...
+  ipa                String? // international phonetic symbol, e.g. "/eɪ/"
+  tajikTranscription String? // Tajik-script pronunciation hint, e.g. "Эй"
+  category           String // "vowel" | "consonant" | "sign"
   // Studio recording of the letter's NAME. Without it the app falls back to the
   // device's TTS, which on many phones has no voice installed for the target
   // language (silence) or only a network voice (audible lag on rapid taps —
@@ -380,16 +462,16 @@ model AlphabetLetter {
 // Ҳамсадоҳо tab, and `general` rules on the combined Алфавит tab. 100%
 // admin-managed, exactly like AlphabetLetter — no rules are hardcoded in the app.
 model AlphabetRule {
-  id                 String   @id @default(cuid())
-  targetLanguageId   String
-  targetLanguage     Language @relation("AlphabetRuleTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
-  nativeLanguageId   String
-  nativeLanguage     Language @relation("AlphabetRuleNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
-  category           String              // "vowel" | "consonant" | "general"
-  title              String              // short heading, e.g. "«e»-и хомӯш"
-  body               String              // the rule text, in the learner's native language
-  order              Int      @default(0)
-  createdAt          DateTime @default(now())
+  id               String   @id @default(cuid())
+  targetLanguageId String
+  targetLanguage   Language @relation("AlphabetRuleTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId String
+  nativeLanguage   Language @relation("AlphabetRuleNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  category         String // "vowel" | "consonant" | "general"
+  title            String // short heading, e.g. "«e»-и хомӯш"
+  body             String // the rule text, in the learner's native language
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
 
   @@index([targetLanguageId, nativeLanguageId, order])
 }
@@ -397,62 +479,62 @@ model AlphabetRule {
 // ── Grammar system (Step 3) — language-agnostic, admin-driven ──
 // A grammar topic belongs to a course (so it inherits the target/native pair).
 model GrammarTopic {
-  id                String   @id @default(cuid())
-  courseId          String
-  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  cefrLevel         String?             // A1…C2 — falls back to the course level if null
-  title             String              // target-language title, e.g. "Present Simple"
-  titleTranslated   String              // native-language title, e.g. "Замони ҳозираи содда"
-  explanation       String   @db.Text   // Markdown explanation, written in the native language
-  emoji             String   @default("🔤")
-  order             Int      @default(0)
-  isPremium         Boolean  @default(false)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id              String   @id @default(cuid())
+  courseId        String
+  course          Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel       String? // A1…C2 — falls back to the course level if null
+  title           String // target-language title, e.g. "Present Simple"
+  titleTranslated String // native-language title, e.g. "Замони ҳозираи содда"
+  explanation     String   @db.Text // Markdown explanation, written in the native language
+  emoji           String   @default("🔤")
+  order           Int      @default(0)
+  isPremium       Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
 
-  examples          GrammarExample[]
-  rules             GrammarRule[]
-  exercises         GrammarExercise[]
-  lessons           Lesson[]            // lessons that teach this topic
+  examples  GrammarExample[]
+  rules     GrammarRule[]
+  exercises GrammarExercise[]
+  lessons   Lesson[] // lessons that teach this topic
 
   @@index([courseId])
 }
 
 model GrammarExample {
-  id                String   @id @default(cuid())
-  topicId           String
-  topic             GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  sentence          String              // target-language example sentence
-  translation       String              // native-language translation
-  audioUrl          String?
-  highlight         String?             // substring of `sentence` to emphasise (e.g. the conjugated verb)
-  order             Int      @default(0)
+  id          String       @id @default(cuid())
+  topicId     String
+  topic       GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  sentence    String // target-language example sentence
+  translation String // native-language translation
+  audioUrl    String?
+  highlight   String? // substring of `sentence` to emphasise (e.g. the conjugated verb)
+  order       Int          @default(0)
 
   @@index([topicId])
 }
 
 model GrammarRule {
-  id                String   @id @default(cuid())
-  topicId           String
-  topic             GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  pattern           String              // e.g. "Subject + do/does + base verb"
-  note              String?  @db.Text   // native-language note explaining the rule
-  order             Int      @default(0)
+  id      String       @id @default(cuid())
+  topicId String
+  topic   GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  pattern String // e.g. "Subject + do/does + base verb"
+  note    String?      @db.Text // native-language note explaining the rule
+  order   Int          @default(0)
 
   @@index([topicId])
 }
 
 model GrammarExercise {
-  id                String   @id @default(cuid())
-  topicId           String
-  topic             GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  type              String   @default("fill_blank") // fill_blank | choose | reorder | transform
-  prompt            String   @db.Text   // the question (target language, may contain "___")
-  promptTranslated  String?  @db.Text   // native-language hint/translation
-  answer            String              // the correct answer
-  options           Json?               // string[] of options for "choose" / "reorder" types
-  explanation       String?  @db.Text   // native-language reason the answer is correct
-  order             Int      @default(0)
+  id               String       @id @default(cuid())
+  topicId          String
+  topic            GrammarTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  type             String       @default("fill_blank") // fill_blank | choose | reorder | transform
+  prompt           String       @db.Text // the question (target language, may contain "___")
+  promptTranslated String?      @db.Text // native-language hint/translation
+  answer           String // the correct answer
+  options          Json? // string[] of options for "choose" / "reorder" types
+  explanation      String?      @db.Text // native-language reason the answer is correct
+  order            Int          @default(0)
 
   @@index([topicId])
 }
@@ -462,35 +544,35 @@ model GrammarExercise {
 // Used for teaching ready-made useful sentences/phrases (greetings, travel…),
 // each with target text, native translation, optional literal gloss + audio.
 model PhraseCollection {
-  id                String   @id @default(cuid())
-  courseId          String
-  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  cefrLevel         String?             // A1…C2 — falls back to the course level if null
-  category          String?             // free language-agnostic tag, e.g. "greetings", "travel"
-  title             String              // target-language title, e.g. "At the Restaurant"
-  titleTranslated   String              // native-language title, e.g. "Дар тарабхона"
-  emoji             String   @default("💬")
-  order             Int      @default(0)
-  isPremium         Boolean  @default(false)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id              String   @id @default(cuid())
+  courseId        String
+  course          Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel       String? // A1…C2 — falls back to the course level if null
+  category        String? // free language-agnostic tag, e.g. "greetings", "travel"
+  title           String // target-language title, e.g. "At the Restaurant"
+  titleTranslated String // native-language title, e.g. "Дар тарабхона"
+  emoji           String   @default("💬")
+  order           Int      @default(0)
+  isPremium       Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
 
-  phrases           Phrase[]
-  lessons           Lesson[]            // lessons that teach this collection
+  phrases Phrase[]
+  lessons Lesson[] // lessons that teach this collection
 
   @@index([courseId])
 }
 
 model Phrase {
-  id                String   @id @default(cuid())
-  collectionId      String
-  collection        PhraseCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
-  text              String   @db.Text   // target-language phrase/sentence
-  translation       String   @db.Text   // native-language translation
-  literal           String?  @db.Text   // optional word-by-word / literal gloss
-  note              String?  @db.Text   // native-language usage note
-  audioUrl          String?
-  order             Int      @default(0)
+  id           String           @id @default(cuid())
+  collectionId String
+  collection   PhraseCollection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  text         String           @db.Text // target-language phrase/sentence
+  translation  String           @db.Text // native-language translation
+  literal      String?          @db.Text // optional word-by-word / literal gloss
+  note         String?          @db.Text // native-language usage note
+  audioUrl     String?
+  order        Int              @default(0)
 
   @@index([collectionId])
 }
@@ -500,35 +582,35 @@ model Phrase {
 // ordered conversation between two or more speakers, each line with target
 // text + native translation + optional audio. `isUser` marks "my" turns.
 model Dialogue {
-  id                String   @id @default(cuid())
-  courseId          String
-  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  cefrLevel         String?             // A1…C2 — falls back to the course level if null
-  title             String              // target-language title, e.g. "Ordering Coffee"
-  titleTranslated   String              // native-language title, e.g. "Фармоиши қаҳва"
-  scenario          String?  @db.Text   // native-language setup/description of the situation
-  emoji             String   @default("🎙️")
-  order             Int      @default(0)
-  isPremium         Boolean  @default(false)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id              String   @id @default(cuid())
+  courseId        String
+  course          Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel       String? // A1…C2 — falls back to the course level if null
+  title           String // target-language title, e.g. "Ordering Coffee"
+  titleTranslated String // native-language title, e.g. "Фармоиши қаҳва"
+  scenario        String?  @db.Text // native-language setup/description of the situation
+  emoji           String   @default("🎙️")
+  order           Int      @default(0)
+  isPremium       Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
 
-  lines             DialogueLine[]
-  lessons           Lesson[]            // lessons that play this dialogue
+  lines   DialogueLine[]
+  lessons Lesson[] // lessons that play this dialogue
 
   @@index([courseId])
 }
 
 model DialogueLine {
-  id                String   @id @default(cuid())
-  dialogueId        String
-  dialogue          Dialogue @relation(fields: [dialogueId], references: [id], onDelete: Cascade)
-  speaker           String              // speaker name/label, e.g. "Barista", "Alex"
-  text              String   @db.Text   // target-language line
-  translation       String   @db.Text   // native-language translation
-  audioUrl          String?
-  isUser            Boolean  @default(false) // true → this line belongs to the learner ("me")
-  order             Int      @default(0)
+  id          String   @id @default(cuid())
+  dialogueId  String
+  dialogue    Dialogue @relation(fields: [dialogueId], references: [id], onDelete: Cascade)
+  speaker     String // speaker name/label, e.g. "Barista", "Alex"
+  text        String   @db.Text // target-language line
+  translation String   @db.Text // native-language translation
+  audioUrl    String?
+  isUser      Boolean  @default(false) // true → this line belongs to the learner ("me")
+  order       Int      @default(0)
 
   @@index([dialogueId])
 }
@@ -538,38 +620,38 @@ model DialogueLine {
 // passage language is the course's target language; questions/options/native
 // hints all come from admin content, never hard-coded.
 model ComprehensionExercise {
-  id                 String   @id @default(cuid())
-  courseId           String
-  course             Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  cefrLevel          String?             // A1…C2 — falls back to the course level if null
-  kind               String   @default("reading") // reading | listening
-  title              String              // target-language title
-  titleTranslated    String              // native-language title
-  passage            String   @db.Text   // the reading text, or the transcript for a listening clip
-  passageTranslated  String?  @db.Text   // optional native-language translation of the passage
-  audioUrl           String?             // audio clip URL (used for "listening" kind)
-  emoji              String   @default("📖")
-  order              Int      @default(0)
-  isPremium          Boolean  @default(false)
-  isActive           Boolean  @default(true)
-  createdAt          DateTime @default(now())
+  id                String   @id @default(cuid())
+  courseId          String
+  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cefrLevel         String? // A1…C2 — falls back to the course level if null
+  kind              String   @default("reading") // reading | listening
+  title             String // target-language title
+  titleTranslated   String // native-language title
+  passage           String   @db.Text // the reading text, or the transcript for a listening clip
+  passageTranslated String?  @db.Text // optional native-language translation of the passage
+  audioUrl          String? // audio clip URL (used for "listening" kind)
+  emoji             String   @default("📖")
+  order             Int      @default(0)
+  isPremium         Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
 
-  questions          ComprehensionQuestion[]
-  lessons            Lesson[]            // lessons that use this exercise
+  questions ComprehensionQuestion[]
+  lessons   Lesson[] // lessons that use this exercise
 
   @@index([courseId])
 }
 
 model ComprehensionQuestion {
-  id                 String   @id @default(cuid())
+  id                 String                @id @default(cuid())
   exerciseId         String
   exercise           ComprehensionExercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
-  question           String   @db.Text   // the question (usually target language)
-  questionTranslated String?  @db.Text   // optional native-language version of the question
-  options            Json                // string[] of answer choices
-  correctIndex       Int      @default(0) // index into options of the correct answer
-  explanation        String?  @db.Text   // native-language reason the answer is correct
-  order              Int      @default(0)
+  question           String                @db.Text // the question (usually target language)
+  questionTranslated String?               @db.Text // optional native-language version of the question
+  options            Json // string[] of answer choices
+  correctIndex       Int                   @default(0) // index into options of the correct answer
+  explanation        String?               @db.Text // native-language reason the answer is correct
+  order              Int                   @default(0)
 
   @@index([exerciseId])
 }
@@ -583,13 +665,13 @@ model SrsCard {
   userId         String
   user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   itemType       String    @default("word") // word | phrase | grammar | dialogue_line | …
-  itemId         String              // id of the underlying content item
-  courseId       String?             // lets the review queue be filtered per course
-  easeFactor     Float     @default(2.5)   // SM-2 ease (min 1.3)
-  intervalDays   Int       @default(0)     // current interval in days
-  repetitions    Int       @default(0)     // consecutive correct reviews
-  lapses         Int       @default(0)     // times forgotten ("again")
-  dueAt          DateTime  @default(now())  // when this card next becomes reviewable
+  itemId         String // id of the underlying content item
+  courseId       String? // lets the review queue be filtered per course
+  easeFactor     Float     @default(2.5) // SM-2 ease (min 1.3)
+  intervalDays   Int       @default(0) // current interval in days
+  repetitions    Int       @default(0) // consecutive correct reviews
+  lapses         Int       @default(0) // times forgotten ("again")
+  dueAt          DateTime  @default(now()) // when this card next becomes reviewable
   lastReviewedAt DateTime?
   createdAt      DateTime  @default(now())
 
@@ -599,11 +681,11 @@ model SrsCard {
 }
 
 model UiTranslation {
-  id          String   @id @default(cuid())
-  languageId  String
-  language    Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
-  key         String              // "home.title"
-  value       String   @db.Text   // "Хона"
+  id         String   @id @default(cuid())
+  languageId String
+  language   Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
+  key        String // "home.title"
+  value      String   @db.Text // "Хона"
 
   @@unique([languageId, key])
   @@index([languageId])
@@ -611,9 +693,9 @@ model UiTranslation {
 
 model OtpCode {
   id             String   @id @default(cuid())
-  identifier     String              // normalized email or phone
-  channel        String              // "email" | "phone"
-  otpHash        String              // HMAC-SHA256 of the code
+  identifier     String // normalized email or phone
+  channel        String // "email" | "phone"
+  otpHash        String // HMAC-SHA256 of the code
   expiresAt      DateTime
   used           Boolean  @default(false)
   verifyAttempts Int      @default(0)
@@ -624,24 +706,24 @@ model OtpCode {
 }
 
 model AppSetting {
-  key       String   @id              // e.g. "login_settings", "auth_providers"
+  key       String   @id // e.g. "login_settings", "auth_providers"
   valueJson String   @db.Text
   updatedAt DateTime @updatedAt
 }
 
 model UserProgress {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  lessonId          String
-  lesson            Lesson   @relation(fields: [lessonId], references: [id])
-  isCompleted       Boolean  @default(false)
-  accuracy          Int      @default(0) // percentage
-  xpEarned          Int      @default(0)
-  timeSpent         Int      @default(0) // seconds
-  heartsLost        Int      @default(0)
-  completedAt       DateTime?
-  
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  lessonId    String
+  lesson      Lesson    @relation(fields: [lessonId], references: [id])
+  isCompleted Boolean   @default(false)
+  accuracy    Int       @default(0) // percentage
+  xpEarned    Int       @default(0)
+  timeSpent   Int       @default(0) // seconds
+  heartsLost  Int       @default(0)
+  completedAt DateTime?
+
   @@unique([userId, lessonId])
   @@index([userId])
 }
@@ -661,21 +743,21 @@ model UserProgress {
 // Сатҳ (A1/A2…) ҚАСДАН НЕСТ: тартиб (`order`) душвориро муайян мекунад,
 // айнан мисли бобҳои Falou.
 model SpeakingCategory {
-  id                String   @id @default(cuid())
-  targetLanguageId  String
-  targetLanguage    Language @relation("SpeakingTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
-  nativeLanguageId  String
-  nativeLanguage    Language @relation("SpeakingNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
-  title             String              // ба забони омӯзиш, мас. "Ordering a drink"
-  titleTranslated   String              // ба забони модарӣ, мас. "Фармоиши нӯшокӣ"
-  scenario          String?  @db.Text   // тавсифи вазъият ба забони модарӣ
-  emoji             String   @default("🎙️")
-  order             Int      @default(0) // тартиб = душворӣ
-  isPremium         Boolean  @default(false)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id               String   @id @default(cuid())
+  targetLanguageId String
+  targetLanguage   Language @relation("SpeakingTarget", fields: [targetLanguageId], references: [id], onDelete: Cascade)
+  nativeLanguageId String
+  nativeLanguage   Language @relation("SpeakingNative", fields: [nativeLanguageId], references: [id], onDelete: Cascade)
+  title            String // ба забони омӯзиш, мас. "Ordering a drink"
+  titleTranslated  String // ба забони модарӣ, мас. "Фармоиши нӯшокӣ"
+  scenario         String?  @db.Text // тавсифи вазъият ба забони модарӣ
+  emoji            String   @default("🎙️")
+  order            Int      @default(0) // тартиб = душворӣ
+  isPremium        Boolean  @default(false)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
 
-  lessons           SpeakingLesson[]
+  lessons SpeakingLesson[]
 
   @@index([targetLanguageId, nativeLanguageId])
 }
@@ -687,16 +769,16 @@ model SpeakingCategory {
 // Прогресс маҳз ин ҷо ҳисоб мешавад — категория вақте тамом мешавад, ки ҳамаи
 // дарсҳояш гузашта бошанд.
 model SpeakingLesson {
-  id                String   @id @default(cuid())
-  categoryId        String
-  category          SpeakingCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  title             String?             // ихтиёрӣ; холӣ бошад — «Дарси N»
-  order             Int      @default(0)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
+  id         String           @id @default(cuid())
+  categoryId String
+  category   SpeakingCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  title      String? // ихтиёрӣ; холӣ бошад — «Дарси N»
+  order      Int              @default(0)
+  isActive   Boolean          @default(true)
+  createdAt  DateTime         @default(now())
 
-  items             SpeakingItem[]
-  progress          SpeakingProgress[]
+  items    SpeakingItem[]
+  progress SpeakingProgress[]
 
   @@index([categoryId])
 }
@@ -706,31 +788,31 @@ model SpeakingLesson {
 // Тартиби Falou: калимаи нав (машқи «бигӯед») → ҷумлаҳое, ки ҳамон калимаро
 // кор мефармоянд (машқи «тарҷума кунед») → калимаи нави дигар…
 model SpeakingItem {
-  id                String   @id @default(cuid())
-  lessonId          String
-  lesson            SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  kind              String   @default("sentence") // "word" | "sentence"
-  text              String   @db.Text   // матн ба забони омӯзиш
-  translation       String   @db.Text   // тарҷума ба забони модарӣ
-  literal           String?  @db.Text   // калима ба калима / транслитератсия
-  note              String?  @db.Text   // шарҳи истифода ба забони модарӣ
-  audioUrl          String?
-  order             Int      @default(0)
+  id          String         @id @default(cuid())
+  lessonId    String
+  lesson      SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  kind        String         @default("sentence") // "word" | "sentence"
+  text        String         @db.Text // матн ба забони омӯзиш
+  translation String         @db.Text // тарҷума ба забони модарӣ
+  literal     String?        @db.Text // калима ба калима / транслитератсия
+  note        String?        @db.Text // шарҳи истифода ба забони модарӣ
+  audioUrl    String?
+  order       Int            @default(0)
 
   @@index([lessonId])
 }
 
 // Прогресси спикинг — ҚАСДАН аз `UserProgress` ҶУДО (ниг. шарҳи боло).
 model SpeakingProgress {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  lessonId          String
-  lesson            SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  timesCompleted    Int      @default(1)
-  xpEarned          Int      @default(0)
-  timeSpent         Int      @default(0) // сония
-  completedAt       DateTime @default(now())
+  id             String         @id @default(cuid())
+  userId         String
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId       String
+  lesson         SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  timesCompleted Int            @default(1)
+  xpEarned       Int            @default(0)
+  timeSpent      Int            @default(0) // сония
+  completedAt    DateTime       @default(now())
 
   @@unique([userId, lessonId])
   @@index([userId])
@@ -738,93 +820,93 @@ model SpeakingProgress {
 }
 
 model Achievement {
-  id                String   @id @default(cuid())
-  code              String   @unique // streak_7, xp_100, lessons_10, etc
-  name              String
-  nameTranslations  Json     // { tg, ru, en, uz }
-  emoji             String
-  description       String
+  id                      String @id @default(cuid())
+  code                    String @unique // streak_7, xp_100, lessons_10, etc
+  name                    String
+  nameTranslations        Json // { tg, ru, en, uz }
+  emoji                   String
+  description             String
   descriptionTranslations Json
-  rarity            String   // common | rare | epic | legendary
-  conditionType     String   // streak | xp | lessons | premium
-  conditionValue    Int
-  xpReward          Int      @default(0)
-  gemsReward        Int      @default(0)
-  
-  userAchievements  UserAchievement[]
+  rarity                  String // common | rare | epic | legendary
+  conditionType           String // streak | xp | lessons | premium
+  conditionValue          Int
+  xpReward                Int    @default(0)
+  gemsReward              Int    @default(0)
+
+  userAchievements UserAchievement[]
 }
 
 model UserAchievement {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  achievementId     String
-  achievement       Achievement @relation(fields: [achievementId], references: [id])
-  earnedAt          DateTime @default(now())
-  
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  achievementId String
+  achievement   Achievement @relation(fields: [achievementId], references: [id])
+  earnedAt      DateTime    @default(now())
+
   @@unique([userId, achievementId])
   @@index([userId])
 }
 
 model Subscription {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  plan              String   // monthly | yearly | lifetime
-  status            String   // active | cancelled | expired | trial | grace_period
-  
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  plan   String // monthly | yearly | lifetime
+  status String // active | cancelled | expired | trial | grace_period
+
   // Google Play
   googlePurchaseToken String? @unique
   googleOrderId       String?
-  googleProductId     String  // vip_monthly, vip_yearly, ramz_lifetime
-  
-  startedAt         DateTime @default(now())
-  expiresAt         DateTime?
-  cancelledAt       DateTime?
-  autoRenew         Boolean  @default(true)
-  
+  googleProductId     String // vip_monthly, vip_yearly, ramz_lifetime
+
+  startedAt   DateTime  @default(now())
+  expiresAt   DateTime?
+  cancelledAt DateTime?
+  autoRenew   Boolean   @default(true)
+
   @@index([userId, status])
   @@index([googlePurchaseToken])
 }
 
 model Payment {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  amount            Float
-  currency          String   @default("USD")
-  plan              String
-  status            String   // pending | success | failed | refunded
-  
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  amount   Float
+  currency String @default("USD")
+  plan     String
+  status   String // pending | success | failed | refunded
+
   // Google Play
-  googleOrderId     String?  @unique
+  googleOrderId       String? @unique
   googlePurchaseToken String?
-  
-  createdAt         DateTime @default(now())
-  
+
+  createdAt DateTime @default(now())
+
   @@index([userId])
 }
 
 model GemTransaction {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  amount            Int      // positive = earned, negative = spent
-  reason            String   // lesson_complete, streak_freeze, heart_refill, etc
-  createdAt         DateTime @default(now())
-  
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  amount    Int // positive = earned, negative = spent
+  reason    String // lesson_complete, streak_freeze, heart_refill, etc
+  createdAt DateTime @default(now())
+
   @@index([userId])
 }
 
 model DailyTask {
-  id                String   @id @default(cuid())
-  userId            String
-  taskType          String   // learn_words, complete_lesson, practice_time
-  targetValue       Int
-  currentValue      Int      @default(0)
-  reward            Int      // gems
-  date              String   // YYYY-MM-DD
-  completed         Boolean  @default(false)
+  id           String  @id @default(cuid())
+  userId       String
+  taskType     String // learn_words, complete_lesson, practice_time
+  targetValue  Int
+  currentValue Int     @default(0)
+  reward       Int // gems
+  date         String // YYYY-MM-DD
+  completed    Boolean @default(false)
 
   @@unique([userId, date, taskType])
   @@index([userId, date])
@@ -833,12 +915,12 @@ model DailyTask {
 // Per-day XP log — drives the weekly activity chart and analytics.
 // One row per user per day; `source` is a JSON breakdown by XP type.
 model DailyXp {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  date              DateTime @db.Date
-  xp                Int      @default(0)
-  source            Json?    // { lesson: 60, perfect: 20, achievement: 50, ... }
+  id     String   @id @default(cuid())
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+  date   DateTime @db.Date
+  xp     Int      @default(0)
+  source Json? // { lesson: 60, perfect: 20, achievement: 50, ... }
 
   @@unique([userId, date])
   @@index([userId, date])
@@ -851,21 +933,21 @@ model DailyXp {
 /// Gateway-agnostic transaction log: subscriptions, gem packs, trials.
 /// Canonical record for Alif Mobi / DC Pay / Stripe / Apple / Google / mock.
 model PaymentTransaction {
-  id           String   @id @default(cuid())
-  userId       String
-  user         User     @relation(fields: [userId], references: [id])
-  type         String   // subscription | gems | trial
-  provider     String   // alif | dcpay | stripe | apple | google | mock
-  amount       Float    // currency major units (e.g. 4.99)
-  currency     String   @default("USD")
-  status       String   @default("pending") // pending | success | failed | refunded
-  plan         String?  // monthly | yearly (subscription)
-  gemsAmount   Int?     // gems credited (gem purchases)
-  promoCodeId  String?  // applied promo, if any
-  externalId   String?  // gateway transaction / order id
-  metadata     Json?    // raw gateway payload, A/B variant, trigger, etc.
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  type        String // subscription | gems | trial
+  provider    String // alif | dcpay | stripe | apple | google | mock
+  amount      Float // currency major units (e.g. 4.99)
+  currency    String   @default("USD")
+  status      String   @default("pending") // pending | success | failed | refunded
+  plan        String? // monthly | yearly (subscription)
+  gemsAmount  Int? // gems credited (gem purchases)
+  promoCodeId String? // applied promo, if any
+  externalId  String? // gateway transaction / order id
+  metadata    Json? // raw gateway payload, A/B variant, trigger, etc.
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   @@index([userId])
   @@index([status])
@@ -875,21 +957,21 @@ model PaymentTransaction {
 
 /// Reusable discount / trial-extension codes.
 model PromoCode {
-  id              String   @id @default(cuid())
-  code            String   @unique
-  description     String?
-  discountType    String   // percent | fixed | trial_days
-  discountValue   Int      // percent 0-100 | cents | days
-  appliesTo       String   @default("both") // monthly | yearly | both | gems
-  maxRedemptions  Int?     // null = unlimited
-  timesRedeemed   Int      @default(0)
-  perUserLimit    Int      @default(1)
-  startsAt        DateTime?
-  expiresAt       DateTime?
-  isActive        Boolean  @default(true)
-  createdAt       DateTime @default(now())
+  id             String    @id @default(cuid())
+  code           String    @unique
+  description    String?
+  discountType   String // percent | fixed | trial_days
+  discountValue  Int // percent 0-100 | cents | days
+  appliesTo      String    @default("both") // monthly | yearly | both | gems
+  maxRedemptions Int? // null = unlimited
+  timesRedeemed  Int       @default(0)
+  perUserLimit   Int       @default(1)
+  startsAt       DateTime?
+  expiresAt      DateTime?
+  isActive       Boolean   @default(true)
+  createdAt      DateTime  @default(now())
 
-  redemptions     PromoRedemption[]
+  redemptions PromoRedemption[]
 
   @@index([code])
   @@index([isActive])
@@ -897,12 +979,12 @@ model PromoCode {
 
 /// One row per (promo, user) redemption — enforces perUserLimit + analytics.
 model PromoRedemption {
-  id           String    @id @default(cuid())
-  promoCodeId  String
-  promoCode    PromoCode @relation(fields: [promoCodeId], references: [id])
-  userId       String
-  user         User      @relation(fields: [userId], references: [id])
-  redeemedAt   DateTime  @default(now())
+  id          String    @id @default(cuid())
+  promoCodeId String
+  promoCode   PromoCode @relation(fields: [promoCodeId], references: [id])
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  redeemedAt  DateTime  @default(now())
 
   @@unique([promoCodeId, userId])
   @@index([userId])
@@ -915,41 +997,41 @@ model PromoRedemption {
 // type; `type` decides which fields matter:
 //   book/template → pages[]        audio/video → mediaUrl + durationMin
 model LibraryItem {
-  id           String   @id @default(cuid())
-  type         String   @default("book") // book | audio | video | template
-  title        String
-  author       String?
-  description  String?  @db.Text
-  coverUrl     String?
+  id          String   @id @default(cuid())
+  type        String   @default("book") // book | audio | video | template
+  title       String
+  author      String?
+  description String?  @db.Text
+  coverUrl    String?
   /// CEFR level this item suits (A1…C2). Null = any level.
-  level        String?
+  level       String?
   /// Target language the item teaches, e.g. "en". Null = shown for all.
-  targetLang   String?
+  targetLang  String?
   /// Streaming/download URL for audio and video items.
-  mediaUrl     String?
-  durationMin  Int?
-  rating       Float?
-  isPremium    Boolean  @default(false)
-  isActive     Boolean  @default(true)
+  mediaUrl    String?
+  durationMin Int?
+  rating      Float?
+  isPremium   Boolean  @default(false)
+  isActive    Boolean  @default(true)
   /// Lower first inside its type.
-  order        Int      @default(0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  pages        LibraryPage[]
+  pages LibraryPage[]
 
   @@index([type, isActive, order])
   @@index([targetLang])
 }
 
 model LibraryPage {
-  id        String      @id @default(cuid())
-  itemId    String
-  item      LibraryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
-  order     Int         @default(0)
-  title     String?
-  content   String      @db.Text
-  imageUrl  String?
+  id       String      @id @default(cuid())
+  itemId   String
+  item     LibraryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  order    Int         @default(0)
+  title    String?
+  content  String      @db.Text
+  imageUrl String?
 
   @@index([itemId, order])
 }
@@ -963,7 +1045,7 @@ model Feedback {
   id               String   @id @default(cuid())
   userId           String
   user             User     @relation(fields: [userId], references: [id])
-  rating           Int      // 1..5 (1 = 😠 … 5 = 😍)
+  rating           Int // 1..5 (1 = 😠 … 5 = 😍)
   message          String?  @db.Text
   source           String   @default("lesson_milestone") // lesson_milestone | profile
   // Context captured at submit time, so a comment can be read against where
@@ -984,10 +1066,10 @@ model PaywallEvent {
   id        String   @id @default(cuid())
   userId    String
   user      User     @relation(fields: [userId], references: [id])
-  trigger   String   // streak_at_risk | lives_empty | lesson_5 | level_locked | league_promoted | weekly_recap | inactive_14d | manual
+  trigger   String // streak_at_risk | lives_empty | lesson_5 | level_locked | league_promoted | weekly_recap | inactive_14d | manual
   action    String   @default("shown") // shown | dismissed | started_trial | purchased
-  variant   String?  // A/B variant label
-  context   Json?    // user segment, offer shown, etc.
+  variant   String? // A/B variant label
+  context   Json? // user segment, offer shown, etc.
   createdAt DateTime @default(now())
 
   @@index([userId, trigger])
@@ -1009,8 +1091,8 @@ model StreakWager {
   user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   gemsWagered    Int
   targetDays     Int
-  startStreak    Int       // user.streak at the moment the wager was placed
-  lastSeenStreak Int       // updated on each lazy check; a drop below this means the streak broke
+  startStreak    Int // user.streak at the moment the wager was placed
+  lastSeenStreak Int // updated on each lazy check; a drop below this means the streak broke
   status         String    @default("active") // active | won | lost
   createdAt      DateTime  @default(now())
   resolvedAt     DateTime?
@@ -1057,10 +1139,10 @@ model FriendStreak {
   user1           User      @relation("FriendStreakUser1", fields: [user1Id], references: [id], onDelete: Cascade)
   user2Id         String
   user2           User      @relation("FriendStreakUser2", fields: [user2Id], references: [id], onDelete: Cascade)
-  startStreak1    Int       // user1.streak at the moment the pairing was formed
-  startStreak2    Int       // user2.streak at the moment the pairing was formed
-  lastSeenStreak1 Int       // updated on each lazy check; a drop below this means user1's side broke
-  lastSeenStreak2 Int       // updated on each lazy check; a drop below this means user2's side broke
+  startStreak1    Int // user1.streak at the moment the pairing was formed
+  startStreak2    Int // user2.streak at the moment the pairing was formed
+  lastSeenStreak1 Int // updated on each lazy check; a drop below this means user1's side broke
+  lastSeenStreak2 Int // updated on each lazy check; a drop below this means user2's side broke
   status          String    @default("active") // active | broken
   createdAt       DateTime  @default(now())
   brokenAt        DateTime?

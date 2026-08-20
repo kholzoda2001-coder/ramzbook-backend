@@ -1,0 +1,47 @@
+name: Push Cron
+
+# Ҳар 15 дақиқа `/api/cron/push`-ро мезанад, то кампанияҳои огоҳӣ маҳз дар
+# вақти таъиншудаи худ (мас. 19:00 ва 21:30 бо соати Душанбе) равона шаванд.
+#
+# ЧАРО на танҳо Vercel Cron: дар нақшаи Hobby Vercel cron-ро танҳо ЯК бор дар
+# рӯз иҷро мекунад, пас ҷадвали дақиқа-ба-дақиқа имконнопазир аст. Дар
+# `vercel.json` як cron-и ҳаррӯза ҳамчун захира монд; муҳаррики асосӣ ҳамин ҷост.
+# Агар ба Vercel Pro гузаред — дар `vercel.json` `*/15 * * * *` гузоред ва ин
+# workflow-ро хомӯш кунед (такрор зарар надорад: ҳар кампания дар як рӯзи
+# маҳаллии худ танҳо ЯК бор иҷро мешавад, `lastRunAt` инро нигоҳ медорад).
+#
+# Сирри лозимӣ (Settings → Secrets and variables → Actions):
+#   CRON_SECRET — ҳамон қимате, ки дар Vercel гузошта шудааст
+# Ихтиёрӣ:
+#   CRON_BASE_URL — агар домен дигар шавад (пешфарз: https://admin.ramz.tj)
+
+on:
+  schedule:
+    # GitHub метавонад иҷроро чанд дақиқа дер кунад — ин муҳим нест: сервер
+    # тирезаи 90-дақиқаӣ дорад ва кампанияи дермонда ҳамон рӯз иҷро мешавад.
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: push-cron
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Кампанияҳои вақташон расидаро иҷро кун
+        env:
+          BASE_URL: ${{ secrets.CRON_BASE_URL || 'https://admin.ramz.tj' }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          set -euo pipefail
+          response=$(curl -sS -w '\n%{http_code}' \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${BASE_URL}/api/cron/push")
+          body=$(echo "$response" | head -n -1)
+          code=$(echo "$response" | tail -n 1)
+          echo "HTTP $code"
+          echo "$body"
+          # 5xx = сервер вайрон аст → job сурх шавад, то дар Actions намоён бошад.
+          if [ "$code" -ge 500 ]; then exit 1; fi

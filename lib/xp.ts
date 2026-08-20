@@ -43,6 +43,9 @@ export async function awardXp(
       totalXp: { increment: safeAmount },
       weeklyXp: { increment: safeAmount },
       lastActiveAt: now,
+      // Корбар боз фаъол шуд → занҷири win-back (3/7/14/30) аз сар оғоз меёбад.
+      // Бе ин, касе ки як бор баргашт, дигар ҳеҷ гоҳ win-back намегирифт.
+      winbackStage: 0,
     },
   });
 

@@ -106,6 +106,9 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         <Link href="/admin/feedback" className={`ni ${isActive('/admin/feedback') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">💬</span>Фикри хонандагон
         </Link>
+        <Link href="/admin/push" className={`ni ${isActive('/admin/push') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">🔔</span>Огоҳиҳо (Push)
+        </Link>
         <button onClick={handleLogout} className="ni w-full text-left bg-transparent border-none">
           <span className="ni-icon">🚪</span>Баромад
         </button>

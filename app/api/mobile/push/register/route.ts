@@ -4,11 +4,14 @@ import { prisma } from '@/lib/prisma';
 
 /**
  * POST /api/mobile/push/register
- * Body: { token: string, platform?: 'android' | 'ios' }
+ * Body: { token: string, platform?: 'android' | 'ios', enabled?: boolean }
  *
  * Барномаи мобилӣ баъди гирифтани FCM token инро даъват мекунад. Token-ро
  * ба корбари ҷорӣ пайваст мекунем (upsert — агар token аллакай бошад, соҳибашро
  * нав мекунем: як дастгоҳ метавонад аз аккаунт ба аккаунт гузарад).
+ *
+ * `enabled` — ҳолати тугмаи «Огоҳномаҳо» дар профил. Онро ҳамин ҷо синхрон
+ * мекунем, то сервер ҳеҷ гоҳ ба корбари хомӯшкарда push нафиристад.
  */
 export async function POST(req: Request) {
   try {
@@ -26,9 +29,39 @@ export async function POST(req: Request) {
       update: { userId: user.id, platform },
     });
 
+    if (typeof body?.enabled === 'boolean') {
+      await prisma.user.update({
+        where: { id: user.id },
+        data: { pushEnabled: body.enabled },
+      });
+    }
+
     return NextResponse.json({ success: true });
   } catch (error: any) {
     console.error('Push register error:', error);
+    return NextResponse.json({ error: error.message || 'Failed' }, { status: 400 });
+  }
+}
+
+/**
+ * DELETE /api/mobile/push/register
+ * Body: { token: string }
+ *
+ * Ҳангоми logout даъват мешавад — вагарна push-и шахсии корбари пешина ба
+ * дастгоҳе меравад, ки ӯ аллакай аз он баромадааст.
+ */
+export async function DELETE(req: Request) {
+  try {
+    const body = await req.json().catch(() => ({}));
+    const token = (body?.token ?? '').toString().trim();
+    if (!token) return NextResponse.json({ error: 'token required' }, { status: 400 });
+
+    // Бе тафтиши соҳибӣ: token худаш сирри дастгоҳ аст ва танҳо худи ҳамон
+    // дастгоҳ онро медонад; logout метавонад баъди беэътибор шудани сессия ояд.
+    await prisma.deviceToken.deleteMany({ where: { token } });
+    return NextResponse.json({ success: true });
+  } catch (error: any) {
+    console.error('Push unregister error:', error);
     return NextResponse.json({ error: error.message || 'Failed' }, { status: 400 });
   }
 }
