@@ -34,15 +34,22 @@ type Seed = {
 };
 
 /**
- * Соати маҳаллии дедлайни ВОҚЕИИ силсила.
+ * Соати маҳаллии дедлайне, ки дар матн нишон дода мешавад: **нимишаб**.
  *
- * `lib/xp.ts` рӯзро бо UTC мешуморад (`dateOnly` → UTC), пас силсила на дар
- * нимишаби Душанбе, балки соати 00:00 UTC = **05:00 Душанбе** сифр мешавад.
- * `minutesUntilLocalHour` соатҳои >24-ро ҳамчун «пагоҳ» мефаҳмад, пас 29 = 05:00
- * рӯзи оянда. Агар мо ин ҷо 24 мегузоштем, матн «то нимишаб 2 соат монд» мегуфт,
- * дар ҳоле ки корбар воқеан 7 соат вақт дошт — яъне push дурӯғ мегуфт.
+ * Дедлайни ТЕХНИКӢ дертар аст: `lib/xp.ts` рӯзро бо UTC мешуморад (`dateOnly`),
+ * пас силсила соати 00:00 UTC = 05:00 Душанбе сифр мешавад — яъне хонанда
+ * воқеан то субҳ вақт дорад.
+ *
+ * Мо қасдан рақами КӮТОҲТАРро нишон медиҳем, на дарозтарро. Хато ба ин тараф
+ * бехатар аст: касе, ки то нимишаб мехонад, ҳатман то 05:00 ҳам расидааст —
+ * силсилааш маҳфуз. Хато ба тарафи дигар (нишон додани 7 соат) метавонад
+ * касеро дер кунонад. Илова бар ин «2 соату 30 дақиқа монд» соати 21:30
+ * фишори воқеӣ медиҳад, дар ҳоле ки «7 соат монд» ҳеҷ.
+ *
+ * Ҳалли решагӣ — марзи рӯзи силсиларо дар `lib/xp.ts` ба вақти маҳаллӣ (UTC+5)
+ * гардондан; он гоҳ нимишаб ҳам нишондод, ҳам ҳақиқат мешавад.
  */
-const STREAK_DEADLINE_HOUR = 29;
+const STREAK_DEADLINE_HOUR = 24;
 
 /**
  * Занҷири рӯзона танҳо ба онҳое меравад, ки ҳанӯз ГУМ нашудаанд (0–2 рӯз).
@@ -57,24 +64,28 @@ const SOFT_TG = {
   body: 'Имрӯз ҳанӯз нахондаӣ. {lesson} — ҳамагӣ {minutes} дақиқа.',
 };
 const HARD_TG = {
-  title: '🔥 Силсилаи {streak}-рӯзаат дар хатар!',
-  body: '{countdown} монд. 5 дақиқа хон ва онро наҷот деҳ: {lesson}.',
+  // Рақами камшаванда дар УНВОН аст — он сатри аз ҳама ғафс ва аввалин чизест,
+  // ки дар экрани қулф хонда мешавад. Соати 22:00 ин «2 соат» мешавад, 23:00 —
+  // «1 соат». (Матни огоҳӣ дар Android РАНГ намешавад; ҳисси хатар аз эмоҷӣ ва
+  // аз худи рақами хурдшаванда меояд.)
+  title: '🚨 {countdown} монд!',
+  body: '⏳ Силсилаи {streak}-рӯзаат имшаб месӯзад. 5 дақиқа кофист: {lesson}.',
 };
 const SOFT_RU = {
   title: '{name}, время урока 📚',
   body: 'Сегодня ты ещё не занимался. {lesson} — всего {minutes} минут.',
 };
 const HARD_RU = {
-  title: '🔥 Твой стрик {streak} дн. под угрозой!',
-  body: 'Осталось {countdown}. 5 минут — и он спасён: {lesson}.',
+  title: '🚨 Осталось {countdown}!',
+  body: '⏳ Твой стрик {streak} дн. сгорит сегодня. Хватит 5 минут: {lesson}.',
 };
 const SOFT_EN = {
   title: '{name}, time to study 📚',
   body: "You haven't studied today. {lesson} takes just {minutes} minutes.",
 };
 const HARD_EN = {
-  title: '🔥 Your {streak}-day streak is at risk!',
-  body: '{countdown} left. Five minutes saves it: {lesson}.',
+  title: '🚨 {countdown} left!',
+  body: '⏳ Your {streak}-day streak burns tonight. Five minutes is enough: {lesson}.',
 };
 
 export const DEFAULT_CAMPAIGNS: Seed[] = [
@@ -93,9 +104,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     texts: { tg: SOFT_TG, en: SOFT_EN },
   },
   {
-    name: 'Огоҳии қавӣ 21:30 — тоҷикӣ',
-    hour: 21,
-    minute: 30,
+    name: 'Огоҳии қавӣ 22:00 — тоҷикӣ',
+    hour: 22,
+    minute: 0,
     langs: 'tg,uz,en',
     studiedToday: 'no',
     minStreak: 1,
@@ -117,9 +128,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     texts: { ru: SOFT_RU },
   },
   {
-    name: 'Огоҳии қавӣ 21:30 — русӣ',
-    hour: 21,
-    minute: 30,
+    name: 'Огоҳии қавӣ 22:00 — русӣ',
+    hour: 22,
+    minute: 0,
     langs: 'ru',
     studiedToday: 'no',
     minStreak: 1,
