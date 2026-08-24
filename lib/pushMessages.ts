@@ -54,10 +54,25 @@ export type LearnerContext = {
   nextLessonMinutes?: number;
 };
 
-/** Ном → танҳо калимаи аввал ('Аҳмад Раҳимов' → 'Аҳмад'). */
+/**
+ * Ном → танҳо калимаи аввал ('Аҳмад Раҳимов' → 'Аҳмад').
+ *
+ * Ҳар чизе, ки ба ном НАМЕМОНАД, рад мешавад ва матн ба «дӯст» мегузарад.
+ * `User.name` майдони озод аст ва дар продакшн 19 аз 135 хонандаи дастрас дар
+ * он почта ё рақам доранд — бе ин филтр огоҳӣ «Пазмонат шудем,
+ * kholzoda102001@gmail.com 😔» ё «1234, се рӯз нест 👀» мебарояд. Почтаи
+ * корбарро дар унвони огоҳӣ нишон додан ҳам зишт аст, ҳам дар экрани қулф ба
+ * ҳар кас намоён мешавад.
+ */
 function firstNameOf(name: string): string {
   const first = (name ?? '').trim().split(/\s+/)[0] ?? '';
-  return first.length > 0 && first.length <= 24 ? first : '';
+  if (first.length < 2 || first.length > 20) return '';
+  if (first.includes('@')) return '';                 // почта
+  if (/\d/.test(first)) return '';                    // «1234», «Ali2001»
+  // Ақаллан як ҳарф дошта бошад. Бе `\p{L}` навишта шудааст, чун он `target`-и
+  // ES6+ талаб мекунад; ин санҷиш барои кириллӣ ва лотинӣ баробар кор мекунад.
+  if (first.toLowerCase() === first.toUpperCase()) return '';
+  return first;
 }
 
 /**

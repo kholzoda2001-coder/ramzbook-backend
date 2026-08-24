@@ -82,7 +82,9 @@ function shortCountdown(totalMinutes: number): string {
  */
 function fallbacks(lang: TplLang) {
   return {
-    name: { tg: 'дӯст', ru: 'друг', en: 'friend' }[lang],
+    // Бо ҳарфи калон: шаблонҳо `{name}`-ро ҳам дар АВВАЛИ ҷумла истифода
+    // мебаранд («{name}, вақти дарс расид»), пас ҳарфи хурд он ҷо хато мешуд.
+    name: { tg: 'Дӯст', ru: 'Друг', en: 'Friend' }[lang],
     lesson: { tg: 'Дарси навбатӣ', ru: 'Следующий урок', en: 'The next lesson' }[lang],
     course: { tg: 'Курсат', ru: 'Твой курс', en: 'Your course' }[lang],
   };
