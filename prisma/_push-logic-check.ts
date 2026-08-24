@@ -10,7 +10,8 @@
  *   npx ts-node --compiler-options '{"module":"commonjs"}' prisma/_push-logic-check.ts
  */
 import { isDue } from '../lib/pushRunner';
-import { minutesUntilLocalHour, formatCountdown } from '../lib/pushTemplate';
+import { minutesUntilLocalHour, formatCountdown, renderCampaignText, pickText } from '../lib/pushTemplate';
+import type { LearnerContext } from '../lib/pushMessages';
 import { buildWhere, localDayStart } from '../lib/pushSegments';
 import type { PushCampaign } from '@prisma/client';
 
@@ -142,6 +143,34 @@ console.log('\n6. studiedToday — ҲАР ДУ сигнали фаъолият �
   // Ду филтр ҳамзамон набояд ҳамдигарро пахш кунанд.
   const both: any = buildWhere({ studiedToday: 'no', wager: 'yes' }, 300, noon);
   check('studiedToday + wager ҳарду мемонанд', both.AND?.length, 2);
+}
+
+console.log('\n7. Забони МАТН ва забони РАҚАМҲО ҳамеша як бошанд');
+{
+  const learner = (lang: string): LearnerContext => ({
+    userId: 'u1', firstName: 'Алишер', lang: lang as any,
+    streak: 2, longestStreak: 3, hearts: 5, maxHearts: 5, gems: 0,
+    level: 'A1', daysInactive: 0, tzOffsetMin: 300,
+  });
+  const opts = { tzOffsetMin: 300, countdownToHour: 24, now: tj(2026, 8, 24, 21, 30) };
+  const ruOnly = { ru: { title: 'Осталось {countdown}!', body: '' } };
+
+  // Корбар тоҷик аст, вале кампания ТАНҲО матни русӣ дорад → матн русӣ мешавад,
+  // пас рақам ҳам бояд русӣ шавад. Дар продакшн ин ҳолат «Осталось 6 соату
+  // 58 дақиқа!» дод: ҷумла бо як забон, рақам бо забони дигар.
+  check('забони ВОҚЕАН интихобшуда бармегардад', pickText(ruOnly, 'tg')?.lang, 'ru');
+  check(
+    'матни русӣ → рақами русӣ (на тоҷикӣ)',
+    renderCampaignText(ruOnly, learner('tg'), opts)?.title,
+    'Осталось 2 ч 30 мин!',
+  );
+
+  const both = {
+    tg: { title: '{countdown} монд', body: '' },
+    ru: { title: 'Осталось {countdown}', body: '' },
+  };
+  check('тоҷик → матн ва рақами тоҷикӣ', renderCampaignText(both, learner('tg'), opts)?.title, '2 соату 30 дақиқа монд');
+  check('рус → матн ва рақами русӣ', renderCampaignText(both, learner('ru'), opts)?.title, 'Осталось 2 ч 30 мин');
 }
 
 console.log(`\n${fail === 0 ? '✅' : '❌'}  ${pass} санҷиш гузашт, ${fail} афтод\n`);

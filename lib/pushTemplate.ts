@@ -95,6 +95,15 @@ export type RenderOptions = {
   /** Соати маҳаллии дедлайн барои {countdown} (мас. 24 = нимишаб). */
   countdownToHour?: number | null;
   now?: Date;
+  /**
+   * Забони МАТН, агар он аз забони корбар фарқ кунад.
+   *
+   * Ин вақте рӯй медиҳад, ки кампания барои забони корбар матн надорад ва
+   * `pickText` ба забони дигар мегузарад. Бе ин параметр ҷумла бо як забон
+   * мебаромад, вале рақамҳо бо забони дигар формат мешуданд — воқеан дида
+   * шуд: «Осталось 6 соату 58 дақиқа!».
+   */
+  lang?: TplLang;
 };
 
 /**
@@ -106,7 +115,8 @@ export function renderTemplate(
   ctx: LearnerContext,
   opts: RenderOptions = {},
 ): string {
-  const lang = ctx.lang as TplLang;
+  // Забони ФОРМАТ = забони матни воқеӣ, на ҳатман забони корбар.
+  const lang = opts.lang ?? (ctx.lang as TplLang);
   const fb = fallbacks(lang);
   const now = opts.now ?? new Date();
   const tz = opts.tzOffsetMin ?? 300;
@@ -142,10 +152,21 @@ export function renderTemplate(
 
 export type CampaignTexts = Partial<Record<TplLang, { title: string; body: string }>>;
 
-/** Матни забони корбар; агар набошад — тоҷикӣ, вагарна аввалин мавҷуда. */
-export function pickText(texts: CampaignTexts, lang: string): { title: string; body: string } | null {
-  const l = (lang as TplLang) ?? 'tg';
-  return texts[l] ?? texts.tg ?? texts.ru ?? texts.en ?? null;
+/**
+ * Матни забони корбар; агар набошад — тоҷикӣ, вагарна аввалин мавҷуда.
+ * Забони ВОҚЕАН интихобшударо ҳам бармегардонад, то ҷойгузорҳо ва ҳисоби
+ * вақт бо ҳамон забон формат шаванд.
+ */
+export function pickText(
+  texts: CampaignTexts,
+  lang: string,
+): { lang: TplLang; title: string; body: string } | null {
+  const order: TplLang[] = [(lang as TplLang) ?? 'tg', 'tg', 'ru', 'en'];
+  for (const l of order) {
+    const t = texts[l];
+    if (t) return { lang: l, title: t.title, body: t.body };
+  }
+  return null;
 }
 
 /** Матни тайёри як кампания барои як хонанда. */
@@ -156,8 +177,10 @@ export function renderCampaignText(
 ): { title: string; body: string } | null {
   const t = pickText(texts, ctx.lang);
   if (!t) return null;
+  // Ҳамон забонеро, ки матн аз он гирифта шуд, ба формат мегузаронем.
+  const o: RenderOptions = { ...opts, lang: t.lang };
   return {
-    title: renderTemplate(t.title ?? '', ctx, opts),
-    body: renderTemplate(t.body ?? '', ctx, opts),
+    title: renderTemplate(t.title ?? '', ctx, o),
+    body: renderTemplate(t.body ?? '', ctx, o),
   };
 }
