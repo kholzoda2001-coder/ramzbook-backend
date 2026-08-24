@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { markStudied } from '@/lib/activity';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { awardXp } from '@/lib/xp';
 import { updateDailyTasks } from '@/lib/dailyTasks';
@@ -83,6 +84,12 @@ export async function POST(req: NextRequest) {
     let awardResult: Awaited<ReturnType<typeof awardXp>> | null = null;
 
     if (isCompleted) {
+      // «Ин хонанда имрӯз кор кард» — БЕВОБАСТА аз он ки XP гирифт ё не.
+      // Такрори дарси аллакай хатмшуда XP намедиҳад (`firstCompletion`), вале
+      // он ҳам хондан аст; бе ин сатр сервер онро намедид ва бегоҳ ба хонандаи
+      // фаъол «имрӯз ҳанӯз нахондаӣ» push мефиристод.
+      await markStudied(userId);
+
       // Hearts deduction (kept separate from XP pipeline)
       if (heartsLost > 0) {
         const currentUser = await prisma.user.findUnique({

@@ -111,8 +111,37 @@ console.log('\n5. buildWhere — филтрҳои нави дӯст/гарав')
   const wn: any = buildWhere({ wager: 'no' }, 300, tj(2026, 8, 24, 19, 0));
   check('гарав=no → NOT', !!wn.AND?.[0]?.NOT, true);
 
-  const wt: any = buildWhere({ studiedToday: 'no' }, 300, tj(2026, 8, 24, 21, 30));
-  check('«имрӯз нахондааст» касони ҳеҷ гоҳ нахондаро ҳам мегирад', wt.OR?.length, 2);
+}
+
+console.log('\n6. studiedToday — ҲАР ДУ сигнали фаъолият санҷида мешавад');
+{
+  const noon = tj(2026, 8, 24, 21, 30);
+  const dayStart = '2026-08-23T19:00:00.000Z';
+
+  const no: any = buildWhere({ studiedToday: 'no' }, 300, noon);
+  const noBlock = no.AND?.[0]?.AND;
+  check('«нахондааст» ду шарт мегузорад (lastStudyAt + lastActiveDate)', noBlock?.length, 2);
+  check(
+    'сигнали 1: такрор/SRS (lastStudyAt), null ҳам ҳисоб мешавад',
+    noBlock?.[0]?.OR,
+    [{ lastStudyAt: null }, { lastStudyAt: { lt: new Date(dayStart) } }],
+  );
+  check(
+    'сигнали 2: хатми аввалин (lastActiveDate)',
+    noBlock?.[1]?.OR,
+    [{ lastActiveDate: null }, { lastActiveDate: { lt: new Date(dayStart) } }],
+  );
+
+  const yes: any = buildWhere({ studiedToday: 'yes' }, 300, noon);
+  check(
+    '«хондааст» = кофист ЯКЕ аз ду сигнал',
+    yes.AND?.[0]?.OR,
+    [{ lastStudyAt: { gte: new Date(dayStart) } }, { lastActiveDate: { gte: new Date(dayStart) } }],
+  );
+
+  // Ду филтр ҳамзамон набояд ҳамдигарро пахш кунанд.
+  const both: any = buildWhere({ studiedToday: 'no', wager: 'yes' }, 300, noon);
+  check('studiedToday + wager ҳарду мемонанд', both.AND?.length, 2);
 }
 
 console.log(`\n${fail === 0 ? '✅' : '❌'}  ${pass} санҷиш гузашт, ${fail} афтод\n`);

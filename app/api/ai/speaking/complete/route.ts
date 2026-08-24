@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { markStudied } from '@/lib/activity';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { awardXp } from '@/lib/xp';
 import { updateDailyTasks } from '@/lib/dailyTasks';
@@ -90,6 +91,10 @@ export async function POST(req: NextRequest) {
         completedAt: new Date(),
       },
     });
+
+    // Такрори муколама XP намедиҳад, вале ин ҳам кори таълимист — сабт мешавад,
+    // то огоҳиҳо хонандаи фаъолро «ғайрифаъол» ҳисоб накунанд.
+    await markStudied(userId);
 
     let award: Awaited<ReturnType<typeof awardXp>> | null = null;
 

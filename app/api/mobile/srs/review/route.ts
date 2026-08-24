@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { markStudied } from '@/lib/activity';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { reviewCard, initialSrsState, isGrade } from '@/lib/srs';
 
@@ -62,6 +63,11 @@ export async function POST(req: NextRequest) {
         lastReviewedAt: new Date(),
       },
     });
+
+    // Навбати такрор то ҳол барои сервер ТАМОМАН ноаён буд — он ҳеҷ гоҳ
+    // фаъолияти корбарро сабт намекард. Хонандае, ки ҳар бегоҳ калимаҳоро
+    // такрор мекард, «ғайрифаъол» ҳисоб мешуд ва win-back мегирифт.
+    await markStudied(userId);
 
     return NextResponse.json({
       ok: true,

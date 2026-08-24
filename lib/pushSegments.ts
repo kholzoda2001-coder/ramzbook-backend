@@ -98,6 +98,8 @@ export function buildWhere(
   }
 
   // Ғайрифаъолӣ: «на камтар аз N рӯз» = lastActiveAt то (ҳозир − N рӯз).
+  // `lastActiveAt`-ро акнун `markStudied` дар ҲАР амали таълимӣ нав мекунад
+  // (на танҳо ҳангоми XP), пас такроркунанда дигар «ғайрифаъол» намешавад.
   if (seg.minInactiveDays != null || seg.maxInactiveDays != null) {
     const t = now.getTime();
     where.lastActiveAt = {
@@ -134,18 +136,36 @@ export function buildWhere(
     );
   }
 
-  // «Имрӯз хондааст / нахондааст» — аз рӯи `lastActiveDate` (онро танҳо хатми
-  // дарс мегузорад, на кушодани барнома).
+  // «Имрӯз хондааст / нахондааст».
+  //
+  // ДУ сигнал, на як. `lastActiveDate`-ро танҳо `advanceStreak` менависад ва он
+  // ТАНҲО ҳангоми хатми АВВАЛИНИ дарс кор мекунад — пас такрори дарс, такрори
+  // муколама ва тамоми навбати такрор (SRS) дар он ноаён буданд. `lastStudyAt`
+  // (`lib/activity.ts`) ҳар амали таълимиро сабт мекунад. Мо ҳардуро мепурсем,
+  // то ҳам хонандаи нав, ҳам такроркунанда дуруст ҳисоб шаванд, ва то
+  // корбарони кӯҳна (ки ҳанӯз `lastStudyAt` надоранд) гум нашаванд.
   if (seg.studiedToday === 'yes' || seg.studiedToday === 'no') {
     const dayStart = localDayStart(now, tzOffsetMin);
-    where.lastActiveDate =
-      seg.studiedToday === 'yes'
-        ? { gte: dayStart }
-        : { lt: dayStart };
-    if (seg.studiedToday === 'no') {
-      // Онҳое, ки ҳеҷ гоҳ дарс нахондаанд (`null`), ҳам «имрӯз нахондаанд».
-      where.OR = [{ lastActiveDate: { lt: dayStart } }, { lastActiveDate: null }];
-      delete where.lastActiveDate;
+    (where.AND ??= [] as Prisma.UserWhereInput[]);
+    const and = where.AND as Prisma.UserWhereInput[];
+
+    if (seg.studiedToday === 'yes') {
+      // Кофист, ки ЯКЕ аз ду сигнал имрӯзро нишон диҳад.
+      and.push({
+        OR: [
+          { lastStudyAt: { gte: dayStart } },
+          { lastActiveDate: { gte: dayStart } },
+        ],
+      });
+    } else {
+      // «Нахондааст» = ҲЕҶ ЯКЕ аз ду сигнал имрӯзро нишон намедиҳад.
+      // `null` низ «нахондааст» аст (корбаре, ки ҳеҷ гоҳ дарс накардааст).
+      and.push({
+        AND: [
+          { OR: [{ lastStudyAt: null }, { lastStudyAt: { lt: dayStart } }] },
+          { OR: [{ lastActiveDate: null }, { lastActiveDate: { lt: dayStart } }] },
+        ],
+      });
     }
   }
 
