@@ -5,11 +5,14 @@
  * мешаванд, то система аз рӯзи аввал кор кунад. Баъд ҳамаашон дар панел таҳрир,
  * хомӯш ё нест мешаванд — ҳеҷ матн дар код қулф намондааст.
  *
- * Занҷири рӯзона (вақти Душанбе):
+ * Занҷири рӯзона (вақти Душанбе) — РОСТ ду қадам, лимит 2 push дар рӯз:
  *   19:00 — огоҳии НАРМ ба онҳое, ки имрӯз нахондаанд;
- *   21:30 — огоҳии ҚАВӢ бо ҳисоби вақт ({countdown}) танҳо ба онҳое, ки силсила
- *           доранд — яъне воқеан чизе барои гум кардан доранд;
- *   20:00 — win-back ба ғайрифаъолон (3/7/14/30 рӯз).
+ *   22:00 — огоҳии ҚАВӢ бо ҳисоби вақт то нимишаб ({countdown}), танҳо ба
+ *           онҳое, ки силсила доранд — яъне воқеан чизе барои гум кардан доранд.
+ * Як дарс хондан ҳарду қадамро қатъ мекунад (сегменти `studiedToday: no`).
+ *
+ * Ҷудогона: 20:00 — win-back ба ғайрифаъолон (3/7/14/30 рӯз). Занҷири рӯзона
+ * бо `maxInactiveDays = 2` маҳдуд аст, пас ин ду ҳеҷ гоҳ рӯйҳам намеоянд.
  */
 import { prisma } from './prisma';
 
@@ -141,6 +144,15 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     texts: { ru: HARD_RU },
   },
   // ── Win-back (ҳама забонҳо) ─────────────────────────────────────────────
+  //
+  // ⚠️ Матн `{days_inactive}`-и ВОҚЕӢ мегӯяд, на номи бозаро. Ҳар база як
+  // ФОСИЛА аст (3–6, 7–13, 14–29, 30+), пас «як ҳафта гузашт» танҳо дар рӯзи
+  // 7 рост меомад. Дар продакшн: дар базаи «як ҳафта» ҲЕҶ КАС 7-рӯза набуд
+  // (ҳама 8–13), ва дар «ду ҳафта» аз 74 нафар танҳо 2 нафар воқеан 14-рӯза
+  // буд — 15 нафар 21-рӯза, 7 нафар 28-рӯза. Яъне паём ба аксарият дурӯғ мегуфт.
+  //
+  // Русӣ «дн.» истифода мебарад, то мувофиқати шумора лозим нашавад
+  // (3 дня / 5 дней / 21 день) — ҳамон роҳе, ки огоҳии қавӣ барои {streak} дорад.
   {
     name: 'Win-back · 3 рӯз',
     hour: 20,
@@ -149,9 +161,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 96,
     priority: 30,
     texts: {
-      tg: { title: '{name}, се рӯз нест 👀', body: '{lesson} интизори туст — ҳамагӣ {minutes} дақиқа.' },
-      ru: { title: '{name}, тебя не было три дня 👀', body: '{lesson} ждёт тебя — всего {minutes} минут.' },
-      en: { title: '{name}, it has been three days 👀', body: '{lesson} is waiting — just {minutes} minutes.' },
+      tg: { title: '{name}, {days_inactive} рӯз нест 👀', body: '{lesson} интизори туст — ҳамагӣ {minutes} дақиқа.' },
+      ru: { title: '{name}, тебя не было {days_inactive} дн. 👀', body: '{lesson} ждёт тебя — всего {minutes} минут.' },
+      en: { title: '{name}, it has been {days_inactive} days 👀', body: '{lesson} is waiting — just {minutes} minutes.' },
     },
   },
   {
@@ -162,9 +174,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 168,
     priority: 31,
     texts: {
-      tg: { title: 'Як ҳафта гузашт 📚', body: 'Забон бе такрор зуд фаромӯш мешавад. Имрӯз 5 дақиқа кофист — {lesson}.' },
-      ru: { title: 'Прошла неделя 📚', body: 'Язык без повторения быстро забывается. Сегодня хватит 5 минут — {lesson}.' },
-      en: { title: 'A week has passed 📚', body: 'A language fades without practice. Five minutes today is enough — {lesson}.' },
+      tg: { title: '{days_inactive} рӯз гузашт 📚', body: 'Забон бе такрор зуд фаромӯш мешавад. Имрӯз 5 дақиқа кофист — {lesson}.' },
+      ru: { title: 'Прошло {days_inactive} дн. 📚', body: 'Язык без повторения быстро забывается. Сегодня хватит 5 минут — {lesson}.' },
+      en: { title: '{days_inactive} days have passed 📚', body: 'A language fades without practice. Five minutes today is enough — {lesson}.' },
     },
   },
   {
@@ -175,9 +187,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 336,
     priority: 32,
     texts: {
-      tg: { title: 'Пазмонат шудем, {name} 😔', body: 'Ду ҳафта гузашт. Имрӯз ҳатто 2 дақиқа кофист — {lesson}.' },
-      ru: { title: 'Скучаем по тебе, {name} 😔', body: 'Прошли две недели. Сегодня хватит и 2 минут — {lesson}.' },
-      en: { title: 'We miss you, {name} 😔', body: 'Two weeks have passed. Even 2 minutes today is enough — {lesson}.' },
+      tg: { title: 'Пазмонат шудем, {name} 😔', body: '{days_inactive} рӯз шуд. Имрӯз ҳатто 2 дақиқа кофист — {lesson}.' },
+      ru: { title: 'Скучаем по тебе, {name} 😔', body: 'Прошло {days_inactive} дн. Сегодня хватит и 2 минут — {lesson}.' },
+      en: { title: 'We miss you, {name} 😔', body: '{days_inactive} days now. Even 2 minutes today is enough — {lesson}.' },
     },
   },
   {
@@ -190,9 +202,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 720,
     priority: 33,
     texts: {
-      tg: { title: 'Биё баргард! 🎁', body: '{name}, як моҳ шуд. Дилҳоят пуранд — аз ҳамон ҷое, ки монда будӣ, давом кун.' },
-      ru: { title: 'Возвращайся! 🎁', body: '{name}, прошёл месяц. Жизни полны — продолжим с того места, где ты остановился.' },
-      en: { title: 'Come back! 🎁', body: '{name}, it has been a month. Your hearts are full — pick up right where you left off.' },
+      tg: { title: 'Биё баргард! 🎁', body: '{name}, {days_inactive} рӯз гузашт. Дилҳоят пуранд — аз ҳамон ҷое, ки монда будӣ, давом кун.' },
+      ru: { title: 'Возвращайся! 🎁', body: '{name}, прошло {days_inactive} дн. Жизни полны — продолжим с того места, где ты остановился.' },
+      en: { title: 'Come back! 🎁', body: '{name}, {days_inactive} days have passed. Your hearts are full — pick up right where you left off.' },
     },
   },
   // ── Ҷои ёдрасонҳои МАҲАЛЛИИ 102/103 ────────────────────────────────────
