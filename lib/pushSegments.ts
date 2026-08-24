@@ -27,6 +27,10 @@ export type Segment = {
   maxInactiveDays?: number | null;
   levels?: string[] | null;
   countries?: string[] | null;
+  /** yes = силсилаи ҷуфтии ФАЪОЛ бо дӯст дорад | no | null = фарқ надорад. */
+  friendStreak?: string | null;
+  /** yes = гарави алмоси ФАЪОЛ дорад | no | null. */
+  wager?: string | null;
 };
 
 /** "tg,ru" → ['tg','ru'] (холӣ → null). */
@@ -104,6 +108,30 @@ export function buildWhere(
         ? { gte: new Date(t - (seg.maxInactiveDays + 1) * 86_400_000) }
         : {}),
     };
+  }
+
+  // Силсилаи ҷуфтӣ бо дӯст: корбар метавонад ҳам `user1`, ҳам `user2` бошад,
+  // пас ҳар ду тарафро месанҷем. Ин ҷои ёдрасони маҳаллии 102-ро мегирад.
+  if (seg.friendStreak === 'yes' || seg.friendStreak === 'no') {
+    const has: Prisma.UserWhereInput = {
+      OR: [
+        { friendStreaksAsUser1: { some: { status: 'active' } } },
+        { friendStreaksAsUser2: { some: { status: 'active' } } },
+      ],
+    };
+    (where.AND ??= [] as Prisma.UserWhereInput[]);
+    (where.AND as Prisma.UserWhereInput[]).push(
+      seg.friendStreak === 'yes' ? has : { NOT: has },
+    );
+  }
+
+  // Гарави алмос («Дубора ё ҳеҷ») — ҷои ёдрасони маҳаллии 103.
+  if (seg.wager === 'yes' || seg.wager === 'no') {
+    const has: Prisma.UserWhereInput = { streakWagers: { some: { status: 'active' } } };
+    (where.AND ??= [] as Prisma.UserWhereInput[]);
+    (where.AND as Prisma.UserWhereInput[]).push(
+      seg.wager === 'yes' ? has : { NOT: has },
+    );
   }
 
   // «Имрӯз хондааст / нахондааст» — аз рӯи `lastActiveDate` (онро танҳо хатми

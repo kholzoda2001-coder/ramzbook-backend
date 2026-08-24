@@ -24,12 +24,33 @@ type Seed = {
   minStreak?: number | null;
   minInactiveDays?: number | null;
   maxInactiveDays?: number | null;
+  friendStreak?: string | null;
+  wager?: string | null;
   countdownToHour?: number | null;
   cooldownHours?: number;
   priority?: number;
   route?: string;
   texts: Record<string, { title: string; body: string }>;
 };
+
+/**
+ * Соати маҳаллии дедлайни ВОҚЕИИ силсила.
+ *
+ * `lib/xp.ts` рӯзро бо UTC мешуморад (`dateOnly` → UTC), пас силсила на дар
+ * нимишаби Душанбе, балки соати 00:00 UTC = **05:00 Душанбе** сифр мешавад.
+ * `minutesUntilLocalHour` соатҳои >24-ро ҳамчун «пагоҳ» мефаҳмад, пас 29 = 05:00
+ * рӯзи оянда. Агар мо ин ҷо 24 мегузоштем, матн «то нимишаб 2 соат монд» мегуфт,
+ * дар ҳоле ки корбар воқеан 7 соат вақт дошт — яъне push дурӯғ мегуфт.
+ */
+const STREAK_DEADLINE_HOUR = 29;
+
+/**
+ * Занҷири рӯзона танҳо ба онҳое меравад, ки ҳанӯз ГУМ нашудаанд (0–2 рӯз).
+ * Аз рӯзи 3-юм онҳоро win-back мегирад. Бе ин марз як корбари ғайрифаъол дар
+ * як рӯз 3 push мегирифт (19:00 нарм + 20:00 win-back + 21:30 қавӣ) — маҳз он
+ * лимити рӯзона, яъне ҳадди аксари иҷозатдодашудаи СПАМ.
+ */
+const DAILY_CHAIN_MAX_INACTIVE = 2;
 
 const SOFT_TG = {
   title: '{name}, вақти дарс расид 📚',
@@ -47,29 +68,42 @@ const HARD_RU = {
   title: '🔥 Твой стрик {streak} дн. под угрозой!',
   body: 'Осталось {countdown}. 5 минут — и он спасён: «{lesson}».',
 };
+const SOFT_EN = {
+  title: '{name}, time to study 📚',
+  body: "You haven't studied today. \"{lesson}\" takes just {minutes} minutes.",
+};
+const HARD_EN = {
+  title: '🔥 Your {streak}-day streak is at risk!',
+  body: '{countdown} left. Five minutes saves it: "{lesson}".',
+};
 
 export const DEFAULT_CAMPAIGNS: Seed[] = [
   // ── Занҷири рӯзона: тоҷикӣ ──────────────────────────────────────────────
   {
+    // `langs` низ `uz`/`en`-ро мегирад: онҳо матни тоҷикӣ надоранд, вале
+    // `pickText` барои `en` матни англисиро мегирад ва барои `uz` ба тоҷикӣ
+    // бармегардад. Бе ин корбари ғайри tg/ru ҲЕҶ ёдрасони рӯзона намегирифт.
     name: 'Ёдрасони нарм 19:00 — тоҷикӣ',
     hour: 19,
-    langs: 'tg',
+    langs: 'tg,uz,en',
     studiedToday: 'no',
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 10,
     route: 'lesson',
-    texts: { tg: SOFT_TG },
+    texts: { tg: SOFT_TG, en: SOFT_EN },
   },
   {
     name: 'Огоҳии қавӣ 21:30 — тоҷикӣ',
     hour: 21,
     minute: 30,
-    langs: 'tg',
+    langs: 'tg,uz,en',
     studiedToday: 'no',
     minStreak: 1,
-    countdownToHour: 24, // то нимишаби Душанбе
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    countdownToHour: STREAK_DEADLINE_HOUR,
     priority: 20,
     route: 'lesson',
-    texts: { tg: HARD_TG },
+    texts: { tg: HARD_TG, en: HARD_EN },
   },
   // ── Занҷири рӯзона: русӣ ────────────────────────────────────────────────
   {
@@ -77,6 +111,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     hour: 19,
     langs: 'ru',
     studiedToday: 'no',
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 11,
     route: 'lesson',
     texts: { ru: SOFT_RU },
@@ -88,7 +123,8 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     langs: 'ru',
     studiedToday: 'no',
     minStreak: 1,
-    countdownToHour: 24,
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    countdownToHour: STREAK_DEADLINE_HOUR,
     priority: 21,
     route: 'lesson',
     texts: { ru: HARD_RU },
@@ -145,6 +181,41 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       en: { title: 'Come back! 🎁', body: '{name}, it has been a month. Your hearts are full and {gems} gems are safe.' },
     },
   },
+  // ── Ҷои ёдрасонҳои МАҲАЛЛИИ 102/103 ────────────────────────────────────
+  // Ин ду то ҳол танҳо дар телефон буданд ва аз рӯи маълумоти КӮҲНАИ дастгоҳ
+  // кор мекарданд. Акнун сервер ҳолати ВОҚЕИИ ҷуфт/гаравро медонад.
+  {
+    name: 'Силсила бо дӯст 19:30',
+    hour: 19,
+    minute: 30,
+    studiedToday: 'no',
+    friendStreak: 'yes',
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    countdownToHour: STREAK_DEADLINE_HOUR,
+    priority: 15,
+    route: 'lesson',
+    texts: {
+      tg: { title: 'Дӯстат интизор аст 🤝', body: 'Силсилаи ҷуфтиатон имрӯз меғурад. {countdown} монд — «{lesson}».' },
+      ru: { title: 'Друг тебя ждёт 🤝', body: 'Ваш общий стрик сегодня оборвётся. Осталось {countdown} — «{lesson}».' },
+      en: { title: 'Your friend is waiting 🤝', body: 'Your joint streak breaks today. {countdown} left — "{lesson}".' },
+    },
+  },
+  {
+    name: 'Гарави алмос 20:15',
+    hour: 20,
+    minute: 15,
+    studiedToday: 'no',
+    wager: 'yes',
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    countdownToHour: STREAK_DEADLINE_HOUR,
+    priority: 25,
+    route: 'lesson',
+    texts: {
+      tg: { title: '💎 Гаравҳоят дар хатар', body: '{name}, имрӯз нахондаӣ — {countdown} монд. Як дарс ва алмосҳоят маҳфузанд.' },
+      ru: { title: '💎 Твоя ставка под угрозой', body: '{name}, сегодня ты не занимался — осталось {countdown}. Один урок, и кристаллы твои.' },
+      en: { title: '💎 Your wager is at risk', body: "{name}, you haven't studied today — {countdown} left. One lesson keeps your gems." },
+    },
+  },
 ];
 
 /**
@@ -170,6 +241,8 @@ export async function ensureDefaultCampaigns(): Promise<number> {
         minStreak: s.minStreak ?? null,
         minInactiveDays: s.minInactiveDays ?? null,
         maxInactiveDays: s.maxInactiveDays ?? null,
+        friendStreak: s.friendStreak ?? null,
+        wager: s.wager ?? null,
         countdownToHour: s.countdownToHour ?? null,
         cooldownHours: s.cooldownHours ?? 20,
         priority: s.priority ?? 0,

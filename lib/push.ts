@@ -67,7 +67,11 @@ export type SendOptions = {
   skipLog?: boolean;
 };
 
-/** Як сатри таърих (`PushSend`) менависад — хатои лог набояд push-ро вайрон кунад. */
+/**
+ * Як сатри таърих (`PushSend`) менависад — хатои лог набояд push-ро вайрон кунад.
+ * `id`-и сатрро бармегардонад, то он ба payload дохил шавад ва тапи корбар
+ * маҳз ба ҲАМИН паём баста шавад (CTR).
+ */
 async function log(
   userId: string,
   status: string,
@@ -75,10 +79,10 @@ async function log(
   body: string,
   opts: SendOptions,
   reason?: string,
-) {
-  if (opts.skipLog) return;
+): Promise<string | null> {
+  if (opts.skipLog) return null;
   try {
-    await prisma.pushSend.create({
+    const row = await prisma.pushSend.create({
       data: {
         userId,
         campaignId: opts.campaignId ?? null,
@@ -88,8 +92,12 @@ async function log(
         status,
         reason: reason ?? null,
       },
+      select: { id: true },
     });
-  } catch (_) {/* таърих аз худи push муҳимтар нест */}
+    return row.id;
+  } catch (_) {
+    return null; /* таърих аз худи push муҳимтар нест */
+  }
 }
 
 /**
@@ -135,15 +143,30 @@ export async function sendPushToUser(
     return { sent: 0, skipped: 'no-tokens' };
   }
 
-  const res = await sendToTokens(app, tokens, title, body, data);
+  // 3. Сатри таърихро ПЕШ аз фиристодан месозем — то `sendId`-и он ба payload
+  //    дарояд. Ҳамин ID баъдтар аз `/mobile/push/opened` бармегардад ва мо
+  //    мефаҳмем, ки маҳз кадом паём кушода шуд (CTR-и воқеӣ, на тахмин).
+  const sendId = await log(userId, 'sending', title, body, opts);
 
-  // 3. Вақти охирин + таърих.
+  const res = await sendToTokens(app, tokens, title, body, {
+    ...(data ?? {}),
+    ...(sendId ? { sendId } : {}),
+  });
+
+  // 4. Вақти охирин + натиҷаи ниҳоӣ дар таърих.
   if (res.sent > 0) {
     await prisma.user
       .update({ where: { id: userId }, data: { lastPushAt: new Date() } })
       .catch(() => {/* лог муҳимтар нест аз худи push */});
   }
-  await log(userId, res.sent > 0 ? 'sent' : 'failed', title, body, opts);
+  if (sendId) {
+    await prisma.pushSend
+      .update({
+        where: { id: sendId },
+        data: { status: res.sent > 0 ? 'sent' : 'failed' },
+      })
+      .catch(() => {/* лог муҳимтар нест аз худи push */});
+  }
 
   return { ...res, title, body };
 }

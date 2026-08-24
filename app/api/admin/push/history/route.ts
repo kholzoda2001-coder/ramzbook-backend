@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     const dayAgo = new Date(Date.now() - 86_400_000);
     const weekAgo = new Date(Date.now() - 7 * 86_400_000);
 
-    const [items, sentToday, sentWeek, skippedToday, failedToday, byCampaign] = await Promise.all([
+    const [items, sentToday, sentWeek, skippedToday, failedToday, byCampaign, openedWeek, openedByCampaign] = await Promise.all([
       prisma.pushSend.findMany({
         where,
         orderBy: { createdAt: 'desc' },
@@ -41,7 +41,20 @@ export async function GET(req: NextRequest) {
         where: { status: 'sent', createdAt: { gte: weekAgo } },
         _count: { _all: true },
       }),
+      // CTR: чанд паём воқеан КУШОДА шуд (`/mobile/push/opened`). Бе ин мо
+      // танҳо «фиристодем»-ро медонем ва матни бекораро аз матни кордор
+      // фарқ карда наметавонем.
+      prisma.pushSend.count({
+        where: { status: 'sent', createdAt: { gte: weekAgo }, openedAt: { not: null } },
+      }),
+      prisma.pushSend.groupBy({
+        by: ['campaignKey'],
+        where: { status: 'sent', createdAt: { gte: weekAgo }, openedAt: { not: null } },
+        _count: { _all: true },
+      }),
     ]);
+
+    const openedMap = new Map(openedByCampaign.map((r) => [r.campaignKey ?? '—', r._count._all]));
 
     return NextResponse.json({
       items,
@@ -50,8 +63,21 @@ export async function GET(req: NextRequest) {
         sentWeek,
         skippedToday,
         failedToday,
+        openedWeek,
+        /** Фоизи кушодашуда дар 7 рӯз — ягона ченаки «кор кард ё не». */
+        openRateWeek: sentWeek > 0 ? Math.round((openedWeek / sentWeek) * 100) : 0,
         byCampaign: byCampaign
-          .map((r) => ({ campaign: r.campaignKey ?? '—', count: r._count._all }))
+          .map((r) => {
+            const campaign = r.campaignKey ?? '—';
+            const count = r._count._all;
+            const opened = openedMap.get(campaign) ?? 0;
+            return {
+              campaign,
+              count,
+              opened,
+              openRate: count > 0 ? Math.round((opened / count) * 100) : 0,
+            };
+          })
           .sort((a, b) => b.count - a.count),
       },
     });

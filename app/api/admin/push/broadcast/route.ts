@@ -44,6 +44,8 @@ export async function POST(req: NextRequest) {
       maxInactiveDays: s.maxInactiveDays ?? null,
       levels: s.levels ?? null,
       countries: s.countries ?? null,
+      friendStreak: s.friendStreak ?? null,
+      wager: s.wager ?? null,
     };
 
     const result = await sendBroadcast(segment, texts, {

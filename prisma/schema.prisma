@@ -74,6 +74,10 @@ model User {
   /// Марҳилаи охирини win-back, ки ба ин корбар фиристода шуд (3/7/14/30).
   /// Ба ҷои «тирезаи 24-соата» — агар як cron нашавад, корбар гум намешавад.
   winbackStage Int       @default(0)
+  /// Фарқи вақти ДАСТГОҲИ корбар аз UTC, ба дақиқа (Душанбе = 300, Маскав = 180).
+  /// Аз `/mobile/push/register` меояд. Бе ин ҳама push бо соати Душанбе меравад
+  /// ва муҳоҷир дар Маскав ёдрасони «21:30»-ро соати 19:30 мегирад.
+  tzOffsetMin  Int?
 
   // Relations
   progress             UserProgress[]
@@ -148,6 +152,12 @@ model PushCampaign {
   maxInactiveDays Int?
   levels          String? // "A1,A2"
   countries       String? // "TJ,RU"
+  /// yes = силсилаи ҷуфтӣ бо дӯст ФАЪОЛ дорад | no = надорад | null = фарқ надорад.
+  /// Ҷои ёдрасони маҳаллии 102 (`FriendStreak.status = 'active'`).
+  friendStreak    String?
+  /// yes = гарави алмос («Дубора ё ҳеҷ») ФАЪОЛ дорад | no | null.
+  /// Ҷои ёдрасони маҳаллии 103 (`StreakWager.status = 'active'`).
+  wager           String?
 
   // ── Мазмун ──
   texts           Json // { tg: {title, body}, ru: {...}, en: {...} }
@@ -178,9 +188,12 @@ model PushSend {
   campaignKey String? // slug барои филтр (мас. streak_soft)
   title       String
   body        String
-  status      String // sent | failed | skipped
+  status      String // sending | sent | failed | skipped
   reason      String? // сабаби skip/fail
   createdAt   DateTime      @default(now())
+  /// Вақте корбар ба ҳамин огоҳӣ ЗАД (`/mobile/push/opened`). Бе ин мо танҳо
+  /// «фиристодем»-ро медонем, на «расид ва кор кард» — яъне CTR намедонем.
+  openedAt    DateTime?
 
   @@index([userId, createdAt])
   @@index([campaignId, createdAt])

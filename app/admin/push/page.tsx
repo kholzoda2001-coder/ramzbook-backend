@@ -40,6 +40,8 @@ interface Campaign {
   maxInactiveDays: number | null;
   levels: string | null;
   countries: string | null;
+  friendStreak: string | null;
+  wager: string | null;
   texts: Texts;
   route: string;
   countdownToHour: number | null;
@@ -109,6 +111,8 @@ function emptyDraft(): Partial<Campaign> {
     maxInactiveDays: null,
     levels: null,
     countries: null,
+    friendStreak: null,
+    wager: null,
     texts: { tg: { title: '', body: '' } },
     route: 'lesson',
     countdownToHour: null,
@@ -226,6 +230,30 @@ function SegmentEditor({
         <Field label="Ғайрифаъол то (рӯз)">
           <input type="number" min={0} className={inputCls} value={draft.maxInactiveDays ?? ''}
             onChange={(e) => set({ maxInactiveDays: e.target.value === '' ? null : Number(e.target.value) })} />
+        </Field>
+
+        <Field label="Силсила бо дӯст" hint="Ҷои ёдрасони маҳаллии «дӯст» — ҳоло серверист">
+          <select
+            className={inputCls}
+            value={draft.friendStreak ?? ''}
+            onChange={(e) => set({ friendStreak: e.target.value || null })}
+          >
+            <option value="">Фарқ надорад</option>
+            <option value="yes">Ҷуфти ФАЪОЛ дорад</option>
+            <option value="no">Надорад</option>
+          </select>
+        </Field>
+
+        <Field label="Гарави алмос" hint="«Дубора ё ҳеҷ» — ҷои ёдрасони маҳаллии вагар">
+          <select
+            className={inputCls}
+            value={draft.wager ?? ''}
+            onChange={(e) => set({ wager: e.target.value || null })}
+          >
+            <option value="">Фарқ надорад</option>
+            <option value="yes">Гарави ФАЪОЛ дорад</option>
+            <option value="no">Надорад</option>
+          </select>
         </Field>
       </div>
 
@@ -644,6 +672,7 @@ function CampaignEditor({
   const segKey = useMemo(() => JSON.stringify([
     draft.langs, draft.tier, draft.studiedToday, draft.minStreak, draft.maxStreak,
     draft.minInactiveDays, draft.maxInactiveDays, draft.levels, draft.countries, draft.tzOffsetMin,
+    draft.friendStreak, draft.wager,
   ]), [draft]);
 
   useEffect(() => {
@@ -661,6 +690,7 @@ function CampaignEditor({
             minInactiveDays: draft.minInactiveDays, maxInactiveDays: draft.maxInactiveDays,
             levels: splitList(draft.levels ?? null),
             countries: splitList(draft.countries ?? null),
+            friendStreak: draft.friendStreak, wager: draft.wager,
             tzOffsetMin: draft.tzOffsetMin ?? 300,
           }),
         });
@@ -782,7 +812,7 @@ function BroadcastTab({
   const [draft, setDraft] = useState<any>({
     langs: 'tg', tier: null, studiedToday: null,
     minStreak: null, maxStreak: null, minInactiveDays: null, maxInactiveDays: null,
-    levels: null, countries: null, tzOffsetMin: 300,
+    levels: null, countries: null, friendStreak: null, wager: null, tzOffsetMin: 300,
     route: 'home', force: false,
   });
   const [texts, setTexts] = useState<Texts>({ tg: { title: '', body: '' } });
@@ -829,6 +859,7 @@ function BroadcastTab({
             minStreak: draft.minStreak, maxStreak: draft.maxStreak,
             minInactiveDays: draft.minInactiveDays, maxInactiveDays: draft.maxInactiveDays,
             levels: splitList(draft.levels), countries: splitList(draft.countries),
+            friendStreak: draft.friendStreak, wager: draft.wager,
           },
           texts, route: draft.route, dryRun, force: draft.force,
           tzOffsetMin: draft.tzOffsetMin, label: 'broadcast',
@@ -907,10 +938,15 @@ function HistoryTab() {
   return (
     <div className="space-y-6">
       {stats && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 fade-up">
           <div className="glass-card p-4">
             <p className="text-xs text-[var(--text-muted)] mb-1">Фиристода (24с)</p>
             <p className="text-2xl font-bold text-emerald-600">{stats.sentToday}</p>
+          </div>
+          <div className="glass-card p-4">
+            <p className="text-xs text-[var(--text-muted)] mb-1">Кушода шуд (7 рӯз)</p>
+            <p className="text-2xl font-bold text-sky-600">{stats.openRateWeek ?? 0}%</p>
+            <p className="text-[11px] text-[var(--text-muted)] mt-0.5">{stats.openedWeek ?? 0} тап</p>
           </div>
           <div className="glass-card p-4">
             <p className="text-xs text-[var(--text-muted)] mb-1">Фиристода (7 рӯз)</p>

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { authenticate } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { isPushConfigured } from '@/lib/push';
 
 /**
  * POST /api/mobile/push/register
@@ -29,14 +30,21 @@ export async function POST(req: Request) {
       update: { userId: user.id, platform },
     });
 
-    if (typeof body?.enabled === 'boolean') {
-      await prisma.user.update({
-        where: { id: user.id },
-        data: { pushEnabled: body.enabled },
-      });
+    // Ҳолати тугма + минтақаи вақти дастгоҳ.
+    const patch: Record<string, unknown> = {};
+    if (typeof body?.enabled === 'boolean') patch.pushEnabled = body.enabled;
+    const tz = Number(body?.tzOffsetMin);
+    if (Number.isFinite(tz) && tz >= -840 && tz <= 840) patch.tzOffsetMin = Math.round(tz);
+    if (Object.keys(patch).length > 0) {
+      await prisma.user.update({ where: { id: user.id }, data: patch });
     }
 
-    return NextResponse.json({ success: true });
+    // ⚠️ ҚАЛБИ МАСЪАЛА: барнома аз рӯи ҳамин ҷавоб қарор мекунад, ки
+    // ёдрасонҳои МАҲАЛЛӢ-ро хомӯш кунад ё не. Пеш он танҳо «token сабт шуд»-ро
+    // медид ва локалиҳоро мекушт — вале агар сервер калиди Firebase надошта
+    // бошад, ҳеҷ push намерафт ва корбар МУТЛАҚО хомӯш мемонд. Ҳоло сервер рост
+    // мегӯяд: «ман воқеан фиристода метавонам ё не».
+    return NextResponse.json({ success: true, pushLive: isPushConfigured() });
   } catch (error: any) {
     console.error('Push register error:', error);
     return NextResponse.json({ error: error.message || 'Failed' }, { status: 400 });

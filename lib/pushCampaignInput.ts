@@ -30,6 +30,8 @@ export function bodyToData(body: any, forCreate: boolean) {
   set('maxInactiveDays', body.maxInactiveDays !== undefined ? numOrNull(body.maxInactiveDays) : undefined);
   set('levels', body.levels !== undefined ? joinList(body.levels) : undefined);
   set('countries', body.countries !== undefined ? joinList(body.countries) : undefined);
+  set('friendStreak', body.friendStreak !== undefined ? (body.friendStreak || null) : undefined);
+  set('wager', body.wager !== undefined ? (body.wager || null) : undefined);
 
   set('texts', body.texts !== undefined ? body.texts : undefined);
   set('route', body.route !== undefined ? (body.route || 'lesson') : undefined);

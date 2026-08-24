@@ -43,6 +43,8 @@ export type LearnerContext = {
   gems: number;
   level: string;
   daysInactive: number;
+  /** Фарқи вақти дастгоҳи корбар аз UTC (дақиқа). `null` = ҳанӯз намедонем. */
+  tzOffsetMin: number | null;
   /** Курси ҷорӣ (унвон дар забони модарӣ) — метавонад набошад. */
   courseTitle?: string;
   courseEmoji?: string;
@@ -69,6 +71,7 @@ export async function loadLearnerContext(userId: string): Promise<LearnerContext
       id: true, name: true, interfaceLang: true, nativeLang: true,
       streak: true, longestStreak: true, hearts: true, maxHearts: true,
       gems: true, level: true, lastActiveAt: true, currentCourseId: true,
+      tzOffsetMin: true,
     },
   });
   if (!u) return null;
@@ -84,6 +87,7 @@ export async function loadLearnerContext(userId: string): Promise<LearnerContext
     gems: u.gems,
     level: u.level,
     daysInactive: Math.floor((Date.now() - u.lastActiveAt.getTime()) / 86_400_000),
+    tzOffsetMin: u.tzOffsetMin,
   };
 
   if (u.currentCourseId) {

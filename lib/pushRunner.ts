@@ -33,8 +33,36 @@ export function segmentOf(c: PushCampaign): Segment {
     maxInactiveDays: c.maxInactiveDays,
     levels: parseList(c.levels),
     countries: parseList(c.countries),
+    friendStreak: c.friendStreak,
+    wager: c.wager,
   };
 }
+
+/**
+ * Корбаронро ПАРАЛЛЕЛ коркард мекунад (даста-даста, на пай дар пай).
+ *
+ * ЧАРО: ҳар корбар 2–3 дархости база + як дархости FCM мехоҳад ≈ 250мс. Пай дар
+ * пай 800 корбар ≈ 3 дақиқа, вале `maxDuration` дар Vercel 60 сония аст — job
+ * дар нимаи роҳ кушта мешуд. Бо 8 ҷараён ҳамон 800 корбар ≈ 25 сония мешавад.
+ */
+async function forEachPooled<T>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T) => Promise<void>,
+): Promise<void> {
+  let next = 0;
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+    while (true) {
+      const i = next++;
+      if (i >= items.length) return;
+      await fn(items[i]);
+    }
+  });
+  await Promise.all(workers);
+}
+
+/** Чанд корбар ҲАМЗАМОН коркард шаванд. */
+const CONCURRENCY = 8;
 
 /** Рӯзи ҳафта бо вақти маҳаллӣ: 1 = Душанбе … 7 = Якшанбе. */
 function localWeekday(now: Date, tzOffsetMin: number): number {
@@ -143,20 +171,23 @@ export async function runCampaign(c: PushCampaign, opts: RunOptions = {}): Promi
     res.skipped += before - userIds.length;
   }
 
-  for (const userId of userIds) {
+  await forEachPooled(userIds, CONCURRENCY, async (userId) => {
     try {
       const ctx = await loadLearnerContext(userId);
-      if (!ctx) { res.skipped++; continue; }
+      if (!ctx) { res.skipped++; return; }
 
+      // Вақти МАҲАЛЛИИ ХУДИ корбар, агар дастгоҳаш онро гуфта бошад — вагарна
+      // вақти кампания. Бе ин {countdown} барои муҳоҷир дурӯғ мебарояд.
+      const tz = ctx.tzOffsetMin ?? c.tzOffsetMin;
       const msg = renderCampaignText(texts, ctx, {
-        tzOffsetMin: c.tzOffsetMin,
+        tzOffsetMin: tz,
         countdownToHour: c.countdownToHour,
         now,
       });
-      if (!msg || !msg.title) { res.skipped++; continue; }
+      if (!msg || !msg.title) { res.skipped++; return; }
 
       if (!res.sample) res.sample = { userId, title: msg.title, body: msg.body };
-      if (dryRun) continue;
+      if (dryRun) return;
 
       const r = await sendPushToUser(
         userId,
@@ -171,7 +202,7 @@ export async function runCampaign(c: PushCampaign, opts: RunOptions = {}): Promi
     } catch (e) {
       res.failed++;
     }
-  }
+  });
 
   if (!dryRun) {
     await prisma.pushCampaign
@@ -247,18 +278,18 @@ export async function sendBroadcast(
     dryRun,
   };
 
-  for (const userId of userIds) {
+  await forEachPooled(userIds, CONCURRENCY, async (userId) => {
     try {
       const ctx = await loadLearnerContext(userId);
-      if (!ctx) { res.skipped++; continue; }
+      if (!ctx) { res.skipped++; return; }
       const msg = renderCampaignText(texts, ctx, {
-        tzOffsetMin: tz,
+        tzOffsetMin: ctx.tzOffsetMin ?? tz,
         countdownToHour: opts.countdownToHour ?? null,
         now,
       });
-      if (!msg || !msg.title) { res.skipped++; continue; }
+      if (!msg || !msg.title) { res.skipped++; return; }
       if (!res.sample) res.sample = { userId, title: msg.title, body: msg.body };
-      if (dryRun) continue;
+      if (dryRun) return;
 
       const r = await sendPushToUser(
         userId,
@@ -273,7 +304,7 @@ export async function sendBroadcast(
     } catch (e) {
       res.failed++;
     }
-  }
+  });
 
   return res;
 }
