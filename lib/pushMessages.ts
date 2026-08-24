@@ -61,6 +61,37 @@ function firstNameOf(name: string): string {
 }
 
 /**
+ * Курси хонандаро мебарорад, вақте `User.currentCourseId` холист.
+ *
+ * Ду манбаъ, аз боэътимодтарин:
+ *  1. **Прогресси худи ӯ** — охирин дарсе, ки ба он даст задааст, ба кадом курс
+ *     тааллуқ дорад. Ин ҷавоби дақиқтарин аст, чун аз рафтори воқеӣ меояд.
+ *  2. **Забони интихобкардааш** — барои касе, ки ҳанӯз ягон дарс накардааст:
+ *     курси фаъоли ҷуфти (забони ҳадаф → забони модарӣ), сатҳи аввал.
+ *
+ * `null` — агар ҳеҷ кадом ҷавоб надиҳад; он гоҳ матн ба ибораи умумӣ мегузарад.
+ */
+async function inferCourseId(userId: string, targetLang: string | null): Promise<string | null> {
+  // 1. Аз рафтори воқеӣ.
+  const last = await prisma.userProgress.findFirst({
+    where: { userId },
+    orderBy: [{ completedAt: 'desc' }, { id: 'desc' }],
+    select: { lesson: { select: { module: { select: { courseId: true } } } } },
+  });
+  const fromProgress = last?.lesson?.module?.courseId;
+  if (fromProgress) return fromProgress;
+
+  // 2. Аз интихоби забон (хонандаи нав, ҳанӯз бе прогресс).
+  if (!targetLang) return null;
+  const course = await prisma.course.findFirst({
+    where: { isActive: true, targetLanguage: { code: targetLang } },
+    orderBy: [{ level: 'asc' }, { order: 'asc' }],
+    select: { id: true },
+  });
+  return course?.id ?? null;
+}
+
+/**
  * Контексти хонандаро аз база меғундорад (корбар + курс + дарси навбатӣ).
  * `null` — агар корбар ёфт нашавад.
  */
@@ -70,7 +101,7 @@ export async function loadLearnerContext(userId: string): Promise<LearnerContext
     select: {
       id: true, name: true, interfaceLang: true, nativeLang: true,
       streak: true, longestStreak: true, hearts: true, maxHearts: true,
-      gems: true, level: true, lastActiveAt: true, currentCourseId: true,
+      gems: true, level: true, lastActiveAt: true, currentCourseId: true, targetLang: true,
       tzOffsetMin: true,
     },
   });
@@ -90,17 +121,25 @@ export async function loadLearnerContext(userId: string): Promise<LearnerContext
     tzOffsetMin: u.tzOffsetMin,
   };
 
-  if (u.currentCourseId) {
+  // Курси хонанда. `User.currentCourseId`-ро танҳо `/mobile/preferences`
+  // менависад ва барнома онро ҳеҷ гоҳ намефиристад — дар продакшн он барои
+  // ҲАМАИ 135 корбар холӣ буд. Натиҷа: `{lesson}` ва `{course}` — маҳз он ду
+  // ҷойгузоре, ки паёмро шахсӣ мекунанд — ҳамеша ба матни умумии «дарси
+  // навбатӣ» меафтоданд. Пас агар майдон холӣ бошад, курсро аз ХУДИ прогресси
+  // хонанда мебарорем.
+  const courseId = u.currentCourseId ?? (await inferCourseId(userId, u.targetLang));
+
+  if (courseId) {
     // Курс + аввалин дарси ҳанӯз хатмнашуда (тартиби роҳнамо: модул → дарс).
     const [course, lesson] = await Promise.all([
       prisma.course.findUnique({
-        where: { id: u.currentCourseId },
+        where: { id: courseId },
         select: { title: true, emoji: true },
       }),
       prisma.lesson.findFirst({
         where: {
           isActive: true,
-          module: { isActive: true, courseId: u.currentCourseId },
+          module: { isActive: true, courseId },
           progress: { none: { userId, isCompleted: true } },
         },
         orderBy: [{ module: { order: 'asc' } }, { order: 'asc' }],

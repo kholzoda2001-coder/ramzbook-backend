@@ -170,15 +170,18 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     },
   },
   {
+    // ⚠️ {gems} ин ҷо қасдан истифода намешавад: 53 корбари дорои token сифр
+    // алмос доранд ва «ва 0 алмосат нигоҳ дошта шуд» ба ҷои ҳавасмандӣ
+    // хандаовар мебарояд. Ҳар ҷойгузор бояд барои ҳолати САРҲАДӢ ҳам маънo дошта бошад.
     name: 'Win-back · 30 рӯз',
     hour: 20,
     minInactiveDays: 30,
     cooldownHours: 720,
     priority: 33,
     texts: {
-      tg: { title: 'Биё баргард! 🎁', body: '{name}, як моҳ шуд. Дилҳоят пуранд ва {gems} алмосат нигоҳ дошта шуд.' },
-      ru: { title: 'Возвращайся! 🎁', body: '{name}, прошёл месяц. Жизни полны, и твои {gems} кристаллов на месте.' },
-      en: { title: 'Come back! 🎁', body: '{name}, it has been a month. Your hearts are full and {gems} gems are safe.' },
+      tg: { title: 'Биё баргард! 🎁', body: '{name}, як моҳ шуд. Дилҳоят пуранд — аз ҳамон ҷое, ки монда будӣ, давом кун.' },
+      ru: { title: 'Возвращайся! 🎁', body: '{name}, прошёл месяц. Жизни полны — продолжим с того места, где ты остановился.' },
+      en: { title: 'Come back! 🎁', body: '{name}, it has been a month. Your hearts are full — pick up right where you left off.' },
     },
   },
   // ── Ҷои ёдрасонҳои МАҲАЛЛИИ 102/103 ────────────────────────────────────
