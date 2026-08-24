@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { isPushConfigured, sendPushToUser } from '@/lib/push';
 import { buildMessage, loadLearnerContext, type BuiltinCampaign } from '@/lib/pushMessages';
+import { renderCampaignText, type CampaignTexts } from '@/lib/pushTemplate';
 
 /**
  * /api/admin/push/test — санҷиши push (ҳимоя: middleware-и админ).
@@ -71,12 +72,46 @@ export async function POST(req: Request) {
 
     const ctx = await loadLearnerContext(user.id);
     if (!ctx) return NextResponse.json({ error: 'Контекст сохта нашуд' }, { status: 500 });
-    const msg = buildMessage(campaign, ctx);
+
+    // Ду манбаи матн:
+    //  • `campaignId` дода шуд → матни ВОҚЕИИ кампанияи панел. Маҳз ҳамин
+    //    чизеро, ки хонандагон мегиранд, аввал ба ХУДИ админ мефиристад —
+    //    бе ин «санҷиш» матни дигарро месанҷид ва хатои имло ё ҷойгузори
+    //    холӣ танҳо баъди рафтан ба садҳо нафар маълум мешуд;
+    //  • вагарна → кампанияи дохилии код (санҷиши худи қубур).
+    let msg: { title: string; body: string; data: Record<string, string> };
+    let source = `builtin:${campaign}`;
+
+    if (body?.campaignId) {
+      const c = await prisma.pushCampaign.findUnique({ where: { id: String(body.campaignId) } });
+      if (!c) return NextResponse.json({ error: 'Кампания ёфт нашуд' }, { status: 404 });
+      const rendered = renderCampaignText((c.texts ?? {}) as CampaignTexts, ctx, {
+        // Ҳамон минтақаи вақте, ки иҷрои воқеӣ истифода мебарад — вагарна
+        // {countdown} дар санҷиш ва дар фиристодани воқеӣ фарқ мекунад.
+        tzOffsetMin: ctx.tzOffsetMin ?? c.tzOffsetMin,
+        countdownToHour: c.countdownToHour,
+      });
+      if (!rendered || !rendered.title) {
+        return NextResponse.json(
+          { error: `Кампанияи «${c.name}» барои забони «${ctx.lang}» матн надорад` },
+          { status: 400 },
+        );
+      }
+      msg = {
+        title: rendered.title,
+        body: rendered.body,
+        data: { type: 'campaign', campaign: c.id, campaignName: c.name, route: c.route, lang: ctx.lang },
+      };
+      source = `campaign:${c.name}`;
+    } else {
+      msg = buildMessage(campaign, ctx);
+    }
 
     if (preview) {
       return NextResponse.json({
         ok: true,
         preview: true,
+        source,
         user: { id: user.id, name: user.name, email: user.email, pushEnabled: user.pushEnabled, devices: user._count.deviceTokens },
         context: ctx,
         message: msg,
@@ -98,6 +133,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       ok: result.sent > 0,
+      source,
       user: { id: user.id, name: user.name, email: user.email, devices: user._count.deviceTokens },
       result,
       message: msg,
