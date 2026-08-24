@@ -54,27 +54,27 @@ const DAILY_CHAIN_MAX_INACTIVE = 2;
 
 const SOFT_TG = {
   title: '{name}, вақти дарс расид 📚',
-  body: 'Имрӯз ҳанӯз нахондаӣ. Дарси «{lesson}» — ҳамагӣ {minutes} дақиқа.',
+  body: 'Имрӯз ҳанӯз нахондаӣ. {lesson} — ҳамагӣ {minutes} дақиқа.',
 };
 const HARD_TG = {
   title: '🔥 Силсилаи {streak}-рӯзаат дар хатар!',
-  body: '{countdown} монд. 5 дақиқа хон ва онро наҷот деҳ: «{lesson}».',
+  body: '{countdown} монд. 5 дақиқа хон ва онро наҷот деҳ: {lesson}.',
 };
 const SOFT_RU = {
   title: '{name}, время урока 📚',
-  body: 'Сегодня ты ещё не занимался. Урок «{lesson}» — всего {minutes} минут.',
+  body: 'Сегодня ты ещё не занимался. {lesson} — всего {minutes} минут.',
 };
 const HARD_RU = {
   title: '🔥 Твой стрик {streak} дн. под угрозой!',
-  body: 'Осталось {countdown}. 5 минут — и он спасён: «{lesson}».',
+  body: 'Осталось {countdown}. 5 минут — и он спасён: {lesson}.',
 };
 const SOFT_EN = {
   title: '{name}, time to study 📚',
-  body: "You haven't studied today. \"{lesson}\" takes just {minutes} minutes.",
+  body: "You haven't studied today. {lesson} takes just {minutes} minutes.",
 };
 const HARD_EN = {
   title: '🔥 Your {streak}-day streak is at risk!',
-  body: '{countdown} left. Five minutes saves it: "{lesson}".',
+  body: '{countdown} left. Five minutes saves it: {lesson}.',
 };
 
 export const DEFAULT_CAMPAIGNS: Seed[] = [
@@ -138,9 +138,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 96,
     priority: 30,
     texts: {
-      tg: { title: '{name}, се рӯз нест 👀', body: 'Дарси «{lesson}» интизори туст — ҳамагӣ {minutes} дақиқа.' },
-      ru: { title: '{name}, тебя не было три дня 👀', body: 'Урок «{lesson}» ждёт тебя — всего {minutes} минут.' },
-      en: { title: '{name}, it has been three days 👀', body: '"{lesson}" is waiting — just {minutes} minutes.' },
+      tg: { title: '{name}, се рӯз нест 👀', body: '{lesson} интизори туст — ҳамагӣ {minutes} дақиқа.' },
+      ru: { title: '{name}, тебя не было три дня 👀', body: '{lesson} ждёт тебя — всего {minutes} минут.' },
+      en: { title: '{name}, it has been three days 👀', body: '{lesson} is waiting — just {minutes} minutes.' },
     },
   },
   {
@@ -151,9 +151,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 168,
     priority: 31,
     texts: {
-      tg: { title: 'Як ҳафта гузашт 📚', body: 'Рекорди ту {longest_streak} рӯз буд. Имрӯз аз нав сар кунем?' },
-      ru: { title: 'Прошла неделя 📚', body: 'Твой рекорд — {longest_streak} дн. Начнём заново сегодня?' },
-      en: { title: 'A week has passed 📚', body: 'Your record is {longest_streak} days. Start again today?' },
+      tg: { title: 'Як ҳафта гузашт 📚', body: 'Забон бе такрор зуд фаромӯш мешавад. Имрӯз 5 дақиқа кофист — {lesson}.' },
+      ru: { title: 'Прошла неделя 📚', body: 'Язык без повторения быстро забывается. Сегодня хватит 5 минут — {lesson}.' },
+      en: { title: 'A week has passed 📚', body: 'A language fades without practice. Five minutes today is enough — {lesson}.' },
     },
   },
   {
@@ -164,9 +164,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     cooldownHours: 336,
     priority: 32,
     texts: {
-      tg: { title: 'Пазмонат шудем, {name} 😔', body: '«{course}» ним роҳ монд. Имрӯз ҳатто 2 дақиқа кофист.' },
-      ru: { title: 'Скучаем по тебе, {name} 😔', body: '«{course}» остался на полпути. Сегодня хватит и 2 минут.' },
-      en: { title: 'We miss you, {name} 😔', body: '"{course}" is half-finished. Even 2 minutes today is enough.' },
+      tg: { title: 'Пазмонат шудем, {name} 😔', body: 'Ду ҳафта гузашт. Имрӯз ҳатто 2 дақиқа кофист — {lesson}.' },
+      ru: { title: 'Скучаем по тебе, {name} 😔', body: 'Прошли две недели. Сегодня хватит и 2 минут — {lesson}.' },
+      en: { title: 'We miss you, {name} 😔', body: 'Two weeks have passed. Even 2 minutes today is enough — {lesson}.' },
     },
   },
   {
@@ -198,9 +198,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     priority: 15,
     route: 'lesson',
     texts: {
-      tg: { title: 'Дӯстат интизор аст 🤝', body: 'Силсилаи ҷуфтиатон имрӯз меғурад. {countdown} монд — «{lesson}».' },
-      ru: { title: 'Друг тебя ждёт 🤝', body: 'Ваш общий стрик сегодня оборвётся. Осталось {countdown} — «{lesson}».' },
-      en: { title: 'Your friend is waiting 🤝', body: 'Your joint streak breaks today. {countdown} left — "{lesson}".' },
+      tg: { title: 'Дӯстат интизор аст 🤝', body: 'Силсилаи ҷуфтиатон имрӯз меғурад. {countdown} монд — {lesson}.' },
+      ru: { title: 'Друг тебя ждёт 🤝', body: 'Ваш общий стрик сегодня оборвётся. Осталось {countdown} — {lesson}.' },
+      en: { title: 'Your friend is waiting 🤝', body: 'Your joint streak breaks today. {countdown} left — {lesson}.' },
     },
   },
   {

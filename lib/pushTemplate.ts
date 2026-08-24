@@ -72,12 +72,19 @@ function shortCountdown(totalMinutes: number): string {
   return `${h}:${String(m).padStart(2, '0')}`;
 }
 
-/** Матни захиравӣ, вақте маълумоти воқеӣ нест. */
+/**
+ * Матни захиравӣ, вақте маълумоти воқеӣ нест.
+ *
+ * ⚠️ Бо ҲАРФИ КАЛОН: 46 аз 135 хонандаи дастрас ҳанӯз ягон дарс накардаанд ва
+ * забони ҳадаф ҳам надоранд, пас барои онҳо ин матн мебарояд — на ҳамчун ном,
+ * балки ҳамчун ҷумлаи мустақил. Шаблонҳо `{lesson}`-ро БЕ нохунак истифода
+ * мебаранд, вагарна «Дарси «дарси навбатӣ»» мешуд.
+ */
 function fallbacks(lang: TplLang) {
   return {
     name: { tg: 'дӯст', ru: 'друг', en: 'friend' }[lang],
-    lesson: { tg: 'дарси навбатӣ', ru: 'следующий урок', en: 'the next lesson' }[lang],
-    course: { tg: 'курсат', ru: 'твой курс', en: 'your course' }[lang],
+    lesson: { tg: 'Дарси навбатӣ', ru: 'Следующий урок', en: 'The next lesson' }[lang],
+    course: { tg: 'Курсат', ru: 'Твой курс', en: 'Your course' }[lang],
   };
 }
 
