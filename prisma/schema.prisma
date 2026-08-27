@@ -747,6 +747,14 @@ model UserProgress {
   heartsLost  Int       @default(0)
   completedAt DateTime?
 
+  // «Реклама бин → XP дучанд». Вақти супоридани бонус, ё `null` агар
+  // ҳанӯз гирифта нашуда бошад.
+  //
+  // ЧАРО МАЙДОНИ ҶУДОГОНА, на ҳисоб аз `xpEarned`: бе нишондиҳандаи
+  // возеҳ даъвати такрорӣ XP-ро боз ду баробар мекард (2× → 4× → 8×).
+  // Ин ягона муҳофиз аст, ки «як дарс — як бонус»-ро кафолат медиҳад.
+  xpDoubledAt DateTime?
+
   @@unique([userId, lessonId])
   @@index([userId])
 }
