@@ -16,6 +16,21 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'nativeLanguageId is required' }, { status: 400 });
     }
 
+    // Забони модарӣ аз панели админ хомӯш карда шудааст? Пас ҳамаи забонҳои
+    // ОМӮЗИШИИ тобеи он низ бояд нопадид шаванд.
+    //
+    // Танҳо аз рӯйхати `/languages/native` бароварданаш кифоя НЕСТ: хонандае,
+    // ки ин забонро аллакай интихоб кардааст, id-и онро дар телефонаш нигоҳ
+    // медорад ва рост ба ҳамин endpoint муроҷиат мекунад — бе ин санҷиш ӯ
+    // курсҳоро мисли пештара мегирифт.
+    const native = await prisma.language.findUnique({
+      where: { id: nativeLanguageId },
+      select: { isActive: true, canBeNative: true },
+    });
+    if (!native || !native.isActive || !native.canBeNative) {
+      return NextResponse.json({ languages: [] });
+    }
+
     const targets = await prisma.language.findMany({
       where: {
         isActive: true,

@@ -26,10 +26,12 @@ export default function NewLanguagePage() {
     try {
       const res = await fetch('/api/admin/languages', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
+        // Пештар ин ҷо `canBeNative: true` ва `canBeTarget: false` САХТ
+        // навишта шуда буданд ва `...form`-ро мепӯшонданд — яъне чекбокси
+        // «Метавонад модарӣ бошад» дар экран буд, вале ҳеҷ таъсире надошт.
+        // Ҳоло интихоби худи админ фиристода мешавад.
         body: JSON.stringify({
           ...form,
-          canBeNative: true,
-          canBeTarget: false,
           badge: form.badge || null,
           learnerCount: form.learnerCount || null,
         }),

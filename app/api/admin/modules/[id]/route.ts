@@ -37,6 +37,11 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         ...(body.order !== undefined && { order: body.order }),
         ...(body.isPremium !== undefined && { isPremium: body.isPremium }),
         ...(body.isBoss !== undefined && { isBoss: body.isBoss }),
+        // Blanking the box clears the line (null), rather than storing "" —
+        // the path treats null and "" the same, but null keeps the column clean.
+        ...(body.canDoStatement !== undefined && {
+          canDoStatement: String(body.canDoStatement).trim() || null,
+        }),
         ...(body.isActive !== undefined && { isActive: body.isActive }),
       },
     });

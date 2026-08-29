@@ -1,0 +1,11 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { neon } from '@neondatabase/serverless';
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const env = fs.readFileSync(path.resolve(HERE, '../.env'), 'utf8');
+const m = env.match(/^DATABASE_URL="([^"]+)"/m);
+const sql = neon(m[1]);
+const rows = await sql`SELECT code, name, "nameTranslations", emoji, description, "descriptionTranslations", rarity, "conditionType", "conditionValue" FROM "Achievement" ORDER BY "conditionType", "conditionValue"`;
+fs.writeFileSync(process.argv[2], JSON.stringify(rows, null, 2), 'utf8');
+console.log('rows:', rows.length);

@@ -121,6 +121,7 @@ model User {
   speakingProgress     SpeakingProgress[]
   leagueMemberships    LeagueMember[]
   leagueResults        LeagueResult[]
+  contentReports       ContentReport[]
 
   @@index([email])
   @@index([phone])
@@ -332,6 +333,26 @@ model Module {
   isPremium       Boolean @default(false) // requires Premium
   isBoss          Boolean @default(false) // boss module
   isActive        Boolean @default(true)
+  // ── "Can-do" statement for this SECTION, in the learner's native language ──
+  // Shown on the path under the section header ("Пас аз ин бахш дар бораи оила
+  // ва хонаи худ нақл карда метавонед."). Distinct from CefrDescriptor, which
+  // is scoped to a whole CEFR LEVEL and a skill — this one names the concrete
+  // thing this section alone makes possible. Nullable: the row is simply not
+  // rendered until an editor writes it, so a section without copy looks
+  // finished rather than broken.
+  canDoStatement  String? @db.Text
+  // ── Версияи мазмуни БАХШ ──────────────────────────────────────────────
+  // Бахш воҳиди зеркашии офлайн аст (тирезаи 3-бахшӣ), пас версия ҳам маҳз
+  // ин ҷо меистад. Ҳар навиштан ба дарс/калима/компоненти дохили ин бахш
+  // рақамро як зина боло мебарад (ниг. `lib/contentVersion.ts`), ва барнома
+  // ҳангоми кушодан рақами худро бо ин муқоиса мекунад.
+  //
+  // ⚠️ ЧАРО ин ба `AppSetting.content_version`-и глобалӣ илова мешавад, на
+  // ҷои онро мегирад: он як парчами арзони «умуман чизе тағйир ёфт?» аст ва
+  // барои кэши SWR кор мекунад. Вале он ГЛОБАЛӢ аст ва ба хонанда намегӯяд,
+  // ки маҳз КАДОМ бахш кӯҳна шудааст — бе ин рақам барнома пас аз огоҳии
+  // «хато ислоҳ шуд» ҳамон сатри кӯҳнаро нишон медиҳад.
+  contentVersion  Int     @default(1)
 
   lessons Lesson[]
 
@@ -712,6 +733,65 @@ model SrsCard {
   @@unique([userId, itemType, itemId])
   @@index([userId, dueAt])
   @@index([userId, courseId])
+}
+
+/// Гузориши хатои МАЗМУН, ки худи хонанда фиристодааст.
+///
+/// ЧАРО ВУҶУД ДОРАД: RAMZ ба забонҳое паҳн мешавад, ки соҳиби маҳсулот онҳоро
+/// намедонад. Ин хонандаро ба мусаҳҳеҳ табдил медиҳад — ва маҳз бинобар ин
+/// [field] ҳатмист: «дар ин экран хато ҳаст» бефоида аст, «тарҷумаи модарии
+/// ҳамин калима хато аст» — ислоҳшаванда.
+///
+/// ⚠️ [contentId] МАШҚ нест, балки худи МАЗМУН аст (`Word.id`,
+/// `GrammarTopic.id`, …). Машқҳо дар телефон аз калимаҳо СОХТА мешаванд ва
+/// id-и устувор надоранд: як калима дар як дарс ҳамчун `choose`, `type` ва
+/// `intro` пайдо мешавад. Агар гурӯҳбандӣ ба машқ баста мешуд, ҳашт гузориш
+/// дар ЯК сатр ба се гурӯҳи ҷудо мешикаст — дақиқан он чизе, ки талаб
+/// «як сатр, як бор ҳал мекунам» рад мекунад.
+model ContentReport {
+  id           String  @id @default(cuid())
+  userId       String
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// Дарсе, ки хонанда дар он буд — барои кушодани он аз огоҳӣ.
+  lessonId     String
+  /// Бахш — версияи мазмуни он ҳангоми ҳал як зина боло меравад.
+  moduleId     String?
+  /// Id-и МАЗМУН (Word.id ва ғ.), на машқ. Ниг. тавзеҳи боло.
+  contentId    String
+  /// Навъи машқе, ки хонанда дар он буд — танҳо барои контекст дар панел.
+  exerciseType String
+  /// Калиди майдон: `word_target`, `word_native`, `ipa`, `audio`, `option_2`…
+  /// Рӯйхат дар `frontend/lib/features/report/report_fields.dart` муайян аст.
+  field        String
+  /// Қимате, ки хонанда дар лаҳзаи гузориш ДИДА буд.
+  value        String  @db.Text
+
+  /// wrong_translation | spelling | unnatural | other
+  reason       String
+  suggestion   String? @db.Text
+
+  /// new | fixed | rejected
+  status       String  @default("new")
+
+  /// Оё 5 алмос барои ин гузориш аллакай дода шудааст?
+  ///
+  /// ⚠️ МАҲЗ ин парчам ду бор зер кардани «Ҳал шуд»-ро бехатар мекунад:
+  /// транзаксия танҳо сатрҳои `rewarded = false`-ро мукофот медиҳад. Бе он
+  /// зеркунии дуюм ба ҳамон корбарон боз 5 алмос медод.
+  rewarded     Boolean @default(false)
+
+  uiLanguage   String?
+  course       String?
+  appVersion   String?
+
+  createdAt    DateTime  @default(now())
+  resolvedAt   DateTime?
+
+  // Панели админ маҳз бо ҳамин ҷуфт гурӯҳбандӣ мекунад.
+  @@index([contentId, field, status])
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
 }
 
 model UiTranslation {

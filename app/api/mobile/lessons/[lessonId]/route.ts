@@ -166,6 +166,52 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
       };
     }
 
+    // ── SRS pool for component steps ────────────────────────────────────────
+    // A step that links to a component (grammar / phrases / dialogue /
+    // comprehension) carries no Word rows of its own, so `words` came back
+    // empty. The app reads exactly this array as its SRS pool
+    // (course_roadmap_screen._enrollLessonWords) and bails on an empty one —
+    // so grammar and dialogue steps never fed the review queue at all.
+    //
+    // Fall back to a small slice of the MODULE's vocabulary: words the learner
+    // has already met earlier in this same module, so finishing the step
+    // REFRESHES them rather than introducing anything new. Deliberately capped
+    // — enrolment grades every word in the pool as "good", and letting one
+    // grammar step push a whole 60-word module's SM-2 intervals out would
+    // inflate schedules the learner never actually earned.
+    //
+    // Ordering is deterministic (most frequent first; Postgres sorts NULL
+    // frequencyRank last on ASC), and duplicate surface forms are collapsed —
+    // several modules teach the same word in two lessons, and enrolling both
+    // rows would put one word into the queue twice.
+    const SRS_FALLBACK_LIMIT = 5;
+    let wordRows = lesson.words;
+    if (component && wordRows.length === 0) {
+      const moduleWords = await prisma.word.findMany({
+        where: { lesson: { moduleId: lesson.moduleId } },
+        orderBy: [{ frequencyRank: 'asc' }, { order: 'asc' }, { id: 'asc' }],
+      });
+      const seen = new Set<string>();
+      const deduped = moduleWords.filter((w) => {
+        const key = w.word.trim().toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      // Each component step gets a DIFFERENT window of the module's words.
+      // Taking the same first five everywhere would hand a module's 3-4
+      // component steps one identical set, grading those five "good" four
+      // times over while the module's other ~38 words got one pass each —
+      // a handful of words racing out to long intervals for no reason.
+      // Rotating by the lesson's own order keeps the pick deterministic
+      // (same lesson → same pool on every fetch) while spreading the load.
+      const start = deduped.length
+        ? (lesson.order * SRS_FALLBACK_LIMIT) % deduped.length
+        : 0;
+      wordRows = [...deduped.slice(start), ...deduped.slice(0, start)]
+        .slice(0, SRS_FALLBACK_LIMIT);
+    }
+
     return NextResponse.json({
       id: lesson.id,
       title: lesson.title,
@@ -184,7 +230,7 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
       nativeLanguageCode: nativeCode,
       // The linked step content, or null for a plain vocabulary lesson.
       component,
-      words: lesson.words.map((w) => ({
+      words: wordRows.map((w) => ({
         id: w.id,
         word: w.word,
         translation: w.translation,

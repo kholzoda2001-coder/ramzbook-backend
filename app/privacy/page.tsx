@@ -116,13 +116,15 @@ function Tg() {
         </ul>
         Дар мобайни машқҳо реклама нест.
         <ul style={s.ul}>
-          <li>Рекламаро <b>Google AdMob</b> ва <b>Yandex Mobile Ads (Yandex
+          <li>Рекламаро <b>Unity LevelPlay (ironSource)</b> (медиатсия — аз тариқи он
+            <b>Meta Audience Network</b> ва дигар шабакаҳои шарик реклама нишон
+            дода метавонанд) ва <b>Yandex Mobile Ads (Yandex
             Advertising Network)</b> таъмин мекунанд. Онҳо барои интихоби реклама
             рақами рекламавии дастгоҳ (Google Advertising ID / GAID), суроғаи IP ва
             маълумоти умумии дастгоҳро истифода мебаранд:{' '}
-            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>,{' '}
+            <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
             <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
-          <li>Мо рекламаро танҳо бо рейтинги <b>«G» (барои ҳама)</b> маҳдуд кардаем.</li>
+          <li>Баннер ва рекламаи дохили машқ тамоман истифода намешавад.</li>
           <li><b>Обунаи Premium реклама надорад.</b></li>
           <li>Барои хомӯш кардани реклами шахсӣ: Танзимоти Android → Google → Реклама →
             «Delete advertising ID» ё «Opt out of Ads Personalisation».</li>
@@ -134,7 +136,8 @@ function Tg() {
         мубодила мешавад:
         <ul style={s.ul}>
           <li><b>Google Play Services / Google Sign-In</b> — воридшавӣ ва пардохт;</li>
-          <li><b>Google AdMob</b> — намоиши реклама (рақами рекламавӣ);</li>
+          <li><b>Unity LevelPlay (ironSource)</b> — медиатсия ва намоиши реклама (рақами рекламавӣ);</li>
+          <li><b>Meta Audience Network</b> — намоиши реклама аз дохили LevelPlay;</li>
           <li><b>Yandex Mobile Ads</b> — намоиши реклама (рақами рекламавӣ);</li>
           <li><b>Meta (Facebook) App Events</b> — омор ва атрибутсияи насби барнома;
             рақами рекламавиро мехонад;</li>
@@ -246,13 +249,15 @@ function Ru() {
         </ul>
         Внутри упражнений рекламы нет.
         <ul style={s.ul}>
-          <li>Рекламу предоставляют <b>Google AdMob</b> и <b>Yandex Mobile Ads
+          <li>Рекламу предоставляют <b>Unity LevelPlay (ironSource)</b> (медиация — через неё
+            рекламу могут показывать <b>Meta Audience Network</b> и другие
+            сети-партнёры) и <b>Yandex Mobile Ads
             (Рекламная сеть Яндекса)</b>. Они используют рекламный идентификатор
             устройства (Google Advertising ID / GAID), IP-адрес и общие данные
             устройства:{' '}
-            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>,{' '}
+            <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
             <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
-          <li>Мы ограничили рекламу рейтингом <b>«G» (для всех)</b>.</li>
+          <li>Баннеры и реклама внутри упражнений не используются вовсе.</li>
           <li><b>В подписке Premium рекламы нет.</b></li>
           <li>Отключить персонализацию: Настройки Android → Google → Реклама →
             «Удалить рекламный идентификатор» или «Отключить персонализацию рекламы».</li>
@@ -263,7 +268,8 @@ function Ru() {
         Мы <b>не продаём</b> ваши данные. Данные передаются только необходимым сервисам:
         <ul style={s.ul}>
           <li><b>Google Play Services / Google Sign-In</b> — вход и оплата;</li>
-          <li><b>Google AdMob</b> — показ рекламы (рекламный идентификатор);</li>
+          <li><b>Unity LevelPlay (ironSource)</b> — медиация и показ рекламы (рекламный идентификатор);</li>
+          <li><b>Meta Audience Network</b> — показ рекламы через LevelPlay;</li>
           <li><b>Yandex Mobile Ads</b> — показ рекламы (рекламный идентификатор);</li>
           <li><b>Meta (Facebook) App Events</b> — статистика и атрибуция установок;
             читает рекламный идентификатор;</li>
@@ -370,12 +376,14 @@ function En() {
         </ul>
         There are no ads inside the exercises.
         <ul style={s.ul}>
-          <li>Ads are served by <b>Google AdMob</b> and <b>Yandex Mobile Ads (Yandex
+          <li>Ads are served by <b>Unity LevelPlay (ironSource)</b> (mediation — through it
+            <b>Meta Audience Network</b> and other partner networks may serve ads)
+            and <b>Yandex Mobile Ads (Yandex
             Advertising Network)</b>. They use the device advertising identifier (Google
             Advertising ID / GAID), IP address and general device data to select ads:{' '}
-            <A href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</A>,{' '}
+            <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
             <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
-          <li>We restrict ads to a <b>“G” (general audiences)</b> content rating.</li>
+          <li>Banners and in-exercise ads are not used at all.</li>
           <li><b>Premium subscribers see no ads.</b></li>
           <li>To opt out of personalised ads: Android Settings → Google → Ads →
             “Delete advertising ID” or “Opt out of Ads Personalisation”.</li>
@@ -386,7 +394,8 @@ function En() {
         We <b>do not sell</b> your data. Data is shared only with necessary services:
         <ul style={s.ul}>
           <li><b>Google Play Services / Google Sign-In</b> — login &amp; payments;</li>
-          <li><b>Google AdMob</b> — serving ads (advertising ID);</li>
+          <li><b>Unity LevelPlay (ironSource)</b> — mediation and serving ads (advertising ID);</li>
+          <li><b>Meta Audience Network</b> — serving ads through LevelPlay;</li>
           <li><b>Yandex Mobile Ads</b> — serving ads (advertising ID);</li>
           <li><b>Meta (Facebook) App Events</b> — install analytics and attribution;
             reads the advertising identifier;</li>

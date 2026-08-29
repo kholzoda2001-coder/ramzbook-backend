@@ -22,6 +22,7 @@ interface Module {
   isActive: boolean;
   isPremium: boolean;
   isBoss: boolean;
+  canDoStatement: string | null;
   courseId: string;
   course: {
     id: string; title: string; emoji: string; level: string;
@@ -40,7 +41,7 @@ const FIELD: React.CSSProperties = {
 const EMPTY_FORM = {
   courseId: '', title: '', titleTranslated: '',
   emoji: '🎯', color: '#10B981', order: '',
-  isPremium: false, isBoss: false,
+  isPremium: false, isBoss: false, canDoStatement: '',
 };
 
 function ModulesContent() {
@@ -104,6 +105,7 @@ function ModulesContent() {
         color: form.color || '#10B981',
         isPremium: form.isPremium,
         isBoss: form.isBoss,
+        canDoStatement: form.canDoStatement,
       };
       if (form.order !== '') payload.order = Number(form.order);
       const res = await fetch('/api/admin/modules', {
@@ -212,6 +214,21 @@ function ModulesContent() {
                 <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>Тартиб (ихтиёрӣ)</label>
                 <input type="number" min={0} placeholder="автоматӣ" value={form.order}
                   onChange={e => setForm(f => ({ ...f, order: e.target.value }))} style={FIELD} />
+              </div>
+              {/* Сатри «пас аз ин бахш чӣ карда метавонед» — дар харита зери
+                  сарлавҳаи бахш нишон дода мешавад. Холӣ бошад, сатр умуман
+                  чоп намешавад, пас бахши бе матн вайрон ба назар намерасад. */}
+              <div style={{ gridColumn: '1 / -1' }}>
+                <label style={{ display: 'block', color: 'var(--text-secondary)', fontSize: '13px', marginBottom: '6px' }}>
+                  Натиҷаи бахш (ба забони модарӣ)
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder="Пас аз ин бахш дар бораи оила ва хонаи худ нақл карда метавонед."
+                  value={form.canDoStatement}
+                  onChange={e => setForm(f => ({ ...f, canDoStatement: e.target.value }))}
+                  style={{ ...FIELD, resize: 'vertical', fontFamily: 'inherit', lineHeight: 1.5 }}
+                />
               </div>
               <div style={{ display: 'flex', gap: '20px', alignItems: 'center', paddingTop: '24px' }}>
                 <label style={{ display: 'flex', gap: '8px', alignItems: 'center', cursor: 'pointer', color: 'var(--text-secondary)', fontSize: '13px' }}>

@@ -47,6 +47,7 @@ export async function POST(req: NextRequest) {
       order?: number;
       isPremium?: boolean;
       isBoss?: boolean;
+      canDoStatement?: string;
     };
 
     if (!body.courseId || !body.title) {
@@ -65,6 +66,7 @@ export async function POST(req: NextRequest) {
         order,
         isPremium: body.isPremium ?? false,
         isBoss: body.isBoss ?? false,
+        canDoStatement: body.canDoStatement?.trim() || null,
         isActive: true,
       },
     });

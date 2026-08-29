@@ -63,13 +63,81 @@ async function main(){
   }
   console.log(`  Word fixes: examples=${exFix} ipa=${ipaFix} ipaTajik=${ipatjFix}`);
 
-  // ---------- G. TITLE-CASE on dialogue lines & comprehension passages ----------
+  // ---------- G. TITLE-CASE on dialogue lines ----------
   const dls = await prisma.dialogueLine.findMany({ where:{dialogue:{courseId:course.id}} });
   let dlFix=0;
   for(const d of dls){ const data={}; const ne=fixEnglish(d.text); if(ne!==d.text){data.text=ne;dlFix++;} const nt=fixTajik(d.translation); if(nt!==d.translation)data.translation=nt; if(Object.keys(data).length&&!dry) await prisma.dialogueLine.update({where:{id:d.id},data}); }
   console.log(`  Dialogue line fixes: ${dlFix}`);
 
+  // ---------- G2. TITLE-CASE on comprehension passages & questions ----------
+  // Section G above CLAIMED to cover comprehension but only ever iterated
+  // DialogueLine, so the whole reading/listening layer kept its Title-Case text
+  // while p0-final-report scored orthography as "normalized" (it samples only
+  // Word.example). See System_Bug_Audit.md, item 5.
+  //
+  // NOT touched: `title` / `titleTranslated`. Those are headings ("Module
+  // Review", "Final Exam") where Title Case is correct — running fixEnglish
+  // over them would lowercase the tail into "Module review".
+
+  // An option can be EITHER language — e.g. options ["Лутфан","Ташаккур"] sit
+  // next to ["Breakfast","Dinner"] — so route each string by its script rather
+  // than assuming the column's language.
+  const hasCyrillic = (s) => /[Ѐ-ӿ]/.test(s);
+
+  // ⚠️ SHORT FIELDS MUST BE GUARDED. `fixEnglish` is sentence-aware: it
+  // capitalises whatever it believes starts a sentence. On a whole passage
+  // that is right, but on short strings a dry run over real A1 data showed it
+  // actively CORRUPTING correct text:
+  //   options  ["has","am","have"]        → ["Has","Am","Have"]   (gap-fillers!)
+  //   question "'Хоҳар' in English is:"   → "'Хоҳар' In English is:"
+  //   question "Complete: This is ___"    → "Complete: this is ___"
+  // So short fields are rewritten ONLY when they are genuinely Title-Cased
+  // prose — every alphabetic word capitalised, 2+ words ("How Are You?",
+  // "I Am Fine, Thank You."). That is the defect this section exists to fix,
+  // and the guard means the pass can never make correct text worse.
+  const isTitleCased = (s) => {
+    const toks = String(s).replace(/[?.!,;:'"()]/g, '').split(/\s+/)
+      .filter(t => /[A-Za-z]/.test(t));
+    return toks.length >= 2 && toks.every(t => /^[A-Z]/.test(t));
+  };
+  const fixShortEnglish = (s) => (isTitleCased(s) ? fixEnglish(s) : s);
+  const fixOption = (s) => (hasCyrillic(s) ? fixTajik(s) : fixShortEnglish(s));
+
+  const comps = await prisma.comprehensionExercise.findMany({
+    where: { courseId: course.id },
+    include: { questions: true },
+  });
+  // NOT touched either: `explanation` and `questionTranslated`. They are
+  // declared native-language but in practice hold MIXED text — "Бо I → have
+  // got.", "Хоҳар = Sister." — and fixTajik lowercases every non-first word it
+  // does not recognise, so a dry run turned "Бо I" into "Бо i". Their real
+  // defect (a missing opening capital) is a different problem from Title Case
+  // and needs a mixed-script pass of its own.
+  let passFix=0, passTjFix=0, qFix=0, optFix=0;
+
+  for(const cx of comps){
+    const data={};
+    const np = fixEnglish(cx.passage); if(np!==cx.passage){ data.passage=np; passFix++; }
+    if(cx.passageTranslated){ const npt=fixTajik(cx.passageTranslated); if(npt!==cx.passageTranslated){ data.passageTranslated=npt; passTjFix++; } }
+    if(Object.keys(data).length && !dry) await prisma.comprehensionExercise.update({where:{id:cx.id},data});
+
+    for(const q of cx.questions){
+      const qd={};
+      const nq = fixShortEnglish(q.question); if(nq!==q.question){ qd.question=nq; qFix++; }
+      // `options` is Json (string[]). Order is NEVER changed — `correctIndex`
+      // points into this array, so a reorder would silently break the answer.
+      if(Array.isArray(q.options)){
+        const no = q.options.map(o => typeof o === 'string' ? fixOption(o) : o);
+        if(JSON.stringify(no)!==JSON.stringify(q.options)){ qd.options=no; optFix++; }
+      }
+      if(Object.keys(qd).length && !dry) await prisma.comprehensionQuestion.update({where:{id:q.id},data:qd});
+    }
+  }
+  const qTotal = comps.reduce((n,c)=>n+c.questions.length,0);
+  console.log(`  Comprehension: ${comps.length} exercises / ${qTotal} questions`);
+  console.log(`    passages=${passFix} passagesTj=${passTjFix} questions=${qFix} options=${optFix}`);
+
   console.log('\n=== PHASE 3 SUMMARY ===');
-  console.log(JSON.stringify({ grammarDuplicatesRemoved:grammarDeleted, vocabDuplicatesRemoved:vocabDeleted, duplicateModulesRemoved:dupMods, xpChanged, exampleFixes:exFix, ipaFixes:ipaFix },null,2));
+  console.log(JSON.stringify({ grammarDuplicatesRemoved:grammarDeleted, vocabDuplicatesRemoved:vocabDeleted, duplicateModulesRemoved:dupMods, xpChanged, exampleFixes:exFix, ipaFixes:ipaFix, dialogueLineFixes:dlFix, comprehensionPassageFixes:passFix, comprehensionPassageTajikFixes:passTjFix, comprehensionQuestionFixes:qFix, comprehensionOptionFixes:optFix },null,2));
 }
 main().catch(e=>{console.error(e);process.exit(1);}).finally(()=>prisma.$disconnect());

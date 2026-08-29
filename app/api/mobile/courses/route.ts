@@ -22,7 +22,16 @@ export async function GET(req: NextRequest) {
     }
 
     const courses = await prisma.course.findMany({
-      where: { targetLanguageId, nativeLanguageId, isActive: true },
+      where: {
+        targetLanguageId,
+        nativeLanguageId,
+        isActive: true,
+        // Забони модарӣ аз админ хомӯш шуда бошад, тамоми мазмуни ба он
+        // тааллуқдошта пинҳон мешавад. Санҷиш ин ҷо — ҳангоми ХОНДАН — аст,
+        // на бо навиштани `Course.isActive = false`: вагарна баргардонидан
+        // курсҳоеро, ки админ ҶУДОГОНА хомӯш карда буд, зинда мекард.
+        nativeLanguage: { isActive: true, canBeNative: true },
+      },
       orderBy: { order: 'asc' },
       include: {
         modules: {
@@ -56,6 +65,14 @@ export async function GET(req: NextRequest) {
         order: m.order,
         isPremium: m.isPremium,
         isBoss: m.isBoss,
+        // Per-section "can-do" line on the path. Empty string (not null) so the
+        // client can treat "no copy yet" and "field missing" identically.
+        canDoStatement: m.canDoStatement ?? '',
+        // Версияи мазмуни бахш — барнома онро дар паҳлӯи бахши зеркашишуда
+        // нигоҳ медорад ва ҳангоми кушодан муқоиса мекунад. Бе ин, сатри
+        // ислоҳшуда дар телефон кӯҳна мемонад ва хонанда пас аз огоҳии
+        // «ислоҳ шуд» ҳамон хаторо мебинад.
+        contentVersion: m.contentVersion,
         lessonCount: m.lessons.length,
         lessons: m.lessons.map((l) => ({
           id: l.id,
