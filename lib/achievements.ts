@@ -1,4 +1,5 @@
 ﻿import { prisma } from './prisma';
+import { addWeeklyXp } from './league';
 
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // Achievement definitions (source of truth). Seeded idempotently by `code`.
@@ -231,6 +232,10 @@ export async function evaluateAchievements(userId: string): Promise<UnlockedAchi
         data: { userId, amount: gemsToAdd, reason: 'achievement_unlock' },
       });
     }
+    // XP-и дастовард аз `awardXp` НАМЕГУЗАРАД (то рекурсия нашавад), пас
+    // ҳисобкунаки лига бояд онро алоҳида бигирад — вагарна XP-и ҳафтаина дар
+    // лига аз ҷамъи воқеӣ камтар мешуд.
+    if (xpToAdd > 0) await addWeeklyXp(userId, xpToAdd);
   }
 
   return newly;

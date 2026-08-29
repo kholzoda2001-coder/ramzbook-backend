@@ -60,6 +60,15 @@ model User {
   aiConversationsToday   Int      @default(0)
   aiConversationsResetAt DateTime @default(now())
 
+  /// Зинаи ҷории лига (1 Бронза … 5 Алмос) — КЭШИ хондан.
+  ///
+  /// ⚠️ ҲАМЕША бо `set:` навишта мешавад, ҳеҷ гоҳ бо `increment:`. Манбаи
+  /// ҳақиқат `LeagueResult.newTier`-и охирин аст, ва он аз (ҷой, зина, шумораи
+  /// аъзо) ҳисоб мешавад — функсияи СОФ. Маҳз ҳамин чиз такрори кори
+  /// ҳафтагиро бехатар мекунад: дубора иҷро шудан ҳамон рақамро мебарорад,
+  /// на як зина болотар. Ниг. `lib/league.ts` → `closeWeek()`.
+  leagueTier   Int      @default(1)
+
   // Misc
   createdAt    DateTime @default(now())
   lastActiveAt DateTime @default(now())
@@ -110,6 +119,8 @@ model User {
   deviceTokens         DeviceToken[]
   pushSends            PushSend[]
   speakingProgress     SpeakingProgress[]
+  leagueMemberships    LeagueMember[]
+  leagueResults        LeagueResult[]
 
   @@index([email])
   @@index([phone])
@@ -1180,4 +1191,108 @@ model FriendStreak {
 
   @@index([user1Id, status])
   @@index([user2Id, status])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Лига — мусобиқаи ҳафтаинаи когортҳои то 30 нафар
+//
+// ЧАРО: рейтинги ҷаҳонӣ ҳамаи ~1240 корбарро дар як рӯйхат мегузошт, пас қариб
+// ҳама дар ҷое меистоданд, ки ҳеҷ гоҳ иваз карда наметавонистанд. Когортаи
+// 30-нафара мусобиқаро ВОҚЕАН бурданӣ мекунад.
+//
+// Марзи ҳафта: шанбе 00:00 UTC, калид = санаи ҳамон шанбе ("2026-08-29").
+// UTC барои ҲАМА — ҳафтаи ҳар корбар алоҳида бошад, когортро тартиб додан
+// имконнопазир мешавад. `DailyXp.date` ҳам бо UTC калид мешавад, пас ду манбаъ
+// бо ҳам мувофиқанд.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Як когорта: як зина, як ҳафта, то 30 нафар.
+model League {
+  id    String @id @default(cuid())
+  /// 1 Бронза · 2 Нуқра · 3 Тилло · 4 Платина · 5 Алмос
+  tier  Int
+  /// Санаи ШАНБЕи оғози ҳафта, "YYYY-MM-DD" (UTC).
+  weekKey String
+
+  /// Шумораи аъзо — денормализатсия шуда, то ҷустуҷӯи «когортаи кушод» як
+  /// дархости индексдор бошад.
+  ///
+  /// ⚠️ ҲЕҶ ГОҲ бо read-then-write нав карда намешавад: ду корбар ҳамзамон
+  /// 29-ро мехонанд ва ҳарду дохил мешаванд → 31. Навиштан ҳамеша ШАРТӢ аст
+  /// (`updateMany where memberCount < 30`), ниг. `lib/league.ts`.
+  memberCount Int @default(0)
+
+  /// Лаҳзаи бастани ҳафта. Муҳофизати идемпотентии №1 — иҷрои дуюм ин
+  /// когортаро тамоман мегузаронад.
+  rolledOverAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  members LeagueMember[]
+  results LeagueResult[]
+
+  /// Ҷустуҷӯи «когортаи кушоди ин зина дар ин ҳафта» — маҳз ҳамин индекс.
+  @@index([weekKey, tier, memberCount])
+  @@index([weekKey, rolledOverAt])
+}
+
+/// Узвият: як корбар дар як когорта дар як ҳафта.
+model LeagueMember {
+  id       String @id @default(cuid())
+  leagueId String
+  league   League @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  /// Аз `League` денормализатсия шуд, то `awardXp` узвияти ҷориро бо ЯК
+  /// дархости индексдор ёбад (бе join).
+  weekKey String
+
+  /// XP-и ҲАМИН ҳафта. Ҳангоми ҳар мукофоти XP зиёд мешавад — ҳеҷ гоҳ аз
+  /// таърих ҷамъ карда НАМЕШАВАД (талаби кор).
+  weeklyXp Int @default(0)
+
+  /// Ҷои корбар дар лаҳзаи ОХИРИН дидан — барои тирчаҳои ҳаракат (боло/поён).
+  startRank Int?
+
+  joinedAt DateTime @default(now())
+
+  /// Як когорта дар як ҳафта. Ин ҳам гейти «дубора ҷойгир накун» аст.
+  @@unique([userId, weekKey])
+  /// Тартиби ҷадвали лига.
+  @@index([leagueId, weeklyXp])
+}
+
+/// Натиҷаи бойгонишудаи як ҳафта барои як корбар.
+model LeagueResult {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  leagueId String
+  league   League @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+  weekKey  String
+
+  /// Зинае, ки дар он мусобиқа кард.
+  tier      Int
+  finalRank Int
+  weeklyXp  Int
+  /// Шумораи аъзои когорта — барои матни «Аз 30 нафар ҷои 7-ум».
+  memberCount Int @default(0)
+
+  /// promoted | stayed | demoted
+  outcome String
+  /// Зинаи НАВ — МУТЛАҚ, на фарқ. Аз (finalRank, tier, memberCount) ҳисоб
+  /// мешавад, пас такроран ҳисоб кардан ҳамон рақамро медиҳад.
+  newTier Int
+
+  gemsReward Int      @default(0)
+  claimed    Boolean  @default(false)
+  claimedAt  DateTime?
+  createdAt  DateTime @default(now())
+
+  /// Муҳофизати идемпотентии №2: ҳатто агар ду иҷро ҳамзамон аз гейти
+  /// `rolledOverAt` гузаранд, дуюмаш P2002 мегирад, на сатри такрорӣ.
+  @@unique([userId, weekKey])
+  /// «Натиҷаи гирифтанашуда ҳаст?» — дархости экрани оғози барнома.
+  @@index([userId, claimed])
 }

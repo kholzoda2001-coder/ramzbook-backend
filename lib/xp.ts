@@ -1,5 +1,6 @@
 import { prisma } from './prisma';
 import { evaluateAchievements, type UnlockedAchievement } from './achievements';
+import { addWeeklyXp } from './league';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Central XP award pipeline. EVERY place XP is earned must call awardXp() so that
@@ -87,10 +88,18 @@ export async function awardXp(
     });
   }
 
-  // 3. Advance streak (only the first XP of the day moves it)
+  // 3. Лига — ҳисобкунаки XP-и ҳафтаинаи узвият.
+  //
+  // ⚠️ Ин ҷо ЗИЁД мешавад, на ҳангоми хондан аз таърих ҷамъ карда мешавад:
+  // ҷамъи `DailyXp` дар ҳар дархости ҷадвал барои когортаи 30-нафара 30 ҷамъи
+  // алоҳида мешуд. `addWeeklyXp` ҳеҷ гоҳ намепартояд — лига набояд мукофоти
+  // XP-и дарсро вайрон кунад.
+  await addWeeklyXp(userId, safeAmount, now);
+
+  // 4. Advance streak (only the first XP of the day moves it)
   const streak = await advanceStreak(userId, now);
 
-  // 4. Evaluate achievements
+  // 5. Evaluate achievements
   const newAchievements = await evaluateAchievements(userId);
 
   const fresh = await prisma.user.findUnique({
