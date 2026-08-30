@@ -1,0 +1,456 @@
+{
+  "slug": "directions_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Asking for directions",
+    "titleTranslated": "Роҳ пурсидан",
+    "scenario": "Дар шаҳри бегона роҳро гум кардед: ҷойро мепурсед, самтро мефаҳмед, масофаро равшан мекунед ва кӯмак металабед.",
+    "emoji": "🧭",
+    "order": 4,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Куҷост?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "where",
+          "translation": "куҷо",
+          "literal": "уэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "station",
+          "translation": "вокзал",
+          "literal": "стейшн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "near",
+          "translation": "наздик",
+          "literal": "ниэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Where is the station?",
+          "translation": "Вокзал куҷост?",
+          "literal": "уэр из зэ стейшн",
+          "note": null,
+          "cue": "Excuse me, can I help you?",
+          "cueTranslation": "Бубахшед, кӯмак кунам?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Is it near?",
+          "translation": "Он наздик аст?",
+          "literal": "из ит ниэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "excuse me",
+          "translation": "бубахшед",
+          "literal": "икскюз ми",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Excuse me, where is the bank?",
+          "translation": "Бубахшед, бонк куҷост?",
+          "literal": "икскюз ми уэр из зэ бэнк",
+          "note": "«Excuse me» ҳамеша пеш аз савол ба бегона — бе он савол дағал садо медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Is it far from here?",
+          "translation": "Он аз ин ҷо дур аст?",
+          "literal": "из ит фар фром ҳиэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Самт",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "left",
+          "translation": "чап",
+          "literal": "лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "right",
+          "translation": "рост",
+          "literal": "райт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "straight",
+          "translation": "мустақим",
+          "literal": "стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "turn",
+          "translation": "тоб хӯрдан",
+          "literal": "тӯрн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Turn left.",
+          "translation": "Ба чап тоб хӯред.",
+          "literal": "тӯрн лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Turn right at the corner.",
+          "translation": "Дар кунҷ ба рост тоб хӯред.",
+          "literal": "тӯрн райт эт зэ корнер",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Go straight.",
+          "translation": "Рост равед.",
+          "literal": "гоу стрейт",
+          "note": null,
+          "cue": "How do I get to the market?",
+          "cueTranslation": "Ба бозор чӣ хел меравам?"
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "corner",
+          "translation": "кунҷ",
+          "literal": "корнер",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "It is on the left.",
+          "translation": "Он дар тарафи чап аст.",
+          "literal": "ит из он зэ лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Масофа",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "far",
+          "translation": "дур",
+          "literal": "фар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "minutes",
+          "translation": "дақиқа",
+          "literal": "минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "walk",
+          "translation": "пиёда рафтан",
+          "literal": "уок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Is it far?",
+          "translation": "Дур аст?",
+          "literal": "из ит фар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "It is ten minutes on foot.",
+          "translation": "Даҳ дақиқа пиёда аст.",
+          "literal": "ит из тен минитс он фут",
+          "note": null,
+          "cue": "How long does it take?",
+          "cueTranslation": "Чанд вақт мегирад?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Can I walk there?",
+          "translation": "Пиёда рафта метавонам?",
+          "literal": "кен ай уок зэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "bus",
+          "translation": "автобус",
+          "literal": "бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Which bus goes there?",
+          "translation": "Кадом автобус ба он ҷо меравад?",
+          "literal": "уич бас гоуз зэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Гум шудам",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "lost",
+          "translation": "гумшуда",
+          "literal": "лост",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "map",
+          "translation": "харита",
+          "literal": "мэп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "show",
+          "translation": "нишон додан",
+          "literal": "шоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I am lost.",
+          "translation": "Ман роҳро гум кардам.",
+          "literal": "ай эм лост",
+          "note": null,
+          "cue": "Are you looking for something?",
+          "cueTranslation": "Чизе меҷӯед?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Can you show me on the map?",
+          "translation": "Дар харита нишон дода метавонед?",
+          "literal": "кен ю шоу ми он зэ мэп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "I do not know this city.",
+          "translation": "Ман ин шаҳрро намедонам.",
+          "literal": "ай ду нот ноу зис ситӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "address",
+          "translation": "суроға",
+          "literal": "эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "This is the address.",
+          "translation": "Ин суроға аст.",
+          "literal": "зис из зэ эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Ҷойҳои муҳим",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "hospital",
+          "translation": "беморхона",
+          "literal": "ҳоспитл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "pharmacy",
+          "translation": "дорухона",
+          "literal": "фармасӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "market",
+          "translation": "бозор",
+          "literal": "маркит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "toilet",
+          "translation": "ҳоҷатхона",
+          "literal": "тойлет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Where is the pharmacy?",
+          "translation": "Дорухона куҷост?",
+          "literal": "уэр из зэ фармасӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Is there a hospital near here?",
+          "translation": "Дар ин наздикӣ беморхона ҳаст?",
+          "literal": "из зэр э ҳоспитл ниэр ҳиэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Where is the toilet, please?",
+          "translation": "Ҳоҷатхона куҷост, лутфан?",
+          "literal": "уэр из зэ тойлет плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Thank you very much for your help.",
+          "translation": "Ташаккури зиёд барои кӯмак.",
+          "literal": "сенк ю вери мач фор ёр ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    }
+  ]
+}

@@ -23,7 +23,17 @@ const fs = require('fs');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client');
 
-const CONTENT = path.join(__dirname, '..', 'content', 'speaking', 'ordering_food_en_tg.json');
+const CONTENT_DIR = path.join(__dirname, '..', 'content', 'speaking');
+
+/** Кадом бастаҳо: ҳама, ё танҳо slug-и додашуда (`node … hotel_en_tg`). */
+function packPaths() {
+  const only = process.argv.slice(2).find((a) => !a.startsWith('--'));
+  return fs
+    .readdirSync(CONTENT_DIR)
+    .filter((f) => f.endsWith('.json'))
+    .filter((f) => !only || f === `${only}.json`)
+    .map((f) => path.join(CONTENT_DIR, f));
+}
 
 function loadEnv() {
   const envPath = path.join(__dirname, '..', '.env');
@@ -56,7 +66,7 @@ tuneDatabaseUrl();
 
 const prisma = new PrismaClient();
 const DRY = process.argv.includes('--dry-run');
-const pack = JSON.parse(fs.readFileSync(CONTENT, 'utf8'));
+const packs = packPaths().map((p) => JSON.parse(fs.readFileSync(p, 'utf8')));
 
 async function language(code) {
   const row = await prisma.language.findUnique({
@@ -68,6 +78,10 @@ async function language(code) {
 }
 
 async function main() {
+  for (const pack of packs) await one(pack);
+}
+
+async function one(pack) {
   const totalItems = pack.lessons.reduce((n, l) => n + l.items.length, 0);
   console.log(`📦 ${pack.category.emoji} ${pack.category.titleTranslated} — `
     + `${pack.lessons.length} дарс, ${totalItems} воҳид`);

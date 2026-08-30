@@ -1,0 +1,456 @@
+{
+  "slug": "hotel_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the hotel",
+    "titleTranslated": "Дар меҳмонхона",
+    "scenario": "Дар меҳмонхона: ҳуҷра мегиред, калид ва Wi-Fi мепурсед, мушкили ҳуҷраро мегӯед ва ҳангоми рафтан ҳисоб мекунед.",
+    "emoji": "🏨",
+    "order": 6,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Ҳуҷра гирифтан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "room",
+          "translation": "ҳуҷра",
+          "literal": "рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "night",
+          "translation": "шаб",
+          "literal": "найт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "reservation",
+          "translation": "ҷойгирии фармудашуда",
+          "literal": "резервейшн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I have a reservation.",
+          "translation": "Ман ҷой фармуда будам.",
+          "literal": "ай ҳэв э резервейшн",
+          "note": null,
+          "cue": "Good evening! How can I help you?",
+          "cueTranslation": "Шоми хуш! Чӣ хизмат кунам?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "A room for two nights.",
+          "translation": "Як ҳуҷра барои ду шаб.",
+          "literal": "э рум фор ту найтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Do you have a free room?",
+          "translation": "Ҳуҷраи холӣ доред?",
+          "literal": "ду ю ҳэв э фри рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "name",
+          "translation": "ном",
+          "literal": "нейм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "My name is Ali Karimov.",
+          "translation": "Номи ман Алӣ Каримов аст.",
+          "literal": "май нейм из Алӣ Каримов",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Дар ҳуҷра",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "key",
+          "translation": "калид",
+          "literal": "кӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "wifi",
+          "translation": "Wi-Fi",
+          "literal": "уайфай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "password",
+          "translation": "рамз",
+          "literal": "пасворд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "towel",
+          "translation": "сачоқ",
+          "literal": "тауэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Here is my key.",
+          "translation": "Ин калиди ман.",
+          "literal": "ҳиэр из май кӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "What is the wifi password?",
+          "translation": "Рамзи Wi-Fi чист?",
+          "literal": "уот из зэ уайфай пасворд",
+          "note": null,
+          "cue": "Do you need anything else?",
+          "cueTranslation": "Боз чизе лозим аст?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Can I have a towel?",
+          "translation": "Сачоқ дода метавонед?",
+          "literal": "кен ай ҳэв э тауэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "breakfast",
+          "translation": "наҳорӣ",
+          "literal": "брекфаст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "What time is breakfast?",
+          "translation": "Наҳорӣ соати чанд аст?",
+          "literal": "уот тайм из брекфаст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Мушкили ҳуҷра",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "hot",
+          "translation": "гарм",
+          "literal": "ҳот",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "cold",
+          "translation": "хунук",
+          "literal": "коулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "work",
+          "translation": "кор кардан",
+          "literal": "уорк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "The room is too cold.",
+          "translation": "Ҳуҷра хеле хунук аст.",
+          "literal": "зэ рум из ту коулд",
+          "note": null,
+          "cue": "Is everything all right with the room?",
+          "cueTranslation": "Ҳуҷра хуб аст?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "There is no hot water.",
+          "translation": "Оби гарм нест.",
+          "literal": "зэр из ноу ҳот уотэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "The light does not work.",
+          "translation": "Чароғ кор намекунад.",
+          "literal": "зэ лайт даз нот уорк",
+          "note": "«does not work» — универсалӣ: чароғ, кондитсионер, телевизор, лифт.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "noisy",
+          "translation": "сершовқин",
+          "literal": "нойзӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "The room is very noisy.",
+          "translation": "Ҳуҷра хеле сершовқин аст.",
+          "literal": "зэ рум из вери нойзӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Хизматрасонӣ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "clean",
+          "translation": "тоза кардан",
+          "literal": "клин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "wake",
+          "translation": "бедор кардан",
+          "literal": "уэйк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "luggage",
+          "translation": "бағоҷ",
+          "literal": "лагиҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Can you clean the room?",
+          "translation": "Ҳуҷраро тоза карда метавонед?",
+          "literal": "кен ю клин зэ рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Please wake me at seven.",
+          "translation": "Лутфан маро соати ҳафт бедор кунед.",
+          "literal": "плиз уэйк ми эт севен",
+          "note": null,
+          "cue": "When do you leave tomorrow?",
+          "cueTranslation": "Пагоҳ кай меравед?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Can you keep my luggage?",
+          "translation": "Бағоҷи маро нигоҳ дошта метавонед?",
+          "literal": "кен ю кип май лагиҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "another",
+          "translation": "дигар, боз як",
+          "literal": "эназер",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Can I have another pillow?",
+          "translation": "Боз як болишт дода метавонед?",
+          "literal": "кен ай ҳэв эназер пилоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Рафтан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "check out",
+          "translation": "ҳуҷраро супоридан",
+          "literal": "чек аут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "bill",
+          "translation": "ҳисоб",
+          "literal": "бил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "call",
+          "translation": "занг задан",
+          "literal": "кол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I want to check out.",
+          "translation": "Ман ҳуҷраро супоридан мехоҳам.",
+          "literal": "ай уонт ту чек аут",
+          "note": null,
+          "cue": "Good morning! Are you leaving today?",
+          "cueTranslation": "Субҳ ба хайр! Имрӯз меравед?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Can I have the bill?",
+          "translation": "Ҳисобро дода метавонед?",
+          "literal": "кен ай ҳэв зэ бил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Can you call a taxi?",
+          "translation": "Такси даъват карда метавонед?",
+          "literal": "кен ю кол э таксӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Everything was very good.",
+          "translation": "Ҳама чиз хеле хуб буд.",
+          "literal": "эврисинг уоз вери гуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Thank you, goodbye.",
+          "translation": "Ташаккур, хайр.",
+          "literal": "сенк ю гудбай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    }
+  ]
+}

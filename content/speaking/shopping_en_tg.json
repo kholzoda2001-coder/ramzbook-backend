@@ -1,0 +1,496 @@
+{
+  "slug": "shopping_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Shopping",
+    "titleTranslated": "Дар мағоза",
+    "scenario": "Дар мағоза ё бозор: чизе интихоб мекунед, нархашро мепурсед, андоза ва рангро иваз мекунед ва пардохт мекунед.",
+    "emoji": "🛍️",
+    "order": 3,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Интихоб кардан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "this",
+          "translation": "ин",
+          "literal": "зис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "that",
+          "translation": "он",
+          "literal": "зэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "buy",
+          "translation": "харидан",
+          "literal": "бай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "want",
+          "translation": "хостан",
+          "literal": "уонт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "I want this.",
+          "translation": "Ман инро мехоҳам.",
+          "literal": "ай уонт зис",
+          "note": null,
+          "cue": "Can I help you?",
+          "cueTranslation": "Ба шумо кӯмак кунам?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "I want to buy that.",
+          "translation": "Ман онро харидан мехоҳам.",
+          "literal": "ай уонт ту бай зэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "looking",
+          "translation": "тамошо карда истодаам",
+          "literal": "лукинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "I am just looking.",
+          "translation": "Ман танҳо тамошо мекунам.",
+          "literal": "ай эм ҷаст лукинг",
+          "note": "Ҷавоби хушмуомила ба «Can I help you?», агар ҳанӯз интихоб накарда бошед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Can you help me?",
+          "translation": "Ба ман кӯмак карда метавонед?",
+          "literal": "кен ю ҳелп ми",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Нарх пурсидан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "how much",
+          "translation": "чанд пул",
+          "literal": "ҳау мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "expensive",
+          "translation": "қимат",
+          "literal": "икспенсив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "cheap",
+          "translation": "арзон",
+          "literal": "чип",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "How much is this?",
+          "translation": "Ин чанд пул аст?",
+          "literal": "ҳау мач из зис",
+          "note": null,
+          "cue": "That one is very nice.",
+          "cueTranslation": "Он хеле зебо аст."
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "It is too expensive.",
+          "translation": "Ин хеле қимат аст.",
+          "literal": "ит из ту икспенсив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Do you have a cheaper one?",
+          "translation": "Арзонтараш ҳаст?",
+          "literal": "ду ю ҳэв э чипер уан",
+          "note": "«-er» дараҷаи қиёсӣ месозад: cheap → cheaper (арзонтар).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "discount",
+          "translation": "тахфиф",
+          "literal": "дискаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Is there a discount?",
+          "translation": "Тахфиф ҳаст?",
+          "literal": "из зэр э дискаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "That is a good price.",
+          "translation": "Ин нархи хуб аст.",
+          "literal": "зэт из э гуд прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Андоза ва ранг",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "size",
+          "translation": "андоза",
+          "literal": "сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "color",
+          "translation": "ранг",
+          "literal": "калер",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "big",
+          "translation": "калон",
+          "literal": "биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "small",
+          "translation": "хурд",
+          "literal": "смол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "It is too big.",
+          "translation": "Ин хеле калон аст.",
+          "literal": "ит из ту биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Do you have a smaller size?",
+          "translation": "Андозаи хурдтар ҳаст?",
+          "literal": "ду ю ҳэв э смолер сайз",
+          "note": null,
+          "cue": "What size do you need?",
+          "cueTranslation": "Кадом андоза лозим аст?"
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "try",
+          "translation": "пӯшида дидан",
+          "literal": "трай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Can I try it?",
+          "translation": "Пӯшида бинам мешавад?",
+          "literal": "кен ай трай ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "I like the blue one.",
+          "translation": "Кабудаш ба ман маъқул аст.",
+          "literal": "ай лайк зэ блу уан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Пардохт",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "cash",
+          "translation": "пули нақд",
+          "literal": "кеш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "card",
+          "translation": "корт",
+          "literal": "кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "bag",
+          "translation": "халта",
+          "literal": "бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I will pay in cash.",
+          "translation": "Ман бо пули нақд медиҳам.",
+          "literal": "ай уил пей ин кеш",
+          "note": null,
+          "cue": "Cash or card?",
+          "cueTranslation": "Нақд ё корт?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Can I pay by card?",
+          "translation": "Бо корт пардохт карда метавонам?",
+          "literal": "кен ай пей бай кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Can I have a bag?",
+          "translation": "Халта дода метавонед?",
+          "literal": "кен ай ҳэв э бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "receipt",
+          "translation": "чек",
+          "literal": "рисит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Can I have the receipt?",
+          "translation": "Чекро дода метавонед?",
+          "literal": "кен ай ҳэв зэ рисит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Thank you, that is all.",
+          "translation": "Ташаккур, ҳамин бас.",
+          "literal": "сенк ю зэт из ол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Мушкил ва баргардонидан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "broken",
+          "translation": "шикаста",
+          "literal": "броукен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "return",
+          "translation": "баргардондан",
+          "literal": "ритӯрн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "wrong",
+          "translation": "нодуруст",
+          "literal": "ронг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "This is broken.",
+          "translation": "Ин шикаста аст.",
+          "literal": "зис из броукен",
+          "note": null,
+          "cue": "Is there a problem?",
+          "cueTranslation": "Мушкиле ҳаст?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "I want to return this.",
+          "translation": "Ман инро баргардондан мехоҳам.",
+          "literal": "ай уонт ту ритӯрн зис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "You gave me the wrong size.",
+          "translation": "Шумо андозаи нодуруст додед.",
+          "literal": "ю гейв ми зэ ронг сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "money back",
+          "translation": "пулро баргардондан",
+          "literal": "манӣ бэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Can I have my money back?",
+          "translation": "Пуламро баргардонда метавонед?",
+          "literal": "кен ай ҳэв май манӣ бэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Thank you for your help.",
+          "translation": "Ташаккур барои кӯмак.",
+          "literal": "сенк ю фор ёр ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    }
+  ]
+}

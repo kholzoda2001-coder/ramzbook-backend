@@ -1,0 +1,446 @@
+{
+  "slug": "travel_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Taxi and travel",
+    "titleTranslated": "Такси ва сафар",
+    "scenario": "Дар роҳ: такси мегиред, суроға медиҳед, нархро мепурсед, дар фурудгоҳ ҳуҷҷат нишон медиҳед ва чипта мехаред.",
+    "emoji": "🚕",
+    "order": 5,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Такси гирифтан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "taxi",
+          "translation": "такси",
+          "literal": "таксӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "address",
+          "translation": "суроға",
+          "literal": "эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "stop",
+          "translation": "истодан",
+          "literal": "стоп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "To this address, please.",
+          "translation": "Ба ин суроға, лутфан.",
+          "literal": "ту зис эдрес плиз",
+          "note": null,
+          "cue": "Where are you going?",
+          "cueTranslation": "Ба куҷо меравед?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Stop here, please.",
+          "translation": "Ҳамин ҷо истед, лутфан.",
+          "literal": "стоп ҳиэр плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "wait",
+          "translation": "интизор шудан",
+          "literal": "уэйт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Please wait five minutes.",
+          "translation": "Лутфан панҷ дақиқа интизор шавед.",
+          "literal": "плиз уэйт файв минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "I need a taxi.",
+          "translation": "Ба ман такси лозим аст.",
+          "literal": "ай нид э таксӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Нарх дар роҳ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "how much",
+          "translation": "чанд пул",
+          "literal": "ҳау мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "airport",
+          "translation": "фурудгоҳ",
+          "literal": "эрпорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "meter",
+          "translation": "ҳисобкунак",
+          "literal": "митер",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "How much to the airport?",
+          "translation": "То фурудгоҳ чанд пул?",
+          "literal": "ҳау мач ту зэ эрпорт",
+          "note": null,
+          "cue": "Where to?",
+          "cueTranslation": "Ба куҷо?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Please use the meter.",
+          "translation": "Лутфан ҳисобкунакро гузоред.",
+          "literal": "плиз юз зэ митер",
+          "note": "Ибораи муҳим: бе он ронанда метавонад нархи худро гӯяд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "That is too much.",
+          "translation": "Ин хеле зиёд аст.",
+          "literal": "зэт из ту мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "change",
+          "translation": "пули майда",
+          "literal": "чейнҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Keep the change.",
+          "translation": "Майдааш барои шумо.",
+          "literal": "кип зэ чейнҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Дар фурудгоҳ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "passport",
+          "translation": "шиноснома",
+          "literal": "паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "ticket",
+          "translation": "чипта",
+          "literal": "тикит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "flight",
+          "translation": "парвоз",
+          "literal": "флайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "gate",
+          "translation": "даромадгоҳ",
+          "literal": "гейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Here is my passport.",
+          "translation": "Ин шинономаи ман.",
+          "literal": "ҳиэр из май паспорт",
+          "note": null,
+          "cue": "Your passport, please.",
+          "cueTranslation": "Шинономаатонро диҳед, лутфан."
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Where is my gate?",
+          "translation": "Даромадгоҳи ман куҷост?",
+          "literal": "уэр из май гейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "My flight is at six.",
+          "translation": "Парвози ман соати шаш аст.",
+          "literal": "май флайт из эт сикс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "I am here on holiday.",
+          "translation": "Ман ба истироҳат омадаам.",
+          "literal": "ай эм ҳиэр он ҳолидей",
+          "note": "Ҷавоби маъмулӣ ба саволи сарҳадбон «Why are you here?».",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Автобус ва қатора",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "bus",
+          "translation": "автобус",
+          "literal": "бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "train",
+          "translation": "қатора",
+          "literal": "трейн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "next",
+          "translation": "навбатӣ",
+          "literal": "некст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "One ticket, please.",
+          "translation": "Як чипта, лутфан.",
+          "literal": "уан тикит плиз",
+          "note": null,
+          "cue": "How many tickets?",
+          "cueTranslation": "Чанд чипта?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "When is the next bus?",
+          "translation": "Автобуси навбатӣ кай меояд?",
+          "literal": "уэн из зэ некст бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Does this bus go to the center?",
+          "translation": "Ин автобус ба марказ меравад?",
+          "literal": "даз зис бас гоу ту зэ сентер",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "platform",
+          "translation": "платформа",
+          "literal": "плэтформ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Which platform is it?",
+          "translation": "Кадом платформа аст?",
+          "literal": "уич плэтформ из ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Мушкилот дар роҳ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "late",
+          "translation": "дер",
+          "literal": "лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "luggage",
+          "translation": "бағоҷ",
+          "literal": "лагиҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "help",
+          "translation": "кӯмак",
+          "literal": "ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I am late.",
+          "translation": "Ман дер кардам.",
+          "literal": "ай эм лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "My luggage is missing.",
+          "translation": "Бағоҷи ман гум шудааст.",
+          "literal": "май лагиҷ из мисинг",
+          "note": null,
+          "cue": "Is everything all right?",
+          "cueTranslation": "Ҳама чиз хуб аст?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "I missed my bus.",
+          "translation": "Ман аз автобус мондам.",
+          "literal": "ай мисд май бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Can you help me, please?",
+          "translation": "Ба ман кӯмак карда метавонед, лутфан?",
+          "literal": "кен ю ҳелп ми плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Where can I find a taxi?",
+          "translation": "Дар куҷо такси ёфта метавонам?",
+          "literal": "уэр кен ай файнд э таксӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    }
+  ]
+}
