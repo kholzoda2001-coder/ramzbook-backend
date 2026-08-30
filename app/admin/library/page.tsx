@@ -30,6 +30,8 @@ interface Item {
   author: string | null;
   description: string | null;
   coverUrl: string | null;
+  coverWord: string | null;
+  coverSubtitle: string | null;
   level: string | null;
   targetLang: string | null;
   mediaUrl: string | null;
@@ -44,6 +46,7 @@ interface Item {
 
 const EMPTY: Item = {
   id: '', type: 'book', title: '', author: '', description: '', coverUrl: '',
+  coverWord: '', coverSubtitle: '',
   level: '', targetLang: 'en', mediaUrl: '', durationMin: null, rating: null,
   isPremium: false, isActive: true, order: 0, pages: [],
 };
@@ -90,7 +93,7 @@ export default function AdminLibraryPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       const it = data.item as Item;
-      setEditing({ ...it, author: it.author ?? '', description: it.description ?? '', coverUrl: it.coverUrl ?? '', level: it.level ?? '', targetLang: it.targetLang ?? '', mediaUrl: it.mediaUrl ?? '' });
+      setEditing({ ...it, author: it.author ?? '', description: it.description ?? '', coverUrl: it.coverUrl ?? '', coverWord: it.coverWord ?? '', coverSubtitle: it.coverSubtitle ?? '', level: it.level ?? '', targetLang: it.targetLang ?? '', mediaUrl: it.mediaUrl ?? '' });
       setPages((it.pages ?? []).map((p, i) => ({
         order: p.order ?? i, title: p.title ?? '', content: p.content ?? '', imageUrl: p.imageUrl ?? '',
       })));
@@ -312,6 +315,32 @@ export default function AdminLibraryPage() {
             <div>
               <label className={label}>Тартиб</label>
               <input type="number" value={editing.order} onChange={(e) => setEditing({ ...editing, order: Number(e.target.value) })} className={input} />
+            </div>
+
+            {/* ── Муқоваи КАШИДАШУДА ───────────────────────────────────────
+                Барнома муқоваро худаш мекашад (расм лозим нест). Ин ду майдон
+                матни рӯи онро идора мекунанд; холӣ монанд — барнома аз
+                сарлавҳа ва навъ худаш месозад. */}
+            <div>
+              <label className={label}>Калимаи муқова</label>
+              <input
+                type="text"
+                maxLength={12}
+                value={editing.coverWord ?? ''}
+                onChange={(e) => setEditing({ ...editing, coverWord: e.target.value.toUpperCase() })}
+                className={input}
+                placeholder="ОИЛА · то 12 ҳарф"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <label className={label}>Сатри зери калима</label>
+              <input
+                type="text"
+                value={editing.coverSubtitle ?? ''}
+                onChange={(e) => setEditing({ ...editing, coverSubtitle: e.target.value })}
+                className={input}
+                placeholder="100 калима · аудиокурс · холӣ = худкор"
+              />
             </div>
 
             {/* ── Файл / истинод вобаста ба навъ ─────────────────────────── */}

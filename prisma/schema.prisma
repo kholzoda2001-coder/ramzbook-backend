@@ -914,6 +914,18 @@ model SpeakingItem {
   lessonId    String
   lesson      SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   kind        String         @default("sentence") // "word" | "sentence"
+
+  // Ҷумлаи ҲАМСӮҲБАТ (пешхизмат, фурӯшанда…) пеш аз навбати хонанда.
+  //
+  // Агар пур бошад, машқ ба як қадами МУКОЛАМА табдил меёбад: барнома аввал
+  // ин ҷумларо мегӯяд, баъд хонанда ҷавоби худро (`text`) мегӯяд — ҳамон
+  // нақшбозии Falou. Холӣ бошад — машқи оддии ҷудогона.
+  //
+  // ⚠️ Ҳарду майдон ИХТИЁРӢ (`String?`) — вагарна `db push` дар ҷадвали
+  // пур аз сатр иҷро намешуд (ниг. доми миграцияи 2026-08-15).
+  cue            String?     @db.Text // ба забони омӯзиш
+  cueTranslation String?     @db.Text // тарҷумаи он ба забони модарӣ
+
   text        String         @db.Text // матн ба забони омӯзиш
   translation String         @db.Text // тарҷума ба забони модарӣ
   literal     String?        @db.Text // калима ба калима / транслитератсия
@@ -1125,6 +1137,12 @@ model LibraryItem {
   author      String?
   description String?  @db.Text
   coverUrl    String?
+  /// Short all-caps word drawn on the generated cover (ОИЛА, ХӮРОК, 2001).
+  /// Null = the app derives one from the title.
+  coverWord     String?
+  /// One short line under the cover word ("100 калима", "аудиокурс").
+  /// Null = the app derives one from the item type and page count.
+  coverSubtitle String?
   /// CEFR level this item suits (A1…C2). Null = any level.
   level       String?
   /// Target language the item teaches, e.g. "en". Null = shown for all.

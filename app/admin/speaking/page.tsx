@@ -13,12 +13,12 @@ const SMALL_DEL: React.CSSProperties = { background: 'rgba(239,68,68,0.1)', colo
 
 interface Language { id: string; code: string; name: string; nativeName: string; flag: string; canBeNative: boolean; canBeTarget: boolean; }
 interface Category { id: string; title: string; titleTranslated: string; scenario: string | null; emoji: string; isPremium: boolean; isActive: boolean; order: number; _count?: { lessons: number }; }
-interface Item { id: string; kind: string; text: string; translation: string; literal: string | null; note: string | null; audioUrl: string | null; }
+interface Item { id: string; kind: string; text: string; translation: string; literal: string | null; note: string | null; audioUrl: string | null; cue: string | null; cueTranslation: string | null; }
 interface Lesson { id: string; title: string | null; order: number; isActive: boolean; items: Item[]; }
 interface CategoryDetail extends Category { lessons: Lesson[]; }
 
 const EMPTY_CATEGORY = { title: '', titleTranslated: '', scenario: '', emoji: '🎙️', isPremium: false };
-const EMPTY_ITEM = { kind: 'sentence', text: '', translation: '', literal: '', note: '' };
+const EMPTY_ITEM = { kind: 'sentence', text: '', translation: '', literal: '', note: '', cue: '', cueTranslation: '' };
 
 function SpeakingContent() {
   const searchParams = useSearchParams();
@@ -245,6 +245,9 @@ function LessonEditor({ lesson, onChange }: { lesson: Lesson; onChange: () => vo
         <div key={it.id} style={{ display: 'flex', gap: '8px', alignItems: 'center', padding: '8px', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
           <span style={{ fontSize: '11px', color: 'var(--text3)', minWidth: '52px' }}>{it.kind === 'word' ? '🔤 калима' : '💬 ҷумла'}</span>
           <div style={{ flex: 1 }}>
+            {it.cue ? (
+              <div style={{ color: 'var(--text3)', fontSize: '12px' }}>🗣️ {it.cue}</div>
+            ) : null}
             <div style={{ color: 'var(--text-primary)', fontSize: '14px' }}>{it.text}</div>
             <div style={{ color: 'var(--text3)', fontSize: '12px' }}>{it.translation}{it.literal ? ` · «${it.literal}»` : ''}</div>
           </div>
@@ -264,6 +267,13 @@ function LessonEditor({ lesson, onChange }: { lesson: Lesson; onChange: () => vo
         <input value={iForm.literal} onChange={e => setIForm(f => ({ ...f, literal: e.target.value }))} placeholder="Талаффуз (ихтиёрӣ)" style={FIELD} />
         <input value={iForm.note} onChange={e => setIForm(f => ({ ...f, note: e.target.value }))} placeholder="Эзоҳ (ихтиёрӣ)" style={FIELD} />
         <button onClick={addItem} disabled={!iForm.text || !iForm.translation} style={BTN}>+</button>
+      </div>
+
+      {/* Қадами МУКОЛАМА: агар пур шавад, барнома аввал ҷумлаи ҳамсӯҳбатро
+          мегӯяд ва баъд навбати хонанда мешавад (нақшбозии Falou). */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '8px' }}>
+        <input value={iForm.cue} onChange={e => setIForm(f => ({ ...f, cue: e.target.value }))} placeholder="🗣️ Ҳамсӯҳбат мегӯяд (ихтиёрӣ)" style={FIELD} />
+        <input value={iForm.cueTranslation} onChange={e => setIForm(f => ({ ...f, cueTranslation: e.target.value }))} placeholder="Тарҷумаи ҷумлаи ҳамсӯҳбат" style={FIELD} />
       </div>
     </div>
   );

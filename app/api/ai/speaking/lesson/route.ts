@@ -59,6 +59,9 @@ export async function GET(req: NextRequest) {
       select: {
         id: true,
         titleTranslated: true,
+        // Тавсифи вазъият — Falou ҳар дарсро маҳз бо ин сар мекунад:
+        // «шумо дар кафе ҳастед…». Бе он машқ рӯйхати ҷумлаҳои беконтекст аст.
+        scenario: true,
         emoji: true,
         lessons: {
           where: { isActive: true },
@@ -75,6 +78,9 @@ export async function GET(req: NextRequest) {
                 literal: true,
                 note: true,
                 audioUrl: true,
+                // Қадами муколама: ҷумлаи ҳамсӯҳбат пеш аз навбати хонанда.
+                cue: true,
+                cueTranslation: true,
               },
             },
           },
@@ -131,7 +137,7 @@ export async function GET(req: NextRequest) {
     // Такрори дарс → «ба ёд оред», вагарна калимаи нав / машқи душвор.
     const repeat = doneIds.has(lesson.id);
 
-    const exercises = items.map((item) => {
+    const exercises: Record<string, unknown>[] = items.map((item) => {
       const text = item.text.trim();
       const translation = item.translation.trim();
       const words = text.split(/\s+/).filter(Boolean);
@@ -141,6 +147,8 @@ export async function GET(req: NextRequest) {
         meaning: translation,
         grammar: item.note?.trim() ?? '',
         audioUrl: item.audioUrl ?? '',
+        cue: item.cue?.trim() ?? '',
+        cueTranslation: item.cueTranslation?.trim() ?? '',
       };
 
       // Калима → «бигӯед» (матн намоён). Ҷумла → «тарҷума кунед» (слотҳо).
@@ -172,6 +180,40 @@ export async function GET(req: NextRequest) {
       };
     });
 
+    // ── Санҷиши хотира дар охири дарс ──────────────────────────────────────
+    //
+    // Айнан мисли Falou: дарс бо машқе тамом мешавад, ки матни ҳадафро НИШОН
+    // НАМЕДИҲАД — хонанда танҳо тарҷумаи забони модариро мебинад ва ҷумларо
+    // аз ХОТИРА мегӯяд. Маҳз ҳамин қадам такрори кӯр-кӯронаро ба ёдгирии
+    // воқеӣ табдил медиҳад.
+    //
+    // Танҳо ҷумлаҳо гирифта мешаванд (калимаи ҷудогона санҷиши хотира нест)
+    // ва танҳо онҳое, ки ба слотҳо мегунҷанд.
+    const recallPool = items.filter(
+      (i) =>
+        i.kind !== 'word' &&
+        i.text.trim().split(/\s+/).filter(Boolean).length <= MAX_SLOT_WORDS,
+    );
+
+    // Дарси хеле хурд санҷиши хотира намегирад — он ҷо ҳама чиз ҳанӯз тоза
+    // дар хотир аст ва такрор танҳо дилгиркунанда мешавад.
+    const recall = recallPool.length >= 3 ? recallPool.slice(-2) : [];
+
+    for (const item of recall) {
+      const text = item.text.trim();
+      exercises.push({
+        kind: 'recall',
+        badge: 'remember',
+        prompt: item.translation.trim(),
+        target: text,
+        targetWords: text.split(/\s+/).filter(Boolean),
+        translit: item.literal?.trim() ?? '',
+        meaning: item.translation.trim(),
+        grammar: item.note?.trim() ?? '',
+        audioUrl: item.audioUrl ?? '',
+      });
+    }
+
     const chapterLessons = chapter.lessons.length;
     const chapterDone = chapter.lessons.filter((l) => doneIds.has(l.id)).length;
 
@@ -186,6 +228,7 @@ export async function GET(req: NextRequest) {
         number: chapterIndex + 1,
         title: chapter.titleTranslated,
         emoji: chapter.emoji,
+        scenario: chapter.scenario ?? '',
         // Чанд дарс то анҷоми ҳамин боб — ҳамон «N lessons for next chapter».
         lessonsToNext: Math.max(0, chapterLessons - chapterDone),
         progress: chapterLessons ? chapterDone / chapterLessons : 0,

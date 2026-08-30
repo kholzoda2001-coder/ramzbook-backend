@@ -8,7 +8,10 @@ const KINDS = ['word', 'sentence'] as const;
 
 /**
  * POST /api/admin/speaking/items — воҳиди нав ба дарс.
- * Body: { lessonId, text, translation, kind?, literal?, note?, audioUrl?, order? }
+ * Body: { lessonId, text, translation, kind?, literal?, note?, audioUrl?,
+ *          cue?, cueTranslation?, order? }
+ *
+ * `cue` = ҷумлаи ҳамсӯҳбат пеш аз навбати хонанда (қадами муколама).
  */
 export async function POST(req: NextRequest) {
   try {
@@ -20,6 +23,8 @@ export async function POST(req: NextRequest) {
       literal?: string;
       note?: string;
       audioUrl?: string;
+      cue?: string;
+      cueTranslation?: string;
       order?: number;
     };
 
@@ -49,6 +54,8 @@ export async function POST(req: NextRequest) {
         literal: body.literal?.trim() || null,
         note: body.note?.trim() || null,
         audioUrl: body.audioUrl?.trim() || null,
+        cue: body.cue?.trim() || null,
+        cueTranslation: body.cueTranslation?.trim() || null,
         order,
       },
     });

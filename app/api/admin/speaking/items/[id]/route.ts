@@ -27,6 +27,10 @@ export async function PUT(
         ...(body.audioUrl !== undefined && {
           audioUrl: body.audioUrl?.trim() || null,
         }),
+        ...(body.cue !== undefined && { cue: body.cue?.trim() || null }),
+        ...(body.cueTranslation !== undefined && {
+          cueTranslation: body.cueTranslation?.trim() || null,
+        }),
         ...(body.order !== undefined && { order: body.order }),
       },
     });

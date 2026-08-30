@@ -18,6 +18,19 @@ export interface PageInput {
   imageUrl?: string | null;
 }
 
+/**
+ * The cover word is DRAWN, not wrapped: the app paints it across a 3:4.35 card
+ * at 20sp. Anything longer than a short noun overflows or shrinks to nothing,
+ * so it is capped here rather than at paint time — the admin sees the limit
+ * while typing instead of discovering it on a phone.
+ */
+export const COVER_WORD_MAX = 12;
+
+export function normalizeCoverWord(raw: unknown): string | null {
+  const s = (raw ?? '').toString().trim().toUpperCase();
+  return s ? s.slice(0, COVER_WORD_MAX) : null;
+}
+
 /** Shapes free-form admin input into valid page rows (drops empty ones). */
 export function normalizePages(pages: unknown): Required<PageInput>[] {
   if (!Array.isArray(pages)) return [];
@@ -69,6 +82,8 @@ export async function POST(req: NextRequest) {
         author: b.author?.toString().trim() || null,
         description: b.description?.toString() || null,
         coverUrl: b.coverUrl?.toString().trim() || null,
+        coverWord: normalizeCoverWord(b.coverWord),
+        coverSubtitle: b.coverSubtitle?.toString().trim() || null,
         level: b.level?.toString().trim() || null,
         targetLang: b.targetLang?.toString().trim() || null,
         mediaUrl: b.mediaUrl?.toString().trim() || null,

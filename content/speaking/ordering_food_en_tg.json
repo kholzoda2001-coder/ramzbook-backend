@@ -1,0 +1,642 @@
+{
+  "slug": "ordering_food_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Ordering food",
+    "titleTranslated": "Фармоиши хӯрок",
+    "scenario": "Дар кафе ё ошхона: ҷой гирифтан, меню пурсидан, хӯрок ва нӯшокӣ фармудан, нарх пурсидан ва ҳисобро пардохтан. Ҳама ибораҳо кӯтоҳ ва воқеӣ — ҳамонҳое, ки сайёҳ дар рӯзи аввал лозим мешавад.",
+    "emoji": "🍽️",
+    "order": 1,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Нӯшокӣ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "water",
+          "translation": "об",
+          "literal": "уотэр",
+          "note": "Дар ошхона ҳатто як калима кофист: «Water, please.»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "tea",
+          "translation": "чой",
+          "literal": "тӣ",
+          "note": "Садои t — нӯги забон ба дандони боло, баъд садоноки дарози «ӣ».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "coffee",
+          "translation": "қаҳва",
+          "literal": "кофӣ",
+          "note": "Зарба ба ҳиҷои АВВАЛ меафтад: CO-ffee, на co-FFEE.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "please",
+          "translation": "лутфан",
+          "literal": "плиз",
+          "note": "Please ҳар дархостро хушмуомила мекунад. Бе он гуфтор дағал садо медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Water, please.",
+          "translation": "Об, лутфан.",
+          "literal": "уотэр плиз",
+          "note": "Формулаи универсалӣ: [чизе] + please. Бо ҳар хӯроку нӯшокӣ кор мекунад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Tea, please.",
+          "translation": "Чой, лутфан.",
+          "literal": "тӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Coffee, please.",
+          "translation": "Қаҳва, лутфан.",
+          "literal": "кофӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "juice",
+          "translation": "шарбат",
+          "literal": "ҷус",
+          "note": "Juice — шарбати мева. Шакли ҷамъ лозим нест: «Juice, please».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Juice, please.",
+          "translation": "Шарбат, лутфан.",
+          "literal": "ҷус плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 9,
+          "kind": "word",
+          "text": "thank you",
+          "translation": "ташаккур",
+          "literal": "сенк ю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 10,
+          "kind": "sentence",
+          "text": "Thank you very much.",
+          "translation": "Ташаккури зиёд.",
+          "literal": "сенк ю вери мач",
+          "note": "«very much» = «хеле зиёд» — ҳамчун як ибораи тайёр ба ёд гиред.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Хӯроки асосӣ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "bread",
+          "translation": "нон",
+          "literal": "брэд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "soup",
+          "translation": "шӯрбо",
+          "literal": "суп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "rice",
+          "translation": "биринҷ",
+          "literal": "райс",
+          "note": "Диққат: rice = /райс/, бо садоноки дарози «ай».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "chicken",
+          "translation": "мурғ",
+          "literal": "чикин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "salad",
+          "translation": "салат",
+          "literal": "салад",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "I want",
+          "translation": "ман мехоҳам",
+          "literal": "ай уонт",
+          "note": "Ибораи тайёр — ҳамеша якҷоя истифода мешавад: I want + [чизе].",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "I want soup.",
+          "translation": "Ман шӯрбо мехоҳам.",
+          "literal": "ай уонт суп",
+          "note": "«I want» = «ман мехоҳам». Дар кафе қобили қабул аст, вале «Can I have…?» (дарси 3) хушмуомилатар садо медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "I want bread and salad.",
+          "translation": "Ман нон ва салат мехоҳам.",
+          "literal": "ай уонт брэд энд салад",
+          "note": "«and» = «ва» — ду чизро дар як фармоиш мепайвандад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "I want rice, please.",
+          "translation": "Ман биринҷ мехоҳам, лутфан.",
+          "literal": "ай уонт райс плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 9,
+          "kind": "sentence",
+          "text": "Chicken, please.",
+          "translation": "Мурғ, лутфан.",
+          "literal": "чикин плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 10,
+          "kind": "sentence",
+          "text": "Soup and bread, please.",
+          "translation": "Шӯрбо ва нон, лутфан.",
+          "literal": "суп энд брэд плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Дар ошхона",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "menu",
+          "translation": "меню",
+          "literal": "меню",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "table",
+          "translation": "миз",
+          "literal": "тейбл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "hungry",
+          "translation": "гурусна",
+          "literal": "ҳангрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I am hungry.",
+          "translation": "Ман гурусна ҳастам.",
+          "literal": "ай эм ҳангрӣ",
+          "note": "Дар англисӣ «ҳастам» ҳатмист: I AM hungry, на «I hungry».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Can I have the menu?",
+          "translation": "Менюро дода метавонед?",
+          "literal": "кен ай ҳэв зэ меню",
+          "note": "«Can I have…?» — шакли хушмуомилаи дархост. Ҷавоби маъмулӣ: «Sure!»",
+          "cue": "Here you are. Do you need anything else?",
+          "cueTranslation": "Мана. Боз чизе лозим аст?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Can I have a table for two?",
+          "translation": "Мизе барои ду нафар ҳаст?",
+          "literal": "кен ай ҳэв э тейбл фор ту",
+          "note": "«for two» = «барои ду нафар». Калимаи people гуфтан лозим нест.",
+          "cue": "Good evening! How many people?",
+          "cueTranslation": "Шоми хуш! Чанд нафаред?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Can I have water, please?",
+          "translation": "Об дода метавонед, лутфан?",
+          "literal": "кен ай ҳэв уотэр плиз",
+          "note": null,
+          "cue": "Would you like something to drink?",
+          "cueTranslation": "Чизе нӯшидан мехоҳед?"
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "ready",
+          "translation": "тайёр",
+          "literal": "реди",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "word",
+          "text": "order",
+          "translation": "фармоиш",
+          "literal": "ордэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 9,
+          "kind": "sentence",
+          "text": "I am ready to order.",
+          "translation": "Ман тайёрам фармоиш диҳам.",
+          "literal": "ай эм реди ту ордэр",
+          "note": "Ҳамин ҷумларо ба пешхизмат гӯед, то ӯ фармоишро қабул кунад.",
+          "cue": "Are you ready to order?",
+          "cueTranslation": "Тайёред фармоиш диҳед?"
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Миқдор",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "one",
+          "translation": "як",
+          "literal": "уан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "two",
+          "translation": "ду",
+          "literal": "ту",
+          "note": "two, to ва too — ҳар се якхела талаффуз мешаванд: /ту/.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "three",
+          "translation": "се",
+          "literal": "срӣ",
+          "note": "th — нӯги забонро сабук байни дандонҳо гузоред. Ин «с»-и оддӣ нест.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "glass",
+          "translation": "стакан",
+          "literal": "глас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "One coffee, please.",
+          "translation": "Як қаҳва, лутфан.",
+          "literal": "уан кофӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Two teas, please.",
+          "translation": "Ду чой, лутфан.",
+          "literal": "ту тиз плиз",
+          "note": "Дар ошхона «two teas» мегӯянд — бо -s, гарчанде чой ҳисобнашаванда бошад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Three glasses of water, please.",
+          "translation": "Се стакан об, лутфан.",
+          "literal": "срӣ гласиз ов уотэр плиз",
+          "note": "«of» зарф ва мазмунро мепайвандад: a glass OF water.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "more",
+          "translation": "боз",
+          "literal": "мор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "More bread, please.",
+          "translation": "Боз нон, лутфан.",
+          "literal": "мор брэд плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Савол додан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "how much",
+          "translation": "чанд пул",
+          "literal": "ҳау мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "sentence",
+          "text": "How much is it?",
+          "translation": "Ин чанд пул аст?",
+          "literal": "ҳау мач из ит",
+          "note": "Универсалӣ: дар мағоза, такси ва ошхона ҳамин як савол кофист.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "this",
+          "translation": "ин",
+          "literal": "зис",
+          "note": "th дар this ҶАРАНГДОР аст — «з»-и байни дандонҳо, на «с».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "What is this?",
+          "translation": "Ин чист?",
+          "literal": "уот из зис",
+          "note": "Ба меню ишора кунеду ҳаминро пурсед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Do you have tea?",
+          "translation": "Чой доред?",
+          "literal": "ду ю ҳэв тӣ",
+          "note": "«Do you have…?» — саволи мавҷудияти чизе.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "spicy",
+          "translation": "тунд",
+          "literal": "спайсӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Is it spicy?",
+          "translation": "Он тунд аст?",
+          "literal": "из ит спайсӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "meat",
+          "translation": "гӯшт",
+          "literal": "мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "I don't eat meat.",
+          "translation": "Ман гӯшт намехӯрам.",
+          "literal": "ай доунт ит мит",
+          "note": "don't = do not. Барои гиёҳхорон: «I am vegetarian.»",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Ҳисоб",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "bill",
+          "translation": "ҳисоб",
+          "literal": "бил",
+          "note": "Дар Британия bill, дар Амрико бештар check мегӯянд — ҳарду фаҳмо.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "sentence",
+          "text": "The bill, please.",
+          "translation": "Ҳисоб, лутфан.",
+          "literal": "зэ бил плиз",
+          "note": null,
+          "cue": "Did you enjoy your meal?",
+          "cueTranslation": "Хӯрок ба шумо форид?"
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "card",
+          "translation": "корт",
+          "literal": "кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "pay",
+          "translation": "пардохтан",
+          "literal": "пей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Can I pay by card?",
+          "translation": "Бо корт пардохт карда метавонам?",
+          "literal": "кен ай пей бай кард",
+          "note": "«by card» = бо корт, «in cash» = бо пули нақд.",
+          "cue": "That will be forty-five somoni.",
+          "cueTranslation": "Чилу панҷ сомонӣ мешавад."
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "delicious",
+          "translation": "бомазза",
+          "literal": "дилишэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "It was delicious.",
+          "translation": "Хеле бомазза буд.",
+          "literal": "ит уоз дилишэс",
+          "note": "was = шакли гузаштаи is. Ҳангоми рафтан гуфтани ин ибора одати хуб аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "goodbye",
+          "translation": "хайр",
+          "literal": "гудбай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Thank you, goodbye.",
+          "translation": "Ташаккур, хайр.",
+          "literal": "сенк ю гудбай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    }
+  ]
+}

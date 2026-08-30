@@ -5,7 +5,7 @@
 
 import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { ITEM_TYPES, normalizePages } from '../route';
+import { ITEM_TYPES, normalizeCoverWord, normalizePages } from '../route';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,6 +43,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     if (b.author !== undefined) data.author = b.author?.toString().trim() || null;
     if (b.description !== undefined) data.description = b.description?.toString() || null;
     if (b.coverUrl !== undefined) data.coverUrl = b.coverUrl?.toString().trim() || null;
+    if (b.coverWord !== undefined) data.coverWord = normalizeCoverWord(b.coverWord);
+    if (b.coverSubtitle !== undefined) {
+      data.coverSubtitle = b.coverSubtitle?.toString().trim() || null;
+    }
     if (b.level !== undefined) data.level = b.level?.toString().trim() || null;
     if (b.targetLang !== undefined) data.targetLang = b.targetLang?.toString().trim() || null;
     if (b.mediaUrl !== undefined) data.mediaUrl = b.mediaUrl?.toString().trim() || null;

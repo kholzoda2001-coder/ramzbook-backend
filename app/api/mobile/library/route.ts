@@ -6,6 +6,16 @@ import { unlockedIds } from '@/lib/libraryAccess';
 
 export const dynamic = 'force-dynamic';
 
+/**
+ * How long an item wears the «НАВ» pill.
+ *
+ * Derived from `createdAt` rather than stored as a flag: a flag someone has to
+ * clear is a flag nobody clears, and a shelf where everything is "new" says
+ * nothing. Three weeks is long enough that a learner who opens the app
+ * fortnightly still sees what arrived since their last visit.
+ */
+const NEW_FOR_DAYS = 21;
+
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
@@ -57,7 +67,8 @@ export async function GET(req: NextRequest) {
       orderBy: [{ type: 'asc' }, { order: 'asc' }, { createdAt: 'desc' }],
       select: {
         id: true, type: true, title: true, author: true, description: true,
-        coverUrl: true, level: true, targetLang: true, mediaUrl: true,
+        coverUrl: true, coverWord: true, coverSubtitle: true,
+        level: true, targetLang: true, mediaUrl: true,
         durationMin: true, rating: true, isPremium: true,
         order: true, createdAt: true,
         _count: { select: { pages: true } },
@@ -65,6 +76,7 @@ export async function GET(req: NextRequest) {
     });
 
     const open = unlockedIds(items, isPremium);
+    const newCutoff = Date.now() - NEW_FOR_DAYS * 24 * 60 * 60 * 1000;
 
     return NextResponse.json(
       {
@@ -72,6 +84,7 @@ export async function GET(req: NextRequest) {
         items: items.map(({ _count, order, createdAt, ...it }) => ({
           ...it,
           pageCount: _count.pages,
+          isNew: createdAt.getTime() >= newCutoff,
           // The ONE field the app gates on. Derived server-side so the client
           // cannot decide for itself that a book is open.
           locked: !open.has(it.id),
