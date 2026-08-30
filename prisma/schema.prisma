@@ -1189,7 +1189,17 @@ model PaywallEvent {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   trigger   String // streak_at_risk | lives_empty | lesson_5 | level_locked | league_promoted | weekly_recap | inactive_14d | manual
-  action    String   @default("shown") // shown | dismissed | started_trial | purchased
+  // shown            — пейвол намоиш дода шуд
+  // started_trial    — тугма зада шуд, плани интихобшуда trial дорад
+  // purchase_started — тугма зада шуд, плани интихобшуда trial НАДОРАД
+  // purchased        — Google тасдиқ кард ВА сервер санҷид
+  // dismissed        — экран бе харид пӯшида шуд
+  //
+  // `started_trial`/`purchase_started` НИЯТанд, на натиҷа: онҳо маҳз пеш аз
+  // рафтан ба равзанаи пардохти Google сабт мешаванд. Фарқи байни онҳо ва
+  // `purchased` нишон медиҳад, ки корбарон дар куҷо мераванд — дар худи экран
+  // ё аллакай дар пардохти Google.
+  action    String   @default("shown")
   variant   String? // A/B variant label
   context   Json? // user segment, offer shown, etc.
   createdAt DateTime @default(now())

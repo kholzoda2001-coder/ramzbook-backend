@@ -1,7 +1,7 @@
 import { prisma } from './prisma';
 
 const DEFAULT_REGEN_MIN = 30;
-const MAX_HEARTS_FREE = 5;
+export const MAX_HEARTS_FREE = 5;
 const MAX_HEARTS_PREMIUM = 999;
 
 /**

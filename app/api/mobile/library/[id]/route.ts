@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { checkAndUpdatePremium } from '@/lib/premium';
+import { unlockedIds } from '@/lib/libraryAccess';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,9 +20,14 @@ export async function OPTIONS() {
  * GET /api/mobile/library/[id]
  * One item with its full page content — what the reader screen opens.
  *
- * Premium-only, same as the list endpoint (see /api/mobile/library) — this is
- * the one that actually leaks book/page CONTENT, so it needs the check even
- * more than the list does.
+ * This is the endpoint that actually serves book/page CONTENT, so it is where
+ * the entitlement check has to be exact. The list endpoint is deliberately open
+ * (a free learner should see the shelf and the locks); this one is not.
+ *
+ * The check runs against the SAME rule the list uses to set `locked`
+ * (lib/libraryAccess.ts), so a free learner can open precisely the items whose
+ * cards were not showing a lock — no item that looked open turns out to be shut,
+ * and nothing that looked shut can be prised open by calling the API directly.
  */
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -29,9 +35,6 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const isPremium = await checkAndUpdatePremium(userId);
-    if (!isPremium) {
-      return NextResponse.json({ error: 'Premium required' }, { status: 403, headers: CORS });
-    }
 
     const item = await prisma.libraryItem.findFirst({
       where: { id: params.id, isActive: true },
@@ -45,6 +48,22 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     if (!item) {
       return NextResponse.json({ error: 'Not found' }, { status: 404, headers: CORS });
+    }
+
+    // The free quota is defined across the whole shelf ("the first three
+    // books"), so answering "is THIS item free" needs the shelf, not just the
+    // row we fetched. Ids + the ordering fields only — no page content.
+    const shelf = await prisma.libraryItem.findMany({
+      where: { isActive: true },
+      orderBy: [{ type: 'asc' }, { order: 'asc' }, { createdAt: 'desc' }],
+      select: { id: true, type: true, isPremium: true, order: true, createdAt: true },
+    });
+
+    if (!unlockedIds(shelf, isPremium).has(item.id)) {
+      return NextResponse.json(
+        { error: 'Premium required', locked: true },
+        { status: 403, headers: CORS },
+      );
     }
 
     return NextResponse.json(item, { headers: CORS });
