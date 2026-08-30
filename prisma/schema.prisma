@@ -948,6 +948,13 @@ model SpeakingProgress {
   timeSpent      Int            @default(0) // сония
   completedAt    DateTime       @default(now())
 
+  // Охирин бор кай ҷумлаҳои ин дарс дар бахши «Такрор» пурсида шуданд.
+  //
+  // `null` = ҳеҷ гоҳ. Навбати такрор маҳз аз ҳамин майдон сохта мешавад:
+  // аввал дарсҳое, ки ҳеҷ гоҳ такрор нашудаанд, баъд кӯҳнатаринҳо. Ин
+  // такрори фосиладори сабук аст — бе ҷадвали алоҳидаи SRS.
+  lastReviewedAt DateTime?
+
   @@unique([userId, lessonId])
   @@index([userId])
   @@index([lessonId])
