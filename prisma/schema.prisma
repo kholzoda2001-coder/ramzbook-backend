@@ -1174,7 +1174,16 @@ model Feedback {
   // the learner actually was — without joining live (and changing) user rows.
   lessonsCompleted Int      @default(0)
   level            String?
+  /// Забони ОМӮЗИШӢ — КОДИ забон ("en", "ru"), на `Language.id`.
+  ///
+  /// ⚠️ Сатрҳои КӮҲНА (то 2026-08-30) ин ҷо `cuid` доранд: клиент
+  /// `target.id`-ро мефиристод. Сервер ҳоло ҳангоми навишт ба код табдил
+  /// медиҳад, ва панел ҳангоми хониш cuid-и боқимондаро мекушояд —
+  /// ниг. `lib/inbox.ts`.
   targetLang       String?
+  /// Забони МОДАРӢ (интерфейс) — код. Бе он филтри «хато аз кадом ҷуфти
+  /// забон омад» имконнопазир аст.
+  nativeLang       String?
   platform         String?
   isRead           Boolean  @default(false)
   createdAt        DateTime @default(now())
@@ -1182,6 +1191,7 @@ model Feedback {
   @@index([createdAt])
   @@index([rating])
   @@index([userId])
+  @@index([nativeLang, targetLang])
 }
 
 model PaywallEvent {

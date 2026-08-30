@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { authenticate } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { getFeedbackStateFor } from '@/lib/feedback';
+import { loadLanguageDirectory, toLangCode } from '@/lib/inbox';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,7 +30,8 @@ export async function GET(req: NextRequest) {
 /**
  * POST /api/users/feedback
  * Body: { rating: 1..5, message?: string, source?: 'lesson_milestone' | 'profile',
- *         lessonsCompleted?: number, level?: string, targetLang?: string, platform?: string }
+ *         lessonsCompleted?: number, level?: string, targetLang?: string,
+ *         nativeLang?: string, platform?: string }
  */
 export async function POST(req: NextRequest) {
   try {
@@ -43,6 +45,7 @@ export async function POST(req: NextRequest) {
       lessonsCompleted?: number;
       level?: string;
       targetLang?: string;
+      nativeLang?: string;
       platform?: string;
     };
 
@@ -56,6 +59,22 @@ export async function POST(req: NextRequest) {
     // be able to arrive unbounded.
     const message = (body.message ?? '').trim().slice(0, 2000) || null;
 
+    // ── Забонҳо ҳамеша ҳамчун КОД сабт мешаванд ────────────────────────────
+    // Барномаҳои кӯҳна ин ҷо `Language.id` (cuid) мефиристоданд, ва панел
+    // «cmq7…» ҳамчун забон нишон медод — филтр кор карда наметавонист.
+    // `toLangCode` ҳар ду шаклро мекушояд; агар клиент ҳеҷ чиз нафиристад,
+    // забон аз худи сатри корбар гирифта мешавад, то сатр ҳеҷ гоҳ бе
+    // контексти забон намонад.
+    const dir = await loadLanguageDirectory(prisma);
+    const profile = await prisma.user.findUnique({
+      where: { id: me.id },
+      select: { nativeLang: true, targetLang: true },
+    });
+    const targetLang =
+      toLangCode(body.targetLang, dir) ?? toLangCode(profile?.targetLang, dir);
+    const nativeLang =
+      toLangCode(body.nativeLang, dir) ?? toLangCode(profile?.nativeLang, dir);
+
     const created = await prisma.feedback.create({
       data: {
         userId: me.id,
@@ -64,7 +83,8 @@ export async function POST(req: NextRequest) {
         source,
         lessonsCompleted: Math.max(0, Math.floor(Number(body.lessonsCompleted) || 0)),
         level: body.level?.slice(0, 16) ?? null,
-        targetLang: body.targetLang?.slice(0, 16) ?? null,
+        targetLang,
+        nativeLang,
         platform: body.platform?.slice(0, 32) ?? null,
       },
       select: { id: true, createdAt: true },
