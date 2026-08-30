@@ -27,6 +27,11 @@ export async function GET(req: NextRequest) {
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
     const langId = req.nextUrl.searchParams.get('langId')?.trim();
+
+    // Ихтиёрӣ: хонанда худаш бобро аз рӯйхат интихоб кард
+    // (ниг. `/api/ai/speaking/categories`). Холӣ бошад — занҷири одатӣ:
+    // аввалин дарси нагузашта дар ҳамаи бобҳо.
+    const categoryId = req.nextUrl.searchParams.get('categoryId')?.trim();
     if (!langId) {
       return NextResponse.json({ error: 'langId is required.' }, { status: 400 });
     }
@@ -54,6 +59,7 @@ export async function GET(req: NextRequest) {
         targetLanguageId: langId,
         nativeLanguageId: nativeLanguage.id,
         isActive: true,
+        ...(categoryId ? { id: categoryId } : {}),
       },
       orderBy: { order: 'asc' },
       select: {
@@ -100,7 +106,11 @@ export async function GET(req: NextRequest) {
 
     if (chapters.length === 0) {
       return NextResponse.json(
-        { error: 'No speaking lessons for this language pair yet.' },
+        {
+          error: categoryId
+            ? 'This speaking chapter has no usable lessons.'
+            : 'No speaking lessons for this language pair yet.',
+        },
         { status: 404 },
       );
     }
