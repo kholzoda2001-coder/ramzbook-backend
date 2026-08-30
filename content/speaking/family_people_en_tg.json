@@ -1,0 +1,622 @@
+{
+  "slug": "family_people_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Family and people",
+    "titleTranslated": "Оила ва одамон",
+    "scenario": "Дар бораи оила ва одамони наздик гап задан: кӣ дар оилаатон ҳаст, онҳо чӣ хеланд, чандсолаанд ва бо кӣ дӯстед.",
+    "emoji": "👨‍👩‍👧",
+    "order": 7,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Оилаи ман",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "mother",
+          "translation": "модар",
+          "literal": "мазэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "father",
+          "translation": "падар",
+          "literal": "фазэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "this is",
+          "translation": "ин аст",
+          "literal": "зис из",
+          "note": "Ибораи тайёр барои шинос кардани касе ё чизе.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "This is my mother.",
+          "translation": "Ин модари ман аст.",
+          "literal": "зис из май мазэр",
+          "note": null,
+          "cue": "Who is this?",
+          "cueTranslation": "Ин кӣ аст?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "This is my father.",
+          "translation": "Ин падари ман аст.",
+          "literal": "зис из май фазэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "brother",
+          "translation": "бародар",
+          "literal": "бразэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "sister",
+          "translation": "хоҳар",
+          "literal": "систэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "I have",
+          "translation": "ман дорам",
+          "literal": "ай ҳэв",
+          "note": "Ибораи тайёр: I have + [кӣ/чӣ]. Дар англисӣ «доштан» бо феъл ифода мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "I have a brother.",
+          "translation": "Ман бародар дорам.",
+          "literal": "ай ҳэв э бразэр",
+          "note": null,
+          "cue": "Do you have brothers?",
+          "cueTranslation": "Бародар доред?"
+        },
+        {
+          "order": 9,
+          "kind": "sentence",
+          "text": "I have a sister.",
+          "translation": "Ман хоҳар дорам.",
+          "literal": "ай ҳэв э систэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 10,
+          "kind": "word",
+          "text": "family",
+          "translation": "оила",
+          "literal": "фэмилӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 11,
+          "kind": "sentence",
+          "text": "This is my family.",
+          "translation": "Ин оилаи ман аст.",
+          "literal": "зис из май фэмилӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Одамон",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "man",
+          "translation": "мард",
+          "literal": "мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "woman",
+          "translation": "зан",
+          "literal": "вумэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "boy",
+          "translation": "писар",
+          "literal": "бой",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "girl",
+          "translation": "духтар",
+          "literal": "гёрл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "who is",
+          "translation": "кӣ аст",
+          "literal": "ҳу из",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Who is this man?",
+          "translation": "Ин мард кӣ аст?",
+          "literal": "ҳу из зис мэн",
+          "note": null,
+          "cue": "Look at that photo.",
+          "cueTranslation": "Ба он акс нигоҳ кунед."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "This is a woman.",
+          "translation": "Ин зан аст.",
+          "literal": "зис из э вумэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "child",
+          "translation": "кӯдак",
+          "literal": "чайлд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "This is my child.",
+          "translation": "Ин фарзанди ман аст.",
+          "literal": "зис из май чайлд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 9,
+          "kind": "sentence",
+          "text": "I have a boy and a girl.",
+          "translation": "Ман як писар ва як духтар дорам.",
+          "literal": "ай ҳэв э бой энд э гёрл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Чӣ хел аст",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "he is",
+          "translation": "ӯ (мард) аст",
+          "literal": "ҳи из",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "she is",
+          "translation": "ӯ (зан) аст",
+          "literal": "ши из",
+          "note": "Дар англисӣ «ӯ» барои мард ва зан ДУ калимаи гуногун аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "tall",
+          "translation": "қадбаланд",
+          "literal": "тол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "kind",
+          "translation": "меҳрубон",
+          "literal": "кайнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "He is tall.",
+          "translation": "Ӯ қадбаланд аст.",
+          "literal": "ҳи из тол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "She is kind.",
+          "translation": "Ӯ меҳрубон аст.",
+          "literal": "ши из кайнд",
+          "note": null,
+          "cue": "Tell me about your sister.",
+          "cueTranslation": "Дар бораи хоҳаратон гӯед."
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "young",
+          "translation": "ҷавон",
+          "literal": "янг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "old",
+          "translation": "солхӯрда, кӯҳна",
+          "literal": "оулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "My brother is young.",
+          "translation": "Бародари ман ҷавон аст.",
+          "literal": "май бразэр из янг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 9,
+          "kind": "sentence",
+          "text": "My father is old.",
+          "translation": "Падари ман солхӯрда аст.",
+          "literal": "май фазэр из оулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Синну сол",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "how old",
+          "translation": "чандсола",
+          "literal": "ҳау оулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "years old",
+          "translation": "сола",
+          "literal": "йирз оулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "ten",
+          "translation": "даҳ",
+          "literal": "тен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "thirty",
+          "translation": "сӣ",
+          "literal": "сёртӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "How old is your brother?",
+          "translation": "Бародаратон чандсола аст?",
+          "literal": "ҳау оулд из ёр бразэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "He is ten years old.",
+          "translation": "Ӯ даҳсола аст.",
+          "literal": "ҳи из тен йирз оулд",
+          "note": null,
+          "cue": "How old is your child?",
+          "cueTranslation": "Фарзандатон чандсола аст?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "She is thirty years old.",
+          "translation": "Ӯ сӣсола аст.",
+          "literal": "ши из сёртӣ йирз оулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "word",
+          "text": "married",
+          "translation": "оиладор",
+          "literal": "мэрид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "My sister is married.",
+          "translation": "Хоҳари ман оиладор аст.",
+          "literal": "май систэр из мэрид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Дӯстон",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "friend",
+          "translation": "дӯст",
+          "literal": "фрэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "best friend",
+          "translation": "дӯсти беҳтарин",
+          "literal": "бест фрэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "neighbour",
+          "translation": "ҳамсоя",
+          "literal": "нейбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "This is my friend.",
+          "translation": "Ин дӯсти ман аст.",
+          "literal": "зис из май фрэнд",
+          "note": null,
+          "cue": "Who is with you?",
+          "cueTranslation": "Бо шумо кӣ аст?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "She is my best friend.",
+          "translation": "Ӯ дӯсти беҳтарини ман аст.",
+          "literal": "ши из май бест фрэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "He is my neighbour.",
+          "translation": "Ӯ ҳамсояи ман аст.",
+          "literal": "ҳи из май нейбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "I know",
+          "translation": "ман мешиносам",
+          "literal": "ай ноу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "I know this man.",
+          "translation": "Ман ин мардро мешиносам.",
+          "literal": "ай ноу зис мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Дар бораи худ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "I live",
+          "translation": "ман зиндагӣ мекунам",
+          "literal": "ай лив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "with",
+          "translation": "бо",
+          "literal": "уиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "alone",
+          "translation": "танҳо",
+          "literal": "элоун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "I live with my family.",
+          "translation": "Ман бо оилаам зиндагӣ мекунам.",
+          "literal": "ай лив уиз май фэмилӣ",
+          "note": null,
+          "cue": "Do you live alone?",
+          "cueTranslation": "Шумо танҳо зиндагӣ мекунед?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "I live alone.",
+          "translation": "Ман танҳо зиндагӣ мекунам.",
+          "literal": "ай лив элоун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "I love",
+          "translation": "ман дӯст медорам",
+          "literal": "ай лав",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "I love my family.",
+          "translation": "Ман оилаамро дӯст медорам.",
+          "literal": "ай лав май фэмилӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "I live with my mother.",
+          "translation": "Ман бо модарам зиндагӣ мекунам.",
+          "literal": "ай лив уиз май мазэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    }
+  ]
+}
