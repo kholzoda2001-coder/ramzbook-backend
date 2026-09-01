@@ -4,6 +4,7 @@ import { markStudied } from '@/lib/activity';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { awardXp } from '@/lib/xp';
 import { updateDailyTasks } from '@/lib/dailyTasks';
+import { recordOutcomes } from '@/lib/speakingMistakes';
 
 export const dynamic = 'force-dynamic';
 
@@ -39,6 +40,9 @@ export async function POST(req: NextRequest) {
 
     const body = (await req.json()) as {
       lessonIds?: string[];
+      // Воҳидҳои такрор: кадомаш боз ғалат шуд, кадомаш тоза гузашт.
+      missedItemIds?: unknown;
+      cleanItemIds?: unknown;
       sentencesSpoken?: number;
       seconds?: number;
     };
@@ -70,6 +74,18 @@ export async function POST(req: NextRequest) {
         { status: 404 },
       );
     }
+
+    // Натиҷаи такрор ҳам ба навбат таъсир мекунад: ҷумлае, ки боз ғалат шуд,
+    // дар навбат мемонад; ҷумлае, ки ду бор тоза гузашт, аз он мебарояд.
+    //
+    // Доира `anyCompleted` аст, на `lessonIds`: машқи хатогӣ метавонад аз
+    // дарси дигаре омада бошад, ки дар ин нишаст нест.
+    await recordOutcomes(
+      userId,
+      { anyCompleted: true },
+      body.missedItemIds,
+      body.cleanItemIds,
+    );
 
     await markStudied(userId);
 

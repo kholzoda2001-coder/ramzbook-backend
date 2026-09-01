@@ -178,15 +178,45 @@ export default function AdminLibraryPage() {
     }
   }
 
+  /**
+   * Пинҳон/фаъол кардани як воҳид.
+   *
+   * 🔴 БОГИ ИСЛОҲШУДА (2026-08-31): ин ЯГОНА дархости ин саҳифа буд, ки
+   * `res.ok`-ро НАМЕСАНҶИД ва хатогиро дар `catch` холӣ фурӯ мебурд. Дар
+   * баробари ин `setItems` ҳолати навро БЕЧУНУЧАРО мегузошт — яъне:
+   *
+   *   админ «пинҳон кардан»-ро мезад → тасвир хомӯш мешуд → дар база
+   *   ҲЕҶ ЧИЗ тағйир намеёфт → китоб дар барнома боқӣ мемонд
+   *
+   * Админ мутмаин буд, ки корро кард. Дар база ҳамаи 6 китоб `isActive:
+   * true` монданд. Ҳоло: ҷавоб санҷида мешавад ва ҳангоми нокомӣ ҳолати
+   * тасвир БАРМЕГАРДАД, то ҳеҷ гоҳ чизи дурӯғ нишон дода нашавад.
+   */
   async function toggleActive(item: Item) {
+    const next = !item.isActive;
+
+    // Оптимистӣ: тасвир фавран ҷавоб медиҳад…
+    setItems((prev) => prev.map((i) => (i.id === item.id ? { ...i, isActive: next } : i)));
+
     try {
-      await fetch(`/api/admin/library/${item.id}`, {
+      const res = await fetch(`/api/admin/library/${item.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isActive: !item.isActive }),
+        body: JSON.stringify({ isActive: next }),
       });
-      setItems((prev) => prev.map((i) => (i.id === item.id ? { ...i, isActive: !i.isActive } : i)));
-    } catch {/* non-critical */}
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? `HTTP ${res.status}`);
+      }
+      setStatus({
+        type: 'success',
+        msg: next ? `«${item.title}» фаъол шуд` : `«${item.title}» пинҳон шуд`,
+      });
+    } catch (e: any) {
+      // …вале агар сервер рад кунад, ҳолати ҲАҚИҚӢ бармегардад.
+      setItems((prev) => prev.map((i) => (i.id === item.id ? { ...i, isActive: item.isActive } : i)));
+      setStatus({ type: 'error', msg: `Нашуд: ${e.message}` });
+    }
   }
 
   function movePage(idx: number, dir: -1 | 1) {

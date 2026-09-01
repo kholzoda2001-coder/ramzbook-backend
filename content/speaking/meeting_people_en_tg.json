@@ -5,16 +5,16 @@
   "category": {
     "title": "Meeting someone",
     "titleTranslated": "Шиносоӣ",
-    "scenario": "Бо шахси нав вомехӯред: салом медиҳед, номатонро мегӯед, аз куҷо буданатонро мефаҳмонед ва хайрухуш мекунед. Ҳамон чанд ибора, ки ҳар мулоқоти аввал бе онҳо намешавад.",
+    "scenario": "Бо шахси нав вомехӯред: салом медиҳед, номатонро мегӯед ва хайрухуш мекунед. Ҳамон чанд калима, ки ҳар мулоқоти аввал бе онҳо намешавад.",
     "emoji": "👋",
-    "order": 2,
+    "order": 1,
     "isPremium": false,
     "isActive": true
   },
   "lessons": [
     {
       "order": 0,
-      "title": "Салом додан",
+      "title": "Чор калимаи аввал",
       "items": [
         {
           "order": 0,
@@ -29,98 +29,150 @@
         {
           "order": 1,
           "kind": "word",
-          "text": "hi",
-          "translation": "салом",
-          "literal": "ҳай",
-          "note": "Шакли кӯтоҳ ва дӯстона. Ба шахси калонсоли ношинос беҳтараш «hello».",
+          "text": "good",
+          "translation": "хуб",
+          "literal": "гуд",
+          "note": "Дар «Good morning» ҳамин калима меистад.",
           "cue": null,
           "cueTranslation": null
         },
         {
           "order": 2,
           "kind": "word",
-          "text": "good morning",
-          "translation": "субҳ ба хайр",
-          "literal": "гуд морнинг",
-          "note": null,
+          "text": "morning",
+          "translation": "субҳ",
+          "literal": "морнинг",
+          "note": "То тахминан соати 12-и рӯз.",
           "cue": null,
           "cueTranslation": null
         },
         {
           "order": 3,
           "kind": "word",
-          "text": "good evening",
-          "translation": "шоми хуш",
-          "literal": "гуд ивнинг",
+          "text": "friend",
+          "translation": "дӯст",
+          "literal": "френд",
           "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Ҳа, не, ташаккур",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "yes",
+          "translation": "ҳа",
+          "literal": "йес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "no",
+          "translation": "не",
+          "literal": "ноу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "thank you",
+          "translation": "ташаккур",
+          "literal": "сенк ю",
+          "note": "Ду калима, вале ҳамеша якҷоя гуфта мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "please",
+          "translation": "лутфан",
+          "literal": "плиз",
+          "note": "Дархостро мулоим мекунад — англисҳо онро зиёд мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Ибораҳои кӯтоҳ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "sentence",
+          "text": "Good morning.",
+          "translation": "Субҳ ба хайр.",
+          "literal": "гуд морнинг",
+          "note": "Ду калимаи омӯхта — аввалин ибораи шумо.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "sentence",
+          "text": "Hello, friend.",
+          "translation": "Салом, дӯст.",
+          "literal": "ҳелоу френд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "sentence",
+          "text": "Yes, please.",
+          "translation": "Ҳа, лутфан.",
+          "literal": "йес плиз",
+          "note": "Ҷавоби хушмуомилаи «ҳа».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "No, thank you.",
+          "translation": "Не, ташаккур.",
+          "literal": "ноу сенк ю",
+          "note": "Ҷавоби хушмуомилаи «не» — танҳо «no» дағал менамояд.",
           "cue": null,
           "cueTranslation": null
         },
         {
           "order": 4,
           "kind": "sentence",
-          "text": "Hello!",
-          "translation": "Салом!",
-          "literal": "ҳелоу",
+          "text": "Thank you, friend.",
+          "translation": "Ташаккур, дӯст.",
+          "literal": "сенк ю френд",
           "note": null,
-          "cue": "Hello! How are you?",
-          "cueTranslation": "Салом! Чӣ хелед?"
+          "cue": null,
+          "cueTranslation": null
         },
         {
           "order": 5,
           "kind": "sentence",
-          "text": "Good morning!",
-          "translation": "Субҳ ба хайр!",
-          "literal": "гуд морнинг",
+          "text": "Good morning, friend.",
+          "translation": "Субҳ ба хайр, дӯст.",
+          "literal": "гуд морнинг френд",
           "note": null,
           "cue": null,
           "cueTranslation": null
-        },
-        {
-          "order": 6,
-          "kind": "sentence",
-          "text": "Good evening!",
-          "translation": "Шоми хуш!",
-          "literal": "гуд ивнинг",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 7,
-          "kind": "word",
-          "text": "how are you",
-          "translation": "чӣ хелед",
-          "literal": "ҳау ар ю",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 8,
-          "kind": "sentence",
-          "text": "How are you?",
-          "translation": "Шумо чӣ хелед?",
-          "literal": "ҳау ар ю",
-          "note": "Ҷавоби маъмулӣ: «I am fine, thank you.»",
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 9,
-          "kind": "sentence",
-          "text": "I am fine, thank you.",
-          "translation": "Ман хубам, ташаккур.",
-          "literal": "ай эм файн сенк ю",
-          "note": null,
-          "cue": "How are you today?",
-          "cueTranslation": "Имрӯз чӣ хелед?"
         }
       ]
     },
     {
-      "order": 1,
-      "title": "Ном гуфтан",
+      "order": 3,
+      "title": "Номатон чист?",
       "items": [
         {
           "order": 0,
@@ -135,9 +187,9 @@
         {
           "order": 1,
           "kind": "word",
-          "text": "my",
-          "translation": "ман, -и ман",
-          "literal": "май",
+          "text": "what",
+          "translation": "чӣ",
+          "literal": "вот",
           "note": null,
           "cue": null,
           "cueTranslation": null
@@ -145,37 +197,73 @@
         {
           "order": 2,
           "kind": "word",
-          "text": "your",
-          "translation": "шумо, -и шумо",
-          "literal": "ёр",
-          "note": null,
+          "text": "sorry",
+          "translation": "бубахшед",
+          "literal": "сорӣ",
+          "note": "Ҳам узрхоҳӣ, ҳам «мебахшед, як лаҳза».",
           "cue": null,
           "cueTranslation": null
         },
         {
           "order": 3,
           "kind": "sentence",
-          "text": "My name is Ali.",
-          "translation": "Номи ман Алӣ аст.",
-          "literal": "май нейм из Алӣ",
-          "note": "Формулаи тайёр: My name is + ном.",
+          "text": "What is your name?",
+          "translation": "Номи шумо чист?",
+          "literal": "вот из ёр нейм",
+          "note": "«is» ва «your» алоҳида омӯхта намешаванд — онҳо дар ҳар ҷумла такрор мешаванд.",
           "cue": null,
           "cueTranslation": null
         },
         {
           "order": 4,
           "kind": "sentence",
-          "text": "What is your name?",
-          "translation": "Номи шумо чист?",
-          "literal": "уот из ёр нейм",
+          "text": "Sorry, what is your name?",
+          "translation": "Бубахшед, номи шумо чист?",
+          "literal": "сорӣ вот из ёр нейм",
           "note": null,
-          "cue": "Hello! I am Sarah.",
-          "cueTranslation": "Салом! Ман Сара ҳастам."
+          "cue": null,
+          "cueTranslation": null
         },
         {
           "order": 5,
+          "kind": "sentence",
+          "text": "Sorry, friend.",
+          "translation": "Бубахшед, дӯст.",
+          "literal": "сорӣ френд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Хайрухуш",
+      "items": [
+        {
+          "order": 0,
           "kind": "word",
-          "text": "nice to meet you",
+          "text": "how",
+          "translation": "чӣ хел",
+          "literal": "ҳау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "goodbye",
+          "translation": "то дидор",
+          "literal": "гудбай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Nice to meet you",
           "translation": "аз шиносоӣ шодам",
           "literal": "найс ту мит ю",
           "note": null,
@@ -183,339 +271,31 @@
           "cueTranslation": null
         },
         {
-          "order": 6,
-          "kind": "sentence",
-          "text": "Nice to meet you.",
-          "translation": "Аз шиносоӣ шодам.",
-          "literal": "найс ту мит ю",
-          "note": null,
-          "cue": "My name is Tom.",
-          "cueTranslation": "Номи ман Том аст."
-        },
-        {
-          "order": 7,
-          "kind": "word",
-          "text": "this is",
-          "translation": "ин аст",
-          "literal": "зис из",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 8,
-          "kind": "sentence",
-          "text": "This is my friend.",
-          "translation": "Ин дӯсти ман аст.",
-          "literal": "зис из май фрэнд",
-          "note": "Ҳангоми шинос кардани каси дигар.",
-          "cue": null,
-          "cueTranslation": null
-        }
-      ]
-    },
-    {
-      "order": 2,
-      "title": "Аз куҷо ҳастед",
-      "items": [
-        {
-          "order": 0,
-          "kind": "word",
-          "text": "from",
-          "translation": "аз",
-          "literal": "фром",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 1,
-          "kind": "word",
-          "text": "where",
-          "translation": "куҷо",
-          "literal": "уэр",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 2,
-          "kind": "word",
-          "text": "country",
-          "translation": "кишвар",
-          "literal": "кантрӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
           "order": 3,
           "kind": "sentence",
-          "text": "Where are you from?",
-          "translation": "Шумо аз куҷоед?",
-          "literal": "уэр ар ю фром",
-          "note": null,
+          "text": "How are you?",
+          "translation": "Аҳволатон чӣ хел?",
+          "literal": "ҳау ар ю",
+          "note": "Саволи маъмулӣ баъди салом.",
           "cue": null,
           "cueTranslation": null
         },
         {
           "order": 4,
           "kind": "sentence",
-          "text": "I am from Tajikistan.",
-          "translation": "Ман аз Тоҷикистонам.",
-          "literal": "ай эм фром Тоҷикистон",
+          "text": "Hello! How are you?",
+          "translation": "Салом! Аҳволатон чӣ хел?",
+          "literal": "ҳелоу ҳау ар ю",
           "note": null,
-          "cue": "Where are you from?",
-          "cueTranslation": "Шумо аз куҷоед?"
+          "cue": null,
+          "cueTranslation": null
         },
         {
           "order": 5,
-          "kind": "word",
-          "text": "live",
-          "translation": "зиндагӣ кардан",
-          "literal": "лив",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 6,
           "kind": "sentence",
-          "text": "I live in Dushanbe.",
-          "translation": "Ман дар Душанбе зиндагӣ мекунам.",
-          "literal": "ай лив ин Душанбе",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 7,
-          "kind": "sentence",
-          "text": "Where do you live?",
-          "translation": "Шумо дар куҷо зиндагӣ мекунед?",
-          "literal": "уэр ду ю лив",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 8,
-          "kind": "word",
-          "text": "here",
-          "translation": "ин ҷо",
-          "literal": "ҳиэр",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 9,
-          "kind": "sentence",
-          "text": "I am new here.",
-          "translation": "Ман дар ин ҷо навам.",
-          "literal": "ай эм нью ҳиэр",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        }
-      ]
-    },
-    {
-      "order": 3,
-      "title": "Кор ва синну сол",
-      "items": [
-        {
-          "order": 0,
-          "kind": "word",
-          "text": "student",
-          "translation": "донишҷӯ",
-          "literal": "стюдэнт",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 1,
-          "kind": "word",
-          "text": "teacher",
-          "translation": "муаллим",
-          "literal": "тичер",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 2,
-          "kind": "word",
-          "text": "work",
-          "translation": "кор кардан",
-          "literal": "уорк",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 3,
-          "kind": "sentence",
-          "text": "I am a student.",
-          "translation": "Ман донишҷӯ ҳастам.",
-          "literal": "ай эм э стюдэнт",
-          "note": "Пеш аз касб «a» меояд: a student, a teacher.",
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 4,
-          "kind": "sentence",
-          "text": "I work in a school.",
-          "translation": "Ман дар мактаб кор мекунам.",
-          "literal": "ай уорк ин э скул",
-          "note": null,
-          "cue": "What do you do?",
-          "cueTranslation": "Шумо чӣ кор мекунед?"
-        },
-        {
-          "order": 5,
-          "kind": "word",
-          "text": "how old",
-          "translation": "чандсола",
-          "literal": "ҳау оулд",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 6,
-          "kind": "sentence",
-          "text": "How old are you?",
-          "translation": "Шумо чандсолаед?",
-          "literal": "ҳау оулд ар ю",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 7,
-          "kind": "word",
-          "text": "years old",
-          "translation": "сола",
-          "literal": "йирз оулд",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 8,
-          "kind": "sentence",
-          "text": "I am twenty years old.",
-          "translation": "Ман бистсолаам.",
-          "literal": "ай эм туэнти йирз оулд",
-          "note": null,
-          "cue": "How old are you?",
-          "cueTranslation": "Шумо чандсолаед?"
-        }
-      ]
-    },
-    {
-      "order": 4,
-      "title": "Забон ва хайрухуш",
-      "items": [
-        {
-          "order": 0,
-          "kind": "word",
-          "text": "speak",
-          "translation": "гап задан",
-          "literal": "спик",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 1,
-          "kind": "word",
-          "text": "English",
-          "translation": "англисӣ",
-          "literal": "инглиш",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 2,
-          "kind": "word",
-          "text": "a little",
-          "translation": "каме",
-          "literal": "э литл",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 3,
-          "kind": "sentence",
-          "text": "Do you speak English?",
-          "translation": "Шумо англисӣ гап мезанед?",
-          "literal": "ду ю спик инглиш",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 4,
-          "kind": "sentence",
-          "text": "I speak a little English.",
-          "translation": "Ман каме англисӣ гап мезанам.",
-          "literal": "ай спик э литл инглиш",
-          "note": null,
-          "cue": "Do you speak English?",
-          "cueTranslation": "Шумо англисӣ гап мезанед?"
-        },
-        {
-          "order": 5,
-          "kind": "word",
-          "text": "slowly",
-          "translation": "оҳиста",
-          "literal": "слоулӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 6,
-          "kind": "sentence",
-          "text": "Please speak slowly.",
-          "translation": "Лутфан оҳиста гап занед.",
-          "literal": "плиз спик слоулӣ",
-          "note": "Ибораи наҷотбахш барои сӯҳбати воқеӣ.",
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 7,
-          "kind": "word",
-          "text": "see you",
-          "translation": "то боздид",
-          "literal": "си ю",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 8,
-          "kind": "sentence",
-          "text": "See you tomorrow.",
-          "translation": "То пагоҳ.",
-          "literal": "си ю туморроу",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
-        },
-        {
-          "order": 9,
-          "kind": "sentence",
-          "text": "Goodbye, have a nice day.",
-          "translation": "Хайр, рӯзи хуш.",
-          "literal": "гудбай ҳэв э найс дей",
+          "text": "Goodbye, friend.",
+          "translation": "То дидор, дӯст.",
+          "literal": "гудбай френд",
           "note": null,
           "cue": null,
           "cueTranslation": null

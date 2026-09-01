@@ -30,6 +30,60 @@ const ITEMS_PER_LESSON = 3;
 /** Ҷумлаи дароз ба слотҳо намеғунҷад — ҳамон қоидаи `/lesson`. */
 const MAX_SLOT_WORDS = 8;
 
+/**
+ * Чанд ҷои нишаст ба ХАТОҲО дода мешавад.
+ *
+ * Тамоми нишастро аз хатоҳо пур накардан ҚАСДАН аст: агар хонанда 20 хато
+ * дошта бошад, нишасте, ки танҳо аз душвортарин ҷумлаҳо иборат аст,
+ * ноумедкунанда мешавад — маҳз ҳамон ҳиссиёте, ки мо аз он мегурезем.
+ * Ҳамеша чанд ҷумлаи «мегузарам» дар байн мемонад.
+ */
+const MISTAKE_SLOTS = 4;
+
+/** Тавсифи як воҳид, тавре ки экран интизор аст. */
+type ReviewItem = {
+  id: string;
+  kind: string;
+  text: string;
+  translation: string;
+  literal: string | null;
+  note: string | null;
+  audioUrl: string | null;
+  cue: string | null;
+  cueTranslation: string | null;
+};
+
+/** Воҳид барои такрор мувофиқ аст? Ҳамон қоидаҳои дар ҳарду роҳ. */
+function reviewable(i: ReviewItem) {
+  return (
+    i.kind !== 'word' &&
+    i.text.trim() !== '' &&
+    i.translation.trim() !== '' &&
+    i.text.trim().split(/\s+/).filter(Boolean).length <= MAX_SLOT_WORDS
+  );
+}
+
+/** Воҳидро ба машқи «аз хотира» табдил медиҳад. */
+function toRecall(i: ReviewItem) {
+  const text = i.text.trim();
+  return {
+    // «Аз хотира»: матн пинҳон ва овоз хомӯш — вагарна такрор ба
+    // хондани матн табдил меёбад.
+    kind: 'recall',
+    badge: 'remember',
+    itemId: i.id,
+    prompt: i.translation.trim(),
+    target: text,
+    targetWords: text.split(/\s+/).filter(Boolean),
+    translit: i.literal?.trim() ?? '',
+    meaning: i.translation.trim(),
+    grammar: i.note?.trim() ?? '',
+    audioUrl: i.audioUrl ?? '',
+    cue: i.cue?.trim() ?? '',
+    cueTranslation: i.cueTranslation?.trim() ?? '',
+  };
+}
+
 export async function GET(req: NextRequest) {
   try {
     const userId = requireUserId(req);
@@ -80,6 +134,7 @@ export async function GET(req: NextRequest) {
             items: {
               orderBy: { order: 'asc' },
               select: {
+                id: true,
                 kind: true,
                 text: true,
                 translation: true,
@@ -95,43 +150,88 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    if (done.length === 0) {
+    // ── Қабати 1: ХАТОҲОИ ХУДИ ХОНАНДА ────────────────────────────────────
+    //
+    // Ин ҳамон чизест, ки то ин ҷо намерасид. `lastReviewedAt` танҳо
+    // медонист, ки кадом ДАРС кайҳо боз такрор нашудааст — на он ки хонанда
+    // маҳз дар КАДОМ ҷумла ғалат кард.
+    //
+    // Тартиб: аввал он ҷумлаҳое, ки кайҳо боз пурсида нашудаанд
+    // (`lastAskedAt` null = ҳеҷ гоҳ), баъд онҳое, ки бештар ғалат шудаанд.
+    // Яъне навбат ҳам гардиш дорад, ҳам душвортаринҳоро дар боло нигоҳ
+    // медорад.
+    const mistakes = await prisma.speakingMistake.findMany({
+      where: {
+        userId,
+        item: {
+          lesson: {
+            category: {
+              targetLanguageId: langId,
+              nativeLanguageId: nativeLanguage.id,
+              isActive: true,
+            },
+          },
+        },
+      },
+      orderBy: [
+        { lastAskedAt: { sort: 'asc', nulls: 'first' } },
+        { misses: 'desc' },
+      ],
+      take: MISTAKE_SLOTS,
+      select: {
+        id: true,
+        item: {
+          select: {
+            id: true,
+            kind: true,
+            text: true,
+            translation: true,
+            literal: true,
+            note: true,
+            audioUrl: true,
+            cue: true,
+            cueTranslation: true,
+          },
+        },
+      },
+    });
+
+    const mistakeExercises = mistakes
+      .filter((m) => reviewable(m.item))
+      .map((m) => toRecall(m.item));
+
+    // Ин воҳидҳо дигар аз қабати вақтӣ гирифта намешаванд — вагарна як
+    // ҷумла дар як нишаст ду бор пурсида мешуд.
+    const usedItemIds = new Set(mistakeExercises.map((e) => e.itemId));
+
+    // Хатоҳо пурсида шуданд → соати онҳо нав мешавад, то дафъаи оянда
+    // ҷумлаҳои ДИГАР ба навбат оянд.
+    if (mistakes.length > 0) {
+      await prisma.speakingMistake.updateMany({
+        where: { id: { in: mistakes.map((m) => m.id) }, userId },
+        data: { lastAskedAt: new Date() },
+      });
+    }
+
+    if (done.length === 0 && mistakeExercises.length === 0) {
       return NextResponse.json(
         { error: 'Nothing to review yet — finish a speaking lesson first.' },
         { status: 404 },
       );
     }
 
-    const exercises = [];
+    // ── Қабати 2: такрори вақтӣ (ҳамон мантиқи пештара) ───────────────────
+    const exercises = [...mistakeExercises];
     for (const row of done) {
       // Танҳо ҶУМЛАҲО: калимаи ҷудогона такрори сусттар медиҳад, ва ҳадафи
       // такрор нигоҳ доштани тамоми ибора аст, на як калима.
       const usable = row.lesson.items.filter(
-        (i) =>
-          i.kind !== 'word' &&
-          i.text.trim() &&
-          i.translation.trim() &&
-          i.text.trim().split(/\s+/).filter(Boolean).length <= MAX_SLOT_WORDS,
+        (i) => reviewable(i) && !usedItemIds.has(i.id),
       );
 
       // Аз охири дарс мегирем — он ҷо ҷумлаҳои пурратар ва мураккабтаранд.
       for (const item of usable.slice(-ITEMS_PER_LESSON)) {
-        const text = item.text.trim();
-        exercises.push({
-          // «Аз хотира»: матн пинҳон ва овоз хомӯш — вагарна такрор ба
-          // хондани матн табдил меёбад.
-          kind: 'recall',
-          badge: 'remember',
-          prompt: item.translation.trim(),
-          target: text,
-          targetWords: text.split(/\s+/).filter(Boolean),
-          translit: item.literal?.trim() ?? '',
-          meaning: item.translation.trim(),
-          grammar: item.note?.trim() ?? '',
-          audioUrl: item.audioUrl ?? '',
-          cue: item.cue?.trim() ?? '',
-          cueTranslation: item.cueTranslation?.trim() ?? '',
-        });
+        exercises.push(toRecall(item));
       }
     }
 
@@ -145,6 +245,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       lessonId: '', // такрор дарси алоҳида нест
       reviewLessonIds: done.map((d) => d.lessonId),
+      // Чанд машқи ин нишаст аз ХАТОҲОИ худи хонанда омад — экран бо ин
+      // ба ӯ мегӯяд, ки такрор шахсӣ аст, на тасодуфӣ.
+      mistakeCount: mistakeExercises.length,
       lessonTitle: '',
       lessonNumber: 1,
       firstEver: false,

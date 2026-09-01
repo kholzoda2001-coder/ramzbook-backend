@@ -78,6 +78,9 @@ export async function GET(req: NextRequest) {
             items: {
               orderBy: { order: 'asc' },
               select: {
+                // Бе `id` клиент хатои худро ба воҳиди мушаххас баста
+                // наметавонад — «такрори аз хатоҳо» аз ҳамин сар мешавад.
+                id: true,
                 kind: true,
                 text: true,
                 translation: true,
@@ -147,12 +150,15 @@ export async function GET(req: NextRequest) {
     // Такрори дарс → «ба ёд оред», вагарна калимаи нав / машқи душвор.
     const repeat = doneIds.has(lesson.id);
 
-    const exercises: Record<string, unknown>[] = items.map((item) => {
+    const exercises: Record<string, unknown>[] = items.flatMap((item) => {
       const text = item.text.trim();
       const translation = item.translation.trim();
       const words = text.split(/\s+/).filter(Boolean);
 
       const shared = {
+        // Клиент бе ин намедонад, ки дар КАДОМ воҳид ғалат кард — ва
+        // «такрори аз хатоҳо» бе он умуман сохта намешавад.
+        itemId: item.id,
         translit: item.literal?.trim() ?? '',
         meaning: translation,
         grammar: item.note?.trim() ?? '',
@@ -161,14 +167,47 @@ export async function GET(req: NextRequest) {
         cueTranslation: item.cueTranslation?.trim() ?? '',
       };
 
-      // Калима → «бигӯед» (матн намоён). Ҷумла → «тарҷума кунед» (слотҳо).
+      // ── КАЛИМА: зинаи сеқадама (ёрӣ кам-кам бардошта мешавад) ──────────
+      //
+      // Ҳамон зинае, ки корбар дар Falou дид:
+      //
+      //  | қадам | матн | талаффуз + маънӣ | барнома мехонад? |
+      //  |---|---|---|---|
+      //  | 1 `say`      | намоён | **намоён**            | ✅ |
+      //  | 2 `wordEcho` | намоён | пинҳон → баъди ҷавоб  | ✅ |
+      //  | 3 `wordSolo` | намоён | пинҳон → баъди ҷавоб  | ❌ |
+      //
+      // ЧАРО се, на як: як бор такрор кардани садои шунида «донистан» нест.
+      // Қадами сеюм ягона ҷоест, ки хонанда калимаро аз ХУДАШ мебарорад —
+      // бе овози намуна ва бе тарҷумаи пеши чашм.
+      //
+      // ⚠️ Ҳар се ҲАМОН `itemId`-ро доранд: барои навбати «такрори аз
+      // хатоҳо» ин ЯК воҳид аст, на се (ниг. `lib/speakingMistakes.ts`).
       if (item.kind === 'word') {
-        return {
-          kind: 'say',
-          badge: repeat ? 'remember' : 'newWord',
-          target: text,
-          ...shared,
-        };
+        return [
+          // 1. Шиносоӣ: калима, талаффуз ва маънӣ — ҳама пеши чашм.
+          {
+            kind: 'say',
+            badge: repeat ? 'remember' : 'newWord',
+            target: text,
+            ...shared,
+          },
+          // 2. Талаффуз: калима ҳанӯз намоён, вале маънӣ пинҳон.
+          { kind: 'wordEcho', badge: 'none', target: text, ...shared },
+          // 3. Санҷиш: акнун ТОҶИКӢ нишон дода мешавад ва ҷои англисӣ ХОЛӢ.
+          //
+          //    Ҳамон `translate`-и ҷумла, вале барои ЯК калима: матни ҳадаф
+          //    ба слоти холӣ табдил меёбад ва барнома ҳеҷ чиз намехонад.
+          //    Хонанда бояд калимаро аз тарҷума ба ёд орад ва ГӮЯД —
+          //    ин ягона қадамест, ки донистани воқеиро месанҷад.
+          {
+            kind: 'translate',
+            badge: 'none',
+            prompt: translation,
+            targetWords: words,
+            ...shared,
+          },
+        ];
       }
 
       // Ҷумлаи дароз ба слотҳо намеғунҷад — ҳамчун «бигӯед» нишон дода мешавад.
@@ -214,6 +253,7 @@ export async function GET(req: NextRequest) {
       exercises.push({
         kind: 'recall',
         badge: 'remember',
+        itemId: item.id,
         prompt: item.translation.trim(),
         target: text,
         targetWords: text.split(/\s+/).filter(Boolean),

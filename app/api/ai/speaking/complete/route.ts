@@ -4,6 +4,7 @@ import { markStudied } from '@/lib/activity';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { awardXp } from '@/lib/xp';
 import { updateDailyTasks } from '@/lib/dailyTasks';
+import { recordOutcomes } from '@/lib/speakingMistakes';
 
 export const dynamic = 'force-dynamic';
 
@@ -38,6 +39,9 @@ export async function POST(req: NextRequest) {
       newWords?: number;
       seconds?: number;
       xpEarned?: number;
+      // Воҳидҳое, ки хонанда дар онҳо ғалат кард / бе хато гуфт.
+      missedItemIds?: unknown;
+      cleanItemIds?: unknown;
     };
 
     const lessonId = body.lessonId?.trim();
@@ -91,6 +95,16 @@ export async function POST(req: NextRequest) {
         completedAt: new Date(),
       },
     });
+
+    // Хатоҳои ҳамин нишаст → навбати «такрори аз хатоҳо».
+    //
+    // Баъди сабти прогресс, то нокомии он анҷоми дарсро вайрон накунад.
+    await recordOutcomes(
+      userId,
+      { lessonIds: [lessonId] },
+      body.missedItemIds,
+      body.cleanItemIds,
+    );
 
     // Такрори муколама XP намедиҳад, вале ин ҳам кори таълимист — сабт мешавад,
     // то огоҳиҳо хонандаи фаъолро «ғайрифаъол» ҳисоб накунанд.

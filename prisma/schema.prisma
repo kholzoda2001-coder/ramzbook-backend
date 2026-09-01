@@ -119,6 +119,7 @@ model User {
   deviceTokens         DeviceToken[]
   pushSends            PushSend[]
   speakingProgress     SpeakingProgress[]
+  speakingMistakes     SpeakingMistake[]
   leagueMemberships    LeagueMember[]
   leagueResults        LeagueResult[]
   contentReports       ContentReport[]
@@ -933,7 +934,41 @@ model SpeakingItem {
   audioUrl    String?
   order       Int            @default(0)
 
+  mistakes SpeakingMistake[]
+
   @@index([lessonId])
+}
+
+// Воҳиде, ки хонанда дар он ХАТО кард — манбаи «такрори аз хатоҳо».
+//
+// ЧАРО ҷадвали алоҳида: `SpeakingProgress.lastReviewedAt` такрорро аз рӯи
+// ВАҚТ месозад — «кадом дарс кайҳо боз такрор нашудааст». Он намедонад, ки
+// хонанда маҳз дар КАДОМ ҷумла ғалат кард. Falou маҳз ҳаминро дорад
+// («personalized lessons focused on your weak spots») ва маҳз ҳамин дар мо
+// набуд.
+//
+// Сатр вақте нест мешавад, ки хонанда воҳидро ДУ бори пай дар пай бе хато
+// гӯяд ([streak] >= 2) — навбат худаш тоза мешавад, ҳеҷ кори дастӣ лозим нест.
+model SpeakingMistake {
+  id     String       @id @default(cuid())
+  userId String
+  user   User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemId String
+  item   SpeakingItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  /// Чанд маротиба дар ин воҳид ноком шуд — ҳеҷ гоҳ кам намешавад.
+  /// Тартиби навбат аз рӯи ҳамин: душвортаринҳо аввал.
+  misses Int @default(1)
+
+  /// Чанд маротиба ПАЙ ДАР ПАЙ бе хато гуфт. Хатои нав онро сифр мекунад.
+  streak Int @default(0)
+
+  lastMissedAt DateTime  @default(now())
+  /// Охирин бор кай дар навбати такрор пурсида шуд (барои гардиш).
+  lastAskedAt  DateTime?
+
+  @@unique([userId, itemId])
+  @@index([userId, lastMissedAt])
 }
 
 // Прогресси спикинг — ҚАСДАН аз `UserProgress` ҶУДО (ниг. шарҳи боло).
