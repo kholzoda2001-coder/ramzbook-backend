@@ -1,0 +1,556 @@
+{
+  "meta": {
+    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "generator": "lib/speaking/__tests__/generate-baseline.mjs",
+    "sourceFile": "app/api/ai/speaking/lesson/route.ts",
+    "sourceLines": "146-265",
+    "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+    "contentSource": "pack:family_people_en_tg.json",
+    "repeat": false,
+    "maxSlotWords": 8
+  },
+  "input": {
+    "categoryTitle": "Family and people",
+    "lessonId": "seed:family_people_en_tg:L0",
+    "lessonTitle": "Оилаи ман",
+    "lessonOrder": 0,
+    "doneIds": [],
+    "items": [
+      {
+        "id": "seed:family_people_en_tg:L0:I0",
+        "kind": "word",
+        "text": "mother",
+        "translation": "модар",
+        "literal": "мазэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I1",
+        "kind": "word",
+        "text": "father",
+        "translation": "падар",
+        "literal": "фазэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I2",
+        "kind": "word",
+        "text": "this is",
+        "translation": "ин аст",
+        "literal": "зис из",
+        "note": "Ибораи тайёр барои шинос кардани касе ё чизе.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I3",
+        "kind": "sentence",
+        "text": "This is my mother.",
+        "translation": "Ин модари ман аст.",
+        "literal": "зис из май мазэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": "Who is this?",
+        "cueTranslation": "Ин кӣ аст?"
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I4",
+        "kind": "sentence",
+        "text": "This is my father.",
+        "translation": "Ин падари ман аст.",
+        "literal": "зис из май фазэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I5",
+        "kind": "word",
+        "text": "brother",
+        "translation": "бародар",
+        "literal": "бразэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I6",
+        "kind": "word",
+        "text": "sister",
+        "translation": "хоҳар",
+        "literal": "систэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I7",
+        "kind": "word",
+        "text": "I have",
+        "translation": "ман дорам",
+        "literal": "ай ҳэв",
+        "note": "Ибораи тайёр: I have + [кӣ/чӣ]. Дар англисӣ «доштан» бо феъл ифода мешавад.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I8",
+        "kind": "sentence",
+        "text": "I have a brother.",
+        "translation": "Ман бародар дорам.",
+        "literal": "ай ҳэв э бразэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": "Do you have brothers?",
+        "cueTranslation": "Бародар доред?"
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I9",
+        "kind": "sentence",
+        "text": "I have a sister.",
+        "translation": "Ман хоҳар дорам.",
+        "literal": "ай ҳэв э систэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I10",
+        "kind": "word",
+        "text": "family",
+        "translation": "оила",
+        "literal": "фэмилӣ",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:family_people_en_tg:L0:I11",
+        "kind": "sentence",
+        "text": "This is my family.",
+        "translation": "Ин оилаи ман аст.",
+        "literal": "зис из май фэмилӣ",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      }
+    ]
+  },
+  "output": {
+    "exercises": [
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "mother",
+        "itemId": "seed:family_people_en_tg:L0:I0",
+        "translit": "мазэр",
+        "meaning": "модар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "mother",
+        "itemId": "seed:family_people_en_tg:L0:I0",
+        "translit": "мазэр",
+        "meaning": "модар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "модар",
+        "targetWords": [
+          "mother"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I0",
+        "translit": "мазэр",
+        "meaning": "модар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "father",
+        "itemId": "seed:family_people_en_tg:L0:I1",
+        "translit": "фазэр",
+        "meaning": "падар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "father",
+        "itemId": "seed:family_people_en_tg:L0:I1",
+        "translit": "фазэр",
+        "meaning": "падар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "падар",
+        "targetWords": [
+          "father"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I1",
+        "translit": "фазэр",
+        "meaning": "падар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "this is",
+        "itemId": "seed:family_people_en_tg:L0:I2",
+        "translit": "зис из",
+        "meaning": "ин аст",
+        "grammar": "Ибораи тайёр барои шинос кардани касе ё чизе.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "this is",
+        "itemId": "seed:family_people_en_tg:L0:I2",
+        "translit": "зис из",
+        "meaning": "ин аст",
+        "grammar": "Ибораи тайёр барои шинос кардани касе ё чизе.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "ин аст",
+        "targetWords": [
+          "this",
+          "is"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I2",
+        "translit": "зис из",
+        "meaning": "ин аст",
+        "grammar": "Ибораи тайёр барои шинос кардани касе ё чизе.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ин модари ман аст.",
+        "targetWords": [
+          "This",
+          "is",
+          "my",
+          "mother."
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I3",
+        "translit": "зис из май мазэр",
+        "meaning": "Ин модари ман аст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "Who is this?",
+        "cueTranslation": "Ин кӣ аст?"
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ин падари ман аст.",
+        "targetWords": [
+          "This",
+          "is",
+          "my",
+          "father."
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I4",
+        "translit": "зис из май фазэр",
+        "meaning": "Ин падари ман аст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "brother",
+        "itemId": "seed:family_people_en_tg:L0:I5",
+        "translit": "бразэр",
+        "meaning": "бародар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "brother",
+        "itemId": "seed:family_people_en_tg:L0:I5",
+        "translit": "бразэр",
+        "meaning": "бародар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "бародар",
+        "targetWords": [
+          "brother"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I5",
+        "translit": "бразэр",
+        "meaning": "бародар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "sister",
+        "itemId": "seed:family_people_en_tg:L0:I6",
+        "translit": "систэр",
+        "meaning": "хоҳар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "sister",
+        "itemId": "seed:family_people_en_tg:L0:I6",
+        "translit": "систэр",
+        "meaning": "хоҳар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "хоҳар",
+        "targetWords": [
+          "sister"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I6",
+        "translit": "систэр",
+        "meaning": "хоҳар",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "I have",
+        "itemId": "seed:family_people_en_tg:L0:I7",
+        "translit": "ай ҳэв",
+        "meaning": "ман дорам",
+        "grammar": "Ибораи тайёр: I have + [кӣ/чӣ]. Дар англисӣ «доштан» бо феъл ифода мешавад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "I have",
+        "itemId": "seed:family_people_en_tg:L0:I7",
+        "translit": "ай ҳэв",
+        "meaning": "ман дорам",
+        "grammar": "Ибораи тайёр: I have + [кӣ/чӣ]. Дар англисӣ «доштан» бо феъл ифода мешавад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "ман дорам",
+        "targetWords": [
+          "I",
+          "have"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I7",
+        "translit": "ай ҳэв",
+        "meaning": "ман дорам",
+        "grammar": "Ибораи тайёр: I have + [кӣ/чӣ]. Дар англисӣ «доштан» бо феъл ифода мешавад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ман бародар дорам.",
+        "targetWords": [
+          "I",
+          "have",
+          "a",
+          "brother."
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I8",
+        "translit": "ай ҳэв э бразэр",
+        "meaning": "Ман бародар дорам.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "Do you have brothers?",
+        "cueTranslation": "Бародар доред?"
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ман хоҳар дорам.",
+        "targetWords": [
+          "I",
+          "have",
+          "a",
+          "sister."
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I9",
+        "translit": "ай ҳэв э систэр",
+        "meaning": "Ман хоҳар дорам.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "family",
+        "itemId": "seed:family_people_en_tg:L0:I10",
+        "translit": "фэмилӣ",
+        "meaning": "оила",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "family",
+        "itemId": "seed:family_people_en_tg:L0:I10",
+        "translit": "фэмилӣ",
+        "meaning": "оила",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "оила",
+        "targetWords": [
+          "family"
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I10",
+        "translit": "фэмилӣ",
+        "meaning": "оила",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ин оилаи ман аст.",
+        "targetWords": [
+          "This",
+          "is",
+          "my",
+          "family."
+        ],
+        "itemId": "seed:family_people_en_tg:L0:I11",
+        "translit": "зис из май фэмилӣ",
+        "meaning": "Ин оилаи ман аст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "seed:family_people_en_tg:L0:I9",
+        "prompt": "Ман хоҳар дорам.",
+        "target": "I have a sister.",
+        "targetWords": [
+          "I",
+          "have",
+          "a",
+          "sister."
+        ],
+        "translit": "ай ҳэв э систэр",
+        "meaning": "Ман хоҳар дорам.",
+        "grammar": "",
+        "audioUrl": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "seed:family_people_en_tg:L0:I11",
+        "prompt": "Ин оилаи ман аст.",
+        "target": "This is my family.",
+        "targetWords": [
+          "This",
+          "is",
+          "my",
+          "family."
+        ],
+        "translit": "зис из май фэмилӣ",
+        "meaning": "Ин оилаи ман аст.",
+        "grammar": "",
+        "audioUrl": ""
+      }
+    ]
+  }
+}

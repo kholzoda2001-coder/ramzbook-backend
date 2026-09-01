@@ -1,0 +1,124 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`тартиби қадамҳо > 01-words-only-no-recall.input.json 1`] = `
+[
+  " 1. say       cmticvq1q002b3p55hvk",
+  " 2. say       cmticvq5f003y27ryv2j",
+  " 3. wordEcho  cmticvq1q002b3p55hvk",
+  " 4. wordEcho  cmticvq5f003y27ryv2j",
+  " 5. translate cmticvq1q002b3p55hvk",
+  " 6. translate cmticvq5f003y27ryv2j",
+  " 7. say       cmticvq90004hfh4jyxt",
+  " 8. say       cmticvqcj005wyhbshgc",
+  " 9. wordEcho  cmticvq90004hfh4jyxt",
+  "10. wordEcho  cmticvqcj005wyhbshgc",
+  "11. translate cmticvq90004hfh4jyxt",
+  "12. translate cmticvqcj005wyhbshgc",
+]
+`;
+
+exports[`тартиби қадамҳо > 02-sentences-only-recall.input.json 1`] = `
+[
+  " 1. translate cmticvrax00clde4gqn2",
+  " 2. translate cmticvree00dwfavxqjt",
+  " 3. translate cmticvrrv00e4rrfbybv",
+  " 4. translate cmticvs5g00fbx6s2lk5",
+  " 5. translate cmticvs8y00gbx9t3tnf",
+  " 6. translate cmticvscg00h8c8h3x6n",
+  " 7. recall    cmticvs8y00gbx9t3tnf",
+  " 8. recall    cmticvscg00h8c8h3x6n",
+]
+`;
+
+exports[`тартиби қадамҳо > 03-mixed-repeat-boundary.input.json 1`] = `
+[
+  " 1. say       cmticvsjf00jcbdim4on",
+  " 2. say       cmticvsmw00kkkt9peey",
+  " 3. wordEcho  cmticvsjf00jcbdim4on",
+  " 4. wordEcho  cmticvsmw00kkkt9peey",
+  " 5. translate cmticvsjf00jcbdim4on",
+  " 6. translate cmticvsmw00kkkt9peey",
+  " 7. say       cmticvsqd00l6md3emty",
+  " 8. translate cmticvstv00mnizfhbl8",
+  " 9. wordEcho  cmticvsqd00l6md3emty",
+  "10. translate cmticvsxb00n4bwt0msw",
+  "11. translate cmticvsqd00l6md3emty",
+  "12. translate cmticvt0s00ovsrvtk3e",
+  "13. recall    cmticvsxb00n4bwt0msw",
+  "14. recall    cmticvt0s00ovsrvtk3e",
+]
+`;
+
+exports[`тартиби қадамҳо > 04-ordering-food-with-cue.input.json 1`] = `
+[
+  " 1. say       seed:ordering_food_en_tg:L2:I0",
+  " 2. say       seed:ordering_food_en_tg:L2:I1",
+  " 3. wordEcho  seed:ordering_food_en_tg:L2:I0",
+  " 4. wordEcho  seed:ordering_food_en_tg:L2:I1",
+  " 5. translate seed:ordering_food_en_tg:L2:I0",
+  " 6. translate seed:ordering_food_en_tg:L2:I1",
+  " 7. say       seed:ordering_food_en_tg:L2:I2",
+  " 8. translate seed:ordering_food_en_tg:L2:I3",
+  " 9. wordEcho  seed:ordering_food_en_tg:L2:I2",
+  "10. translate seed:ordering_food_en_tg:L2:I4",
+  "11. translate seed:ordering_food_en_tg:L2:I2",
+  "12. translate seed:ordering_food_en_tg:L2:I5",
+  "13. translate seed:ordering_food_en_tg:L2:I6",
+  "14. say       seed:ordering_food_en_tg:L2:I7",
+  "15. say       seed:ordering_food_en_tg:L2:I8",
+  "16. wordEcho  seed:ordering_food_en_tg:L2:I7",
+  "17. wordEcho  seed:ordering_food_en_tg:L2:I8",
+  "18. translate seed:ordering_food_en_tg:L2:I7",
+  "19. translate seed:ordering_food_en_tg:L2:I8",
+  "20. translate seed:ordering_food_en_tg:L2:I9",
+  "21. recall    seed:ordering_food_en_tg:L2:I6",
+  "22. recall    seed:ordering_food_en_tg:L2:I9",
+]
+`;
+
+exports[`тартиби қадамҳо > 05-largest-mixed-cue.input.json 1`] = `
+[
+  " 1. say       seed:family_people_en_tg:L0:I0",
+  " 2. say       seed:family_people_en_tg:L0:I1",
+  " 3. wordEcho  seed:family_people_en_tg:L0:I0",
+  " 4. wordEcho  seed:family_people_en_tg:L0:I1",
+  " 5. translate seed:family_people_en_tg:L0:I0",
+  " 6. translate seed:family_people_en_tg:L0:I1",
+  " 7. say       seed:family_people_en_tg:L0:I2",
+  " 8. translate seed:family_people_en_tg:L0:I3",
+  " 9. wordEcho  seed:family_people_en_tg:L0:I2",
+  "10. translate seed:family_people_en_tg:L0:I4",
+  "11. translate seed:family_people_en_tg:L0:I2",
+  "12. say       seed:family_people_en_tg:L0:I5",
+  "13. say       seed:family_people_en_tg:L0:I6",
+  "14. wordEcho  seed:family_people_en_tg:L0:I5",
+  "15. wordEcho  seed:family_people_en_tg:L0:I6",
+  "16. translate seed:family_people_en_tg:L0:I5",
+  "17. translate seed:family_people_en_tg:L0:I6",
+  "18. say       seed:family_people_en_tg:L0:I7",
+  "19. translate seed:family_people_en_tg:L0:I8",
+  "20. wordEcho  seed:family_people_en_tg:L0:I7",
+  "21. translate seed:family_people_en_tg:L0:I9",
+  "22. translate seed:family_people_en_tg:L0:I7",
+  "23. say       seed:family_people_en_tg:L0:I10",
+  "24. translate seed:family_people_en_tg:L0:I11",
+  "25. wordEcho  seed:family_people_en_tg:L0:I10",
+  "26. recall    seed:family_people_en_tg:L0:I9",
+  "27. translate seed:family_people_en_tg:L0:I10",
+  "28. recall    seed:family_people_en_tg:L0:I11",
+]
+`;
+
+exports[`тартиби қадамҳо > 06-long-sentence-synthetic.input.json 1`] = `
+[
+  " 1. say       synthetic:long-sentence:I0",
+  " 2. say       synthetic:long-sentence:I1",
+  " 3. wordEcho  synthetic:long-sentence:I0",
+  " 4. translate synthetic:long-sentence:I2",
+  " 5. translate synthetic:long-sentence:I0",
+  " 6. translate synthetic:long-sentence:I3",
+  " 7. translate synthetic:long-sentence:I4",
+  " 8. recall    synthetic:long-sentence:I3",
+  " 9. recall    synthetic:long-sentence:I4",
+]
+`;

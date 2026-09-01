@@ -11,7 +11,10 @@
     "db:migrate": "prisma migrate dev",
     "db:seed": "node prisma/seed.mjs",
     "db:studio": "prisma studio",
-    "db:reset": "prisma migrate reset --force && npm run db:seed"
+    "db:reset": "prisma migrate reset --force && npm run db:seed",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "speaking:audit": "vitest run lib/speaking/__tests__/audit.test.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -38,17 +41,20 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@types/amqplib": "^0.10.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^22.10.2",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
+    "@vitest/coverage-v8": "^4.1.11",
     "autoprefixer": "^10.4.27",
     "postcss": "^8.5.8",
     "prisma": "^5.22.0",
     "tailwindcss": "^4.2.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.11"
   }
 }

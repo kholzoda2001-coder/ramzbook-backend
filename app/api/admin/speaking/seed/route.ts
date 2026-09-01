@@ -111,7 +111,13 @@ async function apply(pack: Pack) {
     }
 
     await prisma.speakingItem.createMany({
-      data: (spec.items as Item[]).map((it) => ({ ...it, lessonId: lesson.id })),
+      // `wordCount` ҲАМИН ҶО ҳисоб мешавад — валидатори M3 ба он такя
+      // мекунад ва воҳиди бе он «сифр калима» менамояд.
+      data: (spec.items as Item[]).map((it) => ({
+        ...it,
+        lessonId: lesson.id,
+        wordCount: it.text.trim().split(/\s+/).filter(Boolean).length,
+      })),
     });
   }
 
@@ -134,8 +140,25 @@ async function apply(pack: Pack) {
   };
 }
 
-/** Кадом бастаҳо кор карда шаванд — ҳама ё яктояш. */
-function pick(slug: string | null): Pack[] {
+/**
+ * Кадом бастаҳо кор карда шаванд.
+ *
+ * `?slug=` — яктояш (мутобиқати қафо).
+ * `?packs=a,b,c` — маҳз ҳамин рӯйхат.
+ *
+ * ⚠️ ЧАРО `packs` лозим шуд: боби «Meeting someone» дар продакшн аст ва
+ * корбарон дар он прогресс доранд. `apply()` воҳидҳоро `deleteMany`
+ * мекунад, ва `SpeakingMistake.itemId` бо `onDelete: Cascade` бастааст —
+ * яъне seed-и такрорӣ таърихи хатоҳои онҳоро НЕСТ мекунад. Бо ин
+ * параметр танҳо бобҳои НАВ гузошта мешаванд.
+ */
+function pick(slug: string | null, packs: string | null): Pack[] {
+  if (packs) {
+    const want = new Set(
+      packs.split(',').map((s) => s.trim()).filter(Boolean),
+    );
+    return PACKS.filter((p) => want.has(p.slug));
+  }
   if (!slug) return PACKS;
   const one = PACKS.find((p) => p.slug === slug);
   return one ? [one] : [];
@@ -155,7 +178,7 @@ async function applyAll(packs: Pack[]) {
 export async function GET(req: NextRequest) {
   try {
     const slug = req.nextUrl.searchParams.get('slug');
-    const chosen = pick(slug);
+    const chosen = pick(slug, req.nextUrl.searchParams.get('packs'));
     if (chosen.length === 0) {
       return NextResponse.json(
         { error: `No content pack with slug "${slug}".` },
@@ -193,7 +216,10 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const chosen = pick(req.nextUrl.searchParams.get('slug'));
+    const chosen = pick(
+      req.nextUrl.searchParams.get('slug'),
+      req.nextUrl.searchParams.get('packs'),
+    );
     if (chosen.length === 0) {
       return NextResponse.json({ error: 'Unknown slug.' }, { status: 404 });
     }

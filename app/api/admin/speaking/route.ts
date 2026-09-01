@@ -61,6 +61,7 @@ export async function POST(req: NextRequest) {
       emoji?: string;
       order?: number;
       isPremium?: boolean;
+      requiresCategoryId?: string | null;
     };
 
     const title = (body.title ?? '').trim();
@@ -94,6 +95,7 @@ export async function POST(req: NextRequest) {
         emoji: body.emoji?.trim() || '🎙️',
         order,
         isPremium: body.isPremium ?? false,
+        requiresCategoryId: body.requiresCategoryId || null,
         isActive: true,
       },
     });

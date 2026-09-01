@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "generator": "lib/speaking/__tests__/generate-baseline.mjs",
+    "sourceFile": "app/api/ai/speaking/lesson/route.ts",
+    "sourceLines": "146-265",
+    "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+    "contentSource": "db",
+    "repeat": false,
+    "maxSlotWords": 8
+  },
+  "input": {
+    "categoryTitle": "Meeting someone",
+    "lessonId": "cmticvr7g00b8bx1hbn0",
+    "lessonTitle": "Ибораҳои кӯтоҳ",
+    "lessonOrder": 2,
+    "doneIds": [],
+    "items": [
+      {
+        "id": "cmticvrax00clde4gqn2",
+        "kind": "sentence",
+        "text": "Good morning.",
+        "translation": "Субҳ ба хайр.",
+        "literal": "гуд морнинг",
+        "note": "Ду калимаи омӯхта — аввалин ибораи шумо.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvree00dwfavxqjt",
+        "kind": "sentence",
+        "text": "Hello, friend.",
+        "translation": "Салом, дӯст.",
+        "literal": "ҳелоу френд",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvrrv00e4rrfbybv",
+        "kind": "sentence",
+        "text": "Yes, please.",
+        "translation": "Ҳа, лутфан.",
+        "literal": "йес плиз",
+        "note": "Ҷавоби хушмуомилаи «ҳа».",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvs5g00fbx6s2lk5",
+        "kind": "sentence",
+        "text": "No, thank you.",
+        "translation": "Не, ташаккур.",
+        "literal": "ноу сенк ю",
+        "note": "Ҷавоби хушмуомилаи «не» — танҳо «no» дағал менамояд.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvs8y00gbx9t3tnf",
+        "kind": "sentence",
+        "text": "Thank you, friend.",
+        "translation": "Ташаккур, дӯст.",
+        "literal": "сенк ю френд",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvscg00h8c8h3x6n",
+        "kind": "sentence",
+        "text": "Good morning, friend.",
+        "translation": "Субҳ ба хайр, дӯст.",
+        "literal": "гуд морнинг френд",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      }
+    ]
+  },
+  "output": {
+    "exercises": [
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Субҳ ба хайр.",
+        "targetWords": [
+          "Good",
+          "morning."
+        ],
+        "itemId": "cmticvrax00clde4gqn2",
+        "translit": "гуд морнинг",
+        "meaning": "Субҳ ба хайр.",
+        "grammar": "Ду калимаи омӯхта — аввалин ибораи шумо.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Салом, дӯст.",
+        "targetWords": [
+          "Hello,",
+          "friend."
+        ],
+        "itemId": "cmticvree00dwfavxqjt",
+        "translit": "ҳелоу френд",
+        "meaning": "Салом, дӯст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ҳа, лутфан.",
+        "targetWords": [
+          "Yes,",
+          "please."
+        ],
+        "itemId": "cmticvrrv00e4rrfbybv",
+        "translit": "йес плиз",
+        "meaning": "Ҳа, лутфан.",
+        "grammar": "Ҷавоби хушмуомилаи «ҳа».",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Не, ташаккур.",
+        "targetWords": [
+          "No,",
+          "thank",
+          "you."
+        ],
+        "itemId": "cmticvs5g00fbx6s2lk5",
+        "translit": "ноу сенк ю",
+        "meaning": "Не, ташаккур.",
+        "grammar": "Ҷавоби хушмуомилаи «не» — танҳо «no» дағал менамояд.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ташаккур, дӯст.",
+        "targetWords": [
+          "Thank",
+          "you,",
+          "friend."
+        ],
+        "itemId": "cmticvs8y00gbx9t3tnf",
+        "translit": "сенк ю френд",
+        "meaning": "Ташаккур, дӯст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Субҳ ба хайр, дӯст.",
+        "targetWords": [
+          "Good",
+          "morning,",
+          "friend."
+        ],
+        "itemId": "cmticvscg00h8c8h3x6n",
+        "translit": "гуд морнинг френд",
+        "meaning": "Субҳ ба хайр, дӯст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "cmticvs8y00gbx9t3tnf",
+        "prompt": "Ташаккур, дӯст.",
+        "target": "Thank you, friend.",
+        "targetWords": [
+          "Thank",
+          "you,",
+          "friend."
+        ],
+        "translit": "сенк ю френд",
+        "meaning": "Ташаккур, дӯст.",
+        "grammar": "",
+        "audioUrl": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "cmticvscg00h8c8h3x6n",
+        "prompt": "Субҳ ба хайр, дӯст.",
+        "target": "Good morning, friend.",
+        "targetWords": [
+          "Good",
+          "morning,",
+          "friend."
+        ],
+        "translit": "гуд морнинг френд",
+        "meaning": "Субҳ ба хайр, дӯст.",
+        "grammar": "",
+        "audioUrl": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "generator": "lib/speaking/__tests__/generate-baseline.mjs",
+    "sourceFile": "app/api/ai/speaking/lesson/route.ts",
+    "sourceLines": "146-265",
+    "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+    "contentSource": "db",
+    "repeat": false,
+    "maxSlotWords": 8
+  },
+  "input": {
+    "categoryTitle": "Meeting someone",
+    "lessonId": "cmticvpy2001durrb6ig",
+    "lessonTitle": "Чор калимаи аввал",
+    "lessonOrder": 0,
+    "doneIds": [],
+    "items": [
+      {
+        "id": "cmticvq1q002b3p55hvk",
+        "kind": "word",
+        "text": "hello",
+        "translation": "салом",
+        "literal": "ҳелоу",
+        "note": "Саломи бетараф — дар ҳар вазъият мешавад.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvq5f003y27ryv2j",
+        "kind": "word",
+        "text": "good",
+        "translation": "хуб",
+        "literal": "гуд",
+        "note": "Дар «Good morning» ҳамин калима меистад.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvq90004hfh4jyxt",
+        "kind": "word",
+        "text": "morning",
+        "translation": "субҳ",
+        "literal": "морнинг",
+        "note": "То тахминан соати 12-и рӯз.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvqcj005wyhbshgc",
+        "kind": "word",
+        "text": "friend",
+        "translation": "дӯст",
+        "literal": "френд",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      }
+    ]
+  },
+  "output": {
+    "exercises": [
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "hello",
+        "itemId": "cmticvq1q002b3p55hvk",
+        "translit": "ҳелоу",
+        "meaning": "салом",
+        "grammar": "Саломи бетараф — дар ҳар вазъият мешавад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "hello",
+        "itemId": "cmticvq1q002b3p55hvk",
+        "translit": "ҳелоу",
+        "meaning": "салом",
+        "grammar": "Саломи бетараф — дар ҳар вазъият мешавад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "салом",
+        "targetWords": [
+          "hello"
+        ],
+        "itemId": "cmticvq1q002b3p55hvk",
+        "translit": "ҳелоу",
+        "meaning": "салом",
+        "grammar": "Саломи бетараф — дар ҳар вазъият мешавад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "good",
+        "itemId": "cmticvq5f003y27ryv2j",
+        "translit": "гуд",
+        "meaning": "хуб",
+        "grammar": "Дар «Good morning» ҳамин калима меистад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "good",
+        "itemId": "cmticvq5f003y27ryv2j",
+        "translit": "гуд",
+        "meaning": "хуб",
+        "grammar": "Дар «Good morning» ҳамин калима меистад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "хуб",
+        "targetWords": [
+          "good"
+        ],
+        "itemId": "cmticvq5f003y27ryv2j",
+        "translit": "гуд",
+        "meaning": "хуб",
+        "grammar": "Дар «Good morning» ҳамин калима меистад.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "morning",
+        "itemId": "cmticvq90004hfh4jyxt",
+        "translit": "морнинг",
+        "meaning": "субҳ",
+        "grammar": "То тахминан соати 12-и рӯз.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "morning",
+        "itemId": "cmticvq90004hfh4jyxt",
+        "translit": "морнинг",
+        "meaning": "субҳ",
+        "grammar": "То тахминан соати 12-и рӯз.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "субҳ",
+        "targetWords": [
+          "morning"
+        ],
+        "itemId": "cmticvq90004hfh4jyxt",
+        "translit": "морнинг",
+        "meaning": "субҳ",
+        "grammar": "То тахминан соати 12-и рӯз.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "friend",
+        "itemId": "cmticvqcj005wyhbshgc",
+        "translit": "френд",
+        "meaning": "дӯст",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "friend",
+        "itemId": "cmticvqcj005wyhbshgc",
+        "translit": "френд",
+        "meaning": "дӯст",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "дӯст",
+        "targetWords": [
+          "friend"
+        ],
+        "itemId": "cmticvqcj005wyhbshgc",
+        "translit": "френд",
+        "meaning": "дӯст",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      }
+    ]
+  }
+}

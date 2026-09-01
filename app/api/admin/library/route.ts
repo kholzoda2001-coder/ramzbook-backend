@@ -8,44 +8,14 @@ import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
-export const ITEM_TYPES = ['book', 'audio', 'video', 'template'] as const;
-export type ItemType = (typeof ITEM_TYPES)[number];
-
-export interface PageInput {
-  order?: number;
-  title?: string | null;
-  content?: string;
-  imageUrl?: string | null;
-}
-
-/**
- * The cover word is DRAWN, not wrapped: the app paints it across a 3:4.35 card
- * at 20sp. Anything longer than a short noun overflows or shrinks to nothing,
- * so it is capped here rather than at paint time — the admin sees the limit
- * while typing instead of discovering it on a phone.
- */
-export const COVER_WORD_MAX = 12;
-
-export function normalizeCoverWord(raw: unknown): string | null {
-  const s = (raw ?? '').toString().trim().toUpperCase();
-  return s ? s.slice(0, COVER_WORD_MAX) : null;
-}
-
-/** Shapes free-form admin input into valid page rows (drops empty ones). */
-export function normalizePages(pages: unknown): Required<PageInput>[] {
-  if (!Array.isArray(pages)) return [];
-  return pages
-    .map((p, i) => {
-      const raw = (p ?? {}) as PageInput;
-      return {
-        order: Number.isFinite(Number(raw.order)) ? Math.floor(Number(raw.order)) : i,
-        title: raw.title?.toString().trim() || null,
-        content: (raw.content ?? '').toString(),
-        imageUrl: raw.imageUrl?.toString().trim() || null,
-      };
-    })
-    .filter((p) => p.content.trim().length > 0);
-}
+// Ёрдамчиҳо ба `lib/library/shared.ts` кӯчиданд — ниг. шарҳи он ҷо.
+import {
+  ITEM_TYPES,
+  COVER_WORD_MAX,
+  normalizeCoverWord,
+  normalizePages,
+  type PageInput,
+} from '@/lib/library/shared';
 
 /** GET /api/admin/library[?type=book] — everything, active or not. */
 export async function GET(req: NextRequest) {

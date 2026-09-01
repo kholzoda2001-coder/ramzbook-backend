@@ -274,6 +274,12 @@ model Language {
   alphabetRulesAsNative   AlphabetRule[]      @relation("AlphabetRuleNative")
   speakingAsTarget        SpeakingCategory[]  @relation("SpeakingTarget")
   speakingAsNative        SpeakingCategory[]  @relation("SpeakingNative")
+
+  /// RegExp барои валидатсияи алифбо дар мазмуни Speaking (M3).
+  ///
+  /// `null` = санҷиши алифбо гузаронида мешавад. Ин ҚАСДАН майдони база
+  /// аст, на рӯйхат дар код: забони нав бе нашри барнома илова мешавад.
+  scriptPattern String?
 }
 
 model UserLanguage {
@@ -880,6 +886,12 @@ model SpeakingCategory {
   isActive         Boolean  @default(true)
   createdAt        DateTime @default(now())
 
+  /// Гейти қулф: то ин боб пурра гузашта нашавад, боби ҷорӣ кушода
+  /// намешавад. `null` = озод (рафтори имрӯза).
+  requiresCategoryId String?
+  requiresCategory   SpeakingCategory?  @relation("CatGate", fields: [requiresCategoryId], references: [id], onDelete: SetNull)
+  unlocks            SpeakingCategory[] @relation("CatGate")
+
   lessons SpeakingLesson[]
 
   @@index([targetLanguageId, nativeLanguageId])
@@ -934,6 +946,22 @@ model SpeakingItem {
   audioUrl    String?
   order       Int            @default(0)
 
+  /// Занҷири ДАСТӢ (back-chaining), аз ҷузъи охирин ба аввал.
+  /// Мисол: ["is Muhammad", "name is Muhammad"].
+  /// Холӣ = муҳаррик худаш аз `text` месозад (§2.3).
+  chainOverride String[] @default([])
+
+  /// Вариантҳои иваз барои машқи SWAP.
+  /// Мисол барои "My name is Muhammad": ["Sitora", "Karim"].
+  swaps         String[] @default([])
+
+  /// Кэши ҳисоби калима — дар вақти сабт/навсозӣ пур мешавад.
+  /// Барои филтр ва валидатсия, то дар ҳар дархост `split` нашавад.
+  wordCount     Int      @default(0)
+
+  /// `false` = воҳиди иловагӣ, дар нишасти кӯтоҳ партофта мешавад.
+  isCore        Boolean  @default(true)
+
   mistakes SpeakingMistake[]
 
   @@index([lessonId])
@@ -967,8 +995,16 @@ model SpeakingMistake {
   /// Охирин бор кай дар навбати такрор пурсида шуд (барои гардиш).
   lastAskedAt  DateTime?
 
+  /// Индекс дар `REVIEW_INTERVALS` (0..5) — ҷадвали фосилаҳо (M7).
+  /// Ҷавоби дуруст онро як зина боло, хато як зина поён мебарад.
+  box   Int      @default(0)
+
+  /// Кай ин воҳид бояд боз пурсида шавад. То он вақт дар навбат намеояд.
+  dueAt DateTime @default(now())
+
   @@unique([userId, itemId])
   @@index([userId, lastMissedAt])
+  @@index([userId, dueAt])
 }
 
 // Прогресси спикинг — ҚАСДАН аз `UserProgress` ҶУДО (ниг. шарҳи боло).

@@ -1,0 +1,117 @@
+{
+  "generatedFrom": "146-265",
+  "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+  "baselines": [
+    {
+      "file": "01-words-only-no-recall.json",
+      "source": "db",
+      "category": "Meeting someone",
+      "lesson": "Чор калимаи аввал",
+      "items": 4,
+      "words": 4,
+      "sentences": 0,
+      "cues": 0,
+      "recallPool": 0,
+      "repeat": false,
+      "steps": 12,
+      "kinds": {
+        "say": 4,
+        "wordEcho": 4,
+        "translate": 4
+      }
+    },
+    {
+      "file": "02-sentences-only-recall.json",
+      "source": "db",
+      "category": "Meeting someone",
+      "lesson": "Ибораҳои кӯтоҳ",
+      "items": 6,
+      "words": 0,
+      "sentences": 6,
+      "cues": 0,
+      "recallPool": 6,
+      "repeat": false,
+      "steps": 8,
+      "kinds": {
+        "translate": 6,
+        "recall": 2
+      }
+    },
+    {
+      "file": "03-mixed-repeat-boundary.json",
+      "source": "db",
+      "category": "Meeting someone",
+      "lesson": "Номатон чист?",
+      "items": 6,
+      "words": 3,
+      "sentences": 3,
+      "cues": 0,
+      "recallPool": 3,
+      "repeat": true,
+      "steps": 14,
+      "kinds": {
+        "say": 3,
+        "wordEcho": 3,
+        "translate": 6,
+        "recall": 2
+      }
+    },
+    {
+      "file": "04-ordering-food-with-cue.json",
+      "source": "pack:ordering_food_en_tg.json",
+      "category": "Ordering food",
+      "lesson": "Дар ошхона",
+      "items": 10,
+      "words": 5,
+      "sentences": 5,
+      "cues": 4,
+      "recallPool": 5,
+      "repeat": false,
+      "steps": 22,
+      "kinds": {
+        "say": 5,
+        "wordEcho": 5,
+        "translate": 10,
+        "recall": 2
+      }
+    },
+    {
+      "file": "05-largest-mixed-cue.json",
+      "source": "pack:family_people_en_tg.json",
+      "category": "Family and people",
+      "lesson": "Оилаи ман",
+      "items": 12,
+      "words": 7,
+      "sentences": 5,
+      "cues": 2,
+      "recallPool": 5,
+      "repeat": false,
+      "steps": 28,
+      "kinds": {
+        "say": 7,
+        "wordEcho": 7,
+        "translate": 12,
+        "recall": 2
+      }
+    },
+    {
+      "file": "06-long-sentence-synthetic.json",
+      "source": "synthetic",
+      "category": "Booking a table (synthetic)",
+      "lesson": "Ҷумлаи дароз (сунъӣ)",
+      "items": 5,
+      "words": 1,
+      "sentences": 4,
+      "cues": 1,
+      "recallPool": 3,
+      "repeat": false,
+      "steps": 9,
+      "kinds": {
+        "say": 2,
+        "wordEcho": 1,
+        "translate": 4,
+        "recall": 2
+      }
+    }
+  ]
+}

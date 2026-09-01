@@ -1,0 +1,461 @@
+{
+  "meta": {
+    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "generator": "lib/speaking/__tests__/generate-baseline.mjs",
+    "sourceFile": "app/api/ai/speaking/lesson/route.ts",
+    "sourceLines": "146-265",
+    "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+    "contentSource": "pack:ordering_food_en_tg.json",
+    "repeat": false,
+    "maxSlotWords": 8
+  },
+  "input": {
+    "categoryTitle": "Ordering food",
+    "lessonId": "seed:ordering_food_en_tg:L2",
+    "lessonTitle": "Дар ошхона",
+    "lessonOrder": 2,
+    "doneIds": [],
+    "items": [
+      {
+        "id": "seed:ordering_food_en_tg:L2:I0",
+        "kind": "word",
+        "text": "menu",
+        "translation": "меню",
+        "literal": "меню",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I1",
+        "kind": "word",
+        "text": "table",
+        "translation": "миз",
+        "literal": "тейбл",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I2",
+        "kind": "word",
+        "text": "hungry",
+        "translation": "гурусна",
+        "literal": "ҳангрӣ",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I3",
+        "kind": "sentence",
+        "text": "I am hungry.",
+        "translation": "Ман гурусна ҳастам.",
+        "literal": "ай эм ҳангрӣ",
+        "note": "Дар англисӣ «ҳастам» ҳатмист: I AM hungry, на «I hungry».",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I4",
+        "kind": "sentence",
+        "text": "Can I have the menu?",
+        "translation": "Менюро дода метавонед?",
+        "literal": "кен ай ҳэв зэ меню",
+        "note": "«Can I have…?» — шакли хушмуомилаи дархост. Ҷавоби маъмулӣ: «Sure!»",
+        "audioUrl": null,
+        "cue": "Here you are. Do you need anything else?",
+        "cueTranslation": "Мана. Боз чизе лозим аст?"
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I5",
+        "kind": "sentence",
+        "text": "Can I have a table for two?",
+        "translation": "Мизе барои ду нафар ҳаст?",
+        "literal": "кен ай ҳэв э тейбл фор ту",
+        "note": "«for two» = «барои ду нафар». Калимаи people гуфтан лозим нест.",
+        "audioUrl": null,
+        "cue": "Good evening! How many people?",
+        "cueTranslation": "Шоми хуш! Чанд нафаред?"
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I6",
+        "kind": "sentence",
+        "text": "Can I have water, please?",
+        "translation": "Об дода метавонед, лутфан?",
+        "literal": "кен ай ҳэв уотэр плиз",
+        "note": null,
+        "audioUrl": null,
+        "cue": "Would you like something to drink?",
+        "cueTranslation": "Чизе нӯшидан мехоҳед?"
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I7",
+        "kind": "word",
+        "text": "ready",
+        "translation": "тайёр",
+        "literal": "реди",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I8",
+        "kind": "word",
+        "text": "order",
+        "translation": "фармоиш",
+        "literal": "ордэр",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "seed:ordering_food_en_tg:L2:I9",
+        "kind": "sentence",
+        "text": "I am ready to order.",
+        "translation": "Ман тайёрам фармоиш диҳам.",
+        "literal": "ай эм реди ту ордэр",
+        "note": "Ҳамин ҷумларо ба пешхизмат гӯед, то ӯ фармоишро қабул кунад.",
+        "audioUrl": null,
+        "cue": "Are you ready to order?",
+        "cueTranslation": "Тайёред фармоиш диҳед?"
+      }
+    ]
+  },
+  "output": {
+    "exercises": [
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "menu",
+        "itemId": "seed:ordering_food_en_tg:L2:I0",
+        "translit": "меню",
+        "meaning": "меню",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "menu",
+        "itemId": "seed:ordering_food_en_tg:L2:I0",
+        "translit": "меню",
+        "meaning": "меню",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "меню",
+        "targetWords": [
+          "menu"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I0",
+        "translit": "меню",
+        "meaning": "меню",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "table",
+        "itemId": "seed:ordering_food_en_tg:L2:I1",
+        "translit": "тейбл",
+        "meaning": "миз",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "table",
+        "itemId": "seed:ordering_food_en_tg:L2:I1",
+        "translit": "тейбл",
+        "meaning": "миз",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "миз",
+        "targetWords": [
+          "table"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I1",
+        "translit": "тейбл",
+        "meaning": "миз",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "hungry",
+        "itemId": "seed:ordering_food_en_tg:L2:I2",
+        "translit": "ҳангрӣ",
+        "meaning": "гурусна",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "hungry",
+        "itemId": "seed:ordering_food_en_tg:L2:I2",
+        "translit": "ҳангрӣ",
+        "meaning": "гурусна",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "гурусна",
+        "targetWords": [
+          "hungry"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I2",
+        "translit": "ҳангрӣ",
+        "meaning": "гурусна",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ман гурусна ҳастам.",
+        "targetWords": [
+          "I",
+          "am",
+          "hungry."
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I3",
+        "translit": "ай эм ҳангрӣ",
+        "meaning": "Ман гурусна ҳастам.",
+        "grammar": "Дар англисӣ «ҳастам» ҳатмист: I AM hungry, на «I hungry».",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Менюро дода метавонед?",
+        "targetWords": [
+          "Can",
+          "I",
+          "have",
+          "the",
+          "menu?"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I4",
+        "translit": "кен ай ҳэв зэ меню",
+        "meaning": "Менюро дода метавонед?",
+        "grammar": "«Can I have…?» — шакли хушмуомилаи дархост. Ҷавоби маъмулӣ: «Sure!»",
+        "audioUrl": "",
+        "cue": "Here you are. Do you need anything else?",
+        "cueTranslation": "Мана. Боз чизе лозим аст?"
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Мизе барои ду нафар ҳаст?",
+        "targetWords": [
+          "Can",
+          "I",
+          "have",
+          "a",
+          "table",
+          "for",
+          "two?"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I5",
+        "translit": "кен ай ҳэв э тейбл фор ту",
+        "meaning": "Мизе барои ду нафар ҳаст?",
+        "grammar": "«for two» = «барои ду нафар». Калимаи people гуфтан лозим нест.",
+        "audioUrl": "",
+        "cue": "Good evening! How many people?",
+        "cueTranslation": "Шоми хуш! Чанд нафаред?"
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Об дода метавонед, лутфан?",
+        "targetWords": [
+          "Can",
+          "I",
+          "have",
+          "water,",
+          "please?"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I6",
+        "translit": "кен ай ҳэв уотэр плиз",
+        "meaning": "Об дода метавонед, лутфан?",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "Would you like something to drink?",
+        "cueTranslation": "Чизе нӯшидан мехоҳед?"
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "ready",
+        "itemId": "seed:ordering_food_en_tg:L2:I7",
+        "translit": "реди",
+        "meaning": "тайёр",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "ready",
+        "itemId": "seed:ordering_food_en_tg:L2:I7",
+        "translit": "реди",
+        "meaning": "тайёр",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "тайёр",
+        "targetWords": [
+          "ready"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I7",
+        "translit": "реди",
+        "meaning": "тайёр",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "order",
+        "itemId": "seed:ordering_food_en_tg:L2:I8",
+        "translit": "ордэр",
+        "meaning": "фармоиш",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "order",
+        "itemId": "seed:ordering_food_en_tg:L2:I8",
+        "translit": "ордэр",
+        "meaning": "фармоиш",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "фармоиш",
+        "targetWords": [
+          "order"
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I8",
+        "translit": "ордэр",
+        "meaning": "фармоиш",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ман тайёрам фармоиш диҳам.",
+        "targetWords": [
+          "I",
+          "am",
+          "ready",
+          "to",
+          "order."
+        ],
+        "itemId": "seed:ordering_food_en_tg:L2:I9",
+        "translit": "ай эм реди ту ордэр",
+        "meaning": "Ман тайёрам фармоиш диҳам.",
+        "grammar": "Ҳамин ҷумларо ба пешхизмат гӯед, то ӯ фармоишро қабул кунад.",
+        "audioUrl": "",
+        "cue": "Are you ready to order?",
+        "cueTranslation": "Тайёред фармоиш диҳед?"
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "seed:ordering_food_en_tg:L2:I6",
+        "prompt": "Об дода метавонед, лутфан?",
+        "target": "Can I have water, please?",
+        "targetWords": [
+          "Can",
+          "I",
+          "have",
+          "water,",
+          "please?"
+        ],
+        "translit": "кен ай ҳэв уотэр плиз",
+        "meaning": "Об дода метавонед, лутфан?",
+        "grammar": "",
+        "audioUrl": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "seed:ordering_food_en_tg:L2:I9",
+        "prompt": "Ман тайёрам фармоиш диҳам.",
+        "target": "I am ready to order.",
+        "targetWords": [
+          "I",
+          "am",
+          "ready",
+          "to",
+          "order."
+        ],
+        "translit": "ай эм реди ту ордэр",
+        "meaning": "Ман тайёрам фармоиш диҳам.",
+        "grammar": "Ҳамин ҷумларо ба пешхизмат гӯед, то ӯ фармоишро қабул кунад.",
+        "audioUrl": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "generator": "lib/speaking/__tests__/generate-baseline.mjs",
+    "sourceFile": "app/api/ai/speaking/lesson/route.ts",
+    "sourceLines": "146-265",
+    "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+    "contentSource": "synthetic",
+    "repeat": false,
+    "maxSlotWords": 8
+  },
+  "input": {
+    "categoryTitle": "Booking a table (synthetic)",
+    "lessonId": "synthetic:long-sentence",
+    "lessonTitle": "Ҷумлаи дароз (сунъӣ)",
+    "lessonOrder": 0,
+    "doneIds": [],
+    "items": [
+      {
+        "id": "synthetic:long-sentence:I0",
+        "kind": "word",
+        "text": "tonight",
+        "translation": "имшаб",
+        "literal": "тунайт",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "synthetic:long-sentence:I1",
+        "kind": "sentence",
+        "text": "I would like to book a table for two people tonight.",
+        "translation": "Ман мехоҳам барои ду нафар барои имшаб миз фармоиш диҳам.",
+        "literal": null,
+        "note": "Ибораи хушмуомила барои фармоиш.",
+        "audioUrl": "https://cdn.jsdelivr.net/gh/ramz/audio@main/en/book-a-table.mp3",
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "synthetic:long-sentence:I2",
+        "kind": "sentence",
+        "text": "Do you have a free table?",
+        "translation": "Мизи холӣ доред?",
+        "literal": null,
+        "note": null,
+        "audioUrl": null,
+        "cue": "Good evening! How can I help you?",
+        "cueTranslation": "Шоми хуш! Чӣ хизмат?"
+      },
+      {
+        "id": "synthetic:long-sentence:I3",
+        "kind": "sentence",
+        "text": "For two people, please.",
+        "translation": "Барои ду нафар, лутфан.",
+        "literal": null,
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "synthetic:long-sentence:I4",
+        "kind": "sentence",
+        "text": "Thank you very much.",
+        "translation": "Ташаккури зиёд.",
+        "literal": null,
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      }
+    ]
+  },
+  "output": {
+    "exercises": [
+      {
+        "kind": "say",
+        "badge": "newWord",
+        "target": "tonight",
+        "itemId": "synthetic:long-sentence:I0",
+        "translit": "тунайт",
+        "meaning": "имшаб",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "tonight",
+        "itemId": "synthetic:long-sentence:I0",
+        "translit": "тунайт",
+        "meaning": "имшаб",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "имшаб",
+        "targetWords": [
+          "tonight"
+        ],
+        "itemId": "synthetic:long-sentence:I0",
+        "translit": "тунайт",
+        "meaning": "имшаб",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "none",
+        "target": "I would like to book a table for two people tonight.",
+        "itemId": "synthetic:long-sentence:I1",
+        "translit": "",
+        "meaning": "Ман мехоҳам барои ду нафар барои имшаб миз фармоиш диҳам.",
+        "grammar": "Ибораи хушмуомила барои фармоиш.",
+        "audioUrl": "https://cdn.jsdelivr.net/gh/ramz/audio@main/en/book-a-table.mp3",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Мизи холӣ доред?",
+        "targetWords": [
+          "Do",
+          "you",
+          "have",
+          "a",
+          "free",
+          "table?"
+        ],
+        "itemId": "synthetic:long-sentence:I2",
+        "translit": "",
+        "meaning": "Мизи холӣ доред?",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "Good evening! How can I help you?",
+        "cueTranslation": "Шоми хуш! Чӣ хизмат?"
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Барои ду нафар, лутфан.",
+        "targetWords": [
+          "For",
+          "two",
+          "people,",
+          "please."
+        ],
+        "itemId": "synthetic:long-sentence:I3",
+        "translit": "",
+        "meaning": "Барои ду нафар, лутфан.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "Ташаккури зиёд.",
+        "targetWords": [
+          "Thank",
+          "you",
+          "very",
+          "much."
+        ],
+        "itemId": "synthetic:long-sentence:I4",
+        "translit": "",
+        "meaning": "Ташаккури зиёд.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "synthetic:long-sentence:I3",
+        "prompt": "Барои ду нафар, лутфан.",
+        "target": "For two people, please.",
+        "targetWords": [
+          "For",
+          "two",
+          "people,",
+          "please."
+        ],
+        "translit": "",
+        "meaning": "Барои ду нафар, лутфан.",
+        "grammar": "",
+        "audioUrl": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "synthetic:long-sentence:I4",
+        "prompt": "Ташаккури зиёд.",
+        "target": "Thank you very much.",
+        "targetWords": [
+          "Thank",
+          "you",
+          "very",
+          "much."
+        ],
+        "translit": "",
+        "meaning": "Ташаккури зиёд.",
+        "grammar": "",
+        "audioUrl": ""
+      }
+    ]
+  }
+}

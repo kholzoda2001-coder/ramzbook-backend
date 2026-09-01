@@ -53,6 +53,10 @@ export async function PUT(
         ...(body.order !== undefined && { order: body.order }),
         ...(body.isPremium !== undefined && { isPremium: body.isPremium }),
         ...(body.isActive !== undefined && { isActive: body.isActive }),
+        ...(body.requiresCategoryId !== undefined && {
+          // Гейти қулф (M8). Сатри холӣ = «озод».
+          requiresCategoryId: body.requiresCategoryId || null,
+        }),
       },
     });
     return NextResponse.json({ success: true, category: updated });

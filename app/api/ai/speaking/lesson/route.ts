@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+import {
+  generateSteps,
+  toWire,
+  toEngineItem,
+  configForEv,
+} from '@/lib/speaking/engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,8 +24,9 @@ export const dynamic = 'force-dynamic';
  * категорияи навбатӣ сар мешавад.
  */
 
-/** Ҷумлаи дароз ба слотҳо тақсим намешавад — хонда намешавад. */
-const MAX_SLOT_WORDS = 8;
+// ⚠️ `MAX_SLOT_WORDS` аз ин ҷо ба `lib/speaking/engine.ts` кӯчид
+// (`DEFAULT_CONFIG.maxSlotWords`). Ду нусхаи ҳамон рақам маҳз ҳамон
+// дуқабатагӣест, ки M0 барҳам медиҳад.
 
 export async function GET(req: NextRequest) {
   try {
@@ -32,6 +39,14 @@ export async function GET(req: NextRequest) {
     // (ниг. `/api/ai/speaking/categories`). Холӣ бошад — занҷири одатӣ:
     // аввалин дарси нагузашта дар ҳамаи бобҳо.
     const categoryId = req.nextUrl.searchParams.get('categoryId')?.trim();
+
+    // ── Гейти версияи клиент (§10.2) ─────────────────────────────────────
+    //
+    // Клиенти кӯҳна `ev` намефиристад → `1` → навъҳои нав (`chunk`,
+    // `swap`) ва майдонҳои нав ба он ҲЕҶ ГОҲ намераванд. Ин ягона роҳест,
+    // ки APK-и насбшуда пас аз навсозии сервер вайрон нашавад — интизори
+    // паҳншавии нашр лозим нест.
+    const ev = Number(req.nextUrl.searchParams.get('ev') ?? '1') || 1;
     if (!langId) {
       return NextResponse.json({ error: 'langId is required.' }, { status: 400 });
     }
@@ -90,6 +105,9 @@ export async function GET(req: NextRequest) {
                 // Қадами муколама: ҷумлаи ҳамсӯҳбат пеш аз навбати хонанда.
                 cue: true,
                 cueTranslation: true,
+                // Барои `chunk` ва `swap` (ev ≥ 2).
+                chainOverride: true,
+                swaps: true,
               },
             },
           },
@@ -150,119 +168,26 @@ export async function GET(req: NextRequest) {
     // Такрори дарс → «ба ёд оред», вагарна калимаи нав / машқи душвор.
     const repeat = doneIds.has(lesson.id);
 
-    const exercises: Record<string, unknown>[] = items.flatMap((item) => {
-      const text = item.text.trim();
-      const translation = item.translation.trim();
-      const words = text.split(/\s+/).filter(Boolean);
-
-      const shared = {
-        // Клиент бе ин намедонад, ки дар КАДОМ воҳид ғалат кард — ва
-        // «такрори аз хатоҳо» бе он умуман сохта намешавад.
-        itemId: item.id,
-        translit: item.literal?.trim() ?? '',
-        meaning: translation,
-        grammar: item.note?.trim() ?? '',
-        audioUrl: item.audioUrl ?? '',
-        cue: item.cue?.trim() ?? '',
-        cueTranslation: item.cueTranslation?.trim() ?? '',
-      };
-
-      // ── КАЛИМА: зинаи сеқадама (ёрӣ кам-кам бардошта мешавад) ──────────
-      //
-      // Ҳамон зинае, ки корбар дар Falou дид:
-      //
-      //  | қадам | матн | талаффуз + маънӣ | барнома мехонад? |
-      //  |---|---|---|---|
-      //  | 1 `say`      | намоён | **намоён**            | ✅ |
-      //  | 2 `wordEcho` | намоён | пинҳон → баъди ҷавоб  | ✅ |
-      //  | 3 `wordSolo` | намоён | пинҳон → баъди ҷавоб  | ❌ |
-      //
-      // ЧАРО се, на як: як бор такрор кардани садои шунида «донистан» нест.
-      // Қадами сеюм ягона ҷоест, ки хонанда калимаро аз ХУДАШ мебарорад —
-      // бе овози намуна ва бе тарҷумаи пеши чашм.
-      //
-      // ⚠️ Ҳар се ҲАМОН `itemId`-ро доранд: барои навбати «такрори аз
-      // хатоҳо» ин ЯК воҳид аст, на се (ниг. `lib/speakingMistakes.ts`).
-      if (item.kind === 'word') {
-        return [
-          // 1. Шиносоӣ: калима, талаффуз ва маънӣ — ҳама пеши чашм.
-          {
-            kind: 'say',
-            badge: repeat ? 'remember' : 'newWord',
-            target: text,
-            ...shared,
-          },
-          // 2. Талаффуз: калима ҳанӯз намоён, вале маънӣ пинҳон.
-          { kind: 'wordEcho', badge: 'none', target: text, ...shared },
-          // 3. Санҷиш: акнун ТОҶИКӢ нишон дода мешавад ва ҷои англисӣ ХОЛӢ.
-          //
-          //    Ҳамон `translate`-и ҷумла, вале барои ЯК калима: матни ҳадаф
-          //    ба слоти холӣ табдил меёбад ва барнома ҳеҷ чиз намехонад.
-          //    Хонанда бояд калимаро аз тарҷума ба ёд орад ва ГӮЯД —
-          //    ин ягона қадамест, ки донистани воқеиро месанҷад.
-          {
-            kind: 'translate',
-            badge: 'none',
-            prompt: translation,
-            targetWords: words,
-            ...shared,
-          },
-        ];
-      }
-
-      // Ҷумлаи дароз ба слотҳо намеғунҷад — ҳамчун «бигӯед» нишон дода мешавад.
-      if (words.length > MAX_SLOT_WORDS) {
-        return {
-          kind: 'say',
-          badge: repeat ? 'remember' : 'none',
-          target: text,
-          ...shared,
-        };
-      }
-
-      return {
-        kind: 'translate',
-        badge: repeat ? 'remember' : 'none',
-        prompt: translation,
-        targetWords: words,
-        ...shared,
-      };
-    });
-
-    // ── Санҷиши хотира дар охири дарс ──────────────────────────────────────
+    // ── Тавлиди машқҳо ───────────────────────────────────────────────────
     //
-    // Айнан мисли Falou: дарс бо машқе тамом мешавад, ки матни ҳадафро НИШОН
-    // НАМЕДИҲАД — хонанда танҳо тарҷумаи забони модариро мебинад ва ҷумларо
-    // аз ХОТИРА мегӯяд. Маҳз ҳамин қадам такрори кӯр-кӯронаро ба ёдгирии
-    // воқеӣ табдил медиҳад.
+    // Мантиқ ба `lib/speaking/engine.ts` кӯчид (M0). Он ҷо функсияи ТОЗА
+    // аст — бе Prisma, бе I/O, бе `Date`/`random` — пас 100% санҷида ва дар
+    // админ пешнамоиш карда мешавад. Рафтор БЕТАҒЙИР: ҳамон навъҳо, ҳамон
+    // тартиб, ҳамон думи `recall`.
     //
-    // Танҳо ҷумлаҳо гирифта мешаванд (калимаи ҷудогона санҷиши хотира нест)
-    // ва танҳо онҳое, ки ба слотҳо мегунҷанд.
-    const recallPool = items.filter(
-      (i) =>
-        i.kind !== 'word' &&
-        i.text.trim().split(/\s+/).filter(Boolean).length <= MAX_SLOT_WORDS,
+    // `ev = 1` формати симро мехкӯб мекунад: ҳеҷ майдони нав ба клиентҳои
+    // мавҷуда намеравад. Гейти версия аз параметри дархост — M5 (§10.2).
+    const cfg = configForEv(ev);
+    const steps = generateSteps(
+      items.map((i) => ({
+        ...toEngineItem(i),
+        chainOverride: i.chainOverride,
+        swaps: i.swaps,
+      })),
+      cfg,
+      { repeat },
     );
-
-    // Дарси хеле хурд санҷиши хотира намегирад — он ҷо ҳама чиз ҳанӯз тоза
-    // дар хотир аст ва такрор танҳо дилгиркунанда мешавад.
-    const recall = recallPool.length >= 3 ? recallPool.slice(-2) : [];
-
-    for (const item of recall) {
-      const text = item.text.trim();
-      exercises.push({
-        kind: 'recall',
-        badge: 'remember',
-        itemId: item.id,
-        prompt: item.translation.trim(),
-        target: text,
-        targetWords: text.split(/\s+/).filter(Boolean),
-        translit: item.literal?.trim() ?? '',
-        meaning: item.translation.trim(),
-        grammar: item.note?.trim() ?? '',
-        audioUrl: item.audioUrl ?? '',
-      });
-    }
+    const exercises = steps.map((s) => toWire(s, ev));
 
     const chapterLessons = chapter.lessons.length;
     const chapterDone = chapter.lessons.filter((l) => doneIds.has(l.id)).length;

@@ -5,7 +5,7 @@
 
 import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { ITEM_TYPES, normalizeCoverWord, normalizePages } from '../route';
+import { ITEM_TYPES, normalizeCoverWord, normalizePages } from '@/lib/library/shared';
 
 export const dynamic = 'force-dynamic';
 

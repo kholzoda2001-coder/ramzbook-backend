@@ -1,0 +1,38 @@
+[
+  {
+    "file": "01-words-only-no-recall.input.json",
+    "repeat": false,
+    "contentSource": "db",
+    "items": 4
+  },
+  {
+    "file": "02-sentences-only-recall.input.json",
+    "repeat": false,
+    "contentSource": "db",
+    "items": 6
+  },
+  {
+    "file": "03-mixed-repeat-boundary.input.json",
+    "repeat": true,
+    "contentSource": "db",
+    "items": 6
+  },
+  {
+    "file": "04-ordering-food-with-cue.input.json",
+    "repeat": false,
+    "contentSource": "pack:ordering_food_en_tg.json",
+    "items": 10
+  },
+  {
+    "file": "05-largest-mixed-cue.input.json",
+    "repeat": false,
+    "contentSource": "pack:family_people_en_tg.json",
+    "items": 12
+  },
+  {
+    "file": "06-long-sentence-synthetic.input.json",
+    "repeat": false,
+    "contentSource": "synthetic",
+    "items": 5
+  }
+]

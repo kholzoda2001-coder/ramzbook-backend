@@ -1,0 +1,296 @@
+{
+  "meta": {
+    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "generator": "lib/speaking/__tests__/generate-baseline.mjs",
+    "sourceFile": "app/api/ai/speaking/lesson/route.ts",
+    "sourceLines": "146-265",
+    "sourceSha256": "224a9cca0074125558aed006edc5b5158515417f5acd890400710639c7cf85e8",
+    "contentSource": "db",
+    "repeat": true,
+    "maxSlotWords": 8
+  },
+  "input": {
+    "categoryTitle": "Meeting someone",
+    "lessonId": "cmticvsfy00iyggq55et",
+    "lessonTitle": "Номатон чист?",
+    "lessonOrder": 3,
+    "doneIds": [
+      "cmticvsfy00iyggq55et"
+    ],
+    "items": [
+      {
+        "id": "cmticvsjf00jcbdim4on",
+        "kind": "word",
+        "text": "name",
+        "translation": "ном",
+        "literal": "нейм",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvsmw00kkkt9peey",
+        "kind": "word",
+        "text": "what",
+        "translation": "чӣ",
+        "literal": "вот",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvsqd00l6md3emty",
+        "kind": "word",
+        "text": "sorry",
+        "translation": "бубахшед",
+        "literal": "сорӣ",
+        "note": "Ҳам узрхоҳӣ, ҳам «мебахшед, як лаҳза».",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvstv00mnizfhbl8",
+        "kind": "sentence",
+        "text": "What is your name?",
+        "translation": "Номи шумо чист?",
+        "literal": "вот из ёр нейм",
+        "note": "«is» ва «your» алоҳида омӯхта намешаванд — онҳо дар ҳар ҷумла такрор мешаванд.",
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvsxb00n4bwt0msw",
+        "kind": "sentence",
+        "text": "Sorry, what is your name?",
+        "translation": "Бубахшед, номи шумо чист?",
+        "literal": "сорӣ вот из ёр нейм",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      },
+      {
+        "id": "cmticvt0s00ovsrvtk3e",
+        "kind": "sentence",
+        "text": "Sorry, friend.",
+        "translation": "Бубахшед, дӯст.",
+        "literal": "сорӣ френд",
+        "note": null,
+        "audioUrl": null,
+        "cue": null,
+        "cueTranslation": null
+      }
+    ]
+  },
+  "output": {
+    "exercises": [
+      {
+        "kind": "say",
+        "badge": "remember",
+        "target": "name",
+        "itemId": "cmticvsjf00jcbdim4on",
+        "translit": "нейм",
+        "meaning": "ном",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "name",
+        "itemId": "cmticvsjf00jcbdim4on",
+        "translit": "нейм",
+        "meaning": "ном",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "ном",
+        "targetWords": [
+          "name"
+        ],
+        "itemId": "cmticvsjf00jcbdim4on",
+        "translit": "нейм",
+        "meaning": "ном",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "remember",
+        "target": "what",
+        "itemId": "cmticvsmw00kkkt9peey",
+        "translit": "вот",
+        "meaning": "чӣ",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "what",
+        "itemId": "cmticvsmw00kkkt9peey",
+        "translit": "вот",
+        "meaning": "чӣ",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "чӣ",
+        "targetWords": [
+          "what"
+        ],
+        "itemId": "cmticvsmw00kkkt9peey",
+        "translit": "вот",
+        "meaning": "чӣ",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "say",
+        "badge": "remember",
+        "target": "sorry",
+        "itemId": "cmticvsqd00l6md3emty",
+        "translit": "сорӣ",
+        "meaning": "бубахшед",
+        "grammar": "Ҳам узрхоҳӣ, ҳам «мебахшед, як лаҳза».",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "wordEcho",
+        "badge": "none",
+        "target": "sorry",
+        "itemId": "cmticvsqd00l6md3emty",
+        "translit": "сорӣ",
+        "meaning": "бубахшед",
+        "grammar": "Ҳам узрхоҳӣ, ҳам «мебахшед, як лаҳза».",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "none",
+        "prompt": "бубахшед",
+        "targetWords": [
+          "sorry"
+        ],
+        "itemId": "cmticvsqd00l6md3emty",
+        "translit": "сорӣ",
+        "meaning": "бубахшед",
+        "grammar": "Ҳам узрхоҳӣ, ҳам «мебахшед, як лаҳза».",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "remember",
+        "prompt": "Номи шумо чист?",
+        "targetWords": [
+          "What",
+          "is",
+          "your",
+          "name?"
+        ],
+        "itemId": "cmticvstv00mnizfhbl8",
+        "translit": "вот из ёр нейм",
+        "meaning": "Номи шумо чист?",
+        "grammar": "«is» ва «your» алоҳида омӯхта намешаванд — онҳо дар ҳар ҷумла такрор мешаванд.",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "remember",
+        "prompt": "Бубахшед, номи шумо чист?",
+        "targetWords": [
+          "Sorry,",
+          "what",
+          "is",
+          "your",
+          "name?"
+        ],
+        "itemId": "cmticvsxb00n4bwt0msw",
+        "translit": "сорӣ вот из ёр нейм",
+        "meaning": "Бубахшед, номи шумо чист?",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "translate",
+        "badge": "remember",
+        "prompt": "Бубахшед, дӯст.",
+        "targetWords": [
+          "Sorry,",
+          "friend."
+        ],
+        "itemId": "cmticvt0s00ovsrvtk3e",
+        "translit": "сорӣ френд",
+        "meaning": "Бубахшед, дӯст.",
+        "grammar": "",
+        "audioUrl": "",
+        "cue": "",
+        "cueTranslation": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "cmticvsxb00n4bwt0msw",
+        "prompt": "Бубахшед, номи шумо чист?",
+        "target": "Sorry, what is your name?",
+        "targetWords": [
+          "Sorry,",
+          "what",
+          "is",
+          "your",
+          "name?"
+        ],
+        "translit": "сорӣ вот из ёр нейм",
+        "meaning": "Бубахшед, номи шумо чист?",
+        "grammar": "",
+        "audioUrl": ""
+      },
+      {
+        "kind": "recall",
+        "badge": "remember",
+        "itemId": "cmticvt0s00ovsrvtk3e",
+        "prompt": "Бубахшед, дӯст.",
+        "target": "Sorry, friend.",
+        "targetWords": [
+          "Sorry,",
+          "friend."
+        ],
+        "translit": "сорӣ френд",
+        "meaning": "Бубахшед, дӯст.",
+        "grammar": "",
+        "audioUrl": ""
+      }
+    ]
+  }
+}
