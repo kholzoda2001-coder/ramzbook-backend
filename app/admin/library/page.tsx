@@ -15,6 +15,47 @@ const TYPES = [
 
 const LEVELS = ['', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
+/**
+ * Кодҳои забон барои пешниҳод дар майдонҳои «Забони омӯзиш» ва «Барои кӣ».
+ *
+ * Манбаъ ДУТО: ҷадвали `Language` ва кодҳое, ки дар худи китобхона аллакай
+ * истифода шудаанд. Дуюмаш ҳатмист — «ko» (кореягӣ) дар ҷадвали забонҳо нест,
+ * вале ду китоби кореягӣ ҳаст; бе он админ ҳангоми илова кардани китоби нави
+ * кореягӣ кодро дар рӯйхат намеёфт.
+ *
+ * ⚠️ Худи майдон `<input list>` аст, на `<select>`: рӯйхат ЁРӢ мекунад, вале
+ * маҳдуд НАМЕКУНАД. Забони наве, ки ҳанӯз дар ҳеҷ ҷо нест (мас. `es`), бо даст
+ * навишта мешавад — ҳамон қобилияте, ки майдони матнии пештара дошт.
+ */
+function langChoices(
+  langs: Lang[],
+  items: Item[],
+  kind: 'native' | 'target',
+): { code: string; label: string }[] {
+  // Объекти оддӣ, на `Map`: tsconfig ба ES5 нишон гирифтааст ва гардиши
+  // `Map` бе `downlevelIteration` компилятсия намешавад (ҳамон сабабе, ки дар
+  // `api/admin/reports/route.ts` навишта шудааст).
+  const out: Record<string, string> = {};
+  for (const l of langs) {
+    if (kind === 'native' ? !l.canBeNative : !l.canBeTarget) continue;
+    out[l.code] = `${l.flag ?? ''} ${kind === 'native' ? l.nativeName : l.name}`.trim();
+  }
+  for (const it of items) {
+    const code = (kind === 'native' ? it.nativeLang : it.targetLang)?.trim();
+    if (code && !out[code]) out[code] = code;
+  }
+  return Object.keys(out).map((code) => ({ code, label: out[code] }));
+}
+
+interface Lang {
+  code: string;
+  name: string;
+  nativeName: string;
+  flag: string | null;
+  canBeNative: boolean;
+  canBeTarget: boolean;
+}
+
 interface Page {
   id?: string;
   order: number;
@@ -34,6 +75,7 @@ interface Item {
   coverSubtitle: string | null;
   level: string | null;
   targetLang: string | null;
+  nativeLang: string | null;
   mediaUrl: string | null;
   durationMin: number | null;
   rating: number | null;
@@ -47,12 +89,14 @@ interface Item {
 const EMPTY: Item = {
   id: '', type: 'book', title: '', author: '', description: '', coverUrl: '',
   coverWord: '', coverSubtitle: '',
-  level: '', targetLang: 'en', mediaUrl: '', durationMin: null, rating: null,
+  level: '', targetLang: 'en', nativeLang: '', mediaUrl: '', durationMin: null, rating: null,
   isPremium: false, isActive: true, order: 0, pages: [],
 };
 
 export default function AdminLibraryPage() {
   const [items, setItems] = useState<Item[]>([]);
+  // Забонҳо аз база — то админ кодро дастӣ нанависад ва «ru » ё «RU» насозад.
+  const [langs, setLangs] = useState<Lang[]>([]);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState<{ type: 'error' | 'success'; msg: string } | null>(null);
@@ -87,13 +131,27 @@ export default function AdminLibraryPage() {
 
   useEffect(() => { load(); }, [load]);
 
+  // Як бор: рӯйхати забонҳо барои ҳарду интихобгар (ҳадаф ва модарӣ).
+  // Ноком шавад — интихобгарҳо холӣ мемонанд, вале қимати ҶОРИИ воҳид ба ҳар
+  // ҳол дар рӯйхат гузошта мешавад (ниг. `langOptions`), пас таҳрир ҳеҷ гоҳ
+  // забони сабтшударо намепартояд.
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch('/api/admin/languages');
+        const data = await res.json();
+        setLangs((data.languages ?? []) as Lang[]);
+      } catch {/* интихобгар бе рӯйхат ҳам кор мекунад */}
+    })();
+  }, []);
+
   async function openEdit(id: string) {
     try {
       const res = await fetch(`/api/admin/library/${id}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       const it = data.item as Item;
-      setEditing({ ...it, author: it.author ?? '', description: it.description ?? '', coverUrl: it.coverUrl ?? '', coverWord: it.coverWord ?? '', coverSubtitle: it.coverSubtitle ?? '', level: it.level ?? '', targetLang: it.targetLang ?? '', mediaUrl: it.mediaUrl ?? '' });
+      setEditing({ ...it, author: it.author ?? '', description: it.description ?? '', coverUrl: it.coverUrl ?? '', coverWord: it.coverWord ?? '', coverSubtitle: it.coverSubtitle ?? '', level: it.level ?? '', targetLang: it.targetLang ?? '', nativeLang: it.nativeLang ?? '', mediaUrl: it.mediaUrl ?? '' });
       setPages((it.pages ?? []).map((p, i) => ({
         order: p.order ?? i, title: p.title ?? '', content: p.content ?? '', imageUrl: p.imageUrl ?? '',
       })));
@@ -328,9 +386,45 @@ export default function AdminLibraryPage() {
                 {LEVELS.map((l) => <option key={l} value={l}>{l || '— ҳама —'}</option>)}
               </select>
             </div>
+            {/* ── ДУ забон, ду савол ────────────────────────────────────
+                «Забони омӯзиш» = мавод чиро меомӯзонад (ранги муқова, филтри
+                раф). «Барои кӣ» = забони МОДАРИИ хонанда, ки тавзеҳҳо ба он
+                навишта шудаанд — хонандаи русзабон китоби барои тоҷикзабонро
+                УМУМАН намебинад. Холӣ = ба ҳама. */}
             <div>
-              <label className={label}>Забон (мас. en)</label>
-              <input type="text" value={editing.targetLang ?? ''} onChange={(e) => setEditing({ ...editing, targetLang: e.target.value })} className={input} placeholder="холӣ = ҳама" />
+              <label className={label}>Забони омӯзиш</label>
+              <input
+                type="text"
+                list="lib-target-langs"
+                value={editing.targetLang ?? ''}
+                onChange={(e) => setEditing({ ...editing, targetLang: e.target.value.trim().toLowerCase() })}
+                className={input}
+                placeholder="холӣ = ҳама"
+              />
+              <datalist id="lib-target-langs">
+                {langChoices(langs, items, 'target').map((o) => (
+                  <option key={o.code} value={o.code} label={o.label} />
+                ))}
+              </datalist>
+            </div>
+            <div>
+              <label className={label}>Барои кӣ (забони модарӣ)</label>
+              <input
+                type="text"
+                list="lib-native-langs"
+                value={editing.nativeLang ?? ''}
+                onChange={(e) => setEditing({ ...editing, nativeLang: e.target.value.trim().toLowerCase() })}
+                className={input}
+                placeholder="холӣ = ҳама"
+              />
+              <datalist id="lib-native-langs">
+                {langChoices(langs, items, 'native').map((o) => (
+                  <option key={o.code} value={o.code} label={o.label} />
+                ))}
+              </datalist>
+              <p className="text-[11px] text-[var(--text-muted)] mt-1">
+                Мас. <b>tg</b> — танҳо ба тоҷикзабонҳо. Холӣ = ба ҳама.
+              </p>
             </div>
 
             <div className="md:col-span-3">
@@ -564,6 +658,7 @@ export default function AdminLibraryPage() {
                 </div>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">
                   {[t.label, it.author, it.level, it.targetLang,
+                    it.nativeLang ? `барои: ${it.nativeLang}` : 'барои: ҳама',
                     it.pageCount ? `${it.pageCount} саҳифа` : null,
                     it.durationMin ? `${it.durationMin} дақ` : null,
                   ].filter(Boolean).join(' · ')}

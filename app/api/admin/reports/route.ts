@@ -142,8 +142,53 @@ export async function GET(req: NextRequest) {
       wordById[w.id] = w;
     });
 
+    // ── Ҳамон чиз барои бахши ГУФТОР ──────────────────────────────────────
+    //
+    // Гузоришҳои спикинг `SpeakingItem.id` мебаранд, на `Word.id` — он ҷо
+    // занҷири мазмуни ХУДАШ ҳаст (SpeakingCategory → SpeakingLesson →
+    // SpeakingItem). Бе ин ҷустуҷӯ панел барои онҳо на «ҳоло дар база» ва на
+    // контекст нишон намедод: як сатри `cmq…` бе ҳеҷ маъно.
+    //
+    // Танҳо id-ҳое пурсида мешаванд, ки дар калимаҳо ЁФТ НАШУДАНД — яъне
+    // барои курси роҳнамо ягон дархости изофӣ намеравад.
+    const speakingIds = wordIds.filter((id) => !wordById[id]);
+    const speakingItems = speakingIds.length
+      ? await prisma.speakingItem.findMany({
+          where: { id: { in: speakingIds } },
+          select: {
+            id: true, text: true, translation: true, literal: true,
+            note: true, audioUrl: true, cue: true, cueTranslation: true,
+            lesson: {
+              select: {
+                id: true, title: true,
+                category: { select: { id: true, titleTranslated: true } },
+              },
+            },
+          },
+        })
+      : [];
+    const speakingById: Record<string, (typeof speakingItems)[number]> = {};
+    speakingItems.forEach((i) => {
+      speakingById[i.id] = i;
+    });
+
     /** Калиди майдон → сутуни воқеии база. */
     const currentValueOf = (contentId: string, field: string): string | null => {
+      const sp = speakingById[contentId];
+      if (sp) {
+        switch (field) {
+          case 'word_target': return sp.text;
+          case 'word_native': return sp.translation;
+          // Дар спикинг транслитератсия дар `literal` нигоҳ дошта мешавад.
+          case 'ipa_native': return sp.literal;
+          case 'note': return sp.note;
+          case 'audio': return sp.audioUrl;
+          case 'cue_target': return sp.cue;
+          case 'cue_native': return sp.cueTranslation;
+          default: return null;
+        }
+      }
+
       const w = wordById[contentId];
       if (!w) return null;
       switch (field) {
@@ -162,6 +207,7 @@ export async function GET(req: NextRequest) {
     const out = Object.keys(groups).map((k) => {
       const g = groups[k];
       const w = wordById[g.contentId];
+      const si = speakingById[g.contentId];
       return {
         ...g,
         currentValue: currentValueOf(g.contentId, g.field),
@@ -175,7 +221,16 @@ export async function GET(req: NextRequest) {
               moduleTitle:
                 w.lesson?.module?.titleTranslated || w.lesson?.module?.title || null,
             }
-          : null,
+          : si
+            ? {
+                word: si.text,
+                translation: si.translation,
+                lessonTitle: si.lesson?.title || null,
+                // «Боб»-и спикинг ҷои «бахш»-и роҳнаморо мегирад: панел
+                // ҳамон сатрро мекашад ва тағйири UI лозим нест.
+                moduleTitle: si.lesson?.category?.titleTranslated || null,
+              }
+            : null,
       };
     });
 

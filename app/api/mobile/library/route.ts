@@ -36,6 +36,18 @@ export async function OPTIONS() {
  * plus the ones for that language — a learner should never lose general
  * material by picking a language.
  *
+ * ── Забони МОДАРӢ (2026-09-02) ─────────────────────────────────────────────
+ * Раф аз рӯи `nativeLang`-и хонанда БУРИДА мешавад: китобе, ки админ бо
+ * тавзеҳи русӣ илова кардааст, ба тоҷикзабон ҳеҷ гоҳ намерасад ва баръакс.
+ * Ин филтр дар СЕРВЕР аст, на дар барнома: забони модарӣ дар ҳисоб нигоҳ
+ * дошта мешавад (`User.nativeLang`, коди забон) ва барнома набояд қарор
+ * қабул кунад, ки чиро дидан мумкин аст.
+ *
+ * Ду муҳофиз, то раф ногаҳон холӣ нашавад:
+ *   • `nativeLang = null` дар воҳид = «барои ҳама» (ҳамон қоидаи `targetLang`);
+ *     ҳамаи мазмуни то имрӯз маҳз ҳамин аст.
+ *   • агар дар ҳисоб забони модарӣ набошад, филтр УМУМАН татбиқ намешавад.
+ *
  * ── Access ─────────────────────────────────────────────────────────────────
  * This endpoint used to answer 403 to every non-premium user, which made the
  * whole shelf invisible to exactly the people we want to sell to: they could
@@ -58,17 +70,28 @@ export async function GET(req: NextRequest) {
     const type = sp.get('type');
     const lang = sp.get('lang');
 
+    const me = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { nativeLang: true },
+    });
+    const native = (me?.nativeLang ?? '').trim().toLowerCase();
+
     const items = await prisma.libraryItem.findMany({
       where: {
         isActive: true,
         ...(type ? { type } : {}),
         ...(lang ? { OR: [{ targetLang: lang }, { targetLang: null }] } : {}),
+        // ⚠️ Дар `AND`-и ҷудо: ду калиди `OR` дар ЯК объект ҳамдигарро
+        // мепӯшонанд — дуюмаш аввалро хомӯшона нест мекунад.
+        ...(native
+          ? { AND: [{ OR: [{ nativeLang: native }, { nativeLang: null }] }] }
+          : {}),
       },
       orderBy: [{ type: 'asc' }, { order: 'asc' }, { createdAt: 'desc' }],
       select: {
         id: true, type: true, title: true, author: true, description: true,
         coverUrl: true, coverWord: true, coverSubtitle: true,
-        level: true, targetLang: true, mediaUrl: true,
+        level: true, targetLang: true, nativeLang: true, mediaUrl: true,
         durationMin: true, rating: true, isPremium: true,
         order: true, createdAt: true,
         _count: { select: { pages: true } },

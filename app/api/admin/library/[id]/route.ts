@@ -49,6 +49,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     }
     if (b.level !== undefined) data.level = b.level?.toString().trim() || null;
     if (b.targetLang !== undefined) data.targetLang = b.targetLang?.toString().trim() || null;
+    if (b.nativeLang !== undefined) {
+      data.nativeLang = b.nativeLang?.toString().trim().toLowerCase() || null;
+    }
     if (b.mediaUrl !== undefined) data.mediaUrl = b.mediaUrl?.toString().trim() || null;
     if (b.durationMin !== undefined) {
       data.durationMin = b.durationMin == null ? null : Math.max(0, Math.floor(Number(b.durationMin) || 0));

@@ -56,6 +56,8 @@ export async function POST(req: NextRequest) {
         coverSubtitle: b.coverSubtitle?.toString().trim() || null,
         level: b.level?.toString().trim() || null,
         targetLang: b.targetLang?.toString().trim() || null,
+        // Забони МОДАРИИ хонанда. Холӣ = барои ҳама (ниг. шарҳи схема).
+        nativeLang: b.nativeLang?.toString().trim().toLowerCase() || null,
         mediaUrl: b.mediaUrl?.toString().trim() || null,
         durationMin: b.durationMin != null ? Math.max(0, Math.floor(Number(b.durationMin) || 0)) : null,
         rating: b.rating != null ? Number(b.rating) : null,

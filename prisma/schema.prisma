@@ -1225,6 +1225,17 @@ model LibraryItem {
   level       String?
   /// Target language the item teaches, e.g. "en". Null = shown for all.
   targetLang  String?
+  /// Забони МОДАРИИ хонанда, ки ин мавод БАРОИ ӯ навишта шудааст ("tg", "ru").
+  ///
+  /// ЧАРО ҷудо аз [targetLang]: китоби «100 калимаи англисӣ» бо тавзеҳи
+  /// ТОҶИКӢ ва ҳамон китоб бо тавзеҳи РУСӢ ду воҳиди гуногунанд — ҳарду
+  /// `targetLang = "en"`, вале якумаш танҳо ба тоҷикзабон ва дуюмаш танҳо ба
+  /// русзабон лозим аст. Бе ин майдон раф ба ҳар хонанда ҳамаи забонҳои
+  /// тавзеҳро нишон медод.
+  ///
+  /// `null` = «барои ҳама» — ҳамон қоидаи [targetLang]. Ҳамаи сатрҳои
+  /// мавҷуда маҳз ҳамин қиматро мегиранд, пас ҳеҷ мавод нопадид намешавад.
+  nativeLang  String?
   /// Streaming/download URL for audio and video items.
   mediaUrl    String?
   durationMin Int?
@@ -1240,6 +1251,7 @@ model LibraryItem {
 
   @@index([type, isActive, order])
   @@index([targetLang])
+  @@index([nativeLang])
 }
 
 model LibraryPage {
