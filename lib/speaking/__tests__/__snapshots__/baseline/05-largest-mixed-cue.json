@@ -1,6 +1,6 @@
 {
   "meta": {
-    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "note": "wordEcho bardoshta shud (2026-09-02): zinai kalima say -> translate",
     "generator": "lib/speaking/__tests__/generate-baseline.mjs",
     "sourceFile": "app/api/ai/speaking/lesson/route.ts",
     "sourceLines": "146-265",
@@ -165,18 +165,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "mother",
-        "itemId": "seed:family_people_en_tg:L0:I0",
-        "translit": "мазэр",
-        "meaning": "модар",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "модар",
@@ -204,18 +192,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "father",
-        "itemId": "seed:family_people_en_tg:L0:I1",
-        "translit": "фазэр",
-        "meaning": "падар",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "падар",
@@ -233,18 +209,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "this is",
-        "itemId": "seed:family_people_en_tg:L0:I2",
-        "translit": "зис из",
-        "meaning": "ин аст",
-        "grammar": "Ибораи тайёр барои шинос кардани касе ё чизе.",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "this is",
         "itemId": "seed:family_people_en_tg:L0:I2",
         "translit": "зис из",
@@ -319,18 +283,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "brother",
-        "itemId": "seed:family_people_en_tg:L0:I5",
-        "translit": "бразэр",
-        "meaning": "бародар",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "бародар",
@@ -358,18 +310,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "sister",
-        "itemId": "seed:family_people_en_tg:L0:I6",
-        "translit": "систэр",
-        "meaning": "хоҳар",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "хоҳар",
@@ -387,18 +327,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "I have",
-        "itemId": "seed:family_people_en_tg:L0:I7",
-        "translit": "ай ҳэв",
-        "meaning": "ман дорам",
-        "grammar": "Ибораи тайёр: I have + [кӣ/чӣ]. Дар англисӣ «доштан» бо феъл ифода мешавад.",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "I have",
         "itemId": "seed:family_people_en_tg:L0:I7",
         "translit": "ай ҳэв",
@@ -463,18 +391,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "family",
-        "itemId": "seed:family_people_en_tg:L0:I10",
-        "translit": "фэмилӣ",
-        "meaning": "оила",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "family",
         "itemId": "seed:family_people_en_tg:L0:I10",
         "translit": "фэмилӣ",

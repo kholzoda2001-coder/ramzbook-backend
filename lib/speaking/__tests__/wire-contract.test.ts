@@ -41,13 +41,6 @@ describe('шартномаи сим · тартиби калидҳо', () => {
     ]);
   });
 
-  it('wordEcho — ҳамон 10 калид', () => {
-    expect(Object.keys(toWire(step('wordEcho'), 1))).toEqual([
-      'kind', 'badge', 'target', 'itemId',
-      'translit', 'meaning', 'grammar', 'audioUrl', 'cue', 'cueTranslation',
-    ]);
-  });
-
   it('translate — 11 калид, prompt ва targetWords дар ҷои 3–4', () => {
     expect(Object.keys(toWire(step('translate'), 1))).toEqual([
       'kind', 'badge', 'prompt', 'targetWords', 'itemId',
@@ -82,7 +75,7 @@ describe('шартномаи сим · cue', () => {
 });
 
 describe('шартномаи сим · майдонҳои дохилӣ', () => {
-  for (const kind of ['say', 'wordEcho', 'translate', 'recall'] as const) {
+  for (const kind of ['say', 'translate', 'recall'] as const) {
     it(`${kind} · ev=1 ҳеҷ stepId/showSlots/timerMs намедиҳад`, () => {
       const w = toWire(step(kind, { showSlots: true, timerMs: 4000 }), 1);
       expect(w).not.toHaveProperty('stepId');

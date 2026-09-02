@@ -1,6 +1,6 @@
 {
   "meta": {
-    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "note": "wordEcho bardoshta shud (2026-09-02): zinai kalima say -> translate",
     "generator": "lib/speaking/__tests__/generate-baseline.mjs",
     "sourceFile": "app/api/ai/speaking/lesson/route.ts",
     "sourceLines": "146-265",
@@ -101,18 +101,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "name",
-        "itemId": "cmticvsjf00jcbdim4on",
-        "translit": "нейм",
-        "meaning": "ном",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "ном",
@@ -140,18 +128,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "what",
-        "itemId": "cmticvsmw00kkkt9peey",
-        "translit": "вот",
-        "meaning": "чӣ",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "чӣ",
@@ -169,18 +145,6 @@
       {
         "kind": "say",
         "badge": "remember",
-        "target": "sorry",
-        "itemId": "cmticvsqd00l6md3emty",
-        "translit": "сорӣ",
-        "meaning": "бубахшед",
-        "grammar": "Ҳам узрхоҳӣ, ҳам «мебахшед, як лаҳза».",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "sorry",
         "itemId": "cmticvsqd00l6md3emty",
         "translit": "сорӣ",

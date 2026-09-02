@@ -1,6 +1,6 @@
 {
   "meta": {
-    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "note": "wordEcho bardoshta shud (2026-09-02): zinai kalima say -> translate",
     "generator": "lib/speaking/__tests__/generate-baseline.mjs",
     "sourceFile": "app/api/ai/speaking/lesson/route.ts",
     "sourceLines": "146-265",
@@ -77,18 +77,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "hello",
-        "itemId": "cmticvq1q002b3p55hvk",
-        "translit": "ҳелоу",
-        "meaning": "салом",
-        "grammar": "Саломи бетараф — дар ҳар вазъият мешавад.",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "салом",
@@ -106,18 +94,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "good",
-        "itemId": "cmticvq5f003y27ryv2j",
-        "translit": "гуд",
-        "meaning": "хуб",
-        "grammar": "Дар «Good morning» ҳамин калима меистад.",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "good",
         "itemId": "cmticvq5f003y27ryv2j",
         "translit": "гуд",
@@ -155,18 +131,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "morning",
-        "itemId": "cmticvq90004hfh4jyxt",
-        "translit": "морнинг",
-        "meaning": "субҳ",
-        "grammar": "То тахминан соати 12-и рӯз.",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "субҳ",
@@ -184,18 +148,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "friend",
-        "itemId": "cmticvqcj005wyhbshgc",
-        "translit": "френд",
-        "meaning": "дӯст",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "friend",
         "itemId": "cmticvqcj005wyhbshgc",
         "translit": "френд",

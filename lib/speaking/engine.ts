@@ -19,7 +19,6 @@ export const ENGINE_VERSION = 2;
 
 export type StepKind =
   | 'say' // матн + маънӣ намоён, барнома мехонад
-  | 'wordEcho' // матн намоён, барнома мехонад, бе маънӣ
   | 'chunk' // пораи занҷир — M5, ҳанӯз тавлид намешавад
   | 'translate' // тарҷума намоён, слотҳо, барнома НАмехонад
   | 'swap' // қолаб бо ҷузъи иваз — M5, ҳанӯз тавлид намешавад
@@ -62,7 +61,7 @@ export interface EngineConfig {
 }
 
 /** Навъҳое, ки ҳар клиент мефаҳмад (ev = 1). */
-export const LEGACY_KINDS: StepKind[] = ['say', 'wordEcho', 'translate', 'recall'];
+export const LEGACY_KINDS: StepKind[] = ['say', 'translate', 'recall'];
 
 /** + навъҳои нав (ev ≥ 2). */
 export const V2_KINDS: StepKind[] = [...LEGACY_KINDS, 'chunk', 'swap'];
@@ -360,11 +359,15 @@ function planItem(item: EngineItem, cfg: EngineConfig): PlanEntry[] {
 
   const out: PlanEntry[] = [];
 
-  // ── КАЛИМА: зинаи сеқадама. Дар ҳарду режим якхела. ──────────────────
+  // ── КАЛИМА: зинаи ДУҚАДАМА. Дар ҳарду режим якхела. ──────────────────
+  //
+  // 🔴 2026-09-02: қадами МИЁНА (`wordEcho`) аз рӯи қарори соҳиби маҳсулот
+  // бардошта шуд. Он ҳамон матнро дубора нишон медод — танҳо талаффуз ва
+  // маънӣ пинҳон буданд — ва хонанда як калимаро СЕ бор мегуфт. Ҳоло:
+  // «бо ёрии пурра бигӯ» → «аз тарҷума бигӯ».
   if (item.kind === 'word') {
     out.push({ kind: 'say', target: text, delay: 0, variant: 0 });
-    out.push({ kind: 'wordEcho', target: text, delay: cfg.gap, variant: 0 });
-    out.push({ kind: 'translate', target: text, delay: cfg.gap * 2, variant: 0 });
+    out.push({ kind: 'translate', target: text, delay: cfg.gap, variant: 0 });
     return out.filter((e) => cfg.allowedKinds.includes(e.kind));
   }
 
@@ -420,8 +423,6 @@ function materialize(
   let badge: Badge;
   if (e.kind === 'recall') {
     badge = 'remember';
-  } else if (e.kind === 'wordEcho') {
-    badge = 'none';
   } else if (e.kind === 'say') {
     badge = repeat ? 'remember' : item.kind === 'word' ? 'newWord' : 'none';
   } else if (e.kind === 'translate') {
@@ -633,7 +634,6 @@ export function toWire(s: Step, ev: number): WireStep {
       }
     // fallthrough — ҳамон 10 калид
     case 'say':
-    case 'wordEcho':
       wire = {
         kind: s.kind,
         badge: s.badge,

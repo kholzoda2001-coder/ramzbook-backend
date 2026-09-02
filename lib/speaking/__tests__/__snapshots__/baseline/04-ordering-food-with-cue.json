@@ -1,6 +1,6 @@
 {
   "meta": {
-    "note": "M0b baseline — хуруҷи мантиқи ҶОРИИ тавлид. Дастӣ таҳрир НАКУНЕД.",
+    "note": "wordEcho bardoshta shud (2026-09-02): zinai kalima say -> translate",
     "generator": "lib/speaking/__tests__/generate-baseline.mjs",
     "sourceFile": "app/api/ai/speaking/lesson/route.ts",
     "sourceLines": "146-265",
@@ -143,18 +143,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "menu",
-        "itemId": "seed:ordering_food_en_tg:L2:I0",
-        "translit": "меню",
-        "meaning": "меню",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "меню",
@@ -182,18 +170,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "table",
-        "itemId": "seed:ordering_food_en_tg:L2:I1",
-        "translit": "тейбл",
-        "meaning": "миз",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "миз",
@@ -211,18 +187,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "hungry",
-        "itemId": "seed:ordering_food_en_tg:L2:I2",
-        "translit": "ҳангрӣ",
-        "meaning": "гурусна",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "hungry",
         "itemId": "seed:ordering_food_en_tg:L2:I2",
         "translit": "ҳангрӣ",
@@ -336,18 +300,6 @@
         "cueTranslation": ""
       },
       {
-        "kind": "wordEcho",
-        "badge": "none",
-        "target": "ready",
-        "itemId": "seed:ordering_food_en_tg:L2:I7",
-        "translit": "реди",
-        "meaning": "тайёр",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
         "kind": "translate",
         "badge": "none",
         "prompt": "тайёр",
@@ -365,18 +317,6 @@
       {
         "kind": "say",
         "badge": "newWord",
-        "target": "order",
-        "itemId": "seed:ordering_food_en_tg:L2:I8",
-        "translit": "ордэр",
-        "meaning": "фармоиш",
-        "grammar": "",
-        "audioUrl": "",
-        "cue": "",
-        "cueTranslation": ""
-      },
-      {
-        "kind": "wordEcho",
-        "badge": "none",
         "target": "order",
         "itemId": "seed:ordering_food_en_tg:L2:I8",
         "translit": "ордэр",
