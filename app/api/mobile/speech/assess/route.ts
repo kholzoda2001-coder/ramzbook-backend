@@ -3,6 +3,7 @@ import { requireUserId, unauthorized } from '@/lib/auth';
 import {
   assessPronunciation,
   isPronunciationConfigured,
+  lastAzureRaw,
 } from '@/lib/ai/pronunciation';
 
 export const dynamic = 'force-dynamic';
@@ -67,6 +68,11 @@ export async function POST(req: NextRequest) {
     const result = await assessPronunciation({ audio, reference, locale });
     if (!result) {
       return NextResponse.json({ error: 'not-configured' }, { status: 503 });
+    }
+
+    // ⚠️ МУВАҚҚАТӢ — ниг. `lastAzureRaw`. Танҳо бо дархости возеҳи ташхисӣ.
+    if ((body as { debug?: boolean } | null)?.debug) {
+      return NextResponse.json({ ...result, raw: lastAzureRaw() });
     }
 
     return NextResponse.json(result);

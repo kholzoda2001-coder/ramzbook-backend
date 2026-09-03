@@ -59,6 +59,19 @@ export type PronunciationResult = {
 };
 
 /** Хидмат танзим шудааст? Роҳ аз рӯи ин ҷавоб тугмаро хомӯш мекунад. */
+/**
+ * ⚠️ МУВАҚҚАТӢ — ташхис. Ҷавоби ХОМи охирини Azure дар ҳамин lambda.
+ *
+ * Сабаб: роҳ 200 медиҳад, матн дуруст шунида мешавад, вале ҳама холҳо 0-анд.
+ * Аз рӯи код фарқияте намебинам, пас бояд бубинам, ки Azure ВОҚЕАН чӣ
+ * мефиристад. Баъди ёфтани сабаб ин ва `lastRaw` нест мешаванд.
+ */
+let lastRaw: unknown = null;
+
+export function lastAzureRaw(): unknown {
+  return lastRaw;
+}
+
 export function isPronunciationConfigured(): boolean {
   return Boolean(process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION);
 }
@@ -127,6 +140,7 @@ export async function assessPronunciation({
   }
 
   const json = (await res.json()) as AzureResponse;
+  lastRaw = json;
   const best = json.NBest?.[0];
   if (!best) {
     // Azure садоро гуфтор нашумурд. Ин хатои хонанда НЕСТ — шояд микрофон
