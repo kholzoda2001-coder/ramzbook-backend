@@ -25,8 +25,32 @@
  * look at but never open — exactly the state we are fixing.
  */
 
-/** How many books a signed-in, non-paying learner can always open. */
-export const FREE_BOOK_QUOTA = 3;
+/**
+ * How many books a signed-in, non-paying learner can always open,
+ * REGARDLESS of the admin flags.
+ *
+ * 🔴 3 → 0 (2026-09-02, owner's decision).
+ *
+ * The safety net was doing real damage: the owner marked a book Premium in
+ * the admin panel and nothing changed on the shelf — the book stayed open,
+ * because it was among the first three and the quota re-opened it. From the
+ * outside that looks like "the book disappeared / the admin does nothing".
+ *
+ * The rule is now simple and honest: **the admin flag is the only truth.**
+ * Everything the owner marks Premium is locked; everything they leave free
+ * opens without a paywall.
+ *
+ * ⚠️ The paywall's "N books free" row reads `freeBookCount()`, which counts
+ * what this function actually opens — so that promise follows the flags
+ * automatically and cannot start lying. If a marketing promise of "3 free
+ * books" ever comes back, raise this number instead of hard-coding the
+ * claim anywhere else.
+ *
+ * ⚠️ Locked ≠ invisible. The shelf still returns every item with a `locked`
+ * flag (see `app/api/mobile/library/route.ts`), and a locked paged book
+ * still opens its first pages as a preview in the app.
+ */
+export const FREE_BOOK_QUOTA = 0;
 
 /** The subset of LibraryItem fields the access rule needs. */
 export type AccessItem = {
@@ -62,9 +86,10 @@ export function freeItemIds(items: AccessItem[]): Set<string> {
     if (!it.isPremium) free.add(it.id);
   }
 
-  // Safety net — top up to the promised book quota.
+  // Safety net — top up to the promised book quota. With FREE_BOOK_QUOTA = 0
+  // this loop never runs and the admin flags stand exactly as set.
   let openBooks = items.filter((i) => isBookish(i.type) && free.has(i.id)).length;
-  if (openBooks < FREE_BOOK_QUOTA) {
+  if (FREE_BOOK_QUOTA > 0 && openBooks < FREE_BOOK_QUOTA) {
     const candidates = items
       .filter((i) => isBookish(i.type) && !free.has(i.id))
       .sort(byDisplayOrder);
