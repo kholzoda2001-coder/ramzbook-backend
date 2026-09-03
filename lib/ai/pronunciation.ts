@@ -93,6 +93,11 @@ export async function assessPronunciation({
       ReferenceText: reference,
       GradingSystem: 'HundredMark',
       Granularity: 'Phoneme',
+      // ⚠️ Бе ин Azure сохтори калима/фонемаро мефиристад, вале блоки
+      // холро НЕ — ва ҳама холҳо 0 мешаванд (санҷиши воқеӣ, 2026-09-03:
+      // «I am hungry» дуруст шунида шуд, accuracy=0). `Basic` танҳо
+      // дақиқиро медиҳад; ба мо равонӣ ва пуррагӣ ҳам лозим аст.
+      Dimension: 'Comprehensive',
       // ⚠️ `EnableMiscue: true` — Azure калимаи ПАРТОФТА ва ИЛОВАГИРО низ
       // нишон медиҳад. Бе он хонанда метавонист нимаи ҷумларо гӯяду холи
       // баланд гирад — маҳз ҳамон боге, ки мо дар муҳаррики худамон дошем.
