@@ -59,19 +59,6 @@ export type PronunciationResult = {
 };
 
 /** Хидмат танзим шудааст? Роҳ аз рӯи ин ҷавоб тугмаро хомӯш мекунад. */
-/**
- * ⚠️ МУВАҚҚАТӢ — ташхис. Ҷавоби ХОМи охирини Azure дар ҳамин lambda.
- *
- * Сабаб: роҳ 200 медиҳад, матн дуруст шунида мешавад, вале ҳама холҳо 0-анд.
- * Аз рӯи код фарқияте намебинам, пас бояд бубинам, ки Azure ВОҚЕАН чӣ
- * мефиристад. Баъди ёфтани сабаб ин ва `lastRaw` нест мешаванд.
- */
-let lastRaw: unknown = null;
-
-export function lastAzureRaw(): unknown {
-  return lastRaw;
-}
-
 export function isPronunciationConfigured(): boolean {
   return Boolean(process.env.AZURE_SPEECH_KEY && process.env.AZURE_SPEECH_REGION);
 }
@@ -140,7 +127,6 @@ export async function assessPronunciation({
   }
 
   const json = (await res.json()) as AzureResponse;
-  lastRaw = json;
   const best = json.NBest?.[0];
   if (!best) {
     // Azure садоро гуфтор нашумурд. Ин хатои хонанда НЕСТ — шояд микрофон
@@ -148,23 +134,45 @@ export async function assessPronunciation({
     throw new Error('no-speech');
   }
 
-  const pa = best.PronunciationAssessment ?? {};
   return {
-    accuracy: pa.AccuracyScore ?? 0,
-    fluency: pa.FluencyScore ?? 0,
-    completeness: pa.CompletenessScore ?? 0,
-    overall: pa.PronScore ?? 0,
+    accuracy: score(best, 'AccuracyScore'),
+    fluency: score(best, 'FluencyScore'),
+    completeness: score(best, 'CompletenessScore'),
+    overall: score(best, 'PronScore'),
     recognized: best.Display ?? best.Lexical ?? '',
     words: (best.Words ?? []).map((w) => ({
       word: w.Word,
-      score: w.PronunciationAssessment?.AccuracyScore ?? 0,
-      errorType: w.PronunciationAssessment?.ErrorType ?? 'None',
+      score: score(w, 'AccuracyScore'),
+      errorType:
+        w.ErrorType ?? w.PronunciationAssessment?.ErrorType ?? 'None',
       phonemes: (w.Phonemes ?? []).map((p) => ({
         phoneme: p.Phoneme,
-        score: p.PronunciationAssessment?.AccuracyScore ?? 0,
+        score: score(p, 'AccuracyScore'),
       })),
     })),
   };
+}
+
+/**
+ * Як холро мехонад — аз ҲАР ДУ шакли ҷавоби Azure.
+ *
+ * 🔴 Санҷиши воқеӣ (2026-09-03): REST холҳоро ҲАМВОР мефиристад —
+ * `NBest[0].AccuracyScore`, `Words[i].AccuracyScore` — на дар дохили объекти
+ * `PronunciationAssessment`, ки SDK-ҳо ва аксари намунаҳои ҳуҷҷатҳо нишон
+ * медиҳанд. Мо танҳо шакли лонадорро мехондем, пас ҳар хол `undefined` мешуд
+ * ва `?? 0` онро ба 0 табдил медод: ҷавоб «I am hungry» — дуруст, accuracy 0.
+ * Хол воқеан 97 буд.
+ *
+ * Ҳарду шакл хонда мешавад, то ин бог ҳангоми тағйири версияи API барнагардад.
+ */
+function score(
+  node: { PronunciationAssessment?: AzureAssessment } & AzureAssessment,
+  field: keyof AzureAssessment,
+): number {
+  const flat = node[field];
+  if (typeof flat === 'number') return flat;
+  const nested = node.PronunciationAssessment?.[field];
+  return typeof nested === 'number' ? nested : 0;
 }
 
 // ── Шакли ҷавоби Azure (танҳо он майдонҳое, ки мо мехонем) ─────────────────
@@ -178,17 +186,21 @@ type AzureAssessment = {
 };
 
 type AzureResponse = {
-  NBest?: Array<{
-    Display?: string;
-    Lexical?: string;
-    PronunciationAssessment?: AzureAssessment;
-    Words?: Array<{
-      Word: string;
+  NBest?: Array<
+    {
+      Display?: string;
+      Lexical?: string;
       PronunciationAssessment?: AzureAssessment;
-      Phonemes?: Array<{
-        Phoneme: string;
-        PronunciationAssessment?: AzureAssessment;
-      }>;
-    }>;
-  }>;
+      Words?: Array<
+        {
+          Word: string;
+          PronunciationAssessment?: AzureAssessment;
+          Phonemes?: Array<
+            { Phoneme: string; PronunciationAssessment?: AzureAssessment } &
+              AzureAssessment
+          >;
+        } & AzureAssessment
+      >;
+    } & AzureAssessment
+  >;
 };
