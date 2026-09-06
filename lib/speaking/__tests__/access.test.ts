@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   unlockedSpeakingLessonIds,
   FREE_SPEAKING_LESSONS,
+  SPEAKING_GATE_ENABLED,
 } from '@/lib/speaking/access';
 
 /**
@@ -21,7 +22,7 @@ const chapters = [
 
 const ids = (s: Set<string>) => Array.from(s).sort();
 
-describe('дастрасии дарсҳои гуфтор', () => {
+describe.skipIf(!SPEAKING_GATE_ENABLED)('дастрасии дарсҳои гуфтор', () => {
   it('ройгон = танҳо дарси 1-и боби 1', () => {
     expect(
       ids(unlockedSpeakingLessonIds({ chapters, isPremium: false })),
@@ -75,5 +76,19 @@ describe('дастрасии дарсҳои гуфтор', () => {
     // меравад — вале матни пейвол бояд ҳамин рақамро хонад, на аз худ нависад.
     const open = unlockedSpeakingLessonIds({ chapters, isPremium: false });
     expect(open.size).toBe(FREE_SPEAKING_LESSONS);
+  });
+});
+
+describe('парчами гейт', () => {
+  it('хомӯш бошад — ҲАМА кушода, новобаста аз обуна', () => {
+    if (SPEAKING_GATE_ENABLED) return;
+    const open = unlockedSpeakingLessonIds({ chapters, isPremium: false });
+    expect(open.size).toBe(6);
+  });
+
+  it('премиум ҳамеша ҳамаро мекушояд', () => {
+    expect(
+      unlockedSpeakingLessonIds({ chapters, isPremium: true }).size,
+    ).toBe(6);
   });
 });

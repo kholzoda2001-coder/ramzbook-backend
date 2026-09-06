@@ -37,6 +37,25 @@
  */
 export const FREE_SPEAKING_LESSONS = 1;
 
+/**
+ * Гейт УМУМАН фаъол аст?
+ *
+ * 🔴 `false` = МУВАҚҚАТӢ хомӯш (2026-09-07).
+ *
+ * Сабаб: сервер аллакай деплой шуд ва `403` медиҳад, вале барномаи
+ * телефон дар дасти корбарон ҲАНӮЗ КӮҲНА аст — вай `403`-ро намефаҳмад ва
+ * ба ҷои пейвол экрани «Хатогӣ рӯй дод» нишон медиҳад. Яъне корбари
+ * ройгон на пешниҳоди харид, балки хатои барномаро мебинад.
+ *
+ * ⚠️ Ин парчам ҚАСДАН аз `FREE_SPEAKING_LESSONS` ҶУДОст. Роҳи дигар —
+ * рақамро ба 999 бардоштан — маънои он константаро вайрон мекард ва
+ * матни пейвол «999 дарс ройгон» мегуфт.
+ *
+ * ➡️ ОНРО БА `true` БАРГАРДОНЕД, ҳамин ки APK-и нав дар Google Play
+ *    паҳн шуд (экрани пейвол дар он ҳаст).
+ */
+export const SPEAKING_GATE_ENABLED = false;
+
 /** Он майдонҳое, ки қоидаи дастрасӣ лозим дорад. */
 export type AccessLesson = { id: string };
 export type AccessChapter = { lessons: AccessLesson[] };
@@ -62,7 +81,7 @@ export function unlockedSpeakingLessonIds({
   isPremium,
 }: AccessInput): Set<string> {
   const all = chapters.flatMap((c) => c.lessons.map((l) => l.id));
-  if (isPremium) return new Set(all);
+  if (!SPEAKING_GATE_ENABLED || isPremium) return new Set(all);
 
   const open = new Set(all.slice(0, FREE_SPEAKING_LESSONS));
   // ⚠️ `Array.from`, на `for…of`: `tsconfig` ҳадафи поёнтар аз ES2015 дорад
