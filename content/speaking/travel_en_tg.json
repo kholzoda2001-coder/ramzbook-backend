@@ -22,7 +22,7 @@
           "text": "taxi",
           "translation": "такси",
           "literal": "таксӣ",
-          "note": null,
+          "note": "Taxi ҳисобшаванда аст: a taxi, two taxis.\n\nДар Британия ҳамчунин «cab» мегӯянд; дар барномаҳо — «ride».\n\nБо феъли «take» меояд: «take a taxi» = бо такси рафтан. «Go by taxi» низ дуруст аст — вале он ҷо артикл НЕСТ: by taxi, by bus, by train.",
           "cue": null,
           "cueTranslation": null
         },
@@ -32,7 +32,7 @@
           "text": "address",
           "translation": "суроға",
           "literal": "эдрес",
-          "note": null,
+          "note": "Address бо пешоянди «to» меояд, вақте самт нишон дода мешавад: «to this address» — ба ин суроға.\n\nЗарба ба ҳиҷои ДУЮМ: ad-DRESS. Дар тоҷикӣ мо «Адрес» мегӯем ва зарбаро ба аввал мебарем — дар англисӣ ин ғалат садо медиҳад.\n\nДу ҳарфи «d» ва ду «s» — вале садояшон як бор мебарояд.",
           "cue": null,
           "cueTranslation": null
         },
@@ -42,7 +42,7 @@
           "text": "stop",
           "translation": "истодан",
           "literal": "стоп",
-          "note": null,
+          "note": "Stop ҳам феъл аст, ҳам исм.\n\n• Stop here. — Ҳамин ҷо истед. (феъл, фармон)\n• The bus stop — истгоҳи автобус. (исм)\n\nДар фармон фоил гуфта намешавад: «Stop», на «You stop».",
           "cue": null,
           "cueTranslation": null
         },
@@ -51,8 +51,8 @@
           "kind": "sentence",
           "text": "To this address, please.",
           "translation": "Ба ин суроға, лутфан.",
-          "literal": "ту зис эдрес плиз",
-          "note": null,
+          "literal": "ту ҙис эдрес плиз",
+          "note": "Ҷумлаи нопурра, вале дар такси комилан табиист: to + [ҷо] + please.\n\nПешоянди «to» самтро нишон медиҳад — «ба ин суроға».\n\nФеъл лозим НЕСТ. Шакли пурраш «Take me to this address» мебуд, вале дар такси кӯтоҳашро мегӯянд.\n\n«This» ба коғаз ё телефон ишора мекунад, ки шумо нишон медиҳед.\n\nҲарфи «ҙ» садои англисии th-и ҶАРАНГДОР аст: ҳамон ҷои забон, вале БО овоз. Ин «з»-и оддӣ НЕСТ.",
           "cue": "Where are you going?",
           "cueTranslation": "Ба куҷо меравед?"
         },
@@ -62,17 +62,17 @@
           "text": "Stop here, please.",
           "translation": "Ҳамин ҷо истед, лутфан.",
           "literal": "стоп ҳиэр плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Фармони хушмуомила: [феъл] + [ҷо] + please.\n\nФоил («you») ҳамеша партофта мешавад — дар фармони англисӣ вай фаҳмост.\n\n«Please» ҷумларо аз фармон ба дархост табдил медиҳад. Бе он «Stop here» дағал садо медиҳад — ба ронанда ҳатман «please» гӯед.",
+          "cue": "Where should I stop?",
+          "cueTranslation": "Дар куҷо истам?"
         },
         {
           "order": 5,
           "kind": "word",
           "text": "wait",
           "translation": "интизор шудан",
-          "literal": "уэйт",
-          "note": null,
+          "literal": "вэйт",
+          "note": "Wait бо пешоянди «for» меояд, вақте касеро/чизеро интизор мешавед: «wait FOR me», «wait FOR the bus».\n\nВале бо МУДДАТ пешоянд лозим НЕСТ: «wait five minutes».\n\nИн доми маъмул аст — дар тоҷикӣ мо ҳарду ҳолатро якхела месозем.",
           "cue": null,
           "cueTranslation": null
         },
@@ -81,10 +81,10 @@
           "kind": "sentence",
           "text": "Please wait five minutes.",
           "translation": "Лутфан панҷ дақиқа интизор шавед.",
-          "literal": "плиз уэйт файв минитс",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "плиз вэйт файв минитс",
+          "note": "Фармони хушмуомила бо муддат: Please + wait + [муддат].\n\nДиққат: пеш аз муддат пешоянд НЕСТ. «Wait for five minutes» ҳам дуруст аст, вале дар гуфтори зинда кӯтоҳашро мегӯянд.\n\nБаъди адади зиёда аз як шакли ҷамъ меояд: five minuteS.",
+          "cue": "Should I wait?",
+          "cueTranslation": "Интизор шавам?"
         },
         {
           "order": 7,
@@ -92,9 +92,9 @@
           "text": "I need a taxi.",
           "translation": "Ба ман такси лозим аст.",
           "literal": "ай нид э таксӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Need = лозим будан. Дар англисӣ ин феъли МУҚАРРАРӢ аст, на сохти махсус.\n\nТартиб: I + need + [чӣ]. Яъне «ман лозим дорам таксӣ».\n\n⚠️ Дар тоҷикӣ мо мегӯем «БА МАН такси лозим аст» — фоил дигар аст. Дар англисӣ фоил ҳамеша «I» мешавад: «I need», на «To me need».",
+          "cue": "Hello! Do you need a car?",
+          "cueTranslation": "Салом! Мошин лозим аст?"
         }
       ]
     },
@@ -108,7 +108,7 @@
           "text": "how much",
           "translation": "чанд пул",
           "literal": "ҳау мач",
-          "note": null,
+          "note": "Ду калима, як ибораи тайёр: how much = чанд пул / чӣ қадар.\n\nБарои чизи ҲИСОБНАШАВАНДА — how much (пул, об, вақт).\nБарои чизи ҳисобшаванда — how many (одам, чипта, соат).\n\nДар бораи нарх ҳамеша how much, чунки пул ҳисобнашаванда аст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -118,7 +118,7 @@
           "text": "airport",
           "translation": "фурудгоҳ",
           "literal": "эрпорт",
-          "note": null,
+          "note": "Airport аз air (ҳаво) + port (бандар) сохта шудааст.\n\nБо «the» меояд: «to THE airport» — фурудгоҳи ҳамин шаҳр, ки ҳарду медонед.\n\nЗарба ба ҳиҷои аввал: AIR-port.",
           "cue": null,
           "cueTranslation": null
         },
@@ -128,7 +128,7 @@
           "text": "meter",
           "translation": "ҳисобкунак",
           "literal": "митер",
-          "note": null,
+          "note": "Meter ду маъно дорад ва имлояш дар ду кишвар фарқ мекунад:\n\n• ҳисобкунак (дар такси) — meter\n• воҳиди дарозӣ — metre (Британия), meter (Амрико)\n\nДар такси ҳамеша бо «the»: «the meter» — ҳисобкунаки ҳамин мошин.",
           "cue": null,
           "cueTranslation": null
         },
@@ -137,8 +137,8 @@
           "kind": "sentence",
           "text": "How much to the airport?",
           "translation": "То фурудгоҳ чанд пул?",
-          "literal": "ҳау мач ту зэ эрпорт",
-          "note": null,
+          "literal": "ҳау мач ту ҙэ эрпорт",
+          "note": "Ҷумлаи нопурра, вале дар такси комилан табиист.\n\nШакли пурраи он: «How much IS IT to the airport?» — вале дар гуфтори зинда «is it» партофта мешавад.\n\nПешоянди «to» самтро нишон медиҳад: to the airport, to the station, to the center.",
           "cue": "Where to?",
           "cueTranslation": "Ба куҷо?"
         },
@@ -147,20 +147,20 @@
           "kind": "sentence",
           "text": "Please use the meter.",
           "translation": "Лутфан ҳисобкунакро гузоред.",
-          "literal": "плиз юз зэ митер",
-          "note": "Ибораи муҳим: бе он ронанда метавонад нархи худро гӯяд.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "плиз юз ҙэ митер",
+          "note": "Фармони хушмуомила: Please + [феъл] + the + [чӣ].\n\nАртикли «the» ҳатмист — ҳисобкунаки МАҲЗ ҳамин мошин.\n\nИн ҷумла дар кишварҳое лозим мешавад, ки ронанда нархро худаш мегӯяд. Он хушмуомила аст, вале ҷиддӣ — ҳама мефаҳманд, ки шумо нархи одилона мехоҳед.",
+          "cue": "It is fifty somoni.",
+          "cueTranslation": "Панҷоҳ сомонӣ."
         },
         {
           "order": 5,
           "kind": "sentence",
           "text": "That is too much.",
           "translation": "Ин хеле зиёд аст.",
-          "literal": "зэт из ту мач",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҙэт из ту мач",
+          "note": "«Too much» = аз ҳад зиёд. Ин ибораи тайёр аст барои эътироз ба нарх.\n\nФарқи муҳим:\n• very much — хеле зиёд (факт)\n• TOO much — аз ҳад зиёд, розӣ нестам\n\n«That» ба он чизе ишора мекунад, ки ҳамсӯҳбат навакак гуфт — яъне ба нархи ӯ.",
+          "cue": "One hundred somoni to the airport.",
+          "cueTranslation": "То фурудгоҳ сад сомонӣ."
         },
         {
           "order": 6,
@@ -168,7 +168,7 @@
           "text": "change",
           "translation": "пули майда",
           "literal": "чейнҷ",
-          "note": null,
+          "note": "Change чанд маъно дорад, вале дар харид ҳамеша «пули майдаи бозгашт» аст.\n\nҲисобнашаванда: «two changes» ғалат аст.\n\nҲамчун феъл маънои «иваз кардан»-ро дорад: «change money» — пул иваз кардан.",
           "cue": null,
           "cueTranslation": null
         },
@@ -177,10 +177,10 @@
           "kind": "sentence",
           "text": "Keep the change.",
           "translation": "Майдааш барои шумо.",
-          "literal": "кип зэ чейнҷ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "кип ҙэ чейнҷ",
+          "note": "Ибораи тайёр: «Майдаашро нигоҳ доред» — яъне бақияро ба ронанда мебахшед.\n\nАртикли «the» ҳатмист: пули майдаи МАҲЗ ҳамин пардохт.\n\nИн фармон аст, вале дар ин ҳолат «please» лозим нест — вай худаш тӯҳфа аст ва хушмуомила садо медиҳад.",
+          "cue": "Here is your change.",
+          "cueTranslation": "Ин майдаи шумо."
         }
       ]
     },
@@ -194,7 +194,7 @@
           "text": "passport",
           "translation": "шиноснома",
           "literal": "паспорт",
-          "note": null,
+          "note": "Passport ҳисобшаванда аст: my passport, two passports.\n\nБо «my/your» артикл лозим нест: «my passport», на «my a passport».\n\nЗарба ба ҳиҷои АВВАЛ: PASS-port.",
           "cue": null,
           "cueTranslation": null
         },
@@ -204,7 +204,7 @@
           "text": "ticket",
           "translation": "чипта",
           "literal": "тикит",
-          "note": null,
+          "note": "Ticket ҳисобшаванда аст ва бо адад шакли ҷамъ мегирад: one ticket, two tickets.\n\nПешоянди самт «to»: «a ticket TO Dushanbe».\n\nДар кассаи фурӯш кӯтоҳ мегӯянд: «One ticket, please».",
           "cue": null,
           "cueTranslation": null
         },
@@ -214,7 +214,7 @@
           "text": "flight",
           "translation": "парвоз",
           "literal": "флайт",
-          "note": null,
+          "note": "Flight = парвоз (маҳз ҳамон сафари ҳавоӣ), на худи ҳавопаймо. Ҳавопаймо «plane» аст.\n\nБо феъли «to be» ва пешоянди вақт меояд: «My flight IS AT six».\n\nТалаффуз: «флайт» — ҳарфҳои gh хомӯшанд.",
           "cue": null,
           "cueTranslation": null
         },
@@ -224,7 +224,7 @@
           "text": "gate",
           "translation": "даромадгоҳ",
           "literal": "гейт",
-          "note": null,
+          "note": "Gate = даромадгоҳ дар фурудгоҳ, ки рақам дорад: gate 12.\n\nБо «my» меояд, вақте даромадгоҳи парвози шумо дар назар бошад: «my gate».\n\nДар савол артикл лозим нест, чунки «my» аллакай ҳаст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -234,7 +234,7 @@
           "text": "Here is my passport.",
           "translation": "Ин шинономаи ман.",
           "literal": "ҳиэр из май паспорт",
-          "note": null,
+          "note": "Қолаби «Here is…» чизеро нишон медиҳад, вақте онро дароз мекунед.\n\nСохт: Here + is + my + [чӣ].\n\nБарои чизи ҷамъ феъл иваз мешавад: «Here ARE my tickets».\n\nДар тоҷикӣ мо танҳо «мана» мегӯем ва феъл намеояд — дар англисӣ он ҳатмист.",
           "cue": "Your passport, please.",
           "cueTranslation": "Шинономаатонро диҳед, лутфан."
         },
@@ -243,10 +243,10 @@
           "kind": "sentence",
           "text": "Where is my gate?",
           "translation": "Даромадгоҳи ман куҷост?",
-          "literal": "уэр из май гейт",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "вэр из май гейт",
+          "note": "Саволи ҷой: Where + is + [чӣ]?\n\nФеъли «is» баъди «where» меистад — ин тартиби сахти саволи англисист.\n\n⚠️ Доми маъмул: «Where my gate is?» ғалат аст. Дар савол феъл ба ПЕШИ фоил мебарояд, на баъди он.",
+          "cue": "Your flight is on time.",
+          "cueTranslation": "Парвозатон саривақт аст."
         },
         {
           "order": 6,
@@ -254,9 +254,9 @@
           "text": "My flight is at six.",
           "translation": "Парвози ман соати шаш аст.",
           "literal": "май флайт из эт сикс",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Пешоянди вақт барои соат ҳамеша «at» аст: at six, at seven, at ten.\n\nБарои рӯз «on» мешавад: on Monday. Барои моҳ ва сол «in»: in June, in 2026.\n\nИн се пешоянд аз ёд карда мешаванд — қоидаи мантиқӣ надоранд.",
+          "cue": "When is your flight?",
+          "cueTranslation": "Парвозатон кай аст?"
         },
         {
           "order": 7,
@@ -264,9 +264,9 @@
           "text": "I am here on holiday.",
           "translation": "Ман ба истироҳат омадаам.",
           "literal": "ай эм ҳиэр он ҳолидей",
-          "note": "Ҷавоби маъмулӣ ба саволи сарҳадбон «Why are you here?».",
-          "cue": null,
-          "cueTranslation": null
+          "note": "Ибораи тайёр: on holiday = ба истироҳат, барои дам гирифтан.\n\nПешоянди «on» дар ин ибора сахт аст — «in holiday» ғалат аст.\n\nДар сарҳад ҳамин ҷумла кофист. Варианти дигар: «on business» — бо кори корӣ.\n\nДар Амрико «on vacation» мегӯянд.",
+          "cue": "Why are you visiting?",
+          "cueTranslation": "Барои чӣ омадаед?"
         }
       ]
     },
@@ -280,7 +280,7 @@
           "text": "bus",
           "translation": "автобус",
           "literal": "бас",
-          "note": null,
+          "note": "Bus ҳисобшаванда аст, вале шакли ҷамъаш -es мегирад: bus → buses («басиз»), чунки калима бо садои «с» тамом мешавад.\n\nПешоянди «by» бе артикл маънои воситаро медиҳад: «by bus» — бо автобус.",
           "cue": null,
           "cueTranslation": null
         },
@@ -290,7 +290,7 @@
           "text": "train",
           "translation": "қатора",
           "literal": "трейн",
-          "note": null,
+          "note": "Train ҳисобшаванда аст: a train, two trains.\n\nФеъли ҳамроҳаш «take» аст: «take the train» — бо қатора рафтан.\n\nБарои вақти ҳаракат феъли «leave» истифода мешавад: «The train leaves at six» — қатора соати шаш меравад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -300,7 +300,7 @@
           "text": "next",
           "translation": "навбатӣ",
           "literal": "некст",
-          "note": null,
+          "note": "Next = навбатӣ, ояндатарин. Ҳамеша бо «the» меояд, вақте дар бораи воситаи нақлиёт бошад: «THE next bus».\n\nЧаро: аз ҳамаи автобусҳо маҳз ЯКТОяш навбатист — вай мушаххас аст.\n\nБо рӯз ва ҳафта артикл намегирад: «next week», «next Monday».",
           "cue": null,
           "cueTranslation": null
         },
@@ -309,8 +309,8 @@
           "kind": "sentence",
           "text": "One ticket, please.",
           "translation": "Як чипта, лутфан.",
-          "literal": "уан тикит плиз",
-          "note": null,
+          "literal": "ван тикит плиз",
+          "note": "Ҷумлаи нопурра, вале дар касса комилан табиист: [адад] + [чӣ] + please.\n\nИн ҷо «one» лозим АСТ, бар хилофи фармоиши хӯрок — дар касса шумора маълумоти асосист.\n\nБарои зиёда аз як шакли ҷамъ: «Two tickets, please».",
           "cue": "How many tickets?",
           "cueTranslation": "Чанд чипта?"
         },
@@ -319,20 +319,20 @@
           "kind": "sentence",
           "text": "When is the next bus?",
           "translation": "Автобуси навбатӣ кай меояд?",
-          "literal": "уэн из зэ некст бас",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "вэн из ҙэ некст бас",
+          "note": "Саволи вақт: When + is + [чӣ]?\n\n«When» вақтро мепурсад, «what time» — соати аниқро. Дар ин ҷумла ҳарду мешаванд.\n\nАртикли «the» ҳатмист: автобуси МАҲЗ навбатӣ.",
+          "cue": "The bus just left.",
+          "cueTranslation": "Автобус ҳозир рафт."
         },
         {
           "order": 5,
           "kind": "sentence",
           "text": "Does this bus go to the center?",
           "translation": "Ин автобус ба марказ меравад?",
-          "literal": "даз зис бас гоу ту зэ сентер",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "даз ҙис бас гоу ту ҙэ сентер",
+          "note": "Саволи «оё?» бо феъли ёридиҳандаи «does» сохта мешавад, чунки фоил («this bus») сеюми танҳост.\n\nDoes + [фоил] + [феъли аслӣ] + …?\n\n⚠️ Ду доми маъмул:\n• баъди «does» феъл -s НАМЕГИРАД: «does go», на «does goes»;\n• бе «does» савол намешавад: «This bus goes to the center?» — ин гуфтори кӯчагист.",
+          "cue": "This bus is number five.",
+          "cueTranslation": "Ин автобуси рақами панҷ."
         },
         {
           "order": 6,
@@ -340,7 +340,7 @@
           "text": "platform",
           "translation": "платформа",
           "literal": "плэтформ",
-          "note": null,
+          "note": "Platform = ҷойе дар вокзал, ки қатора меистад. Рақам дорад: platform 3.\n\nПешоянди он «on» аст: «on platform 3».\n\nЗарба ба ҳиҷои аввал: PLAT-form.",
           "cue": null,
           "cueTranslation": null
         },
@@ -349,10 +349,10 @@
           "kind": "sentence",
           "text": "Which platform is it?",
           "translation": "Кадом платформа аст?",
-          "literal": "уич плэтформ из ит",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "вич плэтформ из ит",
+          "note": "«Which» вақте истифода мешавад, ки интихоб аз шумораи МАҲДУД бошад — вокзал чанд платформа дорад ва шумо якеашро мепурсед.\n\n«What» бошад интихоби номаҳдудро мепурсад: «What is your name?»\n\nТартиб: Which + [исм] + is + it?",
+          "cue": "Your train leaves in ten minutes.",
+          "cueTranslation": "Қатораатон баъди даҳ дақиқа меравад."
         }
       ]
     },
@@ -366,7 +366,7 @@
           "text": "late",
           "translation": "дер",
           "literal": "лейт",
-          "note": null,
+          "note": "Late сифат аст ва бо феъли «to be» меояд: «I AM late».\n\n⚠️ Доми калон: дар тоҷикӣ «дер кардам» ФЕЪЛ аст, пас хонанда «I late» ё «I did late» мегӯяд. Ҳарду ғалатанд — «I am late».\n\nМуқобилаш early (барвақт), ки ҳамон тавр кор мекунад: «I am early».",
           "cue": null,
           "cueTranslation": null
         },
@@ -376,7 +376,7 @@
           "text": "luggage",
           "translation": "бағоҷ",
           "literal": "лагиҷ",
-          "note": null,
+          "note": "Luggage ҳисобнашаванда аст, ҳатто агар чанд ҷомадон бошад.\n\n❌ two luggages\n✅ two bags / two suitcases\n✅ my luggage — ҳамаи бағоҷи ман\n\nВа феъл бо он ҳамеша ТАНҲО меояд: «My luggage IS missing», на «are».",
           "cue": null,
           "cueTranslation": null
         },
@@ -386,7 +386,7 @@
           "text": "help",
           "translation": "кӯмак",
           "literal": "ҳелп",
-          "note": null,
+          "note": "Help ҳам феъл аст, ҳам исм.\n\n• Can you help me? — феъл\n• I need help. — исм (ҳисобнашаванда, бе артикл)\n\n⚠️ Баъди феъли «help» пешоянд НЕСТ: «help me», на «help to me». Дар тоҷикӣ «ба ман кӯмак» мегӯем ва ин доми маъмул аст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -396,9 +396,9 @@
           "text": "I am late.",
           "translation": "Ман дер кардам.",
           "literal": "ай эм лейт",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Сохт: I + am + late.\n\nФеъли «am» ҳатмист. Ин ҷумлаи кӯтоҳ доми бузург дорад, чунки дар тоҷикӣ «дер кардам» феъли гузашта аст ва хонанда мехоҳад феъл бисозад.\n\nДар англисӣ «late» СИФАТ аст — «ман дер ҲАСТАМ», на «ман дер кардам».",
+          "cue": "The bus is leaving now.",
+          "cueTranslation": "Автобус ҳозир меравад."
         },
         {
           "order": 4,
@@ -406,7 +406,7 @@
           "text": "My luggage is missing.",
           "translation": "Бағоҷи ман гум шудааст.",
           "literal": "май лагиҷ из мисинг",
-          "note": null,
+          "note": "Missing = гум шуда, ҷояш нест.\n\nАзбаски «luggage» ҳисобнашаванда аст, феъл ҳамеша ТАНҲО меояд: «is», на «are» — ҳатто агар ду ҷомадон бошад.\n\nҲаммаънои соддатараш: «I lost my luggage» — вале «missing» дар фурудгоҳ калимаи расмист.",
           "cue": "Is everything all right?",
           "cueTranslation": "Ҳама чиз хуб аст?"
         },
@@ -416,9 +416,9 @@
           "text": "I missed my bus.",
           "translation": "Ман аз автобус мондам.",
           "literal": "ай мисд май бас",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Замони ГУЗАШТА: феъл -ed мегирад — miss → missed.\n\n⚠️ Ду калимаи ба ҳам монандро омехта накунед:\n• missing (сифат) — гум шуда: «My luggage is missing»\n• missed (феъли гузашта) — аз даст додам: «I missed my bus»\n\nТалаффуз: «мист», садои -ed ин ҷо «т» мешавад, на «ид».",
+          "cue": "You look worried.",
+          "cueTranslation": "Шумо ташвишонед."
         },
         {
           "order": 6,
@@ -426,19 +426,19 @@
           "text": "Can you help me, please?",
           "translation": "Ба ман кӯмак карда метавонед, лутфан?",
           "literal": "кен ю ҳелп ми плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Дархости кӯмак: Can you + help + me + please?\n\n«Me» баъди феъл меистад — тартиби сахти англисӣ: кӣ → феъл → киро.\n\nПешоянд лозим НЕСТ: «help me», на «help to me».\n\nИн ҷумла дар ҳар вазъияти душвор кор мекунад — онро аз ёд кунед.",
+          "cue": "Do you need help?",
+          "cueTranslation": "Кӯмак лозим аст?"
         },
         {
           "order": 7,
           "kind": "sentence",
           "text": "Where can I find a taxi?",
           "translation": "Дар куҷо такси ёфта метавонам?",
-          "literal": "уэр кен ай файнд э таксӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "вэр кен ай файнд э таксӣ",
+          "note": "Саволи мураккабтар: Where + can + I + [феъл] + [чӣ]?\n\nФеъли ёридиҳанда «can» баъди калимаи саволӣ ва ПЕШ аз фоил меистад. Ин тартиб сахт аст.\n\n❌ Where I can find a taxi?\n✅ Where can I find a taxi?\n\nАртикли «a» — ҳар таксӣ мувофиқ аст, на маҳз яктояш.",
+          "cue": "The station is closed now.",
+          "cueTranslation": "Вокзал ҳозир пӯшида аст."
         }
       ]
     }

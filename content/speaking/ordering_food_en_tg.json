@@ -21,8 +21,8 @@
           "kind": "word",
           "text": "water",
           "translation": "об",
-          "literal": "уотэр",
-          "note": "Дар ошхона ҳатто як калима кофист: «Water, please.»",
+          "literal": "вотэр",
+          "note": "Water ҳисобнашаванда аст: «two waters» дар забони дуруст ғалат аст (гарчанде дар ошхона онро мешунавед — маънояш «ду шиша об»).\n\nБарои шумораи аниқ зарф гуфта мешавад: «two glasses of water».\n\nДар ошхона ҳатто як калима кофист: «Water, please.»\n\nТалаффуз: «вотэр» — садои /w/ бо лабҳои мудаввар. Дар тоҷикӣ ин садо нест ва мо «в» менависем.",
           "cue": null,
           "cueTranslation": null
         },
@@ -32,7 +32,7 @@
           "text": "tea",
           "translation": "чой",
           "literal": "тӣ",
-          "note": "Садои t — нӯги забон ба дандони боло, баъд садоноки дарози «ӣ».",
+          "note": "Tea ҳисобнашаванда аст, вале дар ошхона шакли ҷамъ мешунавед: «two teas» = ду ПИЁЛА чой. Ин истиснои ҷаззоб аст.\n\nТалаффуз: садои t — нӯги забон ба дандони боло, баъд садоноки дарози «ӣ».\n\n⚠️ Муҳаррики нутқ аксар вақт барои «tea» ҳарфи «T»-ро менависад — ин хатои шумо нест, барнома онро мефаҳмад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -42,7 +42,7 @@
           "text": "coffee",
           "translation": "қаҳва",
           "literal": "кофӣ",
-          "note": "Зарба ба ҳиҷои АВВАЛ меафтад: CO-ffee, на co-FFEE.",
+          "note": "Coffee ҳисобнашаванда аст, вале ҳамон истисно кор мекунад: «two coffees» = ду финҷон қаҳва.\n\n⚠️ Талаффуз доми асосии ин калима аст: зарба ба ҳиҷои АВВАЛ меафтад — CO-ffee, на co-FFEE. Дар тоҷикӣ мо «қаҳВА» мегӯем ва зарбаро ба охир мебарем.\n\nАгар зарба ғалат бошад, англисзабон калимаро намефаҳмад — ҳатто агар ҳамаи садоҳо дуруст бошанд.",
           "cue": null,
           "cueTranslation": null
         },
@@ -52,7 +52,7 @@
           "text": "please",
           "translation": "лутфан",
           "literal": "плиз",
-          "note": "Please ҳар дархостро хушмуомила мекунад. Бе он гуфтор дағал садо медиҳад.",
+          "note": "Please ҳар дархостро хушмуомила мекунад. Бе он гуфтор дағал садо медиҳад.\n\nДу ҷои он:\n• дар охир: «Water, please» — маъмултарин\n• дар аввал: «Please wait» — бо фармон\n\n⚠️ Англисзабонҳо онро дар ҳар дархост мегӯянд — барои тоҷик ин аҷиб менамояд, вале бе он гуфтор камодоб ҳисоб мешавад.\n\nТалаффуз: «плиз» — охираш «з», на «с».",
           "cue": null,
           "cueTranslation": null
         },
@@ -60,31 +60,31 @@
           "order": 4,
           "kind": "sentence",
           "text": "Water, please.",
-          "translation": "Як об, лутфан.",
-          "literal": "уотэр плиз",
-          "note": "Формулаи универсалӣ: [чизе] + please. Бо ҳар хӯроку нӯшокӣ кор мекунад.",
-          "cue": null,
-          "cueTranslation": null
+          "translation": "Об, лутфан.",
+          "literal": "вотэр плиз",
+          "note": "Формулаи универсалӣ: [чизе] + please. Бо ҳар хӯроку нӯшокӣ кор мекунад.\n\nФеъл лозим НЕСТ — ин ҷумлаи нопурра аст, вале дар ошхона комилан табиист.\n\n⚠️ Калимаи «як» гуфта намешавад. Дар тоҷикӣ «як об» табиист, вале «one water» маънои «маҳз ЯК, на ду»-ро медиҳад ва дар фармоиши оддӣ ғалат садо медиҳад.",
+          "cue": "What would you like to drink?",
+          "cueTranslation": "Чӣ нӯшидан мехоҳед?"
         },
         {
           "order": 5,
           "kind": "sentence",
           "text": "Tea, please.",
-          "translation": "Як чой, лутфан.",
+          "translation": "Чой, лутфан.",
           "literal": "тӣ плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Дар англисӣ барои фармоиш ҷумлаи пурра лозим нест: номи чиз + please кофист. «Tea, please» = «Чой, лутфан».\n\nДиққат: калимаи «як» гуфта НАМЕШАВАД. Дар тоҷикӣ «як чой» табиист, вале «one tea» дар англисӣ маънои «маҳз ЯК, на ду»-ро медиҳад ва дар фармоиши оддӣ ғалат садо медиҳад.",
+          "cue": "Tea or coffee?",
+          "cueTranslation": "Чой ё қаҳва?"
         },
         {
           "order": 6,
           "kind": "sentence",
           "text": "Coffee, please.",
-          "translation": "Як қаҳва, лутфан.",
+          "translation": "Қаҳва, лутфан.",
           "literal": "кофӣ плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Ҳамон қолаб: [нӯшокӣ] + please. Бо ҳар нӯшокӣ кор мекунад — coffee, tea, juice, water.\n\nТалаффуз: зарба ба ҳиҷои АВВАЛ — CO-ffee. Агар зарбаро ба охир диҳед (co-FFEE), англисзабон онро намефаҳмад.",
+          "cue": "Anything to drink?",
+          "cueTranslation": "Чизе нӯшидан?"
         },
         {
           "order": 7,
@@ -92,7 +92,7 @@
           "text": "juice",
           "translation": "шарбат",
           "literal": "ҷус",
-          "note": "Juice — шарбати мева. Шакли ҷамъ лозим нест: «Juice, please».",
+          "note": "Juice — шарбати мева. Ҳисобнашаванда аст ва шакли ҷамъ лозим нест: «Juice, please».\n\nБарои навъи мушаххас калима илова мешавад: orange juice, apple juice.\n\nТалаффуз: «ҷус» — ҳарфи «j» дар англисӣ садои «ҷ» медиҳад, на «й» ё «ж».",
           "cue": null,
           "cueTranslation": null
         },
@@ -100,19 +100,19 @@
           "order": 8,
           "kind": "sentence",
           "text": "Juice, please.",
-          "translation": "Як шарбат, лутфан.",
+          "translation": "Шарбат, лутфан.",
           "literal": "ҷус плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Juice ҳисобнашаванда аст — шакли ҷамъ «juices» дар фармоиш НЕСТ.\n\nҲамин тавр: water, tea, coffee, bread, rice. Онҳо -s намегиранд, чунки моеъ ё модда мебошанд, на дона.\n\nАгар шумораи аниқ лозим бошад, зарф гуфта мешавад: «two glasses of juice» — ду қадаҳ шарбат.",
+          "cue": "We have juice and water.",
+          "cueTranslation": "Мо шарбат ва об дорем."
         },
         {
           "order": 9,
           "kind": "word",
           "text": "thank you",
           "translation": "ташаккур",
-          "literal": "сенк ю",
-          "note": null,
+          "literal": "ҫенк ю",
+          "note": "Ду калима, вале ҳамеша якҷоя гуфта мешавад — як ибораи тайёр.\n\nВариантҳо аз рӯи расмият:\n• Thank you — ҳамеша бехатар\n• Thanks — кӯтоҳтар, дӯстона\n• Thank you very much — расмитар ва гармтар\n\nҶавоби маъмулӣ: «You are welcome».\n\nҲарфи «ҫ» садои англисии th-и БЕҶАРАНГ аст: нӯги забонро сабук байни дандонҳо гузоред ва ҳаво диҳед, бе овоз. Ин «с»-и оддӣ НЕСТ.",
           "cue": null,
           "cueTranslation": null
         },
@@ -121,10 +121,10 @@
           "kind": "sentence",
           "text": "Thank you very much.",
           "translation": "Ташаккури зиёд.",
-          "literal": "сенк ю вери мач",
-          "note": "«very much» = «хеле зиёд» — ҳамчун як ибораи тайёр ба ёд гиред.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҫенк ю вери мач",
+          "note": "«Very much» = «хеле зиёд» — онро ҳамчун як ибораи тайёр ба ёд гиред.\n\nҶои он сахт аст: ба ОХИР меравад, баъди «thank you».\n\n❌ Thank very much you.\n✅ Thank you very much.\n\nВарианти кӯтоҳтар: «Thanks a lot» — камтар расмӣ, бо дӯстон.",
+          "cue": "Here is your order.",
+          "cueTranslation": "Ин фармоиши шумо."
         }
       ]
     },
@@ -138,7 +138,7 @@
           "text": "bread",
           "translation": "нон",
           "literal": "брэд",
-          "note": null,
+          "note": "Bread ҳисобнашаванда аст: «one bread» ГАЛАТ аст.\n\nАгар як дона лозим бошад: «a piece of bread» (як бурда нон) ё дар ошхона содда «some bread» (каме нон).\n\nТалаффуз: «брэд» — садоноки кӯтоҳ, на «бриид».",
           "cue": null,
           "cueTranslation": null
         },
@@ -148,7 +148,7 @@
           "text": "soup",
           "translation": "шӯрбо",
           "literal": "суп",
-          "note": null,
+          "note": "Soup низ ҳисобнашаванда аст — «two soups» танҳо вақте мешавад, ки ду НАВЪИ шӯрбо дар назар бошад.\n\nДар ошхона одатан мегӯянд: «soup, please» ё «a bowl of soup» (як коса шӯрбо).",
           "cue": null,
           "cueTranslation": null
         },
@@ -158,7 +158,7 @@
           "text": "rice",
           "translation": "биринҷ",
           "literal": "райс",
-          "note": "Диққат: rice = /райс/, бо садоноки дарози «ай».",
+          "note": "Rice ҳисобнашаванда аст: «two rices» ғалат аст. Барои шумора зарф гуфта мешавад: «two plates of rice».\n\n⚠️ Диққат ба талаффуз: rice = «райс», бо садоноки дарози «ай».\n\nАгар кӯтоҳ гӯед («рис»), калима ба «rise» (бархостан) монанд мешавад — маънои тамоман дигар.",
           "cue": null,
           "cueTranslation": null
         },
@@ -168,7 +168,7 @@
           "text": "chicken",
           "translation": "мурғ",
           "literal": "чикин",
-          "note": null,
+          "note": "Як калима ду маъно дорад: chicken = ҳам мурғи зинда, ҳам гӯшти мурғ. Дар меню ҳамеша маънои дуюм аст.\n\nВақте гӯшт дар назар аст, ҳисобнашаванда мешавад: «I want chicken» — бе артикл ва бе -s.\n\nТалаффуз: «чикин», зарба ба ҳиҷои аввал.",
           "cue": null,
           "cueTranslation": null
         },
@@ -178,7 +178,7 @@
           "text": "salad",
           "translation": "салат",
           "literal": "салад",
-          "note": null,
+          "note": "Талаффуз доми хурд дорад: «СА-лад», зарба ба ҳиҷои АВВАЛ. Дар тоҷикӣ мо «салАт» мегӯем ва зарбаро ба охир мебарем — дар англисӣ ин ғалат садо медиҳад.\n\nSalad ҳисобшаванда аст: «a salad» (як салат), «two salads».",
           "cue": null,
           "cueTranslation": null
         },
@@ -187,8 +187,8 @@
           "kind": "word",
           "text": "I want",
           "translation": "ман мехоҳам",
-          "literal": "ай уонт",
-          "note": "Ибораи тайёр — ҳамеша якҷоя истифода мешавад: I want + [чизе].",
+          "literal": "ай вонт",
+          "note": "Ибораи тайёр: I want + [чизе] — ҳамеша якҷоя истифода мешавад.\n\nДу роҳ:\n• бо исм: I want soup.\n• бо феъл: I want TO eat.\n\n⚠️ Бо феъли дуюм «to» ҲАТМист: «I want eat» ғалат аст.\n\nДар ошхона «I want» қобили қабул аст, вале «Can I have…?» хушмуомилатар садо медиҳад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -197,30 +197,30 @@
           "kind": "sentence",
           "text": "I want soup.",
           "translation": "Ман шӯрбо мехоҳам.",
-          "literal": "ай уонт суп",
+          "literal": "ай вонт суп",
           "note": "«I want» = «ман мехоҳам». Дар кафе қобили қабул аст, вале «Can I have…?» (дарси 3) хушмуомилатар садо медиҳад.",
-          "cue": null,
-          "cueTranslation": null
+          "cue": "What would you like to eat?",
+          "cueTranslation": "Чӣ хӯрдан мехоҳед?"
         },
         {
           "order": 7,
           "kind": "sentence",
           "text": "I want bread and salad.",
           "translation": "Ман нон ва салат мехоҳам.",
-          "literal": "ай уонт брэд энд салад",
-          "note": "«and» = «ва» — ду чизро дар як фармоиш мепайвандад.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ай вонт брэд энд салад",
+          "note": "«And» = «ва» — ду чизро дар як фармоиш мепайвандад.\n\nТартиб: I → want → [чиз] and [чиз].\n\nДар гуфтори зинда «and» кӯтоҳ мешавад ва қариб «н» садо медиҳад: «bread 'n' salad». Ин хатои талаффуз нест — гӯяндаи бумӣ низ ҳамин тавр мегӯяд, ва барнома онро мефаҳмад.\n\nҲарду исм ҳисобнашавандаанд, пас артикл намегиранд.",
+          "cue": "And with it?",
+          "cueTranslation": "Ва бо он чӣ?"
         },
         {
           "order": 8,
           "kind": "sentence",
           "text": "I want rice, please.",
           "translation": "Ман биринҷ мехоҳам, лутфан.",
-          "literal": "ай уонт райс плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ай вонт райс плиз",
+          "note": "Ду чиз дар як ҷумла: I want + [чӣ] + please.\n\nТартиби калима дар англисӣ САХТ аст: аввал фоил (I), баъд феъл (want), баъд предмет (rice). Дар тоҷикӣ феъл ба ОХИР меравад — «Ман биринҷ мехоҳам». Ин фарқи асосист ва аз он бештари хатоҳо мебарояд.\n\n«Please» ба охир меравад ва ҷумларо мулоим мекунад.",
+          "cue": "Rice or bread?",
+          "cueTranslation": "Биринҷ ё нон?"
         },
         {
           "order": 9,
@@ -228,9 +228,9 @@
           "text": "Chicken, please.",
           "translation": "Мурғ биёред, лутфан.",
           "literal": "чикин плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Кӯтоҳтарин шакли фармоиш: танҳо номи хӯрок + please. Пешхизмат ҳамаро мефаҳмад.\n\nДар тарҷумаи тоҷикӣ «биёред» ҳаст, вале дар англисӣ феъл лозим НЕСТ. Агар «Bring chicken» гӯед, он фармон садо медиҳад, на дархост.",
+          "cue": "Chicken or fish?",
+          "cueTranslation": "Мурғ ё моҳӣ?"
         },
         {
           "order": 10,
@@ -238,9 +238,9 @@
           "text": "Soup and bread, please.",
           "translation": "Шӯрбо ва нон биёред, лутфан.",
           "literal": "суп энд брэд плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "And ду чизро дар як фармоиш мепайвандад: [чиз] and [чиз] + please.\n\nДар гуфтори зинда «and» кӯтоҳ мешавад ва қариб «н» садо медиҳад: «soup 'n' bread». Ин хатои талаффуз нест — гӯяндаи бумӣ низ ҳамин тавр мегӯяд.",
+          "cue": "What can I bring you?",
+          "cueTranslation": "Чӣ биёрам?"
         }
       ]
     },
@@ -254,7 +254,7 @@
           "text": "menu",
           "translation": "меню",
           "literal": "меню",
-          "note": null,
+          "note": "Menu ҳисобшаванда аст ва қариб ҳамеша бо «the» меояд: «the menu» — ҳамон менюи ҳамин ошхона, на ягон меню дар ҷаҳон.\n\nДар тоҷикӣ артикл НЕСТ, бинобар ин ин калимаи хурд аксар вақт фаромӯш мешавад. «Can I have menu?» нодуруст аст — «the menu».",
           "cue": null,
           "cueTranslation": null
         },
@@ -264,7 +264,7 @@
           "text": "table",
           "translation": "миз",
           "literal": "тейбл",
-          "note": null,
+          "note": "Дар ошхона table бо шумораи одамон меояд: «a table for two» — мизе барои ду нафар.\n\nКалимаи «people» (одам) гуфта намешавад: «for two» худаш кофист. «A table for two people» дароз ва сунъӣ садо медиҳад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -274,7 +274,7 @@
           "text": "hungry",
           "translation": "гурусна",
           "literal": "ҳангрӣ",
-          "note": null,
+          "note": "Hungry сифат аст, на феъл. Дар англисӣ бо сифат ҲАМЕША феъли «to be» меистад: I AM hungry.\n\nДар тоҷикӣ «ҳастам» гоҳе партофта мешавад («ман гурусна»), вале дар англисӣ ин мумкин НЕСТ. «I hungry» ғалат аст — ҳамеша «I am hungry».",
           "cue": null,
           "cueTranslation": null
         },
@@ -284,19 +284,19 @@
           "text": "I am hungry.",
           "translation": "Ман гурусна ҳастам.",
           "literal": "ай эм ҳангрӣ",
-          "note": "Дар англисӣ «ҳастам» ҳатмист: I AM hungry, на «I hungry».",
-          "cue": null,
-          "cueTranslation": null
+          "note": "Дар англисӣ «ҳастам» ҲАТМист: I AM hungry, на «I hungry».\n\nСабаб: «hungry» СИФАТ аст, на феъл. Дар англисӣ бо ҳар сифат феъли «to be» меистад.\n\nҲамин қоида дар ҳама ҷо: I am tired, I am ready, I am late, I am lost.\n\n⚠️ Ин доми маъмултарини тоҷикзабон аст, чунки дар тоҷикӣ «аст» гоҳе партофта мешавад.",
+          "cue": "Would you like to eat something?",
+          "cueTranslation": "Чизе хӯрдан мехоҳед?"
         },
         {
           "order": 4,
           "kind": "sentence",
           "text": "Can I have the menu?",
           "translation": "Менюро дода метавонед?",
-          "literal": "кен ай ҳэв зэ меню",
-          "note": "«Can I have…?» — шакли хушмуомилаи дархост. Ҷавоби маъмулӣ: «Sure!»",
-          "cue": "Here you are. Do you need anything else?",
-          "cueTranslation": "Мана. Боз чизе лозим аст?"
+          "literal": "кен ай ҳэв ҙэ меню",
+          "note": "«Can I have…?» — шакли хушмуомилаи дархост. Ҷавоби маъмулӣ: «Sure!»\n\nСохт: Can + I + have + [чӣ]?\n\nДу чизи муҳим:\n1. «can» ба ҷои АВВАЛ мебарояд — ин қоидаи саволи англисист;\n2. артикли «the» ҳатмист — менюи МАҲЗ ҳамин ошхона.\n\nБаъди «can» феъл ҳамеша шакли аслӣ дорад: «have», на «to have».",
+          "cue": "Take a seat, please.",
+          "cueTranslation": "Марҳамат, шинед."
         },
         {
           "order": 5,
@@ -304,7 +304,7 @@
           "text": "Can I have a table for two?",
           "translation": "Мизе барои ду нафар дода метавонед?",
           "literal": "кен ай ҳэв э тейбл фор ту",
-          "note": "«for two» = «барои ду нафар». Калимаи people гуфтан лозим нест.",
+          "note": "«For two» = «барои ду нафар». Калимаи «people» гуфтан лозим НЕСТ — «for two people» дароз ва сунъӣ садо медиҳад.\n\nИн ҷо «a table», на «the» — ҳар мизи холӣ мувофиқ аст, мизи мушаххас дар назар нест.\n\nМуқоиса: «the menu» (менюи ҳамин ҷо, ягона) ва «a table» (ҳар кадом). Ҳамин ду ҷумла фарқи a ва the-ро нишон медиҳанд.",
           "cue": "Good evening! How many people?",
           "cueTranslation": "Шоми хуш! Чанд нафаред?"
         },
@@ -313,8 +313,8 @@
           "kind": "sentence",
           "text": "Can I have water, please?",
           "translation": "Об дода метавонед, лутфан?",
-          "literal": "кен ай ҳэв уотэр плиз",
-          "note": null,
+          "literal": "кен ай ҳэв вотэр плиз",
+          "note": "«Can I have…?» шакли хушмуомилаи дархост аст — тарҷумаи таҳтуллафзии он «гирифта метавонам?» аст, вале маънояш «лутфан диҳед».\n\nСохт: Can + I + have + [чӣ] + please?\n\nДар савол «can» ба АВВАЛ меравад. Ин қоидаи умумии саволи англисист: феъли ёридиҳанда пеш аз фоил меистад.",
           "cue": "Would you like something to drink?",
           "cueTranslation": "Чизе нӯшидан мехоҳед?"
         },
@@ -324,7 +324,7 @@
           "text": "ready",
           "translation": "тайёр",
           "literal": "реди",
-          "note": null,
+          "note": "Ready сифат аст ва бо «to» + феъл меояд: ready to order (тайёр фармоиш додан), ready to go (тайёр рафтан).\n\nВа боз феъли «to be» ҳатмист: «I AM ready». Бе «am» ҷумла нопурра аст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -334,7 +334,7 @@
           "text": "order",
           "translation": "фармоиш",
           "literal": "ордэр",
-          "note": null,
+          "note": "Як калима ду вазифа дорад: исм (фармоиш) ва феъл (фармоиш додан).\n\n«My order» — фармоиши ман (исм). «I want to order» — фармоиш додан мехоҳам (феъл).\n\nШакли калима тағйир намеёбад — танҳо ҷои он дар ҷумла маъноро муайян мекунад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -344,7 +344,7 @@
           "text": "I am ready to order.",
           "translation": "Ман тайёрам фармоиш диҳам.",
           "literal": "ай эм реди ту ордэр",
-          "note": "Ҳамин ҷумларо ба пешхизмат гӯед, то ӯ фармоишро қабул кунад.",
+          "note": "Ҳамин ҷумларо ба пешхизмат гӯед, то ӯ фармоишро қабул кунад.\n\nСохт: I + am + ready + to + [феъл].\n\nДу қоида дар як ҷумла:\n1. бо сифат («ready») феъли «to be» ҳатмист;\n2. баъди «ready» феъл бо «to» пайваст мешавад.\n\n❌ I ready order.\n✅ I am ready to order.",
           "cue": "Are you ready to order?",
           "cueTranslation": "Тайёред фармоиш диҳед?"
         }
@@ -359,8 +359,8 @@
           "kind": "word",
           "text": "one",
           "translation": "як",
-          "literal": "уан",
-          "note": null,
+          "literal": "ван",
+          "note": "One = адади 1. Онро танҳо вақте гӯед, ки шумора МУҲИМ бошад.\n\nДар фармоиши оддӣ «Coffee, please» кофист. «One coffee, please» маънои «маҳз ЯК, на ду»-ро таъкид мекунад — мас. вақте ду нафаред ва танҳо якто мехоҳед.\n\nТалаффуз доми калон дорад: «ван», на «оне». Ҳарфи «w» дар имло нест, вале садо ҳаст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -370,7 +370,7 @@
           "text": "two",
           "translation": "ду",
           "literal": "ту",
-          "note": "two, to ва too — ҳар се якхела талаффуз мешаванд: /ту/.",
+          "note": "Two, to ва too — ҳар се якхела талаффуз мешаванд: /ту/. Маъно танҳо аз ҷумла маълум мешавад:\n\n• two — адади 2\n• to — пешоянд («ба») ё ҷузъи феъл («to eat»)\n• too — аз ҳад («too expensive») ё «низ»\n\n⚠️ Имлои «two» доми худро дорад: ҳарфи «w» навишта мешавад, вале садо намедиҳад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -379,8 +379,8 @@
           "kind": "word",
           "text": "three",
           "translation": "се",
-          "literal": "срӣ",
-          "note": "th — нӯги забонро сабук байни дандонҳо гузоред. Ин «с»-и оддӣ нест.",
+          "literal": "ҫрӣ",
+          "note": "Ҳарфи «ҫ» = th: нӯги забонро сабук байни дандонҳо гузоред ва ҳаво диҳед. Ин «с»-и оддӣ НЕСТ.",
           "cue": null,
           "cueTranslation": null
         },
@@ -390,7 +390,7 @@
           "text": "glass",
           "translation": "қадаҳ",
           "literal": "глас",
-          "note": null,
+          "note": "Glass ду маъно дорад: шиша (модда) ва қадаҳ (зарф).\n\nҲамчун зарф ҳисобшаванда аст: a glass, two glasses. Диққат: шакли ҷамъ -es мегирад, на танҳо -s, чунки калима бо садои «с» тамом мешавад: glass → glasses («гласиз»).",
           "cue": null,
           "cueTranslation": null
         },
@@ -399,10 +399,10 @@
           "kind": "sentence",
           "text": "One coffee, please.",
           "translation": "Як қаҳва, лутфан.",
-          "literal": "уан кофӣ плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ван кофӣ плиз",
+          "note": "Сохт: [адад] + [нӯшокӣ] + please.\n\nДиққати муҳим: баъди адад калима шакли ҶАМЪ намегирад, агар нӯшокӣ ҳисобнашаванда бошад — «one coffee», «two coffee» ҳам мешавад. Вале дар ошхона одатан «two coffees» мегӯянд, яъне «ду ФИНҶОН қаҳва».\n\nҲамин тавр «two teas» — ду пиёла чой.",
+          "cue": "How many coffees?",
+          "cueTranslation": "Чанд қаҳва?"
         },
         {
           "order": 5,
@@ -410,19 +410,19 @@
           "text": "Two teas, please.",
           "translation": "Ду чой, лутфан.",
           "literal": "ту тиз плиз",
-          "note": "Дар ошхона «two teas» мегӯянд — бо -s, гарчанде чой ҳисобнашаванда бошад.",
-          "cue": null,
-          "cueTranslation": null
+          "note": "Дар ошхона «two teas» мегӯянд — бо -s, гарчанде чой ҳисобнашаванда бошад.\n\nСабаб: маънояш «ду ПИЁЛА чой» аст. Ҳамин тавр «two coffees» = ду финҷон қаҳва.\n\nИн истиснои зинда аст: расман ғалат, вале ҳама ҳамин тавр мегӯянд.\n\nБо об чунин намешавад: «two waters» камтар маъмул аст — беҳтараш «two glasses of water».",
+          "cue": "Anything else for the table?",
+          "cueTranslation": "Барои миз боз чизе?"
         },
         {
           "order": 6,
           "kind": "sentence",
           "text": "Three glasses of water, please.",
           "translation": "Се қадаҳ об, лутфан.",
-          "literal": "срӣ гласиз ов уотэр плиз",
-          "note": "«of» зарф ва мазмунро мепайвандад: a glass OF water.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҫрӣ гласиз ов вотэр плиз",
+          "note": "«Of» зарф ва мазмунро мепайвандад: a glass OF water.\n\nИн қолаб барои ҳар чизи ҳисобнашаванда кор мекунад:\n• a glass of water — як қадаҳ об\n• a cup of tea — як пиёла чой\n• a piece of bread — як бурда нон\n\n⚠️ Ду шакли ҷамъ дар як ҷумла: «three glassES» (зарф ҷамъ мешавад), вале «water» ҳамон тавр мемонад — вай ҳисобнашаванда аст.",
+          "cue": "Water for everyone?",
+          "cueTranslation": "Об барои ҳама?"
         },
         {
           "order": 7,
@@ -430,7 +430,7 @@
           "text": "more",
           "translation": "боз",
           "literal": "мор",
-          "note": null,
+          "note": "More = «боз», «зиёдтар». Пеш аз исм меистад: more bread, more water.\n\nДар тоҷикӣ мо аксар вақт «боз ЯК нон» мегӯем, вале дар англисӣ «one» лозим нест: «more bread» худаш кофист.\n\nБарои чизи ҳисобшаванда: «one more» — боз як дона.",
           "cue": null,
           "cueTranslation": null
         },
@@ -438,11 +438,11 @@
           "order": 8,
           "kind": "sentence",
           "text": "More bread, please.",
-          "translation": "Боз як нон, лутфан.",
+          "translation": "Боз нон, лутфан.",
           "literal": "мор брэд плиз",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Қолаби кӯтоҳи дархости иловагӣ: More + [чиз] + please.\n\nИн дар ҳар ҷо кор мекунад: more water, more tea, more rice.\n\nФеъл лозим НЕСТ. «Bring more bread» фармон садо медиҳад; «More bread, please» дархости хушмуомила аст.",
+          "cue": "Do you need anything else?",
+          "cueTranslation": "Боз чизе лозим аст?"
         }
       ]
     },
@@ -456,7 +456,7 @@
           "text": "how much",
           "translation": "чанд пул",
           "literal": "ҳау мач",
-          "note": null,
+          "note": "Ду калима, вале як ибораи тайёр: «how much» = чанд пул / чӣ қадар.\n\nБарои чизи ҲИСОБНАШАВАНДА (пул, об, вақт) — how much. Барои чизи ҳисобшаванда — how many: «how many people?» (чанд нафар?).\n\nДар бораи нарх ҳамеша how much аст, чунки пул ҳисобнашаванда аст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -466,17 +466,17 @@
           "text": "How much is it?",
           "translation": "Ин чанд пул аст?",
           "literal": "ҳау мач из ит",
-          "note": "Универсалӣ: дар мағоза, такси ва ошхона ҳамин як савол кофист.",
-          "cue": null,
-          "cueTranslation": null
+          "note": "Универсалӣ: дар мағоза, такси ва ошхона ҳамин як савол кофист.\n\nСохт: How much + is + it?\n\nФеъл баъди ибораи саволӣ меистад:\n❌ How much it is?\n✅ How much is it?\n\n«How much» барои чизи ҳисобнашаванда (пул) аст; барои ҳисобшаванда «how many» мешавад.",
+          "cue": "That is everything.",
+          "cueTranslation": "Ҳамааш ҳамин."
         },
         {
           "order": 2,
           "kind": "word",
           "text": "this",
           "translation": "ин",
-          "literal": "зис",
-          "note": "th дар this ҶАРАНГДОР аст — «з»-и байни дандонҳо, на «с».",
+          "literal": "ҙис",
+          "note": "Ҳарфи «ҙ» = th-и ҶАРАНГДОР: ҳамон ҷои забон, вале бо овоз. «ҫ» (thank) беовоз аст, «ҙ» (this) боовоз.",
           "cue": null,
           "cueTranslation": null
         },
@@ -485,10 +485,10 @@
           "kind": "sentence",
           "text": "What is this?",
           "translation": "Ин чист?",
-          "literal": "уот из зис",
-          "note": "Ба меню ишора кунеду ҳаминро пурсед.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "вот из ҙис",
+          "note": "Ба меню ишора кунеду ҳаминро пурсед.\n\nСохт: What + is + this?\n\nФеъл баъди калимаи саволӣ меистад — ҳамон қоидаи умумӣ.\n\nБарои чизи дуртар: «What is THAT?»\nБарои чизи ҷамъ: «What ARE these?»\n\nТалаффуз: «ҙис» — th-и ҶАРАНГДОР, бо овоз. Дар «thank» бошад th беовоз аст («ҫ») — ду садои гуногун.",
+          "cue": "This is our special today.",
+          "cueTranslation": "Ин таоми махсуси имрӯзи мост."
         },
         {
           "order": 4,
@@ -496,9 +496,9 @@
           "text": "Do you have tea?",
           "translation": "Чой доред?",
           "literal": "ду ю ҳэв тӣ",
-          "note": "«Do you have…?» — саволи мавҷудияти чизе.",
-          "cue": null,
-          "cueTranslation": null
+          "note": "«Do you have…?» — саволи мавҷудияти чизе.\n\nСохт: Do + you + have + [чӣ]?\n\n⚠️ Феъли ёридиҳандаи «do» ҲАТМист. Дар тоҷикӣ мо танҳо оҳангро мебардорем («чой доред?»), вале дар англисӣ бе «do» ҷумла гуфтори кӯчагӣ мешавад.\n\nБарои he/she/it шакл иваз мешавад: «DOES he have…?»",
+          "cue": "We have coffee and juice.",
+          "cueTranslation": "Мо қаҳва ва шарбат дорем."
         },
         {
           "order": 5,
@@ -506,7 +506,7 @@
           "text": "spicy",
           "translation": "тунд",
           "literal": "спайсӣ",
-          "note": null,
+          "note": "Spicy = тунд (аз мурч ё гарммаса), на «гарм». Гармии ҳарорат «hot» аст.\n\nДиққат: «hot» низ метавонад «тунд» маъно диҳад ва ин доми маъмул аст. Барои равшанӣ гӯед: «Is it spicy?» — ҳама мефаҳманд.\n\nТалаффуз: «спайсӣ», садоноки «ай», на «и».",
           "cue": null,
           "cueTranslation": null
         },
@@ -516,9 +516,9 @@
           "text": "Is it spicy?",
           "translation": "Ин тунд аст?",
           "literal": "из ит спайсӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Саволи «оё?» дар англисӣ бо ТАРТИБИ КАЛИМА сохта мешавад, на бо калимаи саволӣ.\n\nҶумлаи хабарӣ: It is spicy (Ин тунд аст).\nСавол: Is it spicy? (Ин тунд аст?)\n\nЯъне феъли «to be» ба ҷои АВВАЛ мебарояд. Дар тоҷикӣ мо танҳо оҳангро мебардорем — дар англисӣ ин кофӣ нест.",
+          "cue": "This dish is very popular.",
+          "cueTranslation": "Ин таом хеле машҳур аст."
         },
         {
           "order": 7,
@@ -526,7 +526,7 @@
           "text": "meat",
           "translation": "гӯшт",
           "literal": "мит",
-          "note": null,
+          "note": "Meat ҳисобнашаванда аст: «two meats» ғалат аст.\n\nВа диққат ба талаффуз: meat («мит») ва meet («мит») якхела садо медиҳанд, вале маънояшон тамоман дигар аст — гӯшт ва вохӯрдан. Маъно аз ҷумла маълум мешавад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -536,9 +536,9 @@
           "text": "I don't eat meat.",
           "translation": "Ман гӯшт намехӯрам.",
           "literal": "ай доунт ит мит",
-          "note": "don't = do not. Барои гиёҳхорон: «I am vegetarian.»",
-          "cue": null,
-          "cueTranslation": null
+          "note": "«Don't» = «do not» — шакли кӯтоҳшуда, ки дар гуфтори зинда истифода мешавад.\n\nИнкор дар замони ҳозира: [фоил] + do not + [феъли аслӣ].\n\n⚠️ Баъди «do not» феъл шакли АСЛӢ дорад: «do not eat», на «do not eats».\n\nБарои гиёҳхорон варианти кӯтоҳтар: «I am vegetarian».\n\nМуҳаррики нутқ апострофро аксар вақт намегузорад ва «dont» менависад — барнома онро мефаҳмад.",
+          "cue": "The chicken is very good today.",
+          "cueTranslation": "Мурғ имрӯз хеле хуб аст."
         }
       ]
     },
@@ -552,7 +552,7 @@
           "text": "bill",
           "translation": "ҳисоб",
           "literal": "бил",
-          "note": "Дар Британия bill, дар Амрико бештар check мегӯянд — ҳарду фаҳмо.",
+          "note": "Дар Британия bill, дар Амрико бештар check мегӯянд — ҳарду фаҳмо.\n\nҲисобшаванда аст ва ҳамеша бо «the» меояд: ҳисоби МАҲЗ ҳамин миз.\n\n⚠️ Дар тоҷикӣ артикл нест ва ин калимаи хурд фаромӯш мешавад. «Bill, please» фаҳмо аст, вале нопурра садо медиҳад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -561,8 +561,8 @@
           "kind": "sentence",
           "text": "The bill, please.",
           "translation": "Ҳисобро биёред, лутфан.",
-          "literal": "зэ бил плиз",
-          "note": null,
+          "literal": "ҙэ бил плиз",
+          "note": "Артикли «the» ин ҷо ҲАТМист: ҳисоби МАҲЗ ҳамин миз, на ягон ҳисоб.\n\nДар тоҷикӣ артикл нест ва ин калима фаромӯш мешавад. «Bill, please» фаҳмо аст, вале нопурра садо медиҳад — гӯяндаи бумӣ ҳамеша «the» мегӯяд.\n\nДар Британия bill, дар Амрико бештар check.",
           "cue": "Did you enjoy your meal?",
           "cueTranslation": "Хӯрок ба шумо форид?"
         },
@@ -572,7 +572,7 @@
           "text": "card",
           "translation": "корт",
           "literal": "кард",
-          "note": null,
+          "note": "Card бо пешоянди «by» меояд: pay BY card (бо корт пардохтан).\n\nПули нақд бошад пешоянди ДИГАР мегирад: pay IN cash. Ин ду ибора тайёранд ва пешояндашон иваз намешавад — «by cash» ғалат аст.",
           "cue": null,
           "cueTranslation": null
         },
@@ -582,7 +582,7 @@
           "text": "pay",
           "translation": "пардохтан",
           "literal": "пей",
-          "note": null,
+          "note": "Pay феъл аст: пардохтан. Он бо чанд пешоянд кор мекунад ва ҳар яке маънои худро дорад:\n\n• pay by card — бо корт\n• pay in cash — бо пули нақд\n• pay for the food — барои хӯрок пардохтан\n\nТалаффуз: «пей», на «пай».",
           "cue": null,
           "cueTranslation": null
         },
@@ -592,7 +592,7 @@
           "text": "Can I pay by card?",
           "translation": "Бо корт пардохт карда метавонам?",
           "literal": "кен ай пей бай кард",
-          "note": "«by card» = бо корт, «in cash» = бо пули нақд.",
+          "note": "«By card» = бо корт, «in cash» = бо пули нақд.\n\nИн ду ибора тайёранд ва пешояндашон ҲЕҶ ГОҲ иваз намешавад — «by cash» ғалат аст.\n\nБаъди «by» артикл лозим нест: «by card», на «by a card».\n\nСохт: Can + I + [феъл] + by card? — ҳамон қолаби дархости иҷозат.",
           "cue": "That will be forty-five somoni.",
           "cueTranslation": "Чилу панҷ сомонӣ мешавад."
         },
@@ -602,7 +602,7 @@
           "text": "delicious",
           "translation": "бомазза",
           "literal": "дилишэс",
-          "note": null,
+          "note": "Delicious = хеле бомазза. Ин калима худаш «хеле»-ро дар бар мегирад, пас «very delicious» такрор аст ва сунъӣ садо медиҳад.\n\nАгар танҳо «бомазза» гуфтан хоҳед: «It is good» ё «It is tasty».\n\nТалаффуз: «дилишэс», зарба ба ҳиҷои МИЁНА — de-LI-cious.",
           "cue": null,
           "cueTranslation": null
         },
@@ -611,10 +611,10 @@
           "kind": "sentence",
           "text": "It was delicious.",
           "translation": "Хеле бомазза буд.",
-          "literal": "ит уоз дилишэс",
-          "note": "was = шакли гузаштаи is. Ҳангоми рафтан гуфтани ин ибора одати хуб аст.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ит воз дилишэс",
+          "note": "«Was» = шакли ГУЗАШТАИ «is». Ҳангоми рафтан гуфтани ин ибора одати хуб аст.\n\nФеъли «to be» дар гузашта ду шакл дорад:\n• was — барои I, he, she, it\n• were — барои you, we, they\n\n⚠️ «Delicious» худаш «хеле бомазза» маъно дорад, пас «very delicious» такрор аст ва сунъӣ садо медиҳад.\n\nТалаффуз: «воз» — садои /w/, ки мо бо «в» менависем.",
+          "cue": "How was everything?",
+          "cueTranslation": "Ҳама чиз чӣ хел буд?"
         },
         {
           "order": 7,
@@ -622,7 +622,7 @@
           "text": "goodbye",
           "translation": "хайр",
           "literal": "гудбай",
-          "note": null,
+          "note": "Goodbye хайрухуши расмист. Дар гуфтори ҳаррӯза кӯтоҳтарашро мегӯянд: «bye» ё «bye-bye».\n\nДар ошхона ё мағоза «goodbye» пурра муносиб аст.\n\nТалаффуз: як калима, бе таваққуф дар мобайн — «гудбай», на «гуд бай».",
           "cue": null,
           "cueTranslation": null
         },
@@ -631,10 +631,10 @@
           "kind": "sentence",
           "text": "Thank you, goodbye.",
           "translation": "Ташаккур, хайр.",
-          "literal": "сенк ю гудбай",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҫенк ю гудбай",
+          "note": "Ду ибораи тайёр дар як ҷумла — маҳз ҳамин тавр ҳангоми баромадан мегӯянд.\n\nТартиб муҳим аст: аввал ташаккур, баъд хайрухуш. «Goodbye, thank you» ғалат нест, вале камтар табиӣ садо медиҳад.\n\nҲарфи «ҫ» дар «ҫенк» садои th аст: нӯги забон байни дандонҳо, бе овоз.",
+          "cue": "Have a nice day!",
+          "cueTranslation": "Рӯзи хуш!"
         }
       ]
     }

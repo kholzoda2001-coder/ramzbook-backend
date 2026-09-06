@@ -22,7 +22,7 @@
           "text": "room",
           "translation": "ҳуҷра",
           "literal": "рум",
-          "note": null,
+          "note": "Room ҳисобшаванда аст, пас пеш аз он ҳамеша калимаи хурд лозим меояд: «a room» (як ҳуҷра, ҳар кадомаш) ё «the room» (ҳамон ҳуҷраи мушаххас).\n\nДар тоҷикӣ артикл НЕСТ ва маҳз ҳамин ҷо бештари хатоҳо мешавад. «I want room» нодуруст аст — «I want a room».",
           "cue": null,
           "cueTranslation": null
         },
@@ -32,7 +32,7 @@
           "text": "night",
           "translation": "шаб",
           "literal": "найт",
-          "note": null,
+          "note": "Дар меҳмонхона муддат бо ШАБ ҳисоб мешавад, на бо рӯз: «two nights» = ду шаб.\n\nШакли ҷамъ -s мегирад: one night, two nights.\n\nТалаффуз: «найт» — ҳарфҳои gh хомӯшанд ва садо намедиҳанд.",
           "cue": null,
           "cueTranslation": null
         },
@@ -42,7 +42,7 @@
           "text": "reservation",
           "translation": "ҷойгирии фармудашуда",
           "literal": "резервейшн",
-          "note": null,
+          "note": "Reservation = ҷойе, ки ПЕШАКӢ фармуда шудааст.\n\nБо феъли «have» меояд: «I have a reservation». Феъли «to be» ин ҷо ғалат аст — «I am reservation» маънои «ман худам фармоиш ҳастам»-ро медиҳад.\n\nҲаммаънои соддатараш: booking.",
           "cue": null,
           "cueTranslation": null
         },
@@ -52,7 +52,7 @@
           "text": "I have a reservation.",
           "translation": "Ман ҷой фармуда будам.",
           "literal": "ай ҳэв э резервейшн",
-          "note": null,
+          "note": "Сохт: I + have + a + [чиз]. Ин ҷумлаи аввалин аст, ки дар қабулгоҳ мегӯед.\n\nАртикли «a» ҳатмист: як фармоиш аз бисёр фармоишҳо.\n\nДар тоҷикӣ «доштан» бо феъли ёридиҳанда сохта мешавад, дар англисӣ бо феъли пурраи «have» — тартиб: кӣ → дорад → чиро.",
           "cue": "Good evening! How can I help you?",
           "cueTranslation": "Шоми хуш! Чӣ хизмат кунам?"
         },
@@ -62,9 +62,9 @@
           "text": "A room for two nights.",
           "translation": "Як ҳуҷра барои ду шаб.",
           "literal": "э рум фор ту найтс",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Ҷумлаи нопурра, вале дар қабулгоҳ комилан табиист: [чӣ] + for + [муддат].\n\nПешоянди «for» муддатро нишон медиҳад: for two nights, for one week, for three days.\n\nДиққат: баъди адади зиёда аз як шакли ҶАМЪ меояд — «two nightS».",
+          "cue": "How many nights?",
+          "cueTranslation": "Чанд шаб?"
         },
         {
           "order": 5,
@@ -72,9 +72,9 @@
           "text": "Do you have a free room?",
           "translation": "Ҳуҷраи холӣ доред?",
           "literal": "ду ю ҳэв э фри рум",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Саволи мавҷудият бо феъли ёридиҳандаи «do» сохта мешавад:\n\nDo + you + have + [чӣ]?\n\nДар тоҷикӣ мо танҳо оҳангро мебардорем («ҳуҷра доред?»), вале дар англисӣ «do» ҲАТМист. Бе он «You have a free room?» — ин гуфтори кӯчагист, на забони дуруст.\n\n«Free» ин ҷо «холӣ» маъно дорад, на «ройгон».",
+          "cue": "Welcome! Are you looking for a room?",
+          "cueTranslation": "Хуш омадед! Ҳуҷра меҷӯед?"
         },
         {
           "order": 6,
@@ -82,7 +82,7 @@
           "text": "name",
           "translation": "ном",
           "literal": "нейм",
-          "note": null,
+          "note": "Name бо феъли «to be» меояд, на бо «have»:\n\n✅ My name IS Ali. — Номи ман Алӣ аст.\n❌ I have name Ali.\n\nРоҳи дигар ва соддатар: «I am Ali». Ҳарду дурустанд.",
           "cue": null,
           "cueTranslation": null
         },
@@ -92,9 +92,9 @@
           "text": "My name is Ali Karimov.",
           "translation": "Номи ман Алӣ Каримов аст.",
           "literal": "май нейм из Алӣ Каримов",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Сохт: My name + is + [ном].\n\nФеъли «is» ҳатмист. Дар тоҷикӣ «аст» гоҳе партофта мешавад («номи ман Алӣ»), вале дар англисӣ ҳеҷ гоҳ: «My name Ali» ғалат аст.\n\nДар англисӣ аввал номи хурд, баъд насаб — Ali Karimov, на Karimov Ali.",
+          "cue": "What is your name, please?",
+          "cueTranslation": "Номи шумо чӣ, лутфан?"
         }
       ]
     },
@@ -108,7 +108,7 @@
           "text": "key",
           "translation": "калид",
           "literal": "кӣ",
-          "note": null,
+          "note": "Key ҳисобшаванда аст: a key, two keys.\n\nБо «my/your» артикл лозим НЕСТ: «my key», на «my a key». Ин қоидаи умумист — муайянкунанда ва артикл дар як ҷо намеистанд.\n\nТалаффуз: «кӣ», садоноки дароз.",
           "cue": null,
           "cueTranslation": null
         },
@@ -117,8 +117,8 @@
           "kind": "word",
           "text": "wifi",
           "translation": "Wi-Fi",
-          "literal": "уайфай",
-          "note": null,
+          "literal": "вайфай",
+          "note": "Wi-Fi қариб дар ҳамаи забонҳо якхела аст, пас онро дар ҳар кишвар мефаҳманд.\n\nБо артикли «the» меояд, чунки Wi-Fi-и МАҲЗ ҳамин ҷо дар назар аст: «the wifi password».\n\nТалаффуз: «вайфай», на «вифи».",
           "cue": null,
           "cueTranslation": null
         },
@@ -128,7 +128,7 @@
           "text": "password",
           "translation": "рамз",
           "literal": "пасворд",
-          "note": null,
+          "note": "Password як калимаи мураккаб аст: pass (гузаштан) + word (калима).\n\nБо «the» меояд, вақте рамзи мушаххас дар назар бошад: «the wifi password».\n\nЗарба ба ҳиҷои АВВАЛ — PASS-word.",
           "cue": null,
           "cueTranslation": null
         },
@@ -138,7 +138,7 @@
           "text": "towel",
           "translation": "сачоқ",
           "literal": "тауэл",
-          "note": null,
+          "note": "Towel ҳисобшаванда аст: a towel, two towels.\n\nДар дархост ҳамеша бо «a»: «Can I have a towel?» — як сачоқ.\n\nТалаффуз доми хурд дорад: «тауэл», ду ҳиҷо. На «товел».",
           "cue": null,
           "cueTranslation": null
         },
@@ -148,17 +148,17 @@
           "text": "Here is my key.",
           "translation": "Ин калиди ман.",
           "literal": "ҳиэр из май кӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Қолаби «Here is…» чизеро нишон медиҳад, вақте онро дароз мекунед.\n\nСохт: Here + is + [чӣ]. Барои чизи ҷамъ: «Here ARE my keys».\n\nДар тоҷикӣ мо танҳо «мана» мегӯем; дар англисӣ феъл ҳатмист.",
+          "cue": "Room number, please?",
+          "cueTranslation": "Рақами ҳуҷра, лутфан?"
         },
         {
           "order": 5,
           "kind": "sentence",
           "text": "What is the wifi password?",
           "translation": "Рамзи Wi-Fi чист?",
-          "literal": "уот из зэ уайфай пасворд",
-          "note": null,
+          "literal": "вот из ҙэ вайфай пасворд",
+          "note": "Сохт: What + is + the + [чӣ]?\n\nФеъл баъди калимаи саволӣ меистад — ҳамон қоидаи умумии саволи англисӣ.\n\nАртикли «the» ҳатмист: Wi-Fi-и МАҲЗ ҳамин меҳмонхона.\n\nДу исм паҳлӯи ҳам меистанд («wifi password») ва якумаш вазифаи сифатро иҷро мекунад — ин дар англисӣ маъмул аст.\n\nҲарфи «ҙ» садои англисии th-и ҶАРАНГДОР аст: ҳамон ҷои забон, вале БО овоз. Ин «з»-и оддӣ НЕСТ.",
           "cue": "Do you need anything else?",
           "cueTranslation": "Боз чизе лозим аст?"
         },
@@ -168,9 +168,9 @@
           "text": "Can I have a towel?",
           "translation": "Сачоқ дода метавонед?",
           "literal": "кен ай ҳэв э тауэл",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Шакли универсалии дархост: Can I have + [чӣ]?\n\nИн дар ҳар ҷо кор мекунад — меҳмонхона, ошхона, мағоза. Онро як бор аз ёд кунед ва танҳо охирашро иваз кунед.\n\nАртикли «a» фаромӯш нашавад: «Can I have towel?» нопурра садо медиҳад.",
+          "cue": "Do you need anything for the room?",
+          "cueTranslation": "Барои ҳуҷра чизе лозим аст?"
         },
         {
           "order": 7,
@@ -178,7 +178,7 @@
           "text": "breakfast",
           "translation": "наҳорӣ",
           "literal": "брекфаст",
-          "note": null,
+          "note": "Номи хӯрокҳои рӯз БЕ артикл меоянд: breakfast, lunch, dinner.\n\n✅ What time is breakfast?\n❌ What time is the breakfast?\n\nИн истиснои қоидаи умумист ва онро ҳамчун ибораи тайёр ба ёд гиред.",
           "cue": null,
           "cueTranslation": null
         },
@@ -187,10 +187,10 @@
           "kind": "sentence",
           "text": "What time is breakfast?",
           "translation": "Наҳорӣ соати чанд аст?",
-          "literal": "уот тайм из брекфаст",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "вот тайм из брекфаст",
+          "note": "Саволи вақт бо «What time» сар мешавад:\n\nWhat time + is + [чӣ]?\n\nҲамин қолаб дар ҳама ҷо кор мекунад: What time is the bus? What time is checkout?\n\nҶавоб одатан бо «at» меояд: «At seven» (соати ҳафт).",
+          "cue": "Breakfast is on the first floor.",
+          "cueTranslation": "Наҳорӣ дар ошёнаи якум аст."
         }
       ]
     },
@@ -204,7 +204,7 @@
           "text": "hot",
           "translation": "гарм",
           "literal": "ҳот",
-          "note": null,
+          "note": "Hot ду маъно дорад: гарм (ҳарорат) ва тунд (хӯрок).\n\nДар меҳмонхона ҳамеша маънои якум аст: hot water — оби гарм.\n\nМуқобилаш cold. Ҳарду сифатанд ва бо феъли «to be» меоянд: «The room is hot».",
           "cue": null,
           "cueTranslation": null
         },
@@ -214,7 +214,7 @@
           "text": "cold",
           "translation": "хунук",
           "literal": "коулд",
-          "note": null,
+          "note": "Cold сифат аст ва бо феъли «to be» меояд: «The room IS cold».\n\nБарои таъкид «too» илова мешавад: too cold = аз ҳад хунук (яъне мушкил аст). Танҳо «cold» шикоят нест, факт аст.\n\nФарқи «very» ва «too» муҳим аст: very cold = хеле хунук; too cold = хунук ба дараҷае, ки нағз нест.",
           "cue": null,
           "cueTranslation": null
         },
@@ -223,8 +223,8 @@
           "kind": "word",
           "text": "work",
           "translation": "кор кардан",
-          "literal": "уорк",
-          "note": null,
+          "literal": "ворк",
+          "note": "Work барои техника маънои «кор кардан»-ро дорад: чароғ, лифт, кондитсионер.\n\nБарои одам ҳамон калима «кор кардан (дар ҷое)» аст: «I work in a shop».\n\nДар инкор бо «does not» меояд, чунки фоил ҷинси сеюми танҳост: «The light does not work».",
           "cue": null,
           "cueTranslation": null
         },
@@ -233,8 +233,8 @@
           "kind": "sentence",
           "text": "The room is too cold.",
           "translation": "Ҳуҷра хеле хунук аст.",
-          "literal": "зэ рум из ту коулд",
-          "note": null,
+          "literal": "ҙэ рум из ту коулд",
+          "note": "Сохт: The + [чиз] + is + too + [сифат].\n\n«Too» шикоятро месозад: too cold, too hot, too noisy, too small.\n\nАртикли «the» ҳатмист — ҳуҷраи МАҲЗ шумо, на ягон ҳуҷра.\n\nВа феъли «is» партофта намешавад, гарчанде дар тоҷикӣ «аст» гоҳе намеояд.",
           "cue": "Is everything all right with the room?",
           "cueTranslation": "Ҳуҷра хуб аст?"
         },
@@ -243,20 +243,20 @@
           "kind": "sentence",
           "text": "There is no hot water.",
           "translation": "Оби гарм нест.",
-          "literal": "зэр из ноу ҳот уотэр",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҙэр из ноу ҳот вотэр",
+          "note": "Қолаби «There is…» мавҷудияти чизеро мегӯяд — «ҳаст» ё «нест».\n\n✅ There is hot water. — Оби гарм ҳаст.\n✅ There is NO hot water. — Оби гарм нест.\n\nБарои чизи ҷамъ: «There ARE no towels».\n\nДиққат: ин «there» бо маънои «он ҷо» ФАРҚ мекунад — ин ҷо вай танҳо ҷузъи қолаб аст ва тарҷума намешавад.",
+          "cue": "Is there a problem?",
+          "cueTranslation": "Мушкиле ҳаст?"
         },
         {
           "order": 5,
           "kind": "sentence",
           "text": "The light does not work.",
           "translation": "Чароғ кор намекунад.",
-          "literal": "зэ лайт даз нот уорк",
-          "note": "«does not work» — универсалӣ: чароғ, кондитсионер, телевизор, лифт.",
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҙэ лайт даз нот ворк",
+          "note": "Инкор дар замони ҳозира бо феъли ёридиҳанда сохта мешавад:\n\n[чиз] + does not + [феъл].\n\nБарои «he/she/it» ва ҳар исми танҳо — DOES not. Барои «I/you/we/they» — DO not.\n\n⚠️ Доми маъмул: баъди «does» феъл шакли АСЛӢ мегирад — «does not work», на «does not works».\n\nИн қолаб универсалист: чароғ, кондитсионер, телевизор, лифт, душ.",
+          "cue": "What is wrong?",
+          "cueTranslation": "Чӣ шудааст?"
         },
         {
           "order": 6,
@@ -264,7 +264,7 @@
           "text": "noisy",
           "translation": "сершовқин",
           "literal": "нойзӣ",
-          "note": null,
+          "note": "Noisy сифат аст ва аз исми «noise» (шовқин) сохта шудааст.\n\nБо феъли «to be» меояд: «The room is noisy».\n\nТалаффуз: «нойзӣ» — садои «з» дар мобайн, на «с».",
           "cue": null,
           "cueTranslation": null
         },
@@ -273,10 +273,10 @@
           "kind": "sentence",
           "text": "The room is very noisy.",
           "translation": "Ҳуҷра хеле сершовқин аст.",
-          "literal": "зэ рум из вери нойзӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҙэ рум из вери нойзӣ",
+          "note": "«Very» дараҷаро мебардорад, вале шикоят намесозад — вай танҳо факт аст: ҳуҷра хеле сершовқин.\n\nАгар шикоят кардан хоҳед, «too» гӯед: «The room is too noisy» — яъне «ин қобили таҳаммул нест, чора бинед».\n\nҲамин фарқ дар ҳама сифатҳо кор мекунад.",
+          "cue": "How is your room?",
+          "cueTranslation": "Ҳуҷраатон чӣ хел?"
         }
       ]
     },
@@ -290,7 +290,7 @@
           "text": "clean",
           "translation": "тоза кардан",
           "literal": "клин",
-          "note": null,
+          "note": "Clean ду вазифа дорад: феъл (тоза кардан) ва сифат (тоза).\n\n• Can you clean the room? — феъл\n• The room is clean. — сифат\n\nШакли калима иваз намешавад; ҷои он дар ҷумла маъноро муайян мекунад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -299,8 +299,8 @@
           "kind": "word",
           "text": "wake",
           "translation": "бедор кардан",
-          "literal": "уэйк",
-          "note": null,
+          "literal": "вэйк",
+          "note": "Wake одатан бо «up» меояд: wake up = бедор шудан.\n\nВале вақте КАСЕРО бедор мекунанд, «up» ихтиёрӣ мешавад: «wake me at seven» ё «wake me up at seven» — ҳарду дурустанд.\n\n«Me» баъди феъл меистад — ин тартиби сахти англисист.",
           "cue": null,
           "cueTranslation": null
         },
@@ -310,7 +310,7 @@
           "text": "luggage",
           "translation": "бағоҷ",
           "literal": "лагиҷ",
-          "note": null,
+          "note": "Luggage ҳисобнашаванда аст, ҳатто агар чанд ҷомадон бошад.\n\n❌ two luggages\n✅ two bags / two suitcases\n✅ my luggage (ҳамаи бағоҷи ман)\n\nИн доми маъмул аст, чунки дар тоҷикӣ «бағоҷҳо» табиӣ садо медиҳад.",
           "cue": null,
           "cueTranslation": null
         },
@@ -319,18 +319,18 @@
           "kind": "sentence",
           "text": "Can you clean the room?",
           "translation": "Ҳуҷраро тоза карда метавонед?",
-          "literal": "кен ю клин зэ рум",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "кен ю клин ҙэ рум",
+          "note": "Дархост ба каси ДИГАР бо «Can you…?» сохта мешавад:\n\nCan + you + [феъл] + [чӣ]?\n\nФарқи муҳим:\n• Can I have…? — ман чизе мегирам\n• Can you…? — шумо коре мекунед\n\nБаъди «can» феъл ҳамеша шакли аслӣ дорад — «clean», на «cleans».",
+          "cue": "Do you need service today?",
+          "cueTranslation": "Имрӯз хизмат лозим аст?"
         },
         {
           "order": 4,
           "kind": "sentence",
           "text": "Please wake me at seven.",
           "translation": "Лутфан маро соати ҳафт бедор кунед.",
-          "literal": "плиз уэйк ми эт севен",
-          "note": null,
+          "literal": "плиз вэйк ми эт севен",
+          "note": "Фармони хушмуомила: Please + [феъл] + [кӣ] + at + [соат].\n\nФоил («you») гуфта намешавад — дар фармон вай ҳамеша фаҳмост.\n\nПешоянди вақт «at» аст: at seven, at eight, at ten.\n\n«Please» ҳам дар аввал, ҳам дар охир меистад: «Wake me at seven, please» низ дуруст аст.",
           "cue": "When do you leave tomorrow?",
           "cueTranslation": "Пагоҳ кай меравед?"
         },
@@ -340,17 +340,17 @@
           "text": "Can you keep my luggage?",
           "translation": "Бағоҷи маро нигоҳ дошта метавонед?",
           "literal": "кен ю кип май лагиҷ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Keep = нигоҳ доштан, дар ҷое монондан.\n\nСохт: Can you + keep + my + [чӣ]?\n\nБо «my» артикл лозим нест: «my luggage», на «my the luggage».\n\nИн ҷумла вақте лозим мешавад, ки ҳуҷраро супоридед, вале ҳанӯз намеравед.",
+          "cue": "Your room is not ready yet.",
+          "cueTranslation": "Ҳуҷраатон ҳанӯз тайёр нест."
         },
         {
           "order": 6,
           "kind": "word",
           "text": "another",
           "translation": "дигар, боз як",
-          "literal": "эназер",
-          "note": null,
+          "literal": "энаҙер",
+          "note": "Another = боз ЯК дона (ҳамон навъ). Он аз «an + other» сохта шудааст, пас дар дохилаш аллакай артикл ҳаст.\n\n❌ an another pillow\n✅ another pillow\n\nБарои чизи ҷамъ «other» ё «more» истифода мешавад: «other pillows», «more towels».",
           "cue": null,
           "cueTranslation": null
         },
@@ -359,10 +359,10 @@
           "kind": "sentence",
           "text": "Can I have another pillow?",
           "translation": "Боз як болишт дода метавонед?",
-          "literal": "кен ай ҳэв эназер пилоу",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "кен ай ҳэв энаҙер пилоу",
+          "note": "Қолаби дархост + «another» (боз як дона).\n\nДиққат: баъди «another» исм ҳамеша ТАНҲО меистад — another pillow, another towel. «Another pillows» ғалат аст.\n\nАгар зиёда аз як лозим бошад: «two more pillows».",
+          "cue": "Is everything comfortable?",
+          "cueTranslation": "Ҳама чиз бароҳат аст?"
         }
       ]
     },
@@ -376,7 +376,7 @@
           "text": "check out",
           "translation": "ҳуҷраро супоридан",
           "literal": "чек аут",
-          "note": null,
+          "note": "Феъли мураккаб: check (санҷидан) + out (берун). Якҷоя маънои «ҳуҷраро супоридан ва рафтан»-ро медиҳад.\n\nМуқобилаш check in — ҳуҷра гирифтан ҳангоми омадан.\n\nМаънои ҷузъҳо ба маънои умумӣ рабт надорад — чунин феълҳоро ҳамчун ЯК калима ба ёд гиред.",
           "cue": null,
           "cueTranslation": null
         },
@@ -386,7 +386,7 @@
           "text": "bill",
           "translation": "ҳисоб",
           "literal": "бил",
-          "note": null,
+          "note": "Bill = коғазе, ки чӣ қадар қарздоред.\n\nҲамеша бо «the» меояд: ҳисоби МАҲЗ шумо, на ягон ҳисоб.\n\nДар Британия bill, дар Амрико бештар check мегӯянд — ҳарду фаҳмо.",
           "cue": null,
           "cueTranslation": null
         },
@@ -396,7 +396,7 @@
           "text": "call",
           "translation": "занг задан",
           "literal": "кол",
-          "note": null,
+          "note": "Call ду маъно дорад: занг задан ва даъват кардан.\n\n• Call a taxi — таксӣ даъват кардан\n• Call me — ба ман занг занед\n\nПешоянд лозим НЕСТ: «call me», на «call to me». Ин доми маъмул аст, чунки дар тоҷикӣ «ба ман» мегӯем.",
           "cue": null,
           "cueTranslation": null
         },
@@ -405,8 +405,8 @@
           "kind": "sentence",
           "text": "I want to check out.",
           "translation": "Ман ҳуҷраро супоридан мехоҳам.",
-          "literal": "ай уонт ту чек аут",
-          "note": null,
+          "literal": "ай вонт ту чек аут",
+          "note": "Ду феъл дар як ҷумла бо «to» пайваст мешаванд:\n\nI want TO check out. — Ман супоридан мехоҳам.\n\nИн қоидаи умумист: want to go, want to eat, want to pay.\n\n⚠️ Бе «to» ҷумла ғалат аст: «I want check out» нодуруст.",
           "cue": "Good morning! Are you leaving today?",
           "cueTranslation": "Субҳ ба хайр! Имрӯз меравед?"
         },
@@ -415,10 +415,10 @@
           "kind": "sentence",
           "text": "Can I have the bill?",
           "translation": "Ҳисобро дода метавонед?",
-          "literal": "кен ай ҳэв зэ бил",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "кен ай ҳэв ҙэ бил",
+          "note": "Ҳамон қолаби дархост, вале ин ҷо «the», на «a».\n\nЧаро: ҳисоб ЯГОНА ва мушаххас аст — ҳисоби шумо. «A bill» маънои «ягон ҳисоб, ҳар кадомаш»-ро медиҳад ва аҷиб садо медиҳад.\n\nФарқи a/the маҳз ҳамин аст: a = ҳар кадом, the = маҳз ҳамон.",
+          "cue": "Are you checking out?",
+          "cueTranslation": "Мебароед?"
         },
         {
           "order": 5,
@@ -426,29 +426,29 @@
           "text": "Can you call a taxi?",
           "translation": "Такси даъват карда метавонед?",
           "literal": "кен ю кол э таксӣ",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "note": "Ин ҷо «a taxi», чунки ҳар таксӣ мувофиқ аст — таксии мушаххас дар назар нест.\n\nМуқоиса кунед:\n• Can you call a taxi? — ягон таксӣ даъват кунед\n• Can I have the bill? — ҳисоби маҳз ман\n\nҲамин ду ҷумларо паҳлӯи ҳам ба ёд гиред — онҳо фарқи a ва the-ро беҳтар аз ҳар қоида нишон медиҳанд.",
+          "cue": "How are you going to the airport?",
+          "cueTranslation": "Ба фурудгоҳ чӣ хел меравед?"
         },
         {
           "order": 6,
           "kind": "sentence",
           "text": "Everything was very good.",
           "translation": "Ҳама чиз хеле хуб буд.",
-          "literal": "эврисинг уоз вери гуд",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "эвриҫинг воз вери гуд",
+          "note": "«Everything» як калима аст ва ҳамеша ТАНҲО ҳисоб мешавад: «Everything WAS», на «were» — гарчанде вай ҳама чизро дар бар мегирад.\n\nҲамин тавр: everybody is, something is.\n\n«Was» шакли гузаштаи «is» аст. Ин ҷумларо ҳангоми рафтан мегӯянд.\n\nҲарфи «ҫ» садои англисии th-и БЕҶАРАНГ аст: нӯги забонро сабук байни дандонҳо гузоред ва ҳаво диҳед, бе овоз. Ин «с»-и оддӣ НЕСТ.",
+          "cue": "How was your stay?",
+          "cueTranslation": "Иқомататон чӣ хел буд?"
         },
         {
           "order": 7,
           "kind": "sentence",
           "text": "Thank you, goodbye.",
           "translation": "Ташаккур, хайр.",
-          "literal": "сенк ю гудбай",
-          "note": null,
-          "cue": null,
-          "cueTranslation": null
+          "literal": "ҫенк ю гудбай",
+          "note": "Ду ибораи тайёр ҳангоми баромадан.\n\nДар меҳмонхона одатан илова мекунанд: «Thank you, goodbye» ё «Thank you very much, goodbye».\n\nҲарфи «ҫ» дар «ҫенк» садои th аст: нӯги забон байни дандонҳо, бе овоз.",
+          "cue": "Have a good trip!",
+          "cueTranslation": "Сафари хуш!"
         }
       ]
     }
