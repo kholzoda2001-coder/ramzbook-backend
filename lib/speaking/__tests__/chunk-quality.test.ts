@@ -103,6 +103,27 @@ describe('сифати чунк бар тамоми мазмун', () => {
     expect(bad.map((c) => `${c.chunk} ← ${c.parent}`)).toEqual([]);
   });
 
+  it('ҷумлаи ИНКОРӢ тамоман чунк намегирад', () => {
+    // Занҷир аз охир бурида мешавад, пас инкор берун мемонад ва хонанда
+    // порчаи МУҚОБИЛмаъноро бо овоз такрор мекунад: «eat meat.» пеш аз
+    // «I don't eat meat.» (аудити 2026-09-06).
+    const NEG = /\b(not|no|never|none|nothing|nobody|n't|cannot)\b/i;
+    const bad = chunks.filter((c) => NEG.test(c.parent));
+    expect(bad.map((c) => `${c.chunk} ← ${c.parent}`)).toEqual([]);
+  });
+
+  it('намунаҳои дастии инкор', () => {
+    for (const s of [
+      "I don't eat meat.",
+      'There is no hot water.',
+      'The light does not work.',
+      'No, thank you.',
+      'I do not know this city.',
+    ]) {
+      expect(buildChain(s, DEFAULT_CONFIG)).toEqual([]);
+    }
+  });
+
   it('ҳеҷ чунк ба тамоми ҷумла баробар нест', () => {
     const bad = chunks.filter((c) => c.chunk === c.parent);
     expect(bad.map((c) => c.parent)).toEqual([]);

@@ -290,10 +290,39 @@ const CHAIN_GLUED_BEFORE = new Set<string>([
   'every', 'each', 'both', 'several', 'few', 'little', 'all',
 ]);
 
+/**
+ * Калимаҳои ИНКОР — ҷумлае, ки инҳоро дорад, чунк НАМЕГИРАД.
+ *
+ * 🔴 Аудити «10 донишҷӯи рақамӣ» (2026-09-06). Занҷир аз ОХИР бурида
+ * мешавад, пас инкор, ки қариб ҳамеша дар НИМАИ АВВАЛ меистад, аз чунк
+ * берун мемонад ва маънои ҷумла ба МУҚОБИЛ мегардад:
+ *
+ *     «I don't eat meat.»      → чунк «eat meat.»       ✗ гӯшт мехӯрам
+ *     «There is no hot water.» → чунк «hot water.»       ✗ оби гарм ҳаст
+ *     «The light does not work.» → чунк «not work.»      (аллакай баста)
+ *     «No, thank you.»         → чунк «thank you.»       ✗ розӣ шудам
+ *
+ * Хонанда ин порчаро БО ОВОЗ такрор мекунад ва фавран пас аз он ҷумлаи
+ * пурраро мегӯяд — яъне мо ӯро маҷбур мекунем аввал чизи баръаксро гӯяд.
+ * Дар ошхона («гӯшт намехӯрам») ва дар меҳмонхона ин хатои хатарнок аст.
+ *
+ * ⚠️ Ҳамон қоидаи §2.3: чунки бад аз НАБУДАНИ чунк бадтар аст.
+ */
+const CHAIN_NEGATIONS = new Set<string>([
+  'not', 'no', 'never', 'none', 'nothing', 'nobody', 'nowhere', 'neither',
+  // шаклҳои кӯтоҳ — `bare()` апострофро мепартояд: don't → dont
+  'dont', 'doesnt', 'didnt', 'isnt', 'arent', 'wasnt', 'werent', 'cant',
+  'cannot', 'couldnt', 'wont', 'wouldnt', 'shouldnt', 'havent', 'hasnt',
+  'hadnt', 'aint',
+]);
+
 export function buildChain(text: string, cfg: EngineConfig): string[] {
   const w = splitWords(text.trim());
   const n = w.length;
   if (n < cfg.minChainWords) return [];
+
+  // Инкор → занҷир тамоман нест (ниг. [CHAIN_NEGATIONS]).
+  if (w.some((x) => CHAIN_NEGATIONS.has(bare(x)))) return [];
 
   const full = w.join(' ');
   const out: string[] = [];
