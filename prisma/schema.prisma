@@ -67,7 +67,7 @@ model User {
   /// аъзо) ҳисоб мешавад — функсияи СОФ. Маҳз ҳамин чиз такрори кори
   /// ҳафтагиро бехатар мекунад: дубора иҷро шудан ҳамон рақамро мебарорад,
   /// на як зина болотар. Ниг. `lib/league.ts` → `closeWeek()`.
-  leagueTier   Int      @default(1)
+  leagueTier Int @default(1)
 
   // Misc
   createdAt    DateTime @default(now())
@@ -105,6 +105,8 @@ model User {
   payments             Payment[]
   gemTransactions      GemTransaction[]
   streakWagers         StreakWager[]
+  reportsMade          UserReport[]         @relation("ReportsMade")
+  reportsAgainst       UserReport[]         @relation("ReportsAgainst")
   userLanguages        UserLanguage[]
   refreshTokens        RefreshToken[]
   dailyXp              DailyXp[]
@@ -757,9 +759,9 @@ model SrsCard {
 /// дар ЯК сатр ба се гурӯҳи ҷудо мешикаст — дақиқан он чизе, ки талаб
 /// «як сатр, як бор ҳал мекунам» рад мекунад.
 model ContentReport {
-  id           String  @id @default(cuid())
-  userId       String
-  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   /// Дарсе, ки хонанда дар он буд — барои кушодани он аз огоҳӣ.
   lessonId     String
@@ -776,25 +778,25 @@ model ContentReport {
   value        String  @db.Text
 
   /// wrong_translation | spelling | unnatural | other
-  reason       String
-  suggestion   String? @db.Text
+  reason     String
+  suggestion String? @db.Text
 
   /// new | fixed | rejected
-  status       String  @default("new")
+  status String @default("new")
 
   /// Оё 5 алмос барои ин гузориш аллакай дода шудааст?
   ///
   /// ⚠️ МАҲЗ ин парчам ду бор зер кардани «Ҳал шуд»-ро бехатар мекунад:
   /// транзаксия танҳо сатрҳои `rewarded = false`-ро мукофот медиҳад. Бе он
   /// зеркунии дуюм ба ҳамон корбарон боз 5 алмос медод.
-  rewarded     Boolean @default(false)
+  rewarded Boolean @default(false)
 
-  uiLanguage   String?
-  course       String?
-  appVersion   String?
+  uiLanguage String?
+  course     String?
+  appVersion String?
 
-  createdAt    DateTime  @default(now())
-  resolvedAt   DateTime?
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
 
   // Панели админ маҳз бо ҳамин ҷуфт гурӯҳбандӣ мекунад.
   @@index([contentId, field, status])
@@ -924,10 +926,10 @@ model SpeakingLesson {
 // Тартиби Falou: калимаи нав (машқи «бигӯед») → ҷумлаҳое, ки ҳамон калимаро
 // кор мефармоянд (машқи «тарҷума кунед») → калимаи нави дигар…
 model SpeakingItem {
-  id          String         @id @default(cuid())
-  lessonId    String
-  lesson      SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  kind        String         @default("sentence") // "word" | "sentence"
+  id       String         @id @default(cuid())
+  lessonId String
+  lesson   SpeakingLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  kind     String         @default("sentence") // "word" | "sentence"
 
   // Ҷумлаи ҲАМСӮҲБАТ (пешхизмат, фурӯшанда…) пеш аз навбати хонанда.
   //
@@ -937,15 +939,15 @@ model SpeakingItem {
   //
   // ⚠️ Ҳарду майдон ИХТИЁРӢ (`String?`) — вагарна `db push` дар ҷадвали
   // пур аз сатр иҷро намешуд (ниг. доми миграцияи 2026-08-15).
-  cue            String?     @db.Text // ба забони омӯзиш
-  cueTranslation String?     @db.Text // тарҷумаи он ба забони модарӣ
+  cue            String? @db.Text // ба забони омӯзиш
+  cueTranslation String? @db.Text // тарҷумаи он ба забони модарӣ
 
-  text        String         @db.Text // матн ба забони омӯзиш
-  translation String         @db.Text // тарҷума ба забони модарӣ
-  literal     String?        @db.Text // калима ба калима / транслитератсия
-  note        String?        @db.Text // шарҳи истифода ба забони модарӣ
+  text        String  @db.Text // матн ба забони омӯзиш
+  translation String  @db.Text // тарҷума ба забони модарӣ
+  literal     String? @db.Text // калима ба калима / транслитератсия
+  note        String? @db.Text // шарҳи истифода ба забони модарӣ
   audioUrl    String?
-  order       Int            @default(0)
+  order       Int     @default(0)
 
   /// Занҷири ДАСТӢ (back-chaining), аз ҷузъи охирин ба аввал.
   /// Мисол: ["is Muhammad", "name is Muhammad"].
@@ -954,14 +956,14 @@ model SpeakingItem {
 
   /// Вариантҳои иваз барои машқи SWAP.
   /// Мисол барои "My name is Muhammad": ["Sitora", "Karim"].
-  swaps         String[] @default([])
+  swaps String[] @default([])
 
   /// Кэши ҳисоби калима — дар вақти сабт/навсозӣ пур мешавад.
   /// Барои филтр ва валидатсия, то дар ҳар дархост `split` нашавад.
-  wordCount     Int      @default(0)
+  wordCount Int @default(0)
 
   /// `false` = воҳиди иловагӣ, дар нишасти кӯтоҳ партофта мешавад.
-  isCore        Boolean  @default(true)
+  isCore Boolean @default(true)
 
   mistakes SpeakingMistake[]
 
@@ -998,7 +1000,7 @@ model SpeakingMistake {
 
   /// Индекс дар `REVIEW_INTERVALS` (0..5) — ҷадвали фосилаҳо (M7).
   /// Ҷавоби дуруст онро як зина боло, хато як зина поён мебарад.
-  box   Int      @default(0)
+  box Int @default(0)
 
   /// Кай ин воҳид бояд боз пурсида шавад. То он вақт дар навбат намеояд.
   dueAt DateTime @default(now())
@@ -1019,9 +1021,9 @@ model SpeakingMistake {
 /// ҳафтаи гузашта (танҳо барои тирчаи «↑ беҳтар шуд»). Мантиқи гардиш дар
 /// `lib/speaking/sounds.ts`.
 model SpeakingSound {
-  id         String   @id @default(cuid())
+  id         String @id @default(cuid())
   userId     String
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   /// `Language.id`-и забони ОМӮЗИШ — садоҳои англисӣ ва арабӣ омехта нашаванд.
   languageId String
   /// Рамзи фонема аз Azure, мас. `th`, `r`, `ae`.
@@ -1247,12 +1249,12 @@ model PromoRedemption {
 // type; `type` decides which fields matter:
 //   book/template → pages[]        audio/video → mediaUrl + durationMin
 model LibraryItem {
-  id          String   @id @default(cuid())
-  type        String   @default("book") // book | audio | video | template
-  title       String
-  author      String?
-  description String?  @db.Text
-  coverUrl    String?
+  id            String   @id @default(cuid())
+  type          String   @default("book") // book | audio | video | template
+  title         String
+  author        String?
+  description   String?  @db.Text
+  coverUrl      String?
   /// Short all-caps word drawn on the generated cover (ОИЛА, ХӮРОК, 2001).
   /// Null = the app derives one from the title.
   coverWord     String?
@@ -1260,9 +1262,9 @@ model LibraryItem {
   /// Null = the app derives one from the item type and page count.
   coverSubtitle String?
   /// CEFR level this item suits (A1…C2). Null = any level.
-  level       String?
+  level         String?
   /// Target language the item teaches, e.g. "en". Null = shown for all.
-  targetLang  String?
+  targetLang    String?
   /// Забони МОДАРИИ хонанда, ки ин мавод БАРОИ ӯ навишта шудааст ("tg", "ru").
   ///
   /// ЧАРО ҷудо аз [targetLang]: китоби «100 калимаи англисӣ» бо тавзеҳи
@@ -1273,17 +1275,17 @@ model LibraryItem {
   ///
   /// `null` = «барои ҳама» — ҳамон қоидаи [targetLang]. Ҳамаи сатрҳои
   /// мавҷуда маҳз ҳамин қиматро мегиранд, пас ҳеҷ мавод нопадид намешавад.
-  nativeLang  String?
+  nativeLang    String?
   /// Streaming/download URL for audio and video items.
-  mediaUrl    String?
-  durationMin Int?
-  rating      Float?
-  isPremium   Boolean  @default(false)
-  isActive    Boolean  @default(true)
+  mediaUrl      String?
+  durationMin   Int?
+  rating        Float?
+  isPremium     Boolean  @default(false)
+  isActive      Boolean  @default(true)
   /// Lower first inside its type.
-  order       Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   pages LibraryPage[]
 
@@ -1309,6 +1311,59 @@ model LibraryPage {
 // lib/feedback.ts), and always available from the profile. Deliberately NOT
 // wired to the Google Play review prompt: routing happy users to the store and
 // unhappy ones to a form is a banned dark pattern on both stores.
+/// Шикоят ба як КОРБАР (на ба мазмун).
+///
+/// ── Чаро ҷудо аз `ContentReport` ва `Feedback` ─────────────────────────────
+/// `ContentReport` дар бораи як калима ё машқ аст ва бо `Word.id` гурӯҳбандӣ
+/// мешавад. `Feedback` баҳои 1..5 талаб мекунад ва ба сандуқи «Фикри
+/// хонандагон» меравад — шикояти таҳқир дар он ҷо омори баҳоро вайрон
+/// мекард. Ин ҷадвал сеюмист ва бо ҶУФТИ (шикоятгар → шикоятшуда) кор мекунад.
+///
+/// ── Чаро умуман лозим аст ──────────────────────────────────────────────────
+/// Дар барнома мазмуни худи корбарон ҳаст: ном ва акс дар рейтинг ва лига.
+/// Барои чунин барномаҳо Google Play ҳам «блок кардан», ҳам «шикоят кардан»
+/// талаб мекунад. Блок аллакай ҳаст (`BlockedUsersService`), ин нимаи дуюм аст.
+model UserReport {
+  id String @id @default(cuid())
+
+  /// Кӣ шикоят кард.
+  reporterId String
+  reporter   User   @relation("ReportsMade", fields: [reporterId], references: [id], onDelete: Cascade)
+
+  /// Ба кӣ шикоят карданд.
+  reportedId String
+  reported   User   @relation("ReportsAgainst", fields: [reportedId], references: [id], onDelete: Cascade)
+
+  /// `name` | `avatar` | `cheating` | `other` — ниг. `lib/profile/report.ts`.
+  reason String
+
+  /// Матни ихтиёрии шикоятгар.
+  note String? @db.Text
+
+  /// Он чизе, ки шикоятгар дар лаҳзаи шикоят ДИДА буд.
+  ///
+  /// ⚠️ Ин сурати лаҳза аст ва ҚАСДАН нусхабардорӣ мешавад. Корбари бад
+  /// номро мебинад, ки шикоят рафт, ва онро иваз мекунад — бе ин сатр админ
+  /// номи тозаро мебинад ва шикоятро беасос меҳисобад.
+  snapshotName   String?
+  snapshotAvatar String?
+
+  /// `new` | `actioned` | `rejected`
+  status String @default("new")
+
+  uiLanguage String?
+  appVersion String?
+
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+
+  /// Як шикоятгар ба ҳамон корбар танҳо ЯК сатри кушода дошта метавонад —
+  /// вагарна як нафар метавонад панелро бо садҳо шикояти якхела пур кунад.
+  @@unique([reporterId, reportedId])
+  @@index([reportedId, status])
+  @@index([status, createdAt])
+}
+
 model Feedback {
   id               String   @id @default(cuid())
   userId           String
@@ -1454,9 +1509,9 @@ model FriendStreak {
 
 /// Як когорта: як зина, як ҳафта, то 30 нафар.
 model League {
-  id    String @id @default(cuid())
+  id      String @id @default(cuid())
   /// 1 Бронза · 2 Нуқра · 3 Тилло · 4 Платина · 5 Алмос
-  tier  Int
+  tier    Int
   /// Санаи ШАНБЕи оғози ҳафта, "YYYY-MM-DD" (UTC).
   weekKey String
 
@@ -1519,9 +1574,9 @@ model LeagueResult {
   weekKey  String
 
   /// Зинае, ки дар он мусобиқа кард.
-  tier      Int
-  finalRank Int
-  weeklyXp  Int
+  tier        Int
+  finalRank   Int
+  weeklyXp    Int
   /// Шумораи аъзои когорта — барои матни «Аз 30 нафар ҷои 7-ум».
   memberCount Int @default(0)
 
@@ -1531,10 +1586,10 @@ model LeagueResult {
   /// мешавад, пас такроран ҳисоб кардан ҳамон рақамро медиҳад.
   newTier Int
 
-  gemsReward Int      @default(0)
-  claimed    Boolean  @default(false)
+  gemsReward Int       @default(0)
+  claimed    Boolean   @default(false)
   claimedAt  DateTime?
-  createdAt  DateTime @default(now())
+  createdAt  DateTime  @default(now())
 
   /// Муҳофизати идемпотентии №2: ҳатто агар ду иҷро ҳамзамон аз гейти
   /// `rolledOverAt` гузаранд, дуюмаш P2002 мегирад, на сатри такрорӣ.

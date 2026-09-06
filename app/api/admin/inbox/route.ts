@@ -5,7 +5,7 @@
  * (хатои мазмун, ки дар дохили дарс байрақ зада шудааст). Ниг. `lib/inbox.ts`.
  *
  * Параметрҳо:
- *   type=all|feedback|report
+ *   type=all|feedback|report|user
  *   nativeLang=tg           коди забони МОДАРӢ
  *   targetLang=en           коди забони ОМӮЗИШӢ
  *   status=new|fixed|rejected|all   (танҳо ба гузоришҳо дахл дорад)
@@ -22,6 +22,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { isFlagged } from '@/lib/profile/report';
 import {
   langFilterValues,
   loadLanguageDirectory,
@@ -69,6 +70,9 @@ export async function GET(req: NextRequest) {
     const type = (sp.get('type') || 'all').toLowerCase();
     const wantFeedback = type === 'all' || type === 'feedback';
     const wantReports = type === 'all' || type === 'report';
+    // Шикоят ба КОРБАР — ҷараёни сеюм. Дар `all` ҳам меояд, чунки маҳз ин
+    // навъ таъҷилтарин аст ва набояд дар таби ҷудогона пинҳон монад.
+    const wantUsers = type === 'all' || type === 'user';
 
     const take = Math.min(200, Math.max(1, Number(sp.get('take')) || 50));
     const skip = Math.max(0, Number(sp.get('skip')) || 0);
@@ -86,18 +90,21 @@ export async function GET(req: NextRequest) {
 
     const dir = await loadLanguageDirectory(prisma);
 
-    const [feedbackItems, reportItems, facets, globals] = await Promise.all([
+    const [feedbackItems, reportItems, userItems, facets, globals] = await Promise.all([
       wantFeedback
         ? loadFeedback(dir, { q, rating, unreadOnly, nativeLang, targetLang, createdAt })
         : Promise.resolve([] as InboxItem[]),
       wantReports
         ? loadReports(dir, { q, status, nativeLang, targetLang, createdAt })
         : Promise.resolve([] as InboxItem[]),
+      wantUsers
+        ? loadUserReports(dir, { q, status, nativeLang, targetLang, createdAt })
+        : Promise.resolve([] as InboxItem[]),
       loadFacets(dir),
       loadGlobals(),
     ]);
 
-    const merged = feedbackItems.concat(reportItems);
+    const merged = feedbackItems.concat(reportItems).concat(userItems);
     // Ҷараёни ягона — навтарин болотар. Барои гурӯҳи гузоришҳо «сана» =
     // ОХИРИН гузориш: гурӯҳе, ки имрӯз боз шикоят гирифт, набояд поён монад.
     merged.sort((a, b) => +new Date(b.sortAt) - +new Date(a.sortAt));
@@ -117,6 +124,7 @@ export async function GET(req: NextRequest) {
           (n, i) => n + (i.kind === 'report' ? i.reportCount : 0),
           0,
         ),
+        users: userItems.length,
       },
       averageRating: ratings.length
         ? ratings.reduce((a, b) => a + b, 0) / ratings.length
@@ -186,6 +194,26 @@ export type InboxItem =
         lessonTitle: string | null;
         moduleTitle: string | null;
       } | null;
+    })
+  | (Common & {
+      kind: 'user';
+      /// `id`-и корбари ШИКОЯТШУДА — сатр аз рӯи ӯ гурӯҳбандӣ мешавад.
+      reportedId: string;
+      reportedName: string;
+      reportedAvatar: string | null;
+      reportedXp: number;
+      reportedActive: boolean;
+      status: string;
+      /// Чанд нафари ГУНОГУН шикоят карданд.
+      reporterCount: number;
+      flagged: boolean;
+      reasons: Record<string, number>;
+      notes: { text: string; at: string }[];
+      /// Ном ва акс дар лаҳзаи ШИКОЯТ — корбари бад онҳоро иваз мекунад.
+      snapshotNames: string[];
+      firstAt: string;
+      lastAt: string;
+      appVersions: string[];
     });
 
 // ── Фикрҳо ─────────────────────────────────────────────────────────────────
@@ -556,5 +584,130 @@ async function loadGlobals() {
     prisma.feedback.count(),
     prisma.contentReport.count(),
   ]);
-  return { unreadFeedback, openReports, feedbackAll, reportsAll };
+  const openUserReports = await prisma.userReport.count({ where: { status: 'new' } });
+  return { unreadFeedback, openReports, feedbackAll, reportsAll, openUserReports };
+}
+
+// ── Шикоят ба КОРБАР ───────────────────────────────────────────────────────
+
+/**
+ * Шикоятҳоро аз рӯи корбари ШИКОЯТШУДА гурӯҳбандӣ мекунад.
+ *
+ * ⚠️ Гурӯҳбандӣ ҳатмист. Панел бояд «ин корбар 5 шикоят дорад»-ро як сатр
+ * нишон диҳад, на панҷ сатри ҷудогона — вагарна як корбари бад тамоми
+ * экранро пур мекунад ва дигар ҳеҷ чиз дида намешавад.
+ */
+async function loadUserReports(
+  dir: LangDirectory,
+  f: {
+    q: string;
+    status: string;
+    nativeLang: string | null;
+    targetLang: string | null;
+    createdAt: { gte?: Date; lte?: Date } | undefined;
+  },
+): Promise<InboxItem[]> {
+  const rows = await prisma.userReport.findMany({
+    where: {
+      ...(f.status !== 'all' ? { status: f.status } : {}),
+      ...(f.createdAt ? { createdAt: f.createdAt } : {}),
+    },
+    orderBy: { createdAt: 'desc' },
+    take: MAX_SCAN,
+    include: {
+      reported: {
+        select: {
+          id: true,
+          name: true,
+          avatarUrl: true,
+          totalXp: true,
+          isActive: true,
+          nativeLang: true,
+          targetLang: true,
+        },
+      },
+    },
+  });
+
+  type G = {
+    reportedId: string;
+    reported: (typeof rows)[number]['reported'];
+    status: string;
+    reporters: Set<string>;
+    reasons: Record<string, number>;
+    notes: { text: string; at: string }[];
+    snapshotNames: Set<string>;
+    appVersions: Set<string>;
+    first: Date;
+    last: Date;
+  };
+
+  const groups = new Map<string, G>();
+  for (const r of rows) {
+    let g = groups.get(r.reportedId);
+    if (!g) {
+      g = {
+        reportedId: r.reportedId,
+        reported: r.reported,
+        status: r.status,
+        reporters: new Set(),
+        reasons: {},
+        notes: [],
+        snapshotNames: new Set(),
+        appVersions: new Set(),
+        first: r.createdAt,
+        last: r.createdAt,
+      };
+      groups.set(r.reportedId, g);
+    }
+    g.reporters.add(r.reporterId);
+    g.reasons[r.reason] = (g.reasons[r.reason] ?? 0) + 1;
+    if (r.note) g.notes.push({ text: r.note, at: r.createdAt.toISOString() });
+    if (r.snapshotName) g.snapshotNames.add(r.snapshotName);
+    if (r.appVersion) g.appVersions.add(r.appVersion);
+    if (r.createdAt < g.first) g.first = r.createdAt;
+    if (r.createdAt > g.last) g.last = r.createdAt;
+    // Гурӯҳ то он даме кушода аст, ки ақаллан ЯК сатри кушода дорад.
+    if (r.status === 'new') g.status = 'new';
+  }
+
+  const lang = (c: string | null | undefined) => (c ? c.toLowerCase() : null);
+  const needle = f.q.trim().toLowerCase();
+
+  return Array.from(groups.values())
+    .filter((g) => {
+      if (f.nativeLang && lang(g.reported?.nativeLang) !== f.nativeLang) return false;
+      if (f.targetLang && lang(g.reported?.targetLang) !== f.targetLang) return false;
+      if (!needle) return true;
+      const hay = [
+        g.reported?.name ?? '',
+        ...Array.from(g.snapshotNames),
+        ...g.notes.map((n) => n.text),
+      ]
+        .join(' ')
+        .toLowerCase();
+      return hay.indexOf(needle) !== -1;
+    })
+    .map((g) => ({
+      kind: 'user' as const,
+      id: `user:${g.reportedId}`,
+      sortAt: g.last.toISOString(),
+      createdAt: g.last.toISOString(),
+      nativeLang: lang(g.reported?.nativeLang),
+      targetLang: lang(g.reported?.targetLang),
+      reportedId: g.reportedId,
+      reportedName: g.reported?.name ?? '—',
+      reportedAvatar: g.reported?.avatarUrl ?? null,
+      reportedXp: g.reported?.totalXp ?? 0,
+      reportedActive: g.reported?.isActive !== false,
+      status: g.status,
+      reporterCount: g.reporters.size,
+      flagged: isFlagged(g.reporters.size),
+      reasons: g.reasons,
+      notes: g.notes,
+      snapshotNames: Array.from(g.snapshotNames),
+      firstAt: g.first.toISOString(),
+      lastAt: g.last.toISOString(),
+      appVersions: Array.from(g.appVersions),
+    }));
 }

@@ -19,7 +19,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   MessageSquare, Star, Save, AlertCircle, CheckCircle2,
-  Search, Mail, Settings2, Eye, EyeOff, Flag, Inbox, RotateCcw,
+  Search, Mail, Settings2, Eye, EyeOff, Flag, Inbox, RotateCcw, Ban, ShieldAlert,
 } from 'lucide-react';
 
 const FACES = ['😠', '🙁', '😐', '🙂', '😍'];
@@ -130,7 +130,30 @@ interface ReportItem {
   } | null;
 }
 
-type InboxItem = FeedbackItem | ReportItem;
+interface UserReportItem {
+  kind: 'user';
+  id: string;
+  createdAt: string;
+  sortAt: string;
+  nativeLang: string | null;
+  targetLang: string | null;
+  reportedId: string;
+  reportedName: string;
+  reportedAvatar: string | null;
+  reportedXp: number;
+  reportedActive: boolean;
+  status: string;
+  reporterCount: number;
+  flagged: boolean;
+  reasons: Record<string, number>;
+  notes: { text: string; at: string }[];
+  snapshotNames: string[];
+  firstAt: string;
+  lastAt: string;
+  appVersions: string[];
+}
+
+type InboxItem = FeedbackItem | ReportItem | UserReportItem;
 
 const PAGE = 50;
 
@@ -152,7 +175,7 @@ export default function AdminFeedbackPage() {
   const [truncated, setTruncated] = useState(false);
 
   // ── Филтрҳо ─────────────────────────────────────────────────────────────
-  const [type, setType] = useState<'all' | 'feedback' | 'report'>('all');
+  const [type, setType] = useState<'all' | 'feedback' | 'report' | 'user'>('all');
   const [nativeLang, setNativeLang] = useState('');
   const [targetLang, setTargetLang] = useState('');
   const [reportStatus, setReportStatus] = useState('new');
@@ -190,7 +213,7 @@ export default function AdminFeedbackPage() {
     if (typeof window === 'undefined') return;
     const sp = new URLSearchParams(window.location.search);
     const t = sp.get('type');
-    if (t === 'report' || t === 'feedback' || t === 'all') setType(t);
+    if (t === 'report' || t === 'feedback' || t === 'user' || t === 'all') setType(t);
     const n = sp.get('nativeLang');
     if (n) setNativeLang(n.toLowerCase());
     const g = sp.get('targetLang');
@@ -292,6 +315,42 @@ export default function AdminFeedbackPage() {
       );
       setUnreadFeedback((u) => Math.max(0, u + (row.isRead ? 1 : -1)));
     } catch {/* non-critical */}
+  }
+
+  async function actOnUser(
+    g: UserReportItem,
+    what: 'actioned' | 'rejected' | 'ban',
+  ) {
+    if (what === 'ban') {
+      const ok = window.confirm(
+        `${g.reportedName}-ро баста мекунед?
+
+`
+          + 'Ӯ аз рейтинг, лига ва профили ҷамъиятӣ мебарояд. Маълумоташ пок '
+          + 'НАМЕШАВАД — онро аз /admin/users кардан мумкин аст.',
+      );
+      if (!ok) return;
+    }
+    setBusy(g.id);
+    try {
+      const res = await fetch(
+        `/api/admin/user-reports/${encodeURIComponent(g.reportedId)}/${what}`,
+        { method: 'PATCH' },
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
+      setStatus({
+        type: 'success',
+        msg: data.banned
+          ? `${g.reportedName} баста шуд · ${data.closed} шикоят пӯшида шуд`
+          : `${data.closed} шикоят пӯшида шуд`,
+      });
+      await load();
+    } catch (e: any) {
+      setStatus({ type: 'error', msg: e.message || 'Failed' });
+    } finally {
+      setBusy(null);
+    }
   }
 
   async function actOnReport(g: ReportItem, what: 'resolve' | 'reject') {
@@ -467,6 +526,7 @@ export default function AdminFeedbackPage() {
             ['all', <Inbox key="i" size={14} />, 'Ҳама'],
             ['feedback', <MessageSquare key="m" size={14} />, 'Баҳо ва шикоят'],
             ['report', <Flag key="f" size={14} />, 'Хатои мазмун'],
+            ['user', <Ban key="b" size={14} />, 'Шикоят ба корбар'],
           ] as const).map(([value, icon, label]) => (
             <button
               key={value}
@@ -595,6 +655,13 @@ export default function AdminFeedbackPage() {
               onToggleRead={toggleRead}
               nativeLabel={langLabel(row.nativeLang, facets.native)}
               targetLabel={langLabel(row.targetLang, facets.target)}
+            />
+          ) : row.kind === 'user' ? (
+            <UserReportCard
+              key={row.id}
+              row={row}
+              busy={busy === row.id}
+              onAct={actOnUser}
             />
           ) : (
             <ReportCard
@@ -796,6 +863,136 @@ function ReportCard({
           >
             Рад кардан
           </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+// ── Корти шикоят ба КОРБАР ──────────────────────────────────────────────────
+
+const USER_REASON_LABEL: Record<string, string> = {
+  name: 'Номи қабеҳ',
+  avatar: 'Аватари номуносиб',
+  cheating: 'Тақаллуб',
+  other: 'Дигар',
+};
+
+/**
+ * Як КОРБАР — ҳамаи шикоятҳои ба ӯ дар як корт.
+ *
+ * ⚠️ «Ном ҳангоми шикоят» алоҳида кашида мешавад ва он метавонад аз номи
+ * ҶОРӢ фарқ кунад. Маҳз ҳамин фарқ далели асосист: корбар номи қабеҳ
+ * гузошт, шикоят гирифт, ва зуд онро иваз кард.
+ */
+function UserReportCard({
+  row,
+  busy,
+  onAct,
+}: {
+  row: UserReportItem;
+  busy: boolean;
+  onAct: (g: UserReportItem, what: 'actioned' | 'rejected' | 'ban') => void;
+}) {
+  const open = row.status === 'new';
+  const changedName = row.snapshotNames.filter((n) => n !== row.reportedName);
+
+  return (
+    <div
+      className={`glass-card p-4 ${row.flagged ? 'border-l-4 border-l-red-500' : ''}`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="w-10 h-10 rounded-xl bg-[var(--bg-surface)] flex items-center justify-center shrink-0 overflow-hidden">
+          {row.reportedAvatar ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={row.reportedAvatar} alt="" className="w-full h-full object-cover" />
+          ) : (
+            <Ban size={16} className="text-[var(--text-secondary)]" />
+          )}
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-semibold">{row.reportedName}</span>
+            {!row.reportedActive && (
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400">
+                баста
+              </span>
+            )}
+            {row.flagged && (
+              <span className="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400">
+                <ShieldAlert size={11} /> таъҷилӣ
+              </span>
+            )}
+            <span className="text-[11px] text-[var(--text-secondary)]">
+              {row.reporterCount} шикоятгар · {row.reportedXp.toLocaleString('ru-RU')} XP
+            </span>
+          </div>
+
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {Object.entries(row.reasons).map(([k, n]) => (
+              <span
+                key={k}
+                className="text-[11px] px-2 py-0.5 rounded-md bg-[var(--bg-surface)] text-[var(--text-secondary)]"
+              >
+                {USER_REASON_LABEL[k] ?? k} · {n}
+              </span>
+            ))}
+          </div>
+
+          {changedName.length > 0 && (
+            <div className="mt-2 text-[11px] text-amber-400">
+              Ном ҳангоми шикоят: {changedName.join(', ')} — акнун дигар аст
+            </div>
+          )}
+
+          {row.notes.length > 0 && (
+            <div className="mt-2 space-y-1">
+              {row.notes.slice(0, 4).map((n, i) => (
+                <div
+                  key={i}
+                  className="text-[12px] text-[var(--text-secondary)] border-l-2 border-[var(--bg-border)] pl-2"
+                >
+                  {n.text}
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-2 text-[11px] text-[var(--text-secondary)]">
+            {new Date(row.firstAt).toLocaleDateString('ru-RU')} –{' '}
+            {new Date(row.lastAt).toLocaleDateString('ru-RU')}
+            {row.appVersions.length > 0 && ` · v${row.appVersions.join(', v')}`}
+          </div>
+        </div>
+      </div>
+
+      {open && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            disabled={busy}
+            onClick={() => onAct(row, 'actioned')}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/15 text-emerald-400 disabled:opacity-50"
+          >
+            Кор карда шуд
+          </button>
+          <button
+            disabled={busy}
+            onClick={() => onAct(row, 'rejected')}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--bg-surface)] text-[var(--text-secondary)] disabled:opacity-50"
+          >
+            Беасос
+          </button>
+          {row.reportedActive && (
+            <button
+              disabled={busy}
+              onClick={() => onAct(row, 'ban')}
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-500/15 text-red-400 disabled:opacity-50"
+            >
+              Бастан
+            </button>
+          )}
         </div>
       )}
     </div>
