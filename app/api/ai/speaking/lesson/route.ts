@@ -7,6 +7,11 @@ import {
   toEngineItem,
   configForEv,
 } from '@/lib/speaking/engine';
+import {
+  unlockedSpeakingLessonIds,
+  FREE_SPEAKING_LESSONS,
+  SPEAKING_LOCKED,
+} from '@/lib/speaking/access';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,7 +58,10 @@ export async function GET(req: NextRequest) {
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { nativeLang: true },
+      // `isPremium` — гейти гуфтор (ниг. `lib/speaking/access.ts`). Ҳамон
+      // майдонест, ки тамоми барнома истифода мебарад (`adGems`, `adXp`,
+      // `achievements`), пас ин ҷо қоидаи НАВ сохта намешавад.
+      select: { nativeLang: true, isPremium: true },
     });
     if (!user) return NextResponse.json({ error: 'User not found.' }, { status: 404 });
 
@@ -159,6 +167,37 @@ export async function GET(req: NextRequest) {
           break outer;
         }
       }
+    }
+
+    // ── ГЕЙТИ ПРЕМИУМ ────────────────────────────────────────────────────
+    //
+    // ⚠️ Ин ҷо, БАЪДИ интихоби дарс: қоида ба ҶОИ дарс дар занҷир такя
+    // мекунад, пас аввал бояд донем, кадом дарс интихоб шуд.
+    //
+    // ⚠️ Гейт дар СЕРВЕР аст, на танҳо дар экран. Бе он қулфи барнома
+    // ороишӣ мебуд — ҳар кас метавонист дархостро дастӣ фиристад ва
+    // тамоми мазмунро бигирад.
+    //
+    // Занҷир бо ҳамон тартибе дода мешавад, ки боло ҳисоб шуд (`chapters`),
+    // вагарна «дарси навбатӣ» ва «дарси кушода» ду чизи гуногун мешуданд.
+    const openIds = unlockedSpeakingLessonIds({
+      chapters,
+      completedIds: doneIds,
+      isPremium: user.isPremium,
+    });
+
+    if (!openIds.has(lesson.id)) {
+      return NextResponse.json(
+        {
+          ...SPEAKING_LOCKED,
+          // Барои экран: чандум дарс аст ва чандтоаш ройгон — то пейвол
+          // рақамро аз ҲАМИН ҷо гирад, на аз матни худаш.
+          lessonNumber: lessonIndex + 1,
+          chapterNumber: chapterIndex + 1,
+          freeLessons: FREE_SPEAKING_LESSONS,
+        },
+        { status: 403 },
+      );
     }
 
     const items = lesson.items.filter(

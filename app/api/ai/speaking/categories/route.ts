@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+import {
+  unlockedSpeakingLessonIds,
+  FREE_SPEAKING_LESSONS,
+} from '@/lib/speaking/access';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,7 +31,7 @@ export async function GET(req: NextRequest) {
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { nativeLang: true },
+      select: { nativeLang: true, isPremium: true },
     });
     if (!user) return NextResponse.json({ error: 'User not found.' }, { status: 404 });
 
@@ -81,10 +85,27 @@ export async function GET(req: NextRequest) {
     });
     const doneIds = new Set(done.map((d) => d.lessonId));
 
+    // ── Гейти премиум ────────────────────────────────────────────────────
+    //
+    // ⚠️ ҲАМОН функсия, ки роути `/lesson` истифода мебарад. Ду нусхаи
+    // қоида маънои онро дошт, ки экран бобро кушода нишон медиҳад ва
+    // сервер онро рад мекунад — бадтарин ҳолати мумкин.
+    //
+    // Боби қулф аз рӯйхат НЕСТ намешавад: хонанда бояд бубинад, ки чӣ
+    // интизор аст (қарори соҳиби маҳсулот, 2026-09-06).
+    const openIds = unlockedSpeakingLessonIds({
+      chapters: usable,
+      completedIds: doneIds,
+      isPremium: user.isPremium,
+    });
+
     return NextResponse.json({
+      isPremium: user.isPremium,
+      freeLessons: FREE_SPEAKING_LESSONS,
       categories: usable.map((c, i) => {
         const total = c.lessons.length;
         const finished = c.lessons.filter((l) => doneIds.has(l.id)).length;
+        const open = c.lessons.filter((l) => openIds.has(l.id)).length;
         return {
           id: c.id,
           number: i + 1,
@@ -95,6 +116,9 @@ export async function GET(req: NextRequest) {
           lessons: total,
           lessonsDone: finished,
           progress: total ? finished / total : 0,
+          // Чанд дарси ин боб кушода аст ва оё боб ПУРРА қулф аст.
+          lessonsOpen: open,
+          locked: open === 0,
         };
       }),
     });

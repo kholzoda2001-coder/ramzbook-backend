@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+import { SPEAKING_LOCKED } from '@/lib/speaking/access';
 
 export const dynamic = 'force-dynamic';
 
@@ -96,9 +97,19 @@ export async function GET(req: NextRequest) {
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { nativeLang: true },
+      select: { nativeLang: true, isPremium: true },
     });
     if (!user) return NextResponse.json({ error: 'User not found.' }, { status: 404 });
+
+    // ── Такрор = премиум ─────────────────────────────────────────────────
+    //
+    // Нишасти такрор ҷумлаҳоро аз ҲАМАИ дарсҳои гузашта мегирад ва ҳар
+    // кӯшиш ба Azure меравад. Барои корбари як-дарсаи ройгон он ҳам маънои
+    // кам дорад, ҳам хароҷоти воқеӣ. Дар экран тугмаи такрор барои ӯ
+    // қулф нишон дода мешавад — ин ҷо ҳамон қоида дар СЕРВЕР.
+    if (!user.isPremium) {
+      return NextResponse.json(SPEAKING_LOCKED, { status: 403 });
+    }
 
     const nativeLanguage = await prisma.language.findFirst({
       where: { code: user.nativeLang },
