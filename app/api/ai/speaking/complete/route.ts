@@ -5,6 +5,7 @@ import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { awardXp } from '@/lib/xp';
 import { updateDailyTasks } from '@/lib/dailyTasks';
 import { recordOutcomes } from '@/lib/speakingMistakes';
+import { recordSounds, parseSoundHits } from '@/lib/speaking/recordSounds';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,6 +43,8 @@ export async function POST(req: NextRequest) {
       // Воҳидҳое, ки хонанда дар онҳо ғалат кард / бе хато гуфт.
       missedItemIds?: unknown;
       cleanItemIds?: unknown;
+      // Кӯшишҳои САДО аз Azure: `{phoneme, score, word}`.
+      sounds?: unknown;
     };
 
     const lessonId = body.lessonId?.trim();
@@ -58,7 +61,12 @@ export async function POST(req: NextRequest) {
 
     const lesson = await prisma.speakingLesson.findUnique({
       where: { id: lessonId },
-      select: { id: true, _count: { select: { items: true } } },
+      select: {
+        id: true,
+        _count: { select: { items: true } },
+        // Забони ОМӮЗИШ — барои ҳисоботи садо (ниг. `recordSounds`).
+        category: { select: { targetLanguageId: true } },
+      },
     });
     if (!lesson) {
       return NextResponse.json(
@@ -105,6 +113,20 @@ export async function POST(req: NextRequest) {
       body.missedItemIds,
       body.cleanItemIds,
     );
+
+    // Садоҳои ин нишаст → ҳисоботи «кадом садо кор мехоҳад».
+    //
+    // ⚠️ Забон аз худи ДАРС гирифта мешавад, на аз дархост: клиент
+    // метавонад ҳар чиз фиристад, ва садоҳои англисӣ бо арабӣ омехта
+    // шудан — ҳисоботро бемаънӣ мекунад.
+    //
+    // `recordSounds` худаш ҳеҷ гоҳ намепартояд — ҳисобот чизи ёрирасон
+    // аст ва набояд анҷоми дарсро вайрон кунад.
+    await recordSounds({
+      userId,
+      languageId: lesson.category.targetLanguageId,
+      hits: parseSoundHits(body.sounds),
+    });
 
     // Такрори муколама XP намедиҳад, вале ин ҳам кори таълимист — сабт мешавад,
     // то огоҳиҳо хонандаи фаъолро «ғайрифаъол» ҳисоб накунанд.

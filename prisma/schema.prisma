@@ -119,6 +119,7 @@ model User {
   deviceTokens         DeviceToken[]
   pushSends            PushSend[]
   speakingProgress     SpeakingProgress[]
+  speakingSounds       SpeakingSound[]
   speakingMistakes     SpeakingMistake[]
   leagueMemberships    LeagueMember[]
   leagueResults        LeagueResult[]
@@ -1005,6 +1006,43 @@ model SpeakingMistake {
   @@unique([userId, itemId])
   @@index([userId, lastMissedAt])
   @@index([userId, dueAt])
+}
+
+/// «Кадом САДО ба шумо кор мехоҳад» — ҷамъбасти талаффуз аз рӯи фонема.
+///
+/// Azure барои ҳар калима бадтарин фонемаи онро медиҳад. То 2026-09-06 мо
+/// ин маълумотро мепартофтем — ҳол он ки маҳз он чизест, ки барномаи
+/// ройгон дода наметавонад ва обунаро сафед мекунад.
+///
+/// ⚠️ Сатрҳои ХОМ нигоҳ дошта намешаванд: як дарс ~145 кӯшиш дорад. Барои
+/// ҳар (корбар · забон · фонема) ЯК сатр бо ду сатил — ҳафтаи ҷорӣ ва
+/// ҳафтаи гузашта (танҳо барои тирчаи «↑ беҳтар шуд»). Мантиқи гардиш дар
+/// `lib/speaking/sounds.ts`.
+model SpeakingSound {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  /// `Language.id`-и забони ОМӮЗИШ — садоҳои англисӣ ва арабӣ омехта нашаванд.
+  languageId String
+  /// Рамзи фонема аз Azure, мас. `th`, `r`, `ae`.
+  phoneme    String
+
+  /// Ҳафтаи ҶОРӢ.
+  curAttempts Int      @default(0)
+  curSum      Float    @default(0)
+  curStart    DateTime @default(now())
+
+  /// Ҳафтаи ГУЗАШТА — танҳо барои муқоиса.
+  prevAttempts Int   @default(0)
+  prevSum      Float @default(0)
+
+  /// То 3 калимаи намуна: «th — thank, three».
+  examples String[] @default([])
+
+  lastAt DateTime @default(now())
+
+  @@unique([userId, languageId, phoneme])
+  @@index([userId, languageId])
 }
 
 // Прогресси спикинг — ҚАСДАН аз `UserProgress` ҶУДО (ниг. шарҳи боло).
