@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { checkAndUpdatePremium } from '@/lib/premium';
-import { unlockedIds } from '@/lib/libraryAccess';
+import {
+  FREE_PREVIEW_PAGES,
+  canPreviewPages,
+  unlockedIds,
+} from '@/lib/libraryAccess';
 
 export const dynamic = 'force-dynamic';
 
@@ -60,13 +64,42 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     });
 
     if (!unlockedIds(shelf, isPremium).has(item.id)) {
+      // ── Пешнамоиш: чанд саҳифаи аввал ба ҷои девори холӣ ────────────────
+      //
+      // 🔴 БОГЕ, ки ин ҷо баста мешавад: барнома кайҳо коди пурраи
+      // пешнамоиш дошт (`kFreePreviewPages = 5`, саҳифаи пейвол, нишони
+      // «пешнамоиш», ҳатто матни «боз N саҳифа мондааст»), вале ин роут
+      // ҳама-ё-ҳеҷ буд. Хонанда `403` мегирифт, `fetchOne` онро мебалъид ва
+      // бармегардонд `null` — ва корбар ба ҷои 5 саҳифа экрани «мазмун
+      // нест»-ро медид. Ҳамаи он код ҳеҷ гоҳ иҷро намешуд.
+      //
+      // ⚠️ Танҳо китоби САҲИФАДОР. Аудио, видео, шаблон ва EPUB ҳамон
+      // тавре ки буданд, `403` мегиранд — ниг. `canPreviewPages`.
+      if (canPreviewPages(item)) {
+        return NextResponse.json(
+          {
+            ...item,
+            pages: item.pages.slice(0, FREE_PREVIEW_PAGES),
+            // Барнома аз рӯи ин ду майдон қарор мегирад, на аз рӯи тахмин:
+            // `pages.length` акнун 5 аст, пас «чанд саҳифа мондааст»-ро аз
+            // он ҳисоб кардан ХАТО медод (5 − 5 = 0).
+            preview: true,
+            totalPages: item.pages.length,
+          },
+          { headers: CORS },
+        );
+      }
+
       return NextResponse.json(
         { error: 'Premium required', locked: true },
         { status: 403, headers: CORS },
       );
     }
 
-    return NextResponse.json(item, { headers: CORS });
+    return NextResponse.json(
+      { ...item, preview: false, totalPages: item.pages.length },
+      { headers: CORS },
+    );
   } catch (error) {
     console.error('[mobile/library/[id]]', error);
     return NextResponse.json({ error: 'Failed to load item' }, { status: 500, headers: CORS });
