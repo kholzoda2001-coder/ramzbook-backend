@@ -55,6 +55,10 @@ type ReportRow = {
   value: string;
   reason: string;
   suggestion: string | null;
+  promptShown: string | null;
+  userAnswer: string | null;
+  correctAnswer: string | null;
+  optionsShown: string | null;
   status: string;
   rewarded: boolean;
   course: string | null;
@@ -183,6 +187,16 @@ export type InboxItem =
       rewardedCount: number;
       reasons: Record<string, number>;
       suggestions: { text: string; at: string }[];
+      /// Он чи хонанда ДИД ва ЧӢ ҷавоб дод — контексти худкор аз барнома.
+      /// Ниг. тавзеҳи `ContentReport` дар `schema.prisma`.
+      attempts: {
+        exerciseType: string;
+        prompt: string | null;
+        answer: string | null;
+        correct: string | null;
+        options: string | null;
+        at: string;
+      }[];
       firstAt: string;
       lastAt: string;
       course: string | null;
@@ -288,6 +302,7 @@ async function loadReports(
     select: {
       id: true, userId: true, lessonId: true, moduleId: true, contentId: true,
       exerciseType: true, field: true, value: true, reason: true, suggestion: true,
+      promptShown: true, userAnswer: true, correctAnswer: true, optionsShown: true,
       status: true, rewarded: true, course: true, uiLanguage: true, appVersion: true,
       createdAt: true,
       user: { select: { id: true, name: true, nativeLang: true, targetLang: true } },
@@ -342,7 +357,12 @@ async function loadReports(
     contentId: string; field: string; status: string; lessonId: string;
     moduleId: string | null; exerciseTypes: string[]; reportedValue: string;
     reportCount: number; rewardedCount: number; reasons: Record<string, number>;
-    suggestions: { text: string; at: string }[]; firstAt: Date; lastAt: Date;
+    suggestions: { text: string; at: string }[];
+    attempts: {
+      exerciseType: string; prompt: string | null; answer: string | null;
+      correct: string | null; options: string | null; at: string;
+    }[];
+    firstAt: Date; lastAt: Date;
     course: string | null; appVersions: string[]; users: Record<string, true>;
     /** Забон аз сатри клиент — резерв, вақте калима дар база ёфт нашуд. */
     fallbackNative: string | null; fallbackTarget: string | null;
@@ -358,7 +378,7 @@ async function loadReports(
         contentId: r.contentId, field: r.field, status: r.status,
         lessonId: r.lessonId, moduleId: r.moduleId, exerciseTypes: [],
         reportedValue: r.value, reportCount: 0, rewardedCount: 0, reasons: {},
-        suggestions: [], firstAt: r.createdAt, lastAt: r.createdAt,
+        suggestions: [], attempts: [], firstAt: r.createdAt, lastAt: r.createdAt,
         course: r.course, appVersions: [], users: {},
         fallbackNative: pair.native ?? toLangCode(r.user?.nativeLang, dir),
         fallbackTarget: pair.target ?? toLangCode(r.user?.targetLang, dir),
@@ -370,6 +390,19 @@ async function loadReports(
     if (r.rewarded) g.rewardedCount++;
     g.reasons[r.reason] = (g.reasons[r.reason] ?? 0) + 1;
     if (r.suggestion) g.suggestions.push({ text: r.suggestion, at: r.createdAt.toISOString() });
+    // Контекст танҳо вақте нигоҳ дошта мешавад, ки ҳадди ақал ЯК сатр дошта
+    // бошад — гузоришҳои кӯҳна (то илова шудани ин сутунҳо) ва роҳи «байрақи
+    // болои экран» ҳамаашон холӣ мебошанд ва панелро бо сатри пуч пур мекунанд.
+    if (r.promptShown || r.userAnswer || r.correctAnswer || r.optionsShown) {
+      g.attempts.push({
+        exerciseType: r.exerciseType,
+        prompt: r.promptShown,
+        answer: r.userAnswer,
+        correct: r.correctAnswer,
+        options: r.optionsShown,
+        at: r.createdAt.toISOString(),
+      });
+    }
     if (g.exerciseTypes.indexOf(r.exerciseType) < 0) g.exerciseTypes.push(r.exerciseType);
     if (r.appVersion && g.appVersions.indexOf(r.appVersion) < 0) g.appVersions.push(r.appVersion);
     if (r.createdAt < g.firstAt) g.firstAt = r.createdAt;
@@ -422,6 +455,7 @@ async function loadReports(
       rewardedCount: g.rewardedCount,
       reasons: g.reasons,
       suggestions: g.suggestions,
+      attempts: g.attempts,
       firstAt: g.firstAt.toISOString(),
       lastAt: g.lastAt.toISOString(),
       course: g.course,

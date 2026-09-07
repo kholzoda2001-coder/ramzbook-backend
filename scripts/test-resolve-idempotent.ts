@@ -10,7 +10,12 @@
  * Сенария — маҳз ҳамонест, ки талаб гуфтааст: ҲАШТ гузориш аз ҳашт корбари
  * гуногун ба ЯК сатр.
  */
-import { resolveReportGroup, ResolveTx, GEMS_PER_REPORT } from '../lib/reports';
+import {
+  resolveReportGroup,
+  ResolveTx,
+  GEMS_PER_REPORT,
+  GEMS_SUGGESTION_BONUS,
+} from '../lib/reports';
 
 type Row = {
   id: string;
@@ -21,12 +26,17 @@ type Row = {
   status: string;
   contentId: string;
   field: string;
+  suggestion: string | null;
 };
 
 const CONTENT_ID = 'word_hello_001';
 const FIELD = 'word_native';
 
-function makeStore() {
+/**
+ * [hasNote] мегӯяд, ки гузориши №i тавзеҳ дорад ё не — маҳз ҳамин мукофоти
+ * иловагиро фаъол мекунад (ниг. [GEMS_SUGGESTION_BONUS]).
+ */
+function makeStore(hasNote: (i: number) => boolean = () => false) {
   const rows: Row[] = [];
   for (let i = 1; i <= 8; i++) {
     rows.push({
@@ -38,6 +48,7 @@ function makeStore() {
       status: 'new',
       contentId: CONTENT_ID,
       field: FIELD,
+      suggestion: hasNote(i) ? 'дурусташ «Ассалом» аст' : null,
     });
   }
   const gems: Record<string, number> = {};
@@ -60,6 +71,7 @@ function makeStore() {
             lessonId: r.lessonId,
             moduleId: r.moduleId,
             rewarded: r.rewarded,
+            suggestion: r.suggestion,
           }));
       },
       async updateMany(args: any) {
@@ -151,6 +163,37 @@ async function main() {
   assert(
     total === 8 * GEMS_PER_REPORT,
     `ҳамагӣ ${8 * GEMS_PER_REPORT} алмос дода шуд, на бештар (шуд: ${total})`,
+  );
+
+  // ── Мукофоти иловагӣ барои тавзеҳ ──────────────────────────
+  //
+  // Нисфи гузоришҳо тавзеҳ доранд. Талаб: тавзеҳ ДУЧАНД меарзад — маҳз ҳамин
+  // фарқ хонандаро водор мекунад, ки ба ҷои як зарбаи доира як ҷумла нависад.
+  console.log('\nМукофот: 4 гузориш бо тавзеҳ, 4 бе тавзеҳ:');
+  const bonusStore = makeStore((i) => i <= 4);
+  const bonusRun = await resolveReportGroup(bonusStore.tx, CONTENT_ID, FIELD);
+  assert(bonusRun.rewarded === 8, `ҳар 8 мукофот гирифт (шуд: ${bonusRun.rewarded})`);
+  const withNote = [1, 2, 3, 4].map((i) => bonusStore.gems[`u${i}`]);
+  const noNote = [5, 6, 7, 8].map((i) => bonusStore.gems[`u${i}`]);
+  const expectWith = GEMS_PER_REPORT + GEMS_SUGGESTION_BONUS;
+  assert(
+    withNote.every((g) => g === expectWith),
+    `бо тавзеҳ — ${expectWith} алмос (шуд: ${withNote.join(',')})`,
+  );
+  assert(
+    noNote.every((g) => g === GEMS_PER_REPORT),
+    `бе тавзеҳ — ${GEMS_PER_REPORT} алмос (шуд: ${noNote.join(',')})`,
+  );
+
+  // Ва идемпотентӣ ба мукофоти иловагӣ низ дахл дорад.
+  await resolveReportGroup(bonusStore.tx, CONTENT_ID, FIELD);
+  const bonusTotal = Object.keys(bonusStore.gems).reduce(
+    (a, u) => a + bonusStore.gems[u],
+    0,
+  );
+  assert(
+    bonusTotal === 4 * expectWith + 4 * GEMS_PER_REPORT,
+    `зеркунии дуюм бонусро ТАКРОР НАКАРД (шуд: ${bonusTotal})`,
   );
 
   console.log(

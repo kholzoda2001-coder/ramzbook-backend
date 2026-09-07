@@ -11,6 +11,18 @@ const MAX_REPORTS_PER_DAY = 10;
 const REASONS = new Set(['wrong_translation', 'spelling', 'unnatural', 'other']);
 
 /**
+ * Сатри ихтиёрии контекст: холӣ → `null`, дароз → бурида.
+ *
+ * Ҳадди 2000 ҳамон ҳадди `value`/`suggestion` аст — як мизоҷи вайрон
+ * набояд сатри базаро варам кунад.
+ */
+function text(v: unknown): string | null {
+  if (v === undefined || v === null) return null;
+  const s = String(v).trim();
+  return s ? s.slice(0, 2000) : null;
+}
+
+/**
  * POST /api/mobile/reports
  *
  * Body: { lessonId, contentId, exerciseType, field, value, reason,
@@ -96,6 +108,13 @@ export async function POST(req: NextRequest) {
         value: value.slice(0, 2000),
         reason,
         suggestion: body?.suggestion ? String(body.suggestion).slice(0, 2000) : null,
+        // Контексти машқ — аз БАРНОМА меояд, на аз хонанда. Ниг. тавзеҳи
+        // `ContentReport` дар схема: маҳз ин чор сатр гузоришро бе як калимаи
+        // матн фаҳмо мекунанд.
+        promptShown: text(body?.promptShown),
+        userAnswer: text(body?.userAnswer),
+        correctAnswer: text(body?.correctAnswer),
+        optionsShown: text(body?.optionsShown),
         uiLanguage: body?.uiLanguage ? String(body.uiLanguage).slice(0, 12) : null,
         course: body?.course ? String(body.course).slice(0, 32) : null,
         appVersion: body?.appVersion ? String(body.appVersion).slice(0, 32) : null,

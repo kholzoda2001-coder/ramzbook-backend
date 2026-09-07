@@ -48,11 +48,14 @@ export async function PATCH(
     // `users` холӣ аст, пас такрори огоҳӣ ҳам намеравад.
     let pushed = 0;
     for (const userId of result.users) {
+      // Маблағи ВОҚЕИИ ҳамин корбар — бо тавзеҳ 10, бе тавзеҳ 5. Рақами
+      // собит ин ҷо ба корбари сернависанда камтар нишон медод.
+      const gems = result.gemsByUser[userId] ?? GEMS_PER_REPORT;
       const res = await sendPushToUser(
         userId,
         'Ташаккур!',
-        'Хатое, ки шумо ёфтед, ислоҳ шуд. +5 алмос',
-        { type: 'report_fixed', lessonId: result.lessonId, gems: String(GEMS_PER_REPORT) },
+        `Хатое, ки шумо ёфтед, ислоҳ шуд. +${gems} алмос`,
+        { type: 'report_fixed', lessonId: result.lessonId, gems: String(gems) },
         // Ин огоҳии ТРАНЗАКСИОНӢ аст — корбар онро КОР карда ба даст овард,
         // пас лимити рӯзонаи маркетингӣ ба он дахл надорад. Вале хоҳиши
         // корбар («Огоҳномаҳо» хомӯш) ЭҲТИРОМ мешавад: алмос ба ҳар ҳол дар
@@ -67,6 +70,7 @@ export async function PATCH(
       groupSize: result.groupSize,
       newlyRewarded: result.rewarded,
       gemsEach: GEMS_PER_REPORT,
+      gemsByUser: result.gemsByUser,
       usersNotified: result.users.length,
       pushesSent: pushed,
     });

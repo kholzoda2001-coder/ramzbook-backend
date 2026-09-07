@@ -8,11 +8,27 @@
 /** Мукофот барои як гузориши тасдиқшуда. */
 export const GEMS_PER_REPORT = 5;
 
+/**
+ * Мукофоти ИЛОВАГӢ, вақте хонанда тавзеҳ навишта бошад.
+ *
+ * ⚠️ ЧАРО. Пеш аз ин навиштан ва нанавиштан ЯК хел меарзид — ҳар гузориши
+ * тасдиқшуда 5 алмос мегирифт. Роҳи кӯтоҳтарин ба алмос ин буд: як сабабро
+ * зан ва фирист. Натиҷа гузориши холии «Это · ғайритабиӣ · suggestion=NULL»
+ * буд, ки ҳеҷ кас рамзкушоӣ карда натавонист. Ҳоло тавзеҳ дучанд меарзад ва
+ * ин дар худи варақа навишта шудааст (`report.reward_note`).
+ *
+ * Ин ҳадя нест — тавзеҳ маҳз он чизест, ки гузоришро ба ислоҳ табдил медиҳад.
+ */
+export const GEMS_SUGGESTION_BONUS = 5;
+
 /** Он чи аз `tx` воқеан лозим аст — на тамоми Prisma. */
 export interface ResolveTx {
   contentReport: {
     findMany(args: any): Promise<
-      { id: string; userId: string; lessonId: string; moduleId: string | null; rewarded: boolean }[]
+      {
+        id: string; userId: string; lessonId: string; moduleId: string | null;
+        rewarded: boolean; suggestion: string | null;
+      }[]
     >;
     updateMany(args: any): Promise<{ count: number }>;
   };
@@ -28,6 +44,9 @@ export interface ResolveOutcome {
   gems: number;
   /// Корбароне, ки маҳз ҳозир мукофот гирифтанд — огоҳӣ танҳо ба онҳо.
   users: string[];
+  /// Чанд алмос ба ҲАР корбар расид. Бо тавзеҳ 10, бе тавзеҳ 5 — пас матни
+  /// огоҳӣ бояд аз ин ҷо гирад, на аз [GEMS_PER_REPORT]-и собит.
+  gemsByUser: Record<string, number>;
   lessonId: string;
   moduleId: string | null;
 }
@@ -54,11 +73,17 @@ export async function resolveReportGroup(
 ): Promise<ResolveOutcome> {
   const group = await tx.contentReport.findMany({
     where: { contentId, field, status: { in: ['new', 'fixed'] } },
-    select: { id: true, userId: true, lessonId: true, moduleId: true, rewarded: true },
+    select: {
+      id: true, userId: true, lessonId: true, moduleId: true, rewarded: true,
+      suggestion: true,
+    },
   });
 
   if (group.length === 0) {
-    return { groupSize: 0, rewarded: 0, gems: GEMS_PER_REPORT, users: [], lessonId: '', moduleId: null };
+    return {
+      groupSize: 0, rewarded: 0, gems: GEMS_PER_REPORT, users: [],
+      gemsByUser: {}, lessonId: '', moduleId: null,
+    };
   }
 
   // 1. Ҳама → fixed.
@@ -73,7 +98,9 @@ export async function resolveReportGroup(
   // гардиши `Map`/`Set` он ҷо иҷозат нест.
   const gemsByUser: Record<string, number> = {};
   unrewarded.forEach((r) => {
-    gemsByUser[r.userId] = (gemsByUser[r.userId] ?? 0) + GEMS_PER_REPORT;
+    // Тавзеҳи навишта — мукофоти дучанд. Ниг. [GEMS_SUGGESTION_BONUS].
+    const bonus = (r.suggestion ?? '').trim() ? GEMS_SUGGESTION_BONUS : 0;
+    gemsByUser[r.userId] = (gemsByUser[r.userId] ?? 0) + GEMS_PER_REPORT + bonus;
   });
 
   if (unrewarded.length > 0) {
@@ -96,6 +123,7 @@ export async function resolveReportGroup(
     rewarded: unrewarded.length,
     gems: GEMS_PER_REPORT,
     users: Object.keys(gemsByUser),
+    gemsByUser,
     lessonId: group[0].lessonId,
     moduleId: group[0].moduleId,
   };

@@ -117,6 +117,14 @@ interface ReportItem {
   rewardedCount: number;
   reasons: Record<string, number>;
   suggestions: { text: string; at: string }[];
+  attempts: {
+    exerciseType: string;
+    prompt: string | null;
+    answer: string | null;
+    correct: string | null;
+    options: string | null;
+    at: string;
+  }[];
   firstAt: string;
   lastAt: string;
   course: string | null;
@@ -830,6 +838,54 @@ function ReportCard({
           </span>
         ))}
       </div>
+
+      {/* ── Он чи хонанда ВОҚЕАН дид ──────────────────────────────────────
+          Ин блок муҳимтарин чиз дар корт аст. Ҷуфти «майдон + қимат» мегӯяд
+          КАДОМ сатр, вале намегӯяд, ки хонанда чиро дид ва аз чӣ ба ғазаб
+          омад. Гузориши аввалини воқеӣ («Это · ғайритабиӣ», бе матн) маҳз аз
+          ҳамин сабаб рамзкушоӣ нашуд. Ниг. `ContentReport` дар schema.prisma. */}
+      {row.attempts.length > 0 && (
+        <div className="mb-3">
+          <p className="text-[11px] text-[var(--text-muted)] mb-1.5">
+            ДАР ЭКРАН ЧӢ БУД ({row.attempts.length})
+          </p>
+          <div className="space-y-1">
+            {row.attempts.slice(0, 5).map((a, i) => (
+              <div key={i}
+                className="text-[13px] px-3 py-2 rounded-lg bg-[var(--bg-surface)] flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span className="text-[10.5px] font-bold uppercase text-[var(--text-muted)]">
+                  {a.exerciseType}
+                </span>
+                {a.prompt && (
+                  <span className="text-[var(--text-secondary)]">
+                    дид: <strong className="text-[var(--text-primary)]">{a.prompt}</strong>
+                  </span>
+                )}
+                {a.answer && (
+                  <span className="text-rose-400">
+                    ҷавоб: <strong>{a.answer}</strong>
+                  </span>
+                )}
+                {a.correct && (
+                  <span className="text-green-500">
+                    дуруст: <strong>{a.correct}</strong>
+                  </span>
+                )}
+                {a.options && (
+                  <span className="text-[var(--text-muted)] text-[11.5px] basis-full">
+                    вариантҳо: {a.options}
+                  </span>
+                )}
+              </div>
+            ))}
+            {row.attempts.length > 5 && (
+              <p className="text-[11px] text-[var(--text-muted)]">
+                ва боз {row.attempts.length - 5}…
+              </p>
+            )}
+          </div>
+        </div>
+      )}
 
       {row.suggestions.length > 0 && (
         <div className="mb-3">
