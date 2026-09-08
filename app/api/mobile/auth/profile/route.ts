@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
+import { checkDisplayName } from '@/lib/profile/displayName';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -80,10 +81,14 @@ export async function PATCH(req: NextRequest) {
 
   try {
     const body = (await req.json()) as { name?: string };
-    const name = (body?.name ?? '').trim();
-    if (name.length < 2) {
-      return NextResponse.json({ error: 'Name must be at least 2 characters.' }, { status: 400, headers: CORS });
+    // Санҷиш дар як ҷои тестшаванда — ниг. lib/profile/displayName.ts. Пеш ин
+    // ҷо танҳо `length < 2` буд, ва маҳз аз ҳамин ҷо 41 ҳисоб бо ПОЧТА дар
+    // майдони ном ба база даромад.
+    const checked = checkDisplayName(body?.name);
+    if (!checked.ok) {
+      return NextResponse.json({ error: checked.message }, { status: 400, headers: CORS });
     }
+    const name = checked.name;
 
     const user = await prisma.user.update({
       where: { id: userId },

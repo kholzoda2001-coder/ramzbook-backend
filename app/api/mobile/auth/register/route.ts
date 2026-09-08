@@ -7,6 +7,7 @@ import {
   signAccessTokenForUser,
   REFRESH_TTL_MS,
 } from '@/lib/auth';
+import { checkDisplayName } from '@/lib/profile/displayName';
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,13 +18,16 @@ export async function POST(req: NextRequest) {
       password?: string;
     };
 
-    const name = body.name?.trim() ?? '';
+    // Ҳамон санҷиши ном, ки `PATCH /auth/profile` истифода мебарад — ду
+    // дарвозаи вуруд бояд як қоида дошта бошанд, вагарна дуюмаш дом мемонад.
+    const checkedName = checkDisplayName(body.name);
     const rawIdentifier = (body.identifier ?? body.email ?? '').trim();
     const password = body.password ?? '';
 
-    if (name.length < 2) {
-      return Response.json({ error: 'Name must be at least 2 characters.' }, { status: 400 });
+    if (!checkedName.ok) {
+      return Response.json({ error: checkedName.message }, { status: 400 });
     }
+    const name = checkedName.name;
     if (rawIdentifier.length < 5) {
       return Response.json({ error: 'Valid email or phone number is required.' }, { status: 400 });
     }
