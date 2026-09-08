@@ -1,0 +1,12 @@
+import { readFileSync } from 'fs';
+import { neon } from '@neondatabase/serverless';
+const env = Object.fromEntries(readFileSync(new URL('../.env', import.meta.url),'utf8').split('\n').filter(l=>l.includes('=')&&!l.trim().startsWith('#')).map(l=>{const i=l.indexOf('=');return [l.slice(0,i).trim(),l.slice(i+1).trim().replace(/^["']|["']$/g,'')];}));
+const sql = neon(env.DATABASE_URL); const q=(t)=>sql.query(t);
+console.log('=== Корбарони 8-9 сентябр');
+console.table(await q(`SELECT name, email, phone, country, "nativeLang", "targetLang", "totalXp" xp, "createdAt", "lastActiveAt" FROM "User" WHERE "createdAt" > '2026-09-07' ORDER BY "createdAt" DESC LIMIT 30`));
+console.log('=== Номи такрорӣ (name)');
+console.table(await q(`SELECT name, count(*) n, min("createdAt") first, max("createdAt") last FROM "User" GROUP BY name HAVING count(*)>1 ORDER BY n DESC LIMIT 15`));
+console.log('=== Домени почта');
+console.table(await q(`SELECT split_part(email,'@',2) domain, count(*) n FROM "User" WHERE email IS NOT NULL GROUP BY 1 ORDER BY n DESC LIMIT 15`));
+console.log('=== Сохта шудан аз рӯи рӯз (30 рӯзи охир)');
+console.table(await q(`SELECT date_trunc('day',"createdAt")::date d, count(*) n, count(*) FILTER (WHERE "totalXp">0) with_xp, count(DISTINCT country) countries FROM "User" WHERE "createdAt" > now()-interval '30 days' GROUP BY 1 ORDER BY 1 DESC`));
