@@ -34,6 +34,14 @@ export default async function AdminSubscriptionsPage() {
             <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '4px' }}>
               Идоракунии обунаҳои Premium
             </p>
+            {/* The Dashboard's "Premium" KPI counts every account with live
+                premium access — including the free 2-month promo gift, which
+                never creates a `Subscription` row. Without this note the two
+                numbers look like a contradiction. */}
+            <p style={{ color: 'var(--text3)', fontSize: '12px', marginTop: '6px', maxWidth: 560 }}>
+              Ин ҷо танҳо сабтҳои обуна ҳастанд. Тӯҳфаи промо (2-моҳа) сабти обуна намесозад —
+              барои ҳамин рақами «Premium» дар Dashboard калонтар аст.
+            </p>
           </div>
         </div>
 

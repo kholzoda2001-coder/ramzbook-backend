@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { isTestAccount } from '@/lib/admin/realUser';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,6 +44,12 @@ export async function GET() {
       streak: u.streak,
       createdAt: u.createdAt,
       lastActiveAt: u.lastActiveAt,
+      // Flagged HERE, not in the page: the definition lives in
+      // lib/admin/realUser.ts and pulls in `@prisma/client`, which must not
+      // reach the client bundle. The list still shows every account — the
+      // flag only lets the page say how many of them are test accounts, so
+      // its total stops contradicting the Dashboard.
+      isTest: isTestAccount(u),
     }));
 
     return NextResponse.json(mapped);

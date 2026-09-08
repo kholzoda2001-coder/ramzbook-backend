@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { startOfDayTJ } from '@/lib/admin-time';
+import { realUserWhere } from '@/lib/admin/realUser';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,12 +12,15 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     const now = new Date();
-    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    // Local (Dushanbe) midnight, not the UTC one this server would otherwise
+    // compute — see lib/admin-time.ts.
+    const startOfToday = startOfDayTJ(now);
     const startOf30DaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
     const startOf7DaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    // Excludes seeded/robo-test "Test User N" accounts — same convention as
-    // the leaderboard and the admin Analytics/Dashboard pages.
-    const realUser = { NOT: { name: { startsWith: 'Test User' as const } } };
+    // Ҳисобҳои санҷишӣ аз ҳар рақами «корбари воқеӣ» берун мемонанд — на
+    // танҳо seed-и `Test User N`, балки роботҳои pre-launch-и Google низ
+    // (41 ҳисоб дар 9 сентябри 2026). Таъриф: lib/admin/realUser.ts.
+    const realUser = realUserWhere;
 
     const [
       totalUsers,

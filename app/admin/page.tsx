@@ -1,24 +1,46 @@
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
+import { startOfDayTJ, startOfMonthTJ } from '@/lib/admin-time';
+import { realUserSql, realUserWhere } from '@/lib/admin/realUser';
+import { Prisma } from '@prisma/client';
 
 export const dynamic = 'force-dynamic';
+
+/**
+ * Human-readable "time ago". The old inline version only had two branches
+ * (minutes, then hours forever), so a six-week-old payment rendered as
+ * "1015 соат пеш" — technically true, unreadable in practice.
+ */
+function relTime(date: Date, now: Date): string {
+  const min = Math.max(0, Math.floor((now.getTime() - date.getTime()) / 60000));
+  if (min < 1) return 'ҳозир';
+  if (min < 60) return `${min} дақиқа пеш`;
+  const hours = Math.floor(min / 60);
+  if (hours < 24) return `${hours} соат пеш`;
+  const days = Math.floor(hours / 24);
+  if (days < 30) return `${days} рӯз пеш`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} моҳ пеш`;
+  return `${Math.floor(months / 12)} сол пеш`;
+}
 
 export default async function AdminDashboardPage() {
   try {
     const now = new Date();
-    const startOfDay = new Date();
-    startOfDay.setHours(0, 0, 0, 0);
-    const startOfMonth = new Date();
-    startOfMonth.setDate(1);
-    startOfMonth.setHours(0, 0, 0, 0);
+    // Vercel runs in UTC, so plain setHours(0,0,0,0) meant 05:00 Dushanbe —
+    // "Имрӯз" was off by five hours every single day.
+    const startOfDay = startOfDayTJ(now);
+    const startOfMonth = startOfMonthTJ(now);
 
-    // Excludes seeded/robo-test "Test User N" accounts (~10 of 104 total in
-    // production, likely Google Play's automated pre-launch testers) from
-    // every real-user metric — same convention already used by the
-    // leaderboard and the Analytics page.
-    const realUser = { NOT: { name: { startsWith: 'Test User' as const } } };
+    // ЯГОНА таърифи «корбари воқеӣ» — lib/admin/realUser.ts. Нусхаи дастии
+    // ин ҷо танҳо `Test User%`-ро медонист, пас Dashboard 204 ва Аналитика
+    // 163 нишон медоданд: роботҳои Google дар ин саҳифа ҳамчун корбар
+    // ҳисоб мешуданд.
+    const realUser = realUserWhere;
+    // Ҳамон шарт барои ду `$queryRaw`-и поён, бо алиаси `u`.
+    const realUserRaw = Prisma.raw(realUserSql('u'));
 
-    const [totalUsers, premiumUsers, lessonsToday, monthlyPayments, topUsers, languages, recentUsers, recentPayments] = await Promise.all([
+    const [totalUsers, premiumUsers, premiumByPlan, lessonsToday, monthlyPayments, topUsers, languages, recentUsers, recentPayments, learnerRows, activeLearnerRows] = await Promise.all([
       prisma.user.count({ where: realUser }),
       // "Premium" must mean CURRENTLY premium. `isPremium` only gets lazily
       // cleared on expiry when a user happens to hit one of a few specific
@@ -27,6 +49,14 @@ export default async function AdminDashboardPage() {
       // long-expired ones. Recompute the real answer from the expiry date.
       prisma.user.count({
         where: { ...realUser, isPremium: true, OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }] },
+      }),
+      // …and split it by plan. Almost every "Premium" account right now is a
+      // free promo gift (premiumPlan:'promo'), so a bare "48" reads as 48
+      // paying customers when only a couple of them actually paid.
+      prisma.user.groupBy({
+        by: ['premiumPlan'],
+        where: { ...realUser, isPremium: true, OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }] },
+        _count: { _all: true },
       }),
       prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: startOfDay }, user: realUser } }),
       // ⚠️ The `Payment` model is DEAD — no code anywhere still writes to it
@@ -37,7 +67,7 @@ export default async function AdminDashboardPage() {
       prisma.paymentTransaction.findMany({ where: { status: 'success', createdAt: { gte: startOfMonth } } }),
       prisma.user.findMany({ where: realUser, orderBy: { totalXp: 'desc' }, take: 5 }),
       prisma.language.findMany({
-        include: { _count: { select: { userLanguages: { where: { user: realUser } } } } },
+        select: { id: true, name: true, flag: true, code: true },
         orderBy: { order: 'asc' },
       }),
       prisma.user.findMany({ where: realUser, orderBy: { createdAt: 'desc' }, take: 3 }),
@@ -50,15 +80,62 @@ export default async function AdminDashboardPage() {
         orderBy: { createdAt: 'desc' },
         take: 2,
       }),
+      // ⚠️ "Забонҳои интихобшуда" used to count rows in `UserLanguage` — a
+      // table NOTHING in the codebase ever inserts into (grep: only findMany /
+      // updateMany / deleteMany). The app saves the learner's choice on
+      // `User.targetLang` via /api/mobile/preferences, so that table is empty
+      // in production and EVERY language sat at a permanent 0%.
+      //
+      // A user counts toward a language if they picked it as their target OR
+      // have progress in one of that language's courses (older accounts were
+      // created before `targetLang` was written, so the progress signal is the
+      // only evidence they exist). UNION dedupes, so one user is counted at
+      // most once per language.
+      prisma.$queryRaw<Array<{ lid: string; n: number }>>`
+        SELECT lid, COUNT(*)::int AS n FROM (
+          SELECT DISTINCT c."targetLanguageId" AS lid, up."userId" AS uid
+            FROM "UserProgress" up
+            JOIN "Lesson"  le ON le.id = up."lessonId"
+            JOIN "Module"  m  ON m.id  = le."moduleId"
+            JOIN "Course"  c  ON c.id  = m."courseId"
+            JOIN "User"    u  ON u.id  = up."userId"
+           WHERE ${realUserRaw}
+          UNION
+          SELECT l.id AS lid, u.id AS uid
+            FROM "User" u
+            JOIN "Language" l ON l.code = u."targetLang"
+           WHERE ${realUserRaw}
+        ) t GROUP BY lid`,
+      // How many of those accounts ever finished a lesson — a registration
+      // total alone says nothing about whether anyone actually studies.
+      prisma.$queryRaw<Array<{ n: number }>>`
+        SELECT COUNT(DISTINCT up."userId")::int AS n
+          FROM "UserProgress" up
+          JOIN "User" u ON u.id = up."userId"
+         WHERE up."isCompleted" = true
+           AND ${realUserRaw}`,
     ]);
 
     const monthlyIncome = monthlyPayments.reduce((acc, p) => acc + p.amount, 0);
-    const totalEnrolls = languages.reduce((sum, l) => sum + l._count.userLanguages, 0);
-    const langStats = languages.map(l => ({
-      id: l.id, name: l.name, flag: l.flag,
-      count: l._count.userLanguages,
-      percent: totalEnrolls > 0 ? Math.round((l._count.userLanguages / totalEnrolls) * 100) : 0
-    }));
+    const activeLearners = Number(activeLearnerRows[0]?.n ?? 0);
+    const promoPremium = premiumByPlan
+      .filter(g => g.premiumPlan === 'promo')
+      .reduce((s, g) => s + g._count._all, 0);
+    const paidPremium = premiumUsers - promoPremium;
+
+    const learnersByLang = new Map(learnerRows.map(r => [r.lid, Number(r.n)]));
+    const totalEnrolls = languages.reduce((sum, l) => sum + (learnersByLang.get(l.id) ?? 0), 0);
+    const langStats = languages
+      .map(l => {
+        const count = learnersByLang.get(l.id) ?? 0;
+        return {
+          id: l.id, name: l.name, flag: l.flag, count,
+          percent: totalEnrolls > 0 ? Math.round((count / totalEnrolls) * 100) : 0,
+        };
+      })
+      // Biggest first — the old fixed `order` listing buried the real answer
+      // under languages nobody is learning yet.
+      .sort((a, b) => b.count - a.count);
     const activities = [
       ...recentUsers.map(u => ({ title: `Корбари нав: ${u.name} ба қайд гирифт`, date: u.createdAt, color: 'var(--teal)' })),
       ...recentPayments.map(p => ({ title: `${p.user?.name || 'Корбар'} Premium обуна шуд — $${p.amount.toFixed(2)}`, date: p.createdAt, color: 'var(--gold)' }))
@@ -76,12 +153,12 @@ export default async function AdminDashboardPage() {
           <div className="sc t">
             <div className="sh"><div className="si si-t">👥</div><span className="tr up">↑ Актив</span></div>
             <div className="sv">{totalUsers.toLocaleString()}</div>
-            <div className="sl">Ҳамаи корбарон</div>
+            <div className="sl">Ҳамаи корбарон · {activeLearners} дарс хондаанд</div>
           </div>
           <div className="sc g">
             <div className="sh"><div className="si si-g">👑</div><span className="tr up">PRO</span></div>
             <div className="sv">{premiumUsers.toLocaleString()}</div>
-            <div className="sl">Premium</div>
+            <div className="sl">Premium · {paidPremium} пулакӣ · {promoPremium} тӯҳфа</div>
           </div>
           <div className="sc b">
             <div className="sh"><div className="si si-b">📚</div><span className="tr up">Имрӯз</span></div>
@@ -119,7 +196,10 @@ export default async function AdminDashboardPage() {
           </div>
 
           <div className="sec">
-            <div className="shd"><div className="st">🌍 Забонҳои интихобшуда</div></div>
+            <div className="shd">
+              <div className="st">🌍 Забонҳои интихобшуда</div>
+              <span style={{ fontSize: '11px', color: 'var(--text3)' }}>{totalEnrolls} интихоб</span>
+            </div>
             <div className="sb2">
               {langStats.length === 0 && <div style={{ color: 'var(--text3)', padding: '20px' }}>Забонҳо ёфт нашуданд.</div>}
               {langStats.map((l, idx) => {
@@ -128,7 +208,11 @@ export default async function AdminDashboardPage() {
                   <div className="ub" key={l.id}>
                     <span className="ul">{l.flag} {l.name}</span>
                     <div className="ut"><div className="uf" style={{ width: `${l.percent}%`, background: c }}></div></div>
-                    <span className="uv" style={{ color: c }}>{l.percent}%</span>
+                    {/* `.uv` is a fixed 34px column — too narrow now that the
+                        raw learner count sits next to the percentage. */}
+                    <span className="uv" style={{ color: c, whiteSpace: 'nowrap', width: 'auto', minWidth: 66 }}>
+                      {l.count} · {l.percent}%
+                    </span>
                   </div>
                 );
               })}
@@ -144,8 +228,7 @@ export default async function AdminDashboardPage() {
           <div className="sb2">
             {activities.length === 0 && <div style={{ color: 'var(--text3)', padding: '20px' }}>Фаъолиятҳо ёфт нашуданд.</div>}
             {activities.map((act, i) => {
-              const diffMin = Math.floor((new Date().getTime() - act.date.getTime()) / 60000);
-              const timeText = diffMin < 60 ? `${diffMin} дақиқа пеш` : `${Math.floor(diffMin / 60)} соат пеш`;
+              const timeText = relTime(act.date, now);
               return (
                 <div className="noti" key={i}>
                   <div className="ndot" style={{ background: act.color }}></div>

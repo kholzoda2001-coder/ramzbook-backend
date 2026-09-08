@@ -1,13 +1,18 @@
 import { prisma } from '@/lib/prisma';
 import PromoClaimsSection from './PromoClaimsSection';
+import { dayKeyTJ, startOfDayTJ } from '@/lib/admin-time';
+import { realUserWhere } from '@/lib/admin/realUser';
 
 export const dynamic = 'force-dynamic';
 
 const COLORS = ['var(--teal)', 'var(--blue)', 'var(--purple)', 'var(--gold)', 'var(--orange)', 'var(--green)', 'var(--red)'];
 
-function dayKey(d: Date): string {
-  return d.toISOString().slice(0, 10);
-}
+/**
+ * Day buckets follow the LOCAL (Dushanbe) day. Using the UTC date shifted
+ * every bar five hours, so lessons finished between local midnight and 05:00
+ * landed on the previous column.
+ */
+const dayKey = dayKeyTJ;
 
 const SKILL_LABEL: Record<string, string> = {
   vocab: 'Луғат', grammar: 'Грамматика', reading: 'Хониш', listening: 'Шунавоӣ',
@@ -19,16 +24,17 @@ export default async function AdminAnalyticsPage() {
     const now = new Date();
     const d7 = new Date(now); d7.setDate(d7.getDate() - 7);
     const d30 = new Date(now); d30.setDate(d30.getDate() - 30);
-    const d14 = new Date(now); d14.setDate(d14.getDate() - 13); d14.setHours(0, 0, 0, 0);
+    // Start of the local (Dushanbe) day 13 days back, so the 14-bar charts
+    // cover exactly the 14 local days they label.
+    const d14 = startOfDayTJ(new Date(now.getTime() - 13 * 86_400_000));
 
-    // Excludes seeded "Test User N" accounts from every real-user KPI —
-    // without this, ~10 fake dev accounts (out of ~104 total in production)
-    // inflated growth numbers by ~10%. `leaderboard` already used this same
-    // exclusion; the analytics KPIs hadn't.
-    const realUser = { NOT: { name: { startsWith: 'Test User' } } };
+    // Ҳисобҳои санҷишӣ аз ҳар KPI берун мемонанд — ҳам seed-и `Test User N`,
+    // ҳам роботҳои pre-launch-и Google, ки баъди ҲАР нашри билд пайдо
+    // мешаванд ва ҳеҷ гоҳ дарс намехонанд. Таъриф: lib/admin/realUser.ts.
+    const realUser = realUserWhere;
 
     const [
-      totalUsers, active7, new7, premiumUsers, completions7, completions30, accuracyAgg,
+      totalUsers, active7, new7, premiumUsers, premiumByPlan, completions7, completions30, accuracyAgg,
       recentSignups, recentCompletions, lessonsBySkill, courses, placementGroups, languages,
       wordTotal, grammarExTotal, phraseTotal, dialogueLineTotal, comprQTotal, placementTotal,
     ] = await Promise.all([
@@ -48,6 +54,13 @@ export default async function AdminAnalyticsPage() {
           isPremium: true,
           OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }],
         },
+      }),
+      // Split the premium headline by plan — see the Dashboard for the same
+      // fix: nearly all of it is the free 2-month promo gift, not revenue.
+      prisma.user.groupBy({
+        by: ['premiumPlan'],
+        where: { ...realUser, isPremium: true, OR: [{ premiumPlan: 'lifetime' }, { premiumExpiresAt: { gte: now } }] },
+        _count: { _all: true },
       }),
       prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: d7 }, user: realUser } }),
       prisma.userProgress.count({ where: { isCompleted: true, completedAt: { gte: d30 }, user: realUser } }),
@@ -79,6 +92,10 @@ export default async function AdminAnalyticsPage() {
     );
 
     const avgAccuracy = Math.round(accuracyAgg._avg.accuracy ?? 0);
+    const promoPremium = premiumByPlan
+      .filter(g => g.premiumPlan === 'promo')
+      .reduce((s, g) => s + g._count._all, 0);
+    const paidPremium = premiumUsers - promoPremium;
 
     // ── 14-day buckets ──
     const days: string[] = [];
@@ -127,7 +144,7 @@ export default async function AdminAnalyticsPage() {
           <div className="sc t"><div className="sh"><div className="si si-t">👥</div></div><div className="sv">{totalUsers.toLocaleString()}</div><div className="sl">Ҳамаи корбарон</div></div>
           <div className="sc b"><div className="sh"><div className="si si-b">🟢</div><span className="tr up">7 рӯз</span></div><div className="sv">{active7.toLocaleString()}</div><div className="sl">Корбарони фаъол</div></div>
           <div className="sc g"><div className="sh"><div className="si si-g">✨</div><span className="tr up">7 рӯз</span></div><div className="sv">{new7.toLocaleString()}</div><div className="sl">Корбарони нав</div></div>
-          <div className="sc r"><div className="sh"><div className="si si-r">👑</div><span className="tr up">PRO</span></div><div className="sv">{premiumUsers.toLocaleString()}</div><div className="sl">Premium</div></div>
+          <div className="sc r"><div className="sh"><div className="si si-r">👑</div><span className="tr up">PRO</span></div><div className="sv">{premiumUsers.toLocaleString()}</div><div className="sl">Premium · {paidPremium} пулакӣ · {promoPremium} тӯҳфа</div></div>
         </div>
         <div className="sr">
           <div className="sc b"><div className="sh"><div className="si si-b">📚</div><span className="tr up">7 рӯз</span></div><div className="sv">{completions7.toLocaleString()}</div><div className="sl">Дарсҳои анҷомёфта</div></div>

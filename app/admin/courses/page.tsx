@@ -65,7 +65,7 @@ export default async function AdminCoursesPage({
             },
             orderBy: [{ order: 'asc' }, { level: 'asc' }],
           },
-          _count: { select: { coursesAsTarget: true, userLanguages: true } },
+          _count: { select: { coursesAsTarget: true } },
         },
         orderBy: [{ order: 'asc' }, { name: 'asc' }],
       }),

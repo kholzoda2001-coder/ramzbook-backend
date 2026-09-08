@@ -34,6 +34,8 @@ type User = {
   streak: number;
   createdAt: string;
   lastActiveAt: string | null;
+  /** Seed/robo account — see lib/admin/realUser.ts (computed by the API). */
+  isTest?: boolean;
 };
 
 /** Returns the display contact: phone number if it's a phone-registered user, else email */
@@ -257,6 +259,15 @@ export default function UsersPage() {
   const [toast, setToast] = useState<Toast | null>(null);
   const [, startTransition] = useTransition();
 
+  // Seed the filter from `?q=` so the header's search box actually lands
+  // somewhere (it used to be a decorative input that did nothing).
+  // Read from `window.location` rather than `useSearchParams` to avoid
+  // needing a Suspense boundary around this page.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) setSearch(q);
+  }, []);
+
   // Fetch users list on mount
   useEffect(() => {
     setLoading(true);
@@ -275,6 +286,13 @@ export default function UsersPage() {
       displayContact(u).toLowerCase().includes(search.toLowerCase()) ||
       (u.email ?? '').toLowerCase().includes(search.toLowerCase())
   );
+
+  // The Dashboard/sidebar counters exclude test/robo accounts, so a bare
+  // total here contradicted the number shown everywhere else. `isTest` is
+  // computed server-side from the single definition in
+  // lib/admin/realUser.ts. Rows are never hidden — only counted separately.
+  const testCount = users.filter((u) => u.isTest).length;
+  const realCount = users.length - testCount;
 
   const dismissToast = useCallback(() => setToast(null), []);
 
@@ -295,7 +313,9 @@ export default function UsersPage() {
           <div>
             <h1 style={{ fontSize: 26, fontWeight: 700, color: 'var(--text)' }}>Users</h1>
             <p style={{ fontSize: 13, color: 'var(--text2)', marginTop: 2 }}>
-              {loading ? 'Бор мешавад…' : `${users.length} корбари бақайдгирифташуда`}
+              {loading
+                ? 'Бор мешавад…'
+                : `${realCount} корбари воқеӣ${testCount ? ` · ${testCount} ҳисоби тестӣ` : ''}`}
             </p>
           </div>
         </div>

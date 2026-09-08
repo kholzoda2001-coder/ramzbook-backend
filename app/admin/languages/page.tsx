@@ -17,7 +17,7 @@ export default async function AdminLanguagesPage() {
     // наметавонистем — доми якраҳа.
     const languages = await prisma.language.findMany({
       include: {
-        _count: { select: { coursesAsTarget: true, coursesAsNative: true, userLanguages: true } },
+        _count: { select: { coursesAsTarget: true, coursesAsNative: true } },
         // Забонҳои ОМӮЗИШИИ тобеи ҳамин забони модарӣ — маҳз ҳамонҳое, ки
         // ҳангоми хомӯш кардан пинҳон мешаванд.
         coursesAsNative: {

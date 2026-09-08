@@ -32,7 +32,7 @@ export default async function AdminLearningLanguagePage({
     const [language, courses, nativeLangs] = await Promise.all([
       prisma.language.findUnique({
         where: { id: params.languageId },
-        include: { _count: { select: { coursesAsTarget: true, userLanguages: true } } },
+        include: { _count: { select: { coursesAsTarget: true } } },
       }),
       prisma.course.findMany({
         where,
