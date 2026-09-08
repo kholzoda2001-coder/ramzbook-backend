@@ -55,16 +55,60 @@ export async function GET(req: NextRequest) {
     const word = normalize(req.nextUrl.searchParams.get('word') ?? '');
     if (!word) return NextResponse.json({ error: 'word is required' }, { status: 400 });
 
+    // ── Забони КИТОБ ─────────────────────────────────────────────────────────
+    //
+    // 🔴 Боге, ки ин ҷо баста мешавад: ҷустуҷӯ забонро УМУМАН намедонист —
+    // `where: { word: { equals: word } }` бе ҳеҷ филтр. Натиҷа: калимае, ки
+    // дар ду курс ҳаст, маънии забони НОДУРУСТро мегирифт.
+    //
+    // Мисоли равшан: хонанда китоби РУСӢ мехонад ва «no»-ро зер мекунад.
+    // Дар курси англисӣ «no» = «не», дар русӣ «но» = «вале». Ҷустуҷӯ
+    // аввалинро мегирифт — ва он метавонист аз забони тамоман дигар бошад.
+    //
+    // Ҳамин дом дар қабати AI низ буд: он `user.targetLang`-ро мегирифт,
+    // яъне хонандае, ки англисӣ меомӯзад ва китоби кореягӣ мехонад, шарҳи
+    // АНГЛИСӢ мегирифт.
+    //
+    // ⚠️ Ихтиёрӣ мемонад: барномаи КӮҲНА `lang` намефиристад, ва он ҷо
+    // рафтори пештара (ҷустуҷӯи умумӣ) нигоҳ дошта мешавад.
+    const bookLang = (req.nextUrl.searchParams.get('lang') ?? '')
+      .trim()
+      .toLowerCase()
+      .split('-')[0];
+
     // ── 1. Our own vocabulary ────────────────────────────────────────────────
-    const hit = await prisma.word.findFirst({
-      where: { word: { equals: word, mode: 'insensitive' } },
-      select: {
-        word: true, translation: true, emoji: true, ipa: true, ipaTajik: true,
-        example: true, exampleTrans: true, audioUrl: true, partOfSpeech: true,
-      },
-      // A word can appear in several lessons; the richest row is the useful one.
-      orderBy: [{ audioUrl: 'desc' }, { example: 'desc' }],
+    // Занҷир: Word → Lesson → Module → Course → targetLanguage.code
+    const inBookLang = bookLang
+      ? {
+          lesson: {
+            module: { course: { targetLanguage: { code: bookLang } } },
+          },
+        }
+      : {};
+
+    const select = {
+      word: true, translation: true, emoji: true, ipa: true, ipaTajik: true,
+      example: true, exampleTrans: true, audioUrl: true, partOfSpeech: true,
+    } as const;
+    // A word can appear in several lessons; the richest row is the useful one.
+    const orderBy = [{ audioUrl: 'desc' as const }, { example: 'desc' as const }];
+
+    let hit = await prisma.word.findFirst({
+      where: { word: { equals: word, mode: 'insensitive' }, ...inBookLang },
+      select,
+      orderBy,
     });
+
+    // Забони китоб мазмуни курс надорад (мас. китоби олмонӣ, курси олмонӣ
+    // ҳанӯз холӣ) — беҳтар аст маънии дигарро диҳем, назар ба ҳеҷ чиз.
+    // Он гоҳ AI ба ҳар ҳол забони дурустро мегирад.
+    if (!hit && bookLang) {
+      hit = await prisma.word.findFirst({
+        where: { word: { equals: word, mode: 'insensitive' } },
+        select,
+        orderBy,
+      });
+    }
 
     if (hit) {
       return NextResponse.json({ found: true, source: 'dictionary', ...hit });
@@ -96,7 +140,9 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ found: false, word, reason: 'limit', limit });
     }
 
-    const target = langName(user.targetLang);
+    // Забони КИТОБ болотар аз курси корбар: хонанда метавонад англисӣ
+    // омӯзад ва китоби кореягӣ хонад.
+    const target = langName(bookLang || user.targetLang);
     const native = langName(user.nativeLang);
 
     const result = await openAiChat({
