@@ -1,6 +1,7 @@
 import { prisma } from './prisma';
 import { evaluateAchievements, type UnlockedAchievement } from './achievements';
 import { addWeeklyXp } from './league';
+import { DEFAULT_TZ_OFFSET_MIN, localDayKey } from './localDay';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Central XP award pipeline. EVERY place XP is earned must call awardXp() so that
@@ -18,27 +19,8 @@ function dateOnly(d: Date): Date {
 // аст (`@db.Date`) ва сатрҳои мавҷуда бо ҳамон UTC навишта шудаанд — иваз
 // кардани он графики ҳафтаинаро ҷобаҷо мекунад, ки кори алоҳидаи муҳоҷират аст.
 
-/**
- * Минтақаи вақти пешфарз, вақте дастгоҳи корбар онро ҳанӯз нагуфтааст:
- * Душанбе (UTC+5). Аксарияти мутлақи хонандагон он ҷоянд, пас ин тахмин
- * барои онҳо АЙНАН дуруст аст, на тахмини бетараф.
- */
-const DEFAULT_TZ_OFFSET_MIN = 300;
-
-/**
- * «Рӯз» аз нигоҳи ХОНАНДА — калиди `YYYY-MM-DD` дар минтақаи вақти худи ӯ.
- *
- * ЧАРО ин лозим шуд: силсила бо рӯзи UTC ҳисоб мешуд, яъне барои хонандаи
- * тоҷик рӯз соати **05:00 бомдод** иваз мешуд, на дар нимишаб. Ду оқибати
- * воқеӣ дошт:
- *   • касе, ки соати 01:00-и шаб дарс мехонд, онро ба ДИРӮЗ навишта мешуд —
- *     яъне «имрӯз» ҳанӯз холӣ буд ва силсилааш метавонист бишканад;
- *   • огоҳии «то нимишаб фалон вақт монд» бо ҳақиқат мувофиқ намеомад.
- * Акнун нимишаби корбар ҳам дар матн, ҳам дар муҳаррик ҳамон як лаҳза аст.
- */
-function localDayKey(d: Date, tzOffsetMin: number): string {
-  return new Date(d.getTime() + tzOffsetMin * 60_000).toISOString().split('T')[0];
-}
+// `DEFAULT_TZ_OFFSET_MIN` ва `localDayKey` ба `lib/localDay.ts` кӯчиданд, то
+// ҳамин як таъриф ҳам ин ҷо, ҳам дар `lib/streakDisplay.ts` кор кунад.
 
 export type AwardXpResult = {
   totalXp: number;

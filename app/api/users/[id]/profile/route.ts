@@ -8,6 +8,7 @@ import {
   publicName,
   weekStrip,
 } from '@/lib/profile/publicProfile';
+import { liveStreak } from '@/lib/streakDisplay';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,6 +54,9 @@ export async function GET(
         totalXp: true,
         weeklyXp: true,
         streak: true,
+        // Ҳамон сабаб, ки дар рейтинг — силсила ҳангоми хондан ҳисоб мешавад.
+        lastActiveDate: true,
+        tzOffsetMin: true,
         longestStreak: true,
         isPremium: true,
         isActive: true,
@@ -167,7 +171,9 @@ export async function GET(
 
       // Се рақами калон. `level` дар RAMZ CEFR аст (A1/A2/B1) — сатҳи
       // рақамӣ дар ин барнома вуҷуд надорад.
-      streak: user.streak,
+      // `streak` — силсилаи ЗИНДА (0, агар имрӯз/дирӯз фаъол набошад);
+      // `longestStreak` рекорди таърихист ва бетағйир мемонад.
+      streak: liveStreak(user, now),
       longestStreak: user.longestStreak,
       level: user.level,
       totalXp: user.totalXp,

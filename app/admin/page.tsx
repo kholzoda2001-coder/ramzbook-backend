@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import { startOfDayTJ, startOfMonthTJ } from '@/lib/admin-time';
 import { realUserSql, realUserWhere } from '@/lib/admin/realUser';
+import { liveStreak } from '@/lib/streakDisplay';
 import { Prisma } from '@prisma/client';
 
 export const dynamic = 'force-dynamic';
@@ -187,7 +188,9 @@ export default async function AdminDashboardPage() {
                   </div>
                   <div style={{ flex: 1 }}>
                     <div className="mln">{u.name || 'Корбари Номаълум'}</div>
-                    <div className="mls">🔥 {u.streak} рӯз • {u.totalXp.toLocaleString()} XP</div>
+                    {/* Силсилаи ЗИНДА — ниг. lib/streakDisplay.ts. Майдони хом
+                        рақами касеро нишон медод, ки моҳҳо пеш рафтааст. */}
+                    <div className="mls">🔥 {liveStreak(u, now)} рӯз • {u.totalXp.toLocaleString()} XP</div>
                   </div>
                   {isReallyPremium(u) ? <span className="pill pp">Premium</span> : <span className="pill pa">Free</span>}
                 </div>

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { authenticate } from '@/lib/auth';
+import { liveStreak } from '@/lib/streakDisplay';
 
 export const dynamic = 'force-dynamic';
 
@@ -47,6 +48,10 @@ export async function GET(req: Request) {
       avatarUrl: true,
       totalXp: true,
       streak: true,
+      // Барои ҳисоби силсилаи ЗИНДА — ниг. lib/streakDisplay.ts. Бе инҳо
+      // рейтинг рақами яхбастаи касеро нишон медод, ки моҳҳо пеш рафтааст.
+      lastActiveDate: true,
+      tzOffsetMin: true,
       level: true,
       isPremium: true,
       country: true,
@@ -73,13 +78,16 @@ export async function GET(req: Request) {
       select,
     });
 
+    const now = new Date();
     const toRow = (u: typeof top[number], rank: number) => ({
       rank,
       id: u.id,
       name: u.name,
       avatarUrl: u.avatarUrl,
       xp: u.totalXp,
-      streak: u.streak,
+      // 🔥 танҳо барои касе, ки имрӯз ё дирӯз хондааст. Рутба ҳамоно аз рӯи
+      // XP аст — ин ҷо танҳо нишони силсила хомӯш мешавад, на ҷои корбар.
+      streak: liveStreak(u, now),
       level: u.level,
       isPro: u.isPremium,
       isYou: u.id === me.id,

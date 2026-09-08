@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { isTestAccount } from '@/lib/admin/realUser';
+import { liveStreak } from '@/lib/streakDisplay';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,6 +20,8 @@ export async function GET() {
         premiumExpiresAt: true,
         totalXp: true,
         streak: true,
+        lastActiveDate: true,
+        tzOffsetMin: true,
         createdAt: true,
         lastActiveAt: true,
       },
@@ -41,7 +44,8 @@ export async function GET() {
       isPremium: u.isPremium && (u.premiumPlan === 'lifetime' || (!!u.premiumExpiresAt && u.premiumExpiresAt >= now)),
       premiumPlan: u.premiumPlan,
       totalXp: u.totalXp,
-      streak: u.streak,
+      // Силсилаи ЗИНДА, на майдони яхбастаи база — ниг. lib/streakDisplay.ts.
+      streak: liveStreak(u, now),
       createdAt: u.createdAt,
       lastActiveAt: u.lastActiveAt,
       // Flagged HERE, not in the page: the definition lives in
