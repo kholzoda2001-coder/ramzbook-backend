@@ -1,4 +1,5 @@
 import { prisma } from './prisma';
+import { PREMIUM_FREEZE_CAP } from './streakFreezes';
 
 export async function checkAndUpdatePremium(userId: string): Promise<boolean> {
   const user = await prisma.user.findUnique({ where: { id: userId } });
@@ -44,7 +45,10 @@ export async function activatePremium(
       premiumExpiresAt: expiresAt,
       hearts: 999,
       maxHearts: 999,
-      streakFreezesAvailable: 999,
+      // ⚠️ 999 НЕ: freeze-и беохир силсиларо шикастанашаванда мекунад ва
+      // рақами 🔥-ро бемаъно. Ҳадди нигоҳдорӣ — lib/streakFreezes.ts
+      // (Premium 2, ҳар моҳ пур мешавад).
+      streakFreezesAvailable: PREMIUM_FREEZE_CAP,
     },
   });
   

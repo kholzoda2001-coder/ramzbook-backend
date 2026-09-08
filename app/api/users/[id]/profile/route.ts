@@ -57,6 +57,7 @@ export async function GET(
         // Ҳамон сабаб, ки дар рейтинг — силсила ҳангоми хондан ҳисоб мешавад.
         lastActiveDate: true,
         tzOffsetMin: true,
+        streakFreezesAvailable: true,
         longestStreak: true,
         isPremium: true,
         isActive: true,

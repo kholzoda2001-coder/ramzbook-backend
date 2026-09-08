@@ -52,6 +52,7 @@ export async function GET(req: Request) {
       // рейтинг рақами яхбастаи касеро нишон медод, ки моҳҳо пеш рафтааст.
       lastActiveDate: true,
       tzOffsetMin: true,
+      streakFreezesAvailable: true,
       level: true,
       isPremium: true,
       country: true,

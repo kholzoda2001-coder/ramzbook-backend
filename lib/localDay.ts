@@ -30,3 +30,11 @@ export const DEFAULT_TZ_OFFSET_MIN = 300;
 export function localDayKey(d: Date, tzOffsetMin: number): string {
   return new Date(d.getTime() + tzOffsetMin * 60_000).toISOString().split('T')[0];
 }
+
+/**
+ * Ҳамон рӯз, вале ҳамчун РАҚАМ — то ки фарқи ду санаро ҳисоб кардан мумкин
+ * бошад («чанд рӯзи пурра холӣ гузашт?»). Калиди сатрӣ инро дода наметавонад.
+ */
+export function localDayIndex(d: Date, tzOffsetMin: number): number {
+  return Math.floor((d.getTime() + tzOffsetMin * 60_000) / 86_400_000);
+}

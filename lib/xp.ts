@@ -2,6 +2,8 @@ import { prisma } from './prisma';
 import { evaluateAchievements, type UnlockedAchievement } from './achievements';
 import { addWeeklyXp } from './league';
 import { DEFAULT_TZ_OFFSET_MIN, localDayKey } from './localDay';
+import { decayStreak } from './streakDisplay';
+import { refillMonthlyFreezes } from './streakFreezes';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Central XP award pipeline. EVERY place XP is earned must call awardXp() so that
@@ -99,14 +101,24 @@ export async function awardXp(
 
 /**
  * Advances the streak when the user earns XP.
- *  - first XP ever / after a break  → streak = 1
- *  - consecutive day                → streak + 1
- *  - already active today           → unchanged
+ *  - already active today  → unchanged
+ *  - otherwise             → (streak after decay) + 1
+ *
+ * ⚠️ Пеш ин ҷо `last === yesterday ? streak + 1 : 1` буд — яъне ҳар танаффус
+ * силсиларо ба 1 мепартофт. Акнун қоида зинапоя аст (ҳар рӯзи холӣ −1), пас
+ * шумораи нав аз рақами КОҲИШЁФТА оғоз мешавад, на аз сифр. Мисол: 🔥10, чор
+ * рӯз нахонд, рӯзи панҷум омад → 10−4 = 6, +1 = 🔥7.
+ *
+ * Ҳамин ҷо freeze низ сарф мешавад: агар корбар рост ба дарс дарояд ва
+ * `GET /users/stats` даъват нашавад, ҳимоя бояд ҳамон тавр кор кунад.
  */
 export async function advanceStreak(userId: string, now = new Date()): Promise<number> {
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: { streak: true, longestStreak: true, lastActiveDate: true, tzOffsetMin: true },
+    select: {
+      streak: true, longestStreak: true, lastActiveDate: true, tzOffsetMin: true,
+      streakFreezesAvailable: true, streakFreezesUsed: true,
+    },
   });
   if (!user) return 0;
 
@@ -115,24 +127,28 @@ export async function advanceStreak(userId: string, now = new Date()): Promise<n
   const last = user.lastActiveDate ? localDayKey(user.lastActiveDate, tz) : null;
   if (last === today) return user.streak; // already counted today
 
-  const yesterday = localDayKey(new Date(now.getTime() - 86400000), tz);
-  const newStreak = last === yesterday ? user.streak + 1 : 1;
+  const decayed = decayStreak(user, now);
+  const newStreak = decayed.streak + 1;
 
   await prisma.user.update({
     where: { id: userId },
     data: {
       streak: newStreak,
       longestStreak: Math.max(user.longestStreak, newStreak),
-      lastActiveDate: today === last ? user.lastActiveDate : new Date(),
+      lastActiveDate: new Date(),
+      ...(decayed.freezesSpent > 0 && {
+        streakFreezesAvailable: user.streakFreezesAvailable - decayed.freezesSpent,
+        streakFreezesUsed: user.streakFreezesUsed + decayed.freezesSpent,
+      }),
     },
   });
   return newStreak;
 }
 
 /**
- * Read-only-ish streak DECAY check, called when the app opens (GET /users/stats).
- * Never advances the streak — only resets it to 0 when days were missed
- * (consuming a freeze first, if available). Keeps the displayed streak honest.
+ * Streak DECAY check, called when the app opens (GET /users/stats).
+ * Never advances the streak — only applies the day-by-day decay for missed
+ * days (spending freezes first, one per day). Keeps the stored streak honest.
  */
 export async function checkStreakDecay(userId: string, now = new Date()): Promise<number> {
   return (await checkStreakDecayDetailed(userId, now)).streak;
@@ -144,43 +160,39 @@ export async function checkStreakDecay(userId: string, now = new Date()): Promis
  * Чаро лозим шуд: freeze хомӯшона сарф мешуд — корбар ҳеҷ гоҳ намедонист, ки
  * streak-и 12-рӯзааш наҷот ёфт. Ин яке аз қавитарин лаҳзаҳои нигоҳдорӣ аст ва
  * бе он арзиши freeze (ва Premium, ки онро мефурӯшад) ноаён мемонад.
+ *
+ * `streakLost` акнун «чанд ЗИНА гум шуд» аст (қоидаи зинапоя), на «силсилаи
+ * пурра сӯхт» — қоидаҳо дар `lib/streakDisplay.ts`.
  */
 export async function checkStreakDecayDetailed(
   userId: string,
   now = new Date(),
 ): Promise<{ streak: number; freezeUsed: boolean; streakLost: number }> {
-  const user = await prisma.user.findUnique({
+  const fresh = await refillMonthlyFreezes(userId, now);
+  const user = fresh ?? await prisma.user.findUnique({
     where: { id: userId },
     select: { streak: true, lastActiveDate: true, streakFreezesAvailable: true, streakFreezesUsed: true, tzOffsetMin: true },
   });
   if (!user) return { streak: 0, freezeUsed: false, streakLost: 0 };
-  if (!user.lastActiveDate || user.streak === 0) {
+
+  const decayed = decayStreak(user, now);
+  if (decayed.missedDays === 0) {
     return { streak: user.streak, freezeUsed: false, streakLost: 0 };
   }
 
-  const tz = user.tzOffsetMin ?? DEFAULT_TZ_OFFSET_MIN;
-  const today = localDayKey(now, tz);
-  const yesterday = localDayKey(new Date(now.getTime() - 86400000), tz);
-  const last = localDayKey(user.lastActiveDate, tz);
-
-  if (last === today || last === yesterday) {
-    return { streak: user.streak, freezeUsed: false, streakLost: 0 }; // still valid
-  }
-
-  // Missed 2+ days → use a freeze if available, else reset.
-  if (user.streakFreezesAvailable > 0) {
-    await prisma.user.update({
-      where: { id: userId },
-      data: {
-        streakFreezesAvailable: user.streakFreezesAvailable - 1,
-        streakFreezesUsed: user.streakFreezesUsed + 1,
-        lastActiveDate: new Date(now.getTime() - 86400000), // treat as if active yesterday
-      },
-    });
-    return { streak: user.streak, freezeUsed: true, streakLost: 0 };
-  }
-
-  await prisma.user.update({ where: { id: userId }, data: { streak: 0 } });
-  // `streakLost` — барномаро имкон медиҳад пешниҳоди барқарорсозӣ нишон диҳад.
-  return { streak: 0, freezeUsed: false, streakLost: user.streak };
+  await prisma.user.update({
+    where: { id: userId },
+    data: {
+      streak: decayed.streak,
+      ...(decayed.freezesSpent > 0 && {
+        streakFreezesAvailable: user.streakFreezesAvailable - decayed.freezesSpent,
+        streakFreezesUsed: user.streakFreezesUsed + decayed.freezesSpent,
+      }),
+      // «Гӯё дирӯз фаъол буд» — то ҳамин рӯзҳо дубора коҳиш надиҳанд. Ин
+      // майдонро `pushSegments`/`paywall` танҳо барои «ИМРӮЗ хондааст?»
+      // мехонанд, пас дирӯз гузоштан онҳоро гумроҳ намекунад.
+      lastActiveDate: new Date(now.getTime() - 86400000),
+    },
+  });
+  return { streak: decayed.streak, freezeUsed: decayed.freezesSpent > 0, streakLost: decayed.daysLost };
 }

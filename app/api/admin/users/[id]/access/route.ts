@@ -10,6 +10,7 @@
  */
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { PREMIUM_FREEZE_CAP } from '@/lib/streakFreezes';
 
 const PLAN_DURATION_DAYS: Record<string, number> = {
   monthly: 30,
@@ -84,7 +85,10 @@ export async function POST(
           subscriptionEndsAt: expiresAt,
           hearts: 999,
           maxHearts: 999,
-          streakFreezesAvailable: 999,
+          // ⚠️ 999 НЕ: freeze-и беохир силсиларо шикастанашаванда мекунад ва
+          // рақами 🔥-ро бемаъно. Ҳадди нигоҳдорӣ — lib/streakFreezes.ts
+          // (Premium 2, ҳар моҳ пур мешавад).
+          streakFreezesAvailable: PREMIUM_FREEZE_CAP,
         },
       });
       try {

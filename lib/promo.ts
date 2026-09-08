@@ -15,6 +15,7 @@
  */
 
 import type { PrismaClient } from '@prisma/client';
+import { PREMIUM_FREEZE_CAP } from './streakFreezes';
 
 export const SETTING_KEY = 'promo_settings';
 
@@ -209,7 +210,10 @@ export async function grantPromo(prisma: PrismaClient, userId: string): Promise<
       // premium perks, same as the paid path in lib/googlePlay.ts
       hearts: 999,
       maxHearts: 999,
-      streakFreezesAvailable: 999,
+      // ⚠️ 999 НЕ: freeze-и беохир силсиларо шикастанашаванда мекунад ва
+      // рақами 🔥-ро бемаъно. Ҳадди нигоҳдорӣ — lib/streakFreezes.ts
+      // (Premium 2, ҳар моҳ пур мешавад).
+      streakFreezesAvailable: PREMIUM_FREEZE_CAP,
     },
   });
 

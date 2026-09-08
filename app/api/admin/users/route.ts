@@ -22,6 +22,7 @@ export async function GET() {
         streak: true,
         lastActiveDate: true,
         tzOffsetMin: true,
+        streakFreezesAvailable: true,
         createdAt: true,
         lastActiveAt: true,
       },

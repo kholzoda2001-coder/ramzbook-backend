@@ -41,6 +41,9 @@ model User {
   lastActiveDate         DateTime?
   streakFreezesAvailable Int       @default(1)
   streakFreezesUsed      Int       @default(0)
+  /// Кай freeze охирин бор пур карда шуд. Пуркунӣ моҳона ва КАСАЛ аст —
+  /// ҳангоми кушодани барнома, на бо cron. Ниг. lib/streakFreezes.ts.
+  freezesRefilledAt      DateTime?
 
   // Premium (legacy fields — kept for the Google Play webhook flow)
   isPremium        Boolean   @default(false)

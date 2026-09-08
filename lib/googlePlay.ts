@@ -1,5 +1,6 @@
 import { google, androidpublisher_v3 } from 'googleapis';
 import { prisma } from './prisma';
+import { PREMIUM_FREEZE_CAP } from './streakFreezes';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Canonical Google Play Billing verification (Phase 4A).
@@ -181,7 +182,10 @@ export async function activateVerifiedPurchase(params: {
         // premium perks
         hearts: 999,
         maxHearts: 999,
-        streakFreezesAvailable: 999,
+        // ⚠️ 999 НЕ: freeze-и беохир силсиларо шикастанашаванда мекунад ва
+        // рақами 🔥-ро бемаъно. Ҳадди нигоҳдорӣ — lib/streakFreezes.ts
+        // (Premium 2, ҳар моҳ пур мешавад).
+        streakFreezesAvailable: PREMIUM_FREEZE_CAP,
       },
     });
 
