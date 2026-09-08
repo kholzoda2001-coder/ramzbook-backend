@@ -425,10 +425,24 @@ export type LeagueRow = {
   rank: number;
   id: string;
   name: string;
-  /// Танҳо ҲАРФ, на сурат. Акси корбарони дигар мазмуни оммавии бемодератсия
-  /// мешавад (сиёсати UGC-и Google Play) — ҳамон қароре, ки дар лидерборди
-  /// кӯҳна қабул шуда буд.
+  /// Ҳарфи аввали ном — ЗАХИРА, вақте акс нест ё бор намешавад.
   avatarLetter: string;
+
+  /// Акси профил.
+  ///
+  /// ── Чаро вай баргашт (2026-09-08) ──────────────────────────────────────
+  /// Пештар ин ҷо ТАНҲО ҳарф буд, ва сабаб навишта шуда буд: акси корбарони
+  /// дигар мазмуни оммавии БЕМОДЕРАТСИЯ мешавад, ва сиёсати UGC-и Google
+  /// Play барои он се чиз талаб мекунад — роҳи ШИКОЯТ, роҳи БЛОК ва
+  /// модератсия.
+  ///
+  /// Он вақт ҳеҷ яке набуд. Ҳамин рӯз ҳар се сохта шуд: шикоят ба корбар,
+  /// блок, ва панели админ бо гурӯҳбандӣ ва тугмаи бастан. Пас шарт иҷро
+  /// шуд ва қарор аз нав дида шуд.
+  ///
+  /// ⚠️ Барнома акси корбари БЛОКШУДАРО намекашад — блок ҳам номро пинҳон
+  /// мекунад, ҳам аксро. Вагарна «блок кардам» нимкора мешуд.
+  avatarUrl: string | null;
   level: string;
   streak: number;
   weeklyXp: number;
@@ -481,7 +495,7 @@ export async function getMyLeague(userId: string, now: Date = new Date()) {
       weeklyXp: true,
       startRank: true,
       userId: true,
-      user: { select: { name: true, level: true, streak: true } },
+      user: { select: { name: true, avatarUrl: true, level: true, streak: true } },
     },
   });
 
@@ -490,6 +504,7 @@ export async function getMyLeague(userId: string, now: Date = new Date()) {
     id: m.userId,
     name: m.user.name,
     avatarLetter: letterOf(m.user.name),
+    avatarUrl: m.user.avatarUrl ?? null,
     level: m.user.level,
     streak: m.user.streak,
     weeklyXp: m.weeklyXp,
@@ -578,7 +593,7 @@ export async function getFriendsLeague(userId: string, now: Date = new Date()) {
   const ids = [...Array.from(friendIds), userId];
   const users = await prisma.user.findMany({
     where: { id: { in: ids }, isActive: true },
-    select: { id: true, name: true, level: true, streak: true },
+    select: { id: true, name: true, avatarUrl: true, level: true, streak: true },
   });
   const memberships = await prisma.leagueMember.findMany({
     where: { userId: { in: ids }, weekKey },
@@ -592,6 +607,7 @@ export async function getFriendsLeague(userId: string, now: Date = new Date()) {
       id: u.id,
       name: u.name,
       avatarLetter: letterOf(u.name),
+      avatarUrl: u.avatarUrl ?? null,
       level: u.level,
       streak: u.streak,
       // Дӯсте, ки ин ҳафта ҳанӯз нахондааст, 0 дорад — ин ҷо ӯ сатри мурда
