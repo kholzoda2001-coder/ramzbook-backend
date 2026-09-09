@@ -5,6 +5,7 @@ import { getHearts } from '@/lib/hearts';
 import { checkStreakDecayDetailed } from '@/lib/xp';
 import { checkAndUpdatePremium } from '@/lib/premium';
 import { getClientIp, getCountryFromIp } from '@/lib/geo';
+import { languageStats } from '@/lib/languageStats';
 
 export async function GET(req: Request) {
   try {
@@ -49,6 +50,8 @@ export async function GET(req: Request) {
         phone: true,
         totalXp: true,
         weeklyXp: true,
+        // Барои фоизи ҳар курс: курс ба ҶУФТИ забон вобаста аст.
+        nativeLang: true,
         gems: true,
         streak: true,
         longestStreak: true,
@@ -75,10 +78,26 @@ export async function GET(req: Request) {
       ? await prisma.word.count({ where: { lessonId: { in: completed.map((c) => c.lessonId) } } })
       : 0;
 
+    // Пешрафт БО ЗАБОНҲО — рӯйхати «Забонҳои омӯзишӣ» дар профил.
+    //
+    // Бе ин рӯйхат рақами УМУМИРО ба забони ФАЪОЛ мечаспонд ва ба
+    // дигарон сифр медод: интихоби забонро иваз мекардӣ — ҳамон 8438 XP
+    // ба забони нав мекӯчид. Ниг. `lib/languageStats.ts`.
+    //
+    // Хатогӣ дархостро НАМЕШИКАНАД: ин майдон ороишист ва набудани он
+    // барномаро ба рафтори пештара бармегардонад.
+    let byLanguage: Awaited<ReturnType<typeof languageStats>> = [];
+    try {
+      byLanguage = await languageStats(prisma, user.id, freshUser.nativeLang);
+    } catch (e) {
+      console.error('[users/stats] byLanguage', e);
+    }
+
     return NextResponse.json({
       ...freshUser,
       lessonsCompleted,
       wordsLearned,
+      byLanguage,
       hearts: heartsData.hearts,
       maxHearts: heartsData.maxHearts,
       nextRegenSeconds: heartsData.nextRegenSeconds,
