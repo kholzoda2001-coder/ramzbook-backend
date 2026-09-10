@@ -47,6 +47,85 @@ function langChoices(
   return Object.keys(out).map((code) => ({ code, label: out[code] }));
 }
 
+/**
+ * Интихоби забон бо варианти ОШКОРИ «ҳама».
+ *
+ * Пештар ин майдони матни озод (`<input list>`) буд: админ бояд коди забонро
+ * («tg», «en») бо ДАСТ менавишт, ва «ба ҳама» маънои ХОЛӢ гузоштанро дошт —
+ * қоидае, ки танҳо дар матни хурди зери майдон навишта шуда буд. Дар амал ин
+ * дида намешуд ва маълум набуд, ки чӣ тавр мавод ба ҳамаи забонҳо дода шавад.
+ *
+ * ⚠️ Имкони навиштани коди НАВ нигоҳ дошта шуд («коди дигар…»). Сабабаш дар
+ * [langChoices] навишта шудааст: як вақт `ko` дар ҷадвали `Language` набуд,
+ * вале ду китоби кореягӣ вуҷуд дошт, ва `<select>`-и сирф аз ҷадвал забони
+ * онҳоро ҳангоми таҳрир хомӯшона мепартофт. Рӯйхат ЁРӢ мекунад — маҳдуд
+ * намекунад.
+ */
+function LangField({
+  value,
+  onChange,
+  options,
+  cls,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  options: { code: string; label: string }[];
+  cls: string;
+}) {
+  const known = options.some((o) => o.code === value);
+  // Ҳолати аввал аз рӯи қимат: коде, ки дар рӯйхат нест, дарҳол дар режими
+  // дастӣ кушода мешавад, то таҳрир онро гум накунад. Волид `key` медиҳад, пас
+  // ҳангоми кушодани моли ДИГАР ҷузъ аз нав сохта мешавад.
+  const [custom, setCustom] = useState(!!value && !known);
+
+  if (custom) {
+    return (
+      <div className="flex gap-2">
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value.trim().toLowerCase())}
+          className={cls}
+          placeholder="мас. es"
+        />
+        <button
+          type="button"
+          onClick={() => {
+            setCustom(false);
+            onChange('');
+          }}
+          className="shrink-0 px-3 rounded-lg border border-[var(--bg-border)] text-xs text-[var(--text-muted)]"
+        >
+          ← рӯйхат
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <select
+      value={value}
+      onChange={(e) => {
+        if (e.target.value === '__custom__') {
+          setCustom(true);
+          onChange('');
+          return;
+        }
+        onChange(e.target.value);
+      }}
+      className={cls}
+    >
+      <option value="">— ҳама —</option>
+      {options.map((o) => (
+        <option key={o.code} value={o.code}>
+          {o.label} ({o.code})
+        </option>
+      ))}
+      <option value="__custom__">✏️ коди дигар…</option>
+    </select>
+  );
+}
+
 interface Lang {
   code: string;
   name: string;
@@ -393,37 +472,31 @@ export default function AdminLibraryPage() {
                 УМУМАН намебинад. Холӣ = ба ҳама. */}
             <div>
               <label className={label}>Забони омӯзиш</label>
-              <input
-                type="text"
-                list="lib-target-langs"
+              <LangField
+                key={`target-${editing.id ?? 'new'}`}
                 value={editing.targetLang ?? ''}
-                onChange={(e) => setEditing({ ...editing, targetLang: e.target.value.trim().toLowerCase() })}
-                className={input}
-                placeholder="холӣ = ҳама"
+                onChange={(v) => setEditing({ ...editing, targetLang: v })}
+                options={langChoices(langs, items, 'target')}
+                cls={input}
               />
-              <datalist id="lib-target-langs">
-                {langChoices(langs, items, 'target').map((o) => (
-                  <option key={o.code} value={o.code} label={o.label} />
-                ))}
-              </datalist>
+              <p className="text-[11px] text-[var(--text-muted)] mt-1">
+                Мавод ЧИРО меомӯзонад — ранги муқова ва рафи забон.
+              </p>
             </div>
             <div>
               <label className={label}>Барои кӣ (забони модарӣ)</label>
-              <input
-                type="text"
-                list="lib-native-langs"
+              <LangField
+                key={`native-${editing.id ?? 'new'}`}
                 value={editing.nativeLang ?? ''}
-                onChange={(e) => setEditing({ ...editing, nativeLang: e.target.value.trim().toLowerCase() })}
-                className={input}
-                placeholder="холӣ = ҳама"
+                onChange={(v) => setEditing({ ...editing, nativeLang: v })}
+                options={langChoices(langs, items, 'native')}
+                cls={input}
               />
-              <datalist id="lib-native-langs">
-                {langChoices(langs, items, 'native').map((o) => (
-                  <option key={o.code} value={o.code} label={o.label} />
-                ))}
-              </datalist>
               <p className="text-[11px] text-[var(--text-muted)] mt-1">
-                Мас. <b>tg</b> — танҳо ба тоҷикзабонҳо. Холӣ = ба ҳама.
+                <b>— ҳама —</b> : хонандагони ҳар забони модарӣ инро мебинанд.
+                <br />
+                <b>Тоҷикӣ</b> : танҳо онҳое, ки ҳангоми кушодани барнома
+                тоҷикиро ҳамчун забони модарӣ интихоб кардаанд.
               </p>
             </div>
 
