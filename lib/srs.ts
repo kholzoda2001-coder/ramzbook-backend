@@ -1,3 +1,7 @@
+// Нимишаби МАҲАЛЛӢ — навбат бо рӯзи худи хонанда кор мекунад, на бо UTC
+// (ҳамон сабабе, ки дар `lib/localDay.ts` шарҳ дода шудааст).
+import { DEFAULT_TZ_OFFSET_MIN } from './localDay';
+
 // ─────────────────────────────────────────────────────────────────────────────
 // SRS scheduler — a 4-button SM-2 (SuperMemo 2) implementation.
 //
@@ -80,4 +84,65 @@ export function reviewCard(state: SrsState, grade: SrsGrade, now: Date = new Dat
 
 export function isGrade(value: unknown): value is SrsGrade {
   return typeof value === 'string' && (SRS_GRADES as string[]).includes(value);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Сиёсати навбат — ҷудо аз математикаи SM-2 боло.
+//
+// Математика дуруст буд, вале СИЁСАТ набуд, ва маҳз он навбатро мекушт.
+// Ҳолати продакшн дар 10.09.2026:
+//   • 8,323 корт, ки 85%-аш дар `repetitions = 1` меистод — як бор сабт
+//     шуда, дигар ҳеҷ гоҳ воқеан такрор нашуда;
+//   • Алишер Хакимов 851 корти мӯҳлатрасида аз 851 (100%), кӯҳнатаринаш
+//     39 рӯз пеш; Shar1pov 740 аз 740;
+//   • миёна 30.4 корти нав дар як рӯз, рекорд **571 дар ЯК рӯз**.
+// Сабаб: тамомкунии дарс ҳамаи калимаҳояшро ЯКБОРА ба навбат мепартофт ва
+// ҳеҷ ҳадди рӯзона набуд. Хонанда рӯзи дигар девори 500-калимаро медид ва
+// дигар ба он даст намезад.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Чанд корти НАВ дар як рӯз ба навбат дохил мешавад. */
+export const SRS_NEW_PER_DAY = 20;
+
+/** Андозаи як сессияи такрор — ҳамон рақаме, ки мизоҷ мепурсад. */
+export const SRS_SESSION_SIZE = 15;
+
+/** Оғози рӯзи маҳаллӣ + `plusDays`, ҳамчун лаҳзаи воқеии UTC. */
+export function dueDayStart(plusDays: number, now: Date, tzOffsetMin = DEFAULT_TZ_OFFSET_MIN): Date {
+  const shifted = new Date(now.getTime() + tzOffsetMin * 60_000);
+  shifted.setUTCHours(0, 0, 0, 0);
+  shifted.setUTCDate(shifted.getUTCDate() + plusDays);
+  return new Date(shifted.getTime() - tzOffsetMin * 60_000);
+}
+
+/**
+ * Санаи навбатро барои кортҳои НАВ тақсим мекунад, то ҳеҷ рӯз аз
+ * [SRS_NEW_PER_DAY] зиёд нагирад.
+ *
+ * [alreadyPerDay] — чанд корт аллакай ба ҳар рӯз таъин шудааст
+ * (калид = «чанд рӯз аз имрӯз», яъне 1 = фардо).
+ *
+ * Функсияи пок: рӯйхати «чанд рӯз баъд» бармегардонад, ба ҳамон тартиби
+ * калимаҳои воридшуда — то калимаҳои як дарс паҳлӯи ҳам монанд.
+ */
+export function spreadNewCards(
+  count: number,
+  alreadyPerDay: Map<number, number> = new Map(),
+  perDay = SRS_NEW_PER_DAY,
+): number[] {
+  const out: number[] = [];
+  // Аз ФАРДО оғоз мешавад: калимаро ҳамон рӯзе, ки омӯхта шуд, пурсидан
+  // такрори фосиладор нест — хонанда онро ҳанӯз дар хотири кӯтоҳмуддат дорад.
+  let day = 1;
+  let used = alreadyPerDay.get(day) ?? 0;
+
+  for (let i = 0; i < count; i++) {
+    while (used >= perDay) {
+      day += 1;
+      used = alreadyPerDay.get(day) ?? 0;
+    }
+    out.push(day);
+    used += 1;
+  }
+  return out;
 }

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+import { SRS_SESSION_SIZE } from '@/lib/srs';
 
 export const dynamic = 'force-dynamic';
 
@@ -54,11 +55,19 @@ export async function GET(req: NextRequest) {
 
     const total = inScope.length;
     const due = inScope.filter((c) => c.dueAt <= now).length;
+    // Рақаме, ки ба ХОНАНДА нишон дода мешавад.
+    //
+    // `due` қарзи УМРИСТ ва барои хонандаи фаъол 400–850 мешавад, дар ҳоле
+    // ки як сессия 15 корт медиҳад. Рақами 851, ки пас аз сессия ба 840
+    // мефурояд, иҷрошаванда нест — он ноумед мекунад ва одам дигар ба он
+    // даст намезанад. `dueToday` ваъдаи ҲАҚИҚИИ як сессия аст.
+    const dueToday = Math.min(due, SRS_SESSION_SIZE);
     const learning = inScope.filter((c) => c.intervalDays < 21).length;
     const mature = inScope.filter((c) => c.intervalDays >= 21).length;
     const reviewedToday = inScope.filter((c) => c.lastReviewedAt && c.lastReviewedAt >= startOfToday).length;
 
-    return NextResponse.json({ total, due, learning, mature, reviewedToday });
+    // `due` нигоҳ дошта мешавад — он барои таҳлил ва экрани оморӣ лозим аст.
+    return NextResponse.json({ total, due, dueToday, learning, mature, reviewedToday });
   } catch (err) {
     console.error('[mobile/srs/stats]', err);
     return apiError('Failed to load SRS stats');
