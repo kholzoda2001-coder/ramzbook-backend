@@ -118,6 +118,7 @@ model User {
   paywallEvents        PaywallEvent[]
   feedbacks            Feedback[]
   srsCards             SrsCard[]
+  libraryProgress      LibraryProgress[]
   friendInvitesCreated FriendInvite[]
   friendStreaksAsUser1 FriendStreak[]       @relation("FriendStreakUser1")
   friendStreaksAsUser2 FriendStreak[]       @relation("FriendStreakUser2")
@@ -1275,6 +1276,44 @@ model PromoRedemption {
 // admin-managed (nothing is hardcoded in the app). One table covers every
 // type; `type` decides which fields matter:
 //   book/template → pages[]        audio/video → mediaUrl + durationMin
+/// Ҷои хониши хонанда дар як маводи Китобхона.
+///
+/// ── Чаро ин ҷадвал лозим шуд ───────────────────────────────────────────────
+/// Ҷои хониш ТАНҲО дар `SharedPreferences`-и телефон нигоҳ дошта мешуд
+/// (`epub_pos_<itemId>`). Яъне он ба ДАСТГОҲ баста буд, на ба ҳисоб:
+///   • барномаро нест кард ва аз нав насб кард → ҳамааш рафт;
+///   • «Clear data» дар танзимоти Android → ҳамааш рафт;
+///   • телефони нав ё логин дар ҷои дигар → китоб аз аввал сар мешуд;
+///   • ду ҳисоб дар як телефон → ҷои хониш байни онҳо омехта мешуд.
+/// Хонандае, ки нисфи китобро хонда буд, аз сифр сар мекард.
+///
+/// Прогресси ДАРС аллакай ҳамин намунаро дошт (`UserProgress` + маҳаллӣ);
+/// Китобхона аз он берун монда буд.
+model LibraryProgress {
+  id     String      @id @default(cuid())
+  userId String
+  user   User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemId String
+  item   LibraryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  /// Индекси боби ҷорӣ (аз сифр).
+  position Int @default(0)
+
+  /// Шумораи умумии бобҳо — то Китобхона «Боби 3 аз 8»-ро нишон диҳад.
+  total Int @default(0)
+
+  /// Бобҳои хатчӯбгузошта.
+  bookmarks Int[] @default([])
+
+  /// Лаҳзаи охирини хониш. Ҳамин майдон низои ду дастгоҳро ҳал мекунад:
+  /// сатри НАВтар ғолиб меояд, ва сервер ҳеҷ гоҳ ба ҷои кӯҳнатар барнамегардад.
+  lastReadAt DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([userId, itemId])
+  @@index([userId])
+}
+
 model LibraryItem {
   id            String   @id @default(cuid())
   type          String   @default("book") // book | audio | video | template
@@ -1314,7 +1353,8 @@ model LibraryItem {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  pages LibraryPage[]
+  pages    LibraryPage[]
+  progress LibraryProgress[]
 
   @@index([type, isActive, order])
   @@index([targetLang])
