@@ -187,8 +187,14 @@ export async function GET(_req: NextRequest, { params }: { params: { lessonId: s
     const SRS_FALLBACK_LIMIT = 5;
     let wordRows = lesson.words;
     if (component && wordRows.length === 0) {
+      // Танҳо дарсҳои ПЕШИНАИ ҳамин модул (`order < ин дарс`). Пештар тамоми
+      // модул гирифта мешуд — ва чархиши поён калимаҳои дарсҳои ОЯНДАро ҳам
+      // медод: грамматикаи дарси 3-и кореягӣ M4 чор калимаи дарсҳои 6–10-ро
+      // ҳамчун «good» ба навбати такрор мегузошт, пеш аз он ки хонанда онҳоро
+      // бинад. Агар пеш аз ин қадам ягон калима набошад, ҳавз холӣ мемонад —
+      // барнома (`_enrollLessonWords`) ҳавзи холиро бе хато сарфи назар мекунад.
       const moduleWords = await prisma.word.findMany({
-        where: { lesson: { moduleId: lesson.moduleId } },
+        where: { lesson: { moduleId: lesson.moduleId, order: { lt: lesson.order } } },
         orderBy: [{ frequencyRank: 'asc' }, { order: 'asc' }, { id: 'asc' }],
       });
       const seen = new Set<string>();
