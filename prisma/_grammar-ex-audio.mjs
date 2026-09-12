@@ -88,7 +88,11 @@ for (const w of await sql`SELECT w.word, w."audioUrl" au, m."courseId" cid FROM 
     WHERE coalesce(w."audioUrl", '') <> ''`) wordClip[`${w.cid}|${normKey(w.word)}`] ??= w.au;
 
 const items = [], skipped = [];
+let preset = 0;
 for (const r of rows) {
+  // Аудио аллакай дар база ҳаст, вале дар манифест нест (мас. билдери модул онро
+  // ба машқи аз нав сохташуда гузошт — id нав, ҷумла ҳамон) → даст нарасонда мешавад.
+  if (r.audioUrl && !manifest[r.id] && !REGEN.has(r.id)) { preset++; continue; }
   const v = voiceOf(r.lang, r.level);
   const { text, reason } = exerciseSentence(r, r.lang);
   if (!v) { skipped.push({ ...r, reason: `овози «${r.lang} ${r.level}» муайян нашудааст` }); continue; }
@@ -109,7 +113,7 @@ for (const it of items) {
   byGroup[k].total++;
   if (isDone(it)) byGroup[k].done++;
 }
-console.log(`машқҳо: ${rows.length} · бо аудио: ${items.length} · бе аудио: ${skipped.length} · сутуни audioUrl дар база: ${hasCol ? 'ҳаст' : 'НЕСТ'}`);
+console.log(`машқҳо: ${rows.length} · бо аудио: ${items.length} · бе аудио: ${skipped.length} · аудиои тайёр аз берун: ${preset} · сутуни audioUrl дар база: ${hasCol ? 'ҳаст' : 'НЕСТ'}`);
 console.table(Object.entries(byGroup).map(([k, v]) => ({ гурӯҳ: k, ҳама: v.total, тайёр: v.done })));
 for (const s of skipped) console.log(`  — бе аудио (${s.reason}): ${s.prompt} + ${s.answer}`);
 

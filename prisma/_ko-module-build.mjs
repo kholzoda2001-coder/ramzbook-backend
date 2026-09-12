@@ -281,10 +281,17 @@ for (const item of created.filter(c => c.grammar)) {
   // Аудиои мисолҳои БЕТАҒЙИР нигоҳ дошта мешавад (аз рӯи матни ҷумла): танҳо
   // ҷумлаи нав ё ивазшуда аз нав сабт мешавад — овози санҷидашуда гум намешавад.
   let keepAudio = new Map();
+  // Ҳамин тавр аудиои МАШҚҲО (ҷумлаи дуруст, `_grammar-ex-audio.mjs`): машқҳо нест ва
+  // аз нав сохта мешаванд (id-и нав), пас бе ин харита ҳар билди модул аудиоро пок мекард.
+  // Калид = навъ + савол + ҷавоб — ҳамон чизе, ки ҷумлаи сабтшуда аз он сохта шудааст.
+  const exKey = (x) => `${x.type ?? 'choose'}|${x.prompt}|${x.answer}`;
+  let keepExAudio = new Map();
   if (exist) {
     topicId = exist.id;
     keepAudio = new Map((await sql.query(`SELECT sentence, "audioUrl" FROM "GrammarExample"
       WHERE "topicId"='${topicId}' AND "audioUrl" IS NOT NULL AND "audioUrl"<>''`)).map(r => [r.sentence, r.audioUrl]));
+    keepExAudio = new Map((await sql.query(`SELECT type, prompt, answer, "audioUrl" FROM "GrammarExercise"
+      WHERE "topicId"='${topicId}' AND "audioUrl" IS NOT NULL AND "audioUrl"<>''`)).map(r => [exKey(r), r.audioUrl]));
     await api(`grammar/${topicId}`, 'PUT', { title: g.title, titleTranslated: g.titleTranslated, explanation: g.explanation, emoji: g.emoji });
     for (const [t, table] of [['rules', 'GrammarRule'], ['examples', 'GrammarExample'], ['exercises', 'GrammarExercise']])
       for (const r of await sql.query(`SELECT id FROM "${table}" WHERE "topicId"='${topicId}'`)) await api(`grammar/${t}/${r.id}`, 'DELETE');
@@ -299,7 +306,13 @@ for (const item of created.filter(c => c.grammar)) {
     if (kept) await sql.query(`UPDATE "GrammarExample" SET "audioUrl"=$1 WHERE id=$2`, [kept, example.id]);
     else audioJobs.push({ id: example.id, text: e.sentence, kind: 'example' });
   }
-  for (const [i, x] of g.exercises.entries()) await api('grammar/exercises', 'POST', { topicId, type: 'choose', ...x, order: i });
+  let keptEx = 0;
+  for (const [i, x] of g.exercises.entries()) {
+    const { exercise } = await api('grammar/exercises', 'POST', { topicId, type: 'choose', ...x, order: i });
+    const kept = keepExAudio.get(exKey(x));
+    if (kept && exercise?.id) { await sql.query(`UPDATE "GrammarExercise" SET "audioUrl"=$1 WHERE id=$2`, [kept, exercise.id]); keptEx++; }
+  }
+  if (keepExAudio.size) console.log(`    аудиои машқ нигоҳ дошта шуд: ${keptEx}/${g.exercises.length} (нав → prisma/_grammar-ex-audio.mjs)`);
   await api(`lessons/${item.id}`, 'PUT', { linkType: 'grammar', linkId: topicId });
   console.log(`  ✓ ${g.title}: ${g.rules.length} қоида, ${g.examples.length} мисол, ${g.exercises.length} машқ`);
 }
