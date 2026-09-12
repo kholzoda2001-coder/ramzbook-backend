@@ -118,7 +118,10 @@ export function parseSoundHits(raw: unknown): SoundHit[] {
   for (const e of raw.slice(0, 400)) {
     if (!e || typeof e !== 'object') continue;
     const o = e as Record<string, unknown>;
-    const phoneme = typeof o.phoneme === 'string' ? o.phoneme : '';
+    // `trim`: Azure барои `ko-KR`, `ru-RU`, `ar-SA` фонемаҳоро БЕ НОМ медиҳад
+    // (санҷиши зинда, 2026-09-12) — сатри холӣ ё фосила «садо» нест ва ҳисоботро
+    // бо сатри беном вайрон мекард. Ҳамон қоидаи клиент (`_collectSounds`).
+    const phoneme = typeof o.phoneme === 'string' ? o.phoneme.trim() : '';
     const score = typeof o.score === 'number' ? o.score : NaN;
     const word = typeof o.word === 'string' ? o.word : undefined;
     if (!phoneme || !Number.isFinite(score)) continue;

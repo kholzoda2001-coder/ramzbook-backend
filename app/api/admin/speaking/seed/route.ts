@@ -7,9 +7,10 @@ import directions from '@/content/speaking/directions_en_tg.json';
 import travel from '@/content/speaking/travel_en_tg.json';
 import hotel from '@/content/speaking/hotel_en_tg.json';
 import family from '@/content/speaking/family_people_en_tg.json';
+import meetingKo from '@/content/speaking/meeting_people_ko_tg.json';
 
 /** Ҳамаи бастаҳо. Илова кардани боби нав = як сатр дар ин рӯйхат. */
-const PACKS = [food, meeting, shopping, directions, travel, hotel, family];
+const PACKS = [food, meeting, shopping, directions, travel, hotel, family, meetingKo];
 
 export const dynamic = 'force-dynamic';
 

@@ -54,12 +54,16 @@ for (const L of pack.lessons) {
   lessons++;
   for (const i of L.items) {
     await sql.query(
+      // ⚠️ `wordCount` ҲАМИН ҶО ҳисоб мешавад — мисли роҳи админи seed. Бе он
+      // ҳар воҳид «сифр калима» менамояд ва валидатор онро рад мекунад
+      // (2026-09-12: боби кореягӣ бо 30 сатри сифрӣ сабт шуда буд).
       `INSERT INTO "SpeakingItem"
          (id, "lessonId", kind, text, translation, literal, note,
-          cue, "cueTranslation", "audioUrl", "order")
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NULL,$10)`,
+          cue, "cueTranslation", "audioUrl", "order", "wordCount")
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NULL,$10,$11)`,
       [cuid(), lid, i.kind, i.text, i.translation, i.literal ?? null,
-       i.note ?? null, i.cue ?? null, i.cueTranslation ?? null, i.order ?? 0]);
+       i.note ?? null, i.cue ?? null, i.cueTranslation ?? null, i.order ?? 0,
+       i.text.trim().split(/\s+/).filter(Boolean).length]);
     items++;
   }
 }

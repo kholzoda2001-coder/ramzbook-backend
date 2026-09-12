@@ -1,4 +1,5 @@
-// Садои НОМИ ҳар ҳарфи алифбои кореягӣ (ko → tg), бо овози ko-KR-SunHiNeural.
+// Садои НОМИ ҳар ҳарфи алифбои кореягӣ (ko → tg), бо овози Google
+// ko-KR-Chirp3-HD-Despina (то 2026-09-10 — edge-tts SunHi; ниг. қадами 1).
 //
 // Чаро сабти омода, на TTS-и телефон: экрани Алифбо ҳарфҳоро зуд-зуд пахш
 // мекунад; TTS-и дастгоҳ ё овоз надорад (дар телефонҳои тоҷикистонӣ забони
@@ -20,6 +21,7 @@ import { execFileSync } from 'child_process';
 import { createHash } from 'crypto';
 import { SignJWT } from 'jose';
 import { neon } from '@neondatabase/serverless';
+import { speakReliable, useTrimOrRaw } from './_ko-tts-google.mjs';
 
 const raw = readFileSync(new URL('../.env', import.meta.url), 'utf8');
 const env = Object.fromEntries(
@@ -70,13 +72,40 @@ if (missing.length) {
 }
 
 // ── 1. Тавлид ───────────────────────────────────────────────────────────────
+// Овоз = Google `ko-KR-Chirp3-HD-Despina` — ҳамон овози дарси шиносоӣ
+// (`_ko-onboarding.mjs`, ки чаро Despina-ро шарҳ медиҳад). То 2026-09-10 алифбо
+// edge-tts SunHi буд — хонанда дар ду экран ду овози гуногунро мешунид.
+// Chirp3-HD детерминистӣ НЕСТ → се такрор, МИЁНА аз рӯи дарозӣ.
+const VOICE = 'ko-KR-Chirp3-HD-Despina';
+const TAKES = 3;
+if (!env.GOOGLE_TTS_KEY) { console.error('GOOGLE_TTS_KEY нест'); process.exit(1); }
+async function googleTts(text) {
+  for (let a = 0; a < 4; a++) {
+    const res = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${env.GOOGLE_TTS_KEY}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input: { text }, voice: { languageCode: 'ko-KR', name: VOICE }, audioConfig: { audioEncoding: 'MP3' } }),
+    });
+    const d = await res.json().catch(() => ({}));
+    if (res.ok && d.audioContent) return Buffer.from(d.audioContent, 'base64');
+    if (a === 3) throw new Error(`TTS ${res.status}: ${JSON.stringify(d).slice(0, 160)}`);
+    await new Promise(r => setTimeout(r, 1500 * (a + 1)));
+  }
+}
+const secOf = (b) => b.length * 8 / 32000; // Chirp3-HD = CBR 32 kbps
 mkdirSync(WORK, { recursive: true });
-writeFileSync(`${WORK}/items.json`,
-  JSON.stringify(letters.map(l => ({ id: l.id, text: NAME[l.uppercase] })), null, 1));
-console.log('\n== Қадами 1: тавлид (edge-tts, ko-KR-SunHiNeural) ==');
-const out = execFileSync('python', ['prisma/_ko-tts.py', WORK, `${WORK}/items.json`],
-  { encoding: 'utf8', env: { ...process.env, PYTHONUTF8: '1' } });
-console.log(out.trim().split('\n').slice(-2).join('\n'));
+console.log(`\n== Қадами 1: тавлид (Google ${VOICE}, ${TAKES} такрор) ==`);
+let gi = 0;
+await Promise.all(Array.from({ length: 5 }, async () => {
+  while (gi < letters.length) {
+    const l = letters[gi++];
+    // Google Chirp3-HD барои ҳиҷои ЯККА аксар вақт файли хомӯш медиҳад (2026-09-11:
+    // 아 야 이 에 예 와 хомӯш баромаданд). `speakReliable` садои воқеиро месанҷад.
+    const { buf, variant, attempts } = await speakReliable(NAME[l.uppercase], { apiKey: env.GOOGLE_TTS_KEY, workDir: WORK });
+    if (variant !== 'plain' || attempts > 1) console.log(`  ↻ ${l.uppercase} ${NAME[l.uppercase]}: ${variant}, ${attempts} кӯшиш`);
+    writeFileSync(`${WORK}/${l.id}.mp3`, buf);
+  }
+}));
+console.log(`  ${letters.length}/${letters.length} сохта шуд`);
 
 // ── 2. Буридани хомӯшӣ ──────────────────────────────────────────────────────
 // edge-tts ҳар клипро бо ~0.19с хомӯшии САР ва ~1.2с хомӯшии ОХИР медиҳад:
@@ -91,6 +120,12 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM],
   { encoding: 'utf8', env: { ...process.env, PYTHONUTF8: '1' } }).trim());
 
 // ── 3. Бор кардан ва сабт ───────────────────────────────────────────────────
+{
+  // Пас аз буриш бори дигар: файли хомӯш ҳеҷ гоҳ ба база намеравад.
+  const { still: silent, usedRaw } = useTrimOrRaw(letters.map(l => [`${WORK}/${l.id}.mp3`, `${TRIM}/${l.id}.mp3`]));
+  if (usedRaw) console.log(`  ${usedRaw} клипи кӯтоҳ бе буриш монд (буриш садоро мехӯрд)`);
+  if (silent.length) { console.error('✗ файли хомӯш баъди буриш — ҳеҷ чиз бор нашуд:', silent.join(', ')); process.exit(1); }
+}
 console.log('\n== Қадами 3: бор кардан ва сабт ==');
 let done = 0;
 for (const l of letters) {
