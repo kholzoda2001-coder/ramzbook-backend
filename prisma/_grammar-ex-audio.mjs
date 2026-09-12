@@ -279,14 +279,25 @@ if (PUSH) {
   const sha = git(['rev-parse', 'HEAD']);
   console.log(`commit: ${sha}`);
   const url = (it) => `${CDN}@${sha}/${rel(it)}`;
-  let pending = items;
+  // Файле, ки аллакай бо ҳамин md5 дар CDN тасдиқ шудааст, URL-и кӯҳнаашро (бо SHA-и
+  // худ) нигоҳ медорад — вагарна ҳар push ҳамаи ~1350 файлро аз нав месанҷид (≈30 дақ,
+  // 2026-09-12). Сабтҳои кӯҳнаи сатрӣ (пеш аз ин тағйир) аллакай тасдиқ шуда буданд.
+  const prev = existsSync(URLS) ? JSON.parse(readFileSync(URLS, 'utf8')) : {};
+  const known = (it) => {
+    const p = prev[it.id];
+    if (typeof p === 'string') return p;
+    return p && p.md5 === manifest[it.id].md5 ? p.url : null;
+  };
+  let pending = items.filter((it) => !known(it));
+  console.log(`санҷиши CDN: ${pending.length} файли нав (${items.length - pending.length} аллакай тасдиқ)`);
   for (let a = 1; a <= 8 && pending.length; a++) {
     const m = measure(pending.map(url));
     pending = pending.filter((it) => m[url(it)]?.md5 !== manifest[it.id].md5);
     if (pending.length) { console.log(`CDN кӯшиши ${a}: ${pending.length} ҳанӯз нест…`); await sleep(15000); }
   }
   if (pending.length) { console.error(`⛔ CDN: ${pending.length} файл md5 надод — база даст нахӯрд`); process.exit(1); }
-  writeFileSync(URLS, JSON.stringify(Object.fromEntries(items.map((it) => [it.id, url(it)])), null, 1));
+  writeFileSync(URLS, JSON.stringify(Object.fromEntries(items.map((it) =>
+    [it.id, { url: known(it) ?? url(it), md5: manifest[it.id].md5 }])), null, 1));
   console.log(`✓ CDN: ҳамаи ${items.length} файл md5-и айнан баробар · ${URLS}`);
 }
 
@@ -301,7 +312,7 @@ if (APPLY) {
   const writes = [], topics = new Set();
   for (const it of items) {
     const r = byId[it.id];
-    const u = urls[it.id];
+    const u = typeof urls[it.id] === 'string' ? urls[it.id] : urls[it.id]?.url;
     if (!r || !u || r.audioUrl === u) continue;
     // Машқ баъди сабт тағйир ёфта бошад — аудиои кӯҳна ҷумлаи дигарро мегӯяд.
     if (exerciseSentence(r, it.lang).text !== manifest[it.id].text) { console.log(`  ! тағйир ёфт, гузашт: ${r.prompt}`); continue; }
