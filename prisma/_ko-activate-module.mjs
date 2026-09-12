@@ -33,8 +33,10 @@ if (!mod.isActive) {
   await sql`UPDATE "AppSetting" SET "updatedAt" = now() WHERE key = 'content_version'`;
   console.log('✓ фаъол шуд');
 }
-// Санҷиши воқеӣ: ҳамон дархосте, ки барнома мефиристад.
-const courses = await (await fetch(`${BASE}/api/mobile/courses`)).json();
+// Санҷиши воқеӣ: ҳамон дархосте, ки барнома мефиристад. Роут бе ҷуфти забон ҳеҷ курс
+// намедиҳад — бе ин параметрҳо санҷиш бардурӯғ «курс нест» мегуфт (2026-09-13).
+const KO = 'cmtkb6u4i000pd8149oc', TG = 'cmpk1cr9o0000bo0h1mheyoad';
+const courses = await (await fetch(`${BASE}/api/mobile/courses?targetLanguageId=${KO}&nativeLanguageId=${TG}`)).json();
 const list = Array.isArray(courses) ? courses : courses.courses ?? [];
 const ko = list.find((c) => c.id === COURSE);
 const mods = ko?.modules ?? [];
