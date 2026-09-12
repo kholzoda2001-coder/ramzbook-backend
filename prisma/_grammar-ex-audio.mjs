@@ -47,12 +47,17 @@ const VOICES = {
   'en:A1': { engine: 'edge', voice: 'en-US-AriaNeural' },
   'en:A2': { engine: 'google', lc: 'en-US', voice: 'en-US-Neural2-F' },
   'en:B1': { engine: 'google', lc: 'en-US', voice: 'en-US-Neural2-F' },
-  ru: { engine: 'google', lc: 'ru-RU', voice: 'ru-RU-Chirp3-HD-Kore' },
+  // Chirp3-HD-Kore дар ҷумлаҳо ~0.7–0.96 с хомӯшии САР медиҳад (127/264, 2026-09-12) —
+  // таъхири ҳискунанда баъди пахши 🔊 → мисли ar/ko бурида мешавад.
+  // `rev` ба калиди манифест медарояд → ҳамаи клипҳои русӣ бо буриш аз нав сабт
+  // мешаванд (на танҳо нокомҳо), то тамоми курс якхела бошад.
+  ru: { engine: 'google', lc: 'ru-RU', voice: 'ru-RU-Chirp3-HD-Kore', trim: true, rev: 2 },
   ar: { engine: 'edge', voice: 'ar-SA-ZariyahNeural', trim: true },
   ko: { engine: 'ko', voice: 'ko-KR-Chirp3-HD-Despina', trim: true },
   de: { engine: 'edge', voice: 'de-DE-KatjaNeural' },
 };
 const voiceOf = (lang, level) => VOICES[`${lang}:${level}`] ?? VOICES[lang];
+const vkeyOf = (v) => `${v.engine}:${v.voice}${v.rev ? `#${v.rev}` : ''}`;
 
 const sql = connect();
 const hasCol = (await sql`SELECT 1 FROM information_schema.columns WHERE table_name='GrammarExercise' AND column_name='audioUrl'`).length > 0;
@@ -89,7 +94,7 @@ for (const r of rows) {
   if (!v) { skipped.push({ ...r, reason: `овози «${r.lang} ${r.level}» муайян нашудааст` }); continue; }
   if (!text) { skipped.push({ ...r, reason }); continue; }
   const reuse = /\s/.test(text) ? null : wordClip[`${r.cid}|${normKey(text)}`] ?? null;
-  items.push({ ...r, text, v, reuse, vkey: reuse ? `word-clip:${reuse}` : `${v.engine}:${v.voice}` });
+  items.push({ ...r, text, v, reuse, vkey: reuse ? `word-clip:${reuse}` : vkeyOf(v) });
 }
 const isDone = (it) => {
   const m = manifest[it.id];
@@ -179,7 +184,7 @@ if (GEN) {
       // Клипи дарс санҷишро нагузашт → ҳамон калима бо овози курс нав сабт мешавад.
       console.log(`  ↻ «${it.text}»: клипи дарс (${why}) → сабти нав`);
       it.reuse = null;
-      it.vkey = `${it.v.engine}:${it.v.voice}`;
+      it.vkey = vkeyOf(it.v);
     }
     saveManifest();
     console.log(`  ✓ ${reuse.filter(isDone).length}/${reuse.length}`);
