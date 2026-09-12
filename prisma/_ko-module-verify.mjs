@@ -114,6 +114,14 @@ for (const l of lessons) {
     // омехта намекунанд ва имтиҳонро бе хондан гузаштан мумкин буд (аудит 2026-09-11).
     if (qs.length >= 2 && qs.every((y, i) => y.correctIndex === i % Math.max(1, (y.options ?? []).length)))
       P(`«${x.title}»: ҷойи ҷавоб давра мезанад (0,1,2,…) — пешгӯишаванда`);
+    // Такрори ПУРРАИ пораи давраи 2 ё 3 (0,1,0,1 · 2,1,0,2,1,0) ҳам — аудити M5 (2026-09-12):
+    // имтиҳон «2,1,0,2,1,0,0,1» буд, ва санҷиши боло онро намедид.
+    {
+      const t = qs.map(y => y.correctIndex);
+      const run = [2, 3].some(p => t.some((_, s) => s + 2 * p <= t.length && new Set(t.slice(s, s + p)).size > 1
+        && t.slice(s, s + p).every((v, k) => v === t[s + p + k])));
+      if (run) P(`«${x.title}»: ҷойи ҷавоб такрор мешавад (${t.join(',')}) — пешгӯишаванда`);
+    }
   } else if (words.length) {
     detail = `${words.length} калима`;
     if (words.length < 4) P(`«${l.title}»: ${words.length} калима`);

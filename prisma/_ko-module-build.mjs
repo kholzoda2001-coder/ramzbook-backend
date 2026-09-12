@@ -85,6 +85,17 @@ const esc = (s) => s.replace(/'/g, "''");
 // се якхела паси ҳам ё ҳамааш дар як ҷо. Пештар `i % options.length` буд — аудити
 // 2026-09-11 нишон дод, ки имтиҳонро аз рӯи ҳамин қолаб бе хондан гузаштан мумкин
 // аст. Барномаи нав вариантҳоро худаш омехта мекунад, версияҳои кӯҳна не.
+/** Оё дар [t] ягон пораи давраи 2 ё 3 ПУРРА ду бор паси ҳам меояд (0,1,0,1 · 2,1,0,2,1,0)? */
+export function periodicRun(t) {
+  for (const p of [2, 3]) {
+    for (let s = 0; s + 2 * p <= t.length; s++) {
+      if (new Set(t.slice(s, s + p)).size < 2) continue; // «0,0,0,0» — кори `triple`
+      if (t.slice(s, s + p).every((v, k) => v === t[s + p + k])) return true;
+    }
+  }
+  return false;
+}
+
 function spreadAnswers(lengths, seed) {
   let x = 2166136261;
   for (const ch of seed) { x ^= ch.codePointAt(0); x = Math.imul(x, 16777619) >>> 0; }
@@ -98,7 +109,10 @@ function spreadAnswers(lengths, seed) {
     const cyclic = t.every((v, i) => v === i % lengths[i]);
     const triple = t.some((v, i) => i >= 2 && v === t[i - 1] && v === t[i - 2]);
     const oneSpot = t.length > 1 && new Set(t).size === 1;
-    if (!cyclic && !triple && !oneSpot) return t;
+    // Ҳар гуна такрори ПУРРА — на танҳо давраи рост: имтиҳони M5 «2,1,0,2,1,0,0,1» баромад
+    // (давраи баръакси 3, ду бор) ва персонаи «алгоритм» онро ёфт (аудити 2026-09-12).
+    const periodic = periodicRun(t);
+    if (!cyclic && !triple && !oneSpot && !periodic) return t;
     last = t;
   }
   return last;

@@ -96,16 +96,18 @@ export const VOCAB = [
   {
     title: '시간', titleTranslated: 'Соат ва дақиқа', emoji: '🕒',
     words: [
-      { word: '시', translation: '… соат (вақт: 세 시)', emoji: '🕒', pos: 'noun', ipa: '/ɕi/',
-        example: '지금 세 시예요.', exampleTrans: 'Ҳозир соат се аст.' },
+      // Мисолҳои ин дарс танҳо 5–10 соат доранд: 한/두/세/네 (шакли кӯтоҳ) ДАР ДАРСИ БАЪДӢ
+      // шарҳ дода мешаванд — «세 시» дар ин ҷо хонандаро ба «셋?» мебурд (аудити M5).
+      { word: '시', translation: '… соат (다섯 시 = соати панҷ)', emoji: '🕒', pos: 'noun', ipa: '/ɕi/',
+        example: '지금 다섯 시예요.', exampleTrans: 'Ҳозир соат панҷ аст.' },
       { word: '분', translation: 'дақиқа', emoji: '⏱️', pos: 'noun', ipa: '/pun/',
-        example: '지금 세 시 십 분이에요.', exampleTrans: 'Ҳозир соати се-ю даҳ дақиқа аст.' },
+        example: '지금 여섯 시 십 분이에요.', exampleTrans: 'Ҳозир соати шашу даҳ дақиқа аст.' },
       { word: '반', translation: 'ним (30 дақиқа)', emoji: '🌓', pos: 'noun', ipa: '/pan/',
-        example: '지금 두 시 반이에요.', exampleTrans: 'Ҳозир соат дуюним аст.' },
+        example: '지금 여덟 시 반이에요.', exampleTrans: 'Ҳозир соат ҳаштуним аст.' },
       { word: '몇', translation: 'чанд (?)', emoji: '❓', pos: 'numeral', ipa: '/mjʌt̚/',
         example: '지금 몇 시예요?', exampleTrans: 'Ҳозир соат чанд аст?' },
       { word: '지금', translation: 'ҳозир', emoji: '👉', pos: 'adverb', ipa: '/tɕi.gɯm/',
-        example: '지금 몇 시예요? — 한 시예요.', exampleTrans: 'Ҳозир соат чанд аст? — Соат як.' },
+        example: '지금 몇 시예요? — 열 시예요.', exampleTrans: 'Ҳозир соат чанд аст? — Соат даҳ.' },
       { word: '시간', translation: 'вақт', emoji: '⏳', pos: 'noun', ipa: '/ɕi.gan/',
         example: '시간 있어요? — 네, 있어요.', exampleTrans: 'Вақт доред? — Бале, дорам.' },
     ],
@@ -147,7 +149,7 @@ export const VOCAB = [
   {
     title: '일과 공부', titleTranslated: 'Кор ва таҳсил', emoji: '💼',
     words: [
-      { word: '일해요', translation: 'кор мекунам', emoji: '💼', pos: 'verb', ipa: '/i.re.jo/',
+      { word: '일해요', translation: 'кор мекунам', emoji: '💼', pos: 'verb', ipa: '/il.he.jo/',
         example: '마이클 씨는 지금 일해요.', exampleTrans: 'Майкл ҳозир кор мекунад.' },
       { word: '공부해요', translation: 'дарс мехонам', emoji: '📚', pos: 'verb', ipa: '/koŋ.bu.he.jo/',
         example: '저는 한국어 공부해요.', exampleTrans: 'Ман забони кореягӣ меомӯзам.' },
@@ -155,7 +157,7 @@ export const VOCAB = [
         example: '민수 씨는 지금 와요.', exampleTrans: 'Минсу ҳозир меояд.' },
       { word: '쉬어요', translation: 'дам мегирам', emoji: '🛋️', pos: 'verb', ipa: '/ɕɥi.ʌ.jo/',
         example: '할머니는 지금 쉬어요.', exampleTrans: 'Бибӣ ҳозир дам мегирад.' },
-      { word: '전화해요', translation: 'занг мезанам', emoji: '📱', pos: 'verb', ipa: '/tɕʌ.nwa.he.jo/',
+      { word: '전화해요', translation: 'занг мезанам', emoji: '📱', pos: 'verb', ipa: '/tɕʌn.hwa.he.jo/',
         example: '지금 전화해요? — 네, 전화해요.', exampleTrans: 'Ҳозир занг мезанед? — Бале, занг мезанам.' },
       { word: '수업', translation: 'дарс (машғулот)', emoji: '📝', pos: 'noun', ipa: '/su.ʌp̚/',
         example: '수업은 아홉 시예요.', exampleTrans: 'Дарс соати нӯҳ аст.' },
@@ -254,7 +256,8 @@ export const GRAMMAR = [
     ],
     exercises: [
       { prompt: '지금 ___ 시예요.', promptTranslated: 'Ҳозир соат як аст (1:00).', answer: '한', options: ['한', '하나', '일', '열'], explanation: '하나 пеш аз 시 кӯтоҳ мешавад → 한 시.' },
-      { prompt: '지금 ___ 시예요.', promptTranslated: 'Ҳозир соат ду аст (2:00).', answer: '두', options: ['두', '둘', '이', '세'], explanation: 'Соат бо рақами кореягӣ: 둘 → 두 시 (이 시 нодуруст).' },
+      // Ҳар машқ ҷумлаи ХУДРО дорад (қоидаи аудити M3): пештар ин ҳам «지금 ___ 시예요.» буд.
+      { prompt: '수업은 ___ 시예요.', promptTranslated: 'Дарс соати ду аст (2:00).', answer: '두', options: ['두', '둘', '이', '세'], explanation: 'Соат бо рақами кореягӣ: 둘 → 두 시 (이 시 нодуруст).' },
       { prompt: '지금 네 시 ___이에요.', promptTranslated: 'Ҳозир соат чоруним аст (4:30).', answer: '반', options: ['반', '분', '시', '몇'], explanation: '30 дақиқа = 반 → 네 시 반.' },
       { prompt: '지금 ___ 시 십 분이에요.', promptTranslated: 'Ҳозир соати панҷу даҳ дақиқа аст (5:10).', answer: '다섯', options: ['다섯', '오', '여섯', '넷'], explanation: 'Соат — рақами кореягӣ: 다섯 시 (오 시 нодуруст).' },
       { prompt: '지금 ___ 시예요? — 세 시예요.', promptTranslated: 'Ҳозир соат чанд аст? — Соат се.', answer: '몇', options: ['몇', '뭐', '누구', '무엇'], explanation: '«Соат чанд?» → 몇 시예요?' },
