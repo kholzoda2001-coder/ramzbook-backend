@@ -64,6 +64,8 @@ export async function GET(req: NextRequest) {
           orderBy: { order: 'asc' },
           select: {
             id: true,
+            // Барои рӯйхати дарсҳои боб (`lessonList`).
+            title: true,
             // Дарси бе воҳид машқ дода наметавонад — ҳамон қоидаи `/lesson`.
             _count: { select: { items: true } },
           },
@@ -119,11 +121,22 @@ export async function GET(req: NextRequest) {
           // Чанд дарси ин боб кушода аст ва оё боб ПУРРА қулф аст.
           lessonsOpen: open,
           locked: open === 0,
+          // Ҳамаи дарсҳои боб — зеркунии боб рӯйхатро нишон медиҳад
+          // (дархости корбар, 2026-09-12). `open` аз ҲАМОН `openIds`, пас
+          // экран ва роути `/lesson?lessonId=` ҳеҷ гоҳ ду ҷавоб намедиҳанд.
+          // Майдони `lessons` (рақам) барои клиенти кӯҳна мемонад.
+          lessonList: c.lessons.map((l, li) => ({
+            id: l.id,
+            number: li + 1,
+            title: (l.title ?? '').trim(),
+            done: doneIds.has(l.id),
+            open: openIds.has(l.id),
+          })),
         };
       }),
     });
   } catch (err) {
     console.error('[ai/speaking/categories] GET failed:', err);
-    return apiError('Failed to list speaking chapters.');
+    return apiError('Failed to list speaking chapters.', 500, err);
   }
 }

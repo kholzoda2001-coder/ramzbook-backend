@@ -112,8 +112,16 @@ export function unauthorized(message = 'Unauthorized') {
 /**
  * Standard JSON error response for unhandled exceptions.
  */
-export function apiError(message: string, status = 500) {
-  return Response.json({ error: message }, { status });
+export function apiError(message: string, status = 500, cause?: unknown) {
+  // `code` — only a short, non-secret cause tag (e.g. Prisma `P1001`), so the
+  // app's error screen can show it and a user's screenshot is a diagnosis.
+  const code = (cause as { code?: unknown } | undefined)?.code;
+  return Response.json(
+    typeof code === 'string' && /^[A-Z0-9_]{2,20}$/.test(code)
+      ? { error: message, code }
+      : { error: message },
+    { status },
+  );
 }
 
 /**

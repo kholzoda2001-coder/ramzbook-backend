@@ -109,7 +109,10 @@ function isRetryableDbError(e: unknown): boolean {
 
 if (!globalForPrisma.prismaRetryMiddlewareAttached) {
   globalForPrisma.prismaRetryMiddlewareAttached = true;
-  const backoffsMs = [250, 600, 1200]; // ~2s total — enough for a Neon resume
+  // ~4.5s total. Was [250, 600, 1200] (~2s): a Neon resume usually fits, but
+  // not always — the tail surfaced as an intermittent generic error in the
+  // speaking section (2026-09-12). Still well under the app's 10s timeout.
+  const backoffsMs = [250, 600, 1200, 2500];
   prisma.$use(async (params, next) => {
     let lastErr: unknown;
     for (let attempt = 0; attempt <= backoffsMs.length; attempt++) {

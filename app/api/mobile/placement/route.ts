@@ -65,6 +65,14 @@ export async function GET(req: NextRequest) {
  * authenticated — writes the result to the learner's UserLanguage.currentLevel
  * for that target language. Auth is OPTIONAL so the test also works during
  * onboarding before the account context is established (client stores locally).
+ *
+ * `probe: true` grades WITHOUT writing the level. The app runs the test as an
+ * adaptive ladder: it asks one CEFR level's block, sends the answers here to
+ * find out whether that level was passed, and only then decides whether to
+ * climb to the next block. Those intermediate calls must not leave a
+ * half-finished level (e.g. "A1") on the account — only the FINAL call, sent
+ * without the flag, is allowed to persist. Grading itself is identical, so a
+ * probe never disagrees with the final answer.
  */
 export async function POST(req: NextRequest) {
   try {
@@ -72,6 +80,8 @@ export async function POST(req: NextRequest) {
       targetLanguageId?: string;
       nativeLanguageId?: string;
       answers?: Array<{ questionId?: string; selected?: string }>;
+      /** Grade only — do not persist the level. See the note above. */
+      probe?: boolean;
     };
 
     const targetLanguageId = (body.targetLanguageId ?? '').trim();
@@ -119,8 +129,10 @@ export async function POST(req: NextRequest) {
     const result = computePlacement(graded);
 
     // Persist to the learner's UserLanguage row if authenticated and enrolled.
+    // A probe grades and returns, but never writes.
+    const probe = body.probe === true;
     let saved = false;
-    const userId = requireUserId(req);
+    const userId = probe ? null : requireUserId(req);
     if (userId) {
       const upd = await prisma.userLanguage.updateMany({
         where: { userId, languageId: targetLanguageId },

@@ -12,6 +12,7 @@ import {
   FREE_SPEAKING_LESSONS,
   SPEAKING_LOCKED,
 } from '@/lib/speaking/access';
+import { pickSpeakingLesson } from '@/lib/speaking/pick';
 
 export const dynamic = 'force-dynamic';
 
@@ -44,6 +45,10 @@ export async function GET(req: NextRequest) {
     // (ниг. `/api/ai/speaking/categories`). Холӣ бошад — занҷири одатӣ:
     // аввалин дарси нагузашта дар ҳамаи бобҳо.
     const categoryId = req.nextUrl.searchParams.get('categoryId')?.trim();
+
+    // Ихтиёрӣ: хонанда МАҲЗ ҳамин дарсро аз рӯйхати дарсҳои боб интихоб
+    // кард (`lessonList` дар `/categories`). Бе он — аввалин дарси нагузашта.
+    const lessonId = req.nextUrl.searchParams.get('lessonId')?.trim();
 
     // ── Гейти версияи клиент (§10.2) ─────────────────────────────────────
     //
@@ -82,7 +87,11 @@ export async function GET(req: NextRequest) {
         targetLanguageId: langId,
         nativeLanguageId: nativeLanguage.id,
         isActive: true,
-        ...(categoryId ? { id: categoryId } : {}),
+        // ⚠️ Филтри `categoryId` ин ҷо НЕСТ — поёнтар. Гейти премиум бояд
+        // ТАМОМИ занҷирро бинад: пештар бо `categoryId` занҷир танҳо аз ҳамон
+        // боб иборат буд, ва «дарси 1-и ройгони занҷир» дарси 1-и ҲАР боби
+        // дархостшуда мешуд — корбари ройгон бо дархости дастӣ аввалин
+        // дарси ҳар бобро мекушод (ёфт 2026-09-12).
       },
       orderBy: { order: 'asc' },
       select: {
@@ -124,7 +133,7 @@ export async function GET(req: NextRequest) {
     });
 
     // Дарси бе воҳид машқ дода наметавонад — партофта мешавад.
-    const chapters = categories
+    const all = categories
       .map((c) => ({
         ...c,
         lessons: c.lessons.filter((l) =>
@@ -132,6 +141,9 @@ export async function GET(req: NextRequest) {
         ),
       }))
       .filter((c) => c.lessons.length > 0);
+
+    // Боби интихобшуда — ФАҚАТ барои интихоби дарс; гейт `all`-ро мебинад.
+    const chapters = categoryId ? all.filter((c) => c.id === categoryId) : all;
 
     if (chapters.length === 0) {
       return NextResponse.json(
@@ -144,30 +156,28 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const allLessonIds = chapters.flatMap((c) => c.lessons.map((l) => l.id));
+    const allLessonIds = all.flatMap((c) => c.lessons.map((l) => l.id));
     const done = await prisma.speakingProgress.findMany({
       where: { userId, lessonId: { in: allLessonIds } },
       select: { lessonId: true },
     });
     const doneIds = new Set(done.map((d) => d.lessonId));
 
-    // Аввалин дарси нагузашта дар тамоми занҷир; ҳама тамом → охиринаш такрор.
-    let chapter = chapters[chapters.length - 1];
-    let lesson = chapter.lessons[chapter.lessons.length - 1];
-    let chapterIndex = chapters.length - 1;
-    let lessonIndex = chapter.lessons.length - 1;
-
-    outer: for (let ci = 0; ci < chapters.length; ci++) {
-      for (let li = 0; li < chapters[ci].lessons.length; li++) {
-        if (!doneIds.has(chapters[ci].lessons[li].id)) {
-          chapter = chapters[ci];
-          lesson = chapters[ci].lessons[li];
-          chapterIndex = ci;
-          lessonIndex = li;
-          break outer;
-        }
-      }
+    // МАҲЗ `lessonId` (аз рӯйхати дарсҳои боб), ё аввалин дарси нагузашта;
+    // ҳама тамом → охиринаш такрор. Қоида дар `lib/speaking/pick.ts` (тест).
+    const picked = pickSpeakingLesson(chapters, doneIds, lessonId);
+    if (!picked) {
+      return NextResponse.json(
+        { error: 'This speaking lesson was not found.' },
+        { status: 404 },
+      );
     }
+    const chapter = chapters[picked.chapterIndex];
+    const lesson = chapter.lessons[picked.lessonIndex];
+    const lessonIndex = picked.lessonIndex;
+    // Рақами боб дар ТАМОМИ занҷир — ҳамон рақами `/categories`. Пештар бо
+    // `categoryId` ҳар боби интихобшуда «Боби 1» мешуд.
+    const chapterIndex = all.indexOf(chapter);
 
     // ── ГЕЙТИ ПРЕМИУМ ────────────────────────────────────────────────────
     //
@@ -178,10 +188,10 @@ export async function GET(req: NextRequest) {
     // ороишӣ мебуд — ҳар кас метавонист дархостро дастӣ фиристад ва
     // тамоми мазмунро бигирад.
     //
-    // Занҷир бо ҳамон тартибе дода мешавад, ки боло ҳисоб шуд (`chapters`),
-    // вагарна «дарси навбатӣ» ва «дарси кушода» ду чизи гуногун мешуданд.
+    // Занҷир ПУРРА (`all`), бо ҳамон тартибе, ки `/categories` мебинад —
+    // вагарна экран дарсро қулф нишон медод ва сервер онро медод (ё баръакс).
     const openIds = unlockedSpeakingLessonIds({
-      chapters,
+      chapters: all,
       completedIds: doneIds,
       isPremium: user.isPremium,
     });
@@ -251,6 +261,6 @@ export async function GET(req: NextRequest) {
     });
   } catch (err) {
     console.error('[ai/speaking/lesson] GET failed:', err);
-    return apiError('Failed to build the speaking lesson.');
+    return apiError('Failed to build the speaking lesson.', 500, err);
   }
 }
