@@ -17,7 +17,7 @@ interface Course { id: string; level: string; emoji: string; targetLanguage: { f
 interface Topic { id: string; title: string; titleTranslated: string; emoji: string; cefrLevel: string | null; isPremium: boolean; isActive: boolean; order: number; _count?: { examples: number; rules: number; exercises: number }; }
 interface Example { id: string; sentence: string; translation: string; highlight: string | null; audioUrl: string | null; }
 interface Rule { id: string; pattern: string; note: string | null; }
-interface Exercise { id: string; type: string; prompt: string; promptTranslated: string | null; answer: string; options: unknown; explanation: string | null; }
+interface Exercise { id: string; type: string; prompt: string; promptTranslated: string | null; answer: string; options: unknown; explanation: string | null; audioUrl?: string | null; }
 interface TopicDetail extends Topic { explanation: string; examples: Example[]; rules: Rule[]; exercises: Exercise[]; }
 
 const EMPTY_TOPIC = { title: '', titleTranslated: '', explanation: '', cefrLevel: '', emoji: '🔤', isPremium: false };
@@ -225,6 +225,11 @@ function TopicEditor({ detail, onChange, onClose }: { detail: TopicDetail; onCha
               <div style={{ color: 'var(--text-primary)', fontSize: '14px' }}><span style={{ fontSize: '11px', color: '#A78BFA' }}>[{q.type}]</span> {q.prompt}</div>
               <div style={{ color: '#4ADE80', fontSize: '12px' }}>✓ {q.answer}{Array.isArray(q.options) && q.options.length ? ` · [${(q.options as string[]).join(', ')}]` : ''}</div>
             </div>
+            {/* Ҷумлаи дуруст, ки барнома баъди санҷиш бо 🔊/🐢 мехонад. Машқи нав ё
+                таҳриршуда то иҷрои `prisma/_grammar-ex-audio.mjs` бе аудио аст. */}
+            {q.audioUrl
+              ? <audio controls preload="none" src={q.audioUrl} style={{ height: '28px', width: '150px' }} />
+              : <span title="Аудио нест — prisma/_grammar-ex-audio.mjs --gen/--push/--apply" style={{ fontSize: '13px', opacity: 0.6 }}>🔇</span>}
             <button onClick={async () => { try { await del(`/api/admin/grammar/exercises/${q.id}`); onChange(); } catch (e: any) { alert(e.message); } }} style={SMALL_DEL}>🗑️</button>
           </div>
         ))}

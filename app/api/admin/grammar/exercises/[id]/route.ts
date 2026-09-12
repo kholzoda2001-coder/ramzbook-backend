@@ -8,9 +8,17 @@ export const dynamic = 'force-dynamic';
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   try {
     const body = await req.json();
+    // The recording says the correct sentence built from prompt + answer. If
+    // either changes without a new recording, the old audio would read out a
+    // sentence that no longer matches — so it is dropped (the app then hides
+    // the 🔊 button) until a new one is generated.
+    const textChanged = body.prompt !== undefined || body.answer !== undefined;
+    const audioUrl =
+      body.audioUrl !== undefined ? (body.audioUrl?.trim() || null) : textChanged ? null : undefined;
     const updated = await prisma.grammarExercise.update({
       where: { id: params.id },
       data: {
+        ...(audioUrl !== undefined && { audioUrl }),
         ...(body.type !== undefined && isGrammarExerciseType(body.type) && { type: body.type }),
         ...(body.prompt !== undefined && { prompt: body.prompt.trim() }),
         ...(body.answer !== undefined && { answer: body.answer.trim() }),

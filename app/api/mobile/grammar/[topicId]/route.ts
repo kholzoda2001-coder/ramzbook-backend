@@ -61,6 +61,8 @@ export async function GET(_req: NextRequest, { params }: { params: { topicId: st
         answer: ex.answer,
         options: Array.isArray(ex.options) ? ex.options : [],
         explanation: ex.explanation ?? '',
+        // The correct sentence, read aloud after the answer is checked.
+        audioUrl: ex.audioUrl ?? '',
       })),
     });
   } catch (err: any) {

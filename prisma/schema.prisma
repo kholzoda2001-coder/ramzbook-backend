@@ -603,6 +603,9 @@ model GrammarExercise {
   answer           String // the correct answer
   options          Json? // string[] of options for "choose" / "reorder" types
   explanation      String?      @db.Text // native-language reason the answer is correct
+  // Recording of the CORRECT full sentence (built by prisma/_grammar-ex-text.mjs),
+  // played by the 🔊/🐢 buttons after the answer is checked. null = no buttons.
+  audioUrl         String?
   order            Int          @default(0)
 
   @@index([topicId])

@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as {
       topicId?: string; type?: string; prompt?: string; answer?: string;
       promptTranslated?: string; options?: unknown; explanation?: string; order?: number;
+      audioUrl?: string;
     };
     const prompt = (body.prompt ?? '').trim();
     const answer = (body.answer ?? '').trim();
@@ -27,6 +28,7 @@ export async function POST(req: NextRequest) {
         promptTranslated: body.promptTranslated?.trim() || null,
         options: normalizeOptions(body.options) ?? undefined,
         explanation: body.explanation?.trim() || null,
+        audioUrl: body.audioUrl?.trim() || null,
         order,
       },
     });
