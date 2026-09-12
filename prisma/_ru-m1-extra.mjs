@@ -1,0 +1,12 @@
+import { connect, RU, COURSE_RU_A1 } from './_ru-fix-lib.mjs';
+const sql = connect();
+const [al] = await sql`SELECT count(*)::int n FROM "AlphabetLetter" WHERE "targetLanguageId"=${RU}`;
+const [aa] = await sql`SELECT count(*)::int n FROM "AlphabetLetter" WHERE "targetLanguageId"=${RU} AND "audioUrl" IS NOT NULL AND "audioUrl"<>''`;
+const [ar] = await sql`SELECT count(*)::int n FROM "AlphabetRule" WHERE "targetLanguageId"=${RU}`;
+console.log(`АЛИФБО: ҳарф=${al.n} аудиодор=${aa.n} қоида=${ar.n}`);
+const [c] = await sql`SELECT id,title,level,("isActive")::text act,description FROM "Course" WHERE id=${COURSE_RU_A1}`;
+console.log('КУРС:', c.title, c.level, 'act=', c.act);
+const [m] = await sql`SELECT "contentVersion" cv FROM "Module" WHERE "courseId"=${COURSE_RU_A1} ORDER BY "order" LIMIT 1`;
+console.log('contentVersion модули 1 =', m.cv);
+const [s] = await sql`SELECT value FROM "AppSetting" WHERE key='content_version'`;
+console.log('AppSetting.content_version =', s?.value);
