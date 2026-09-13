@@ -1,0 +1,436 @@
+{
+  "slug": "meeting_people_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Знакомство",
+    "titleTranslated": "Шиносоӣ",
+    "scenario": "Бо русзабон вомехӯред: салом медиҳед, номатонро мегӯед, мефаҳмонед, ки аз куҷоед ва чӣ кор мекунед, ва хайрухуш мекунед. Ҳамон чанд ибора, ки мулоқоти аввал — дар кор, дар бозор ё дар идора — бе онҳо намешавад.",
+    "emoji": "👋",
+    "order": 1,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Салом ва ташаккур",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Здравствуйте",
+          "translation": "салом",
+          "literal": null,
+          "note": "Саломи расмӣ ва боадабона: бо бегона, бо калонсол, бо корфармо ва дар идора.\n\nҲарфи якуми «в» дар гуфтор шунида намешавад — «здраствуйте» мегӯянд.\n\nБо дӯст ва ҳамсол кӯтоҳтараш «Привет» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Привет",
+          "translation": "салом (дӯстона)",
+          "literal": null,
+          "note": "Саломи дӯстона — танҳо бо дӯст, ҳамсол ва наздикон.\n\nБа корфармо ё шахси калонсол «Привет» гуфтан беадабӣ садо медиҳад — он ҷо «Здравствуйте» лозим.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Да",
+          "translation": "бале",
+          "literal": null,
+          "note": "Ҷавоби мусбат. Ҳам расмӣ, ҳам дӯстона — ҳамеша ҳамин.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Нет",
+          "translation": "не",
+          "literal": null,
+          "note": "Ҷавоби манфӣ.\n\nДиққат: «нет» ҷавоби алоҳида аст. Дар дохили ҷумла пеш аз феъл ё исм «не» меояд: «Я не водитель» — ман ронанда нестам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Спасибо",
+          "translation": "ташаккур",
+          "literal": null,
+          "note": "Ташаккур — дар ҳама ҷо: дар мағоза, дар кор, дар хона.\n\nҲарфи «о»-и аввал нимтанҳо садо медиҳад: «спасиба».\n\nДар ҷавоб «Пожалуйста» мегӯянд — «хоҳиш мекунам».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Да, спасибо.",
+          "translation": "Бале, ташаккур.",
+          "literal": null,
+          "note": "Ду калимаи омӯхта дар як ҷавоб — вақте чизеро қабул мекунед.",
+          "cue": "Здравствуйте! Вот ваш чай.",
+          "cueTranslation": "Салом! Инак чойи шумо."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Нет, спасибо.",
+          "translation": "Не, ташаккур.",
+          "literal": null,
+          "note": "Радди боадабона. «Нет» танҳо дағал садо медиҳад — бо «спасибо» нарм мешавад.",
+          "cue": "Хотите чай?",
+          "cueTranslation": "Чой мехоҳед?"
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Ман ва номи ман",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Я",
+          "translation": "ман",
+          "literal": null,
+          "note": "«Ман». Дар русӣ феъли «ҳастам» дар замони ҳозира гуфта намешавад: «Я Али» — ман Алӣ ҳастам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Меня зовут",
+          "translation": "номи ман",
+          "literal": null,
+          "note": "Айнан «маро меноманд». Русҳо номро маҳз ҳамин тавр мегӯянд: «Меня зовут Али».\n\nИн ду калимаро ҳамчун як ибора ёд гиред.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Как",
+          "translation": "чӣ хел",
+          "literal": null,
+          "note": "Калимаи саволӣ. Дар саволи ном «как» маънои «чӣ»-ро медиҳад: «Как вас зовут?» — номатон чист?",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Вас",
+          "translation": "шуморо",
+          "literal": null,
+          "note": "Шакли боадабонаи «шумо» дар савол: «Как вас зовут?».\n\nБо бегона ва калонсол ҳамеша «вас».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Тебя",
+          "translation": "туро",
+          "literal": null,
+          "note": "Шакли дӯстонаи «ту»: «Как тебя зовут?».\n\nБо кӯдак, дӯст ва ҳамсол. Ба корфармо «тебя» нагӯед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Меня зовут Али.",
+          "translation": "Номи ман Алӣ аст.",
+          "literal": null,
+          "note": "Сохти муаррифӣ: «Меня зовут» + ном.\n\nНоми худатонро гузоред — сохт ҳамон мемонад.",
+          "cue": "Здравствуйте! Меня зовут Иван.",
+          "cueTranslation": "Салом! Номи ман Иван аст."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Как вас зовут?",
+          "translation": "Номи шумо чист?",
+          "literal": null,
+          "note": "Саволи асосии шиносоӣ, боадабона.\n\nОҳанги савол дар калимаи «как» боло меравад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Как тебя зовут?",
+          "translation": "Номат чист?",
+          "literal": null,
+          "note": "Ҳамон савол, вале дӯстона — ба кӯдак ё ҳамсол.",
+          "cue": "Привет! Я Саша.",
+          "cueTranslation": "Салом! Ман Саша."
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Аз куҷо ҳастед?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Откуда",
+          "translation": "аз куҷо",
+          "literal": null,
+          "note": "Калимаи саволӣ: «Откуда вы?» — шумо аз куҷоед?\n\nФарқ: «где» — дар куҷо, «откуда» — аз куҷо.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Из",
+          "translation": "аз",
+          "literal": null,
+          "note": "Пешояндӣ «аз». Баъди «из» охири номи кишвар иваз мешавад: Таджикистан → из Таджикистана, Россия → из России.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Таджикистан",
+          "translation": "Тоҷикистон",
+          "literal": null,
+          "note": "Номи кишвар бо русӣ. Бо «из» — «из Таджикистана».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Россия",
+          "translation": "Русия",
+          "literal": null,
+          "note": "Номи кишвар. Бо «из» — «из России», бо «в» — «в России» (дар Русия).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Я из Таджикистана.",
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": null,
+          "note": "Сохт: «Я из» + кишвар бо охири «-а» ё «-и».\n\nФеъли «ҳастам» боз гуфта намешавад.",
+          "cue": "Откуда вы?",
+          "cueTranslation": "Шумо аз куҷоед?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Откуда вы?",
+          "translation": "Шумо аз куҷоед?",
+          "literal": null,
+          "note": "Ҳамон савол, ки аз шумо мепурсанд — акнун худатон бипурсед.",
+          "cue": "Я из России.",
+          "cueTranslation": "Ман аз Русия ҳастам."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Нет, я из Таджикистана.",
+          "translation": "Не, ман аз Тоҷикистонам.",
+          "literal": null,
+          "note": "Аввал «нет», баъд ҷавоби дуруст — мисли тоҷикӣ.",
+          "cue": "Вы из России?",
+          "cueTranslation": "Шумо аз Русия ҳастед?"
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Кор ва касб",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Работа",
+          "translation": "кор",
+          "literal": null,
+          "note": "Кор, ҷои кор. «У меня есть работа» — ман кор дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Работаю",
+          "translation": "кор мекунам",
+          "literal": null,
+          "note": "«Я работаю» — ман кор мекунам.\n\nБаъди «работаю» номи касб охири «-ем» ё «-ом» мегирад: водитель → работаю водителем.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Строитель",
+          "translation": "бинокор",
+          "literal": null,
+          "note": "Касб. «Я строитель» — ман бинокор ҳастам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Водитель",
+          "translation": "ронанда",
+          "literal": null,
+          "note": "Касб. «Я водитель» — ман ронанда ҳастам.\n\nРонандаи такси — «таксист».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Я строитель.",
+          "translation": "Ман бинокор ҳастам.",
+          "literal": null,
+          "note": "Касбро мисли ном мегӯянд: «Я» + касб. Бе «ҳастам».",
+          "cue": "Кто вы по профессии?",
+          "cueTranslation": "Касби шумо чист?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Я работаю водителем.",
+          "translation": "Ман ронанда кор мекунам.",
+          "literal": null,
+          "note": "«Работаю» + касб бо охири «-ем»: водителем, строителем.",
+          "cue": "Я работаю в магазине. А вы?",
+          "cueTranslation": "Ман дар мағоза кор мекунам. Шумо-чӣ?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Нет, я не водитель.",
+          "translation": "Не, ман ронанда нестам.",
+          "literal": null,
+          "note": "«Нет» — ҷавоб, «не» — инкори калимаи баъдӣ: «не водитель» — ронанда не.",
+          "cue": "Вы водитель?",
+          "cueTranslation": "Шумо ронандаед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "У меня есть работа.",
+          "translation": "Ман кор дорам.",
+          "literal": null,
+          "note": "Дар русӣ «дорам» бо сохти «У меня есть» гуфта мешавад — айнан «дар назди ман ҳаст».",
+          "cue": "У вас есть работа?",
+          "cueTranslation": "Шумо кор доред?"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Шодам ва хайрухуш",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Очень приятно",
+          "translation": "аз шиносоӣ шодам",
+          "literal": null,
+          "note": "Айнан «хеле хуш аст». Баъди шунидани номи ҳамсӯҳбат мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Тоже",
+          "translation": "ҳам",
+          "literal": null,
+          "note": "«Ҳам»: «Мне тоже очень приятно» — ман ҳам шодам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Хорошо",
+          "translation": "хуб",
+          "literal": null,
+          "note": "«Хуб», «майлаш». Ҷавоби розигӣ ба ҳар пешниҳод.\n\nҲарфҳои «о»-и аввал нимтанҳо садо медиҳанд: «харашо».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "До свидания",
+          "translation": "хайр",
+          "literal": null,
+          "note": "Хайрухуши расмӣ — бо бегона, бо корфармо, дар мағоза.\n\nАйнан «то дидор».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Пока",
+          "translation": "хайр (дӯстона)",
+          "literal": null,
+          "note": "Хайрухуши дӯстона — ҷуфти «Привет». Танҳо бо наздикон.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Мне тоже очень приятно.",
+          "translation": "Ман ҳам аз шиносоӣ шодам.",
+          "literal": null,
+          "note": "Ҷавоби табиӣ ба «Очень приятно»: «Мне тоже» — ба ман ҳам.",
+          "cue": "Меня зовут Иван. Очень приятно!",
+          "cueTranslation": "Номи ман Иван. Аз шиносоӣ шодам!"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Меня зовут Али. Очень приятно.",
+          "translation": "Номи ман Алӣ. Аз шиносоӣ шодам.",
+          "literal": null,
+          "note": "Муаррифии пурра дар ду ҷумлаи кӯтоҳ — ҳама чизи ин боб дар як ҷо.",
+          "cue": "Здравствуйте! Как вас зовут?",
+          "cueTranslation": "Салом! Номи шумо чист?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Спасибо, до свидания.",
+          "translation": "Ташаккур, хайр.",
+          "literal": null,
+          "note": "Хайрухуши боадабона баъди кор ё харид.",
+          "cue": "Хорошо. До свидания!",
+          "cueTranslation": "Хуб. Хайр!"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Хорошо, пока.",
+          "translation": "Хуб, хайр.",
+          "literal": null,
+          "note": "Бо дӯст: «хорошо» + «пока».",
+          "cue": "Ну всё, пока!",
+          "cueTranslation": "Хайр, то дидор!"
+        }
+      ]
+    }
+  ]
+}
