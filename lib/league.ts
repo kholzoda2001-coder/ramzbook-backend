@@ -457,11 +457,68 @@ function letterOf(name: string): string {
 }
 
 /**
+ * Когортае, ки корбар ҳангоми XP-и АВВАЛ ба он ҳамроҳ мешавад — айнан ҳамон
+ * интихоби `ensureMembership` (зинаи худ, пуртарин бо ҷои холӣ).
+ *
+ * 🔴 2026-09-14 (дархости корбар): «Лидерборд бояд дар ҳама ҳолат бошад». Пештар
+ * корбаре, ки ин ҳафта ҳанӯз XP нагирифта буд (масалан баъди logout/login), ва
+ * меҳмон дар Хона ҷадвал НАМЕДИДАНД — танҳо «як дарс хонед». Маҳз навомӯз
+ * бояд рақобатро бинад, то ба хондан ҷалб шавад.
+ *
+ * Агар дар зинаи худ ҳанӯз когорта набошад → ҳар когортаи ин ҳафта (ҷадвал
+ * холӣ намонад). `publicView` (меҳмон, роҳи бе auth): бе `id` ва акс — берун аз
+ * барнома маълумоти шахсии бештар дода намешавад.
+ */
+export async function getLeaguePreview(
+  tier: number,
+  now: Date = new Date(),
+  opts: { publicView?: boolean } = {},
+): Promise<LeagueRow[]> {
+  const weekKey = weekKeyFor(now);
+  const t = Math.min(MAX_TIER, Math.max(MIN_TIER, tier));
+  const select = { id: true } as const;
+
+  const league =
+    (await prisma.league.findFirst({
+      where: { weekKey, tier: t, memberCount: { lt: COHORT_SIZE } },
+      orderBy: { memberCount: 'desc' },
+      select,
+    })) ??
+    (await prisma.league.findFirst({ where: { weekKey, tier: t }, orderBy: { memberCount: 'desc' }, select })) ??
+    (await prisma.league.findFirst({ where: { weekKey }, orderBy: [{ memberCount: 'desc' }, { tier: 'asc' }], select }));
+  if (!league) return [];
+
+  const raw = await prisma.leagueMember.findMany({
+    where: { leagueId: league.id, user: { isActive: true } },
+    orderBy: [{ weeklyXp: 'desc' }, { joinedAt: 'asc' }, { id: 'asc' }],
+    take: COHORT_SIZE,
+    select: {
+      weeklyXp: true,
+      userId: true,
+      user: { select: { name: true, avatarUrl: true, level: true, streak: true } },
+    },
+  });
+
+  return raw.map((m, i) => ({
+    rank: i + 1,
+    id: opts.publicView ? '' : m.userId,
+    name: m.user.name,
+    avatarLetter: letterOf(m.user.name),
+    avatarUrl: opts.publicView ? null : (m.user.avatarUrl ?? null),
+    level: m.user.level,
+    streak: m.user.streak,
+    weeklyXp: m.weeklyXp,
+    rankDelta: null,
+    isYou: false,
+  }));
+}
+
+/**
  * Ҷадвали когортаи ҷории корбар.
  *
  * `placed: false` вақте корбар ин ҳафта ҳанӯз XP нагирифтааст — он гоҳ ӯ дар
- * ҳеҷ когорта нест ва экран бояд ҳолати «дарс хонед, то ҳамроҳ шавед»-ро
- * нишон диҳад, на ҷадвали холӣ.
+ * ҳеҷ когорта нест. Ҷадвали холӣ нишон дода намешавад; ба ҷояш `preview` —
+ * когортае, ки ӯ бо дарси аввал ба он ҳамроҳ мешавад (ниг. `getLeaguePreview`).
  */
 export async function getMyLeague(userId: string, now: Date = new Date()) {
   await catchUpClosedWeeks(now);
@@ -484,7 +541,10 @@ export async function getMyLeague(userId: string, now: Date = new Date()) {
   };
 
   if (!membership) {
-    return { ...base, placed: false as const, members: [], you: null, memberCount: 0 };
+    // 🔴 2026-09-14: ҷадвали когортае, ки бо дарси аввал ба он ҳамроҳ мешавад —
+    // Хона ва экрани Лига дигар холӣ намемонанд.
+    const preview = await getLeaguePreview(base.tier, now);
+    return { ...base, placed: false as const, members: [], you: null, memberCount: 0, preview };
   }
 
   const raw = await prisma.leagueMember.findMany({

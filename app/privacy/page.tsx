@@ -9,7 +9,7 @@ import { useState } from 'react';
  * Trilingual (Tajik / Russian / English) for users + Google Play review.
  */
 
-const EFFECTIVE_DATE = '08.08.2026';
+const EFFECTIVE_DATE = '13.09.2026';
 const APP_NAME = 'RAMZ';
 // Як почтаи ягона дар ҳама ҷо: ин саҳифа, ramz.tj/privacy ва сиёсати дохили
 // барнома (frontend/lib/l10n/strings_*.dart). Онҳо набояд фарқ кунанд —
@@ -84,6 +84,7 @@ function Tg() {
           <li><b>Маълумоти дастгоҳ:</b> намуди дастгоҳ, версияи система, амалҳо дар барнома ва маълумоти корношоямӣ (crash) барои беҳсозӣ.</li>
           <li><b>Огоҳиҳо:</b> рамзи огоҳӣ (token) барои фиристодани ёдоварҳои омӯзишӣ.</li>
           <li><b>Рақами рекламавӣ (Advertising ID):</b> барои нишон додани реклама ва ҳисоби оморӣ истифода мешавад. Шумо метавонед онро дар танзимоти Android аз нав созед ё реклами шахсиро хомӯш кунед.</li>
+          <li><b>Маълумот дар бораи барномаҳои насбшуда:</b> SDK-ҳои шарикони реклама (Unity LevelPlay, Unity Ads, Meta Audience Network, Yandex Mobile Ads бо Yandex AppMetrica) метавонанд санҷанд, ки кадом барномаҳо дар дастгоҳ насб шудаанд (мас. Facebook ё мағозаҳои барнома), ва инро барои интихоби реклама, ченкунии самаранокии он, атрибутсия ва пешгирии қаллобӣ истифода баранд. Мо худамон рӯйхати барномаҳои шуморо намехонем ва нигоҳ намедорем.</li>
           <li><b>Ҷойгиршавии тахминӣ (аз рӯи IP):</b> танҳо рамзи кишвар (мисли «TJ») барои нишон додани нархи мувофиқи минтақа. Суроғаи дақиқи шумо муайян ва нигоҳ дошта намешавад.</li>
           <li><b>Паёмҳои чати AI:</b> саволҳое ки ба муаллими AI менависед, барои гирифтани ҷавоб коркард мешаванд.</li>
         </ul>
@@ -120,8 +121,9 @@ function Tg() {
             <b>Meta Audience Network</b> ва дигар шабакаҳои шарик реклама нишон
             дода метавонанд) ва <b>Yandex Mobile Ads (Yandex
             Advertising Network)</b> таъмин мекунанд. Онҳо барои интихоби реклама
-            рақами рекламавии дастгоҳ (Google Advertising ID / GAID), суроғаи IP ва
-            маълумоти умумии дастгоҳро истифода мебаранд:{' '}
+            рақами рекламавии дастгоҳ (Google Advertising ID / GAID), суроғаи IP,
+            маълумоти умумии дастгоҳ ва маълумот дар бораи барномаҳои насбшударо
+            (барои атрибутсия ва пешгирии қаллобӣ) истифода мебаранд:{' '}
             <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
             <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
           <li>Баннер ва рекламаи дохили машқ тамоман истифода намешавад.</li>
@@ -138,7 +140,8 @@ function Tg() {
           <li><b>Google Play Services / Google Sign-In</b> — воридшавӣ ва пардохт;</li>
           <li><b>Unity LevelPlay (ironSource)</b> — медиатсия ва намоиши реклама (рақами рекламавӣ);</li>
           <li><b>Meta Audience Network</b> — намоиши реклама аз дохили LevelPlay;</li>
-          <li><b>Yandex Mobile Ads</b> — намоиши реклама (рақами рекламавӣ);</li>
+          <li><b>Unity Ads</b> — намоиши реклама аз дохили LevelPlay;</li>
+          <li><b>Yandex Mobile Ads</b> ва <b>Yandex AppMetrica</b> — намоиш, омор ва атрибутсияи реклама (рақами рекламавӣ, барномаҳои насбшуда);</li>
           <li><b>Meta (Facebook) App Events</b> — омор ва атрибутсияи насби барнома;
             рақами рекламавиро мехонад;</li>
           <li><b>Firebase Analytics / Crashlytics</b> — омори истифода ва ҳисоботи хатоҳо;</li>
@@ -217,6 +220,7 @@ function Ru() {
           <li><b>Данные устройства:</b> модель, версия ОС, действия в приложении и данные о сбоях.</li>
           <li><b>Уведомления:</b> токен для учебных напоминаний.</li>
           <li><b>Рекламный идентификатор (Advertising ID):</b> используется для показа рекламы и аналитики. Вы можете сбросить его или отключить персонализацию в настройках Android.</li>
+          <li><b>Сведения об установленных приложениях:</b> SDK рекламных партнёров (Unity LevelPlay, Unity Ads, Meta Audience Network, Yandex Mobile Ads вместе с Yandex AppMetrica) могут проверять, какие приложения установлены на устройстве (например, Facebook или магазины приложений), и использовать это для подбора рекламы, измерения её эффективности, атрибуции и защиты от мошенничества. Сами мы список ваших приложений не читаем и не храним.</li>
           <li><b>Приблизительное местоположение (по IP):</b> только код страны (например «TJ») — для показа цен вашего региона. Точный адрес не определяется и не хранится.</li>
           <li><b>Сообщения AI-чата:</b> вопросы, которые вы пишете AI-репетитору, обрабатываются для получения ответа.</li>
         </ul>
@@ -253,8 +257,9 @@ function Ru() {
             рекламу могут показывать <b>Meta Audience Network</b> и другие
             сети-партнёры) и <b>Yandex Mobile Ads
             (Рекламная сеть Яндекса)</b>. Они используют рекламный идентификатор
-            устройства (Google Advertising ID / GAID), IP-адрес и общие данные
-            устройства:{' '}
+            устройства (Google Advertising ID / GAID), IP-адрес, общие данные
+            устройства и сведения об установленных приложениях (для атрибуции и
+            защиты от мошенничества):{' '}
             <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
             <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
           <li>Баннеры и реклама внутри упражнений не используются вовсе.</li>
@@ -270,7 +275,8 @@ function Ru() {
           <li><b>Google Play Services / Google Sign-In</b> — вход и оплата;</li>
           <li><b>Unity LevelPlay (ironSource)</b> — медиация и показ рекламы (рекламный идентификатор);</li>
           <li><b>Meta Audience Network</b> — показ рекламы через LevelPlay;</li>
-          <li><b>Yandex Mobile Ads</b> — показ рекламы (рекламный идентификатор);</li>
+          <li><b>Unity Ads</b> — показ рекламы через LevelPlay;</li>
+          <li><b>Yandex Mobile Ads</b> и <b>Yandex AppMetrica</b> — показ, статистика и атрибуция рекламы (рекламный идентификатор, установленные приложения);</li>
           <li><b>Meta (Facebook) App Events</b> — статистика и атрибуция установок;
             читает рекламный идентификатор;</li>
           <li><b>Firebase Analytics / Crashlytics</b> — статистика использования и отчёты об ошибках;</li>
@@ -344,6 +350,7 @@ function En() {
           <li><b>Device data:</b> device model, OS version, in-app actions, and crash data for improvement.</li>
           <li><b>Notifications:</b> a push token to send learning reminders.</li>
           <li><b>Advertising ID:</b> used to serve ads and for analytics. You can reset it or opt out of personalised ads in your Android settings.</li>
+          <li><b>Installed apps information:</b> the SDKs of our advertising partners (Unity LevelPlay, Unity Ads, Meta Audience Network, Yandex Mobile Ads together with Yandex AppMetrica) may check which apps are installed on your device (for example Facebook or app stores) and use this to select ads, measure ad performance, attribute installs and prevent fraud. We ourselves do not read or store the list of your apps.</li>
           <li><b>Approximate location (from IP):</b> country code only (e.g. “TJ”) to show prices for your region. We do not determine or store your precise address.</li>
           <li><b>AI chat messages:</b> questions you write to the AI tutor are processed to generate a reply.</li>
         </ul>
@@ -380,7 +387,8 @@ function En() {
             <b>Meta Audience Network</b> and other partner networks may serve ads)
             and <b>Yandex Mobile Ads (Yandex
             Advertising Network)</b>. They use the device advertising identifier (Google
-            Advertising ID / GAID), IP address and general device data to select ads:{' '}
+            Advertising ID / GAID), IP address, general device data and information
+            about installed apps (for attribution and fraud prevention) to select ads:{' '}
             <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
             <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
           <li>Banners and in-exercise ads are not used at all.</li>
@@ -396,7 +404,8 @@ function En() {
           <li><b>Google Play Services / Google Sign-In</b> — login &amp; payments;</li>
           <li><b>Unity LevelPlay (ironSource)</b> — mediation and serving ads (advertising ID);</li>
           <li><b>Meta Audience Network</b> — serving ads through LevelPlay;</li>
-          <li><b>Yandex Mobile Ads</b> — serving ads (advertising ID);</li>
+          <li><b>Unity Ads</b> — serving ads through LevelPlay;</li>
+          <li><b>Yandex Mobile Ads</b> and <b>Yandex AppMetrica</b> — serving ads, ad analytics and attribution (advertising ID, installed apps);</li>
           <li><b>Meta (Facebook) App Events</b> — install analytics and attribution;
             reads the advertising identifier;</li>
           <li><b>Firebase Analytics / Crashlytics</b> — usage statistics and crash reports;</li>

@@ -8,6 +8,9 @@ export const dynamic = 'force-dynamic';
  * POST /api/users/friend-streak/invite
  * Generates (or returns the existing) invite code for the caller to share
  * with a friend. Idempotent — see getOrCreateInvite's doc comment.
+ *
+ * 🔴 2026-09-14: рамз ДОИМӢ аст (`expiresAt` = 2100) ва бо дӯстии мавҷуда
+ * дигар 400 намедиҳад — дӯстон бе маҳдудиятанд. Ниг. `lib/friendCode.ts`.
  */
 export async function POST(req: Request) {
   try {

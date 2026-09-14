@@ -9,9 +9,10 @@ import hotel from '@/content/speaking/hotel_en_tg.json';
 import family from '@/content/speaking/family_people_en_tg.json';
 import meetingKo from '@/content/speaking/meeting_people_ko_tg.json';
 import meetingRu from '@/content/speaking/meeting_people_ru_tg.json';
+import meetingAr from '@/content/speaking/meeting_people_ar_tg.json';
 
 /** Ҳамаи бастаҳо. Илова кардани боби нав = як сатр дар ин рӯйхат. */
-const PACKS = [food, meeting, shopping, directions, travel, hotel, family, meetingKo, meetingRu];
+const PACKS = [food, meeting, shopping, directions, travel, hotel, family, meetingKo, meetingRu, meetingAr];
 
 export const dynamic = 'force-dynamic';
 

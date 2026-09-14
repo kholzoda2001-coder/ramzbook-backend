@@ -1,5 +1,17 @@
 import { randomInt } from 'crypto';
+import type { Prisma } from '@prisma/client';
 import { prisma } from './prisma';
+import {
+  FRIEND_CODE_ALPHABET,
+  FRIEND_CODE_LENGTH,
+  FRIEND_INVITE_GEMS,
+  FRIEND_INVITE_GEM_REASON,
+  FRIEND_MESSAGES,
+  PERSONAL_CODE_EXPIRES_AT,
+  PERSONAL_CODE_MIN_EXPIRY,
+  friendRedeemError,
+  normalizeFriendCode,
+} from './friendCode';
 
 // "Friend Streak" — a joint streak shared with exactly one other user.
 // Duolingo reports users with an active friend streak are 22% more likely
@@ -9,12 +21,15 @@ import { prisma } from './prisma';
 // (discovery/search, friend requests, push-to-other-device) in favor of the
 // smallest version that still delivers the mechanic — see the scope
 // reasoning in the P3 plan doc.
+//
+// 🔴 2026-09-14: ДАЪВАТИ ДӮСТ аз «силсилаи муштарак» ҷудо шуд — ниг.
+// `lib/friendCode.ts` (рамзи доимӣ, дӯстон бе маҳдудият, 100 алмос).
+// `resolveFriendStreak` / `unpairFriendStreak` бетағйиранд.
 
-export const INVITE_CODE_LENGTH = 6;
+export const INVITE_CODE_LENGTH = FRIEND_CODE_LENGTH;
+/** Даъватҳои КӮҲНА 24-соата буданд; рамзи нав доимист (`PERSONAL_CODE_EXPIRES_AT`). */
 export const INVITE_EXPIRY_HOURS = 24;
-// Unambiguous alphabet: excludes 0/O and 1/I/L so a code shared as a photo,
-// screenshot, or read aloud doesn't get mistyped.
-export const INVITE_CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+export const INVITE_CODE_ALPHABET = FRIEND_CODE_ALPHABET;
 
 /**
  * Generates a random invite code. Deliberately dependency-free (no prisma
@@ -34,8 +49,6 @@ export type FriendStreakStatus =
   | { status: 'invited'; code: string; expiresAt: string }
   | { status: 'broken'; friendName: string; jointDays: number }
   | { status: 'active'; friend: { id: string; name: string }; jointDays: number };
-
-const ALREADY_PAIRED_MESSAGE = 'Шумо аллакай бо дӯстон силсила доред.';
 
 /**
  * Resolves (or reports) a user's current friend-streak pairing, lazily on
@@ -109,30 +122,25 @@ export async function resolveFriendStreak(userId: string): Promise<FriendStreakS
 }
 
 /**
- * Returns the caller's currently-valid outstanding invite code, creating one
- * if none exists. Idempotent by design — repeated taps of "invite a friend"
- * must not spawn a pile of dead codes, which would make "which code is
- * live" ambiguous for the user.
+ * Рамзи ДОИМИИ шахсии корбар — ҳамон як рамз дар ҳар зарба, сохта мешавад
+ * танҳо бори аввал.
+ *
+ * 🔴 2026-09-14: пештар рамз 24 соат зинда буд ва агар корбар аллакай «силсилаи
+ * муштарак» дошт, `400` мепартофт. Ҳар ду бардошта шуданд: рамз намесӯзад ва
+ * дӯстон бе маҳдудиятанд. Даъватҳои кӯҳнаи 24-соата нодида гирифта мешаванд.
  */
 export async function getOrCreateInvite(userId: string): Promise<{ code: string; expiresAt: Date }> {
-  const existingStreak = await prisma.friendStreak.findFirst({
-    where: { OR: [{ user1Id: userId }, { user2Id: userId }], status: 'active' },
+  const existing = await prisma.friendInvite.findFirst({
+    where: { creatorUserId: userId, consumedAt: null, expiresAt: { gte: PERSONAL_CODE_MIN_EXPIRY } },
+    orderBy: { createdAt: 'asc' },
   });
-  if (existingStreak) throw new Error(ALREADY_PAIRED_MESSAGE);
-
-  const existingInvite = await prisma.friendInvite.findFirst({
-    where: { creatorUserId: userId, consumedAt: null, expiresAt: { gt: new Date() } },
-    orderBy: { createdAt: 'desc' },
-  });
-  if (existingInvite) return { code: existingInvite.code, expiresAt: existingInvite.expiresAt };
+  if (existing) return { code: existing.code, expiresAt: existing.expiresAt };
 
   // Retry on the (astronomically unlikely) unique-code collision.
   for (let attempt = 0; attempt < 5; attempt++) {
-    const code = generateInviteCode();
-    const expiresAt = new Date(Date.now() + INVITE_EXPIRY_HOURS * 3600 * 1000);
     try {
       const invite = await prisma.friendInvite.create({
-        data: { code, creatorUserId: userId, expiresAt },
+        data: { code: generateInviteCode(), creatorUserId: userId, expiresAt: PERSONAL_CODE_EXPIRES_AT },
       });
       return { code: invite.code, expiresAt: invite.expiresAt };
     } catch (e) {
@@ -142,60 +150,90 @@ export async function getOrCreateInvite(userId: string): Promise<{ code: string;
   throw new Error('Хатогӣ ҳангоми сохтани рамз.');
 }
 
-/**
- * Redeems a code: validates it, then creates the FriendStreak row. Wrapped
- * in a transaction for the invite-consume + streak-create pair (does NOT
- * fully close the race where two people redeem the same code in the same
- * instant — acceptable for v1 at this app's scale, same tradeoff the wager
- * routes already make by not using serializable transactions).
- */
-export async function redeemInviteCode(userId: string, rawCode: string): Promise<FriendStreakStatus> {
-  const code = (rawCode || '').trim().toUpperCase();
-  if (!code) throw new Error('Лутфан рамзи дӯстро ворид кунед.');
-
-  const invite = await prisma.friendInvite.findUnique({ where: { code } });
-  if (!invite) throw new Error('Рамз нодуруст аст.');
-  if (invite.consumedAt) throw new Error('Ин рамз аллакай истифода шудааст.');
-  if (invite.expiresAt.getTime() < Date.now()) throw new Error('Мӯҳлати рамз тамом шудааст.');
-  if (invite.creatorUserId === userId) throw new Error('Шумо наметавонед бо рамзи худ ҳамроҳ шавед.');
-
-  const [callerStreak, creatorStreak] = await Promise.all([
-    prisma.friendStreak.findFirst({ where: { OR: [{ user1Id: userId }, { user2Id: userId }], status: 'active' } }),
-    prisma.friendStreak.findFirst({
-      where: { OR: [{ user1Id: invite.creatorUserId }, { user2Id: invite.creatorUserId }], status: 'active' },
-    }),
-  ]);
-  if (callerStreak) throw new Error(ALREADY_PAIRED_MESSAGE);
-  if (creatorStreak) throw new Error('Ин корбар аллакай бо дигаре ҳамроҳ шудааст.');
-
-  const [caller, creator] = await Promise.all([
-    prisma.user.findUnique({ where: { id: userId }, select: { streak: true, name: true } }),
-    prisma.user.findUnique({ where: { id: invite.creatorUserId }, select: { streak: true, name: true } }),
-  ]);
-  if (!caller || !creator) throw new Error('Рамз нодуруст аст.');
-
-  const [, streak] = await prisma.$transaction([
-    prisma.friendInvite.update({
-      where: { id: invite.id },
-      data: { consumedAt: new Date(), consumedByUserId: userId },
-    }),
-    prisma.friendStreak.create({
-      data: {
-        user1Id: invite.creatorUserId,
-        user2Id: userId,
-        startStreak1: creator.streak,
-        startStreak2: caller.streak,
-        lastSeenStreak1: creator.streak,
-        lastSeenStreak2: caller.streak,
-      },
-    }),
-  ]);
-
+/** Сатри дӯстӣ байни `a` ва `b` дар ҲАР ДУ самт. */
+function friendEdgeWhere(a: string, b: string): Prisma.FriendInviteWhereInput {
   return {
-    status: 'active',
-    friend: { id: invite.creatorUserId, name: creator.name },
-    jointDays: 0,
+    consumedByUserId: { not: null },
+    OR: [
+      { creatorUserId: a, consumedByUserId: b },
+      { creatorUserId: b, consumedByUserId: a },
+    ],
   };
+}
+
+export type AddFriendResult = {
+  ok: true;
+  friend: { id: string; name: string };
+  gemsAwarded: number;
+};
+
+/**
+ * Рамзи дӯстро ворид мекунад: ҷуфт ДӮСТ мешаванд ва ҳарду 100 алмос мегиранд.
+ *
+ * Рамзи шахсӣ ИСТИФОДА НАМЕШАВАД — ҳар дӯстӣ сатри алоҳидаи `FriendInvite` бо
+ * `consumedByUserId` мегирад (ниг. `lib/friendCode.ts`). «Силсилаи муштарак»
+ * (`FriendStreak`) дигар сохта намешавад: он танҳо ЯК ҷуфтро иҷозат медод ва
+ * маҳз ҳамин дӯсти дуюмро манъ мекард.
+ *
+ * ⚠️ Такрор дар ДОХИЛИ транзаксия аз нав санҷида мешавад, то ду зарбаи
+ * ҳамзамон ду бор алмос надиҳанд. Пурра serializable нест — ҳамон мубодилаи
+ * қабулшудаи роҳҳои wager барои миқёси ҳозира.
+ */
+export async function redeemInviteCode(userId: string, rawCode: string): Promise<AddFriendResult> {
+  const code = normalizeFriendCode(rawCode);
+  const invite = code ? await prisma.friendInvite.findUnique({ where: { code } }) : null;
+  const friendId = invite?.creatorUserId ?? '';
+
+  const alreadyFriends =
+    !!invite &&
+    friendId !== userId &&
+    !!(await prisma.friendInvite.findFirst({ where: friendEdgeWhere(userId, friendId), select: { id: true } }));
+
+  const error = friendRedeemError({ code, userId, invite, alreadyFriends });
+  if (error) throw new Error(error);
+
+  const creator = await prisma.user.findUnique({
+    where: { id: friendId },
+    select: { name: true, isActive: true },
+  });
+  if (!creator || !creator.isActive) throw new Error(FRIEND_MESSAGES.invalid);
+
+  await prisma.$transaction(async (tx) => {
+    const duplicate = await tx.friendInvite.findFirst({
+      where: friendEdgeWhere(userId, friendId),
+      select: { id: true },
+    });
+    if (duplicate) throw new Error(FRIEND_MESSAGES.alreadyFriends);
+
+    let edgeCode = '';
+    for (let attempt = 0; attempt < 5 && !edgeCode; attempt++) {
+      const candidate = generateInviteCode();
+      const taken = await tx.friendInvite.findUnique({ where: { code: candidate }, select: { id: true } });
+      if (!taken) edgeCode = candidate;
+    }
+    if (!edgeCode) throw new Error('Хатогӣ ҳангоми ҳамроҳшавӣ.');
+
+    const now = new Date();
+    await tx.friendInvite.create({
+      data: {
+        code: edgeCode,
+        creatorUserId: friendId,
+        consumedByUserId: userId,
+        consumedAt: now,
+        expiresAt: now,
+      },
+    });
+    await tx.user.update({ where: { id: userId }, data: { gems: { increment: FRIEND_INVITE_GEMS } } });
+    await tx.user.update({ where: { id: friendId }, data: { gems: { increment: FRIEND_INVITE_GEMS } } });
+    await tx.gemTransaction.createMany({
+      data: [
+        { userId, amount: FRIEND_INVITE_GEMS, reason: FRIEND_INVITE_GEM_REASON },
+        { userId: friendId, amount: FRIEND_INVITE_GEMS, reason: FRIEND_INVITE_GEM_REASON },
+      ],
+    });
+  });
+
+  return { ok: true, friend: { id: friendId, name: creator.name }, gemsAwarded: FRIEND_INVITE_GEMS };
 }
 
 /** Voluntary unpair — sets status='broken' immediately, no lazy check needed. */

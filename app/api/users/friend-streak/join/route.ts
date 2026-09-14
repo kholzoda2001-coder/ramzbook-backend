@@ -1,18 +1,16 @@
 import { NextResponse } from 'next/server';
 import { authenticate } from '@/lib/auth';
 import { redeemInviteCode } from '@/lib/friendStreak';
+import { FRIEND_MESSAGES } from '@/lib/friendCode';
 
 export const dynamic = 'force-dynamic';
 
-// Every message redeemInviteCode()/getOrCreateInvite() can throw is a known,
-// user-facing validation failure (400), not a server error (500). Anything
-// else thrown (a real bug/DB hiccup) falls through to 500.
-const KNOWN_VALIDATION_MESSAGES = new Set([
-  'Лутфан рамзи дӯстро ворид кунед.',
-  'Рамз нодуруст аст.',
-  'Ин рамз аллакай истифода шудааст.',
-  'Мӯҳлати рамз тамом шудааст.',
-  'Шумо наметавонед бо рамзи худ ҳамроҳ шавед.',
+// Every message redeemInviteCode() can throw is a known, user-facing
+// validation failure (400), not a server error (500). Anything else thrown
+// (a real bug/DB hiccup) falls through to 500.
+const KNOWN_VALIDATION_MESSAGES = new Set<string>([
+  ...Object.values(FRIEND_MESSAGES),
+  // Паёмҳои «силсилаи муштарак»-и пешина — агар ягон роҳ ҳанӯз онҳоро партояд.
   'Шумо аллакай бо дӯстон силсила доред.',
   'Ин корбар аллакай бо дигаре ҳамроҳ шудааст.',
 ]);
@@ -20,7 +18,10 @@ const KNOWN_VALIDATION_MESSAGES = new Set([
 /**
  * POST /api/users/friend-streak/join
  * Body: { code: string }
- * Redeems a friend's invite code, pairing the caller with its creator.
+ *
+ * 🔴 2026-09-14: рамзи дӯстро ворид мекунад → ҷуфт ДӮСТ мешаванд (бе маҳдудият)
+ * ва ҳарду 100 алмос мегиранд. Ҷавоб: `{ ok, friend: { id, name }, gemsAwarded }`.
+ * Ниг. `lib/friendCode.ts`.
  */
 export async function POST(req: Request) {
   try {
