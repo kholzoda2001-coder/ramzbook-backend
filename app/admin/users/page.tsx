@@ -272,6 +272,7 @@ export default function UsersPage() {
   const [filterPremium, setFilterPremium] = useState('all');
   const [filterIsTest, setFilterIsTest] = useState('real'); // default to showing only real users
   const [filterLastActive, setFilterLastActive] = useState('all'); // all, today, 3days, 7days, 30days, inactive
+  const [sortConfig, setSortConfig] = useState('createdAt-desc'); // format: field-order
   
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -342,6 +343,17 @@ export default function UsersPage() {
   const uniqueNativeLangs = Array.from(new Set(users.map(u => u.interfaceLang).filter(Boolean)));
   const uniqueTargetLangs = Array.from(new Set(users.map(u => u.targetLang).filter(Boolean)));
   const uniqueLevels = Array.from(new Set(users.map(u => u.level).filter(Boolean)));
+
+  const sorted = [...filtered].sort((a, b) => {
+    const [field, order] = sortConfig.split('-');
+    const multiplier = order === 'desc' ? -1 : 1;
+    
+    if (field === 'totalXp') return (a.totalXp - b.totalXp) * multiplier;
+    if (field === 'streak') return (a.streak - b.streak) * multiplier;
+    if (field === 'createdAt') return (new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()) * multiplier;
+    
+    return 0;
+  });
 
   // The Dashboard/sidebar counters exclude test/robo accounts, so a bare
   // total here contradicted the number shown everywhere else. `isTest` is
@@ -488,6 +500,19 @@ export default function UsersPage() {
             </select>
           </div>
 
+          {/* Sort By */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Мураттабсозӣ</label>
+            <select className="input-field" value={sortConfig} onChange={e => setSortConfig(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="createdAt-desc">Санаи бақайдгирӣ (Навтарин)</option>
+              <option value="createdAt-asc">Санаи бақайдгирӣ (Кӯҳнатарин)</option>
+              <option value="totalXp-desc">Холҳо (Зиёд ба кам)</option>
+              <option value="totalXp-asc">Холҳо (Кам ба зиёд)</option>
+              <option value="streak-desc">Стрик (Зиёд ба кам)</option>
+              <option value="streak-asc">Стрик (Кам ба зиёд)</option>
+            </select>
+          </div>
+
           {/* Clear Filters Button */}
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6 }}>
             <button
@@ -497,6 +522,7 @@ export default function UsersPage() {
                 setFilterMinStreak(''); setFilterMaxStreak('');
                 setFilterLevel(''); setFilterPremium('all'); setFilterIsTest('real');
                 setFilterLastActive('all');
+                setSortConfig('createdAt-desc');
               }}
               style={{
                 height: 36, padding: '0 16px', borderRadius: 8,
@@ -538,12 +564,12 @@ export default function UsersPage() {
                 </tr>
               </thead>
               <tbody>
-                {filtered.map((user, idx) => {
+                {sorted.map((user, idx) => {
                   const initials = (user.name ?? '?').split(' ').map((n) => n[0] ?? '').join('').toUpperCase().slice(0, 2) || '?';
                   return (
                     <tr
                       key={user.id}
-                      style={{ borderBottom: idx < filtered.length - 1 ? '1px solid var(--border)' : 'none', transition: 'background 0.15s ease' }}
+                      style={{ borderBottom: idx < sorted.length - 1 ? '1px solid var(--border)' : 'none', transition: 'background 0.15s ease' }}
                       onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--card2)')}
                       onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                     >
