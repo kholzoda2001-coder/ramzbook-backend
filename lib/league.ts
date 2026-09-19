@@ -150,7 +150,7 @@ function letterOf(name: string): string {
 export async function getLeaguePreview(tier: number, now: Date = new Date(), opts: { publicView?: boolean } = {}): Promise<LeagueRow[]> {
   const t = Math.min(MAX_TIER, Math.max(MIN_TIER, tier));
   const raw = await prisma.user.findMany({
-    where: { leagueTier: t, isActive: true },
+    where: { isActive: true },
     orderBy: { totalXp: 'desc' },
     take: 30,
     select: { id: true, name: true, avatarUrl: true, level: true, streak: true, totalXp: true }
@@ -181,7 +181,7 @@ export async function getMyLeague(userId: string, now: Date = new Date()) {
   const effectiveTier = Math.max(tier, correctTier);
 
   const raw = await prisma.user.findMany({
-    where: { leagueTier: effectiveTier, isActive: true },
+    where: { isActive: true },
     orderBy: { totalXp: 'desc' },
     take: 30,
     select: { id: true, name: true, avatarUrl: true, level: true, streak: true, totalXp: true }
