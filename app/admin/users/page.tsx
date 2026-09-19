@@ -271,6 +271,7 @@ export default function UsersPage() {
   const [filterLevel, setFilterLevel] = useState('');
   const [filterPremium, setFilterPremium] = useState('all');
   const [filterIsTest, setFilterIsTest] = useState('real'); // default to showing only real users
+  const [filterLastActive, setFilterLastActive] = useState('all'); // all, today, 3days, 7days, 30days, inactive
   
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -321,6 +322,19 @@ export default function UsersPage() {
     
     if (filterIsTest === 'real' && u.isTest) return false;
     if (filterIsTest === 'test' && !u.isTest) return false;
+
+    if (filterLastActive !== 'all') {
+      if (!u.lastActiveAt) return false;
+      const lastActive = new Date(u.lastActiveAt);
+      const now = new Date();
+      const diffDays = (now.getTime() - lastActive.getTime()) / (1000 * 3600 * 24);
+      
+      if (filterLastActive === 'today' && diffDays > 1) return false;
+      if (filterLastActive === '3days' && diffDays > 3) return false;
+      if (filterLastActive === '7days' && diffDays > 7) return false;
+      if (filterLastActive === '30days' && diffDays > 30) return false;
+      if (filterLastActive === 'inactive' && diffDays <= 30) return false;
+    }
 
     return true;
   });
@@ -461,6 +475,19 @@ export default function UsersPage() {
             </div>
           </div>
 
+          {/* Last Active */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Вақти фаъолият</label>
+            <select className="input-field" value={filterLastActive} onChange={e => setFilterLastActive(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="all">Ҳама вақт</option>
+              <option value="today">Имрӯз</option>
+              <option value="3days">3 рӯзи охир</option>
+              <option value="7days">7 рӯзи охир</option>
+              <option value="30days">30 рӯзи охир</option>
+              <option value="inactive">Ғайрифаъол (&gt;30 рӯз)</option>
+            </select>
+          </div>
+
           {/* Clear Filters Button */}
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6 }}>
             <button
@@ -469,6 +496,7 @@ export default function UsersPage() {
                 setFilterMinXp(''); setFilterMaxXp('');
                 setFilterMinStreak(''); setFilterMaxStreak('');
                 setFilterLevel(''); setFilterPremium('all'); setFilterIsTest('real');
+                setFilterLastActive('all');
               }}
               style={{
                 height: 36, padding: '0 16px', borderRadius: 8,
