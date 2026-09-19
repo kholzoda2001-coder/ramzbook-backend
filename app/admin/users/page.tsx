@@ -706,7 +706,8 @@ export default function UsersPage() {
                   return (
                     <tr
                       key={user.id}
-                      style={{ borderBottom: idx < sorted.length - 1 ? '1px solid var(--border)' : 'none', transition: 'background 0.15s ease' }}
+                      onClick={() => startTransition(() => setSelectedUser(user))}
+                      style={{ borderBottom: idx < sorted.length - 1 ? '1px solid var(--border)' : 'none', transition: 'background 0.15s ease', cursor: 'pointer' }}
                       onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--card2)')}
                       onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
                     >
@@ -784,7 +785,7 @@ export default function UsersPage() {
                       {/* Manage Access button */}
                       <td style={{ padding: '16px 20px' }}>
                         <button
-                          onClick={() => startTransition(() => setSelectedUser(user))}
+                          onClick={(e) => { e.stopPropagation(); startTransition(() => setSelectedUser(user)); }}
                           style={{
                             display: 'inline-flex', alignItems: 'center', gap: 6,
                             padding: '7px 14px', borderRadius: 8,
