@@ -76,7 +76,7 @@ export async function GET(
         }),
         prisma.userLanguage.findMany({
           where: { userId: id },
-          include: { language: { select: { code: true, name: true, nativeName: true, emoji: true } } },
+          include: { language: { select: { code: true, name: true, nativeName: true, flag: true } } },
           orderBy: { xp: 'desc' }
         }),
         prisma.speakingProgress.aggregate({
@@ -85,11 +85,11 @@ export async function GET(
         }),
         prisma.libraryProgress.findMany({
           where: { userId: id },
-          include: { item: { select: { title: true, difficulty: true, format: true } } },
+          include: { item: { select: { title: true, level: true, type: true } } },
           orderBy: { position: 'desc' }
         }),
         prisma.srsCard.count({
-          where: { userId: id, interval: { gt: 0 } }
+          where: { userId: id, intervalDays: { gt: 0 } }
         })
       ]);
 
@@ -114,10 +114,10 @@ export async function GET(
         timeSpent: speakingStats._sum.timeSpent || 0, // seconds
         lessonsCompleted: speakingStats._sum.timesCompleted || 0
       },
-      libraryProgress: libraryProgress.map(lp => ({
+      libraryProgress: libraryProgress.map((lp: any) => ({
         title: lp.item.title,
-        format: lp.item.format,
-        difficulty: lp.item.difficulty,
+        format: lp.item.type,
+        difficulty: lp.item.level,
         position: lp.position,
         total: lp.total
       })),

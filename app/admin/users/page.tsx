@@ -253,7 +253,7 @@ function UserProfilePanel({
                     {stats.languagesLearned.map((ul: any) => (
                       <div key={ul.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--card2)', padding: '12px 16px', borderRadius: 12, border: '1px solid var(--border)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                          <span style={{ fontSize: 20 }}>{ul.language.emoji || '🌐'}</span>
+                          <span style={{ fontSize: 20 }}>{ul.language.flag || '🌐'}</span>
                           <div>
                             <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>{ul.language.nativeName}</p>
                             <p style={{ fontSize: 12, color: 'var(--text2)' }}>Сатҳ: {ul.currentLevel}</p>
@@ -477,9 +477,9 @@ export default function UsersPage() {
     return true;
   });
 
-  const uniqueNativeLangs = Array.from(new Set(users.map(u => u.interfaceLang).filter(Boolean)));
-  const uniqueTargetLangs = Array.from(new Set(users.map(u => u.targetLang).filter(Boolean)));
-  const uniqueLevels = Array.from(new Set(users.map(u => u.level).filter(Boolean)));
+  const uniqueNativeLangs = Array.from(new Set(users.map(u => u.interfaceLang).filter((l): l is string => Boolean(l))));
+  const uniqueTargetLangs = Array.from(new Set(users.map(u => u.targetLang).filter((l): l is string => Boolean(l))));
+  const uniqueLevels = Array.from(new Set(users.map(u => u.level).filter((l): l is string => Boolean(l))));
 
   const sorted = [...filtered].sort((a, b) => {
     const [field, order] = sortConfig.split('-');
