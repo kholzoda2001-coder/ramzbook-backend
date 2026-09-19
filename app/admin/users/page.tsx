@@ -17,7 +17,7 @@ import { useState, useEffect, useCallback, useTransition } from 'react';
 import {
   Users, Search, ShieldCheck,
   X, Loader2, CheckCircle2, AlertCircle,
-  ChevronRight,
+  ChevronRight, Filter, ChevronDown,
 } from 'lucide-react';
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
@@ -34,6 +34,10 @@ type User = {
   streak: number;
   createdAt: string;
   lastActiveAt: string | null;
+  interfaceLang: string;
+  targetLang: string | null;
+  level: string;
+  country: string | null;
   /** Seed/robo account — see lib/admin/realUser.ts (computed by the API). */
   isTest?: boolean;
 };
@@ -255,6 +259,19 @@ export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  
+  // Advanced Filters
+  const [showFilters, setShowFilters] = useState(false);
+  const [filterNativeLang, setFilterNativeLang] = useState('');
+  const [filterTargetLang, setFilterTargetLang] = useState('');
+  const [filterMinXp, setFilterMinXp] = useState('');
+  const [filterMaxXp, setFilterMaxXp] = useState('');
+  const [filterMinStreak, setFilterMinStreak] = useState('');
+  const [filterMaxStreak, setFilterMaxStreak] = useState('');
+  const [filterLevel, setFilterLevel] = useState('');
+  const [filterPremium, setFilterPremium] = useState('all');
+  const [filterIsTest, setFilterIsTest] = useState('real'); // default to showing only real users
+  
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [toast, setToast] = useState<Toast | null>(null);
   const [, startTransition] = useTransition();
@@ -280,12 +297,37 @@ export default function UsersPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  const filtered = users.filter(
-    (u) =>
+  const filtered = users.filter((u) => {
+    const matchesSearch =
       (u.name ?? '').toLowerCase().includes(search.toLowerCase()) ||
       displayContact(u).toLowerCase().includes(search.toLowerCase()) ||
-      (u.email ?? '').toLowerCase().includes(search.toLowerCase())
-  );
+      (u.email ?? '').toLowerCase().includes(search.toLowerCase());
+
+    if (!matchesSearch) return false;
+
+    if (filterNativeLang && u.interfaceLang !== filterNativeLang) return false;
+    if (filterTargetLang && u.targetLang !== filterTargetLang) return false;
+    
+    if (filterMinXp && u.totalXp < parseInt(filterMinXp, 10)) return false;
+    if (filterMaxXp && u.totalXp > parseInt(filterMaxXp, 10)) return false;
+    
+    if (filterMinStreak && u.streak < parseInt(filterMinStreak, 10)) return false;
+    if (filterMaxStreak && u.streak > parseInt(filterMaxStreak, 10)) return false;
+    
+    if (filterLevel && u.level !== filterLevel) return false;
+    
+    if (filterPremium === 'premium' && !u.isPremium) return false;
+    if (filterPremium === 'free' && u.isPremium) return false;
+    
+    if (filterIsTest === 'real' && u.isTest) return false;
+    if (filterIsTest === 'test' && !u.isTest) return false;
+
+    return true;
+  });
+
+  const uniqueNativeLangs = Array.from(new Set(users.map(u => u.interfaceLang).filter(Boolean)));
+  const uniqueTargetLangs = Array.from(new Set(users.map(u => u.targetLang).filter(Boolean)));
+  const uniqueLevels = Array.from(new Set(users.map(u => u.level).filter(Boolean)));
 
   // The Dashboard/sidebar counters exclude test/robo accounts, so a bare
   // total here contradicted the number shown everywhere else. `isTest` is
@@ -320,18 +362,125 @@ export default function UsersPage() {
           </div>
         </div>
 
-        {/* Search */}
-        <div style={{ position: 'relative', flex: '1 1 240px', maxWidth: 340 }}>
-          <Search size={14} color="var(--text2)" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
-          <input
-            className="input-field"
-            placeholder="Ном ё почтаро ҷустуҷӯ кунед…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{ paddingLeft: 36, height: 40, fontSize: 13 }}
-          />
+        {/* Search and Filters Toggle */}
+        <div style={{ display: 'flex', gap: 12, flex: '1 1 240px', maxWidth: 440, justifyContent: 'flex-end' }}>
+          <div style={{ position: 'relative', flex: 1 }}>
+            <Search size={14} color="var(--text2)" style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+            <input
+              className="input-field"
+              placeholder="Ном ё почтаро ҷустуҷӯ кунед…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={{ paddingLeft: 36, height: 40, fontSize: 13, width: '100%' }}
+            />
+          </div>
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 6,
+              height: 40, padding: '0 16px', borderRadius: 10,
+              background: showFilters ? 'rgba(99,102,241,0.15)' : 'var(--card2)',
+              border: `1px solid ${showFilters ? 'rgba(99,102,241,0.3)' : 'var(--border)'}`,
+              color: showFilters ? '#818cf8' : 'var(--text)',
+              fontSize: 13, fontWeight: 600, cursor: 'pointer',
+              transition: 'all 0.15s ease'
+            }}
+          >
+            <Filter size={14} /> Филтрҳо
+            <ChevronDown size={14} style={{ transform: showFilters ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+          </button>
         </div>
       </div>
+
+      {/* Advanced Filters Panel */}
+      {showFilters && (
+        <div className="glass-card fade-up" style={{ padding: '20px', marginBottom: 24, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
+          
+          {/* Native Language */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Забони модарӣ</label>
+            <select className="input-field" value={filterNativeLang} onChange={e => setFilterNativeLang(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="">Ҳама</option>
+              {uniqueNativeLangs.map(l => <option key={l} value={l}>{l.toUpperCase()}</option>)}
+            </select>
+          </div>
+
+          {/* Target Language */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Забони омӯзишӣ</label>
+            <select className="input-field" value={filterTargetLang} onChange={e => setFilterTargetLang(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="">Ҳама</option>
+              {uniqueTargetLangs.map(l => <option key={l} value={l}>{l.toUpperCase()}</option>)}
+            </select>
+          </div>
+
+          {/* Level */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Сатҳ</label>
+            <select className="input-field" value={filterLevel} onChange={e => setFilterLevel(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="">Ҳама</option>
+              {uniqueLevels.map(l => <option key={l} value={l}>{l}</option>)}
+            </select>
+          </div>
+
+          {/* Premium Status */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Обуна</label>
+            <select className="input-field" value={filterPremium} onChange={e => setFilterPremium(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="all">Ҳама</option>
+              <option value="premium">Premium</option>
+              <option value="free">Ройгон</option>
+            </select>
+          </div>
+
+          {/* User Type */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Намуди ҳисоб</label>
+            <select className="input-field" value={filterIsTest} onChange={e => setFilterIsTest(e.target.value)} style={{ fontSize: 13, height: 36 }}>
+              <option value="all">Ҳама (Воқеӣ + Тестӣ)</option>
+              <option value="real">Фақат воқеӣ</option>
+              <option value="test">Фақат тестӣ</option>
+            </select>
+          </div>
+
+          {/* XP Range */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Холҳо (XP)</label>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <input type="number" className="input-field" placeholder="Аз" value={filterMinXp} onChange={e => setFilterMinXp(e.target.value)} style={{ fontSize: 13, height: 36, width: '100%' }} />
+              <input type="number" className="input-field" placeholder="То" value={filterMaxXp} onChange={e => setFilterMaxXp(e.target.value)} style={{ fontSize: 13, height: 36, width: '100%' }} />
+            </div>
+          </div>
+
+          {/* Streak Range */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <label style={{ fontSize: 11, fontWeight: 700, color: 'var(--text2)', textTransform: 'uppercase' }}>Стрик (Аловакҳо)</label>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <input type="number" className="input-field" placeholder="Аз" value={filterMinStreak} onChange={e => setFilterMinStreak(e.target.value)} style={{ fontSize: 13, height: 36, width: '100%' }} />
+              <input type="number" className="input-field" placeholder="То" value={filterMaxStreak} onChange={e => setFilterMaxStreak(e.target.value)} style={{ fontSize: 13, height: 36, width: '100%' }} />
+            </div>
+          </div>
+
+          {/* Clear Filters Button */}
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6 }}>
+            <button
+              onClick={() => {
+                setFilterNativeLang(''); setFilterTargetLang('');
+                setFilterMinXp(''); setFilterMaxXp('');
+                setFilterMinStreak(''); setFilterMaxStreak('');
+                setFilterLevel(''); setFilterPremium('all'); setFilterIsTest('real');
+              }}
+              style={{
+                height: 36, padding: '0 16px', borderRadius: 8,
+                background: 'rgba(239,68,68,0.1)', color: '#ef4444',
+                border: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 600, width: '100%'
+              }}
+            >
+              Тоза кардан
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Table */}
       <div className="glass-card fade-up delay-1" style={{ overflow: 'hidden' }}>
@@ -353,7 +502,7 @@ export default function UsersPage() {
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                  {['Корбар', 'Почта/Телефон', 'XP', 'Тариф', 'ID', 'Вазъ', 'Санаи бақайд', ''].map((h) => (
+                  {['Корбар', 'Почта/Телефон', 'Курс/Сатҳ', 'XP', 'Тариф', 'ID', 'Вазъ', 'Санаи бақайд', ''].map((h) => (
                     <th key={h} style={{ padding: '14px 20px', textAlign: 'left', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text2)', whiteSpace: 'nowrap' }}>
                       {h}
                     </th>
@@ -390,6 +539,18 @@ export default function UsersPage() {
                           )}
                           {displayContact(user)}
                         </div>
+                      </td>
+
+                      {/* Course / Level */}
+                      <td style={{ padding: '16px 20px', fontSize: 13, color: 'var(--text2)' }}>
+                        <span style={{ fontWeight: 600, color: 'var(--text)' }}>
+                           {(user.targetLang ?? '—').toUpperCase()}
+                        </span>
+                        <span style={{ margin: '0 4px', opacity: 0.5 }}>/</span>
+                        {(user.interfaceLang ?? '—').toUpperCase()}
+                        <span style={{ marginLeft: 8, fontSize: 11, background: 'var(--card2)', border: '1px solid var(--border)', padding: '2px 6px', borderRadius: 6, color: 'var(--text)' }}>
+                          {user.level}
+                        </span>
                       </td>
 
                       {/* XP + streak */}

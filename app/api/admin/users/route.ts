@@ -25,6 +25,10 @@ export async function GET() {
         streakFreezesAvailable: true,
         createdAt: true,
         lastActiveAt: true,
+        interfaceLang: true,
+        targetLang: true,
+        level: true,
+        country: true,
       },
     });
 
@@ -49,6 +53,10 @@ export async function GET() {
       streak: liveStreak(u, now),
       createdAt: u.createdAt,
       lastActiveAt: u.lastActiveAt,
+      interfaceLang: u.interfaceLang,
+      targetLang: u.targetLang,
+      level: u.level,
+      country: u.country,
       // Flagged HERE, not in the page: the definition lives in
       // lib/admin/realUser.ts and pulls in `@prisma/client`, which must not
       // reach the client bundle. The list still shows every account — the
