@@ -21,6 +21,8 @@ export async function GET(
         name: true,
         email: true,
         phone: true,
+        interfaceLang: true,
+        targetLang: true,
         isActive: true,
         isPremium: true,
         subscriptionTier: true,
@@ -43,8 +45,17 @@ export async function GET(
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    const [progressCount, completedCount, achievements, xpHistory, payments] =
-      await Promise.all([
+    const [
+      progressCount, 
+      completedCount, 
+      achievements, 
+      xpHistory, 
+      payments, 
+      languagesLearned, 
+      speakingStats, 
+      libraryProgress, 
+      wordsLearned
+    ] = await Promise.all([
         prisma.userProgress.count({ where: { userId: id } }),
         prisma.userProgress.count({ where: { userId: id, isCompleted: true } }),
         prisma.userAchievement.findMany({
@@ -63,6 +74,23 @@ export async function GET(
           orderBy: { createdAt: 'desc' },
           select: { id: true, amount: true, currency: true, plan: true, provider: true, createdAt: true },
         }),
+        prisma.userLanguage.findMany({
+          where: { userId: id },
+          include: { language: { select: { code: true, name: true, nativeName: true, emoji: true } } },
+          orderBy: { xp: 'desc' }
+        }),
+        prisma.speakingProgress.aggregate({
+          where: { userId: id },
+          _sum: { xpEarned: true, timeSpent: true, timesCompleted: true }
+        }),
+        prisma.libraryProgress.findMany({
+          where: { userId: id },
+          include: { item: { select: { title: true, difficulty: true, format: true } } },
+          orderBy: { position: 'desc' }
+        }),
+        prisma.srsCard.count({
+          where: { userId: id, interval: { gt: 0 } }
+        })
       ]);
 
     return NextResponse.json({
@@ -80,6 +108,20 @@ export async function GET(
       })),
       xpHistory,
       payments,
+      languagesLearned,
+      speakingStats: {
+        totalXp: speakingStats._sum.xpEarned || 0,
+        timeSpent: speakingStats._sum.timeSpent || 0, // seconds
+        lessonsCompleted: speakingStats._sum.timesCompleted || 0
+      },
+      libraryProgress: libraryProgress.map(lp => ({
+        title: lp.item.title,
+        format: lp.item.format,
+        difficulty: lp.item.difficulty,
+        position: lp.position,
+        total: lp.total
+      })),
+      wordsLearned
     });
   } catch (err: any) {
     console.error('[admin/users/[id]/stats GET]', err);
