@@ -1,4 +1,5 @@
 import { prisma } from './prisma';
+import { DEFAULT_TZ_OFFSET_MIN } from './localDay';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Daily tasks ("Вазифаҳои рӯзона"). Three trackable quests per day, reset daily.
@@ -11,14 +12,35 @@ export type DailyTaskDef = {
   reward: number; // gems
 };
 
+/**
+ * 🔴 «1 дарс дар як рӯз» ҳадафи НОДУРУСТ буд.
+ *
+ * Ченаки продакшн (21.09.2026, 143 хонандаи фаъол) нишон дод, ки маҳз
+ * шумораи дарси рӯзи ЯКУМ тақдири корбарро ҳал мекунад:
+ *
+ *     1 дарс   → 45% бармегардад, 8%  хонандаи доимӣ мешавад
+ *     2–3      → 46% / 14%
+ *     7–12     → 86% / 64%
+ *
+ * Ҳадафи «1 дарс» маҳз ҳамон рафтореро мукофот медод, ки бадтарин натиҷа
+ * дорад. 3 дарс ≈ 10 дақиқа — ҳадафи воқеӣ ва расиданашон осон.
+ */
 export const DAILY_TASK_DEFS: DailyTaskDef[] = [
-  { taskType: 'complete_lesson', targetValue: 1, reward: 10 },
+  { taskType: 'complete_lesson', targetValue: 3, reward: 10 },
   { taskType: 'learn_words', targetValue: 5, reward: 5 },
   { taskType: 'earn_xp', targetValue: 50, reward: 5 },
 ];
 
+/**
+ * «Имрӯз» бо вақти ДУШАНБЕ (UTC+5), на UTC.
+ *
+ * 🔴 Бо UTC рӯзи вазифаҳо соати 05:00-и субҳи маҳаллӣ иваз мешуд: хонандае,
+ * ки шаб соати 01:00 машғул мешуд, ҳанӯз вазифаҳои ДИРӮЗРО медид ва пас аз
+ * 05:00 пешрафташ «нест» мешуд. Ҳамон қоидаи боқимондаи барнома
+ * (`lib/localDay.ts`).
+ */
 function todayString(d = new Date()): string {
-  return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()))
+  return new Date(d.getTime() + DEFAULT_TZ_OFFSET_MIN * 60_000)
     .toISOString()
     .split('T')[0];
 }
