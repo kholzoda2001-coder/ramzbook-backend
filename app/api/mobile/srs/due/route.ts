@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+import { MISTAKE_BOX_SIZE } from '@/lib/srs';
 
 export const dynamic = 'force-dynamic';
 
@@ -28,13 +29,31 @@ export async function GET(req: NextRequest) {
     const sp = req.nextUrl.searchParams;
     const courseId = sp.get('courseId') || undefined;
     const itemType = sp.get('itemType') || undefined;
-    const limit = Math.min(Math.max(parseInt(sp.get('limit') || '15', 10) || 15, 1), 100);
+    let limit = Math.min(Math.max(parseInt(sp.get('limit') || '15', 10) || 15, 1), 100);
+
+    // ── Реҷаи «ҚУТТИИ ХАТОҲО» ────────────────────────────────────────────
+    //
+    // `?mode=mistakes` → танҳо калимаҳое, ки хато шудаанд (`lapses > 0`), ва
+    // ҳадди аксар 15 дар як рӯз. Талаби корбар: бахши «Такрор» бояд ТАНҲО
+    // қарзи хаторо нишон диҳад ва вақте ҳама дуруст шуд — ХОЛӢ бошад.
+    //
+    // ⚠️ Реҷа қасдан ИХТИЁРӢ аст, на пешфарз: барномаи КӮҲНАИ насбшуда ҳанӯз
+    // хатоҳоро ба сервер намефиристад, пас барои он навбат якбора холӣ мешуд
+    // ва бахши такрор нопадид мегашт. Билди нав `mode=mistakes` мефиристад.
+    const mistakesOnly = sp.get('mode') === 'mistakes';
+    if (mistakesOnly) limit = Math.min(limit, MISTAKE_BOX_SIZE);
 
     const me = await prisma.user.findUnique({ where: { id: userId }, select: { targetLang: true } });
     const targetLang = me?.targetLang ?? null;
 
     const cards = await prisma.srsCard.findMany({
-      where: { userId, courseId, itemType, dueAt: { lte: new Date() } },
+      where: {
+        userId, courseId, itemType,
+        dueAt: { lte: new Date() },
+        // Хатоҳои кӯҳнатарин аввал — «5 нави имрӯз + 10 боқимонда» маҳз
+        // ҳамин тавр ҷамъ мешавад.
+        ...(mistakesOnly ? { lapses: { gt: 0 } } : {}),
+      },
       orderBy: { dueAt: 'asc' },
       take: DUE_FETCH_CAP,
     });

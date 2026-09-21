@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { markStudied } from '@/lib/activity';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
-import { reviewCard, initialSrsState, isGrade } from '@/lib/srs';
+import { reviewCard, initialSrsState, isGrade, afterReviewAnswer } from '@/lib/srs';
 
 export const dynamic = 'force-dynamic';
 
@@ -37,7 +37,18 @@ export async function POST(req: NextRequest) {
       ? { easeFactor: existing.easeFactor, intervalDays: existing.intervalDays, repetitions: existing.repetitions, lapses: existing.lapses }
       : initialSrsState();
 
-    const next = reviewCard(state, body.grade);
+    // ── Қуттии хатоҳо ───────────────────────────────────────────────────
+    //
+    // Калимае, ки дар қуттист (`lapses > 0`), баъди ҷавоби ДУРУСТ бояд аз он
+    // БАРОЯД — вагарна бахши «Такрор» ҳеҷ гоҳ холӣ намешавад ва хонанда ҳамон
+    // калимаҳоро абадӣ мебинад. Ҷавоби нодуруст бошад `again` аст ва SM-2
+    // худаш `dueAt = фардо` мегузорад — маҳз ҳамон чизе, ки лозим аст.
+    //
+    // Қоида дар `lib/srs.ts` (`afterReviewAnswer`) — он ҷо тестшаванда.
+    const correct = body.grade !== 'again';
+    const next = state.lapses > 0
+        ? afterReviewAnswer(state, correct)
+        : reviewCard(state, body.grade);
 
     const card = await prisma.srsCard.upsert({
       where: { userId_itemType_itemId: { userId, itemType, itemId } },
