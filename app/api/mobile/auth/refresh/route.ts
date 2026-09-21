@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { isBlocked, blockedResponse } from '@/lib/accountBlock';
 import {
   apiError,
   hashRefreshToken,
@@ -19,12 +20,16 @@ export async function POST(req: NextRequest) {
     const tokenHash = hashRefreshToken(incoming);
     const row = await prisma.refreshToken.findUnique({
       where: { tokenHash },
-      include: { user: { select: { id: true, name: true, email: true } } },
+      include: { user: { select: { id: true, name: true, email: true, isActive: true } } },
     });
 
     if (!row || row.revokedAt || row.expiresAt <= new Date()) {
       return Response.json({ error: 'Invalid refresh token.' }, { status: 401 });
     }
+
+    // Маҳз ин ҷо ҷаласаи АЛЛАКАЙ кушодашуда мемирад: то ин санҷиш «манъ»
+    // танҳо вурудҳои НАВРО мебаст ва корбари даромада боқӣ мемонд.
+    if (isBlocked(row.user)) return blockedResponse();
 
     // ⚠️ БЕ-ROTATION (қасдан): пештар ҳар refresh токени навро месохт ва
     // кӯҳнаро бекор мекард. Дар мобил ин хатари ҷиддӣ дошт — агар барнома

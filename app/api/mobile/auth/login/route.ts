@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import bcrypt from 'bcryptjs';
 import { prisma } from '@/lib/prisma';
+import { isBlocked, blockedResponse } from '@/lib/accountBlock';
 import {
   generateRefreshToken,
   hashRefreshToken,
@@ -34,20 +35,20 @@ export async function POST(req: NextRequest) {
     }
 
     // Build search conditions - support both old (synthetic email) and new (real phone field) formats
-    type UserRow = { id: string; name: string; email: string | null; phone: string | null; passwordHash: string; isPremium: boolean; premiumPlan: string | null; premiumExpiresAt: Date | null };
+    type UserRow = { id: string; name: string; email: string | null; phone: string | null; passwordHash: string; isPremium: boolean; premiumPlan: string | null; premiumExpiresAt: Date | null; isActive: boolean };
     let user: UserRow | null = null;
 
     if (isEmail) {
       // Direct email lookup
       user = await prisma.user.findUnique({
         where: { email: rawIdentifier.toLowerCase() },
-        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true },
+        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true, isActive: true },
       });
     } else if (phone) {
       // 1) Try real phone field (new registrations)
       user = await prisma.user.findUnique({
         where: { phone },
-        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true },
+        select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true, isActive: true },
       });
 
       if (!user) {
@@ -55,7 +56,7 @@ export async function POST(req: NextRequest) {
         const digits = phone.replace('+', '');
         user = await prisma.user.findUnique({
           where: { email: `${digits}@ramzbook.tj` },
-          select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true },
+          select: { id: true, name: true, email: true, phone: true, passwordHash: true, isPremium: true, premiumPlan: true, premiumExpiresAt: true, isActive: true },
         });
       }
     }
@@ -63,6 +64,9 @@ export async function POST(req: NextRequest) {
     if (!user) {
       return Response.json({ error: 'Invalid credentials.' }, { status: 401 });
     }
+
+    // Ҳисоби манъшуда — вуруд НЕСТ (ниг. lib/accountBlock.ts).
+    if (isBlocked(user)) return blockedResponse();
 
     // Guard: social-only accounts have no password
     if (!user.passwordHash) {

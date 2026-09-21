@@ -14,6 +14,7 @@ import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import { OAuth2Client } from 'google-auth-library';
 import { prisma } from '@/lib/prisma';
+import { isBlocked, blockedResponse } from '@/lib/accountBlock';
 import {
   generateRefreshToken,
   hashRefreshToken,
@@ -133,6 +134,8 @@ export async function POST(req: NextRequest) {
       // a photo the user has since chosen themselves.
       user = await prisma.user.update({ where: { id: user.id }, data: { avatarUrl: picture } });
     }
+
+    if (isBlocked(user)) return blockedResponse(CORS);
 
     const accessToken = signAccessTokenForUser(user.id);
     const rawRefresh = generateRefreshToken();

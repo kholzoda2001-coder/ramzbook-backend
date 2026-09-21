@@ -12,6 +12,7 @@ import {
   REFRESH_TTL_MS,
 } from '@/lib/auth';
 import { verifyOtpInDb, normalizeIdentifier, type OtpChannel } from '@/lib/otp/otp-core';
+import { isBlocked, BLOCKED_ERROR } from '@/lib/accountBlock';
 
 export type VerifyOtpSessionResult =
   | {
@@ -77,6 +78,9 @@ export async function runVerifyOtpSession(
       });
     }
   }
+
+  // Ҳисоби манъшуда набояд бо рамзи якдафъаина ҳам дарояд.
+  if (isBlocked(user)) return { ok: false, status: 403, error: BLOCKED_ERROR };
 
   const accessToken = signAccessTokenForUser(user.id);
   const rawRefresh = generateRefreshToken();
