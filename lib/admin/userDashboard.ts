@@ -249,3 +249,77 @@ export function summarize(langs: LangSummary[], daily: DailyPoint[]) {
   const activeDays = daily.filter((d) => d.lessons > 0 || d.xp > 0).length;
   return { lessons, minutes, xp, words, accuracy, activeDays };
 }
+
+// ── Модулҳо: «дар кадом ҷо истодааст» ──────────────────────────────────────
+
+export type ModuleRow = {
+  code: string; level: string; id: string; title: string | null;
+  emoji: string | null; ord: number; done: number; total: number;
+  lastAt?: string | null;
+};
+
+export type ModuleView = ModuleRow & {
+  percent: number;
+  /** done = тамом · current = ҲОЗИР дар ҳамин ҷост · next = ҳанӯз сар накарда */
+  state: 'done' | 'current' | 'next';
+};
+
+/**
+ * Модулҳои ҳар забон бо фоиз ва аломати «ҲОЗИР ИН ҶО».
+ *
+ * «Ҷои ҷорӣ» = аввалин модули НОТАМОМ (аз рӯи сатҳ ва тартиб). Агар ҳама
+ * тамом бошанд — ҷои ҷорӣ нест. Бе ин, дашборд танҳо ҷамъи дарсҳоро нишон
+ * медод ва савол «хонанда дар куҷо мондааст?» бе ҷавоб мемонд.
+ */
+export function buildModules(rows: ModuleRow[]): Record<string, ModuleView[]> {
+  const byLang: Record<string, ModuleView[]> = {};
+
+  for (const r of rows) {
+    const percent = r.total > 0 ? Math.round((r.done / r.total) * 100) : 0;
+    (byLang[r.code] ??= []).push({ ...r, percent, state: 'next' });
+  }
+
+  for (const code of Object.keys(byLang)) {
+    const list = byLang[code];
+    list.sort((a, b) =>
+      LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level) || a.ord - b.ord);
+
+    let currentFound = false;
+    for (const m of list) {
+      if (m.total > 0 && m.done >= m.total) { m.state = 'done'; continue; }
+      if (!currentFound && m.done > 0) { m.state = 'current'; currentFound = true; continue; }
+      m.state = 'next';
+    }
+    // Ҳама модулҳои саршуда тамоманд → модули ОЯНДА ҷои ҷорӣ мешавад.
+    if (!currentFound) {
+      const nxt = list.find((m) => m.state === 'next');
+      if (nxt) nxt.state = 'current';
+    }
+  }
+  return byLang;
+}
+
+// ── Вуруд ба барнома ───────────────────────────────────────────────────────
+
+export type LoginRow = { createdAt: string | Date; revokedAt?: string | Date | null };
+
+/**
+ * Ҳар сатри `RefreshToken` = ЯК вуруд. Ин ягона ҷоест, ки «кадом соат ба
+ * барнома даромад» сабт мешавад — `completedAt`-и дарс вақти ХОНДАН аст, на
+ * вақти даромадан, ва онҳо метавонанд тамоман фарқ кунанд.
+ */
+export function buildLogins(rows: LoginRow[], tz = TZ) {
+  const stamps = rows.map((r) => r.createdAt);
+  const days = new Set(stamps.map((s) => dayKey(s, tz)));
+  return {
+    total: rows.length,
+    days: days.size,
+    first: stamps.length ? new Date(stamps[stamps.length - 1]).toISOString() : null,
+    last: stamps.length ? new Date(stamps[0]).toISOString() : null,
+    hours: buildHours(stamps, tz),
+    recent: rows.slice(0, 15).map((r) => ({
+      at: new Date(r.createdAt).toISOString(),
+      revoked: !!r.revokedAt,
+    })),
+  };
+}

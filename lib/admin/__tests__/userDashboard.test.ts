@@ -8,7 +8,7 @@ import {
   type LangRow,
   dayKey, hourOf, weekdayOf, normSkill, higherLevel,
   buildLanguages, buildDaily, buildHours, buildWeekdays, buildBooks,
-  summarize, longestDayStreak, findSyncBursts,
+  summarize, longestDayStreak, findSyncBursts, buildModules, buildLogins,
 } from '../userDashboard';
 
 const row = (over: Partial<LangRow> = {}): LangRow => ({
@@ -200,5 +200,69 @@ describe('Таркиши синхронизатсия', () => {
   it('калонтаринаш аввал меистад', () => {
     const second = { ...burstDay, day: '2026-07-01', lessons: 30 };
     expect(findSyncBursts([second, burstDay]).map((b) => b.lessons)).toEqual([201, 30]);
+  });
+});
+
+describe('Модулҳо — «дар куҷо истодааст»', () => {
+  const m = (over: any = {}) => ({
+    code: 'en', level: 'A1', id: 'm' + (over.ord ?? 1), title: 'Module',
+    emoji: '📘', ord: 1, done: 0, total: 10, ...over,
+  });
+
+  it('модули НОТАМОМИ саршуда = ҷои ҷорӣ', () => {
+    const r = buildModules([
+      m({ ord: 1, done: 10 }), m({ ord: 2, done: 4 }), m({ ord: 3, done: 0 }),
+    ]);
+    expect(r.en.map((x) => x.state)).toEqual(['done', 'current', 'next']);
+    expect(r.en[1].percent).toBe(40);
+  });
+
+  it('агар ҳамаи саршудаҳо тамом бошанд, модули ОЯНДА ҷои ҷорӣ мешавад', () => {
+    const r = buildModules([m({ ord: 1, done: 10 }), m({ ord: 2, done: 0 })]);
+    expect(r.en.map((x) => x.state)).toEqual(['done', 'current']);
+  });
+
+  it('тартиб: аввал сатҳ, баъд рақами модул', () => {
+    const r = buildModules([
+      m({ ord: 2, level: 'A2' }), m({ ord: 1, level: 'A2' }),
+      m({ ord: 3, level: 'A1', done: 3 }), m({ ord: 1, level: 'A1', done: 10 }),
+    ]);
+    expect(r.en.map((x) => `${x.level}${x.ord}`)).toEqual(['A11', 'A13', 'A21', 'A22']);
+    expect(r.en[1].state).toBe('current');
+  });
+
+  it('забонҳо ҷудо ҳисоб мешаванд', () => {
+    const r = buildModules([m({ code: 'en', done: 10 }), m({ code: 'ru', done: 2 })]);
+    expect(Object.keys(r).sort()).toEqual(['en', 'ru']);
+    expect(r.ru[0].state).toBe('current');
+  });
+
+  it('модули холӣ (0 дарс) ба сифр тақсим намешавад', () => {
+    const r = buildModules([m({ total: 0, done: 0 })]);
+    expect(r.en[0].percent).toBe(0);
+  });
+});
+
+describe('Вуруд ба барнома', () => {
+  it('рӯзҳои ЯГОНА ва соати вуруд ҳисоб мешаванд', () => {
+    const l = buildLogins([
+      { createdAt: '2026-09-19T01:32:00.000Z' },   // 06:32 Душанбе
+      { createdAt: '2026-09-19T05:00:00.000Z', revokedAt: '2026-09-20T00:00:00.000Z' },
+      { createdAt: '2026-09-13T06:30:00.000Z' },   // 11:30 Душанбе
+    ]);
+    expect(l.total).toBe(3);
+    expect(l.days).toBe(2);
+    expect(l.hours[6]).toBe(1);   // 01:32 UTC → 06:32
+    expect(l.hours[10]).toBe(1);  // 05:00 UTC → 10:00
+    expect(l.hours[11]).toBe(1);  // 06:30 UTC → 11:30
+    expect(l.last).toBe('2026-09-19T01:32:00.000Z');
+    expect(l.first).toBe('2026-09-13T06:30:00.000Z');
+    expect(l.recent[1].revoked).toBe(true);
+  });
+
+  it('корбари бе вуруд ҳеҷ чизро намешиканад', () => {
+    const l = buildLogins([]);
+    expect(l).toMatchObject({ total: 0, days: 0, first: null, last: null });
+    expect(l.hours).toHaveLength(24);
   });
 });

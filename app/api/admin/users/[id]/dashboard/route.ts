@@ -21,6 +21,7 @@ import {
   type LangRow, type DayRow, type BookRow,
   buildLanguages, buildDaily, buildHours, buildWeekdays, buildBooks,
   summarize, longestDayStreak, findSyncBursts, dayKey, TZ,
+  type ModuleRow, buildModules, buildLogins,
 } from '@/lib/admin/userDashboard';
 
 export const dynamic = 'force-dynamic';
@@ -40,6 +41,7 @@ export async function GET(
       langRows, wordRows, stamps, dayRows, xpRows,
       books, speaking, speakMistakes, achievements, payments,
       pushes, tokens, paywall, recent, srs, invites,
+      logins, moduleRows, hardWords, hardSpeak, feedback, reports, srsDue,
     ] = await Promise.all([
       // ① Забон × сатҳ × маҳорат — ҳастаи тамоми дашборд
       prisma.$queryRaw<LangRow[]>`
@@ -165,6 +167,79 @@ export async function GET(
       }),
 
       prisma.friendInvite.count({ where: { creatorUserId: id } }).catch(() => 0),
+
+      // ⑤ ВУРУД ба барнома. Ҳар `RefreshToken` = як вуруд; ягона ҷое, ки
+      //    «кадом соат даромад» сабт мешавад.
+      prisma.refreshToken.findMany({
+        where: { userId: id },
+        select: { createdAt: true, revokedAt: true },
+        orderBy: { createdAt: 'desc' },
+        take: 300,
+      }),
+
+      // ⑥ «Дар кадом ҷо истодааст» — ҳамаи модулҳои курсҳои ӯ, тамом ё не.
+      prisma.$queryRaw<ModuleRow[]>`
+        WITH mine AS (
+          SELECT DISTINCT m."courseId" AS cid
+          FROM "UserProgress" up
+          JOIN "Lesson" le ON le.id = up."lessonId"
+          JOIN "Module" m  ON m.id  = le."moduleId"
+          WHERE up."userId" = ${id} AND up."isCompleted" = true
+        )
+        SELECT tl.code AS code, c.level AS level, m.id AS id,
+               COALESCE(NULLIF(m."titleTranslated", ''), m.title) AS title,
+               m.emoji AS emoji, m."order" AS ord,
+               COUNT(up.id) FILTER (WHERE up."isCompleted")::int AS done,
+               COUNT(le.id)::int                                 AS total,
+               MAX(up."completedAt")                             AS "lastAt"
+        FROM "Module" m
+        JOIN "Course" c   ON c.id  = m."courseId"
+        JOIN "Language" tl ON tl.id = c."targetLanguageId"
+        JOIN "Lesson" le  ON le."moduleId" = m.id AND le."isActive" = true
+        LEFT JOIN "UserProgress" up ON up."lessonId" = le.id AND up."userId" = ${id}
+        WHERE m."courseId" IN (SELECT cid FROM mine) AND m."isActive" = true
+        GROUP BY tl.code, c.level, m.id, m."titleTranslated", m.title, m.emoji, m."order"`,
+
+      // ⑦ Калимаҳое, ки МЕФАРОМӮШАД (`lapses` = чанд бор аз нав афтод)
+      prisma.$queryRaw<{ word: string; translation: string; lapses: number; repetitions: number; code: string; dueAt: string }[]>`
+        SELECT w.word, w.translation, sc.lapses, sc.repetitions, tl.code, sc."dueAt"
+        FROM "SrsCard" sc
+        JOIN "Word" w    ON w.id = sc."itemId"
+        JOIN "Lesson" le ON le.id = w."lessonId"
+        JOIN "Module" m  ON m.id  = le."moduleId"
+        JOIN "Course" c  ON c.id  = m."courseId"
+        JOIN "Language" tl ON tl.id = c."targetLanguageId"
+        WHERE sc."userId" = ${id} AND sc."itemType" = 'word' AND sc.lapses > 0
+        ORDER BY sc.lapses DESC, sc.repetitions ASC
+        LIMIT 15`,
+
+      // ⑧ Ҷумлаҳои гуфтор, ки талаффуз намешаванд
+      prisma.$queryRaw<{ text: string; translation: string; misses: number; box: number; code: string; lastMissedAt: string }[]>`
+        SELECT si.text, si.translation, sm.misses, sm.box, tl.code, sm."lastMissedAt"
+        FROM "SpeakingMistake" sm
+        JOIN "SpeakingItem" si    ON si.id = sm."itemId"
+        JOIN "SpeakingLesson" sl  ON sl.id = si."lessonId"
+        JOIN "SpeakingCategory" scg ON scg.id = sl."categoryId"
+        JOIN "Language" tl ON tl.id = scg."targetLanguageId"
+        WHERE sm."userId" = ${id}
+        ORDER BY sm.misses DESC
+        LIMIT 15`,
+
+      // ⑨ Он чи ХУДИ хонанда навиштааст
+      prisma.feedback.findMany({
+        where: { userId: id }, orderBy: { createdAt: 'desc' }, take: 20,
+        select: { rating: true, message: true, source: true, level: true,
+                  targetLang: true, platform: true, lessonsCompleted: true,
+                  isRead: true, createdAt: true },
+      }),
+      prisma.contentReport.findMany({
+        where: { userId: id }, orderBy: { createdAt: 'desc' }, take: 20,
+        select: { field: true, value: true, reason: true, suggestion: true,
+                  status: true, course: true, appVersion: true, createdAt: true },
+      }),
+
+      // Чанд корт МАҲЗ ҲОЗИР мунтазири такрор аст — нишони «қарзи» такрор.
+      prisma.srsCard.count({ where: { userId: id, dueAt: { lte: new Date() } } }),
     ]);
 
     const now = new Date();
@@ -218,6 +293,7 @@ export async function GET(
       totals: {
         ...totals,
         srsCards: srs._count._all,
+        srsDue,
         srsLapses: srs._sum.lapses ?? 0,
         srsReviews: srs._sum.repetitions ?? 0,
         achievements: achievements.length,
@@ -247,6 +323,14 @@ export async function GET(
       paywall: Object.fromEntries(paywall.map((p) => [p.action, p._count._all])),
       pushes,
       recent,
+      logins: buildLogins(logins),
+      modules: buildModules(moduleRows.map((m) => ({ ...m, lastAt: iso(m.lastAt) }))),
+      hardWords,
+      hardSpeak,
+      feedback,
+      reports,
+      // Версияи барнома ҳоло танҳо дар гузориши мазмун сабт мешавад.
+      appVersion: reports.find((r) => r.appVersion)?.appVersion ?? null,
     });
   } catch (err: any) {
     console.error('[admin/users/[id]/dashboard]', err?.message);

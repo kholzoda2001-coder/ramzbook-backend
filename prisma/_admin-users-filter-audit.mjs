@@ -5,6 +5,13 @@
 // ва мепурсад: «оё филтр РОСТ ҷавоб медиҳад?»
 //
 //   node prisma/_admin-users-filter-audit.mjs
+//
+// ⚠️ ДОМИ ВАҚТ: ҳамаи сутунҳои вақт дар база `timestamp WITHOUT time zone`-анд
+// ва рақами UTC-ро нигоҳ медоранд. Драйвери HTTP-и Neon онҳоро ҳамчун вақти
+// МАҲАЛЛИИ ин компютер мехонад — дар мошини UTC+4 ҳар сана 4 соат ҷилав
+// мепарад. Prisma (ва саҳифаи админ) онҳоро дуруст ҳамчун UTC мехонад.
+// Пас: барои муқоисаи ДАҚИҚИ вақт ин скриптро ба Postgres ҳисоб кунонед
+// (`completedAt + interval '5 hours'` дар худи SQL), на дар JS.
 import { readFileSync } from 'fs';
 import { neon } from '@neondatabase/serverless';
 

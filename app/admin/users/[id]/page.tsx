@@ -47,6 +47,20 @@ type Dash = {
   paywall: Record<string, number>;
   pushes: { title: string; body: string; status: string; reason: string | null; createdAt: string; openedAt: string | null }[];
   recent: { title: string; skill: string; level: string; code: string; accuracy: number; xp: number; sec: number; at: string }[];
+  logins: {
+    total: number; days: number; first: string | null; last: string | null;
+    hours: number[]; recent: { at: string; revoked: boolean }[];
+  };
+  modules: Record<string, {
+    code: string; level: string; id: string; title: string | null; emoji: string | null;
+    done: number; total: number; percent: number; state: 'done' | 'current' | 'next';
+    lastAt?: string | null;
+  }[]>;
+  hardWords: { word: string; translation: string; lapses: number; repetitions: number; code: string; dueAt: string }[];
+  hardSpeak: { text: string; translation: string; misses: number; box: number; code: string; lastMissedAt: string }[];
+  feedback: { rating: number; message: string | null; source: string; level: string | null; targetLang: string | null; platform: string | null; lessonsCompleted: number; isRead: boolean; createdAt: string }[];
+  reports: { field: string; value: string; reason: string; suggestion: string | null; status: string; course: string | null; appVersion: string | null; createdAt: string }[];
+  appVersion: string | null;
 };
 type Toast = { type: 'success' | 'error'; message: string };
 
@@ -270,6 +284,8 @@ export default function UserDashboardPage({ params }: { params: { id: string } }
           <div style={{ fontSize: 12, color: 'var(--text2)', marginTop: 4 }}>
             Бақайдгирӣ: {fmt(u.createdAt)} · Охирин фаъолият: {fmt(u.lastActiveAt)}
             {u.devices?.length ? ` · ${u.devices.length} дастгоҳ (${u.devices[0].platform})` : ' · дастгоҳ нест'}
+            {d.appVersion && ` · барнома v${d.appVersion}`}
+            {d.logins.last && ` · вуруди охирин: ${fmt(d.logins.last)}`}
           </div>
         </div>
       </div>
@@ -406,6 +422,156 @@ export default function UserDashboardPage({ params }: { params: { id: string } }
           <Bars data={d.weekdays} labels={WEEKDAY_TJ} color="#f59e0b" />
         </Card>
       </div>
+
+      {/* ── Дар кадом ҷо истодааст ─────────────────────────────────────── */}
+      <Card title="Дар кадом ҷо истодааст">
+        {Object.keys(d.modules).length === 0 ? (
+          <p style={{ color: 'var(--text2)', fontSize: 13 }}>Ҳанӯз ба ягон модул ворид нашудааст.</p>
+        ) : (
+          Object.entries(d.modules).map(([code, list]) => (
+            <div key={code} style={{ marginBottom: 18 }}>
+              <div style={{ fontSize: 12, fontWeight: 800, color: 'var(--text2)', textTransform: 'uppercase', marginBottom: 8 }}>
+                {code.toUpperCase()} · {list.filter((m) => m.state === 'done').length} аз {list.length} модул тамом
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 8 }}>
+                {list.map((m) => (
+                  <div key={m.id} style={{
+                    padding: '10px 12px', borderRadius: 10,
+                    background: m.state === 'current' ? 'rgba(99,102,241,0.12)' : 'var(--card2)',
+                    border: `1px solid ${m.state === 'current' ? 'rgba(99,102,241,0.45)' : 'var(--border)'}`,
+                    opacity: m.state === 'next' ? 0.55 : 1,
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12.5, fontWeight: 600, color: 'var(--text)' }}>
+                      <span>{m.emoji ?? '📘'}</span>
+                      <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{m.title}</span>
+                      <span style={{ fontSize: 10, color: 'var(--text2)' }}>{m.level}</span>
+                    </div>
+                    <div style={{ height: 5, borderRadius: 99, background: 'var(--border)', margin: '7px 0 4px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${m.percent}%`, background: m.state === 'done' ? '#10b981' : '#818cf8' }} />
+                    </div>
+                    <div style={{ fontSize: 11, color: 'var(--text2)' }}>
+                      {m.done}/{m.total} дарс · {m.percent}%
+                      {m.state === 'current' && <b style={{ color: '#818cf8' }}> · ҲОЗИР ИН ҶО</b>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        )}
+      </Card>
+
+      {/* ── Вуруд ба барнома ───────────────────────────────────────────── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
+        <Card title={`Кадом СОАТ ба барнома медарояд (${d.logins.total} вуруд)`}>
+          <Bars data={d.logins.hours} labels={d.logins.hours.map((_, i) => (i % 3 === 0 ? String(i) : ''))} color="#a78bfa" />
+          <div style={{ fontSize: 12, color: 'var(--text2)', marginTop: 10 }}>
+            {d.logins.total > 0
+              ? <>Дар {d.logins.days} рӯзи гуногун · аввалин {fmt(d.logins.first, false)} · охирин <b style={{ color: 'var(--text)' }}>{fmt(d.logins.last)}</b></>
+              : 'Сабти вуруд нест.'}
+          </div>
+        </Card>
+
+        <Card title="Вурудҳои охирин">
+          {d.logins.recent.length === 0 ? (
+            <p style={{ color: 'var(--text2)', fontSize: 13 }}>Нест.</p>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 190, overflowY: 'auto' }}>
+              {d.logins.recent.map((l, i) => (
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, color: 'var(--text2)', padding: '3px 0', borderBottom: '1px solid var(--border)' }}>
+                  <span style={{ color: 'var(--text)' }}>{fmt(l.at)}</span>
+                  {l.revoked && <span style={{ color: '#ef4444', fontSize: 11 }}>ҷаласа бекор</span>}
+                </div>
+              ))}
+            </div>
+          )}
+        </Card>
+      </div>
+
+      {/* ── Чӣ барояш душвор аст ───────────────────────────────────────── */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 20 }}>
+        <Card title={`Калимаҳои ДУШВОР · навбати такрор ${num(t.srsDue)} аз ${num(t.srsCards)}`}>
+          {d.hardWords.length === 0 ? (
+            <p style={{ color: 'var(--text2)', fontSize: 13 }}>Ҳеҷ калимаро аз нав фаромӯш накардааст.</p>
+          ) : (
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead><tr style={{ borderBottom: '1px solid var(--border)' }}>
+                {['Калима', 'Тарҷума', 'Забон', 'Фаромӯш', 'Такрор'].map((h) => <th key={h} style={TH}>{h}</th>)}
+              </tr></thead>
+              <tbody>
+                {d.hardWords.map((w, i) => (
+                  <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
+                    <td style={{ ...TD, fontWeight: 700 }}>{w.word}</td>
+                    <td style={{ ...TD, color: 'var(--text2)' }}>{w.translation}</td>
+                    <td style={TD}>{w.code.toUpperCase()}</td>
+                    <td style={{ ...TD, color: '#ef4444', fontWeight: 700 }}>{w.lapses}×</td>
+                    <td style={TD}>{w.repetitions}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </Card>
+
+        <Card title={`Ҷумлаҳое, ки ТАЛАФФУЗ карда наметавонад (${t.speakingMistakes})`}>
+          {d.hardSpeak.length === 0 ? (
+            <p style={{ color: 'var(--text2)', fontSize: 13 }}>Хатои талаффуз сабт нашудааст.</p>
+          ) : (
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead><tr style={{ borderBottom: '1px solid var(--border)' }}>
+                {['Ҷумла', 'Тарҷума', 'Забон', 'Хато'].map((h) => <th key={h} style={TH}>{h}</th>)}
+              </tr></thead>
+              <tbody>
+                {d.hardSpeak.map((x, i) => (
+                  <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
+                    <td style={{ ...TD, fontWeight: 600 }}>{x.text}</td>
+                    <td style={{ ...TD, fontSize: 12, color: 'var(--text2)' }}>{x.translation}</td>
+                    <td style={TD}>{x.code.toUpperCase()}</td>
+                    <td style={{ ...TD, color: x.misses >= 10 ? '#ef4444' : '#f59e0b', fontWeight: 700 }}>{x.misses}×</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </Card>
+      </div>
+
+      {/* ── Овози худи хонанда ─────────────────────────────────────────── */}
+      <Card title={`Фикр ва гузоришҳои ХУДИ хонанда (${d.feedback.length + d.reports.length})`}>
+        {d.feedback.length === 0 && d.reports.length === 0 ? (
+          <p style={{ color: 'var(--text2)', fontSize: 13 }}>Ҳеҷ чиз нанавиштааст.</p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {d.feedback.map((f, i) => (
+              <div key={`f${i}`} style={{ padding: '10px 12px', borderRadius: 10, background: 'var(--card2)', border: '1px solid var(--border)' }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', fontSize: 12, color: 'var(--text2)' }}>
+                  <span style={{ color: '#f59e0b', fontWeight: 700 }}>
+                    {'★'.repeat(Math.max(0, Math.min(5, f.rating)))}{'☆'.repeat(Math.max(0, 5 - f.rating))}
+                  </span>
+                  <span>{fmt(f.createdAt)}</span>
+                  <span>· {f.source}</span>
+                  {f.targetLang && <span>· {f.targetLang.toUpperCase()}</span>}
+                  <span>· баъди {f.lessonsCompleted} дарс</span>
+                  {!f.isRead && <Pill text="нахонда" color="#818cf8" bg="rgba(99,102,241,0.12)" />}
+                </div>
+                {f.message && <div style={{ fontSize: 13, color: 'var(--text)', marginTop: 5 }}>«{f.message}»</div>}
+              </div>
+            ))}
+            {d.reports.map((r, i) => (
+              <div key={`r${i}`} style={{ padding: '10px 12px', borderRadius: 10, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)' }}>
+                <div style={{ fontSize: 12, color: 'var(--text2)' }}>
+                  🚩 Гузориши хатои мазмун · {fmt(r.createdAt)} · {r.course ?? '—'} · {r.field} · {r.status}
+                  {r.appVersion && ` · v${r.appVersion}`}
+                </div>
+                <div style={{ fontSize: 13, color: 'var(--text)', marginTop: 4 }}>
+                  «{r.value}» — {r.reason}
+                  {r.suggestion && <span style={{ color: 'var(--text2)' }}> → пешниҳод: {r.suggestion}</span>}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </Card>
 
       {/* ── Гуфтор ─────────────────────────────────────────────────────── */}
       <Card title={`Дарсҳои ГУФТОР (${d.speaking.reduce((s, x) => s + x.lessons, 0)})`}>
