@@ -11,6 +11,18 @@ import { refillMonthlyFreezes } from './streakFreezes';
 // stay consistent.
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * Ҳамон калиде, ки `awardXp` барои `DailyXp` истифода мебарад.
+ *
+ * ⚠️ Ҳар касе, ки «имрӯз чанд XP аз фалон манбаъ гирифта шуд?» мепурсад,
+ * бояд МАҲЗ ин функсияро даъват кунад, на калиди худро созад. Дар акси ҳол
+ * ҳадди рӯзона (масалан ҳадди хондан) сатри дигарро мехонад ва ХОМӮШОНА
+ * вайрон мешавад.
+ */
+export function dailyXpDateKey(d: Date): Date {
+  return dateOnly(d);
+}
+
 /** Midnight (UTC) of the given day — matches Prisma `@db.Date` storage. */
 function dateOnly(d: Date): Date {
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));

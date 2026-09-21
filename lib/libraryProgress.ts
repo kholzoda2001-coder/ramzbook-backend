@@ -29,3 +29,44 @@ export function isStaleRead(incoming: Date, stored: Date | null | undefined): bo
   if (!stored) return false;
   return incoming < stored;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// XP БАРОИ ХОНДАН
+//
+// 🔴 То 22.09.2026 хондан УМУМАН ҳисоб намешуд: роути прогресс танҳо ҷои
+// хонишро нигоҳ медошт. Натиҷа барои хонандае, ки ним соат китоб мехонд:
+//   · 0 XP;
+//   · силсила (стрик) МЕШИКАСТ;
+//   · вазифаи рӯзона пеш намерафт;
+//   · ва барои сервер ӯ «ғайрифаъол» буд — яъне push-и баргардонӣ мегирифт.
+// Ҳамон камбудӣ барои навбати такрор аллакай ислоҳ шуда буд (ниг.
+// `lib/activity.ts`), вале Китобхона аз он берун монда буд.
+//
+// Қоида қасдан ХАСИС аст: XP танҳо барои ҶОИ НАВ дода мешавад, пас варақ
+// гардондан ба қафо ва пеш чизе намедиҳад, ва ҳадди рӯзона хонданро ба
+// «фермаи XP» табдил намедиҳад.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Чанд XP барои ҳар саҳифа/боби НАВ. */
+export const READ_XP_PER_PAGE = 2;
+
+/** Ҳадди рӯзонаи XP-и хониш (≈ як дарси луғат). */
+export const READ_XP_DAILY_CAP = 20;
+
+/**
+ * XP барои ин навсозии прогресс.
+ *
+ * @param prevPosition ҷои қаблии нигоҳдошта (аз база)
+ * @param nextPosition ҷои нав
+ * @param earnedToday  чанд XP имрӯз аллакай аз ХОНДАН гирифта шудааст
+ */
+export function readingXp(
+  prevPosition: number,
+  nextPosition: number,
+  earnedToday: number,
+): number {
+  const gained = Math.max(0, Math.trunc(nextPosition) - Math.trunc(prevPosition));
+  if (gained <= 0) return 0; // такрор ё бозгашт — фаъолият ҳаст, XP не
+  const left = Math.max(0, READ_XP_DAILY_CAP - Math.max(0, earnedToday));
+  return Math.min(gained * READ_XP_PER_PAGE, left);
+}

@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
-import { isStaleRead, normaliseClientTime } from '@/lib/libraryProgress';
+import { isStaleRead, normaliseClientTime, readingXp } from '@/lib/libraryProgress';
+import { markStudied } from '@/lib/activity';
+import { awardXp, dailyXpDateKey } from '@/lib/xp';
+import { updateDailyTasks } from '@/lib/dailyTasks';
 
 export const dynamic = 'force-dynamic';
 
@@ -99,7 +102,44 @@ export async function POST(req: NextRequest) {
       select: { itemId: true, position: true, total: true, bookmarks: true, lastReadAt: true },
     });
 
-    return NextResponse.json({ ok: true, stale: false, current: row });
+    // ── Хондан ҲАМ таълим аст ─────────────────────────────────────────────
+    //
+    // 🔴 То 22.09.2026 ин роут танҳо ҷои хонишро нигоҳ медошт. Хонандае, ки
+    // ним соат китоб мехонд: 0 XP, силсилааш МЕШИКАСТ, вазифаи рӯз пеш
+    // намерафт — ва барои сервер ӯ «ғайрифаъол» буд, яъне push-и
+    // баргардонӣ мегирифт. Барнома ба ӯ мегуфт: «хондани ту кор нест».
+    //
+    // `markStudied` ҳамеша (ҳатто такрорхонӣ — ин фаъолият аст), вале XP
+    // ТАНҲО барои ҷои НАВ ва бо ҳадди рӯзона (`readingXp`).
+    await markStudied(userId, now);
+
+    let xp = 0;
+    try {
+      const prev = existing?.position ?? 0;
+      const gained = position - prev;
+      if (gained > 0) {
+        // Чанд XP имрӯз аллакай аз ХОНДАН гирифта шудааст — `DailyXp.source`
+        // онро бо номи манбаъ нигоҳ медорад.
+        // Калид аз ХУДИ `lib/xp` — вагарна ҳад сатри дигарро мехонад.
+        const today = dailyXpDateKey(now);
+        const dx = await prisma.dailyXp.findUnique({
+          where: { userId_date: { userId, date: today } },
+          select: { source: true },
+        });
+        const earnedToday =
+          ((dx?.source as Record<string, number> | null)?.reading ?? 0);
+        xp = readingXp(prev, position, earnedToday);
+        if (xp > 0) {
+          await awardXp(userId, xp, 'reading');
+          await updateDailyTasks(userId, { xp });
+        }
+      }
+    } catch (e) {
+      // XP ҳеҷ гоҳ набояд НИГОҲДОРИИ ҷои хонишро вайрон кунад.
+      console.error('[library/progress xp]', e);
+    }
+
+    return NextResponse.json({ ok: true, stale: false, current: row, xpEarned: xp });
   } catch (err) {
     console.error('[mobile/library/progress POST]', err);
     return apiError('Failed to save reading progress');
