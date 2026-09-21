@@ -68,6 +68,20 @@ export async function ensureTodayTasks(userId: string) {
     });
   }
 
+  // Ҳадафи ТАҒЙИРЁФТА ба сатрҳои ИМРӮЗА ҳам мерасад.
+  //
+  // 🔴 Бе ин, тағйири ҳадаф (1 → 3) танҳо ФАРДО эътибор пайдо мекунад:
+  // `createMany` сатри мавҷударо даст намерасонад. Сатре, ки корбар аллакай
+  // ТАМОМ кардааст, даст нарасида мемонад — вагарна «иҷрошуда» баргашта
+  // «иҷронашуда» мешуд ва ин ҷазо барин менамуд.
+  for (const def of DAILY_TASK_DEFS) {
+    await prisma.dailyTask.updateMany({
+      where: { userId, date, taskType: def.taskType, completed: false,
+               NOT: { targetValue: def.targetValue } },
+      data: { targetValue: def.targetValue },
+    });
+  }
+
   const tasks = await prisma.dailyTask.findMany({ where: { userId, date } });
   // Keep a stable order matching DAILY_TASK_DEFS
   const order = DAILY_TASK_DEFS.map((d) => d.taskType);
