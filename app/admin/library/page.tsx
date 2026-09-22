@@ -188,6 +188,7 @@ export default function AdminLibraryPage() {
   const [seeding, setSeeding] = useState(false);
   // Direct-to-Blob upload progress (null = no upload running).
   const [uploadPct, setUploadPct] = useState<number | null>(null);
+  const [coverBusy, setCoverBusy] = useState(false);
 
   useEffect(() => {
     if (status) {
@@ -393,6 +394,39 @@ export default function AdminLibraryPage() {
     }
   }
 
+  /**
+   * Расми муқова — аз компютер рост ба Blob.
+   *
+   * Муқова аз EPUB хеле хурд аст, пас роҳи оддии `/api/admin/upload` кифоя
+   * аст (ҳадди 4 МБ). Роҳи бевоситаи Blob (`uploadBig`) барои файлҳои
+   * калон лозим буд.
+   *
+   * ⚠️ Расм акнун БЕ ПАРДА ва бе матни рӯяш нишон дода мешавад — барнома
+   * онро ҳамчун муқоваи ТАЙЁР мегирад. Пас расм бояд худаш номи китобро
+   * дошта бошад; вагарна дар раф китоби бе ном мемонад.
+   */
+  async function uploadCover(file: File) {
+    if (!editing) return;
+    if (!file.type.startsWith('image/')) {
+      setStatus({ type: 'error', msg: 'Танҳо расм қабул мешавад.' });
+      return;
+    }
+    setCoverBusy(true);
+    try {
+      const fd = new FormData();
+      fd.append('file', file);
+      const r = await fetch('/api/admin/upload', { method: 'POST', body: fd });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error || 'Бор кардан нашуд.');
+      setEditing((prev) => (prev ? { ...prev, coverUrl: j.url } : prev));
+      setStatus({ type: 'success', msg: 'Муқова бор шуд.' });
+    } catch (e: any) {
+      setStatus({ type: 'error', msg: e?.message || 'Бор кардан нашуд.' });
+    } finally {
+      setCoverBusy(false);
+    }
+  }
+
   /** youtu.be/ID, youtube.com/watch?v=ID and /embed/ID all count as valid. */
   const youtubeOk = (url: string) =>
     /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)[\w-]{11}/.test(url);
@@ -508,8 +542,58 @@ export default function AdminLibraryPage() {
             </div>
 
             <div className="md:col-span-2">
-              <label className={label}>URL-и муқова (расм)</label>
-              <input type="text" value={editing.coverUrl ?? ''} onChange={(e) => setEditing({ ...editing, coverUrl: e.target.value })} className={input} placeholder="https://…" />
+              <label className={label}>Муқова (расм)</label>
+              <div className="flex items-start gap-3">
+                {editing.coverUrl ? (
+                  // Пешнамоиш АЙНАН ҳамон таносуб, ки барнома мекашад
+                  // (`BookCover.aspect = 3/4.35`) — то дар админ ҳамон
+                  // буриш дида шавад, ки хонанда мебинад.
+                  <div className="relative flex-none">
+                    <img
+                      src={editing.coverUrl}
+                      alt=""
+                      className="w-[62px] h-[90px] object-cover rounded-lg border border-[var(--bg-border)]"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setEditing({ ...editing, coverUrl: '' })}
+                      title="Расмро бардоштан"
+                      className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-xs leading-none"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ) : null}
+                <div className="flex-1 min-w-0 space-y-2">
+                  <label className="inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-[var(--bg-border)] text-sm text-[var(--text-primary)] cursor-pointer hover:opacity-80">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      disabled={coverBusy}
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        // Ҳамон файлро дубора интихоб кардан мумкин бошад.
+                        e.target.value = '';
+                        if (f) uploadCover(f);
+                      }}
+                    />
+                    {coverBusy ? 'Бор шуда истодааст…' : 'Расмро аз компютер бор кардан'}
+                  </label>
+                  <input
+                    type="text"
+                    value={editing.coverUrl ?? ''}
+                    onChange={(e) => setEditing({ ...editing, coverUrl: e.target.value })}
+                    className={input}
+                    placeholder="…ё URL-и тайёр"
+                  />
+                  <p className="text-xs text-[var(--text-muted)]">
+                    Расм дар барнома ТОЗА нишон дода мешавад — бе парда ва бе
+                    матни рӯяш. Пас он бояд худаш номи китобро дошта бошад.
+                    Таносуби беҳтарин 3:4,35 (мас. 600×870).
+                  </p>
+                </div>
+              </div>
             </div>
             <div>
               <label className={label}>Тартиб</label>
