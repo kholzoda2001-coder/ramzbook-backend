@@ -114,6 +114,11 @@ export async function GET(req: NextRequest) {
           // The ONE field the app gates on. Derived server-side so the client
           // cannot decide for itself that a book is open.
           locked: !open.has(it.id),
+          // ЧАРО кушода аст. Бе ин барнома ҷавоб дода наметавонад: воҳиди
+          // ХАРИДА ва воҳиди РОЙГОН ҳарду `locked: false` доранд, ва раф
+          // китоби пул додаро зери сарлавҳаи «Барои ҳама кушода» мегузошт —
+          // яъне ба харидор мегуфт, ки хариди ӯ маъно надошт.
+          owned: owned.has(it.id),
         })),
       },
       { headers: CORS },
