@@ -18,6 +18,8 @@
  *   2. Otherwise an item is free when the admin marked it `isPremium: false`.
  *   3. Safety net: if rule 2 leaves fewer than FREE_BOOK_QUOTA *books* open,
  *      the first books in display order are opened until the quota is met.
+ *   4. Плюс ҳар воҳид, ки ин хонанда барои он ҲУҚУҚ дорад (`Entitlement`) —
+ *      харидаи тоқа ё тӯҳфаи админ. Ин доимист ва ба обуна вобаста НЕСТ.
  *
  * Rule 3 is what makes the paywall copy true no matter how the admin sets the
  * flags. Without it, marking every book Premium in the admin panel silently
@@ -150,8 +152,34 @@ export function freeBookCount(items: AccessItem[]): number {
   return items.filter((i) => isBookish(i.type) && free.has(i.id)).length;
 }
 
-/** The ids this learner may open, premium status included. */
-export function unlockedIds(items: AccessItem[], isPremium: boolean): Set<string> {
+/**
+ * The ids this learner may open.
+ *
+ * ── Се манбаи кушоиш ───────────────────────────────────────────────────────
+ *   1. Обуна   → ҲАМА чиз, вале то мӯҳлаташ.
+ *   2. Ройгон  → он чи админ ройгон гузоштааст (`freeItemIds`).
+ *   3. ҲУҚУҚ   → воҳидҳое, ки ин хонанда ХАРИДААСТ ё админ ба ӯ додааст
+ *                (`Entitlement`) — ДОИМӢ.
+ *
+ * ⚠️ Манбаи 3 аз манбаи 1 МУСТАҚИЛ аст ва ҳеҷ гоҳ бо он омехта намешавад.
+ * Хонандае, ки як китоб харид ва баъд обуна шуд ва баъд обунаро бекор кард,
+ * бояд ҳамон китобро дошта бошад. Агар ҳуқуқ ба «премиум» табдил дода
+ * мешуд, тамом шудани обуна китоби ПУЛ ДОДАИ ӯро мепӯшид.
+ *
+ * [ownedIds] сатрҳои ФАЪОЛ аст (`revokedAt = null`) — гирифтани ҳуқуқ
+ * (баргардонидани пул) дар дархост ҳал мешавад, на ин ҷо.
+ */
+export function unlockedIds(
+  items: AccessItem[],
+  isPremium: boolean,
+  ownedIds: Iterable<string> = [],
+): Set<string> {
+  const owned = new Set(ownedIds);
   if (isPremium) return new Set(items.map((i) => i.id));
-  return freeItemIds(items);
+
+  const open = freeItemIds(items);
+  for (const it of items) {
+    if (owned.has(it.id)) open.add(it.id);
+  }
+  return open;
 }

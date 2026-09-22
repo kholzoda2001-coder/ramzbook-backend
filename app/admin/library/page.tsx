@@ -159,6 +159,8 @@ interface Item {
   durationMin: number | null;
   rating: number | null;
   isPremium: boolean;
+  /// Нархи ТОҚА (сомонӣ). `null` = алоҳида фурӯхта намешавад.
+  priceTjs: number | null;
   isActive: boolean;
   order: number;
   pageCount?: number;
@@ -169,7 +171,7 @@ const EMPTY: Item = {
   id: '', type: 'book', title: '', author: '', description: '', coverUrl: '',
   coverWord: '', coverSubtitle: '',
   level: '', targetLang: 'en', nativeLang: '', mediaUrl: '', durationMin: null, rating: null,
-  isPremium: false, isActive: true, order: 0, pages: [],
+  isPremium: false, priceTjs: null, isActive: true, order: 0, pages: [],
 };
 
 export default function AdminLibraryPage() {
@@ -625,6 +627,21 @@ export default function AdminLibraryPage() {
                 <input type="checkbox" checked={editing.isPremium} onChange={(e) => setEditing({ ...editing, isPremium: e.target.checked })} className="w-4 h-4 rounded" />
                 Танҳо барои Premium
               </label>
+              {/*
+                Нархи ТОҚА. Холӣ = китоб танҳо бо обуна кушода мешавад.
+                ⚠️ Ин рақам витрина аст; кушодани воқеӣ ТАНҲО аз `Entitlement`
+                меояд — нарх худ ба худ ба касе дастрасӣ намедиҳад.
+              */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-[var(--text-muted)]">Нархи тоқа, смн</span>
+                <input
+                  type="number" step="1" min={0}
+                  placeholder="—"
+                  value={editing.priceTjs ?? ''}
+                  onChange={(e) => setEditing({ ...editing, priceTjs: e.target.value === '' ? null : Number(e.target.value) })}
+                  className="w-24 bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-2 py-1.5 text-sm text-[var(--text-primary)]"
+                />
+              </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-[var(--text-muted)]">Баҳо</span>
                 <input type="number" step="0.1" min={0} max={5} value={editing.rating ?? ''} onChange={(e) => setEditing({ ...editing, rating: e.target.value === '' ? null : Number(e.target.value) })} className="w-20 bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-2 py-1.5 text-sm text-[var(--text-primary)]" />

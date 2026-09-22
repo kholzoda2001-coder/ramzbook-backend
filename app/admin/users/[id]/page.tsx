@@ -64,6 +64,19 @@ type Dash = {
 };
 type Toast = { type: 'success' | 'error'; message: string };
 
+/** Ҷавоби `/api/admin/users/[id]/entitlements`. */
+type Ent = {
+  owned: {
+    id: string; itemId: string; source: string; note: string | null;
+    pricePaid: number | null; createdAt: string; revokedAt: string | null;
+    item: { title: string; type: string; targetLang: string | null; priceTjs: number | null };
+  }[];
+  items: {
+    id: string; title: string; type: string; targetLang: string | null;
+    isPremium: boolean; priceTjs: number | null;
+  }[];
+};
+
 // ─── Хурдакориҳо ──────────────────────────────────────────────────────────
 
 const SKILL_TJ: Record<string, string> = {
@@ -156,6 +169,9 @@ export default function UserDashboardPage({ params }: { params: { id: string } }
   const [toast, setToast] = useState<Toast | null>(null);
   const [pushTitle, setPushTitle] = useState('');
   const [pushBody, setPushBody] = useState('');
+  const [ent, setEnt] = useState<Ent | null>(null);
+  const [grantId, setGrantId] = useState('');
+  const [grantNote, setGrantNote] = useState('');
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -171,7 +187,18 @@ export default function UserDashboardPage({ params }: { params: { id: string } }
     }
   }, [id]);
 
+  /// Ҳуқуқҳо ҷудо бор карда мешаванд: дашборд аллакай вазнин аст ва ин
+  /// рӯйхат ба ҳар графики он даст намерасонад.
+  const loadEnt = useCallback(async () => {
+    try {
+      const r = await fetch(`/api/admin/users/${id}/entitlements?_t=${Date.now()}`);
+      const j = await r.json();
+      if (r.ok) setEnt(j);
+    } catch {/* рӯйхати ҳуқуқ ихтиёрӣ аст — дашборд бе он ҳам кор мекунад */}
+  }, [id]);
+
   useEffect(() => { load(); }, [load]);
+  useEffect(() => { loadEnt(); }, [loadEnt]);
   useEffect(() => {
     if (!toast) return;
     const t = setTimeout(() => setToast(null), 3500);
@@ -220,6 +247,33 @@ export default function UserDashboardPage({ params }: { params: { id: string } }
     const j = await act('/api/admin/push/manual-user',
       { userId: id, title: pushTitle.trim(), body: pushBody.trim() }, 'Пуш фиристода шуд');
     if (j) { setPushTitle(''); setPushBody(''); load(); }
+  };
+
+  const grantItem = async () => {
+    if (!grantId) { setToast({ type: 'error', message: 'Китобро интихоб кунед' }); return; }
+    const j = await act(`/api/admin/users/${id}/entitlements`,
+      { itemId: grantId, note: grantNote.trim() || undefined }, 'Китоб кушода шуд');
+    if (j) { setGrantId(''); setGrantNote(''); loadEnt(); }
+  };
+
+  const revokeItem = async (itemId: string, title: string) => {
+    if (!window.confirm(`«${title}»-ро аз ин хонанда гирем?`)) return;
+    setBusy(true);
+    try {
+      const r = await fetch(`/api/admin/users/${id}/entitlements`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId }),
+      });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.error ?? 'Хато');
+      setToast({ type: 'success', message: 'Гирифта шуд' });
+      loadEnt();
+    } catch (e: any) {
+      setToast({ type: 'error', message: e.message });
+    } finally {
+      setBusy(false);
+    }
   };
 
   const last30 = useMemo(() => (d ? d.daily.slice(-30) : []), [d]);
@@ -604,6 +658,104 @@ export default function UserDashboardPage({ params }: { params: { id: string } }
       </Card>
 
       {/* ── Китобхона ──────────────────────────────────────────────────── */}
+      {/* ── Китобҳои КУШОДАИ доимӣ ────────────────────────────────────── */}
+      {/*
+        Ҳуқуқи доимӣ — аз обуна МУСТАҚИЛ. Хонандае, ки як китоб гирифт ва
+        баъд обунаашро бекор кард, ҳамон китобро нигоҳ медорад.
+
+        ⚠️ «Гирифтан» сатрро НЕСТ намекунад — `revokedAt` мегузорад. Таърих
+        ягона роҳи ҷавоб ба «чаро ин китоб кушода буд?» мебошад.
+      */}
+      <Card
+        title={`Китобҳои кушодаи ин хонанда (${ent?.owned.filter((o) => !o.revokedAt).length ?? 0})`}
+        right={
+          d.user.isPremium
+            ? <span style={{ fontSize: 12, color: 'var(--text2)' }}>Обунадор — ҳама чиз аллакай кушода</span>
+            : undefined
+        }
+      >
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
+          <select
+            value={grantId}
+            onChange={(e) => setGrantId(e.target.value)}
+            style={{ flex: '1 1 260px', minWidth: 0, padding: '9px 10px', fontSize: 13,
+                     borderRadius: 8, border: '1px solid var(--border)',
+                     background: 'var(--bg)', color: 'var(--text)' }}
+          >
+            <option value="">— китоб ё аудиоро интихоб кунед —</option>
+            {(ent?.items ?? []).map((it) => (
+              <option key={it.id} value={it.id}>
+                {it.title}
+                {it.targetLang ? ` · ${it.targetLang}` : ''}
+                {it.priceTjs != null ? ` · ${it.priceTjs} смн` : ''}
+              </option>
+            ))}
+          </select>
+          <input
+            value={grantNote}
+            onChange={(e) => setGrantNote(e.target.value)}
+            placeholder="Ёддошт: «аз WhatsApp харид»"
+            style={{ flex: '1 1 200px', minWidth: 0, padding: '9px 10px', fontSize: 13,
+                     borderRadius: 8, border: '1px solid var(--border)',
+                     background: 'var(--bg)', color: 'var(--text)' }}
+          />
+          <button
+            onClick={grantItem}
+            disabled={busy || !grantId}
+            style={{ padding: '9px 16px', fontSize: 13, fontWeight: 600, borderRadius: 8,
+                     border: 'none', cursor: busy || !grantId ? 'not-allowed' : 'pointer',
+                     opacity: busy || !grantId ? 0.5 : 1,
+                     background: '#10b981', color: '#fff' }}
+          >
+            Кушодан
+          </button>
+        </div>
+
+        {(ent?.owned.length ?? 0) === 0 ? (
+          <p style={{ color: 'var(--text2)', fontSize: 13 }}>
+            Ҳанӯз ягон китоби алоҳида кушода нашудааст.
+          </p>
+        ) : (
+          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <thead><tr style={{ borderBottom: '1px solid var(--border)' }}>
+              {['Ном', 'Аз куҷо', 'Нарх', 'Ёддошт', 'Кай', ''].map((h, i) => <th key={i} style={TH}>{h}</th>)}
+            </tr></thead>
+            <tbody>
+              {ent!.owned.map((o) => (
+                <tr key={o.id} style={{ borderBottom: '1px solid var(--border)',
+                                        opacity: o.revokedAt ? 0.45 : 1 }}>
+                  <td style={{ ...TD, fontWeight: 600 }}>
+                    {o.item.title}
+                    {o.revokedAt && (
+                      <span style={{ marginLeft: 8, fontSize: 11, color: '#ef4444' }}>
+                        гирифта шуд {fmt(o.revokedAt, false)}
+                      </span>
+                    )}
+                  </td>
+                  <td style={TD}>{o.source === 'admin' ? 'Админ' : o.source === 'purchase' ? 'Харид' : o.source}</td>
+                  <td style={TD}>{o.pricePaid != null ? `${o.pricePaid} смн` : '—'}</td>
+                  <td style={{ ...TD, fontSize: 12, color: 'var(--text2)' }}>{o.note ?? '—'}</td>
+                  <td style={{ ...TD, fontSize: 12, color: 'var(--text2)' }}>{fmt(o.createdAt, false)}</td>
+                  <td style={{ ...TD, textAlign: 'right' }}>
+                    {!o.revokedAt && (
+                      <button
+                        onClick={() => revokeItem(o.itemId, o.item.title)}
+                        disabled={busy}
+                        style={{ padding: '5px 11px', fontSize: 12, borderRadius: 7,
+                                 border: '1px solid var(--border)', background: 'transparent',
+                                 color: '#ef4444', cursor: busy ? 'not-allowed' : 'pointer' }}
+                      >
+                        Гирифтан
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </Card>
+
       <Card title={`Китобхона (${d.books.length})`}>
         {d.books.length === 0 ? (
           <p style={{ color: 'var(--text2)', fontSize: 13 }}>Ягон китоб накушодааст.</p>

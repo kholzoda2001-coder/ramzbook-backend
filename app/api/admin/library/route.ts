@@ -62,6 +62,8 @@ export async function POST(req: NextRequest) {
         durationMin: b.durationMin != null ? Math.max(0, Math.floor(Number(b.durationMin) || 0)) : null,
         rating: b.rating != null ? Number(b.rating) : null,
         isPremium: !!b.isPremium,
+        priceTjs: b.priceTjs != null && b.priceTjs !== ''
+          ? Math.max(0, Number(b.priceTjs) || 0) : null,
         isActive: b.isActive === undefined ? true : !!b.isActive,
         order: Math.floor(Number(b.order) || 0),
         ...(pages.length ? { pages: { create: pages } } : {}),

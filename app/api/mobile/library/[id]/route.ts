@@ -7,6 +7,7 @@ import {
   canPreviewPages,
   unlockedIds,
 } from '@/lib/libraryAccess';
+import { ownedItemIds } from '@/lib/entitlements';
 
 export const dynamic = 'force-dynamic';
 
@@ -63,7 +64,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
       select: { id: true, type: true, isPremium: true, order: true, createdAt: true },
     });
 
-    if (!unlockedIds(shelf, isPremium).has(item.id)) {
+    const owned = await ownedItemIds(userId);
+    if (!unlockedIds(shelf, isPremium, owned).has(item.id)) {
       // ── Пешнамоиш: чанд саҳифаи аввал ба ҷои девори холӣ ────────────────
       //
       // 🔴 БОГЕ, ки ин ҷо баста мешавад: барнома кайҳо коди пурраи

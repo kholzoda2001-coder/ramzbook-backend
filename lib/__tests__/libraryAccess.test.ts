@@ -85,3 +85,51 @@ describe('unlockedIds — қоида тағйир НАЁФТ', () => {
     expect(canPreviewPages({ type: 'book', mediaUrl: null })).toBe(true);
   });
 });
+
+describe('ҲУҚУҚИ тоқа (Entitlement)', () => {
+  const shelf = [
+    { id: 'a', type: 'book', isPremium: false, order: 0, createdAt: new Date(1) },
+    { id: 'b', type: 'book', isPremium: true, order: 1, createdAt: new Date(2) },
+    { id: 'c', type: 'audio', isPremium: true, order: 2, createdAt: new Date(3) },
+  ];
+
+  it('китоби харида кушода мешавад, БОҚӢ не', () => {
+    // Маҳз ҳамин дархости соҳиби маҳсулот: «агар танҳо як китобро харид,
+    // он танҳо ҳамон китоб комилан боз мешавад».
+    expect(unlockedIds(shelf, false, ['b'])).toEqual(new Set(['a', 'b']));
+    expect(unlockedIds(shelf, false, ['b']).has('c')).toBe(false);
+  });
+
+  it('аудио низ ҳамон тавр', () => {
+    expect(unlockedIds(shelf, false, ['c'])).toEqual(new Set(['a', 'c']));
+  });
+
+  it('чанд воҳид якҷоя', () => {
+    expect(unlockedIds(shelf, false, ['b', 'c'])).toEqual(new Set(['a', 'b', 'c']));
+  });
+
+  it('🔴 ҳуқуқ аз ОБУНА мустақил аст', () => {
+    // Хонанда китоб харид → обуна шуд → обунаро бекор кард.
+    // Китоби ПУЛ ДОДАИ ӯ бояд ҳамоно кушода бошад.
+    const owned = ['b'];
+    expect(unlockedIds(shelf, true, owned).has('b')).toBe(true);   // обунадор
+    expect(unlockedIds(shelf, false, owned).has('b')).toBe(true);  // обуна тамом
+  });
+
+  it('ID-и бегона ҳеҷ чизро намекушояд', () => {
+    // Сатри `Entitlement` барои воҳиди нестшуда набояд рафро вайрон кунад.
+    expect(unlockedIds(shelf, false, ['zzz'])).toEqual(new Set(['a']));
+  });
+
+  it('бе ҳуқуқ рафтори КӮҲНА бетағйир мемонад', () => {
+    // Аргументи сеюм ихтиёрист — ҳамаи даъватгарони кӯҳна бояд кор кунанд.
+    expect(unlockedIds(shelf, false)).toEqual(new Set(['a']));
+    expect(unlockedIds(shelf, false, [])).toEqual(new Set(['a']));
+  });
+
+  it('ҳуқуқ ба шумораи китоби РОЙГОНИ пейвол дахл надорад', () => {
+    // Пейвол мегӯяд «N китоб ройгон». Китоби ХАРИДАИ як хонанда набояд ин
+    // рақами умумиро тағйир диҳад — вагарна пейвол ба ҳама дурӯғ мегӯяд.
+    expect(freeBookCount(shelf)).toBe(1);
+  });
+});

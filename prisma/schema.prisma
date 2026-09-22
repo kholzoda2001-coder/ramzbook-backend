@@ -119,6 +119,7 @@ model User {
   feedbacks            Feedback[]
   srsCards             SrsCard[]
   libraryProgress      LibraryProgress[]
+  entitlements         Entitlement[]
   friendInvitesCreated FriendInvite[]
   friendStreaksAsUser1 FriendStreak[]       @relation("FriendStreakUser1")
   friendStreaksAsUser2 FriendStreak[]       @relation("FriendStreakUser2")
@@ -1350,18 +1351,79 @@ model LibraryItem {
   durationMin   Int?
   rating        Float?
   isPremium     Boolean  @default(false)
+  /// Нархи ТОҚАИ ин воҳид, дар сомонӣ. `null` = алоҳида фурӯхта намешавад
+  /// (танҳо бо обуна кушода мешавад).
+  ///
+  /// ⚠️ Ин рақам нархи ВИТРИНА аст — ҳисоби воқеиро Google Play мекунад.
+  /// Он ҳеҷ гоҳ набояд ягона асоси кушодани воҳид бошад: дастрасӣ ТАНҲО аз
+  /// `Entitlement` меояд.
+  priceTjs      Float?
   isActive      Boolean  @default(true)
   /// Lower first inside its type.
   order         Int      @default(0)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  pages    LibraryPage[]
-  progress LibraryProgress[]
+  pages        LibraryPage[]
+  progress     LibraryProgress[]
+  entitlements Entitlement[]
 
   @@index([type, isActive, order])
   @@index([targetLang])
   @@index([nativeLang])
+}
+
+/// «Ин хонанда ба ин воҳид ҲУҚУҚ дорад» — доимӣ, бе мӯҳлат.
+///
+/// ── Чаро ҷадвали ҷудо ────────────────────────────────────────────────────
+/// То имрӯз дастрасӣ ду ҳолат дошт: обунадор (ҳама чиз) ё не (танҳо он чи
+/// админ ройгон гузоштааст). Ҷои сеюм — «ин як китобро харид/гирифт» —
+/// умуман набуд.
+///
+/// Онро дар `User` ҳамчун рӯйхат нигоҳ доштан мумкин набуд: ҳуқуқ таърих
+/// дорад (кӣ дод, кай, чаро, бо кадом харид) ва ҳамин таърих ягона роҳи
+/// ҷавоб ба «чаро ин китоб кушода аст?» ҳангоми баргардонидани пул ё
+/// шикояти хонанда мебошад.
+///
+/// ── Қоидаҳо ──────────────────────────────────────────────────────────────
+///   • Сатр ҲЕҶ ГОҲ нест карда намешавад — `revokedAt` гузошта мешавад.
+///     Хонанда пул додааст; таърихи он набояд гум шавад.
+///   • Як ҷуфт (корбар, воҳид) як бор. Такрори грант сатри мавҷударо зинда
+///     мекунад, на сатри дуюм месозад.
+///   • Обуна ин ҷо НАМЕНАВИСАД. Обуна ҳамаро мекушояд ва мӯҳлат дорад;
+///     эътимоднома доимист. Ду чизи гуногунанд ва омехта кардани онҳо
+///     маънои «обуна тамом шуд → китоби харидаам пӯшид» мебуд.
+model Entitlement {
+  id     String      @id @default(cuid())
+  userId String
+  user   User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemId String
+  item   LibraryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  /// `admin` — дасти админ (тӯҳфа, фурӯши берунӣ, ҷуброн).
+  /// `purchase` — хариди дохили барнома (Google Play).
+  /// `promo` — рамзи промо.
+  source String @default("admin")
+
+  /// Кӣ дод — ID-и админ, ё `null` барои хариди худкор.
+  grantedBy String?
+
+  /// Барои `purchase`: токени Play. Ягона — ҳамон токен ду бор ҳуқуқ насозад.
+  purchaseToken String? @unique
+
+  /// Нархе, ки ВОҚЕАН пардохта шуд (сомонӣ). `null` = тӯҳфа.
+  pricePaid Float?
+
+  /// Ёддошти админ: «аз WhatsApp харид», «ҷуброни хатои аудио».
+  note String?
+
+  createdAt DateTime  @default(now())
+  /// Гирифта шуд (баргардонидани пул, хатои админ). `null` = фаъол.
+  revokedAt DateTime?
+
+  @@unique([userId, itemId])
+  @@index([userId, revokedAt])
+  @@index([itemId])
 }
 
 model LibraryPage {

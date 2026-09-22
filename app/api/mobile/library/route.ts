@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { checkAndUpdatePremium } from '@/lib/premium';
 import { unlockedIds } from '@/lib/libraryAccess';
+import { ownedItemIds } from '@/lib/entitlements';
 
 export const dynamic = 'force-dynamic';
 
@@ -98,7 +99,9 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    const open = unlockedIds(items, isPremium);
+    // Воҳидҳои ХАРИДАИ ин хонанда — доимӣ, аз обуна мустақил.
+    const owned = await ownedItemIds(userId);
+    const open = unlockedIds(items, isPremium, owned);
     const newCutoff = Date.now() - NEW_FOR_DAYS * 24 * 60 * 60 * 1000;
 
     return NextResponse.json(

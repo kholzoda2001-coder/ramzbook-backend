@@ -58,6 +58,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     }
     if (b.rating !== undefined) data.rating = b.rating == null ? null : Number(b.rating);
     if (b.isPremium !== undefined) data.isPremium = !!b.isPremium;
+    if (b.priceTjs !== undefined) {
+      data.priceTjs = b.priceTjs == null || b.priceTjs === ''
+        ? null : Math.max(0, Number(b.priceTjs) || 0);
+    }
     if (b.isActive !== undefined) data.isActive = !!b.isActive;
     if (b.order !== undefined) data.order = Math.floor(Number(b.order) || 0);
 
