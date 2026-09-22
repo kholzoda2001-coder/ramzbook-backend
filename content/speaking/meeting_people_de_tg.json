@@ -1,0 +1,2392 @@
+{
+  "slug": "meeting_people_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kennenlernen",
+    "titleTranslated": "Шиносоӣ",
+    "scenario": "Бо олмонизабон вомехӯред: салом медиҳед, номатонро мегӯед, мефаҳмонед, ки аз куҷоед ва чӣ кор мекунед, ва хайрухуш мекунед. Ҳамон чанд ибора, ки мулоқоти аввал — дар кор, дар идора ё бо ҳамсоя — бе онҳо намешавад.",
+    "emoji": "👋",
+    "order": 1,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "title": "Салом ва ташаккур",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Hallo",
+          "translation": "салом",
+          "literal": "ҳа́ло",
+          "note": "Саломи универсалӣ — бо ҳама мешавад.\n\n«H» дар олмонӣ нафаси сабук аст: «ҳа-ло», зарба ба ҳиҷои аввал.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Ja",
+          "translation": "бале",
+          "literal": "йа:",
+          "note": "Ҷавоби мусбат. «J» дар олмонӣ садои «й» медиҳад, на «ҷ».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Nein",
+          "translation": "не",
+          "literal": "найн",
+          "note": "⚠️ «ei» ҳамеша «ай» хонда мешавад: nein → «найн», mein → «майн».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Danke",
+          "translation": "ташаккур",
+          "literal": "да́нкэ",
+          "note": "«Danke schön» боадабонатар аст.\n\n⚠️ Ҳарфи «e» дар охир хомӯш НЕСТ — «да́н-кэ».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Bitte",
+          "translation": "лутфан / марҳамат",
+          "literal": "би́тэ",
+          "note": "Се вазифа дорад: ① хоҳишро нарм мекунад; ② ҷавоб ба «Danke»; ③ «марҳамат» ҳангоми чизе додан.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ja, danke.",
+          "translation": "Бале, ташаккур.",
+          "literal": "йа: да́нкэ",
+          "note": "Ду калимаи омӯхта дар як ҷавоби боадабона.",
+          "cue": "Möchten Sie Tee?",
+          "cueTranslation": "Чой мехоҳед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Nein, danke.",
+          "translation": "Не, ташаккур.",
+          "literal": "найн да́нкэ",
+          "note": "Радди боадабона. Танҳо «Nein» дағал садо медиҳад.",
+          "cue": "Noch ein Brot?",
+          "cueTranslation": "Боз як нон?"
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "title": "Ман ва номи ман",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Ich bin",
+          "translation": "ман ... ҳастам",
+          "literal": "ихь бин",
+          "note": "⚠️ «ch» баъди «i» садои нарми «хь» медиҳад: «ихь».\n\n«Ich bin Ali» — ман Алӣ ҳастам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Ich heiße",
+          "translation": "номи ман ... аст",
+          "literal": "ихь ҳа́йсэ",
+          "note": "Айнан «ман номида мешавам». Роҳи маъмултарини муаррифӣ.\n\n«ß» = «с»-и дароз: «ҳа́й-сэ».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "der Name",
+          "translation": "ном",
+          "literal": "дэ:а на́:мэ",
+          "note": "⚠️ Дар олмонӣ ҳар исм бо ҳарфи КАЛОН навишта мешавад ва артикл дорад: der (мард), die (зан), das (миёна).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Wie heißen Sie",
+          "translation": "номи Шумо чист (расмӣ)",
+          "literal": "ви: ҳа́йсэн зи:",
+          "note": "Шакли РАСМӢ — бо ношинос, бо калонсол, дар идора.\n\n«Sie» ҳамеша бо ҳарфи калон навишта мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Wie heißt du",
+          "translation": "номат чист (дӯстона)",
+          "literal": "ви: ҳайст ду:",
+          "note": "Шакли ғайрирасмӣ — бо дӯст, ҳамсол, кӯдак.\n\n⚠️ Ба ношинос «du» гуфтан дағалӣ ҳисоб мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich heiße Ali.",
+          "translation": "Номи ман Алӣ.",
+          "literal": "ихь ҳа́йсэ али",
+          "note": "Ҷавоби стандартӣ ба муаррифӣ.",
+          "cue": "Guten Tag! Ich heiße Anna.",
+          "cueTranslation": "Рӯз ба хайр! Номи ман Анна."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich bin Ali Karimow.",
+          "translation": "Ман Алӣ Каримов ҳастам.",
+          "literal": "ихь бин али кари́мов",
+          "note": "Ном ва насаб — ҳамин тартиб.",
+          "cue": "Wer sind Sie, bitte?",
+          "cueTranslation": "Шумо кӣ ҳастед, лутфан?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Und wie heißen Sie?",
+          "translation": "Ва номи Шумо чист?",
+          "literal": "унт ви: ҳа́йсэн зи:",
+          "note": "Саволи баргардонда — бе он муаррифӣ нотамом мемонад.",
+          "cue": "Ich bin Herr Müller.",
+          "cueTranslation": "Ман ҷаноби Мюллер."
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Аз куҷо ҳастед?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Woher",
+          "translation": "аз куҷо",
+          "literal": "во́:ҳэа",
+          "note": "⚠️ «W» дар олмонӣ садои «в» медиҳад, на «у»: Woher → «во́:ҳэа».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "kommen",
+          "translation": "омадан",
+          "literal": "ко́мэн",
+          "note": "«Ich komme» — ман меоям. Дар савол феъл ба аввал мебарояд: «Woher kommen Sie?»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Ich komme aus",
+          "translation": "ман аз ... ҳастам",
+          "literal": "ихь ко́мэ аус",
+          "note": "Ибораи тайёр. Баъди «aus» номи кишвар ё шаҳр меояд — айнан «ман аз ... меоям».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Tadschikistan",
+          "translation": "Тоҷикистон",
+          "literal": "таджикиста́:н",
+          "note": "⚠️ Номи кишварҳо дар олмонӣ одатан бе артикл мераванд: aus Tadschikistan, aus Deutschland.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Deutschland",
+          "translation": "Олмон",
+          "literal": "до́йчлант",
+          "note": "«eu» садои «ой» медиҳад: Deutschland → «до́йчлант».\n\nЗабонаш — Deutsch.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich komme aus Tadschikistan.",
+          "translation": "Ман аз Тоҷикистон.",
+          "literal": "ихь ко́мэ аус таджикиста́:н",
+          "note": "Ҷавоби асосӣ дар мулоқоти аввал.",
+          "cue": "Woher kommen Sie?",
+          "cueTranslation": "Шумо аз куҷоед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich komme aus Duschanbe.",
+          "translation": "Ман аз Душанбе.",
+          "literal": "ихь ко́мэ аус душанбэ́",
+          "note": "Ҳамон қолаб бо номи шаҳр.",
+          "cue": "Und aus welcher Stadt?",
+          "cueTranslation": "Ва аз кадом шаҳр?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Woher kommen Sie?",
+          "translation": "Шумо аз куҷоед?",
+          "literal": "во́:ҳэа ко́мэн зи:",
+          "note": "⚠️ Дар савол тартиб иваз мешавад: аввал калимаи саволӣ, баъд ФЕЪЛ, баъд шахс.",
+          "cue": "Ich komme aus Berlin.",
+          "cueTranslation": "Ман аз Берлин."
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Кор ва касб",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "die Arbeit",
+          "translation": "кор",
+          "literal": "ди: а́рбайт",
+          "note": "Исми ЗАНОНА — артиклаш «die».\n\n«Ich gehe zur Arbeit» — ман ба кор меравам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "arbeiten",
+          "translation": "кор кардан",
+          "literal": "а́рбайтэн",
+          "note": "«Ich arbeite» — ман кор мекунам. Охири феъл вобаста ба шахс иваз мешавад: ich arbeitE, Sie arbeitEN.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "der Beruf",
+          "translation": "касб",
+          "literal": "дэ:а бэру́:ф",
+          "note": "«Was sind Sie von Beruf?» — касбатон чист? Саволи маъмул дар мулоқоти аввал.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "der Fahrer",
+          "translation": "ронанда",
+          "literal": "дэ:а фа́:ра",
+          "note": "⚠️ Охири «-er» дар олмонӣ ҳамчун «-а»-и кӯтоҳ хонда мешавад: Fahrer → «фа́:ра».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "der Bauarbeiter",
+          "translation": "бинокор",
+          "literal": "дэ:а ба́уарбайта",
+          "note": "Аз ду калима: Bau (бино) + Arbeiter (коргар).\n\nОлмонӣ калимаҳои дарозро ҳамин тавр месозад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich bin Fahrer.",
+          "translation": "Ман ронанда ҳастам.",
+          "literal": "ихь бин фа́:ра",
+          "note": "⚠️ Дар олмонӣ пеш аз касб артикл ЛОЗИМ НЕСТ — баръакси англисӣ.",
+          "cue": "Was sind Sie von Beruf?",
+          "cueTranslation": "Касби шумо чист?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich arbeite als Bauarbeiter.",
+          "translation": "Ман бинокор кор мекунам.",
+          "literal": "ихь а́рбайтэ алс ба́уарбайта",
+          "note": "«als» = «ҳамчун» — пеш аз номи касб меояд.",
+          "cue": "Und was machen Sie hier?",
+          "cueTranslation": "Ва ин ҷо чӣ кор мекунед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Was ist Ihr Beruf?",
+          "translation": "Касби шумо чист?",
+          "literal": "вас ист и:а бэру́:ф",
+          "note": "«Ihr» = «шумо»-и расмӣ дар соҳибият.",
+          "cue": "Ich bin Lehrerin.",
+          "cueTranslation": "Ман муаллима."
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Шодам ва хайрухуш",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Freut mich",
+          "translation": "аз шиносоӣ шодам",
+          "literal": "фройт михь",
+          "note": "Айнан «маро шод мекунад». Ҷавоби ҳатмӣ ҳангоми шиносоӣ.\n\nШакли пурра: «Es freut mich, Sie kennenzulernen».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "sehr",
+          "translation": "хеле",
+          "literal": "зэ:а",
+          "note": "⚠️ «S» дар аввали калима пеш аз садонок садои «з» медиҳад: sehr → «зэ:а».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "gut",
+          "translation": "хуб",
+          "literal": "гу:т",
+          "note": "«Gut» — хуб; «sehr gut» — хеле хуб. Ҷавоби маъмул ба «Wie geht es Ihnen?»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Auf Wiedersehen",
+          "translation": "то дидор (расмӣ)",
+          "literal": "ауф ви́:дазэ:эн",
+          "note": "Хайрухуши РАСМӢ — дар мағоза, дар идора, бо ношинос.\n\nАйнан «то боздид».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Tschüss",
+          "translation": "хайр (дӯстона)",
+          "literal": "чюс",
+          "note": "Хайрухуши ғайрирасмӣ байни шиносон.\n\n«Tsch» садои «ч» медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Freut mich sehr.",
+          "translation": "Хеле шодам.",
+          "literal": "фройт михь зэ:а",
+          "note": "Ҷавоби гарм ба муаррифӣ.",
+          "cue": "Ich bin Anna Müller.",
+          "cueTranslation": "Ман Анна Мюллер."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Danke, auf Wiedersehen.",
+          "translation": "Ташаккур, то дидор.",
+          "literal": "да́нкэ ауф ви́:дазэ:эн",
+          "note": "Хотимаи расмии ҳар сӯҳбати хизматрасонӣ.",
+          "cue": "Hier sind Ihre Papiere.",
+          "cueTranslation": "Ин ҳуҷҷатҳои шумо."
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Gut, tschüss!",
+          "translation": "Хуб, хайр!",
+          "literal": "гу:т чюс",
+          "note": "Хайрухуши кӯтоҳ бо дӯст.",
+          "cue": "Also, bis später!",
+          "cueTranslation": "Хуб, то баъдтар!"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Danke sehr, tschüss!",
+          "translation": "Ташаккури зиёд, хайр!",
+          "literal": "да́нкэ зэ:а чюс",
+          "note": "«Danke sehr» аз «danke» гармтар аст.",
+          "cue": "Gern geschehen!",
+          "cueTranslation": "Хоҳиш мекунам!"
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Субҳ, рӯз ва бегоҳ ба хайр",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Guten Morgen",
+          "translation": "субҳ ба хайр",
+          "literal": "гу́:тэн мо́ргэн",
+          "note": "То соати 10–11.\n\n⚠️ «Morgen» ду маъно дорад: «субҳ» ва «пагоҳ» — аз ҷумла фаҳмида мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Guten Tag",
+          "translation": "рӯз ба хайр",
+          "literal": "гу́:тэн та:к",
+          "note": "Саломи АСОСИИ расмӣ — аз субҳ то бегоҳ, бо ҳар ношинос бехатар аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Guten Abend",
+          "translation": "бегоҳ ба хайр",
+          "literal": "гу́:тэн а́:бэнт",
+          "note": "Аз соати 18 ҳангоми ОМАДАН.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Gute Nacht",
+          "translation": "шаб ба хайр",
+          "literal": "гу́:тэ нахт",
+          "note": "⚠️ Ин САЛОМ НЕСТ — танҳо пеш аз хоб ё ҳангоми рафтан дар шаб.\n\n«Nacht» занона аст, барои ҳамин «gutE», на «gutEN».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Schön Sie zu sehen",
+          "translation": "аз дидани шумо шодам",
+          "literal": "шё:н зи: цу: зэ́:эн",
+          "note": "Ба шахси ШИНОС, ки кайҳо боз надидаед.\n\n«Z» ҳамеша садои «ц» медиҳад: zu → «цу:».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Guten Morgen! Schön Sie zu sehen.",
+          "translation": "Субҳ ба хайр! Аз дидани шумо шодам.",
+          "literal": "гу́:тэн мо́ргэн шё:н зи: цу: зэ́:эн",
+          "note": "Салом + муносибати гарм дар як ҷавоб.",
+          "cue": "Guten Morgen!",
+          "cueTranslation": "Субҳ ба хайр!"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Guten Abend! Freut mich.",
+          "translation": "Бегоҳ ба хайр! Аз шиносоӣ шодам.",
+          "literal": "гу́:тэн а́:бэнт фройт михь",
+          "note": "Ҷавоб ба муаррифии бегоҳӣ.",
+          "cue": "Guten Abend! Ich bin Anna.",
+          "cueTranslation": "Бегоҳ ба хайр! Ман Анна."
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Danke, gute Nacht.",
+          "translation": "Ташаккур, шаб ба хайр.",
+          "literal": "да́нкэ гу́:тэ нахт",
+          "note": "Хайрухуши шабона.",
+          "cue": "Ich gehe jetzt nach Hause.",
+          "cueTranslation": "Ман ҳозир ба хона меравам."
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Чӣ ҳол доред?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Wie geht es Ihnen",
+          "translation": "чӣ ҳол доред (расмӣ)",
+          "literal": "ви: гэ:т эс и́:нэн",
+          "note": "Саволи расмии ҳолпурсӣ. Айнан «чӣ тавр ба шумо меравад».\n\nДар гуфтугӯ кӯтоҳ мешавад: «Wie geht's?»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Wie geht es dir",
+          "translation": "чӣ ҳол дорӣ (дӯстона)",
+          "literal": "ви: гэ:т эс ди:а",
+          "note": "Ҳамон савол бо «du»-и дӯстона.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "sehr gut",
+          "translation": "хеле хуб",
+          "literal": "зэ:а гу:т",
+          "note": "Ҷавоби қавитарин.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "müde",
+          "translation": "хаста",
+          "literal": "мю́:дэ",
+          "note": "⚠️ «ü» садои байни «у» ва «ю» аст: лабҳоро ғунча карда, «и» гӯед.\n\n«Ich bin müde» — ман хастаам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Und Ihnen",
+          "translation": "ва шумо-чӣ",
+          "literal": "унт и́:нэн",
+          "note": "Баъди ҷавоб саволро ҲАТМАН баргардонед.\n\nБо дӯст: «Und dir?»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Mir geht es gut, danke.",
+          "translation": "Ман нағзам, ташаккур.",
+          "literal": "ми:а гэ:т эс гу:т да́нкэ",
+          "note": "Ҷавоби стандартӣ. Ташаккур қисми ҷавоб аст.",
+          "cue": "Wie geht es Ihnen?",
+          "cueTranslation": "Чӣ ҳол доред?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Sehr gut, danke.",
+          "translation": "Хеле хуб, ташаккур.",
+          "literal": "зэ:а гу:т да́нкэ",
+          "note": "Ҷавоби қавитар аз «gut».",
+          "cue": "Wie geht es Ihnen heute?",
+          "cueTranslation": "Имрӯз чӣ ҳол доред?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Ich bin sehr müde.",
+          "translation": "Ман хеле хастаам.",
+          "literal": "ихь бин зэ:а мю́:дэ",
+          "note": "Ҷавоби ростқавлона ба дӯст.",
+          "cue": "Wie geht es dir, Ali?",
+          "cueTranslation": "Чӣ ҳол дорӣ, Алӣ?"
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Herr, Frau ва «Sie»",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Entschuldigung",
+          "translation": "бубахшед",
+          "literal": "энтшу́лдигунг",
+          "note": "Ҳар муроҷиат ба ношинос бо ҳамин калима сар мешавад.\n\nШакли феълӣ: «Entschuldigen Sie bitte».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Herr",
+          "translation": "ҷаноб",
+          "literal": "ҳэр",
+          "note": "Пеш аз НАСАБ меистад: Herr Müller.\n\n⚠️ Танҳо «Herr» бе насаб гуфтан намешавад — дар он ҷо танҳо «Entschuldigung».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Frau",
+          "translation": "хонум",
+          "literal": "фрау",
+          "note": "Ҳамон нақш барои зан: Frau Schmidt.\n\n⚠️ Имрӯз ба ҳар зан, оиладор ё не, «Frau» мегӯянд — «Fräulein» кӯҳна шудааст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Sie",
+          "translation": "Шумо (расмӣ)",
+          "literal": "зи:",
+          "note": "«Sie» — ба ношинос, ба калонсол, ба роҳбар. Ҳамеша бо ҳарфи КАЛОН.\n\nТо он даме ки худи ӯ «du» пешниҳод накунад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "du",
+          "translation": "ту (дӯстона)",
+          "literal": "ду:",
+          "note": "Ба дӯст, ҳамсол, кӯдак ва дар оила.\n\n⚠️ Дар кор дар Олмон аксар «Sie» мегӯянд, ҳатто байни ҳамкорон.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Entschuldigung, wie heißen Sie?",
+          "translation": "Бубахшед, номи шумо чист?",
+          "literal": "энтшу́лдигунг ви: ҳа́йсэн зи:",
+          "note": "Саволи боадабона ба ношинос.",
+          "cue": "Ja, bitte?",
+          "cueTranslation": "Бале, чӣ хизмат?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Entschuldigung, sind Sie Herr Müller?",
+          "translation": "Бубахшед, шумо ҷаноби Мюллер ҳастед?",
+          "literal": "энтшу́лдигунг зинт зи: ҳэр мю́ла",
+          "note": "Вақте касеро мунтазиред ва номашро медонед.",
+          "cue": "Ja, das bin ich.",
+          "cueTranslation": "Бале, ин манам."
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Danke, Frau Schmidt.",
+          "translation": "Ташаккур, хонуми Шмидт.",
+          "literal": "да́нкэ фрау шмит",
+          "note": "Муроҷиат бо насаб — эҳтироми муқаррарӣ дар Олмон.",
+          "cue": "Hier ist Ihr Kaffee.",
+          "cueTranslation": "Ин қаҳваи шумо."
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Ном ва насаб",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "der Vorname",
+          "translation": "ном",
+          "literal": "дэ:а фо́:анамэ",
+          "note": "Айнан «номи пеш» — Ali, Anna.\n\nДар варақаҳои расмӣ ҳамин калима навишта мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "der Nachname",
+          "translation": "насаб",
+          "literal": "дэ:а на́хна:мэ",
+          "note": "Айнан «номи баъд» — Karimow, Müller.\n\n«Familienname» ҳам мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "buchstabieren",
+          "translation": "ҳарф ба ҳарф гуфтан",
+          "literal": "бухштаби́:рэн",
+          "note": "Номҳои тоҷикиро олмонӣ аз як шунидан наменависад — ин калима ҳар рӯз лозим мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Nennen Sie mich",
+          "translation": "маро ... гӯед",
+          "literal": "нэ́нэн зи: михь",
+          "note": "Вақте номатон дароз аст: «Nennen Sie mich Ali».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Mein Name ist",
+          "translation": "номи ман ... аст",
+          "literal": "майн на́:мэ ист",
+          "note": "Шакли расмитар аз «Ich heiße» — дар идора ва ҳангоми телефон.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "word",
+          "text": "Können Sie",
+          "translation": "метавонед",
+          "literal": "кё́нэн зи:",
+          "note": "Оғози ҳар хоҳиши боадабона: «Können Sie…?».\n\n⚠️ Феъли дуюм ба ОХИРИ ҷумла меравад: «Können Sie das wiederholen?»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Mein Nachname ist Karimow.",
+          "translation": "Насаби ман Каримов.",
+          "literal": "майн на́хна:мэ ист кари́мов",
+          "note": "Дар қабул, дар бонк, дар идора.",
+          "cue": "Und Ihr Nachname?",
+          "cueTranslation": "Ва насабатон?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Mein Name ist Ali Karimow.",
+          "translation": "Номи ман Алӣ Каримов.",
+          "literal": "майн на́:мэ ист али кари́мов",
+          "note": "Муаррифии расмии пурра.",
+          "cue": "Stellen Sie sich bitte vor.",
+          "cueTranslation": "Худро муаррифӣ кунед, лутфан."
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Können Sie das buchstabieren?",
+          "translation": "Онро ҳарф ба ҳарф гуфта метавонед?",
+          "literal": "кё́нэн зи: дас бухштаби́:рэн",
+          "note": "⚠️ Дар олмонӣ феъли дуюм ба ОХИРИ ҷумла меравад: «Können Sie das buchstabieren?»",
+          "cue": "Ich heiße Jörg Schäfer.",
+          "cueTranslation": "Номи ман Йёрг Шефер."
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "title": "Шаҳр ва кӯча",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "die Stadt",
+          "translation": "шаҳр",
+          "literal": "ди: штат",
+          "note": "⚠️ «St» дар аввали калима «шт» хонда мешавад: Stadt → «штат», Straße → «штра́:сэ».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "wohnen",
+          "translation": "зиндагӣ кардан",
+          "literal": "во́:нэн",
+          "note": "«Ich wohne in Berlin» — ман дар Берлин зиндагӣ мекунам.\n\nФарқ: «leben» = зиндагӣ ба маънои умумӣ, «wohnen» = ҷои истиқомат.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "die Straße",
+          "translation": "кӯча",
+          "literal": "ди: штра́:сэ",
+          "note": "Дар суроға бо номи кӯча як калима мешавад: Bahnhofstraße.\n\n«ß» = «с»-и дароз.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "das Haus",
+          "translation": "хона",
+          "literal": "дас ҳаус",
+          "note": "«Zu Hause» = дар хона; «nach Hause» = ба хона.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "hier",
+          "translation": "ин ҷо",
+          "literal": "ҳи:а",
+          "note": "«Ich wohne hier» — ман ин ҷо зиндагӣ мекунам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich wohne in Berlin.",
+          "translation": "Ман дар Берлин зиндагӣ мекунам.",
+          "literal": "ихь во́:нэ ин бэали́:н",
+          "note": "Ҷавоби асосӣ. Баъди «in» номи шаҳр меояд.",
+          "cue": "Wo wohnen Sie?",
+          "cueTranslation": "Дар куҷо зиндагӣ мекунед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich wohne in der Bahnhofstraße.",
+          "translation": "Ман дар кӯчаи Банҳоф зиндагӣ мекунам.",
+          "literal": "ихь во́:нэ ин дэ:а ба́:нҳо:фштра:сэ",
+          "note": "⚠️ Бо кӯча «in der» меояд — «die Straße» занона аст.",
+          "cue": "Und wo genau?",
+          "cueTranslation": "Ва дақиқан дар куҷо?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Mein Haus ist hier.",
+          "translation": "Хонаи ман ҳамин ҷост.",
+          "literal": "майн ҳаус ист ҳи:а",
+          "note": "Ҷавоби кӯтоҳ дар бораи масофа.",
+          "cue": "Ist es weit von hier?",
+          "cueTranslation": "Аз ин ҷо дур аст?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Wo wohnen Sie?",
+          "translation": "Шумо дар куҷо зиндагӣ мекунед?",
+          "literal": "во: во́:нэн зи:",
+          "note": "Саволи баргардонда.",
+          "cue": "Ich wohne in München.",
+          "cueTranslation": "Ман дар Мюнхен зиндагӣ мекунам."
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "title": "Синну сол",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Wie alt sind Sie",
+          "translation": "шумо чандсолаед",
+          "literal": "ви: алт зинт зи:",
+          "note": "Айнан «чӣ қадар кӯҳна ҳастед».\n\nБо дӯст: «Wie alt bist du?»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Jahre alt",
+          "translation": "сола",
+          "literal": "йа́:рэ алт",
+          "note": "Баъди рақам меояд: «zwanzig Jahre alt».\n\n⚠️ Як сол — «ein Jahr», зиёда — «Jahre».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "zwanzig",
+          "translation": "бист",
+          "literal": "цва́нцихь",
+          "note": "20. «Z» = «ц», охири «-ig» = «-ихь».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "dreißig",
+          "translation": "сӣ",
+          "literal": "дра́йсихь",
+          "note": "30. «ei» = «ай», «ß» = «с».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "das Alter",
+          "translation": "синну сол",
+          "literal": "дас а́лта",
+          "note": "Дар варақаҳои расмӣ ҳамин калима навишта мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich bin zwanzig Jahre alt.",
+          "translation": "Ман бистсола ҳастам.",
+          "literal": "ихь бин цва́нцихь йа́:рэ алт",
+          "note": "Ҷавоби пурра. Рақамро иваз кунед — қолаб ҳамон мемонад.",
+          "cue": "Wie alt sind Sie?",
+          "cueTranslation": "Шумо чандсолаед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Mein Freund ist dreißig Jahre alt.",
+          "translation": "Дӯсти ман сисола аст.",
+          "literal": "майн фройнт ист дра́йсихь йа́:рэ алт",
+          "note": "Ҳамон қолаб дар бораи шахси сеюм: «bin» → «ist».",
+          "cue": "Und Ihr Freund?",
+          "cueTranslation": "Ва дӯстатон?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Wie alt bist du?",
+          "translation": "Ту чандсолаӣ?",
+          "literal": "ви: алт бист ду:",
+          "note": "Шакли дӯстона. Ба зани ношинос ин саволро надиҳед.",
+          "cue": "Rate mal!",
+          "cueTranslation": "Тахмин кун!"
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "title": "Забонҳо",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "sprechen",
+          "translation": "гап задан",
+          "literal": "шпрэ́хэн",
+          "note": "⚠️ «Sp» дар аввал «шп» хонда мешавад: sprechen → «шпрэ́хэн».\n\n«Ich spreche» — ман гап мезанам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Deutsch",
+          "translation": "олмонӣ (забон)",
+          "literal": "дойч",
+          "note": "⚠️ Номи забон бо ҳарфи КАЛОН: Deutsch, Russisch, Tadschikisch.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "ein bisschen",
+          "translation": "каме",
+          "literal": "айн би́схэн",
+          "note": "Ин ибора камбудиро нарм мекунад — ва олмонӣ фавран оҳистатар гап мезанад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "verstehen",
+          "translation": "фаҳмидан",
+          "literal": "фэаштэ́:эн",
+          "note": "«Ich verstehe» — мефаҳмам. Бо инкор: «Ich verstehe nicht».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Tadschikisch",
+          "translation": "тоҷикӣ (забон)",
+          "literal": "таджи́:киш",
+          "note": "Номи забон аз номи кишвар: Tadschikistan → Tadschikisch.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich spreche ein bisschen Deutsch.",
+          "translation": "Ман каме олмонӣ гап мезанам.",
+          "literal": "ихь шпрэ́хэ айн би́схэн дойч",
+          "note": "Ҷавоби ростқавлона ва бехатар барои навомӯз.",
+          "cue": "Sprechen Sie Deutsch?",
+          "cueTranslation": "Шумо олмонӣ гап мезанед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich verstehe gut Deutsch.",
+          "translation": "Ман олмониро хуб мефаҳмам.",
+          "literal": "ихь фэаштэ́:э гу:т дойч",
+          "note": "Фаҳмидан аз гап задан пештар меояд — инро ҳатман гӯед.",
+          "cue": "Und verstehen Sie alles?",
+          "cueTranslation": "Ва ҳама чизро мефаҳмед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Zu Hause spreche ich Tadschikisch.",
+          "translation": "Дар хона ман тоҷикӣ гап мезанам.",
+          "literal": "цу: ҳа́узэ шпрэ́хэ ихь таджи́:киш",
+          "note": "⚠️ Агар ҷумла бо ҷои дигар сар шавад, ФЕЪЛ боз дар ҷои дуюм мемонад ва «ich» баъди он меояд.",
+          "cue": "Welche Sprache sprechen Sie zu Hause?",
+          "cueTranslation": "Дар хона кадом забон?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Sprechen Sie Russisch?",
+          "translation": "Шумо русӣ гап мезанед?",
+          "literal": "шпрэ́хэн зи: ру́сиш",
+          "note": "Саволи баргардонда. Дар савол феъл ба аввал мебарояд.",
+          "cue": "Nein, nur Deutsch und Englisch.",
+          "cueTranslation": "Не, танҳо олмонӣ ва англисӣ."
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "title": "Намефаҳмам",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Ich verstehe nicht",
+          "translation": "ман намефаҳмам",
+          "literal": "ихь фэаштэ́:э нихьт",
+          "note": "Ҷумлаи наҷотбахши навомӯз. Онро ҳамон лаҳза гӯед.\n\n⚠️ «nicht» баъди феъл меистад, на пеш аз он.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "wiederholen",
+          "translation": "такрор кардан",
+          "literal": "ви:даҳо́:лэн",
+          "note": "«Können Sie das wiederholen?» — такрор карда метавонед?",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "langsam",
+          "translation": "оҳиста",
+          "literal": "ла́нгза:м",
+          "note": "«Sprechen Sie bitte langsam» — лутфан оҳиста гап занед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "noch einmal",
+          "translation": "боз як бор",
+          "literal": "нох а́йнма:л",
+          "note": "Кӯтоҳтарин хоҳиш: «Noch einmal, bitte».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Wie bitte",
+          "translation": "чӣ гуфтед?",
+          "literal": "ви: би́тэ",
+          "note": "⚠️ Роҳи БОАДАБОНАИ «нафаҳмидам». Танҳо «Was?» дағал садо медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Entschuldigung, ich verstehe nicht.",
+          "translation": "Бубахшед, ман намефаҳмам.",
+          "literal": "энтшу́лдигунг ихь фэаштэ́:э нихьт",
+          "note": "Бо «Entschuldigung» сар кунед — сӯҳбат гарм мемонад.",
+          "cue": "Der Bus fährt in einer halben Stunde.",
+          "cueTranslation": "Автобус баъди ним соат меравад."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Sprechen Sie bitte langsam.",
+          "translation": "Лутфан оҳиста гап занед.",
+          "literal": "шпрэ́хэн зи: би́тэ ла́нгза:м",
+          "note": "Хоҳиши аз ҳама фоиданоки навомӯз.",
+          "cue": "Entschuldigung! Ich spreche schnell.",
+          "cueTranslation": "Бубахшед! Ман тез гап мезанам."
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Können Sie das wiederholen?",
+          "translation": "Онро такрор карда метавонед?",
+          "literal": "кё́нэн зи: дас ви:даҳо́:лэн",
+          "note": "Қолаби ҳар хоҳиши боадабона: «Können Sie … ?»",
+          "cue": "Mein Name ist Schweitzer.",
+          "cueTranslation": "Номи ман Швайтсер."
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Noch einmal, bitte.",
+          "translation": "Боз як бор, лутфан.",
+          "literal": "нох а́йнма:л би́тэ",
+          "note": "Кӯтоҳтарин шакл — вақте вақт нест.",
+          "cue": "Das kostet zwanzig Euro.",
+          "cueTranslation": "Ин бист евро."
+        }
+      ]
+    },
+    {
+      "order": 13,
+      "title": "Оила",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "die Familie",
+          "translation": "оила",
+          "literal": "ди: фами́:лиэ",
+          "note": "Зарба ба ҳиҷои «mi»: «фа-МИ:-лиэ».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "verheiratet",
+          "translation": "оиладор",
+          "literal": "фэаҳа́йра:тэт",
+          "note": "Ҳам барои мард, ҳам барои зан: «Ich bin verheiratet».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "ledig",
+          "translation": "муҷаррад",
+          "literal": "ле́:дихь",
+          "note": "Дар варақаҳои расмӣ низ ҳамин калима истифода мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "die Frau",
+          "translation": "зан (ҳамсар)",
+          "literal": "ди: фрау",
+          "note": "⚠️ «Frau» ду маъно дорад: «зан» ва «ҳамсар». «Meine Frau» = ҳамсарам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "die Kinder",
+          "translation": "фарзандон",
+          "literal": "ди: ки́нда",
+          "note": "Як фарзанд — «das Kind», зиёда аз як — «die Kinder».\n\n⚠️ Ҷамъи олмонӣ қоидаи ягона надорад — ҳар калимаро бо шакли ҷамъаш ёд гиред.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich bin verheiratet.",
+          "translation": "Ман оиладорам.",
+          "literal": "ихь бин фэаҳа́йра:тэт",
+          "note": "Ҷавоби кӯтоҳ ва кофӣ.",
+          "cue": "Sind Sie verheiratet?",
+          "cueTranslation": "Шумо оиладоред?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich bin ledig.",
+          "translation": "Ман муҷаррадам.",
+          "literal": "ихь бин ле́:дихь",
+          "note": "Ҳамон қолаб бо калимаи дигар.",
+          "cue": "Und sind Sie verheiratet?",
+          "cueTranslation": "Ва шумо оиладоред?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Ich habe zwei Kinder.",
+          "translation": "Ман ду фарзанд дорам.",
+          "literal": "ихь ҳа́:бэ цвай ки́нда",
+          "note": "«Ich habe» = ман дорам. Рақам пеш аз исм меистад.",
+          "cue": "Haben Sie Kinder?",
+          "cueTranslation": "Фарзанд доред?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Meine Familie ist in Tadschikistan.",
+          "translation": "Оилаи ман дар Тоҷикистон.",
+          "literal": "ма́йнэ фами́:лиэ ист ин таджикиста́:н",
+          "note": "⚠️ «Familie» занона аст, барои ҳамин «meinE», на «mein».",
+          "cue": "Und wo ist Ihre Familie?",
+          "cueTranslation": "Ва оилаатон дар куҷост?"
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "title": "Ширкат ва идора",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "die Firma",
+          "translation": "ширкат",
+          "literal": "ди: фи́рма",
+          "note": "«Ich arbeite bei einer Firma» — дар як ширкат кор мекунам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "das Büro",
+          "translation": "идора",
+          "literal": "дас бюро́:",
+          "note": "Зарба ба ҳиҷои ОХИР: «бю-РО:».\n\n«Im Büro» — дар идора.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "der Chef",
+          "translation": "роҳбар",
+          "literal": "дэ:а шэф",
+          "note": "⚠️ «Ch» дар ин калима «ш» хонда мешавад — аз фаронсавӣ омадааст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "heute",
+          "translation": "имрӯз",
+          "literal": "ҳо́йтэ",
+          "note": "⚠️ «eu» = «ой»: heute → «ҳо́йтэ».\n\nОдатан дар аввал ё баъди феъл меистад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Ich arbeite bei",
+          "translation": "ман дар ... кор мекунам",
+          "literal": "ихь а́рбайтэ бай",
+          "note": "Бо ном ё ширкат «bei» меояд: bei Siemens, bei einer Firma.\n\nБо ҷой — «in»: im Büro.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich arbeite bei einer Firma.",
+          "translation": "Ман дар як ширкат кор мекунам.",
+          "literal": "ихь а́рбайтэ бай а́йна фи́рма",
+          "note": "Ҷавоби асосӣ дар бораи ҷои кор.",
+          "cue": "Wo arbeiten Sie?",
+          "cueTranslation": "Дар куҷо кор мекунед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Mein Chef ist heute hier.",
+          "translation": "Роҳбари ман имрӯз ин ҷост.",
+          "literal": "майн шэф ист ҳо́йтэ ҳи:а",
+          "note": "Тартиб: кӣ — кай — куҷо.",
+          "cue": "Ist Ihr Chef da?",
+          "cueTranslation": "Роҳбаратон ҳаст?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Heute bin ich im Büro.",
+          "translation": "Имрӯз ман дар идораам.",
+          "literal": "ҳо́йтэ бин ихь им бюро́:",
+          "note": "⚠️ Ҷумла бо «Heute» сар шуд — пас феъл дар ҷои ДУЮМ мемонад ва «ich» баъди он меояд.",
+          "cue": "Wo sind Sie jetzt?",
+          "cueTranslation": "Ҳозир дар куҷоед?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Wo ist Ihr Büro?",
+          "translation": "Идораи шумо дар куҷост?",
+          "literal": "во: ист и:а бюро́:",
+          "note": "Саволи ҷой бо «Wo».",
+          "cue": "Neben dem Bahnhof.",
+          "cueTranslation": "Дар назди вокзал."
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "title": "Инак дӯсти ман",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Das ist",
+          "translation": "ин ... аст",
+          "literal": "дас ист",
+          "note": "Бо ҳамин ибора одамро муаррифӣ мекунанд: «Das ist mein Freund».\n\nДар олмонӣ ин беадабӣ нест.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "mein Freund",
+          "translation": "дӯсти ман",
+          "literal": "майн фройнт",
+          "note": "⚠️ Мард — «mein Freund», зан — «meine Freundin».\n\nДар контексти ишқӣ ҳамин калима «маҳбуб» ҳам мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "der Kollege",
+          "translation": "ҳамкор",
+          "literal": "дэ:а коле́:гэ",
+          "note": "Зан — «die Kollegin».\n\nДар кор олмонҳо аксар бо ҳамкорон «Sie» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "er ist",
+          "translation": "ӯ (мард) ... аст",
+          "literal": "э:а ист",
+          "note": "«Er» — мард, «sie» — зан.\n\n⚠️ Дар тоҷикӣ «ӯ» барои ҳарду як аст; дар олмонӣ ҳатман фарқ мекунад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "sie ist",
+          "translation": "ӯ (зан) ... аст",
+          "literal": "зи: ист",
+          "note": "⚠️ «sie» (ӯ-зан) ва «Sie» (Шумо) якхела садо медиҳанд — фарқ дар ҳарфи калон ва дар феъл.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Das ist mein Freund.",
+          "translation": "Ин дӯсти ман.",
+          "literal": "дас ист майн фройнт",
+          "note": "Қоидаи одоб: аввал шахси наздикро муаррифӣ кунед.",
+          "cue": "Wer ist das?",
+          "cueTranslation": "Ин кас кист?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Er ist mein Kollege.",
+          "translation": "Ӯ ҳамкори ман.",
+          "literal": "э:а ист майн коле́:гэ",
+          "note": "Дар бораи МАРД.",
+          "cue": "Arbeiten Sie zusammen?",
+          "cueTranslation": "Якҷоя кор мекунед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Sie ist meine Frau.",
+          "translation": "Ӯ ҳамсари ман.",
+          "literal": "зи: ист ма́йнэ фрау",
+          "note": "⚠️ «Frau» занона аст → «meinE Frau»; «Kollege» мардона → «mein Kollege».",
+          "cue": "Und wer ist das?",
+          "cueTranslation": "Ва ин кас кист?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Das ist mein Chef.",
+          "translation": "Ин роҳбари ман.",
+          "literal": "дас ист майн шэф",
+          "note": "Муаррифии расмӣ дар кор.",
+          "cue": "Guten Tag!",
+          "cueTranslation": "Рӯз ба хайр!"
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "title": "Бо ҳамсоя",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "der Nachbar",
+          "translation": "ҳамсоя",
+          "literal": "дэ:а на́хба:а",
+          "note": "Зан — «die Nachbarin».\n\nДар Олмон бо ҳамсоя салом додан қоидаи муқаррарист.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "neu",
+          "translation": "нав",
+          "literal": "ной",
+          "note": "⚠️ «eu» = «ой»: neu → «ной».\n\n«Ich bin neu hier» — ман ин ҷо навам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Willkommen",
+          "translation": "хуш омадед",
+          "literal": "вилко́мэн",
+          "note": "Ба меҳмон ва ба шахси нав.\n\n«W» = «в», зарба ба ҳиҷои дуюм.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Mich auch",
+          "translation": "ман ҳам",
+          "literal": "михь аух",
+          "note": "Ҷавоби кӯтоҳ ба «Freut mich»: «мани ҳам шод мекунад».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "zusammen",
+          "translation": "якҷоя",
+          "literal": "цуза́мэн",
+          "note": "«Wir arbeiten zusammen» — мо якҷоя кор мекунем.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich bin neu hier.",
+          "translation": "Ман ин ҷо навам.",
+          "literal": "ихь бин ной ҳи:а",
+          "note": "Як ҷумла ҳама чизро мефаҳмонад ва одамонро меҳрубон мекунад.",
+          "cue": "Ich kenne Sie nicht. Sind Sie neu?",
+          "cueTranslation": "Ман шуморо намешиносам. Нав омадаед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Er ist mein Nachbar.",
+          "translation": "Ӯ ҳамсояи ман.",
+          "literal": "э:а ист майн на́хба:а",
+          "note": "Муаррифии ҳамсоя ба шахси сеюм.",
+          "cue": "Wer ist dieser Mann?",
+          "cueTranslation": "Ин мард кист?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Willkommen, Nachbar!",
+          "translation": "Хуш омадед, ҳамсоя!",
+          "literal": "вилко́мэн на́хба:а",
+          "note": "Саломи гарм ба ҳамсояи нав.",
+          "cue": "Wir sind gerade eingezogen.",
+          "cueTranslation": "Мо ҳозиракак кӯчида омадем."
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Danke, mich auch.",
+          "translation": "Ташаккур, ман ҳам.",
+          "literal": "да́нкэ михь аух",
+          "note": "Ҷавоби ҳатмӣ — бе он шиносоӣ нотамом мемонад.",
+          "cue": "Freut mich, Sie kennenzulernen!",
+          "cueTranslation": "Аз шиносоӣ бо шумо шодам!"
+        }
+      ]
+    },
+    {
+      "order": 17,
+      "title": "Рақами телефон",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "das Telefon",
+          "translation": "телефон",
+          "literal": "дас тэ́:лэфо:н",
+          "note": "«Das Handy» — телефони мобилӣ (калимаи хоси олмонӣ, дар англисӣ чунин нест).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "die Nummer",
+          "translation": "рақам",
+          "literal": "ди: ну́ма",
+          "note": "«Die Telefonnummer» — рақами телефон, як калимаи дароз.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "anrufen",
+          "translation": "занг задан",
+          "literal": "а́нру:фэн",
+          "note": "⚠️ Феъли ҶУДОШАВАНДА: дар ҷумла «an» ба ОХИР меравад — «Ich rufe Sie an».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "schreiben",
+          "translation": "навиштан",
+          "literal": "шра́йбэн",
+          "note": "«Schreiben Sie mir» — ба ман нависед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "die Nachricht",
+          "translation": "паём",
+          "literal": "ди: на́хрихьт",
+          "note": "SMS ё паёми WhatsApp.\n\n«Ch» дар ин ҷо садои сахти «х» ва баъд нарми «хь» медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Das ist meine Telefonnummer.",
+          "translation": "Ин рақами телефони ман.",
+          "literal": "дас ист ма́йнэ тэлэфо́:ннума",
+          "note": "Вақте рақамро худатон медиҳед.",
+          "cue": "Geben Sie mir Ihre Nummer?",
+          "cueTranslation": "Рақаматонро медиҳед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Bitte rufen Sie mich an.",
+          "translation": "Лутфан ба ман занг занед.",
+          "literal": "би́тэ ру́:фэн зи: михь ан",
+          "note": "⚠️ Ҷузъи «an» ба ОХИРИ ҷумла рафт — ҳамин хосияти феълҳои ҷудошавандаи олмонӣ.",
+          "cue": "Wann können wir sprechen?",
+          "cueTranslation": "Кай гап зада метавонем?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Schreiben Sie mir eine Nachricht.",
+          "translation": "Ба ман паём нависед.",
+          "literal": "шра́йбэн зи: ми:а а́йнэ на́хрихьт",
+          "note": "Дар корҳои расмӣ паём аз занг бехатартар аст — сабт мемонад.",
+          "cue": "Wie finde ich Sie?",
+          "cueTranslation": "Чӣ тавр шуморо ёбам?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Wie ist Ihre Telefonnummer?",
+          "translation": "Рақами телефонатон чанд аст?",
+          "literal": "ви: ист и́:рэ тэлэфо́:ннума",
+          "note": "⚠️ Дар олмонӣ ин савол бо «Wie» (чӣ хел) мешавад, на «Was».",
+          "cue": "Schreiben Sie mit.",
+          "cueTranslation": "Нависед."
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "title": "Кай омадед?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Ich bin gekommen",
+          "translation": "ман омадам",
+          "literal": "ихь бин гэко́мэн",
+          "note": "Гузаштаи олмонӣ аз ДУ ҷузъ иборат аст: «bin» + «gekommen», ва ҷузъи дуюм дар ОХИР меистад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "die Woche",
+          "translation": "ҳафта",
+          "literal": "ди: во́хэ",
+          "note": "«Vor einer Woche» — як ҳафта пеш.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "der Monat",
+          "translation": "моҳ",
+          "literal": "дэ:а мо́:нат",
+          "note": "«Vor einem Monat» — як моҳ пеш.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "vor",
+          "translation": "пеш (дар бораи вақт)",
+          "literal": "фо:а",
+          "note": "⚠️ Пеш аз муддат меистад, баръакси русӣ: «vor einer Woche».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "seit kurzem",
+          "translation": "ба қарибӣ",
+          "literal": "зайт ку́рцэм",
+          "note": "Вақте санаи аниқро гуфтан намехоҳед: «Ich bin seit kurzem hier».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich bin vor einer Woche gekommen.",
+          "translation": "Ман як ҳафта пеш омадам.",
+          "literal": "ихь бин фо:а а́йна во́хэ гэко́мэн",
+          "note": "⚠️ «gekommen» дар ОХИРИ ҷумла — ин қоидаи сахти олмонист.",
+          "cue": "Wann sind Sie gekommen?",
+          "cueTranslation": "Кай омадед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich bin hier seit kurzem.",
+          "translation": "Ман ба қарибӣ ин ҷо омадам.",
+          "literal": "ихь бин ҳи:а зайт ку́рцэм",
+          "note": "Ҷавоби кӯтоҳ, вақте вақти аниқ муҳим нест.",
+          "cue": "Sind Sie schon lange in Deutschland?",
+          "cueTranslation": "Кайҳо боз дар Олмонед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Ich arbeite hier seit einem Monat.",
+          "translation": "Ман як моҳ боз ин ҷо кор мекунам.",
+          "literal": "ихь а́рбайтэ ҳи:а зайт а́йнэм мо́:нат",
+          "note": "«Seit» = «аз ... боз» — барои муддати ДАВОМДОР.",
+          "cue": "Und wie lange arbeiten Sie hier?",
+          "cueTranslation": "Ва чанд вақт боз ин ҷо кор мекунед?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Mein Freund ist vor einem Monat gekommen.",
+          "translation": "Дӯсти ман моҳи гузашта омад.",
+          "literal": "майн фройнт ист фо:а а́йнэм мо́:нат гэко́мэн",
+          "note": "Ҳамон қолаб дар бораи шахси сеюм: «bin» → «ist».",
+          "cue": "Und Ihr Freund?",
+          "cueTranslation": "Ва дӯстатон?"
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "title": "Обу ҳаво",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "das Wetter",
+          "translation": "обу ҳаво",
+          "literal": "дас вэ́та",
+          "note": "Мавзӯи бехатари ҳар сӯҳбат — бо ҳамсоя, бо ҳамкор, дар навбат.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "kalt",
+          "translation": "хунук",
+          "literal": "калт",
+          "note": "«Es ist kalt» — хунук аст.\n\n⚠️ Дар бораи ҳаво ҳамеша «es» лозим аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "warm",
+          "translation": "гарм",
+          "literal": "варм",
+          "note": "«Es ist warm» — гарм аст. Барои гармии сахт «heiß» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "schön",
+          "translation": "зебо, форам",
+          "literal": "шё:н",
+          "note": "⚠️ «ö» садои байни «о» ва «ё» аст: лабҳоро ғунча карда, «э» гӯед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Es ist",
+          "translation": "... аст (дар бораи ҳаво)",
+          "literal": "эс ист",
+          "note": "Барои обу ҳаво, вақт ва нарх ҳамеша бо «es» сар мекунанд — дар тоҷикӣ ин калима тарҷума намешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Heute ist es sehr kalt.",
+          "translation": "Имрӯз хеле хунук.",
+          "literal": "ҳо́йтэ ист эс зэ:а калт",
+          "note": "Ҷумлаи аз ҳама маъмули сӯҳбати сабук.",
+          "cue": "Wie ist das Wetter?",
+          "cueTranslation": "Обу ҳаво чӣ хел?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Das Wetter ist heute schön.",
+          "translation": "Имрӯз обу ҳаво форам.",
+          "literal": "дас вэ́та ист ҳо́йтэ шё:н",
+          "note": "Оғози хуби ҳар сӯҳбат.",
+          "cue": "Guten Morgen! Wie geht es Ihnen?",
+          "cueTranslation": "Субҳ ба хайр! Чӣ ҳол доред?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Bei uns ist es warm.",
+          "translation": "Дар ҷои мо гарм аст.",
+          "literal": "бай унс ист эс варм",
+          "note": "«Bei uns» — дар назди мо, дар ҷои мо.",
+          "cue": "Und wie ist das Wetter in Duschanbe?",
+          "cueTranslation": "Ва дар Душанбе обу ҳаво чӣ хел?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Es ist sehr warm hier.",
+          "translation": "Ин ҷо хеле гарм аст.",
+          "literal": "эс ист зэ:а варм ҳи:а",
+          "note": "Дар бораи ҳаво ҳамеша «es» — бе он ҷумла нодуруст аст.",
+          "cue": "Und im Sommer?",
+          "cueTranslation": "Ва тобистон?"
+        }
+      ]
+    },
+    {
+      "order": 20,
+      "title": "Хӯрок ва танаффус",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "das Mittagessen",
+          "translation": "хӯроки нисфирӯзӣ",
+          "literal": "дас ми́та:кэсэн",
+          "note": "Аз ду калима: Mittag (нимрӯз) + Essen (хӯрок).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "die Pause",
+          "translation": "танаффус",
+          "literal": "ди: па́узэ",
+          "note": "«Ich habe Pause» — ман танаффус дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "der Kaffee",
+          "translation": "қаҳва",
+          "literal": "дэ:а ка́фэ",
+          "note": "Дар идораи олмонӣ «Kaffee?» худаш даъват ба сӯҳбат аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "der Tee",
+          "translation": "чой",
+          "literal": "дэ:а тэ:",
+          "note": "«ee» садои дарози «э:» медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Möchten Sie",
+          "translation": "мехоҳед",
+          "literal": "мё́хьтэн зи:",
+          "note": "Таклифи боадабона: «Möchten Sie Kaffee?».\n\nАз «wollen» (хостан) хеле нармтар аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Jetzt habe ich Mittagessen.",
+          "translation": "Ҳозир вақти хӯроки ман.",
+          "literal": "йэцт ҳа́:бэ ихь ми́та:кэсэн",
+          "note": "«Jetzt» = ҳозир. Ҷумла бо он сар шуд → феъл дар ҷои дуюм.",
+          "cue": "Haben Sie Zeit?",
+          "cueTranslation": "Вақт доред?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ja, bitte, einen Tee.",
+          "translation": "Бале, лутфан, як чой.",
+          "literal": "йа: би́тэ а́йнэн тэ:",
+          "note": "⚠️ «der Tee» баъди «Möchten» ба «einen Tee» табдил меёбад — ин падежи олмонист.",
+          "cue": "Möchten Sie Tee oder Kaffee?",
+          "cueTranslation": "Чой мехоҳед ё қаҳва?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Ich habe jetzt Pause.",
+          "translation": "Ман ҳозир танаффус дорам.",
+          "literal": "ихь ҳа́:бэ йэцт па́узэ",
+          "note": "Ҷавоби кӯтоҳ, вақте касе шуморо ҷеғ мезанад.",
+          "cue": "Arbeiten Sie gerade?",
+          "cueTranslation": "Ҳозир кор мекунед?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Möchten Sie Kaffee zusammen?",
+          "translation": "Якҷоя қаҳва мехоҳед?",
+          "literal": "мё́хьтэн зи: ка́фэ цуза́мэн",
+          "note": "Даъвати сабук ба ҳамкор.",
+          "cue": "Ich habe zehn Minuten Zeit.",
+          "cueTranslation": "Ман даҳ дақиқа вақт дорам."
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "title": "Дар идора",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "das Zimmer",
+          "translation": "утоқ",
+          "literal": "дас ци́ма",
+          "note": "«Z» = «ц».\n\n«Im Zimmer» — дар утоқ.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "der Termin",
+          "translation": "вохӯрии таъиншуда",
+          "literal": "дэ:а тэами́:н",
+          "note": "⚠️ Калимаи КАЛИДӢ дар Олмон: бе «Termin» ба духтур, ба идора ва ба бонк намераванд.\n\n«Ich habe einen Termin» — ман вохӯрӣ дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "die Dokumente",
+          "translation": "ҳуҷҷатҳо",
+          "literal": "ди: докумэ́нтэ",
+          "note": "Яктоаш «das Dokument». «Die Papiere» ҳам мегӯянд.\n\nБарои муҳоҷир калимаи ҳаррӯза.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "beschäftigt",
+          "translation": "банд",
+          "literal": "бэшэ́фтихьт",
+          "note": "«Ich bin beschäftigt» — ман бандам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "eine Minute",
+          "translation": "як дақиқа",
+          "literal": "а́йнэ мину́:тэ",
+          "note": "«Eine Minute, bitte!» = «як дақиқа сабр кунед».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Jetzt bin ich beschäftigt.",
+          "translation": "Ҳозир ман бандам.",
+          "literal": "йэцт бин ихь бэшэ́фтихьт",
+          "note": "Радди боадабона.",
+          "cue": "Haben Sie eine Minute?",
+          "cueTranslation": "Як дақиқа вақт доред?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich habe einen Termin im Büro.",
+          "translation": "Ман дар идора вохӯрӣ дорам.",
+          "literal": "ихь ҳа́:бэ а́йнэн тэами́:н им бюро́:",
+          "note": "«Einen Termin haben» — ибораи тайёр.",
+          "cue": "Sind Sie heute frei?",
+          "cueTranslation": "Имрӯз озодед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Hier sind meine Dokumente.",
+          "translation": "Ин ҳуҷҷатҳои ман.",
+          "literal": "ҳи:а зинт ма́йнэ докумэ́нтэ",
+          "note": "⚠️ Ин ҷумларо ҳар муҳоҷир бояд бе фикр гуфта тавонад.",
+          "cue": "Ihre Dokumente, bitte.",
+          "cueTranslation": "Ҳуҷҷатҳоятон, лутфан."
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Mein Chef ist jetzt im Zimmer.",
+          "translation": "Роҳбар ҳозир дар утоқ аст.",
+          "literal": "майн шэф ист йэцт им ци́ма",
+          "note": "Ҷавоб дар бораи ҷои шахси сеюм.",
+          "cue": "Wo ist der Chef?",
+          "cueTranslation": "Роҳбар куҷост?"
+        }
+      ]
+    },
+    {
+      "order": 22,
+      "title": "Сӯҳбат бо корфармо",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "die Erfahrung",
+          "translation": "таҷриба",
+          "literal": "ди: эафа́:рунг",
+          "note": "«Ich habe Erfahrung» — ман таҷриба дорам.\n\nДар ҳар сӯҳбати корӣ ин калима садо медиҳад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "das Jahr",
+          "translation": "сол",
+          "literal": "дас йа:а",
+          "note": "Як сол — «ein Jahr», зиёда — «Jahre»: «zwei Jahre Erfahrung».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Ich kann",
+          "translation": "ман метавонам",
+          "literal": "ихь кан",
+          "note": "⚠️ Баъди «kann» феъли дуюм ба ОХИРИ ҷумла меравад: «Ich kann heute arbeiten».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "bereit",
+          "translation": "тайёр",
+          "literal": "бэра́йт",
+          "note": "«Ich bin bereit» — ман тайёрам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "natürlich",
+          "translation": "албатта",
+          "literal": "натю́:алихь",
+          "note": "Ҷавоби боадабонаи розигӣ.\n\n«ü» = лабҳо ғунча, садо «и».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ich habe zwei Jahre Erfahrung.",
+          "translation": "Ман ду соли таҷриба дорам.",
+          "literal": "ихь ҳа́:бэ цвай йа́:рэ эафа́:рунг",
+          "note": "Ҷумлаи асосии ҳар сӯҳбати корӣ.",
+          "cue": "Haben Sie schon gearbeitet?",
+          "cueTranslation": "Пештар кор кардаед?"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Ich bin heute bereit.",
+          "translation": "Ман имрӯз тайёрам.",
+          "literal": "ихь бин ҳо́йтэ бэра́йт",
+          "note": "Ҷавоби қатъӣ ва хушоянд барои корфармо.",
+          "cue": "Wann können Sie anfangen?",
+          "cueTranslation": "Кай сар карда метавонед?"
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Ich kann zusammen mit Ihnen arbeiten.",
+          "translation": "Ман бо шумо якҷоя кор карда метавонам.",
+          "literal": "ихь кан цуза́мэн мит и́:нэн а́рбайтэн",
+          "note": "⚠️ «arbeiten» ба охир рафт, чунки «kann» дар ҷумла ҳаст.",
+          "cue": "Wir brauchen einen Mann im Team.",
+          "cueTranslation": "Ба мо ба даста як одам лозим аст."
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Natürlich, ich verstehe.",
+          "translation": "Албатта, ман мефаҳмам.",
+          "literal": "натю́:алихь ихь фэаштэ́:э",
+          "note": "Ҷавоби кӯтоҳи розигӣ.",
+          "cue": "Die Arbeit beginnt um sieben Uhr.",
+          "cueTranslation": "Кор соати ҳафт сар мешавад."
+        }
+      ]
+    },
+    {
+      "order": 23,
+      "title": "Рӯзи хуш!",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Schönen Tag",
+          "translation": "рӯзи хуш",
+          "literal": "шё́:нэн та:к",
+          "note": "Орзуи нек ҳангоми ҷудо шудан — дар мағоза, дар идора, бо ҳамсоя.\n\nҶавоб: «Danke, Ihnen auch».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Viel Glück",
+          "translation": "барори кор",
+          "literal": "фи:л глюк",
+          "note": "Пеш аз кори муҳим, имтиҳон ё сафар.\n\nАйнан «бахти бисёр».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Alles Gute",
+          "translation": "ҳама некӣ",
+          "literal": "а́лэс гу́:тэ",
+          "note": "Хайрухуши гарм ва каме расмӣ — ҳангоми ҷудоии дароз.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Ihnen auch",
+          "translation": "ба шумо ҳам",
+          "literal": "и́:нэн аух",
+          "note": "Ҷавоби кӯтоҳ ба ҳар орзуи нек: «Danke, Ihnen auch!»",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Machen Sie es gut",
+          "translation": "худатонро эҳтиёт кунед",
+          "literal": "ма́хэн зи: эс гу:т",
+          "note": "Хайрухуши ғамхорона — ба дӯст, ба ҳамкор.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Danke, Ihnen auch einen schönen Tag.",
+          "translation": "Ташаккур, ба шумо ҳам рӯзи хуш.",
+          "literal": "да́нкэ и́:нэн аух а́йнэн шё́:нэн та:к",
+          "note": "Ҷавоби пурра ба орзуи нек.",
+          "cue": "Schönen Tag noch!",
+          "cueTranslation": "Рӯзи хуш!"
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Viel Glück bei der Arbeit!",
+          "translation": "Дар кор барор!",
+          "literal": "фи:л глюк бай дэ:а а́рбайт",
+          "note": "Орзуи мушаххас гармтар садо медиҳад.",
+          "cue": "Morgen ist mein erster Tag.",
+          "cueTranslation": "Пагоҳ рӯзи аввали ман аст."
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Danke, alles Gute!",
+          "translation": "Ташаккур, ҳама некӣ!",
+          "literal": "да́нкэ а́лэс гу́:тэ",
+          "note": "Хотимаи гарми сӯҳбат.",
+          "cue": "Danke für Ihre Hilfe!",
+          "cueTranslation": "Ташаккур барои кӯмак!"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Machen Sie es gut, Herr Müller.",
+          "translation": "Худатонро эҳтиёт кунед, ҷаноби Мюллер.",
+          "literal": "ма́хэн зи: эс гу:т ҳэр мю́ла",
+          "note": "Хайрухуши гарм пеш аз сафар.",
+          "cue": "Ich fahre morgen früh weg.",
+          "cueTranslation": "Ман пагоҳ саҳар меравам."
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "title": "То пагоҳ",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Bis morgen",
+          "translation": "то пагоҳ",
+          "literal": "бис мо́ргэн",
+          "note": "Вақте пагоҳ бори дигар вомехӯред — бо ҳамкор, бо ҳамсоя.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Bis bald",
+          "translation": "то вохӯрии наздик",
+          "literal": "бис балт",
+          "note": "Вақте вақти вохӯрии оянда маълум нест.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Bis später",
+          "translation": "то баъдтар",
+          "literal": "бис шпэ́:та",
+          "note": "Ҳамон рӯз боз мебинед — масалан баъди танаффус.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Wir sehen uns",
+          "translation": "мебинем ҳамдигарро",
+          "literal": "ви:а зэ́:эн унс",
+          "note": "Шакли дӯстона: «то дидор».\n\nДар ҷои расмӣ «Auf Wiedersehen» беҳтар аст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "morgen",
+          "translation": "пагоҳ",
+          "literal": "мо́ргэн",
+          "note": "⚠️ Бо ҳарфи хурд «morgen» = пагоҳ; бо ҳарфи калон «der Morgen» = субҳ.\n\n«Morgen früh» = пагоҳ саҳар.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Danke, bis morgen.",
+          "translation": "Ташаккур, то пагоҳ.",
+          "literal": "да́нкэ бис мо́ргэн",
+          "note": "Хайрухуш бо ҳамкор дар охири рӯз.",
+          "cue": "Ich gehe jetzt nach Hause.",
+          "cueTranslation": "Ман ҳозир ба хона меравам."
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Gut, bis später.",
+          "translation": "Хуб, то баъдтар.",
+          "literal": "гу:т бис шпэ́:та",
+          "note": "Вақте ҳамон рӯз боз вомехӯред.",
+          "cue": "Ich rufe Sie am Abend an.",
+          "cueTranslation": "Бегоҳ ба шумо занг мезанам."
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Morgen sehen wir uns bei der Arbeit.",
+          "translation": "Пагоҳ дар кор мебинем.",
+          "literal": "мо́ргэн зэ́:эн ви:а унс бай дэ:а а́рбайт",
+          "note": "⚠️ Ҷумла бо «Morgen» сар шуд → феъл дар ҷои дуюм, «wir» баъди он.",
+          "cue": "Arbeitest du morgen?",
+          "cueTranslation": "Пагоҳ кор мекунӣ?"
+        },
+        {
+          "order": 8,
+          "kind": "sentence",
+          "text": "Bis bald, mein Freund!",
+          "translation": "То вохӯрӣ, дӯсти ман!",
+          "literal": "бис балт майн фройнт",
+          "note": "Хайрухуши гарм бо дӯст.",
+          "cue": "Ich muss los!",
+          "cueTranslation": "Ман бояд равам!"
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "title": "Такрор: муаррифии пурра",
+      "items": [
+        {
+          "order": 0,
+          "kind": "sentence",
+          "text": "Guten Tag! Ich heiße Ali Karimow.",
+          "translation": "Рӯз ба хайр! Номи ман Алӣ Каримов.",
+          "literal": "гу́:тэн та:к ихь ҳа́йсэ али кари́мов",
+          "note": "Қадами якум: салом + ном ва насаб.",
+          "cue": "Guten Tag! Stellen Sie sich bitte vor.",
+          "cueTranslation": "Рӯз ба хайр! Худро муаррифӣ кунед."
+        },
+        {
+          "order": 1,
+          "kind": "sentence",
+          "text": "Ich komme aus Tadschikistan und wohne in Berlin.",
+          "translation": "Ман аз Тоҷикистон ва дар Берлин зиндагӣ мекунам.",
+          "literal": "ихь ко́мэ аус таджикиста́:н унт во́:нэ ин бэали́:н",
+          "note": "Ду хабар бо «und» — ҳамин тавр сӯҳбат зинда мешавад.",
+          "cue": "Woher kommen Sie und wo wohnen Sie?",
+          "cueTranslation": "Аз куҷоед ва дар куҷо зиндагӣ мекунед?"
+        },
+        {
+          "order": 2,
+          "kind": "sentence",
+          "text": "Ich bin dreißig Jahre alt und verheiratet.",
+          "translation": "Ман сисола ва оиладорам.",
+          "literal": "ихь бин дра́йсихь йа́:рэ алт унт фэаҳа́йра:тэт",
+          "note": "Синну сол ва оила паси ҳам.",
+          "cue": "Wie alt sind Sie?",
+          "cueTranslation": "Шумо чандсолаед?"
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Ich spreche noch nicht gut Deutsch.",
+          "translation": "Ман ҳанӯз олмониро хуб гап намезанам.",
+          "literal": "ихь шпрэ́хэ нох нихьт гу:т дойч",
+          "note": "Ростқавлона ва бехатар — ҳамсӯҳбат фавран оҳистатар мешавад.",
+          "cue": "Wie ist Ihr Deutsch?",
+          "cueTranslation": "Олмониатон чӣ хел аст?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Ich bin hier wegen der Arbeit.",
+          "translation": "Ман барои кор ин ҷо омадам.",
+          "literal": "ихь бин ҳи:а вэ́:гэн дэ:а а́рбайт",
+          "note": "«Wegen» = «барои, аз сабаби» — сабабро мефаҳмонад.",
+          "cue": "Und warum sind Sie in Deutschland?",
+          "cueTranslation": "Ва чаро дар Олмонед?"
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Freut mich sehr, auf Wiedersehen!",
+          "translation": "Хеле шодам, то дидор!",
+          "literal": "фройт михь зэ:а ауф ви́:дазэ:эн",
+          "note": "Хотимаи муаррифӣ — ҳамон ду ибора, ки ҳамеша кор мекунанд.",
+          "cue": "Es war schön, mit Ihnen zu sprechen.",
+          "cueTranslation": "Сӯҳбат бо шумо хуш буд."
+        }
+      ]
+    }
+  ]
+}
