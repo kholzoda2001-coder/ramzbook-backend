@@ -93,7 +93,7 @@ export async function GET(req: NextRequest) {
         id: true, type: true, title: true, author: true, description: true,
         coverUrl: true, coverWord: true, coverSubtitle: true,
         level: true, targetLang: true, nativeLang: true, mediaUrl: true,
-        durationMin: true, rating: true, isPremium: true,
+        durationMin: true, rating: true, isPremium: true, priceTjs: true,
         order: true, createdAt: true,
         _count: { select: { pages: true } },
       },
