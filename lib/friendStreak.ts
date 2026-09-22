@@ -4,8 +4,6 @@ import { prisma } from './prisma';
 import {
   FRIEND_CODE_ALPHABET,
   FRIEND_CODE_LENGTH,
-  FRIEND_INVITE_GEMS,
-  FRIEND_INVITE_GEM_REASON,
   FRIEND_MESSAGES,
   PERSONAL_CODE_EXPIRES_AT,
   PERSONAL_CODE_MIN_EXPIRY,
@@ -164,11 +162,12 @@ function friendEdgeWhere(a: string, b: string): Prisma.FriendInviteWhereInput {
 export type AddFriendResult = {
   ok: true;
   friend: { id: string; name: string };
+  /** Ҳамеша 0 — алмос нест шуд (2026-09-14); майдон барои барномаи кӯҳна мемонад. */
   gemsAwarded: number;
 };
 
 /**
- * Рамзи дӯстро ворид мекунад: ҷуфт ДӮСТ мешаванд ва ҳарду 100 алмос мегиранд.
+ * Рамзи дӯстро ворид мекунад: ҷуфт ДӮСТ мешаванд.
  *
  * Рамзи шахсӣ ИСТИФОДА НАМЕШАВАД — ҳар дӯстӣ сатри алоҳидаи `FriendInvite` бо
  * `consumedByUserId` мегирад (ниг. `lib/friendCode.ts`). «Силсилаи муштарак»
@@ -223,17 +222,10 @@ export async function redeemInviteCode(userId: string, rawCode: string): Promise
         expiresAt: now,
       },
     });
-    await tx.user.update({ where: { id: userId }, data: { gems: { increment: FRIEND_INVITE_GEMS } } });
-    await tx.user.update({ where: { id: friendId }, data: { gems: { increment: FRIEND_INVITE_GEMS } } });
-    await tx.gemTransaction.createMany({
-      data: [
-        { userId, amount: FRIEND_INVITE_GEMS, reason: FRIEND_INVITE_GEM_REASON },
-        { userId: friendId, amount: FRIEND_INVITE_GEMS, reason: FRIEND_INVITE_GEM_REASON },
-      ],
-    });
+    // 🔴 2026-09-14: алмос аз барнома нест шуд — мукофоти «+100 ба ҳарду» ҳам.
   });
 
-  return { ok: true, friend: { id: friendId, name: creator.name }, gemsAwarded: FRIEND_INVITE_GEMS };
+  return { ok: true, friend: { id: friendId, name: creator.name }, gemsAwarded: 0 };
 }
 
 /** Voluntary unpair — sets status='broken' immediately, no lazy check needed. */

@@ -10,9 +10,10 @@ import family from '@/content/speaking/family_people_en_tg.json';
 import meetingKo from '@/content/speaking/meeting_people_ko_tg.json';
 import meetingRu from '@/content/speaking/meeting_people_ru_tg.json';
 import meetingAr from '@/content/speaking/meeting_people_ar_tg.json';
+import meetingDe from '@/content/speaking/meeting_people_de_tg.json';
 
 /** Ҳамаи бастаҳо. Илова кардани боби нав = як сатр дар ин рӯйхат. */
-const PACKS = [food, meeting, shopping, directions, travel, hotel, family, meetingKo, meetingRu, meetingAr];
+const PACKS = [food, meeting, shopping, directions, travel, hotel, family, meetingKo, meetingRu, meetingAr, meetingDe];
 
 export const dynamic = 'force-dynamic';
 

@@ -18,90 +18,90 @@ export const VOCAB = [
   {
     title: 'Die Familie', titleTranslated: 'Оила', emoji: '👨‍👩‍👧‍👦',
     words: [
-      { word: 'die Familie', existing: true },
-      { word: 'der Vater', existing: true },
-      { word: 'die Mutter', existing: true },
-      { word: 'das Kind', existing: true },
-      { word: 'die Eltern', translation: 'волидайн', emoji: '👪', ipa: '/diː ˈɛltɐn/',
+      { word: 'die Familie', existing: true, existing: true },
+      { word: 'der Vater', existing: true, existing: true },
+      { word: 'die Mutter', existing: true, existing: true },
+      { word: 'das Kind', existing: true, existing: true },
+      { word: 'die Eltern', existing: true, translation: 'волидайн', emoji: '👪', ipa: '/diː ˈɛltɐn/',
         example: 'Meine Eltern sind zu Hause.', exampleTrans: 'Волидайни ман дар хонаанд.' },
-      { word: 'die Geschwister', translation: 'бародару хоҳарон', emoji: '👫', ipa: '/diː ɡəˈʃvɪstɐ/',
+      { word: 'die Geschwister', existing: true, translation: 'бародару хоҳарон', emoji: '👫', ipa: '/diː ɡəˈʃvɪstɐ/',
         example: 'Ich habe zwei Geschwister.', exampleTrans: 'Ман ду бародару хоҳар дорам.' },
     ],
   },
   {
     title: 'Bruder und Schwester', titleTranslated: 'Бародар ва хоҳар', emoji: '👦',
     words: [
-      { word: 'der Bruder', existing: true },
-      { word: 'die Schwester', existing: true },
-      { word: 'der Sohn', translation: 'писар', emoji: '🧒', ipa: '/deːɐ̯ zoːn/',
+      { word: 'der Bruder', existing: true, existing: true },
+      { word: 'die Schwester', existing: true, existing: true },
+      { word: 'der Sohn', existing: true, translation: 'писар', emoji: '🧒', ipa: '/deːɐ̯ zoːn/',
         example: 'Sein Sohn ist fünf Jahre alt.', exampleTrans: 'Писари ӯ панҷсола аст.' },
-      { word: 'die Tochter', translation: 'духтар', emoji: '👧', ipa: '/diː ˈtɔxtɐ/',
+      { word: 'die Tochter', existing: true, translation: 'духтар', emoji: '👧', ipa: '/diː ˈtɔxtɐ/',
         example: 'Ihre Tochter geht zur Schule.', exampleTrans: 'Духтари ӯ ба мактаб меравад.' },
     ],
   },
   {
     title: 'Großeltern', titleTranslated: 'Бобою бибӣ', emoji: '👴',
     words: [
-      { word: 'die Großmutter', existing: true },
-      { word: 'der Großvater', existing: true },
-      { word: 'die Großeltern', translation: 'бобою бибӣ', emoji: '👵', ipa: '/diː ˈɡʁoːsʔɛltɐn/',
+      { word: 'die Großmutter', existing: true, existing: true },
+      { word: 'der Großvater', existing: true, existing: true },
+      { word: 'die Großeltern', existing: true, translation: 'бобою бибӣ', emoji: '👵', ipa: '/diː ˈɡʁoːsʔɛltɐn/',
         example: 'Meine Großeltern wohnen im Dorf.', exampleTrans: 'Бобою бибиям дар деҳа зиндагӣ мекунанд.' },
-      { word: 'das Enkelkind', translation: 'набера', emoji: '👶', ipa: '/das ˈʔɛŋkəlkɪnt/',
+      { word: 'das Enkelkind', existing: true, translation: 'набера', emoji: '👶', ipa: '/das ˈʔɛŋkəlkɪnt/',
         example: 'Das Enkelkind spielt im Garten.', exampleTrans: 'Набера дар боғ бозӣ мекунад.' },
     ],
   },
   {
     title: 'Verwandte', titleTranslated: 'Хешовандон', emoji: '🧔',
     words: [
-      { word: 'der Onkel', existing: true },
-      { word: 'die Tante', existing: true },
-      { word: 'der Cousin', translation: 'ҷиян (писар)', emoji: '👨', ipa: '/deːɐ̯ kuˈzɛː/',
+      { word: 'der Onkel', existing: true, existing: true },
+      { word: 'die Tante', existing: true, existing: true },
+      { word: 'der Cousin', existing: true, translation: 'ҷиян (писар)', emoji: '👨', ipa: '/deːɐ̯ kuˈzɛː/',
         example: 'Mein Cousin heißt Ali.', exampleTrans: 'Номи ҷиянам Алӣ аст.' },
-      { word: 'die Cousine', translation: 'ҷиян (духтар)', emoji: '👩', ipa: '/diː kuˈziːnə/',
+      { word: 'die Cousine', existing: true, translation: 'ҷиян (духтар)', emoji: '👩', ipa: '/diː kuˈziːnə/',
         example: 'Meine Cousine ist Studentin.', exampleTrans: 'Ҷиянам донишҷӯ аст.' },
     ],
   },
   {
     title: 'Personalpronomen', titleTranslated: 'Ҷонишинҳои шахсӣ', emoji: '👤',
     words: [
-      { word: 'ich', existing: true },
-      { word: 'du', existing: true },
-      { word: 'er', existing: true },
-      { word: 'sie', existing: true },
-      { word: 'es', existing: true },
-      { word: 'wir', existing: true },
-      { word: 'ihr', existing: true },
-      { word: 'Sie', existing: true },
+      { word: 'ich', existing: true, existing: true },
+      { word: 'du', existing: true, existing: true },
+      { word: 'er', existing: true, existing: true },
+      { word: 'sie', existing: true, existing: true },
+      { word: 'es', existing: true, existing: true },
+      { word: 'wir', existing: true, existing: true },
+      { word: 'ihr', existing: true, existing: true },
+      { word: 'Sie', existing: true, existing: true },
     ],
   },
   {
     title: 'Familie beschreiben', titleTranslated: 'Тавсифи оила', emoji: '💍',
     words: [
-      { word: 'verheiratet', translation: 'оиладор', emoji: '💍', ipa: '/fɛɐ̯ˈhaɪ̯ʁaːtət/',
+      { word: 'verheiratet', existing: true, translation: 'оиладор', emoji: '💍', ipa: '/fɛɐ̯ˈhaɪ̯ʁaːtət/',
         example: 'Mein Bruder ist verheiratet.', exampleTrans: 'Бародарам оиладор аст.' },
-      { word: 'ledig', translation: 'муҷаррад', emoji: '🙋', ipa: '/ˈleːdɪç/',
+      { word: 'ledig', existing: true, translation: 'муҷаррад', emoji: '🙋', ipa: '/ˈleːdɪç/',
         example: 'Meine Schwester ist noch ledig.', exampleTrans: 'Хоҳарам ҳанӯз муҷаррад аст.' },
-      { word: 'die Person', translation: 'шахс', emoji: '🧍', ipa: '/diː pɛʁˈzoːn/',
+      { word: 'die Person', existing: true, translation: 'шахс', emoji: '🧍', ipa: '/diː pɛʁˈzoːn/',
         example: 'Diese Person ist sehr nett.', exampleTrans: 'Ин шахс хеле меҳрубон аст.' },
-      { word: 'die Leute', translation: 'мардум', emoji: '👥', ipa: '/diː ˈlɔʏ̯tə/',
+      { word: 'die Leute', existing: true, translation: 'мардум', emoji: '👥', ipa: '/diː ˈlɔʏ̯tə/',
         example: 'Die Leute sind sehr nett.', exampleTrans: 'Мардум хеле меҳрубонанд.' },
-      { word: 'zusammen', translation: 'якҷоя', emoji: '🤝', ipa: '/tsuˈzamən/',
+      { word: 'zusammen', existing: true, translation: 'якҷоя', emoji: '🤝', ipa: '/tsuˈzamən/',
         example: 'Wir wohnen zusammen.', exampleTrans: 'Мо якҷоя зиндагӣ мекунем.' },
     ],
   },
   {
     title: 'Über die Familie sprechen', titleTranslated: 'Дар бораи оила сухан гуфтан', emoji: '💬',
     words: [
-      { word: 'Ich habe einen Bruder', translation: 'Ман як бародар дорам', emoji: '👨‍👦',
+      { word: 'Ich habe einen Bruder', existing: true, translation: 'Ман як бародар дорам', emoji: '👨‍👦',
         ipa: '/ɪç ˈhaːbə ˈaɪ̯nən ˈbʁuːdɐ/',
         example: 'Ich habe einen Bruder und eine Schwester.', exampleTrans: 'Ман як бародар ва як хоҳар дорам.' },
-      { word: 'Ich habe keine Geschwister', translation: 'Ман бародару хоҳар надорам', emoji: '🚫',
+      { word: 'Ich habe keine Geschwister', existing: true, translation: 'Ман бародару хоҳар надорам', emoji: '🚫',
         ipa: '/ɪç ˈhaːbə ˈkaɪ̯nə ɡəˈʃvɪstɐ/',
         example: 'Ich habe keine Geschwister. Ich bin allein.', exampleTrans: 'Ман бародару хоҳар надорам. Ман танҳо ҳастам.' },
-      { word: 'Meine Familie ist groß', translation: 'Оилаи ман калон аст', emoji: '👨‍👩‍👧‍👦',
+      { word: 'Meine Familie ist groß', existing: true, translation: 'Оилаи ман калон аст', emoji: '👨‍👩‍👧‍👦',
         ipa: '/ˈmaɪ̯nə faˈmiːliə ɪst ɡʁoːs/',
         example: 'Meine Familie ist groß und laut.', exampleTrans: 'Оилаи ман калон ва пурғавғо аст.' },
-      { word: 'Wie viele Geschwister hast du', translation: 'Чанд бародару хоҳар дорӣ?', emoji: '❓',
+      { word: 'Wie viele Geschwister hast du', existing: true, translation: 'Чанд бародару хоҳар дорӣ?', emoji: '❓',
         ipa: '/viː ˈfiːlə ɡəˈʃvɪstɐ hast duː/',
         example: 'Wie viele Geschwister hast du?', exampleTrans: 'Чанд бародару хоҳар дорӣ?' },
     ],
@@ -197,6 +197,58 @@ export const GRAMMAR = [
       { prompt: 'Wie heißt ___ Schwester?', promptTranslated: 'Номи хоҳари ту чист?', answer: 'deine', options: ['deine', 'dein', 'meine', 'mein'], explanation: 'die Schwester → deine.' },
       { prompt: '___ Großeltern sind alt.', promptTranslated: 'Бобою бибии ман пиранд.', answer: 'Meine', options: ['Meine', 'Mein', 'Deine', 'Dein'], explanation: 'Ҷамъ → meine.' },
       { prompt: 'Das ist ___ Onkel.', promptTranslated: 'Ин амаки ман аст.', answer: 'mein', options: ['mein', 'meine', 'deine', 'Ihre'], explanation: 'der Onkel → mein.' },
+    ],
+  },
+  {
+    lessonTitle: 'Grammatik: Das Verb im Präsens', lessonTitleTranslated: 'Грамматика: Феъл дар замони ҳозира',
+    title: 'Präsens: regelmäßige Verben und haben', titleTranslated: 'Замони ҳозира: феъли муқаррарӣ ва haben',
+    emoji: '🔤',
+    explanation:
+`Дар олмонӣ феъл вобаста ба шахс **бандак** мегирад. Реша бетағйир мемонад, танҳо охираш иваз мешавад.
+
+**wohnen (зиндагӣ кардан):**
+
+| шахс | феъл |
+|---|---|
+| ich | wohn**e** |
+| du | wohn**st** |
+| er / sie / es | wohn**t** |
+| wir | wohn**en** |
+| ihr | wohn**t** |
+| sie / Sie | wohn**en** |
+
+Ҳамин панҷ бандак (**-e, -st, -t, -en, -t, -en**) барои ҳазорҳо феъли муқаррарӣ кор мекунад: lernen, machen, kaufen, spielen, arbeiten.
+
+**haben (доштан) — номунтазам, аз ёд карда шавад:**
+ich **habe** · du **hast** · er/sie/es **hat** · wir **haben** · ihr **habt** · sie/Sie **haben**
+
+- Ich **habe** einen Bruder. (Ман як бародар дорам.)
+- **Hast** du Kinder? (Ту фарзанд дорӣ?)
+
+**Доми тоҷик:** дар тоҷикӣ ҷонишинро партофтан мумкин аст — «меравам». Дар олмонӣ ҷонишин ҲАМЕША лозим аст: ❌ *Wohne in Duschanbe.* → ✅ **Ich wohne** in Duschanbe.`,
+    rules: [
+      { pattern: 'ich -e · du -st · er -t', note: 'ich wohne, du wohnst, er wohnt.' },
+      { pattern: 'wir -en · ihr -t · sie/Sie -en', note: 'wir wohnen, ihr wohnt, sie wohnen.' },
+      { pattern: 'haben номунтазам аст', note: 'ich habe, du hast, er hat — аз ёд карда шавад.' },
+      { pattern: 'Ҷонишин ҳамеша меистад', note: 'Дар олмонӣ ҷумла бе ich/du/er намешавад.' },
+    ],
+    examples: [
+      { sentence: 'Ich wohne in Duschanbe.', translation: 'Ман дар Душанбе зиндагӣ мекунам.', highlight: 'wohne' },
+      { sentence: 'Du lernst Deutsch.', translation: 'Ту олмониро меомӯзӣ.', highlight: 'lernst' },
+      { sentence: 'Er macht das gut.', translation: 'Ӯ инро хуб мекунад.', highlight: 'macht' },
+      { sentence: 'Wir lernen zusammen.', translation: 'Мо якҷоя меомӯзем.', highlight: 'lernen' },
+      { sentence: 'Ich habe einen Bruder.', translation: 'Ман як бародар дорам.', highlight: 'habe' },
+      { sentence: 'Hast du Kinder?', translation: 'Ту фарзанд дорӣ?', highlight: 'Hast' },
+    ],
+    exercises: [
+      { prompt: 'Ich ___ in Duschanbe. (wohnen)', promptTranslated: 'Ман дар Душанбе зиндагӣ мекунам.', answer: 'wohne', options: ['wohne', 'wohnst', 'wohnt', 'wohnen'], explanation: 'ich → -e.' },
+      { prompt: 'Du ___ Deutsch. (lernen)', promptTranslated: 'Ту олмониро меомӯзӣ.', answer: 'lernst', options: ['lernst', 'lerne', 'lernt', 'lernen'], explanation: 'du → -st.' },
+      { prompt: 'Er ___ das gut. (machen)', promptTranslated: 'Ӯ инро хуб мекунад.', answer: 'macht', options: ['macht', 'mache', 'machst', 'machen'], explanation: 'er → -t.' },
+      { prompt: 'Wir ___ zusammen. (lernen)', promptTranslated: 'Мо якҷоя меомӯзем.', answer: 'lernen', options: ['lernen', 'lernt', 'lerne', 'lernst'], explanation: 'wir → -en.' },
+      { prompt: 'Ich ___ einen Bruder. (haben)', promptTranslated: 'Ман як бародар дорам.', answer: 'habe', options: ['habe', 'hast', 'hat', 'haben'], explanation: 'ich habe.' },
+      { prompt: '___ du Kinder? (haben)', promptTranslated: 'Ту фарзанд дорӣ?', answer: 'Hast', options: ['Hast', 'Habe', 'Hat', 'Haben'], explanation: 'du hast.' },
+      { prompt: 'Sie ___ zwei Kinder. (haben, вай)', promptTranslated: 'Вай ду фарзанд дорад.', answer: 'hat', options: ['hat', 'habe', 'hast', 'habt'], explanation: 'sie (вай) → hat.' },
+      { prompt: 'Кадом ҷумла ДУРУСТ аст?', promptTranslated: 'Ҷумлаи дурустро интихоб кунед.', answer: 'Ich wohne in Duschanbe.', options: ['Ich wohne in Duschanbe.', 'Wohne in Duschanbe.', 'Ich wohnst in Duschanbe.', 'Ich wohnen in Duschanbe.'], explanation: 'Ҷонишин лозим аст ва барои ich бандаки -e.' },
     ],
   },
 ];
@@ -295,6 +347,7 @@ export const ORDER = [
   'vocab:Über die Familie sprechen',
   'grammar:0',
   'grammar:1',
+  'grammar:2',
   'comprehension:reading',
   'comprehension:listening',
   'dialogue',

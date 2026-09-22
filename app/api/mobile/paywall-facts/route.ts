@@ -56,8 +56,13 @@ export async function GET(req: NextRequest) {
 
     // The AI limit is admin-editable at runtime; read it rather than assume it.
     let freeAiPerDay = 0;
+    // 🔴 2026-09-14: Premium ҲАМ лимит дорад (пешфарз 100/рӯз). Пейвол пештар «∞»
+    // менавишт — даъвои бардурӯғ (сиёсати Google Play). Акнун рақами воқеӣ.
+    let premiumAiPerDay = -1;
     try {
-      freeAiPerDay = (await loadAiSettingsConfig(prisma)).freeLimit;
+      const cfg = await loadAiSettingsConfig(prisma);
+      freeAiPerDay = cfg.freeLimit;
+      premiumAiPerDay = cfg.premiumLimit;
     } catch {
       // Settings unreadable — the app hides the AI comparison row rather than
       // print a number we are not sure about.
@@ -74,6 +79,7 @@ export async function GET(req: NextRequest) {
         },
         freeHearts: MAX_HEARTS_FREE,
         freeAiPerDay,
+        premiumAiPerDay,
       },
       { headers: CORS },
     );

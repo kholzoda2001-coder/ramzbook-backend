@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
   FRIEND_CODE_ALPHABET,
-  FRIEND_INVITE_GEMS,
   FRIEND_MESSAGES,
   PERSONAL_CODE_EXPIRES_AT,
   friendRedeemError,
@@ -76,8 +75,7 @@ describe('friendRedeemError', () => {
 });
 
 describe('константаҳо', () => {
-  it('100 алмос ва алифбои бе 0/O/1/I/L', () => {
-    expect(FRIEND_INVITE_GEMS).toBe(100);
+  it('алифбои бе 0/O/1/I/L', () => {
     expect(FRIEND_CODE_ALPHABET).not.toMatch(/[01OIL]/);
   });
 });

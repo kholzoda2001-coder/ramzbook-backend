@@ -98,7 +98,8 @@ describe('speaking:audit', () => {
             items: L.items.map((i) => toEngine(i, `${pack.slug}:L${L.order}:I${i.order}`)),
           },
           { targetScript: re, categoryTexts: others },
-          DEFAULT_CONFIG,
+          // Рӯйхатҳои чанк барои баъзе забонҳо хосанд (`LANG_LISTS`).
+          { ...DEFAULT_CONFIG, lang: pack.targetLanguage },
         );
 
         for (const is of issues) {

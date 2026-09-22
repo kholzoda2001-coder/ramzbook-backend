@@ -18,91 +18,89 @@ export const VOCAB = [
   {
     title: 'Zahlen 0–5', titleTranslated: 'Рақамҳо 0–5', emoji: '🔢',
     words: [
-      { word: 'null', translation: 'сифр', emoji: '0️⃣', ipa: '/nʊl/',
+      { word: 'null', existing: true, translation: 'сифр', emoji: '0️⃣', ipa: '/nʊl/',
         example: 'Meine Nummer beginnt mit null.', exampleTrans: 'Рақами ман бо сифр сар мешавад.' },
-      { word: 'eins', existing: true },
-      { word: 'zwei', existing: true },
-      { word: 'drei', existing: true },
-      { word: 'vier', existing: true },
-      { word: 'fünf', existing: true },
+      { word: 'eins', existing: true, existing: true },
+      { word: 'zwei', existing: true, existing: true },
+      { word: 'drei', existing: true, existing: true },
+      { word: 'vier', existing: true, existing: true },
+      { word: 'fünf', existing: true, existing: true },
     ],
   },
   {
     title: 'Zahlen 6–10', titleTranslated: 'Рақамҳо 6–10', emoji: '🖐️',
     words: [
-      { word: 'sechs', existing: true },
-      { word: 'sieben', existing: true },
-      { word: 'acht', existing: true },
-      { word: 'neun', existing: true },
-      { word: 'zehn', existing: true },
+      { word: 'sechs', existing: true, existing: true },
+      { word: 'sieben', existing: true, existing: true },
+      { word: 'acht', existing: true, existing: true },
+      { word: 'neun', existing: true, existing: true },
+      { word: 'zehn', existing: true, existing: true },
     ],
   },
   {
     title: 'Zahlen 11–20', titleTranslated: 'Рақамҳо 11–20', emoji: '🔟',
     words: [
-      { word: 'elf', existing: true },
-      { word: 'zwölf', existing: true },
-      { word: 'dreizehn', translation: 'сездаҳ', emoji: '1️⃣3️⃣', ipa: '/ˈdʁaɪ̯t͡seːn/',
+      { word: 'elf', existing: true, existing: true },
+      { word: 'zwölf', existing: true, existing: true },
+      { word: 'dreizehn', existing: true, translation: 'сездаҳ', emoji: '1️⃣3️⃣', ipa: '/ˈdʁaɪ̯t͡seːn/',
         example: 'Mein Bruder ist dreizehn Jahre alt.', exampleTrans: 'Бародарам сездаҳсола аст.' },
-      { word: 'vierzehn', translation: 'чордаҳ', emoji: '1️⃣4️⃣', ipa: '/ˈfɪʁt͡seːn/',
+      { word: 'vierzehn', existing: true, translation: 'чордаҳ', emoji: '1️⃣4️⃣', ipa: '/ˈfɪʁt͡seːn/',
         example: 'Sie ist vierzehn Jahre alt.', exampleTrans: 'Ӯ чордаҳсола аст.' },
-      { word: 'fünfzehn', translation: 'понздаҳ', emoji: '1️⃣5️⃣', ipa: '/ˈfʏnft͡seːn/',
+      { word: 'fünfzehn', existing: true, translation: 'понздаҳ', emoji: '1️⃣5️⃣', ipa: '/ˈfʏnft͡seːn/',
         example: 'Der Bus kommt um fünfzehn Uhr.', exampleTrans: 'Автобус соати понздаҳ меояд.' },
-      { word: 'zwanzig', existing: true },
+      { word: 'zwanzig', existing: true, existing: true },
     ],
   },
   {
     title: 'Die Zehner', titleTranslated: 'Даҳиҳо', emoji: '🔢',
     words: [
-      { word: 'dreißig', existing: true },
-      { word: 'vierzig', existing: true },
-      { word: 'fünfzig', existing: true },
-      { word: 'sechzig', existing: true },
-      { word: 'siebzig', existing: true },
-      { word: 'achtzig', existing: true },
-      { word: 'neunzig', translation: 'навад', emoji: '9️⃣', ipa: '/ˈnɔʏ̯nt͡sɪç/',
+      { word: 'dreißig', existing: true, existing: true },
+      { word: 'vierzig', existing: true, existing: true },
+      { word: 'fünfzig', existing: true, existing: true },
+      { word: 'sechzig', existing: true, existing: true },
+      { word: 'siebzig', existing: true, existing: true },
+      { word: 'achtzig', existing: true, existing: true },
+      { word: 'neunzig', existing: true, translation: 'навад', emoji: '9️⃣', ipa: '/ˈnɔʏ̯nt͡sɪç/',
         example: 'Mein Großvater ist neunzig Jahre alt.', exampleTrans: 'Бобоям навадсола аст.' },
     ],
   },
   {
     title: 'Große Zahlen', titleTranslated: 'Рақамҳои калон', emoji: '💯',
     words: [
-      { word: 'hundert', existing: true },
-      { word: 'tausend', translation: 'ҳазор', emoji: '🔢', ipa: '/ˈtaʊ̯zənt/',
+      { word: 'hundert', existing: true, existing: true },
+      { word: 'tausend', existing: true, translation: 'ҳазор', emoji: '🔢', ipa: '/ˈtaʊ̯zənt/',
         example: 'Das Auto kostet tausend Euro.', exampleTrans: 'Мошин ҳазор евро меарзад.' },
-      { word: 'die Zahl', translation: 'адад', emoji: '🔣', ipa: '/diː t͡saːl/',
+      { word: 'die Zahl', existing: true, translation: 'адад', emoji: '🔣', ipa: '/diː t͡saːl/',
         example: 'Schreib die Zahl an die Tafel.', exampleTrans: 'Ададро ба тахта навис.' },
-      { word: 'die Nummer', translation: 'рақам', emoji: '#️⃣', ipa: '/diː ˈnʊmɐ/',
+      { word: 'die Nummer', existing: true, translation: 'рақам', emoji: '#️⃣', ipa: '/diː ˈnʊmɐ/',
         example: 'Wie ist deine Nummer?', exampleTrans: 'Рақами ту чанд аст?' },
     ],
   },
   {
     title: 'Wie alt bist du?', titleTranslated: 'Чандсола ҳастӣ?', emoji: '🎂',
     words: [
-      { word: 'das Alter', translation: 'синну сол', emoji: '📅', ipa: '/das ˈaltɐ/',
+      { word: 'das Alter', existing: true, translation: 'синну сол', emoji: '📅', ipa: '/das ˈaltɐ/',
         example: 'Sein Alter ist zwanzig.', exampleTrans: 'Синни ӯ бист аст.' },
-      { word: 'das Jahr', translation: 'сол', emoji: '🗓️', ipa: '/das jaːɐ̯/',
+      { word: 'das Jahr', existing: true, translation: 'сол', emoji: '🗓️', ipa: '/das jaːɐ̯/',
         example: 'Ein Jahr hat zwölf Monate.', exampleTrans: 'Як сол дувоздаҳ моҳ дорад.' },
-      { word: 'der Geburtstag', translation: 'зодрӯз', emoji: '🎂', ipa: '/deːɐ̯ ɡəˈbuːɐ̯t͡staːk/',
+      { word: 'der Geburtstag', existing: true, translation: 'зодрӯз', emoji: '🎂', ipa: '/deːɐ̯ ɡəˈbuːɐ̯t͡staːk/',
         example: 'Heute ist mein Geburtstag.', exampleTrans: 'Имрӯз зодрӯзи ман аст.' },
-      { word: 'geboren', translation: 'таваллудшуда', emoji: '👶', ipa: '/ɡəˈboːʁən/',
+      { word: 'geboren', existing: true, translation: 'таваллудшуда', emoji: '👶', ipa: '/ɡəˈboːʁən/',
         example: 'Ich bin in Duschanbe geboren.', exampleTrans: 'Ман дар Душанбе таваллуд шудаам.' },
-      { word: 'Wie alt bist du', translation: 'Чандсола ҳастӣ?', emoji: '❓', ipa: '/viː alt bɪst duː/',
+      { word: 'Wie alt bist du', existing: true, translation: 'Чандсола ҳастӣ?', emoji: '❓', ipa: '/viː alt bɪst duː/',
         example: 'Hallo! Wie alt bist du?', exampleTrans: 'Салом! Чандсола ҳастӣ?' },
     ],
   },
   {
     title: 'Zahlen im Alltag', titleTranslated: 'Рақамҳо дар ҳаёт', emoji: '📱',
     words: [
-      { word: 'die Uhr', translation: 'соат', emoji: '🕐', ipa: '/diː uːɐ̯/',
-        example: 'Die Uhr zeigt acht.', exampleTrans: 'Соат ҳаштро нишон медиҳад.' },
-      { word: 'das Telefon', translation: 'телефон', emoji: '📞', ipa: '/das ˈteːləfoːn/',
+      { word: 'das Telefon', existing: true, translation: 'телефон', emoji: '📞', ipa: '/das ˈteːləfoːn/',
         example: 'Das Telefon ist neu.', exampleTrans: 'Телефон нав аст.' },
-      { word: 'die Telefonnummer', translation: 'рақами телефон', emoji: '📱', ipa: '/diː teləˈfoːnnʊmɐ/',
+      { word: 'die Telefonnummer', existing: true, translation: 'рақами телефон', emoji: '📱', ipa: '/diː teləˈfoːnnʊmɐ/',
         example: 'Wie ist deine Telefonnummer?', exampleTrans: 'Рақами телефони ту чанд аст?' },
-      { word: 'die Adresse', translation: 'суроға', emoji: '🏠', ipa: '/diː aˈdʁɛsə/',
+      { word: 'die Adresse', existing: true, translation: 'суроға', emoji: '🏠', ipa: '/diː aˈdʁɛsə/',
         example: 'Meine Adresse ist einfach.', exampleTrans: 'Суроғаи ман содда аст.' },
-      { word: 'die Hausnummer', translation: 'рақами хона', emoji: '🚪', ipa: '/diː ˈhaʊ̯snʊmɐ/',
+      { word: 'die Hausnummer', existing: true, translation: 'рақами хона', emoji: '🚪', ipa: '/diː ˈhaʊ̯snʊmɐ/',
         example: 'Meine Hausnummer ist zwölf.', exampleTrans: 'Рақами хонаи ман дувоздаҳ аст.' },
     ],
   },
@@ -194,6 +192,53 @@ Ich **bin** 20 Jahre alt. (айнан: «ман 20-сола ҲАСТАМ»)
       { prompt: 'Ich ___ zwei Schwestern.', promptTranslated: 'Ман ду хоҳар дорам.', answer: 'habe', options: ['habe', 'bin', 'ist', 'hat'], explanation: 'Ин ҷо «доштан» — haben.' },
       { prompt: 'Das ___ zehn Euro.', promptTranslated: 'Ин даҳ евро меарзад.', answer: 'kostet', options: ['kostet', 'ist alt', 'hat', 'bin'], explanation: 'kosten = арзидан.' },
       { prompt: 'Wie alt ___ deine Mutter?', promptTranslated: 'Модарат чандсола аст?', answer: 'ist', options: ['ist', 'hat', 'bist', 'bin'], explanation: 'deine Mutter → sie → ist.' },
+    ],
+  },
+  {
+    lessonTitle: 'Grammatik: Ein Buch, zwei Bücher', lessonTitleTranslated: 'Грамматика: Як китоб, ду китоб',
+    title: 'Der Plural: die Bücher, die Kinder', titleTranslated: 'Ҷамъи исм: die Bücher, die Kinder',
+    emoji: '➕',
+    explanation:
+`Дар тоҷикӣ ҷамъ осон аст: **-ҳо** ё **-он** — китоб → китоб**ҳо**. Дар олмонӣ панҷ роҳи гуногун ҳаст ва ҳар калима роҳи худро дорад — бинобар ин ҷамъ ҲАМРОҲИ калима аз ёд карда мешавад.
+
+**Қоидаи ягонаи мутлақ:** дар ҷамъ артикл ҳамеша **die** мешавад — новобаста аз ҷинс.
+
+> der Mann → **die** Männer · das Kind → **die** Kinder · die Frau → **die** Frauen
+
+**Панҷ шакли асосӣ:**
+
+| шакл | мисол |
+|---|---|
+| **-e** (+ умлаут) | der Tag → die Tag**e** · der Sohn → die S**ö**hn**e** |
+| **-er** (+ умлаут) | das Kind → die Kind**er** · das Buch → die B**ü**ch**er** |
+| **-(e)n** | die Frau → die Frau**en** · die Schwester → die Schwester**n** |
+| **-s** | das Auto → die Auto**s** · das Handy → die Handy**s** |
+| бетағйир | der Lehrer → die Lehrer (танҳо артикл иваз мешавад) |
+
+**Аломати хуб:** калимаҳои занона қариб ҳамеша **-n** ё **-en** мегиранд.
+
+Дар луғат ҷамъ ҳамроҳи калима навишта мешавад: *das Buch, die Bücher*. Ҳамин тавр ҳам ёд гиред.`,
+    rules: [
+      { pattern: 'Дар ҷамъ артикл = die', note: 'der/das/die ҳама дар ҷамъ die мешаванд.' },
+      { pattern: 'das Kind → die Kinder', note: 'Шакли -er аксар вақт умлаут ҳам мегирад: Buch → Bücher.' },
+      { pattern: 'die Frau → die Frauen', note: 'Калимаҳои занона -n ё -en мегиранд.' },
+      { pattern: 'das Auto → die Autos', note: 'Калимаҳои нав ва хориҷӣ -s мегиранд.' },
+    ],
+    examples: [
+      { sentence: 'Das ist ein Kind. Das sind zwei Kinder.', translation: 'Ин як кӯдак аст. Инҳо ду кӯдак ҳастанд.', highlight: 'Kinder' },
+      { sentence: 'Ich habe zwei Brüder.', translation: 'Ман ду бародар дорам.', highlight: 'Brüder' },
+      { sentence: 'Die Frauen sind hier.', translation: 'Занон ин ҷоянд.', highlight: 'Frauen' },
+      { sentence: 'Wir haben drei Autos.', translation: 'Мо се мошин дорем.', highlight: 'Autos' },
+      { sentence: 'Die Bücher sind neu.', translation: 'Китобҳо наванд.', highlight: 'Bücher' },
+      { sentence: 'Meine Eltern sind zu Hause.', translation: 'Волидайни ман дар хонаанд.', highlight: 'Eltern' },
+    ],
+    exercises: [
+      { prompt: 'das Kind → ___ Kinder', promptTranslated: 'Артикли ҷамъро интихоб кунед.', answer: 'die', options: ['die', 'der', 'das', 'den'], explanation: 'Дар ҷамъ ҳамеша die.' },
+      { prompt: 'Ich habe zwei ___. (der Bruder)', promptTranslated: 'Ман ду бародар дорам.', answer: 'Brüder', options: ['Brüder', 'Bruders', 'Brudern', 'Brudere'], explanation: 'der Bruder → die Brüder (умлаут).' },
+      { prompt: 'Wir haben drei ___. (das Auto)', promptTranslated: 'Мо се мошин дорем.', answer: 'Autos', options: ['Autos', 'Auten', 'Autoen', 'Autoe'], explanation: 'das Auto → die Autos.' },
+      { prompt: 'Die ___ sind hier. (die Frau)', promptTranslated: 'Занон ин ҷоянд.', answer: 'Frauen', options: ['Frauen', 'Fraus', 'Frauer', 'Frauns'], explanation: 'die Frau → die Frauen.' },
+      { prompt: 'das Buch → die ___', promptTranslated: 'Ҷамъи «das Buch» кадом аст?', answer: 'Bücher', options: ['Bücher', 'Buchs', 'Buchen', 'Buche'], explanation: 'das Buch → die Bücher.' },
+      { prompt: 'Кадом ҷумла ДУРУСТ аст?', promptTranslated: 'Ҷумлаи дурустро интихоб кунед.', answer: 'Die Kinder sind klein.', options: ['Die Kinder sind klein.', 'Das Kinder sind klein.', 'Der Kinder sind klein.', 'Die Kinder ist klein.'], explanation: 'Ҷамъ → артикли die ва феъли sind.' },
     ],
   },
 ];
@@ -293,6 +338,7 @@ export const ORDER = [
   'vocab:Zahlen im Alltag',
   'grammar:0',
   'grammar:1',
+  'grammar:2',
   'comprehension:reading',
   'comprehension:listening',
   'dialogue',

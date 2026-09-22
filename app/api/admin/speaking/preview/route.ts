@@ -39,7 +39,13 @@ export async function GET(req: NextRequest) {
         id: true,
         title: true,
         order: true,
-        category: { select: { title: true, titleTranslated: true, emoji: true } },
+        category: {
+          select: {
+            title: true, titleTranslated: true, emoji: true,
+            // рамзи забон — барои рӯйхатҳои чанки хоси забон
+            targetLanguage: { select: { code: true } },
+          },
+        },
         items: {
           orderBy: { order: 'asc' },
           select: {
@@ -63,7 +69,7 @@ export async function GET(req: NextRequest) {
         chainOverride: i.chainOverride,
         swaps: i.swaps,
       })),
-      DEFAULT_CONFIG,
+      { ...DEFAULT_CONFIG, lang: lesson.category.targetLanguage.code },
       { repeat: false },
     );
 

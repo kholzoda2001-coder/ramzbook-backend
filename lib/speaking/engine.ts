@@ -58,6 +58,13 @@ export interface EngineConfig {
    * телефонҳои насбшуда хомӯшона вайрон мешуд.
    */
   allowedKinds: StepKind[];
+
+  /**
+   * Рамзи забони ОМӮЗИШ («de», «ru», …) — барои рӯйхатҳои чанки хоси забон.
+   *
+   * Холӣ бошад, танҳо рӯйхатҳои умумӣ кор мекунанд (рафтори пештара).
+   */
+  lang?: string;
 }
 
 /** Навъҳое, ки ҳар клиент мефаҳмад (ev = 1). */
@@ -194,13 +201,15 @@ function splitWords(text: string): string[] {
  * табдил меёфт ва инкори русӣ («не») ё арабӣ («لَا») ДИДА НАМЕШУД. Ҳоло ҳарфҳои
  * лотинӣ, кириллӣ, арабӣ ва ҳангул мемонанд; ҳаракатҳои арабӣ (U+064B–0652)
  * ва рақамҳо, мисли пештара, партофта мешаванд. Барои англисӣ натиҷа ҳамон аст.
+ * 🔴 20.09.2026: «ß» (U+00DF) аз диапазони à–ɏ БЕРУН аст ва партофта мешуд —
+ * «heiße» ба «heie» табдил меёфт ва ҳеҷ рӯйхати олмонӣ онро намедид.
  * ⚠️ `\p{L}` бо парчами `u` НА — `tsc` (target < es6) онро рад мекунад ва
  * билди Vercel мешиканад.
  */
 function bare(w: string): string {
   return w
     .toLowerCase()
-    .replace(/[^a-zà-ɏа-џؠ-يٱ-ۓ가-힣]/g, '');
+    .replace(/[^a-zßà-ɏа-џؠ-يٱ-ۓ가-힣]/g, '');
 }
 
 /**
@@ -280,6 +289,22 @@ const CHAIN_BLOCKED_STARTS = new Set<string>([
   // пешояндҳои арабӣ, ки аз феъл/ибораи пешин ҷудо намешаванд:
   // «أَبْحَثُ عَنْ عَمَل» → «عَنْ عَمَل» ✗, «تُصْبِحُ عَلَى خَيْر» → «عَلَى خَيْر» ✗.
   'عن', 'على', 'إلى', 'الى',
+  // ── РУСӢ (2026-09-20) ────────────────────────────────────────────────
+  // ⚠️ Пешояндҳои русӣ ин ҷо ҚАСДАН НЕСТАНД: дар русӣ пешоянд ҳамеша маҳз
+  // пеш аз ибораи худ меистад, пас «в Душанбе», «на работу» оғози ТАБИИИ
+  // чунканд. Хатари русӣ дар ҷои дигар аст — ҷонишин ва феъли ёридиҳанда:
+  //     «Меня зовут Али.»   → «зовут Али.»  ✗ ибораи «меня зовут» шикаст
+  //     «Как вас зовут?»    → «вас зовут?»  ✗
+  //     «У меня есть работа.» → «есть работа.» ✗ сохти «у меня есть» шикаст
+  'я', 'ты', 'вы', 'он', 'она', 'оно', 'мы', 'они',
+  'меня', 'тебя', 'вас', 'нас', 'мне', 'тебе', 'вам', 'нам', 'ему', 'ей', 'им',
+  'себя', 'вами', 'нами', 'него', 'неё', 'нее', 'них',
+  // феъли ёридиҳанда ва бандак
+  'есть', 'был', 'была', 'было', 'были', 'буду', 'будешь', 'будет', 'будем', 'будут',
+  // пайвандак ва ҳиссача
+  'и', 'а', 'но', 'или', 'если', 'потому', 'же', 'ли', 'бы', 'тоже', 'также', 'ведь',
+  // ҷузъи дуюми ибораи устувор — ҳеҷ гоҳ оғози чунк намешавад
+  'зовут', 'пожаловать',
 ]);
 
 /**
@@ -289,6 +314,9 @@ const CHAIN_BLOCKED_STARTS = new Set<string>([
  */
 const CHAIN_WH_WORDS = new Set<string>([
   'what', 'which', 'how', 'where', 'who', 'whom', 'whose', 'why', 'when',
+  // русӣ: «Как | вас зовут?» ва «Сколько | вам лет?» набояд шикананд
+  'как', 'что', 'где', 'когда', 'почему', 'зачем', 'кто', 'куда', 'откуда',
+  'сколько', 'какой', 'какая', 'какое', 'какие', 'чей', 'чья',
 ]);
 
 /**
@@ -307,6 +335,26 @@ const CHAIN_GLUED_BEFORE = new Set<string>([
   'a', 'an', 'the', 'my', 'your', 'his', 'her', 'its', 'our', 'their',
   'this', 'that', 'these', 'those', 'some', 'any', 'no', 'another', 'other',
   'every', 'each', 'both', 'several', 'few', 'little', 'all',
+  // ── РУСӢ (2026-09-20) ────────────────────────────────────────────────
+  // Пешоянди русӣ аз ибораи ПАСИ худ ҷудо намешавад — вагарна чунк нимкора
+  // мемонад: «Я живу на улице Рудаки.» → «улице Рудаки.» ✗ «на» гум шуд.
+  'в', 'во', 'на', 'с', 'со', 'из', 'от', 'до', 'для', 'по', 'за', 'к', 'ко',
+  'у', 'о', 'об', 'при', 'над', 'под', 'без', 'про', 'через', 'около',
+  // соҳибият ва ишора
+  'мой', 'моя', 'моё', 'мое', 'мои', 'моего', 'моему', 'моей', 'моим',
+  'ваш', 'ваша', 'ваше', 'ваши', 'вашего', 'твой', 'твоя', 'твоё', 'твои',
+  'наш', 'наша', 'наше', 'наши', 'его', 'её', 'ее', 'их',
+  'этот', 'эта', 'это', 'эти', 'этом', 'тот', 'та', 'те', 'весь', 'вся', 'всё',
+  'всего', 'всем',
+  // адад
+  'один', 'одна', 'одно', 'два', 'две', 'три', 'четыре', 'пять', 'шесть',
+  'семь', 'восемь', 'девять', 'десять', 'двадцать', 'тридцать', 'сорок',
+  'пятьдесят', 'сто', 'двое', 'трое',
+  // сифатҳои сермаҳсул: «Доброе | утро» ва «новый | сосед» набояд шикананд
+  'добрый', 'доброе', 'добрая', 'доброго', 'спокойной', 'хороший', 'хорошая',
+  'хорошее', 'хорошего', 'новый', 'новая', 'новое', 'новые', 'большой',
+  'большая', 'маленький', 'молодой', 'красивый', 'первый', 'последний',
+  'русский', 'таджикский', 'рабочий', 'главный', 'следующий', 'прошлый',
 ]);
 
 /**
@@ -335,10 +383,81 @@ const CHAIN_NEGATIONS = new Set<string>([
   'hadnt', 'aint',
   // русӣ
   'не', 'нет', 'ни', 'никогда', 'ничего', 'никто', 'нельзя',
+  // олмонӣ
+  'nicht', 'nein', 'kein', 'keine', 'keinen', 'keiner', 'keinem', 'nie',
+  'niemand', 'nichts', 'niemals',
   // арабӣ (бе ҳаракат — `bare()` онҳоро мепартояд). «مَا» ҚАСДАН нест:
   // он пеш аз ҳама калимаи саволӣ аст («مَا اسْمُكَ؟»).
   'لا', 'ولا', 'ليس', 'ليست', 'لست', 'لسنا', 'لم', 'لن', 'غير',
 ]);
+
+/**
+ * Рӯйхатҳои хоси ЯК забон — танҳо вақте `cfg.lang` ҳамон забон бошад.
+ *
+ * 🔴 Чаро ҷудо (2026-09-20): забонҳои алифбои ЛОТИНӢ бо ҳам бархӯрд
+ * мекунанд. Калимаҳои олмонии `in`, `am`, `an`, `war`, `hat`, `man`, `was`
+ * дар англисӣ маънои тамоман дигар доранд, ва вақте онҳоро ба рӯйхати
+ * УМУМӢ андохтам, чунки англисӣ вайрон шуд:
+ *     «I am tired now.» → «am tired now.» ✗ (`am` ҳамчун пешоянди олмонӣ
+ *     часпид ва қоидаи «чунк бо феъли ёридиҳанда сар нашавад»-ро зер кард)
+ * Русӣ ва арабӣ ин мушкилро НАДОРАНД — алифбошон дигар аст, пас онҳо дар
+ * рӯйхатҳои умумӣ мемонанд.
+ */
+interface LangChainLists {
+  blocked: Set<string>;
+  wh: Set<string>;
+  glued: Set<string>;
+}
+
+const LANG_LISTS: Record<string, LangChainLists> = {
+  de: {
+    // ҷонишин, феъли ёридиҳанда/модалӣ, пайвандак ва ҷузъи ибораи устувор:
+    //   «Ich heiße Ali.»     → «heiße Ali.» ✗
+    //   «Wie geht es Ihnen?» → «es Ihnen?»  ✗
+    blocked: new Set<string>([
+    'ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'man',
+    'mich', 'dich', 'ihn', 'uns', 'euch', 'mir', 'dir', 'ihm',
+    'ihnen', 'bin', 'bist', 'ist', 'sind', 'seid', 'war', 'waren',
+    'sein', 'habe', 'hast', 'hat', 'haben', 'hatte', 'hatten', 'kann',
+    'kannst', 'können', 'konnen', 'muss', 'müssen', 'mussen', 'will', 'willst',
+    'wollen', 'möchte', 'möchten', 'mochte', 'mochten', 'soll', 'sollen', 'werde',
+    'wird', 'werden', 'wurde', 'darf', 'dürfen', 'und', 'aber', 'oder',
+    'dass', 'weil', 'wenn', 'denn', 'als', 'ob', 'nicht', 'kein',
+    'nur', 'auch', 'sehr', 'schon', 'noch', 'doch', 'mal', 'zu',
+    'heiße', 'heisse', 'heißen', 'heissen', 'heißt', 'heisst', 'geht',
+    ]),
+    // «Wie | heißen Sie?» ва «Woher | kommen Sie?» набояд шикананд
+    wh: new Set<string>([
+    'wie', 'was', 'wo', 'wann', 'warum', 'wer', 'wen', 'wem',
+    'wessen', 'woher', 'wohin', 'welcher', 'welche', 'welches', 'wieviel',
+    ]),
+    // Пешоянд ва артикл аз исми ПАСИ худ ҷудо намешаванд:
+    //   «Ich wohne in der Bahnhofstraße.» → «der Bahnhofstraße.» ✗
+    glued: new Set<string>([
+    'in', 'im', 'an', 'am', 'auf', 'aus', 'mit', 'von',
+    'vom', 'zu', 'zum', 'zur', 'bei', 'beim', 'für', 'fur',
+    'über', 'uber', 'unter', 'nach', 'vor', 'seit', 'ohne', 'um',
+    'durch', 'gegen', 'neben', 'wegen', 'der', 'die', 'das', 'den',
+    'dem', 'des', 'ein', 'eine', 'einen', 'einem', 'einer', 'eines',
+    'mein', 'meine', 'meinen', 'meinem', 'meiner', 'dein', 'deine', 'sein',
+    'seine', 'unser', 'unsere', 'euer', 'eure', 'dieser', 'diese', 'dieses',
+    'diesen', 'diesem', 'jeder', 'jede', 'jedes', 'alle', 'alles', 'viele',
+    'keine', 'keinen', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'funf',
+    'sechs', 'sieben', 'acht', 'neun', 'zehn', 'zwanzig', 'dreißig', 'dreissig',
+    'vierzig', 'fünfzig', 'hundert', 'guten', 'gute', 'gutes', 'guter', 'schönen',
+    'schonen', 'schöne', 'schone', 'neue', 'neuen', 'neuer', 'großen', 'grossen',
+    'große', 'grosse', 'kleine', 'erste', 'ersten', 'letzte', 'letzten', 'deutsche',
+    'deutschen',
+    ]),
+  },
+};
+
+const isBlockedStart = (w: string, cfg: EngineConfig) =>
+  CHAIN_BLOCKED_STARTS.has(w) || (cfg.lang ? !!LANG_LISTS[cfg.lang]?.blocked.has(w) : false);
+const isWhWord = (w: string, cfg: EngineConfig) =>
+  CHAIN_WH_WORDS.has(w) || (cfg.lang ? !!LANG_LISTS[cfg.lang]?.wh.has(w) : false);
+const isGluedBefore = (w: string, cfg: EngineConfig) =>
+  CHAIN_GLUED_BEFORE.has(w) || (cfg.lang ? !!LANG_LISTS[cfg.lang]?.glued.has(w) : false);
 
 export function buildChain(text: string, cfg: EngineConfig): string[] {
   const w = splitWords(text.trim());
@@ -356,13 +475,13 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
   for (let len = 2; len < n; len++) {
     let start = n - len;
 
-    if (CHAIN_BLOCKED_STARTS.has(bare(w[start]))) continue; // қоидаи 1
-    if (start > 0 && CHAIN_WH_WORDS.has(bare(w[start - 1]))) continue; // қоидаи 2
+    if (isBlockedStart(bare(w[start]), cfg)) continue; // қоидаи 1
+    if (start > 0 && isWhWord(bare(w[start - 1]), cfg)) continue; // қоидаи 2
 
     // қоидаи 3 — муайянкунанда/адади пешомадаро ба чунк мечаспонем
     const plain = w.slice(start).join(' ');
     let glued = start;
-    while (glued > 0 && CHAIN_GLUED_BEFORE.has(bare(w[glued - 1]))) glued--;
+    while (glued > 0 && isGluedBefore(bare(w[glued - 1]), cfg)) glued--;
 
     // Агар часпондан тамоми ҷумларо диҳад, шакли бечаспро мегирем:
     // «The bill, please.» набояд ба худи ҷумла табдил ёбад.

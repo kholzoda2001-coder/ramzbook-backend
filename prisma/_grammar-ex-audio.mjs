@@ -14,6 +14,7 @@
 //   ar     edge  ar-SA-ZariyahNeural + буриши хомӯшӣ (`_ar-trim.py`), мисли курс
 //   ko     google ko-KR-Chirp3-HD-Despina (`speakReliable`) + буриш, мисли курс
 //   de     edge  de-DE-KatjaNeural
+//   tr     edge  tr-TR-EmelNeural
 //
 //   node prisma/_grammar-ex-audio.mjs                    # нақша — ҳеҷ чиз сохта намешавад
 //   node prisma/_grammar-ex-audio.mjs --gen [--lang ko]  # тавлид + санҷиш → tmp/gx-audio/final/<lang>/<id>.mp3
@@ -55,6 +56,7 @@ const VOICES = {
   ar: { engine: 'edge', voice: 'ar-SA-ZariyahNeural', trim: true },
   ko: { engine: 'ko', voice: 'ko-KR-Chirp3-HD-Despina', trim: true },
   de: { engine: 'edge', voice: 'de-DE-KatjaNeural' },
+  tr: { engine: 'edge', voice: 'tr-TR-EmelNeural' },
 };
 const voiceOf = (lang, level) => VOICES[`${lang}:${level}`] ?? VOICES[lang];
 const vkeyOf = (v) => `${v.engine}:${v.voice}${v.rev ? `#${v.rev}` : ''}`;
@@ -256,8 +258,12 @@ if (GEN) {
 
 // ── Push ба ramz-audio ───────────────────────────────────────────────────────
 const URLS = `${WORK}/urls.json`;
+// `--lang` акнун ба --push/--apply ҳам дахл дорад. Пештар танҳо --gen онро
+// мефаҳмид, пас кори ЯК забон ба тайёр будани ҲАМАИ забонҳо вобаста буд: ko
+// ҳанӯз 98 клип надорад ва олмониро ҳам намегузошт (20.09.2026).
+const scope = ONLY ? items.filter((it) => it.lang === ONLY) : items;
 if (PUSH) {
-  const notDone = items.filter((it) => !isDone(it));
+  const notDone = scope.filter((it) => !isDone(it));
   if (notDone.length) { console.error(`⛔ ${notDone.length} клип ҳанӯз тайёр нест — аввал --gen`); process.exit(1); }
   const git = (a) => execFileSync('git', a, { cwd: REPO, encoding: 'utf8' }).trim();
   if (!existsSync(`${REPO}/.git/HEAD`)) throw new Error(`клони ${REPO} нест`);
@@ -266,11 +272,11 @@ if (PUSH) {
   // Папкаи НАВ — sparse-checkout ҳазорҳо файли кӯҳнаи en/ko-ро зеркашӣ намекунад.
   if (!git(['sparse-checkout', 'list']).split('\n').includes('audio/gx')) git(['sparse-checkout', 'add', 'audio/gx']);
   const rel = (it) => `audio/gx/${it.lang}/${it.id}.mp3`;
-  for (const it of items) {
+  for (const it of scope) {
     mkdirSync(`${REPO}/audio/gx/${it.lang}`, { recursive: true });
     copyFileSync(finalPath(it), `${REPO}/${rel(it)}`);
   }
-  for (let i = 0; i < items.length; i += 200) git(['add', ...items.slice(i, i + 200).map(rel)]);
+  for (let i = 0; i < scope.length; i += 200) git(['add', ...scope.slice(i, i + 200).map(rel)]);
   if (git(['status', '--porcelain']).trim()) {
     git(['-c', 'user.name=RAMZ Content', '-c', 'user.email=help@ramz.tj', 'commit', '-q', '-m',
       'Grammar exercises: correct-sentence audio for every course (en, ru, ar, ko, de)']);
@@ -288,17 +294,18 @@ if (PUSH) {
     if (typeof p === 'string') return p;
     return p && p.md5 === manifest[it.id].md5 ? p.url : null;
   };
-  let pending = items.filter((it) => !known(it));
-  console.log(`санҷиши CDN: ${pending.length} файли нав (${items.length - pending.length} аллакай тасдиқ)`);
+  let pending = scope.filter((it) => !known(it));
+  console.log(`санҷиши CDN: ${pending.length} файли нав (${scope.length - pending.length} аллакай тасдиқ)`);
   for (let a = 1; a <= 8 && pending.length; a++) {
     const m = measure(pending.map(url));
     pending = pending.filter((it) => m[url(it)]?.md5 !== manifest[it.id].md5);
     if (pending.length) { console.log(`CDN кӯшиши ${a}: ${pending.length} ҳанӯз нест…`); await sleep(15000); }
   }
   if (pending.length) { console.error(`⛔ CDN: ${pending.length} файл md5 надод — база даст нахӯрд`); process.exit(1); }
-  writeFileSync(URLS, JSON.stringify(Object.fromEntries(items.map((it) =>
-    [it.id, { url: known(it) ?? url(it), md5: manifest[it.id].md5 }])), null, 1));
-  console.log(`✓ CDN: ҳамаи ${items.length} файл md5-и айнан баробар · ${URLS}`);
+  // Бо `prev` муттаҳид мешавад: ҳангоми `--lang` забонҳои дигар аз файл наафтанд.
+  writeFileSync(URLS, JSON.stringify({ ...prev, ...Object.fromEntries(scope.map((it) =>
+    [it.id, { url: known(it) ?? url(it), md5: manifest[it.id].md5 }])) }, null, 1));
+  console.log(`✓ CDN: ҳамаи ${scope.length} файл md5-и айнан баробар · ${URLS}`);
 }
 
 // ── Навиштан ба база ─────────────────────────────────────────────────────────
@@ -310,7 +317,7 @@ if (APPLY) {
   const fresh = await sql`SELECT id, type, prompt, answer, "audioUrl" FROM "GrammarExercise"`;
   const byId = Object.fromEntries(fresh.map((r) => [r.id, r]));
   const writes = [], topics = new Set();
-  for (const it of items) {
+  for (const it of scope) {
     const r = byId[it.id];
     const u = typeof urls[it.id] === 'string' ? urls[it.id] : urls[it.id]?.url;
     if (!r || !u || r.audioUrl === u) continue;

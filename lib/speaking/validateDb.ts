@@ -42,7 +42,7 @@ export async function validateLessonById(
       category: {
         select: {
           id: true,
-          targetLanguage: { select: { scriptPattern: true } },
+          targetLanguage: { select: { scriptPattern: true, code: true } },
           lessons: {
             select: { id: true, items: { select: { text: true } } },
           },
@@ -81,7 +81,9 @@ export async function validateLessonById(
         cueTranslation: extra.cueTranslation ?? null }), chainOverride: [], swaps: [] }]
     : stored;
 
-  return validateLesson({ id: lesson.id, items }, { targetScript, categoryTexts }, DEFAULT_CONFIG);
+  // Рӯйхатҳои чанк барои баъзе забонҳо хосанд (ниг. `LANG_LISTS` дар engine).
+  const cfg = { ...DEFAULT_CONFIG, lang: lesson.category.targetLanguage.code };
+  return validateLesson({ id: lesson.id, items }, { targetScript, categoryTexts }, cfg);
 }
 
 /** `{ ok: false, issues }` агар хатои манъкунанда бошад. */

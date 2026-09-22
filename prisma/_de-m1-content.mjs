@@ -21,24 +21,24 @@ export const VOCAB = [
   {
     title: 'Begrüßung', titleTranslated: 'Салом ва хайрбод', emoji: '👋',
     words: [
-      { word: 'Hallo', existing: true },
-      { word: 'Willkommen', existing: true },
-      { word: 'Auf Wiedersehen', existing: true },
-      { word: 'Tschüss', existing: true },
-      { word: 'Ja', existing: true },
-      { word: 'Nein', existing: true },
+      { word: 'Hallo', existing: true, existing: true },
+      { word: 'Willkommen', existing: true, existing: true },
+      { word: 'Auf Wiedersehen', existing: true, existing: true },
+      { word: 'Tschüss', existing: true, existing: true },
+      { word: 'Ja', existing: true, existing: true },
+      { word: 'Nein', existing: true, existing: true },
     ],
   },
   {
     title: 'Höfliche Wörter', titleTranslated: 'Муомилаи хуб', emoji: '🙏',
     words: [
-      { word: 'Bitte', existing: true },
-      { word: 'Danke', existing: true },
-      { word: 'Entschuldigung', existing: true },
-      { word: 'Gern geschehen', translation: 'Хоҳиш мекунам', emoji: '😊',
+      { word: 'Bitte', existing: true, existing: true },
+      { word: 'Danke', existing: true, existing: true },
+      { word: 'Entschuldigung', existing: true, existing: true },
+      { word: 'Gern geschehen', existing: true, translation: 'Хоҳиш мекунам', emoji: '😊',
         ipa: '/ɡɛʁn ɡəˈʃeːən/',
         example: 'Danke! — Gern geschehen.', exampleTrans: 'Ташаккур! — Хоҳиш мекунам.' },
-      { word: 'Alles klar', translation: 'Хуб / Майлаш', emoji: '👌',
+      { word: 'Alles klar', existing: true, translation: 'Хуб / Майлаш', emoji: '👌',
         ipa: '/ˈaləs klaːɐ̯/',
         example: 'Alles klar, bis morgen!', exampleTrans: 'Хуб, то фардо!' },
     ],
@@ -46,64 +46,64 @@ export const VOCAB = [
   {
     title: 'Sich vorstellen', titleTranslated: 'Муаррифӣ', emoji: '🤝',
     words: [
-      { word: 'ich bin', translation: 'ман … ҳастам', emoji: '👤', ipa: '/ɪç bɪn/',
+      { word: 'ich bin', existing: true, translation: 'ман … ҳастам', emoji: '👤', ipa: '/ɪç bɪn/',
         example: 'Ich bin Ali.', exampleTrans: 'Ман Алӣ ҳастам.' },
-      { word: 'mein', translation: 'ман (аз они ман)', emoji: '🫱', ipa: '/maɪ̯n/',
+      { word: 'mein', existing: true, translation: 'ман (аз они ман)', emoji: '🫱', ipa: '/maɪ̯n/',
         example: 'Das ist mein Buch.', exampleTrans: 'Ин китоби ман аст.' },
-      { word: 'der Name', translation: 'ном', emoji: '📛', ipa: '/deːɐ̯ ˈnaːmə/',
+      { word: 'der Name', existing: true, translation: 'ном', emoji: '📛', ipa: '/deːɐ̯ ˈnaːmə/',
         example: 'Mein Name ist Karim.', exampleTrans: 'Номи ман Карим аст.' },
-      { word: 'ist', translation: 'аст', emoji: '🟰', ipa: '/ɪst/',
+      { word: 'ist', existing: true, translation: 'аст', emoji: '🟰', ipa: '/ɪst/',
         example: 'Das ist ein Buch.', exampleTrans: 'Ин китоб аст.' },
-      { word: 'Freut mich', translation: 'Аз шиносоӣ шодам', emoji: '😊', ipa: '/fʁɔʏ̯t mɪç/',
+      { word: 'Freut mich', existing: true, translation: 'Аз шиносоӣ шодам', emoji: '😊', ipa: '/fʁɔʏ̯t mɪç/',
         example: 'Freut mich, Herr Müller!', exampleTrans: 'Аз шиносоӣ шодам, ҷаноби Мюллер!' },
     ],
   },
   {
     title: 'Nach dem Namen fragen', titleTranslated: 'Пурсидани ном', emoji: '❓',
     words: [
-      { word: 'Wie heißt du', translation: 'Номи ту чист?', emoji: '❓', ipa: '/viː haɪ̯st duː/',
+      { word: 'Wie heißt du', existing: true, translation: 'Номи ту чист?', emoji: '❓', ipa: '/viː haɪ̯st duː/',
         example: 'Hallo! Wie heißt du?', exampleTrans: 'Салом! Номи ту чист?' },
-      { word: 'Wie heißen Sie', translation: 'Номи Шумо чист? (расмӣ)', emoji: '🎩', ipa: '/viː ˈhaɪ̯sən ziː/',
+      { word: 'Wie heißen Sie', existing: true, translation: 'Номи Шумо чист? (расмӣ)', emoji: '🎩', ipa: '/viː ˈhaɪ̯sən ziː/',
         example: 'Guten Tag! Wie heißen Sie?', exampleTrans: 'Рӯзи нек! Номи Шумо чист?' },
-      { word: 'Ich heiße', translation: 'номи ман … аст', emoji: '📛', ipa: '/ɪç ˈhaɪ̯sə/',
+      { word: 'Ich heiße', existing: true, translation: 'номи ман … аст', emoji: '📛', ipa: '/ɪç ˈhaɪ̯sə/',
         example: 'Ich heiße Sara.', exampleTrans: 'Номи ман Сара аст.' },
-      { word: 'dein', translation: 'ту (аз они ту)', emoji: '👉', ipa: '/daɪ̯n/',
+      { word: 'dein', existing: true, translation: 'ту (аз они ту)', emoji: '👉', ipa: '/daɪ̯n/',
         example: 'Wie ist dein Name?', exampleTrans: 'Номи ту чист?' },
-      { word: 'Wer ist das', translation: 'Ин кист?', emoji: '❔', ipa: '/veːɐ̯ ɪst das/',
+      { word: 'Wer ist das', existing: true, translation: 'Ин кист?', emoji: '❔', ipa: '/veːɐ̯ ɪst das/',
         example: 'Wer ist das? Das ist mein Freund.', exampleTrans: 'Ин кист? Ин дӯсти ман аст.' },
     ],
   },
   {
     title: 'Menschen', titleTranslated: 'Одамон', emoji: '👨‍👩‍👦',
     words: [
-      { word: 'der Mann', translation: 'мард', emoji: '👨', ipa: '/deːɐ̯ man/',
+      { word: 'der Mann', existing: true, translation: 'мард', emoji: '👨', ipa: '/deːɐ̯ man/',
         example: 'Der Mann ist Lehrer.', exampleTrans: 'Он мард муаллим аст.' },
-      { word: 'die Frau', translation: 'зан', emoji: '👩', ipa: '/diː fʁaʊ̯/',
+      { word: 'die Frau', existing: true, translation: 'зан', emoji: '👩', ipa: '/diː fʁaʊ̯/',
         example: 'Die Frau ist Ärztin.', exampleTrans: 'Он зан духтур аст.' },
-      { word: 'der Freund', translation: 'дӯст', emoji: '🤝', ipa: '/deːɐ̯ fʁɔʏ̯nt/',
+      { word: 'der Freund', existing: true, translation: 'дӯст', emoji: '🤝', ipa: '/deːɐ̯ fʁɔʏ̯nt/',
         example: 'Er ist mein Freund.', exampleTrans: 'Ӯ дӯсти ман аст.' },
-      { word: 'der Junge', translation: 'писарбача', emoji: '👦', ipa: '/deːɐ̯ ˈjʊŋə/',
+      { word: 'der Junge', existing: true, translation: 'писарбача', emoji: '👦', ipa: '/deːɐ̯ ˈjʊŋə/',
         example: 'Der Junge ist klein.', exampleTrans: 'Писарбача хурд аст.' },
-      { word: 'das Mädchen', translation: 'духтарбача', emoji: '👧', ipa: '/das ˈmɛːtçən/',
+      { word: 'das Mädchen', existing: true, translation: 'духтарбача', emoji: '👧', ipa: '/das ˈmɛːtçən/',
         example: 'Das Mädchen heißt Lena.', exampleTrans: 'Номи духтарбача Лена аст.' },
     ],
   },
   {
     title: 'Tageszeiten', titleTranslated: 'Вақтҳои рӯз', emoji: '🕐',
     words: [
-      { word: 'Guten Morgen', existing: true },
-      { word: 'Guten Tag', existing: true },
-      { word: 'Guten Abend', existing: true },
-      { word: 'Gute Nacht', existing: true },
+      { word: 'Guten Morgen', existing: true, existing: true },
+      { word: 'Guten Tag', existing: true, existing: true },
+      { word: 'Guten Abend', existing: true, existing: true },
+      { word: 'Gute Nacht', existing: true, existing: true },
     ],
   },
   {
     title: 'Wie geht es dir?', titleTranslated: 'Чӣ ҳол доред?', emoji: '🙂',
     words: [
-      { word: 'Wie geht es dir', existing: true },
-      { word: 'Wie geht es Ihnen', existing: true },
-      { word: 'Gut, danke', existing: true },
-      { word: 'Sehr gut', translation: 'Хеле хуб', emoji: '⭐', ipa: '/zeːɐ̯ ɡuːt/',
+      { word: 'Wie geht es dir', existing: true, existing: true },
+      { word: 'Wie geht es Ihnen', existing: true, existing: true },
+      { word: 'Gut, danke', existing: true, existing: true },
+      { word: 'Sehr gut', existing: true, translation: 'Хеле хуб', emoji: '⭐', ipa: '/zeːɐ̯ ɡuːt/',
         example: 'Mir geht es sehr gut.', exampleTrans: 'Ҳоли ман хеле хуб аст.' },
     ],
   },
@@ -202,6 +202,56 @@ export const GRAMMAR = [
       { prompt: 'Das Kind ist klein. ___ heißt Lena.', promptTranslated: 'Кӯдак хурд аст. Номи ӯ Лена аст.', answer: 'Es', options: ['Es', 'Er', 'Sie', 'Wir'], explanation: '«das Kind» исми das аст → es.' },
       { prompt: '___ seid meine Freunde.', promptTranslated: 'Шумо дӯстони ман ҳастед.', answer: 'Ihr', options: ['Ihr', 'Wir', 'Sie', 'Du'], explanation: 'Бо seid танҳо ihr меояд.' },
       { prompt: 'Zum Lehrer sagt man: Wie heißen ___?', promptTranslated: 'Ба муаллим чӣ мегӯем: Номи Шумо чист?', answer: 'Sie', options: ['Sie', 'du', 'ihr', 'es'], explanation: 'Ба шахси калонсол ва нотанишо — Sie бо ҳарфи калон.' },
+    ],
+  },
+  {
+    lessonTitle: 'Grammatik: Woher kommst du?', lessonTitleTranslated: 'Грамматика: Ту аз куҷоӣ?',
+    title: 'Woher kommst du? — Länder und Sprachen', titleTranslated: 'Ту аз куҷоӣ? — кишвар ва забон',
+    emoji: '🌍',
+    explanation:
+`Дар ҳар шиносоӣ саволи дуюм ҳамин аст: **Woher kommst du?** (Ту аз куҷоӣ?)
+
+**Ҷавоб — kommen aus + номи кишвар:**
+- Ich **komme aus** Tadschikistan. (Ман аз Тоҷикистон ҳастам.)
+- Er **kommt aus** Deutschland.
+- Sie **kommt aus** Russland.
+
+**Дар бораи забон — sprechen:**
+- Ich **spreche** Tadschikisch. (Ман тоҷикӣ гап мезанам.)
+- Sprichst du Deutsch? — Ja, ein bisschen.
+
+**Се калимаи ба ҳам монанд, ки тоҷик омехта мекунад:**
+
+| маъно | калима | мисол |
+|---|---|---|
+| кишвар | **Deutschland** | Ich komme aus Deutschland. |
+| забон | **Deutsch** | Ich spreche Deutsch. |
+| одам | **Deutscher / Deutsche** | Er ist Deutscher. |
+
+**Доми муҳим:** номи аксари кишварҳо БЕ артикл меистад — *aus Deutschland*, на ~~aus dem Deutschland~~. Танҳо чанд кишвар артикл дорад: **die** Schweiz, **die** Türkei.
+
+Тасрифи kommen: ich komme · du kommst · er/sie/es kommt · wir kommen · ihr kommt · sie/Sie kommen`,
+    rules: [
+      { pattern: 'Woher kommst du?', note: 'Саволи «аз куҷо». Woher = аз куҷо, Wo = дар куҷо.' },
+      { pattern: 'kommen aus + кишвар', note: 'Ich komme aus Tadschikistan — бе артикл.' },
+      { pattern: 'sprechen + забон', note: 'Ich spreche Tadschikisch und Russisch.' },
+      { pattern: 'кишвар ≠ забон', note: 'Deutschland = кишвар · Deutsch = забон.' },
+    ],
+    examples: [
+      { sentence: 'Woher kommst du?', translation: 'Ту аз куҷоӣ?', highlight: 'Woher' },
+      { sentence: 'Ich komme aus Tadschikistan.', translation: 'Ман аз Тоҷикистон ҳастам.', highlight: 'aus' },
+      { sentence: 'Er kommt aus Deutschland.', translation: 'Ӯ аз Германия аст.', highlight: 'kommt aus' },
+      { sentence: 'Ich spreche Tadschikisch.', translation: 'Ман тоҷикӣ гап мезанам.', highlight: 'spreche' },
+      { sentence: 'Sprichst du Deutsch?', translation: 'Ту олмонӣ гап мезанӣ?', highlight: 'Sprichst' },
+      { sentence: 'Wir kommen aus Duschanbe.', translation: 'Мо аз Душанбе ҳастем.', highlight: 'kommen aus' },
+    ],
+    exercises: [
+      { prompt: '___ kommst du?', promptTranslated: 'Ту аз куҷоӣ?', answer: 'Woher', options: ['Woher', 'Wo', 'Wer', 'Was'], explanation: 'Woher = аз куҷо.' },
+      { prompt: 'Ich komme ___ Tadschikistan.', promptTranslated: 'Ман аз Тоҷикистон ҳастам.', answer: 'aus', options: ['aus', 'in', 'nach', 'von'], explanation: 'kommen aus + кишвар.' },
+      { prompt: 'Er ___ aus Deutschland.', promptTranslated: 'Ӯ аз Германия аст.', answer: 'kommt', options: ['kommt', 'komme', 'kommst', 'kommen'], explanation: 'Барои «er» — kommt.' },
+      { prompt: 'Ich ___ Tadschikisch.', promptTranslated: 'Ман тоҷикӣ гап мезанам.', answer: 'spreche', options: ['spreche', 'sprichst', 'spricht', 'sprechen'], explanation: 'Барои «ich» — spreche.' },
+      { prompt: 'Дар кадом ҷумла ЗАБОН омадааст?', promptTranslated: 'Кадомаш дар бораи забон аст?', answer: 'Ich spreche Deutsch.', options: ['Ich spreche Deutsch.', 'Ich komme aus Deutschland.', 'Deutschland ist groß.', 'Er ist in Deutschland.'], explanation: 'Deutsch = забон, Deutschland = кишвар.' },
+      { prompt: 'Wir ___ aus Duschanbe.', promptTranslated: 'Мо аз Душанбе ҳастем.', answer: 'kommen', options: ['kommen', 'kommt', 'komme', 'kommst'], explanation: 'Барои «wir» — kommen.' },
     ],
   },
 ];
@@ -306,6 +356,7 @@ export const ORDER = [
   'vocab:Wie geht es dir?',
   'grammar:0',
   'grammar:1',
+  'grammar:2',
   'comprehension:reading',
   'comprehension:listening',
   'dialogue',

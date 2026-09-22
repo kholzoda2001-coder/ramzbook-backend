@@ -26,10 +26,6 @@ export const PERSONAL_CODE_EXPIRES_AT = new Date('2100-01-01T00:00:00.000Z');
 /** Аз ин санаи дуртар — рамзи шахсӣ (на даъвати кӯҳнаи 24-соата). */
 export const PERSONAL_CODE_MIN_EXPIRY = new Date('2099-01-01T00:00:00.000Z');
 
-/** Ба ҲАР ДУ тараф, як бор барои ҳар ҷуфт. */
-export const FRIEND_INVITE_GEMS = 100;
-export const FRIEND_INVITE_GEM_REASON = 'friend_invite';
-
 /** Паёмҳои корбарӣ — роҳи `join` ҳамаро ҳамчун 400 бармегардонад. */
 export const FRIEND_MESSAGES = {
   empty: 'Лутфан рамзи дӯстро ворид кунед.',

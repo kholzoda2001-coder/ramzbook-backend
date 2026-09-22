@@ -71,20 +71,40 @@ const ADJ = new Set([
   'alt', 'neu', 'gut', 'schlecht', 'groß', 'klein', 'kurz', 'lang', 'warm',
   'billig', 'teuer', 'schön', 'rot', 'blau', 'grün', 'gelb', 'schwarz', 'weiß',
   'braun', 'rosa', 'lila', 'orange', 'grau', 'verheiratet', 'ledig', 'jung',
+  // ── илова (аудити 20.09.2026): инҳо ба «other» ё ҳатто «verb» мерафтанд ──
+  'dick', 'dünn', 'kalt', 'heiß', 'sauber', 'schmutzig', 'hell', 'dunkel',
+  'lecker', 'gemütlich', 'ruhig', 'laut', 'eng', 'bequem', 'schick', 'modern',
+  'krank', 'gesund', 'müde', 'glücklich', 'traurig', 'wütend', 'überrascht',
+  'lustig', 'langweilig', 'frei', 'besetzt', 'richtig', 'falsch',
 ]);
 
-// Шумора.
+// Зарфҳо, ки қоидаи «-en/-n → феъл» онҳоро вайрон мекард.
+const ADV = new Set([
+  'später', 'spät', 'früh', 'immer', 'oft', 'manchmal', 'nie', 'selten',
+  'halb', 'schon', 'noch', 'sehr', 'auch', 'hier', 'dort', 'da',
+]);
+
+// Пешояндҳо — «neben» бо қоидаи «-en» феъл ҳисоб мешуд.
+const PREP = new Set([
+  'neben', 'unter', 'über', 'vor', 'hinter', 'zwischen', 'an', 'auf', 'in',
+  'bei', 'mit', 'nach', 'aus', 'zu', 'von', 'ohne', 'für', 'um', 'seit',
+]);
+
+// Шумора — бо қоида, на бо рӯйхат: «dreizehn», «einundzwanzig» ва ғ.
 const NUM = new Set([
   'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun',
   'zehn', 'elf', 'zwölf', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig', 'sechzig',
-  'siebzig', 'achtzig', 'hundert',
+  'siebzig', 'achtzig', 'neunzig', 'hundert', 'tausend', 'null',
 ]);
+const NUM_RE = /^((drei|vier|fünf|sech|sieb|acht|neun)zehn|\w+und(zwan|drei|vier|fünf|sech|sieb|acht|neun)zig)$/;
 
 function classify(word) {
   const w = word.trim();
   if (OVERRIDE[w]) return OVERRIDE[w];
   if (ADJ.has(w.toLowerCase())) return 'adjective';
-  if (NUM.has(w.toLowerCase())) return 'numeral';
+  if (ADV.has(w.toLowerCase())) return 'adverb';
+  if (PREP.has(w.toLowerCase())) return 'preposition';
+  if (NUM.has(w.toLowerCase()) || NUM_RE.test(w.toLowerCase())) return 'numeral';
   // Қоидаи мутлақи олмонӣ: артикл → исм.
   if (/^(der|die|das)\s+/i.test(w)) return 'noun';
   // Калимаи якка бо ҳарфи калон → исм (дар олмонӣ ҳамаи исмҳо чунинанд).

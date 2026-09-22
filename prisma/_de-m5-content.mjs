@@ -19,84 +19,86 @@ export const VOCAB = [
   {
     title: 'Wochentage 1', titleTranslated: 'Рӯзҳои ҳафта 1', emoji: '📅',
     words: [
-      { word: 'Montag', existing: true },
-      { word: 'Dienstag', existing: true },
-      { word: 'Mittwoch', existing: true },
-      { word: 'Donnerstag', existing: true },
+      { word: 'Montag', existing: true, existing: true },
+      { word: 'Dienstag', existing: true, existing: true },
+      { word: 'Mittwoch', existing: true, existing: true },
+      { word: 'Donnerstag', existing: true, existing: true },
     ],
   },
   {
     title: 'Wochentage 2', titleTranslated: 'Рӯзҳои ҳафта 2', emoji: '🗓️',
     words: [
-      { word: 'Freitag', existing: true },
-      { word: 'Samstag', existing: true },
-      { word: 'Sonntag', existing: true },
-      { word: 'die Woche', translation: 'ҳафта', emoji: '📆', ipa: '/diː ˈvɔxə/',
+      { word: 'Freitag', existing: true, existing: true },
+      { word: 'Samstag', existing: true, existing: true },
+      { word: 'Sonntag', existing: true, existing: true },
+      { word: 'die Woche', existing: true, translation: 'ҳафта', emoji: '📆', ipa: '/diː ˈvɔxə/',
         example: 'Eine Woche hat sieben Tage.', exampleTrans: 'Як ҳафта ҳафт рӯз дорад.' },
-      { word: 'das Wochenende', translation: 'охири ҳафта', emoji: '🎉', ipa: '/das ˈvɔxənʔɛndə/',
+      { word: 'das Wochenende', existing: true, translation: 'охири ҳафта', emoji: '🎉', ipa: '/das ˈvɔxənʔɛndə/',
         example: 'Am Wochenende schlafe ich lange.', exampleTrans: 'Охири ҳафта ман дер мехобам.' },
     ],
   },
   {
-    title: 'Tageszeiten', titleTranslated: 'Қисмҳои рӯз', emoji: '🌅',
+    title: 'Der Tag und das Datum', titleTranslated: 'Рӯз ва сана', emoji: '🌅',
     words: [
-      { word: 'der Morgen', existing: true },
-      { word: 'der Mittag', existing: true },
-      { word: 'der Nachmittag', translation: 'баъдизуҳр', emoji: '🌤️', ipa: '/deːɐ̯ ˈnaːxmɪtaːk/',
-        example: 'Am Nachmittag lerne ich Deutsch.', exampleTrans: 'Баъдизуҳр ман олмонӣ меомӯзам.' },
-      { word: 'der Abend', existing: true },
-      { word: 'die Nacht', existing: true },
-      { word: 'der Tag', translation: 'рӯз', emoji: '☀️', ipa: '/deːɐ̯ taːk/',
+      { word: 'der Tag', existing: true, translation: 'рӯз', emoji: '☀️', ipa: '/deːɐ̯ taːk/',
         example: 'Der Tag ist lang.', exampleTrans: 'Рӯз дароз аст.' },
-    ],
+          { word: 'das Datum', existing: true, translation: 'сана', emoji: '📆', ipa: '/das ˈdaːtʊm/',
+        example: 'Welches Datum ist heute?', exampleTrans: 'Имрӯз кадом сана аст?' },
+      { word: 'der Kalender', existing: true, translation: 'тақвим', emoji: '🗓️', ipa: '/deːɐ̯ kaˈlɛndɐ/',
+        example: 'Der Kalender hängt an der Wand.', exampleTrans: 'Тақвим дар девор овезон аст.' },
+      { word: 'der Feiertag', existing: true, translation: 'рӯзи ид', emoji: '🎊', ipa: '/deːɐ̯ ˈfaɪ̯ɐˌtaːk/',
+        example: 'Morgen ist ein Feiertag.', exampleTrans: 'Пагоҳ рӯзи ид аст.' },
+      { word: 'der Werktag', existing: true, translation: 'рӯзи корӣ', emoji: '🗂️', ipa: '/deːɐ̯ ˈvɛʁkˌtaːk/',
+        example: 'Montag ist ein Werktag.', exampleTrans: 'Душанбе рӯзи корӣ аст.' },
+],
   },
   {
     title: 'Heute und morgen', titleTranslated: 'Имрӯз ва фардо', emoji: '⏳',
     words: [
-      { word: 'heute', existing: true },
-      { word: 'morgen', existing: true },
-      { word: 'gestern', existing: true },
-      { word: 'jetzt', existing: true },
-      { word: 'später', translation: 'баъдтар', emoji: '⏰', ipa: '/ˈʃpɛːtɐ/',
+      { word: 'heute', existing: true, existing: true },
+      { word: 'morgen', existing: true, existing: true },
+      { word: 'gestern', existing: true, existing: true },
+      { word: 'jetzt', existing: true, existing: true },
+      { word: 'später', existing: true, translation: 'баъдтар', emoji: '⏰', ipa: '/ˈʃpɛːtɐ/',
         example: 'Wir sprechen später.', exampleTrans: 'Мо баъдтар гап мезанем.' },
     ],
   },
   {
     title: 'Monate 1', titleTranslated: 'Моҳҳо 1', emoji: '❄️',
     words: [
-      { word: 'Januar', existing: true },
-      { word: 'Februar', existing: true },
-      { word: 'März', existing: true },
-      { word: 'April', existing: true },
-      { word: 'Mai', existing: true },
-      { word: 'Juni', existing: true },
+      { word: 'Januar', existing: true, existing: true },
+      { word: 'Februar', existing: true, existing: true },
+      { word: 'März', existing: true, existing: true },
+      { word: 'April', existing: true, existing: true },
+      { word: 'Mai', existing: true, existing: true },
+      { word: 'Juni', existing: true, existing: true },
     ],
   },
   {
     title: 'Monate 2', titleTranslated: 'Моҳҳо 2', emoji: '🍂',
     words: [
-      { word: 'Juli', existing: true },
-      { word: 'August', existing: true },
-      { word: 'September', existing: true },
-      { word: 'Oktober', existing: true },
-      { word: 'November', existing: true },
-      { word: 'Dezember', existing: true },
+      { word: 'Juli', existing: true, existing: true },
+      { word: 'August', existing: true, existing: true },
+      { word: 'September', existing: true, existing: true },
+      { word: 'Oktober', existing: true, existing: true },
+      { word: 'November', existing: true, existing: true },
+      { word: 'Dezember', existing: true, existing: true },
     ],
   },
   {
-    title: 'Mahlzeiten und Uhrzeit', titleTranslated: 'Хӯрок ва соат', emoji: '🍽️',
+    title: 'Zeitwörter', titleTranslated: 'Калимаҳои вақт', emoji: '🍽️',
     words: [
-      { word: 'das Frühstück', translation: 'наҳорӣ', emoji: '🥐', ipa: '/das ˈfʁyːʃtʏk/',
-        example: 'Das Frühstück ist um acht.', exampleTrans: 'Наҳорӣ соати ҳашт аст.' },
-      { word: 'das Mittagessen', translation: 'хӯроки нисфирӯзӣ', emoji: '🍲', ipa: '/das ˈmɪtaːkʔɛsən/',
-        example: 'Das Mittagessen ist sehr gut.', exampleTrans: 'Хӯроки нисфирӯзӣ хеле хуб аст.' },
-      { word: 'das Abendessen', translation: 'хӯроки шом', emoji: '🍽️', ipa: '/das ˈaːbəntʔɛsən/',
-        example: 'Wir essen das Abendessen zusammen.', exampleTrans: 'Мо хӯроки шомро якҷоя мехӯрем.' },
-      { word: 'die Zeit', translation: 'вақт', emoji: '⌛', ipa: '/diː t͡saɪ̯t/',
+      { word: 'die Zeit', existing: true, translation: 'вақт', emoji: '⌛', ipa: '/diː t͡saɪ̯t/',
         example: 'Ich habe keine Zeit.', exampleTrans: 'Ман вақт надорам.' },
-      { word: 'Wie spät ist es', translation: 'Соат чанд аст?', emoji: '❓', ipa: '/viː ʃpɛːt ɪst ɛs/',
+      { word: 'Wie spät ist es', existing: true, translation: 'Соат чанд аст?', emoji: '❓', ipa: '/viː ʃpɛːt ɪst ɛs/',
         example: 'Entschuldigung, wie spät ist es?', exampleTrans: 'Бубахшед, соат чанд аст?' },
-    ],
+          { word: 'bald', existing: true, translation: 'ба зудӣ', emoji: '⏩', ipa: '/balt/',
+        example: 'Bis bald!', exampleTrans: 'То дидори наздик!' },
+      { word: 'sofort', existing: true, translation: 'фавран', emoji: '⚡', ipa: '/zoˈfɔʁt/',
+        example: 'Ich komme sofort.', exampleTrans: 'Ман фавран меоям.' },
+      { word: 'der Moment', existing: true, translation: 'лаҳза', emoji: '⏱️', ipa: '/deːɐ̯ moˈmɛnt/',
+        example: 'Einen Moment, bitte!', exampleTrans: 'Лутфан, як лаҳза!' },
+],
   },
 ];
 
@@ -193,6 +195,54 @@ export const GRAMMAR = [
       { prompt: '___ lerne ich Deutsch.', promptTranslated: 'Имрӯз ман олмонӣ меомӯзам.', answer: 'Heute', options: ['Heute', 'Am heute', 'Im heute', 'Um heute'], explanation: 'heute бе пешоянд меояд.' },
     ],
   },
+  {
+    lessonTitle: 'Grammatik: Der wievielte ist heute?', lessonTitleTranslated: 'Грамматика: Имрӯз чандум аст?',
+    title: 'Ordinalzahlen und das Datum', titleTranslated: 'Рақами тартибӣ ва сана',
+    emoji: '📅',
+    explanation:
+`Барои сана рақами **тартибӣ** лозим аст — на «як», балки «якум».
+
+**Чӣ тавр сохта мешавад:**
+- 1–19 → рақам + **-te**: der **vierte**, der **siebte**, der **zehnte**
+- аз 20 боло → рақам + **-ste**: der **zwanzigste**, der **einunddreißigste**
+
+**Се истисно, ки аз ёд карда мешаванд:**
+> 1. der **erste** (на *einte*) · 3. der **dritte** (на *dreite*) · 7. der **siebte** (на *siebente*)
+
+**Дар навиштан баъди рақам НУҚТА гузошта мешавад:** 1. Mai = der erste Mai.
+
+**Савол ва ҷавоб:**
+- Der wievielte ist heute? — Heute ist **der erste** Mai.
+- Wann hast du Geburtstag? — **Am zehnten** Juni. (Даҳуми июн.)
+
+**Доми асосӣ:** вақте «кай?» мегӯем, шакл **am … -en** мешавад:
+> der erste Mai → **am ersten** Mai
+> der zehnte Juni → **am zehnten** Juni
+
+Дар тоҷикӣ ҳарду ҳолат як хел аст («якуми май»), бинобар ин ин фарқ бояд махсус ёд гирифта шавад.`,
+    rules: [
+      { pattern: '1–19: рақам + -te', note: 'der vierte, der zehnte, der neunzehnte.' },
+      { pattern: 'аз 20: рақам + -ste', note: 'der zwanzigste, der dreißigste.' },
+      { pattern: 'Истиснои 1, 3, 7', note: 'erste, dritte, siebte — на einte/dreite/siebente.' },
+      { pattern: 'Кай? → am + -en', note: 'Am ersten Mai. Am zehnten Juni.' },
+    ],
+    examples: [
+      { sentence: 'Heute ist der erste Mai.', translation: 'Имрӯз якуми май аст.', highlight: 'erste' },
+      { sentence: 'Der dritte Tag ist Mittwoch.', translation: 'Рӯзи сеюм чоршанбе аст.', highlight: 'dritte' },
+      { sentence: 'Wann hast du Geburtstag?', translation: 'Зодрӯзи ту кай аст?', highlight: 'Wann' },
+      { sentence: 'Am zehnten Juni.', translation: 'Даҳуми июн.', highlight: 'zehnten' },
+      { sentence: 'Der zwanzigste Januar ist ein Montag.', translation: 'Бистуми январ душанбе аст.', highlight: 'zwanzigste' },
+      { sentence: 'Der siebte Monat ist Juli.', translation: 'Моҳи ҳафтум июл аст.', highlight: 'siebte' },
+    ],
+    exercises: [
+      { prompt: 'Heute ist der ___ Mai. (1.)', promptTranslated: 'Имрӯз якуми май аст.', answer: 'erste', options: ['erste', 'einte', 'eine', 'ersten'], explanation: '1. = der erste — истисно.' },
+      { prompt: 'Der ___ Tag ist Mittwoch. (3.)', promptTranslated: 'Рӯзи сеюм чоршанбе аст.', answer: 'dritte', options: ['dritte', 'dreite', 'drite', 'dreiste'], explanation: '3. = der dritte — истисно.' },
+      { prompt: 'Ich habe am ___ Juni Geburtstag. (10.)', promptTranslated: 'Зодрӯзи ман даҳуми июн аст.', answer: 'zehnten', options: ['zehnten', 'zehnte', 'zehnste', 'zehn'], explanation: 'Баъди «am» шакли -en: am zehnten.' },
+      { prompt: 'Der ___ Januar ist kalt. (20.)', promptTranslated: 'Бистуми январ хунук аст.', answer: 'zwanzigste', options: ['zwanzigste', 'zwanzigte', 'zwanziger', 'zwanzig'], explanation: 'Аз 20 боло → -ste.' },
+      { prompt: '___ hast du Geburtstag?', promptTranslated: 'Зодрӯзи ту кай аст?', answer: 'Wann', options: ['Wann', 'Wo', 'Wie', 'Was'], explanation: 'Wann = кай.' },
+      { prompt: 'Кадомаш ДУРУСТ аст?', promptTranslated: 'Ҷавоби дурустро интихоб кунед.', answer: 'Am ersten Mai.', options: ['Am ersten Mai.', 'Am erste Mai.', 'Am einten Mai.', 'Der ersten Mai.'], explanation: 'Баъди «am» — ersten.' },
+    ],
+  },
 ];
 
 export const COMPREHENSIONS = [
@@ -283,13 +333,14 @@ export const WRITING = {
 export const ORDER = [
   'vocab:Wochentage 1',
   'vocab:Wochentage 2',
-  'vocab:Tageszeiten',
+  'vocab:Der Tag und das Datum',
   'vocab:Heute und morgen',
   'vocab:Monate 1',
   'vocab:Monate 2',
-  'vocab:Mahlzeiten und Uhrzeit',
+  'vocab:Zeitwörter',
   'grammar:0',
   'grammar:1',
+  'grammar:2',
   'comprehension:reading',
   'comprehension:listening',
   'dialogue',

@@ -6,6 +6,7 @@ import {
   toWire,
   toEngineItem,
   configForEv,
+  DEFAULT_CONFIG,
 } from '@/lib/speaking/engine';
 import {
   unlockedSpeakingLessonIds,
@@ -69,6 +70,12 @@ export async function GET(req: NextRequest) {
       select: { nativeLang: true, isPremium: true },
     });
     if (!user) return NextResponse.json({ error: 'User not found.' }, { status: 404 });
+
+    // Рамзи забони ОМӮЗИШ — барои рӯйхатҳои чанки хоси забон (`LANG_LISTS`).
+    const targetLanguage = await prisma.language.findUnique({
+      where: { id: langId },
+      select: { code: true },
+    });
 
     const nativeLanguage = await prisma.language.findFirst({
       where: { code: user.nativeLang },
@@ -226,7 +233,7 @@ export async function GET(req: NextRequest) {
     //
     // `ev = 1` формати симро мехкӯб мекунад: ҳеҷ майдони нав ба клиентҳои
     // мавҷуда намеравад. Гейти версия аз параметри дархост — M5 (§10.2).
-    const cfg = configForEv(ev);
+    const cfg = configForEv(ev, { ...DEFAULT_CONFIG, lang: targetLanguage?.code });
     const steps = generateSteps(
       items.map((i) => ({
         ...toEngineItem(i),

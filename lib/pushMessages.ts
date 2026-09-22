@@ -292,9 +292,10 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
       const title = { tg: 'Биё баргард! 🎁', ru: 'Возвращайся! 🎁', en: 'Come back! 🎁' }[L];
       const name = ctx.firstName || { tg: 'Дӯст', ru: 'Друг', en: 'Friend' }[L];
       const body = {
-        tg: `${name}, як моҳ шуд. Дилҳоят пуранд ва ${ctx.gems} алмосат нигоҳ дошта шуд — биё, аз нав сар кунем.`,
-        ru: `${name}, прошёл месяц. Жизни полны, и твои ${ctx.gems} кристаллов на месте — начнём заново.`,
-        en: `${name}, it has been a month. Your hearts are full and your ${ctx.gems} gems are safe — let us start again.`,
+        // 🔴 2026-09-14: дил ва алмос аз барнома нест шуданд — матн дигар онҳоро ваъда намедиҳад.
+        tg: `${name}, як моҳ шуд. Пешрафти ту нигоҳ дошта шуд — биё, аз нав сар кунем.`,
+        ru: `${name}, прошёл месяц. Твой прогресс сохранён — начнём заново.`,
+        en: `${name}, it has been a month. Your progress is saved — let us start again.`,
       }[L];
       return { title, body, data };
     }
@@ -325,9 +326,9 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
     default: {
       const title = { tg: 'Санҷиши RAMZ ✅', ru: 'Тест RAMZ ✅', en: 'RAMZ test ✅' }[L];
       const body = {
-        tg: `${hi(ctx)} Push кор мекунад. Силсила: ${ctx.streak}, дилҳо: ${ctx.hearts}/${ctx.maxHearts}, сатҳ: ${ctx.level}.`,
-        ru: `${hi(ctx)} Push работает. Стрик: ${ctx.streak}, жизни: ${ctx.hearts}/${ctx.maxHearts}, уровень: ${ctx.level}.`,
-        en: `${hi(ctx)} Push works. Streak: ${ctx.streak}, hearts: ${ctx.hearts}/${ctx.maxHearts}, level: ${ctx.level}.`,
+        tg: `${hi(ctx)} Push кор мекунад. Силсила: ${ctx.streak}, сатҳ: ${ctx.level}.`,
+        ru: `${hi(ctx)} Push работает. Стрик: ${ctx.streak}, уровень: ${ctx.level}.`,
+        en: `${hi(ctx)} Push works. Streak: ${ctx.streak}, level: ${ctx.level}.`,
       }[L];
       return { title, body, data: { ...data, route: 'home' } };
     }

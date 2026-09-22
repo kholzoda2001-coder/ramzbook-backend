@@ -9,7 +9,7 @@ import { useState } from 'react';
  * Trilingual (Tajik / Russian / English) for users + Google Play review.
  */
 
-const EFFECTIVE_DATE = '13.09.2026';
+const EFFECTIVE_DATE = '14.09.2026';
 const APP_NAME = 'RAMZ';
 // Як почтаи ягона дар ҳама ҷо: ин саҳифа, ramz.tj/privacy ва сиёсати дохили
 // барнома (frontend/lib/l10n/strings_*.dart). Онҳо набояд фарқ кунанд —
@@ -79,12 +79,11 @@ function Tg() {
           <li><b>Ҳисоб ва профил:</b> ном, почтаи электронӣ, рақами телефон (агар ворид кунед).</li>
           <li><b>Воридшавӣ бо Google:</b> номатон, почтаи электронӣ ва расми профил аз ҳисоби Google.</li>
           <li><b>Фаъолияти омӯзишӣ:</b> пешрафт, XP, силсила (streak), дарсҳои хатмшуда, натиҷаи санҷиши сатҳбандӣ.</li>
-          <li><b>Овоз (микрофон):</b> барои машқи талаффуз нутқи шумо ба матн табдил дода мешавад. Сабти овоз <b>нигоҳ дошта намешавад</b> — танҳо барои шинохт коркард мешавад.</li>
+          <li><b>Овоз (микрофон):</b> барои машқи талаффуз овози шумо ба хидмати Microsoft Azure Speech фиристода ва коркард мешавад. Сабти овоз аз ҷониби мо <b>нигоҳ дошта намешавад</b>.</li>
           <li><b>Обунаҳо:</b> ҳолати обунаи Premium тавассути Google Play Billing. Мо маълумоти кортатонро <b>намебинем ва нигоҳ намедорем</b>.</li>
           <li><b>Маълумоти дастгоҳ:</b> намуди дастгоҳ, версияи система, амалҳо дар барнома ва маълумоти корношоямӣ (crash) барои беҳсозӣ.</li>
           <li><b>Огоҳиҳо:</b> рамзи огоҳӣ (token) барои фиристодани ёдоварҳои омӯзишӣ.</li>
-          <li><b>Рақами рекламавӣ (Advertising ID):</b> барои нишон додани реклама ва ҳисоби оморӣ истифода мешавад. Шумо метавонед онро дар танзимоти Android аз нав созед ё реклами шахсиро хомӯш кунед.</li>
-          <li><b>Маълумот дар бораи барномаҳои насбшуда:</b> SDK-ҳои шарикони реклама (Unity LevelPlay, Unity Ads, Meta Audience Network, Yandex Mobile Ads бо Yandex AppMetrica) метавонанд санҷанд, ки кадом барномаҳо дар дастгоҳ насб шудаанд (мас. Facebook ё мағозаҳои барнома), ва инро барои интихоби реклама, ченкунии самаранокии он, атрибутсия ва пешгирии қаллобӣ истифода баранд. Мо худамон рӯйхати барномаҳои шуморо намехонем ва нигоҳ намедорем.</li>
+          <li><b>Рақами рекламавӣ (Advertising ID):</b> танҳо барои омори истифода ва атрибутсияи насб (Firebase Analytics, Meta App Events); барои реклама истифода намешавад. Шумо метавонед онро дар танзимоти Android аз нав созед ё нест кунед.</li>
           <li><b>Ҷойгиршавии тахминӣ (аз рӯи IP):</b> танҳо рамзи кишвар (мисли «TJ») барои нишон додани нархи мувофиқи минтақа. Суроғаи дақиқи шумо муайян ва нигоҳ дошта намешавад.</li>
           <li><b>Паёмҳои чати AI:</b> саволҳое ки ба муаллими AI менависед, барои гирифтани ҷавоб коркард мешаванд.</li>
         </ul>
@@ -109,27 +108,13 @@ function Tg() {
       </Sec>
 
       <Sec n="5" t="Реклама ва рақами рекламавӣ">
-        Дар нусхаи <b>ройгон</b> барнома <b>реклама нишон медиҳад</b> — ду шакл:
+        Барнома <b>реклама нишон намедиҳад</b> — на дар нусхаи ройгон, на дар обунаи
+        Premium. Дар барнома ягон SDK-и шабакаи реклама нест.
         <ul style={s.ul}>
-          <li><b>Видеои мукофотӣ</b> — вақте ҷонҳоятон тамом мешавад, шумо метавонед
-            бо хоҳиши худ видео тамошо карда, як ҷон гиред.</li>
-          <li><b>Рекламаи пурраэкранӣ</b> — баъди анҷоми дарс.</li>
-        </ul>
-        Дар мобайни машқҳо реклама нест.
-        <ul style={s.ul}>
-          <li>Рекламаро <b>Unity LevelPlay (ironSource)</b> (медиатсия — аз тариқи он
-            <b>Meta Audience Network</b> ва дигар шабакаҳои шарик реклама нишон
-            дода метавонанд) ва <b>Yandex Mobile Ads (Yandex
-            Advertising Network)</b> таъмин мекунанд. Онҳо барои интихоби реклама
-            рақами рекламавии дастгоҳ (Google Advertising ID / GAID), суроғаи IP,
-            маълумоти умумии дастгоҳ ва маълумот дар бораи барномаҳои насбшударо
-            (барои атрибутсия ва пешгирии қаллобӣ) истифода мебаранд:{' '}
-            <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
-            <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
-          <li>Баннер ва рекламаи дохили машқ тамоман истифода намешавад.</li>
-          <li><b>Обунаи Premium реклама надорад.</b></li>
-          <li>Барои хомӯш кардани реклами шахсӣ: Танзимоти Android → Google → Реклама →
-            «Delete advertising ID» ё «Opt out of Ads Personalisation».</li>
+          <li>Рақами рекламавиро (Advertising ID) танҳо <b>Firebase Analytics</b> ва{' '}
+            <b>Meta App Events</b> барои омори истифода ва атрибутсияи насб мехонанд.</li>
+          <li>Барои аз нав сохтан ё нест кардан: Танзимоти Android → Google → Реклама →
+            «Delete advertising ID».</li>
         </ul>
       </Sec>
 
@@ -137,14 +122,11 @@ function Tg() {
         Мо маълумоти шуморо <b>намефурӯшем</b>. Маълумот танҳо бо хидматрасонҳои зарурӣ
         мубодила мешавад:
         <ul style={s.ul}>
-          <li><b>Google Play Services / Google Sign-In</b> — воридшавӣ ва пардохт;</li>
-          <li><b>Unity LevelPlay (ironSource)</b> — медиатсия ва намоиши реклама (рақами рекламавӣ);</li>
-          <li><b>Meta Audience Network</b> — намоиши реклама аз дохили LevelPlay;</li>
-          <li><b>Unity Ads</b> — намоиши реклама аз дохили LevelPlay;</li>
-          <li><b>Yandex Mobile Ads</b> ва <b>Yandex AppMetrica</b> — намоиш, омор ва атрибутсияи реклама (рақами рекламавӣ, барномаҳои насбшуда);</li>
+          <li><b>Google Play Services / Google Sign-In</b> — воридшавӣ ва пардохт;</li>
           <li><b>Meta (Facebook) App Events</b> — омор ва атрибутсияи насби барнома;
             рақами рекламавиро мехонад;</li>
           <li><b>Firebase Analytics / Crashlytics</b> — омори истифода ва ҳисоботи хатоҳо;</li>
+          <li><b>Microsoft Azure Speech</b> — санҷиши талаффуз (овоз);</li>
           <li><b>Провайдери AI</b> — паёмҳои чати AI барои гирифтани ҷавоб фиристода мешаванд;</li>
           <li><b>Хидмати муайянкунии кишвар аз рӯи IP</b> — танҳо барои нархи минтақавӣ;</li>
           <li><b>Провайдери ҳостинг</b> — нигоҳдории маълумот.</li>
@@ -215,12 +197,11 @@ function Ru() {
           <li><b>Аккаунт и профиль:</b> имя, email, номер телефона (если указан).</li>
           <li><b>Вход через Google:</b> имя, email и фото профиля из аккаунта Google.</li>
           <li><b>Учебная активность:</b> прогресс, XP, серии (streak), пройденные уроки, результаты теста уровня.</li>
-          <li><b>Голос (микрофон):</b> для практики произношения речь преобразуется в текст. Аудиозаписи <b>не сохраняются</b>.</li>
+          <li><b>Голос (микрофон):</b> для практики произношения ваш голос отправляется на обработку в сервис Microsoft Azure Speech. Мы <b>не храним</b> аудиозаписи.</li>
           <li><b>Подписки:</b> статус Premium через Google Play Billing. Данные карты мы <b>не видим и не храним</b>.</li>
           <li><b>Данные устройства:</b> модель, версия ОС, действия в приложении и данные о сбоях.</li>
           <li><b>Уведомления:</b> токен для учебных напоминаний.</li>
-          <li><b>Рекламный идентификатор (Advertising ID):</b> используется для показа рекламы и аналитики. Вы можете сбросить его или отключить персонализацию в настройках Android.</li>
-          <li><b>Сведения об установленных приложениях:</b> SDK рекламных партнёров (Unity LevelPlay, Unity Ads, Meta Audience Network, Yandex Mobile Ads вместе с Yandex AppMetrica) могут проверять, какие приложения установлены на устройстве (например, Facebook или магазины приложений), и использовать это для подбора рекламы, измерения её эффективности, атрибуции и защиты от мошенничества. Сами мы список ваших приложений не читаем и не храним.</li>
+          <li><b>Рекламный идентификатор (Advertising ID):</b> только для статистики использования и атрибуции установок (Firebase Analytics, Meta App Events); для рекламы не используется. Его можно сбросить или удалить в настройках Android.</li>
           <li><b>Приблизительное местоположение (по IP):</b> только код страны (например «TJ») — для показа цен вашего региона. Точный адрес не определяется и не хранится.</li>
           <li><b>Сообщения AI-чата:</b> вопросы, которые вы пишете AI-репетитору, обрабатываются для получения ответа.</li>
         </ul>
@@ -245,41 +226,24 @@ function Ru() {
       </Sec>
 
       <Sec n="5" t="Реклама и рекламный идентификатор">
-        В <b>бесплатной</b> версии приложение <b>показывает рекламу</b> — два формата:
+        Приложение <b>не показывает рекламу</b> — ни в бесплатной версии, ни в подписке
+        Premium. В приложении нет SDK рекламных сетей.
         <ul style={s.ul}>
-          <li><b>Видео с вознаграждением</b> — когда заканчиваются жизни, вы можете по
-            своему желанию посмотреть видео и получить одну жизнь.</li>
-          <li><b>Полноэкранная реклама</b> — после завершения урока.</li>
-        </ul>
-        Внутри упражнений рекламы нет.
-        <ul style={s.ul}>
-          <li>Рекламу предоставляют <b>Unity LevelPlay (ironSource)</b> (медиация — через неё
-            рекламу могут показывать <b>Meta Audience Network</b> и другие
-            сети-партнёры) и <b>Yandex Mobile Ads
-            (Рекламная сеть Яндекса)</b>. Они используют рекламный идентификатор
-            устройства (Google Advertising ID / GAID), IP-адрес, общие данные
-            устройства и сведения об установленных приложениях (для атрибуции и
-            защиты от мошенничества):{' '}
-            <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
-            <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
-          <li>Баннеры и реклама внутри упражнений не используются вовсе.</li>
-          <li><b>В подписке Premium рекламы нет.</b></li>
-          <li>Отключить персонализацию: Настройки Android → Google → Реклама →
-            «Удалить рекламный идентификатор» или «Отключить персонализацию рекламы».</li>
+          <li>Рекламный идентификатор (Advertising ID) читают только <b>Firebase Analytics</b> и{' '}
+            <b>Meta App Events</b> — для статистики использования и атрибуции установок.</li>
+          <li>Сбросить или удалить: Настройки Android → Google → Реклама →
+            «Удалить рекламный идентификатор».</li>
         </ul>
       </Sec>
 
       <Sec n="5.1" t="Передача третьим лицам">
         Мы <b>не продаём</b> ваши данные. Данные передаются только необходимым сервисам:
         <ul style={s.ul}>
-          <li><b>Google Play Services / Google Sign-In</b> — вход и оплата;</li>
-          <li><b>Unity LevelPlay (ironSource)</b> — медиация и показ рекламы (рекламный идентификатор);</li>
-          <li><b>Meta Audience Network</b> — показ рекламы через LevelPlay;</li>
-          <li><b>Unity Ads</b> — показ рекламы через LevelPlay;</li>
-          <li><b>Yandex Mobile Ads</b> и <b>Yandex AppMetrica</b> — показ, статистика и атрибуция рекламы (рекламный идентификатор, установленные приложения);</li>
+          <li><b>Google Play Services / Google Sign-In</b> — вход и оплата;</li>
           <li><b>Meta (Facebook) App Events</b> — статистика и атрибуция установок;
             читает рекламный идентификатор;</li>
           <li><b>Firebase Analytics / Crashlytics</b> — статистика использования и отчёты об ошибках;</li>
+          <li><b>Microsoft Azure Speech</b> — проверка произношения (голос);</li>
           <li><b>AI-провайдер</b> — сообщения AI-чата отправляются для получения ответа;</li>
           <li><b>Сервис определения страны по IP</b> — только для региональных цен;</li>
           <li><b>Хостинг-провайдер</b> — хранение данных.</li>
@@ -345,12 +309,11 @@ function En() {
           <li><b>Account &amp; profile:</b> name, email, phone number (if provided).</li>
           <li><b>Google Sign-In:</b> your name, email, and profile photo from your Google account.</li>
           <li><b>Learning activity:</b> progress, XP, streaks, completed lessons, placement-test results.</li>
-          <li><b>Audio (microphone):</b> for pronunciation practice your speech is converted to text. Audio recordings are <b>not stored</b> — processed only for recognition.</li>
+          <li><b>Audio (microphone):</b> for pronunciation practice your voice is sent to the Microsoft Azure Speech service for processing. We <b>do not store</b> recordings.</li>
           <li><b>Subscriptions:</b> Premium status via Google Play Billing. We <b>do not see or store</b> your card details.</li>
           <li><b>Device data:</b> device model, OS version, in-app actions, and crash data for improvement.</li>
           <li><b>Notifications:</b> a push token to send learning reminders.</li>
-          <li><b>Advertising ID:</b> used to serve ads and for analytics. You can reset it or opt out of personalised ads in your Android settings.</li>
-          <li><b>Installed apps information:</b> the SDKs of our advertising partners (Unity LevelPlay, Unity Ads, Meta Audience Network, Yandex Mobile Ads together with Yandex AppMetrica) may check which apps are installed on your device (for example Facebook or app stores) and use this to select ads, measure ad performance, attribute installs and prevent fraud. We ourselves do not read or store the list of your apps.</li>
+          <li><b>Advertising ID:</b> used only for usage analytics and install attribution (Firebase Analytics, Meta App Events); never to serve ads. You can reset or delete it in your Android settings.</li>
           <li><b>Approximate location (from IP):</b> country code only (e.g. “TJ”) to show prices for your region. We do not determine or store your precise address.</li>
           <li><b>AI chat messages:</b> questions you write to the AI tutor are processed to generate a reply.</li>
         </ul>
@@ -375,40 +338,24 @@ function En() {
       </Sec>
 
       <Sec n="5" t="Advertising and advertising ID">
-        In the <b>free</b> version the app <b>shows ads</b> — two formats:
+        The app <b>does not show ads</b> — neither in the free version nor in the Premium
+        subscription. It contains no ad network SDKs.
         <ul style={s.ul}>
-          <li><b>Rewarded video</b> — when you run out of hearts you may choose to watch
-            a video and earn one heart back.</li>
-          <li><b>Full-screen ad</b> — after a lesson is completed.</li>
-        </ul>
-        There are no ads inside the exercises.
-        <ul style={s.ul}>
-          <li>Ads are served by <b>Unity LevelPlay (ironSource)</b> (mediation — through it
-            <b>Meta Audience Network</b> and other partner networks may serve ads)
-            and <b>Yandex Mobile Ads (Yandex
-            Advertising Network)</b>. They use the device advertising identifier (Google
-            Advertising ID / GAID), IP address, general device data and information
-            about installed apps (for attribution and fraud prevention) to select ads:{' '}
-            <A href="https://unity.com/legal/game-growth-privacy-policy">unity.com/legal</A>,{' '}
-            <A href="https://yandex.com/legal/confidential/">yandex.com/legal/confidential</A>.</li>
-          <li>Banners and in-exercise ads are not used at all.</li>
-          <li><b>Premium subscribers see no ads.</b></li>
-          <li>To opt out of personalised ads: Android Settings → Google → Ads →
-            “Delete advertising ID” or “Opt out of Ads Personalisation”.</li>
+          <li>The Advertising ID is read only by <b>Firebase Analytics</b> and{' '}
+            <b>Meta App Events</b>, for usage analytics and install attribution.</li>
+          <li>To reset or delete it: Android Settings → Google → Ads →
+            “Delete advertising ID”.</li>
         </ul>
       </Sec>
 
       <Sec n="5.1" t="Sharing with third parties">
         We <b>do not sell</b> your data. Data is shared only with necessary services:
         <ul style={s.ul}>
-          <li><b>Google Play Services / Google Sign-In</b> — login &amp; payments;</li>
-          <li><b>Unity LevelPlay (ironSource)</b> — mediation and serving ads (advertising ID);</li>
-          <li><b>Meta Audience Network</b> — serving ads through LevelPlay;</li>
-          <li><b>Unity Ads</b> — serving ads through LevelPlay;</li>
-          <li><b>Yandex Mobile Ads</b> and <b>Yandex AppMetrica</b> — serving ads, ad analytics and attribution (advertising ID, installed apps);</li>
+          <li><b>Google Play Services / Google Sign-In</b> — login &amp; payments;</li>
           <li><b>Meta (Facebook) App Events</b> — install analytics and attribution;
             reads the advertising identifier;</li>
           <li><b>Firebase Analytics / Crashlytics</b> — usage statistics and crash reports;</li>
+          <li><b>Microsoft Azure Speech</b> — pronunciation assessment (audio);</li>
           <li><b>AI provider</b> — AI chat messages are sent to generate a reply;</li>
           <li><b>IP-to-country lookup service</b> — for regional pricing only;</li>
           <li><b>Hosting provider</b> — data storage.</li>

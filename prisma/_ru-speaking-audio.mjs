@@ -2,7 +2,11 @@
 //
 // Мисли `_ko-speaking-audio.mjs`: овози гуфтор = овози КУРС. Барои тамоми русӣ
 // қарори доимӣ `ru-RU-Chirp3-HD-Kore` аст (ниг. `_grammar-ex-audio.mjs`), бо
-// буриши хомӯшии сар (`_ar-trim.py`) ва боркунӣ ба Vercel Blob.
+// буриши хомӯшии сар (`_ar-trim.py`).
+//
+// 🔴 20.09.2026: боркунӣ ба Vercel Blob БАРОВАРДА ШУД — анбор баста аст
+// («This store has been suspended», ҳар URL 403). Ҳоло файлҳо ба репои
+// `ramz-audio` мераванд ва URL ба SHA-и коммит баста мешавад (jsDelivr).
 //
 // 🔴 Доми ёфташуда (13.09.2026): Chirp3-Kore ҳиҷои ЯККА-ро («Да») 5 бор пай дар пай
 // ХОМӮШ дод (peak 0.0003–0.035) — ҳамон доми «Да.»-и хомӯш дар муколамаҳои М6/М8.
@@ -13,20 +17,20 @@
 //   4. `ru-RU-Wavenet-C` — овози алифбои русӣ (×2)
 // Ягон клипи хомӯш ба база намеравад.
 //
-//   node prisma/_ru-speaking-audio.mjs [--dry]
+//   node prisma/_ru-speaking-audio.mjs <ramz-audio dir> [--dry]
 //
 // Идемпотент: танҳо воҳидҳои бе `audioUrl`.
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
-import { execFileSync, spawnSync } from 'child_process';
-import { createHash } from 'crypto';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
+import { execFileSync, execSync, spawnSync } from 'child_process';
 import { neon } from '@neondatabase/serverless';
-import { SignJWT } from 'jose';
 
+const REPO = process.argv[2];
+if (!REPO || REPO.startsWith('--')) throw new Error('Истифода: node prisma/_ru-speaking-audio.mjs <ramz-audio dir> [--dry]');
 const DRY = process.argv.includes('--dry');
 const RU = 'cmpqk40yz00009rhl1uazdfi3';
 const VOICE = 'ru-RU-Chirp3-HD-Kore';
 const FALLBACK_VOICE = 'ru-RU-Wavenet-C';
-const BASE = 'https://admin.ramz.tj';
+const CDN_DIR = `${REPO}/audio/ru`;
 const WORK = 'tmp/ru-speaking-audio';
 const TRIM = `${WORK}-trim`;
 const PY = { encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8', PYTHONUTF8: '1' }, maxBuffer: 1 << 26 };
@@ -37,10 +41,16 @@ const env = Object.fromEntries(
     .map((l) => { const i = l.indexOf('='); return [l.slice(0, i).trim(), l.slice(i + 1).trim().replace(/^["']|["']$/g, '')]; }),
 );
 const sql = neon(env.DATABASE_URL);
+// ⚠️ Дар як фармон на бештар аз 60 файл: 183 роҳ аз ҳадди дарозии фармони
+// Windows мегузарад ва `spawnSync` бо exit 126 бармегардад.
 const measure = (paths) => {
-  const r = spawnSync('python', ['../tools/audio_check.py', ...paths], PY);
-  if (r.status !== 0) throw new Error(r.stderr);
-  return JSON.parse(r.stdout);
+  const out = {};
+  for (let i = 0; i < paths.length; i += 60) {
+    const r = spawnSync('python', ['../tools/audio_check.py', ...paths.slice(i, i + 60)], PY);
+    if (r.status !== 0) throw new Error(r.stderr);
+    Object.assign(out, JSON.parse(r.stdout));
+  }
+  return out;
 };
 const letters = (t) => (t.match(/\p{L}/gu) ?? []).length;
 // Калимаи кӯтоҳ табиатан кам садои баланд дорад: «Пока» 0.24 с, «Тоже» 0.22 с — клипҳои
@@ -167,25 +177,34 @@ for (const it of items) {
 }
 if (bad) { console.error(`⛔ ${bad} файли бад — ҳеҷ чиз бор нашуд`); process.exit(1); }
 
-// ── 3. Боркунӣ → санҷиши md5 → сабт ─────────────────────────────────────────
-const token = await new SignJWT({ username: 'admin', role: 'admin' })
-  .setProtectedHeader({ alg: 'HS256' }).setIssuedAt().setExpirationTime('4h')
-  .sign(new TextEncoder().encode(env.JWT_SECRET));
+// ── 3. Ба репои CDN → push → навиштани audioUrl ─────────────────────────────
+for (const it of items) copyFileSync(`${TRIM}/${it.id}.mp3`, `${CDN_DIR}/${it.id}.mp3`);
+console.log(`
+== Ба репо: ${items.length} файл ==`);
+const dirty = execSync('git status --porcelain audio/ru', { cwd: REPO }).toString().trim();
+if (dirty) {
+  execSync('git add audio/ru', { cwd: REPO, stdio: 'inherit' });
+  execSync(
+    'git -c user.email="255218020+kholzoda2001-coder@users.noreply.github.com" '
+    + '-c user.name="kholzoda2001-coder" commit -m "Speaking RU: audio for the new lessons of the Znakomstvo chapter"',
+    { cwd: REPO, stdio: 'inherit' });
+  execSync('git push origin HEAD', { cwd: REPO, stdio: 'inherit' });
+} else {
+  console.log('  тағйирот нест — коммити ҷорӣ истифода мешавад');
+}
+const sha = execSync('git rev-parse HEAD', { cwd: REPO }).toString().trim();
+const cdn = (id) => `https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@${sha}/audio/ru/${id}.mp3`;
+console.log('SHA:', sha);
+
 let done = 0;
 for (const it of items) {
-  const buf = readFileSync(`${TRIM}/${it.id}.mp3`);
-  const fd = new FormData();
-  fd.append('file', new File([buf], `ru_speak_${it.id}.mp3`, { type: 'audio/mpeg' }));
-  const up = await fetch(`${BASE}/api/admin/upload`, { method: 'POST', headers: { Cookie: `admin_token=${token}` }, body: fd });
-  const body = await up.json().catch(() => ({}));
-  if (!up.ok || !body.url) { console.log(`  ✗ «${it.text}»: upload ${up.status}`); continue; }
-  const back = Buffer.from(await (await fetch(body.url)).arrayBuffer());
-  if (createHash('md5').update(back).digest('hex') !== createHash('md5').update(buf).digest('hex')) {
-    console.log(`  ✗ «${it.text}»: файли боршуда бо нусхаи маҳаллӣ баробар нест`);
-    continue;
-  }
-  await sql.query(`UPDATE "SpeakingItem" SET "audioUrl" = $1 WHERE id = $2 AND ("audioUrl" IS NULL OR "audioUrl" = '')`, [body.url, it.id]);
-  done++;
+  await sql.query(
+    `UPDATE "SpeakingItem" SET "audioUrl" = $1 WHERE id = $2 AND ("audioUrl" IS NULL OR "audioUrl" = '')`,
+    [cdn(it.id), it.id]);
+  if (++done % 50 === 0) console.log(`  ...${done}/${items.length}`);
 }
-console.log(`\nсабт шуд: ${done}/${items.length}`);
-if (done !== items.length) process.exit(1);
+await sql.query(
+  `INSERT INTO "AppSetting" (key, "valueJson", "updatedAt") VALUES ('content_version', '"1"', NOW())
+   ON CONFLICT (key) DO UPDATE SET "updatedAt" = NOW()`);
+console.log(`
+сабт шуд: ${done}/${items.length} · content_version ламс шуд`);

@@ -15,6 +15,9 @@ import { ipaToTajik, selfTest } from './_de-tajik.mjs';
 const CONTENT = process.argv[2];
 if (!CONTENT) { console.error('Истифода: node prisma/_de-module-build.mjs ./_de-m2-content.mjs [--dry]'); process.exit(1); }
 const { MODULE, VOCAB, GRAMMAR, COMPREHENSIONS, DIALOGUE, WRITING, ORDER } = await import(CONTENT);
+// Файлҳои аввалин майдони `emoji`, баъдиҳо `icon` доранд — ҳарду як чизанд.
+// Бе ин сатр билди ТАКРОРӢ эмоҷии бахшро ба 📚-и пешфарз иваз мекард.
+const MODULE_ICON = MODULE.icon ?? MODULE.emoji ?? '📚';
 
 const env = Object.fromEntries(
   readFileSync(new URL('../.env', import.meta.url), 'utf8')
@@ -43,17 +46,46 @@ const api = async (path, method, body) => {
 
 console.log(`✓ Транслитератор: ${selfTest()} худсанҷиш`);
 
-// ── Модул ───────────────────────────────────────────────────────────────────
-const [module] = await sql.query(`SELECT * FROM "Module" WHERE "courseId"='${COURSE}' AND "order"=${MODULE.order}`);
-console.log(`\nМодул: ${module.title} → ${MODULE.title}`);
-if (!DRY) await api(`modules/${module.id}`, 'PUT', { title: MODULE.title, titleTranslated: MODULE.titleTranslated, emoji: MODULE.emoji });
+// ▬▬ Модул ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+let [module] = await sql.query(`SELECT * FROM "Module" WHERE "courseId"='${COURSE}' AND "order"=${MODULE.order}`);
 
-// ── Ҳолати ҳозира ───────────────────────────────────────────────────────────
+if (!module) {
+  console.log(`\nМодул вуҷуд надорад. Сохтани модул...`);
+  const [newModule] = await sql.query(`
+    INSERT INTO "Module" (id, "courseId", title, "titleTranslated", emoji, "order") 
+    VALUES (gen_random_uuid(), '${COURSE}', '${MODULE.title}', '${MODULE.titleTranslated}', '${MODULE_ICON}', ${MODULE.order}) 
+    RETURNING *
+  `);
+  module = newModule;
+} else {
+  console.log(`\nМодул: ${module.title} → ${MODULE.title}`);
+  if (!DRY) await sql.query(`UPDATE "Module" SET title='${MODULE.title}', "titleTranslated"='${MODULE.titleTranslated}', emoji='${MODULE_ICON}' WHERE id='${module.id}'`);
+}
+
+// ▬▬ Омодагии пешакӣ ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 const oldLessons = await sql.query(`SELECT * FROM "Lesson" WHERE "moduleId"='${module.id}' ORDER BY "order"`);
 const allWords = await sql.query(
-  `SELECT w.*, l."moduleId" FROM "Word" w JOIN "Lesson" l ON w."lessonId"=l.id
+  `SELECT w.*, l."moduleId", l."skillType" AS "lessonSkill" FROM "Word" w JOIN "Lesson" l ON w."lessonId"=l.id
    JOIN "Module" m ON l."moduleId"=m.id WHERE m."courseId"='${COURSE}'`);
-const wordByText = new Map(allWords.map(w => [w.word, w]));
+// Як матни калима метавонад ЧАНД сатр дошта бошад: дарси навиштан қасдан нусха
+// мегирад. Пештар харита танҳо ЯК сатрро нигоҳ медошт ва он метавонист маҳз
+// нусхаи дарси навиштан бошад — он гоҳ билд ҳамон нусхаро ба дарси луғат
+// мекӯчонд ва дар як дарс ДУ «die Stadt» пайдо мешуд (24 такрор, 20.09.2026).
+// Акнун ҳама сатрҳо нигоҳ дошта мешаванд ва сатри дуруст интихоб мегардад.
+const wordsByText = new Map();
+for (const w of allWords) {
+  if (!wordsByText.has(w.word)) wordsByText.set(w.word, []);
+  wordsByText.get(w.word).push(w);
+}
+const wordByText = {
+  has: (t) => wordsByText.has(t),
+  get: (t, lessonId = null) => {
+    const list = wordsByText.get(t) ?? [];
+    return list.find((w) => w.lessonId === lessonId)
+      ?? list.find((w) => w.lessonSkill !== 'writing')
+      ?? list[0];
+  },
+};
 console.log(`Дарсҳои ҳозира: ${oldLessons.length} · калимаҳо дар курс: ${allWords.length}`);
 
 // Ҳар калимаи `existing` бояд воқеан вуҷуд дошта бошад — вагарна аз нав
@@ -144,7 +176,7 @@ for (const item of created.filter(c => c.vocab)) {
   let i = 0;
   for (const w of item.vocab.words) {
     if (w.existing) {
-      const cur = wordByText.get(w.word);
+      const cur = wordByText.get(w.word, item.id);
       if (!DRY && (cur.lessonId !== item.id || cur.order !== i)) {
         await api(`words/${cur.id}`, 'PUT', { lessonId: item.id, order: i });
         moved++;
@@ -312,45 +344,25 @@ if (!DRY) {
 
 // ── Аудио ───────────────────────────────────────────────────────────────────
 console.log(`\n== Аудио ==`);
+// ⛔ 20.09.2026: боркунӣ ба `/api/admin/upload` (Vercel Blob) БЕКОР ШУД — он
+// store баста шуд ва ҳар URL-и он HTTP 403 «Your store is blocked» медиҳад.
+// Аудиои олмонӣ акнун дар GitHub+jsDelivr аст ва `_de-audio-rehost.mjs` рӯйхатро
+// аз ХУДИ БАЗА мегирад, пас мазмуни нав дар қадами навбатӣ садо мегирад:
+//
+//   node prisma/_de-audio-rehost.mjs --gen --push --apply
+//
 if (!DRY && audioJobs.length) {
   mkdirSync(WORK, { recursive: true });
   writeFileSync(`${WORK}/items.json`, JSON.stringify(audioJobs.map(j => ({ id: j.id, text: j.text })), null, 1));
-  const out = execFileSync('python', ['prisma/_de-tts.py', WORK, `${WORK}/items.json`],
-    { encoding: 'utf8', env: { ...process.env, PYTHONUTF8: '1' }, maxBuffer: 1 << 24 });
-  console.log('  ' + out.trim().split('\n').slice(-1)[0]);
-
-  const TABLE = { word: 'Word', example: 'GrammarExample', line: 'DialogueLine', passage: 'ComprehensionExercise' };
-  let ok = 0;
-  for (const j of audioJobs) {
-    const buf = readFileSync(`${WORK}/${j.id}.mp3`);
-    const fd = new FormData();
-    fd.append('file', new File([buf], `de_m1_${j.id}.mp3`, { type: 'audio/mpeg' }));
-    const up = await fetch(`${BASE}/api/admin/upload`, { method: 'POST', headers: { Cookie: `admin_token=${token}` }, body: fd });
-    const body = await up.json();
-    if (!up.ok || !body.url) { console.log(`  ✗ ${j.text.slice(0, 30)}: upload ${up.status}`); continue; }
-    await sql.query(`UPDATE "${TABLE[j.kind]}" SET "audioUrl"='${body.url}' WHERE id='${j.id}'`);
-    ok++;
-  }
-  // Дарси навиштан калимаҳои модулро такрор мекунад ва нусхаҳо ҳангоми сохта
-  // шудан аудиои сарчашмаро гирифтанд — вале сарчашмаҳои НАВ он лаҳза ҳанӯз
-  // аудио надоштанд (он маҳз ҳозир сохта шуд). Акнун онро мекашем.
-  const [{ n: synced }] = await sql.query(`
-    WITH src AS (
-      SELECT w.word, w."audioUrl" FROM "Word" w JOIN "Lesson" l ON w."lessonId"=l.id
-      WHERE l."moduleId"='${module.id}' AND l."skillType" <> 'writing' AND w."audioUrl" IS NOT NULL
-    )
-    UPDATE "Word" t SET "audioUrl" = src."audioUrl"
-    FROM src, "Lesson" l
-    WHERE t."lessonId" = l.id AND l."moduleId"='${module.id}' AND l."skillType"='writing'
-      AND t.word = src.word AND (t."audioUrl" IS NULL OR t."audioUrl"='')
-    RETURNING 1 AS n`).then(r => [{ n: r.length }]);
-  if (synced) console.log(`  аудиои дарси навиштан пайваст шуд: ${synced}`);
-
-  // Навиштани мустақими SQL миёнабури `lib/prisma.ts`-ро давр мезанад.
+  console.log(`  ${audioJobs.length} сатри нав садо мехоҳад → prisma/_de-audio-rehost.mjs --gen --push --apply`);
+}
+// Навиштани мустақими SQL миёнабури `lib/prisma.ts`-ро давр мезанад → парчами
+// глобалӣ ва версияи ҳамин бахш дастӣ ламс карда мешавад.
+if (!DRY) {
+  await sql.query(`UPDATE "Module" SET "contentVersion" = "contentVersion" + 1 WHERE id='${module.id}'`);
   await sql.query(`INSERT INTO "AppSetting" (key, "valueJson", "updatedAt") VALUES ('content_version','"1"',NOW())
                    ON CONFLICT (key) DO UPDATE SET "updatedAt"=NOW()`);
-  console.log(`  сабт шуд: ${ok}/${audioJobs.length}`);
-} else console.log(`  ${audioJobs.length} файл лозим`);
+}
 
 // Калимаи нав бе `partOfSpeech` сохта мешавад, вале барнома расмро ТАНҲО ба
 // исм нишон медиҳад (`_showIntroPhoto`) — пас таснифгарро худи ҳамин ҷо
