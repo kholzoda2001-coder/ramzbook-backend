@@ -2,15 +2,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { Save, DollarSign } from 'lucide-react';
-import { toast } from 'react-hot-toast';
+
 
 export default function PricingSettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [config, setConfig] = useState<any>({
-    TJ: { currency: 'TJS', symbol: 'сом.', monthly: 59, yearly: 399, yearlyOld: 708, lifetime: 799, lifetimeOld: 1200 },
-    RU: { currency: 'RUB', symbol: '₽', monthly: 299, yearly: 1990, yearlyOld: 3588, lifetime: 3990, lifetimeOld: 5990 },
-    default: { currency: 'USD', symbol: '$', monthly: 2.99, yearly: 10.99, yearlyOld: 16.99, lifetime: 54.99, lifetimeOld: 99.99 }
+    TJ: { currency: 'TJS', symbol: 'сом.', monthly: 59, sixmonths: 239, yearly: 399, yearlyOld: 708, lifetime: 799, lifetimeOld: 1200 },
+    RU: { currency: 'RUB', symbol: '₽', monthly: 299, sixmonths: 1190, yearly: 1990, yearlyOld: 3588, lifetime: 3990, lifetimeOld: 5990 },
+    default: { currency: 'USD', symbol: '$', monthly: 2.99, sixmonths: 6.99, yearly: 10.99, yearlyOld: 16.99, lifetime: 54.99, lifetimeOld: 99.99 }
   });
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function PricingSettingsPage() {
       })
       .catch(err => {
         console.error(err);
-        toast.error('Failed to load pricing config');
+        alert('Failed to load pricing config');
         setLoading(false);
       });
   }, []);
@@ -38,10 +38,10 @@ export default function PricingSettingsPage() {
         body: JSON.stringify({ config }),
       });
       if (!res.ok) throw new Error('Failed to save');
-      toast.success('Pricing config saved successfully');
+      alert('Pricing config saved successfully');
     } catch (e) {
       console.error(e);
-      toast.error('Failed to save config');
+      alert('Failed to save config');
     } finally {
       setSaving(false);
     }
@@ -77,7 +77,7 @@ export default function PricingSettingsPage() {
             <h2 className="text-lg font-semibold mb-6 text-[var(--text-primary)] flex items-center gap-2">
               <DollarSign size={20} className="text-emerald-500" /> {labels[country]}
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               <div>
                 <label className="block text-xs text-[var(--text-muted)] mb-1">Currency</label>
                 <input type="text" value={config[country]?.currency || ''} onChange={(e) => updateField(country, 'currency', e.target.value)} className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" />
@@ -89,6 +89,10 @@ export default function PricingSettingsPage() {
               <div>
                 <label className="block text-xs text-[var(--text-muted)] mb-1">Monthly</label>
                 <input type="number" step="0.01" value={config[country]?.monthly || 0} onChange={(e) => updateField(country, 'monthly', parseFloat(e.target.value))} className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" />
+              </div>
+              <div>
+                <label className="block text-xs text-[var(--text-muted)] mb-1">6 Months</label>
+                <input type="number" step="0.01" value={config[country]?.sixmonths || 0} onChange={(e) => updateField(country, 'sixmonths', parseFloat(e.target.value))} className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-3 py-2 text-sm text-[var(--text-primary)]" />
               </div>
               <div>
                 <label className="block text-xs text-[var(--text-muted)] mb-1">Yearly</label>
