@@ -100,6 +100,9 @@ export default function AdminSidebar({ onClose, staticMode }: { onClose: () => v
         <Link href="/admin/settings/promo" className={`ni ${isActive('/admin/settings/promo') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">🎁</span>Тӯҳфаи Premium
         </Link>
+        <Link href="/admin/settings/pricing" className={`ni ${isActive('/admin/settings/pricing') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
+          <span className="ni-icon">💲</span>Web Pricing
+        </Link>
         <Link href="/admin/library" className={`ni ${isActive('/admin/library') ? 'active' : ''}`} onClick={staticMode ? undefined : onClose}>
           <span className="ni-icon">📚</span>Китобхона
         </Link>
