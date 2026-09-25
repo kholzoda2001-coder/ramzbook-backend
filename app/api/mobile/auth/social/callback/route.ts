@@ -37,11 +37,19 @@ export async function OPTIONS() {
 
 export async function POST(req: NextRequest) {
   try {
-    const body = (await req.json()) as { provider?: string; idToken?: string };
+    const body = (await req.json()) as {
+      provider?: string;
+      idToken?: string;
+      accessToken?: string;
+    };
     const provider = (body?.provider ?? '').toLowerCase().trim();
     const idToken = (body?.idToken ?? '').trim();
+    // Танҳо Google, танҳо ВЕБ: `google_sign_in_web` дар браузер idToken
+    // дода наметавонад — фақат OAuth access token. Онро бо тафтиши `aud`
+    // қабул мекунем (ниг. поён).
+    const googleAccessToken = (body?.accessToken ?? '').trim();
 
-    if (!provider || !idToken) {
+    if (!provider || (!idToken && !(provider === 'google' && googleAccessToken))) {
       return Response.json({ error: 'provider ва idToken лозим аст.' }, { status: 400, headers: CORS });
     }
 
@@ -54,7 +62,7 @@ export async function POST(req: NextRequest) {
 
     if (provider === 'google') {
       const clientId = loginCfg.googleClientId || process.env.GOOGLE_CLIENT_ID;
-      if (idToken.startsWith('mock_')) {
+      if (idToken && idToken.startsWith('mock_')) {
         const allowMock = loginCfg.allowMockSocial || process.env.ALLOW_MOCK_SOCIAL === 'true';
         if (process.env.NODE_ENV === 'production' && !allowMock) {
           return Response.json({ error: 'Mock social disabled in production.' }, { status: 403, headers: CORS });
@@ -65,14 +73,45 @@ export async function POST(req: NextRequest) {
       } else if (clientId) {
         const clientIds = clientId.split(',').map(s => s.trim());
         const client = new OAuth2Client(clientIds[0]);
-        const ticket = await client.verifyIdToken({ idToken, audience: clientIds });
-        const payload = ticket.getPayload();
-        if (!payload?.email) {
-          return Response.json({ error: 'Google token бе email.' }, { status: 400, headers: CORS });
+        if (idToken) {
+          const ticket = await client.verifyIdToken({ idToken, audience: clientIds });
+          const payload = ticket.getPayload();
+          if (!payload?.email) {
+            return Response.json({ error: 'Google token бе email.' }, { status: 400, headers: CORS });
+          }
+          email = payload.email.toLowerCase();
+          name = (payload.name ?? email.split('@')[0]) as string;
+          picture = (payload.picture as string | undefined) ?? null; // Google avatar
+        } else {
+          // ВЕБ: access token. Google онро тасдиқ мекунад ва мегӯяд, ки ба
+          // КАДОМ барнома дода шудааст (`aud`). Агар ба client ID-и мо нест —
+          // токени барномаи бегона аст ва рад мешавад (ҳамлаи «токенро иваз
+          // кардан»).
+          const info = await client.getTokenInfo(googleAccessToken);
+          const aud = info.aud || info.azp || '';
+          if (!aud || !clientIds.includes(aud)) {
+            return Response.json({ error: 'Google token барои ин барнома нест.' }, { status: 401, headers: CORS });
+          }
+          if (!info.email || info.email_verified === false) {
+            return Response.json({ error: 'Google token бе email.' }, { status: 400, headers: CORS });
+          }
+          email = info.email.toLowerCase();
+          name = email.split('@')[0];
+          // Ном ва акс — аз userinfo (tokeninfo онҳоро намедиҳад). Ихтиёрӣ:
+          // агар нашавад, вуруд бо email идома меёбад.
+          try {
+            const r = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+              headers: { Authorization: `Bearer ${googleAccessToken}` },
+            });
+            if (r.ok) {
+              const u = (await r.json()) as { name?: string; picture?: string };
+              if (u.name) name = u.name;
+              picture = u.picture ?? null;
+            }
+          } catch {
+            /* ном/акс ихтиёрист */
+          }
         }
-        email = payload.email.toLowerCase();
-        name = (payload.name ?? email.split('@')[0]) as string;
-        picture = (payload.picture as string | undefined) ?? null; // Google avatar
       } else {
         return Response.json(
           {
