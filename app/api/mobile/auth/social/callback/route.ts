@@ -87,7 +87,13 @@ export async function POST(req: NextRequest) {
           // КАДОМ барнома дода шудааст (`aud`). Агар ба client ID-и мо нест —
           // токени барномаи бегона аст ва рад мешавад (ҳамлаи «токенро иваз
           // кардан»).
-          const info = await client.getTokenInfo(googleAccessToken);
+          let info: Awaited<ReturnType<typeof client.getTokenInfo>>;
+          try {
+            info = await client.getTokenInfo(googleAccessToken);
+          } catch {
+            // Токени нодуруст ё мӯҳлаташ гузашта — хатои КОРБАР, на сервер.
+            return Response.json({ error: 'Google token нодуруст ё кӯҳна аст.' }, { status: 401, headers: CORS });
+          }
           const aud = info.aud || info.azp || '';
           if (!aud || !clientIds.includes(aud)) {
             return Response.json({ error: 'Google token барои ин барнома нест.' }, { status: 401, headers: CORS });
