@@ -321,6 +321,9 @@ export async function GET(req: NextRequest) {
       lessonId: lesson.id,
       lessonTitle: lesson.title ?? '',
       lessonNumber: lessonIndex + 1,
+      // Зинаи дарс — клиент дар зинаҳои осон (калима, ибора) мулоимтар қабул
+      // мекунад: холи Azure барои калимаи якҳиҷоӣ боэътимод нест.
+      stage: lesson.stage ?? '',
       // Ҳанӯз ягон дарси гуфтор нагузаштааст → тугма «Оғози дарс» мешавад,
       // на «Дарси навбатӣ».
       firstEver: doneIds.size === 0,
