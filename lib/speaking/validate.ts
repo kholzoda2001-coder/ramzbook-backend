@@ -114,7 +114,10 @@ export function validateLesson(
     }
 
     // ── E_SCRIPT ────────────────────────────────────────────────────────
-    if (ctx.targetScript && text && !ctx.targetScript.test(text)) {
+    // «Ҷавоби худат»: ҷои холӣ «___» ҳарфи ягон алифбо нест — пеш аз санҷиш
+    // бардошта мешавад (вагарна «Меня зовут ___.» хатои E_SCRIPT мегирифт).
+    const scriptText = text.split(OWN_SLOT).join(' ').replace(/\s+/g, ' ').trim();
+    if (ctx.targetScript && scriptText && !ctx.targetScript.test(scriptText)) {
       add('E_SCRIPT', 'error', `Матн бо алифбои забони омӯзиш нест: «${text}»`, it.id);
     }
 

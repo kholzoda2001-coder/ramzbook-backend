@@ -16,7 +16,7 @@ import {
   DEFAULT_CONFIG,
   type EngineItem,
 } from '../engine';
-import { validateStage } from '../validate';
+import { validateLesson, validateStage } from '../validate';
 
 const turn = (
   id: string,
@@ -288,5 +288,22 @@ describe('Нишасти А (ev 3)', () => {
     expect(old.some((s) => s.target.includes('___'))).toBe(false);
     expect(old.some((s) => ['pattern', 'own', 'heard', 'swap'].includes(s.kind))).toBe(false);
     expect(() => old.map((s) => toWire(s, 2))).not.toThrow();
+  });
+});
+
+describe('валидатор: «Ҷавоби худат»', () => {
+  it('«___» хатои алифбо (E_SCRIPT) намедиҳад', () => {
+    const own: EngineItem = {
+      ...sentence('o1', 'Меня зовут ___.'),
+      kind: 'own',
+      cue: 'Как вас зовут?',
+    };
+    const codes = validateLesson(
+      { id: 'L', items: [own], stage: 'sentences' },
+      { targetScript: /^[А-Яа-яЁё\s.,!?-]+$/, categoryTexts: new Set() },
+      DEFAULT_CONFIG,
+    ).map((i) => i.code);
+    expect(codes).not.toContain('E_SCRIPT');
+    expect(codes).not.toContain('E_OWN_NO_SLOT');
   });
 });
