@@ -36,13 +36,17 @@ await sql.query(
   [tgt.id, nat.id, c.titleTranslated]);
 
 const catId = cuid();
+// Ҳадафҳои вазъият (26.09.2026) — танҳо агар баста дошта бошад.
+const goalsCol = Array.isArray(c.goals) ? ', goals' : '';
+const goalsVal = Array.isArray(c.goals) ? ',$11' : '';
 await sql.query(
   `INSERT INTO "SpeakingCategory"
      (id, "targetLanguageId", "nativeLanguageId", title, "titleTranslated",
-      scenario, emoji, "order", "isPremium", "isActive", "createdAt")
-   VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10, NOW())`,
+      scenario, emoji, "order", "isPremium", "isActive", "createdAt"${goalsCol})
+   VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10, NOW()${goalsVal})`,
   [catId, tgt.id, nat.id, c.title, c.titleTranslated, c.scenario ?? null,
-   c.emoji ?? '🎙️', c.order ?? 0, !!c.isPremium, c.isActive !== false]);
+   c.emoji ?? '🎙️', c.order ?? 0, !!c.isPremium, c.isActive !== false,
+   ...(Array.isArray(c.goals) ? [c.goals] : [])]);
 
 let lessons = 0, items = 0;
 for (const L of pack.lessons) {

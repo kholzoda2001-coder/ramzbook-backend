@@ -927,6 +927,11 @@ model SpeakingCategory {
   requiresCategory   SpeakingCategory?  @relation("CatGate", fields: [requiresCategoryId], references: [id], onDelete: SetNull)
   unlocks            SpeakingCategory[] @relation("CatGate")
 
+  /// Ҳадафҳои хонанда, ки ин ВАЗЪИЯТ барояшон аст (26.09.2026):
+  /// "build" | "service" | "drive" | "study" | "life". Холӣ = барои ҳама.
+  /// Тартиби вазъиятҳо дар «Гуфтор» аз ин вобаста аст (`lib/speaking/situations.ts`).
+  goals          String[] @default([])
+
   lessons SpeakingLesson[]
 
   @@index([targetLanguageId, nativeLanguageId])

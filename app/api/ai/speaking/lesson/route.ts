@@ -15,6 +15,7 @@ import {
   SPEAKING_LOCKED,
 } from '@/lib/speaking/access';
 import { pickSpeakingLesson } from '@/lib/speaking/pick';
+import { asGoal, orderChapters } from '@/lib/speaking/situations';
 
 export const dynamic = 'force-dynamic';
 
@@ -109,6 +110,8 @@ export async function GET(req: NextRequest) {
         // «шумо дар кафе ҳастед…». Бе он машқ рӯйхати ҷумлаҳои беконтекст аст.
         scenario: true,
         emoji: true,
+        order: true,
+        goals: true,
         lessons: {
           where: { isActive: true },
           orderBy: { order: 'asc' },
@@ -146,14 +149,21 @@ export async function GET(req: NextRequest) {
     });
 
     // Дарси бе воҳид машқ дода наметавонад — партофта мешавад.
-    const all = categories
-      .map((c) => ({
-        ...c,
-        lessons: c.lessons.filter((l) =>
-          l.items.some((i) => i.text.trim() && i.translation.trim()),
-        ),
-      }))
-      .filter((c) => c.lessons.length > 0);
+    //
+    // Тартиб ҲАМОН тартиби `/categories` аст: вазъиятҳо аз рӯи ҳадафи
+    // хонанда, бобҳои кӯҳна дар охир. Пас «дарси навбатӣ» ва рақами боб
+    // дар ду роут як хел мебароянд.
+    const all = orderChapters(
+      categories
+        .map((c) => ({
+          ...c,
+          lessons: c.lessons.filter((l) =>
+            l.items.some((i) => i.text.trim() && i.translation.trim()),
+          ),
+        }))
+        .filter((c) => c.lessons.length > 0),
+      asGoal(req.nextUrl.searchParams.get('goal')),
+    );
 
     // Боби интихобшуда — ФАҚАТ барои интихоби дарс; гейт `all`-ро мебинад.
     const chapters = categoryId ? all.filter((c) => c.id === categoryId) : all;

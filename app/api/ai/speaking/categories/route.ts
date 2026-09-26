@@ -4,7 +4,9 @@ import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import {
   unlockedSpeakingLessonIds,
   FREE_SPEAKING_LESSONS,
+  FREE_SESSIONS_PER_SITUATION,
 } from '@/lib/speaking/access';
+import { asGoal, isSituation, orderChapters } from '@/lib/speaking/situations';
 
 export const dynamic = 'force-dynamic';
 
@@ -59,6 +61,8 @@ export async function GET(req: NextRequest) {
         scenario: true,
         emoji: true,
         isPremium: true,
+        order: true,
+        goals: true,
         lessons: {
           where: { isActive: true },
           orderBy: { order: 'asc' },
@@ -66,6 +70,7 @@ export async function GET(req: NextRequest) {
             id: true,
             // Барои рӯйхати дарсҳои боб (`lessonList`).
             title: true,
+            stage: true,
             // Дарси бе воҳид машқ дода наметавонад — ҳамон қоидаи `/lesson`.
             _count: { select: { items: true } },
           },
@@ -73,12 +78,17 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    const usable = categories
-      .map((c) => ({
-        ...c,
-        lessons: c.lessons.filter((l) => l._count.items > 0),
-      }))
-      .filter((c) => c.lessons.length > 0);
+    // Вазъиятҳо аввал (аз рӯи ҳадафи хонанда), бобҳои кӯҳна дар охир.
+    const goal = asGoal(req.nextUrl.searchParams.get('goal'));
+    const usable = orderChapters(
+      categories
+        .map((c) => ({
+          ...c,
+          lessons: c.lessons.filter((l) => l._count.items > 0),
+        }))
+        .filter((c) => c.lessons.length > 0),
+      goal,
+    );
 
     const allLessonIds = usable.flatMap((c) => c.lessons.map((l) => l.id));
     const done = await prisma.speakingProgress.findMany({
@@ -104,6 +114,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       isPremium: user.isPremium,
       freeLessons: FREE_SPEAKING_LESSONS,
+      freeSessionsPerSituation: FREE_SESSIONS_PER_SITUATION,
       categories: usable.map((c, i) => {
         const total = c.lessons.length;
         const finished = c.lessons.filter((l) => doneIds.has(l.id)).length;
@@ -115,6 +126,9 @@ export async function GET(req: NextRequest) {
           emoji: c.emoji,
           scenario: c.scenario ?? '',
           isPremium: c.isPremium,
+          // «Гуфтор»-и нав: вазъият (бо зинаҳо) ё боби кӯҳна.
+          isSituation: isSituation(c),
+          goals: c.goals,
           lessons: total,
           lessonsDone: finished,
           progress: total ? finished / total : 0,
@@ -131,6 +145,7 @@ export async function GET(req: NextRequest) {
             title: (l.title ?? '').trim(),
             done: doneIds.has(l.id),
             open: openIds.has(l.id),
+            stage: l.stage ?? null,
           })),
         };
       }),

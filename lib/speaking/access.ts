@@ -38,6 +38,17 @@
 export const FREE_SPEAKING_LESSONS = 1;
 
 /**
+ * Чанд нишасти аввали ҲАР вазъият (боби бо зина) ройгон аст.
+ *
+ * Қарори соҳиби маҳсулот (26.09.2026): «2 нишаст ройгон бошад». Ҳар вазъият
+ * бо зинаҳои осон (калимаҳо) сар мешавад — хонанда метавонад ҳар вазъиятро
+ * бичашад, на танҳо як дарси тамоми бахшро.
+ *
+ * Бобҳои КӮҲНА (бе зина) қоидаи [FREE_SPEAKING_LESSONS]-ро нигоҳ медоранд.
+ */
+export const FREE_SESSIONS_PER_SITUATION = 2;
+
+/**
  * Гейт УМУМАН фаъол аст?
  *
  * 🟢 `true` = ФАЪОЛ (2026-09-07). Қарори соҳиби маҳсулот.
@@ -62,7 +73,7 @@ export const FREE_SPEAKING_LESSONS = 1;
 export const SPEAKING_GATE_ENABLED = true;
 
 /** Он майдонҳое, ки қоидаи дастрасӣ лозим дорад. */
-export type AccessLesson = { id: string };
+export type AccessLesson = { id: string; stage?: string | null };
 export type AccessChapter = { lessons: AccessLesson[] };
 
 export interface AccessInput {
@@ -88,7 +99,19 @@ export function unlockedSpeakingLessonIds({
   const all = chapters.flatMap((c) => c.lessons.map((l) => l.id));
   if (!SPEAKING_GATE_ENABLED || isPremium) return new Set(all);
 
-  const open = new Set(all.slice(0, FREE_SPEAKING_LESSONS));
+  // Вазъият = боби бо зина (ниг. `situations.ts`). Ҳар вазъият 2 нишасти
+  // аввалро ройгон медиҳад; занҷири «дарси 1-и тамоми бахш» танҳо аз бобҳои
+  // КӮҲНА сохта мешавад — вагарна тартиби нав (аз рӯи ҳадаф) дарси ройгони
+  // кӯҳнаро ба дигар ҷо мекӯчонд.
+  const situation = (c: AccessChapter) => c.lessons.some((l) => !!l.stage);
+  const legacy = chapters
+    .filter((c) => !situation(c))
+    .flatMap((c) => c.lessons.map((l) => l.id));
+
+  const open = new Set(legacy.slice(0, FREE_SPEAKING_LESSONS));
+  chapters.filter(situation).forEach((c) => {
+    c.lessons.slice(0, FREE_SESSIONS_PER_SITUATION).forEach((l) => open.add(l.id));
+  });
   // ⚠️ `Array.from`, на `for…of`: `tsconfig` ҳадафи поёнтар аз ES2015 дорад
   // ва гардиши мустақими `Set`/`Iterable` дар билд хато медиҳад.
   Array.from(completedIds ?? []).forEach((id) => {

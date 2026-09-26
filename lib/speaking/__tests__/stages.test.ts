@@ -71,7 +71,7 @@ describe('зинаҳои осон', () => {
     const items = [word('a', 'Врач'), word('b', 'Голова'), word('c', 'Да'), word('d', 'Нет')];
     const steps = generateSteps(items, v3, { repeat: false, stage: 'words' });
     const kinds = new Set(steps.map((s) => s.kind));
-    expect([...kinds].sort()).toEqual(['say', 'translate']);
+    expect(Array.from(kinds).sort()).toEqual(['say', 'translate']);
   });
 
   it('«chunks»: «аз хотира» нест (доми `slice(-0)`)', () => {
