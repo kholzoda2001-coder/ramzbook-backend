@@ -2,7 +2,7 @@
  * AI-довар (қадами 7): промпт ва хондани ҷавоб — бе шабака.
  */
 import { describe, expect, it } from 'vitest';
-import { buildJudgeMessages, judgeable, languageName, parseJudgeReply, type JudgeInput } from '../judge';
+import { buildJudgeMessages, isReasoningModel, judgeable, languageName, parseJudgeReply, type JudgeInput } from '../judge';
 
 const base: JudgeInput = {
   language: 'Russian',
@@ -33,6 +33,7 @@ describe('buildJudgeMessages', () => {
     const [sys, user] = buildJudgeMessages(base);
     expect(sys.role).toBe('system');
     expect(sys.content).toContain('JSON only');
+    expect(sys.content).toContain('communication, not perfect grammar');
     expect(sys.content).toContain('Russian');
     expect(user.content).toContain('Partner said: "Что вас беспокоит?"');
     expect(user.content).toContain('Бигӯед, ки саратон дард мекунад');
@@ -65,5 +66,15 @@ describe('languageName', () => {
     expect(languageName('ru-RU')).toBe('Russian');
     expect(languageName('ko')).toBe('Korean');
     expect(languageName('Russian')).toBe('Russian');
+  });
+});
+
+describe('isReasoningModel', () => {
+  it('модели фикркунанда ва оддӣ', () => {
+    expect(isReasoningModel('openai/gpt-oss-120b')).toBe(true);
+    expect(isReasoningModel('o3-mini')).toBe(true);
+    expect(isReasoningModel('gpt-4o-mini')).toBe(false);
+    expect(isReasoningModel('llama-3.3-70b-versatile')).toBe(false);
+    expect(isReasoningModel('gemini-2.0-flash')).toBe(false);
   });
 });

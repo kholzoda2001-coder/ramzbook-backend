@@ -5,6 +5,7 @@ import { loadAiSettingsConfig, resolveApiKey } from '@/lib/ai/ai-settings';
 import { openAiChat } from '@/lib/ai/openai';
 import {
   buildJudgeMessages,
+  isReasoningModel,
   judgeable,
   languageName,
   parseJudgeReply,
@@ -70,16 +71,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, fix: '', reason: 'limit' }, { status: 429 });
     }
 
-    const res = await openAiChat({
-      apiKey,
-      model: cfg.model,
-      baseUrl: cfg.baseUrl,
-      messages: buildJudgeMessages(input),
-      maxTokens: 80,
-      temperature: 0,
-      timeoutMs: 4000,
-    });
+    const reasoning = isReasoningModel(cfg.model);
+    const ask = (extra?: Record<string, unknown>) =>
+      openAiChat({
+        apiKey,
+        model: cfg.model,
+        baseUrl: cfg.baseUrl,
+        messages: buildJudgeMessages(input),
+        // Модели фикркунанда токенро ба фикр ҳам сарф мекунад (~30–130).
+        maxTokens: reasoning ? 400 : 100,
+        temperature: 0,
+        timeoutMs: 4000,
+        extra,
+      });
+    let res = await ask(reasoning ? { reasoning_effort: 'low' } : undefined);
+    // Провайдере, ки `reasoning_effort`-ро намешиносад → бори дигар бе он.
+    if (!res.ok && reasoning && res.status === 400) res = await ask();
     if (!res.ok || !res.reply) {
+      console.error(`[speaking/judge] AI: ${res.status ?? '-'} ${res.error ?? 'empty'}`);
       return NextResponse.json({ ok: false, fix: '', reason: 'ai' }, { status: 502 });
     }
     const verdict = parseJudgeReply(res.reply);

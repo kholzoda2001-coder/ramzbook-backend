@@ -35,6 +35,8 @@ export async function openAiChat(params: {
   maxTokens?: number;
   temperature?: number;
   timeoutMs?: number;
+  /** Майдонҳои иловагии дархост (мас. `reasoning_effort`). */
+  extra?: Record<string, unknown>;
 }): Promise<OpenAiChatResult> {
   const { apiKey, model, messages } = params;
   if (!apiKey) return { ok: false, error: 'No API key configured' };
@@ -56,6 +58,7 @@ export async function openAiChat(params: {
         messages,
         max_tokens: params.maxTokens ?? 400,
         temperature: params.temperature ?? 0.7,
+        ...(params.extra ?? {}),
       }),
       signal: AbortSignal.timeout(params.timeoutMs ?? 20000),
     });

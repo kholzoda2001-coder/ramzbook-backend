@@ -59,12 +59,13 @@ export function judgeable(i: JudgeInput): boolean {
 const clip = (s: string, n: number) => s.replace(/\s+/g, ' ').trim().slice(0, n);
 
 export function buildJudgeMessages(i: JudgeInput): ChatMessage[] {
+  // Калибр шуд бо модели зинда (26.09.2026, 8 ҳолат): нусхаи аввал «болит
+  // голова вчера»-ро рад мекард — яъне грамматикаро месанҷид, на маъноро.
   const system = [
-    `You judge one reply in a ${i.language} speaking roleplay for a beginner (A1–A2).`,
-    `Decide: would a native ${i.language} speaker in this situation understand the learner's reply,`,
-    `and does it express the intended meaning? Accept small grammar mistakes, missing little words,`,
-    `other correct wordings and speech-to-text slips. Reject replies in another language,`,
-    `replies that answer something else, and fragments that lose the meaning.`,
+    `You judge one spoken reply in a ${i.language} roleplay for a beginner (A1–A2). The goal is communication, not perfect grammar.`,
+    `ok=true if a native ${i.language} speaker in this situation would understand that the learner means the intended meaning —`,
+    `even with wrong word order, wrong endings, missing small words, colloquial or unusual wording, extra details, or speech-to-text slips.`,
+    `ok=false only if the reply is in another language, says something different, answers a different question, or is too incomplete to carry the meaning.`,
     `Reply with JSON only: {"ok": true or false, "fix": "<the most natural correct ${i.language} sentence for this meaning, max 12 words>"}.`,
   ].join(' ');
   const user = [
@@ -79,6 +80,15 @@ export function buildJudgeMessages(i: JudgeInput): ChatMessage[] {
     { role: 'system', content: system },
     { role: 'user', content: user },
   ];
+}
+
+/**
+ * Модели «фикркунанда» (gpt-oss, o1/o3/o4, qwen3, deepseek-r1)? Ба онҳо
+ * `reasoning_effort: low` лозим аст: бе он токенҳо ба фикр сарф мешаванд,
+ * ҷавоб холӣ меояд ва довар ҳамеша «рад» мекунад (боги зинда, 26.09.2026).
+ */
+export function isReasoningModel(model: string): boolean {
+  return /gpt-oss|(^|\/)o[1-9]|qwen3|deepseek-r1|reason/i.test(model);
 }
 
 /**
