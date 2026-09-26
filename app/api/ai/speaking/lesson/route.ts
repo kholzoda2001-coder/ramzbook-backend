@@ -257,7 +257,23 @@ export async function GET(req: NextRequest) {
         swaps: i.swaps,
       })),
       cfg,
-      { repeat, stage: asStage(lesson.stage) },
+      {
+        repeat,
+        stage: asStage(lesson.stage),
+        position: lessonIndex,
+        // «3 ибораи кӯҳна» — аз нишастҳои ПЕШТАРАИ ҳамин вазъият (охиринҳо).
+        review: chapter.lessons
+          .slice(0, lessonIndex)
+          .flatMap((l) => l.items)
+          .filter(
+            (i) =>
+              (i.kind === 'word' || i.kind === 'sentence') &&
+              i.text.trim() &&
+              i.translation.trim(),
+          )
+          .slice(-6)
+          .map((i) => toEngineItem(i)),
+      },
     );
     const exercises = steps.map((s) => toWire(s, ev));
 

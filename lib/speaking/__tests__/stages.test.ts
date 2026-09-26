@@ -67,11 +67,12 @@ const doctor = [
 const v3 = configForEv(3, DEFAULT_CONFIG);
 
 describe('зинаҳои осон', () => {
-  it('«words»: танҳо say → translate, бе чунк ва бе «аз хотира»', () => {
+  it('«words»: «Шунидед?» → say → translate, бе чунк ва бе «аз хотира»', () => {
     const items = [word('a', 'Врач'), word('b', 'Голова'), word('c', 'Да'), word('d', 'Нет')];
     const steps = generateSteps(items, v3, { repeat: false, stage: 'words' });
+    expect(steps[0].kind).toBe('heard');
     const kinds = new Set(steps.map((s) => s.kind));
-    expect(Array.from(kinds).sort()).toEqual(['say', 'translate']);
+    expect(Array.from(kinds).sort()).toEqual(['heard', 'say', 'translate']);
   });
 
   it('«chunks»: «аз хотира» нест (доми `slice(-0)`)', () => {
@@ -217,5 +218,75 @@ describe('валидатори зинаҳо', () => {
     const codes = validateStage('mission', doctor.slice(0, 2)).map((i) => i.code);
     expect(codes).toContain('E_STAGE_FEW_TURNS');
     expect(validateStage('mission', doctor).filter((i) => i.severity === 'error')).toEqual([]);
+  });
+});
+
+describe('Нишасти А (ev 3)', () => {
+  const prev = [word('p1', 'Спина'), word('p2', 'Температура'), word('p3', 'Лекарство')];
+  const head = {
+    ...sentence('s1', 'У меня болит голова.'),
+    swaps: ['голова|сар', 'спина|пушт', 'живот|шикам'],
+  };
+  const own: EngineItem = {
+    ...sentence('o1', 'Меня зовут ___.'),
+    kind: 'own',
+    cue: 'Как вас зовут?',
+    intent: 'Номи худатонро гӯед',
+  };
+  const items = [word('a', 'болит'), word('b', 'голова'), head, own];
+  const steps = generateSteps(items, v3, {
+    repeat: false,
+    stage: 'sentences',
+    review: prev,
+    position: 1,
+  });
+
+  it('тартиб: шунидед → нав → кӯҳна → иваз кун → ҷавоби худат', () => {
+    const kinds = steps.map((s) => s.kind);
+    expect(kinds[0]).toBe('heard');
+    const firstPattern = kinds.indexOf('pattern');
+    const lastRemember = steps.map((s) => s.badge).lastIndexOf('remember');
+    expect(lastRemember).toBeLessThan(firstPattern);
+    expect(kinds.indexOf('own')).toBeGreaterThan(firstPattern);
+  });
+
+  it('«Шунидед?» аз ибораҳои КӮҲНА, ҷои ҷавоб аз рақами дарс', () => {
+    const h = steps[0];
+    expect(prev.map((p) => p.text)).toContain(h.target);
+    expect(h.options![h.answerIndex!]).toBe(h.target);
+    expect(h.answerIndex).toBe(1);
+  });
+
+  it('3 ибораи кӯҳна — «аз маъно гӯй» бо нишони «ба ёд оред»', () => {
+    const old = steps.filter((s) => s.badge === 'remember' && s.kind === 'translate');
+    expect(old.map((s) => s.target)).toEqual(['Спина', 'Температура', 'Лекарство']);
+  });
+
+  it('«Иваз кун»: қолаб ва вариантҳо, варианти аслӣ такрор намешавад', () => {
+    const p = steps.filter((s) => s.kind === 'pattern');
+    expect(p.map((s) => s.target)).toEqual(['У меня болит спина.', 'У меня болит живот.']);
+    expect(p[0].patternHead).toBe('У меня болит');
+    expect(p[0].patternTail).toBe('.');
+    expect(p[0].prompt).toBe('пушт');
+    expect(p[0].patternOptions).toHaveLength(3);
+  });
+
+  it('«Ҷавоби худат»: қолаб бо ҷои холӣ ва савол', () => {
+    const o = steps.find((s) => s.kind === 'own')!;
+    expect(o.target).toBe('Меня зовут ___.');
+    expect(o.cue).toBe('Как вас зовут?');
+    expect(o.intent).toBe('Номи худатонро гӯед');
+    expect(toWire(o, 3).intent).toBe('Номи худатонро гӯед');
+  });
+
+  it('клиенти кӯҳна (ev 2): на «___», на иваз кун, на шунидед', () => {
+    const old = generateSteps(items, configForEv(2, DEFAULT_CONFIG), {
+      repeat: false,
+      stage: 'sentences',
+      review: prev,
+    });
+    expect(old.some((s) => s.target.includes('___'))).toBe(false);
+    expect(old.some((s) => ['pattern', 'own', 'heard', 'swap'].includes(s.kind))).toBe(false);
+    expect(() => old.map((s) => toWire(s, 2))).not.toThrow();
   });
 });

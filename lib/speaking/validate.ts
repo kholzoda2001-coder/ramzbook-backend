@@ -18,6 +18,8 @@ import {
   generateSteps,
   configForEv,
   asStage,
+  OWN_SLOT,
+  parsePatternOptions,
   type EngineConfig,
   type EngineItem,
   type Stage,
@@ -320,6 +322,25 @@ export function validateStage(stage: Stage, items: EngineItem[]): Issue[] {
     if (it.kind === 'turn') {
       add('E_STAGE_KIND', 'error', `Навбати нақшбозӣ дар зинаи «${stage}» — зинаро «dialogue» кунед`, it.id);
       continue;
+    }
+    // «Ҷавоби худат»: қолаб БОЯД ҷои холӣ дошта бошад, вагарна хонанда
+    // «___»-ро айнан мегуфт.
+    if (it.kind === 'own') {
+      if (!it.text.includes(OWN_SLOT)) {
+        add('E_OWN_NO_SLOT', 'error', `«Ҷавоби худат» бе ҷои холӣ «${OWN_SLOT}»: «${it.text}»`, it.id);
+      }
+      if (!it.cue?.trim()) {
+        add('W_OWN_NO_CUE', 'warning', `«Ҷавоби худат» бе саволи ҳамсӯҳбат: «${it.text}»`, it.id);
+      }
+      if (stage === 'words') {
+        add('E_STAGE_KIND', 'error', `Зинаи «words» танҳо калима дорад: «${it.text}»`, it.id);
+      }
+      continue;
+    }
+    // «Иваз кун»: ҳар вариант маънои тоҷикӣ мехоҳад — экран онро нишон медиҳад.
+    const opts = parsePatternOptions(it.swaps);
+    if (opts.length && opts.some((o) => !o.meaning)) {
+      add('W_PATTERN_NO_MEANING', 'warning', `Варианти «Иваз кун» бе маъно («калима|маъно»): «${it.text}»`, it.id);
     }
     if (stage === 'words' && it.kind !== 'word') {
       add('E_STAGE_KIND', 'error', `Зинаи «words» танҳо калима дорад: «${it.text}»`, it.id);

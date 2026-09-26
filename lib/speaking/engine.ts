@@ -26,7 +26,9 @@ export type StepKind =
   // ── ev ≥ 3 (26.09.2026): курси вазъиятҳо ──────────────────────────────
   | 'listen' // муколамаи пурра — танҳо гӯш кардан, бе микрофон
   | 'heard' // «Кадом ибораро шунидӣ?» — интихоб аз 3, бе микрофон
-  | 'turn'; // нақшбозӣ: ҷумлаи ҳамсӯҳбат + НИЯТ, хонанда бо калимаҳои худ
+  | 'turn' // нақшбозӣ: ҷумлаи ҳамсӯҳбат + НИЯТ, хонанда бо калимаҳои худ
+  | 'pattern' // «Иваз кун»: қолаб + вариант бо маънои тоҷикӣ, ҷумлаи пурра
+  | 'own'; // «Ҷавоби худат»: қолаб бо ҷои холӣ — «Меня зовут ___»
 
 /**
  * Зинаи дарс дар дохили вазъият (`SpeakingLesson.stage`).
@@ -98,7 +100,38 @@ export const LEGACY_KINDS: StepKind[] = ['say', 'translate', 'recall'];
 export const V2_KINDS: StepKind[] = [...LEGACY_KINDS, 'chunk', 'swap'];
 
 /** + курси вазъиятҳо (ev ≥ 3): гӯш кардан, «кадомашро шунидӣ», нақшбозӣ. */
-export const V3_KINDS: StepKind[] = [...V2_KINDS, 'listen', 'heard', 'turn'];
+export const V3_KINDS: StepKind[] = [
+  ...V2_KINDS,
+  'listen',
+  'heard',
+  'turn',
+  'pattern',
+  'own',
+];
+
+/** Ҷои холӣ дар қолаби «Ҷавоби худат»: «Меня зовут ___.» */
+export const OWN_SLOT = '___';
+
+/** Як варианти «Иваз кун»: калима ва маънои тоҷикии он. */
+export interface PatternOption {
+  text: string;
+  meaning: string;
+}
+
+/**
+ * `swaps` дар шакли «калима|маъно» (`"живот|шикам"`). Бе «|» — маъно холӣ.
+ * Пешниҳоди КӮҲНА (`swap`, ev 2) ҳамон сатрҳоро бе «|» истифода мебарад.
+ */
+export function parsePatternOptions(swaps: string[] | undefined): PatternOption[] {
+  return (swaps ?? [])
+    .map((s) => {
+      const i = s.indexOf('|');
+      return i === -1
+        ? { text: s.trim(), meaning: '' }
+        : { text: s.slice(0, i).trim(), meaning: s.slice(i + 1).trim() };
+    })
+    .filter((o) => o.text);
+}
 
 export const DEFAULT_CONFIG: EngineConfig = {
   gap: 2,
@@ -126,8 +159,11 @@ export function configForEv(ev: number, base: EngineConfig = DEFAULT_CONFIG): En
 /** Воҳиди мазмун — маҳз ҳамон 9 майдоне, ки `select`-и роут мегирад (79–93). */
 export interface EngineItem {
   id: string;
-  /** `turn` = қадами нақшбозӣ (ниг. [Stage] `dialogue`/`mission`). */
-  kind: 'word' | 'sentence' | 'turn';
+  /**
+   * `turn` = қадами нақшбозӣ (ниг. [Stage] `dialogue`/`mission`);
+   * `own` = «Ҷавоби худат» — `text` қолаб бо [OWN_SLOT] аст.
+   */
+  kind: 'word' | 'sentence' | 'turn' | 'own';
   text: string;
   translation: string;
   literal: string | null;
@@ -159,6 +195,19 @@ export interface EngineOptions {
 
   /** Зинаи дарс. Холӣ = дарси кӯҳна (рафтори пештара). */
   stage?: Stage | null;
+
+  /**
+   * Ибораҳои НИШАСТҲОИ ПЕШТАРАИ ҳамин вазъият — «3 ибораи кӯҳна».
+   * Роут интихоб мекунад (охиринҳо); муҳаррик онҳоро ҳамчун «аз маъно
+   * гӯй» ва барои «Шунидед?»-и аввали нишаст истифода мебарад.
+   */
+  review?: EngineItem[];
+
+  /**
+   * Рақами дарс дар вазъият (0…). Барои ГАРДОНИ «Шунидед?»: ҳар нишаст
+   * ибораи дигар ва ҷои дигари ҷавоби дурустро мегирад. Детерминистӣ.
+   */
+  position?: number;
 }
 
 /** Қадами ДОХИЛӢ. Ҳеҷ гоҳ бевосита ба сим намеравад — ниг. `toWire`. */
@@ -192,6 +241,11 @@ export interface Step {
   hideIntent?: boolean;
   goals?: string[];
   goalIndex?: number;
+  /** `pattern`: қолаб «У меня болит ___», вариантҳо ва кадомаш пурсида мешавад. */
+  patternHead?: string;
+  patternTail?: string;
+  patternOptions?: PatternOption[];
+  askIndex?: number;
 }
 
 /** Як сатри муколама барои қадами `listen`. */
@@ -229,6 +283,10 @@ export interface WireStep {
   hideIntent?: boolean;
   goals?: string[];
   goalIndex?: number;
+  patternHead?: string;
+  patternTail?: string;
+  patternOptions?: PatternOption[];
+  askIndex?: number;
 }
 
 /** Сатри Prisma → воҳиди муҳаррик. Дар M0 амалан айниятӣ. */
@@ -247,7 +305,14 @@ export function toEngineItem(i: {
 }): EngineItem {
   return {
     id: i.id,
-    kind: i.kind === 'word' ? 'word' : i.kind === 'turn' ? 'turn' : 'sentence',
+    kind:
+      i.kind === 'word'
+        ? 'word'
+        : i.kind === 'turn'
+          ? 'turn'
+          : i.kind === 'own'
+            ? 'own'
+            : 'sentence',
     intent: i.intent ?? null,
     accepts: i.accepts ?? [],
     text: i.text,
@@ -755,8 +820,18 @@ export function generateSteps(
     cfg = {
       ...cfg,
       maxChainSteps: 0,
+      // `swaps` дар зинаҳо «Иваз кун» (`pattern`) мешаванд, на `swap`-и кӯҳна.
+      maxSwapSteps: 0,
       recallTail: stage === 'sentences' ? cfg.recallTail : 0,
     };
+    // «Ҷавоби худат» танҳо барои клиенти ev ≥ 3 — клиенти кӯҳна
+    // «Меня зовут ___»-ро айнан талаб мекард.
+    if (!cfg.allowedKinds.includes('own')) {
+      items = items.filter((i) => i.kind !== 'own');
+    }
+    if (cfg.allowedKinds.includes('heard')) {
+      return composeSessionA(items, cfg, opts);
+    }
   }
 
   const lanes = items.map((item) => ({
@@ -874,6 +949,183 @@ export function generateSteps(
 }
 
 /**
+ * «НИШАСТИ А» (26.09.2026) — зинаҳои `words` / `chunks` / `sentences`:
+ *
+ *   1. «Кадом ибораро шунидед?» — гӯш кардан дар АВВАЛ (аз ибораҳои кӯҳна,
+ *      агар бошанд — яъне гӯш кардан ҳамзамон такрор аст);
+ *   2. ибораҳои НАВ — ҳамон зинаи «бигӯ → аз маъно гӯй» (банақшагирии
+ *      фосиладори ҳозира);
+ *   3. то 3 ибораи КӮҲНА — «аз маъно гӯй», нишони «ба ёд оред»;
+ *   4. «Иваз кун» — аз ҷумлаҳое, ки `swaps` доранд;
+ *   5. «Ҷавоби худат»;
+ *   6. думи «аз хотира» (танҳо `sentences`).
+ */
+function composeSessionA(
+  items: EngineItem[],
+  cfg: EngineConfig,
+  opts: EngineOptions,
+): Step[] {
+  const drill = items.filter((i) => i.kind === 'word' || i.kind === 'sentence');
+  const owns = items.filter((i) => i.kind === 'own');
+  const review = (opts.review ?? []).filter(
+    (i) => (i.kind === 'word' || i.kind === 'sentence') && i.text.trim(),
+  );
+
+  // Ибораҳои нав — ҳамон банақшагирии фосиладор, бе думи «аз хотира» (он
+  // дар охири нишаст меистад).
+  const lanes = generateSteps(drill, cfg, { ...opts, stage: null, review: [] });
+  const main = lanes.filter((s) => s.kind !== 'recall');
+  const recalls = lanes.filter((s) => s.kind === 'recall');
+
+  const out: Step[] = [];
+
+  // 1. Гӯш кардан.
+  const heard = buildHeard(review.length >= 3 ? review : drill, opts);
+  if (heard) out.push(heard);
+
+  // 2. Нав.
+  out.push(...main);
+
+  // 3. Кӯҳна — «аз маъно гӯй».
+  for (const r of review.slice(-3)) {
+    out.push({
+      ...materialize({ kind: 'translate', target: r.text.trim(), delay: 0, variant: 7 }, r, cfg, opts),
+      badge: 'remember',
+    });
+  }
+
+  // 4. «Иваз кун».
+  for (const it of drill) {
+    out.push(...buildPatterns(it, opts));
+  }
+
+  // 5. «Ҷавоби худат».
+  for (const it of owns) {
+    const text = it.text.trim();
+    if (!text.includes(OWN_SLOT)) continue;
+    out.push({
+      stepId: `${it.id}:own:0`,
+      itemId: it.id,
+      kind: 'own',
+      prompt: it.intent?.trim() || it.translation.trim(),
+      target: text,
+      translation: it.translation.trim(),
+      literal: it.literal?.trim() ?? null,
+      note: it.note?.trim() ?? null,
+      cue: it.cue?.trim() ?? null,
+      cueTranslation: it.cueTranslation?.trim() ?? null,
+      audioUrl: it.audioUrl ?? null,
+      badge: opts.repeat ? 'remember' : 'none',
+      targetWords: splitWords(text),
+      showSlots: false,
+      timerMs: null,
+      intent: it.intent?.trim() || it.translation.trim(),
+    });
+  }
+
+  // 6. «Аз хотира».
+  out.push(...recalls);
+  return out;
+}
+
+/** «Кадом ибораро шунидед?» аз се ибораи гуногун. `null` — ибора кам аст. */
+function buildHeard(pool: EngineItem[], opts: EngineOptions): Step | null {
+  const texts: string[] = [];
+  const src: EngineItem[] = [];
+  for (const i of pool) {
+    const t = i.text.trim();
+    if (t && !texts.some((x) => x.toLowerCase() === t.toLowerCase())) {
+      texts.push(t);
+      src.push(i);
+    }
+  }
+  if (texts.length < 3) return null;
+
+  // Ибора ва ҷои ҷавоб аз РАҚАМИ ДАРС гардон мешаванд. Пештар ҷой аз шумораи
+  // ҳавз ҳисоб мешуд — ҳавз қариб ҳамеша 6 ибора аст ва ҷавоб дар 4 аз 6
+  // дарс ЯКУМ меистод, ва дарсҳои 1–2 ҳамон калимаро мепурсиданд (санҷиши
+  // бастаи «Назди духтур», доми «ҷавоб ҳамеша якум»).
+  const pos = Math.max(0, opts.position ?? 0);
+  const n = texts.length;
+  const k = n - 1 - (pos % n);
+  const options = [texts[(k + 1) % n], texts[(k + 2) % n]];
+  const answerIndex = pos % 3;
+  options.splice(answerIndex, 0, texts[k]);
+
+  return {
+    stepId: `${src[k].id}:heard:a`,
+    itemId: '',
+    kind: 'heard',
+    prompt: '',
+    target: texts[k],
+    translation: src[k].translation.trim(),
+    literal: null,
+    note: null,
+    cue: null,
+    cueTranslation: null,
+    audioUrl: src[k].audioUrl ?? null,
+    badge: opts.repeat ? 'remember' : 'none',
+    targetWords: [],
+    showSlots: false,
+    timerMs: null,
+    options,
+    answerIndex,
+  };
+}
+
+/**
+ * «Иваз кун»: ҷумлаи «У меня болит голова.» бо `swaps`
+ * `["голова|сар", "живот|шикам", "зуб|дандон"]` → қолаби «У меня болит ___.»
+ * ва ду қадам: бо «шикам» ва бо «дандон» (варианти ҲОЗИРА аллакай гуфта шуд).
+ *
+ * Калимаи ивазшаванда — калимаи ОХИРИН (бе аломати китобат), ҳамон қоидаи
+ * `buildSwaps`.
+ */
+function buildPatterns(it: EngineItem, opts: EngineOptions): Step[] {
+  const options = parsePatternOptions(it.swaps);
+  if (options.length < 2) return [];
+  const words = splitWords(it.text.trim());
+  if (words.length < 2) return [];
+
+  const last = words[words.length - 1];
+  const m = last.match(/^(.*?)([.!?…,]*)$/);
+  const lastBare = m ? m[1] : last;
+  const tail = m ? m[2] : '';
+  const head = words.slice(0, -1).join(' ');
+
+  const out: Step[] = [];
+  options.forEach((o, askIndex) => {
+    // Варианте, ки худи ҷумла аст, аллакай машқ шуд — такрор намекунем.
+    if (o.text.toLowerCase() === lastBare.toLowerCase()) return;
+    if (out.length >= 2) return;
+    const target = `${head} ${o.text}${tail}`;
+    out.push({
+      stepId: `${it.id}:pattern:${askIndex}`,
+      itemId: it.id,
+      kind: 'pattern',
+      prompt: o.meaning,
+      target,
+      translation: it.translation.trim(),
+      literal: null,
+      note: it.note?.trim() ?? null,
+      cue: null,
+      cueTranslation: null,
+      // Аудиои тайёр ба ҷумлаи АСЛӢ тааллуқ дорад — вариант бо TTS.
+      audioUrl: null,
+      badge: opts.repeat ? 'remember' : 'none',
+      targetWords: splitWords(target),
+      showSlots: false,
+      timerMs: null,
+      patternHead: head,
+      patternTail: tail,
+      patternOptions: options,
+      askIndex,
+    });
+  });
+  return out;
+}
+
+/**
  * Қадамҳои дарси НАҚШБОЗӢ (`dialogue`) ё МИССИЯ (`mission`).
  *
  *   dialogue: гӯш кардани муколамаи пурра → «кадом ибораро шунидӣ?» ×2
@@ -955,7 +1207,7 @@ function generateDialogueSteps(
       if (others.length < 2) continue;
       // Ҷои ҷавоби дуруст гардон аст, то ҳамеша «якум» набошад
       // (доми «ҷавоб ҳамеша якум», ниг. курси арабӣ).
-      const answerIndex = k % 3;
+      const answerIndex = (k + Math.max(0, opts.position ?? 0)) % 3;
       const options = [...others];
       options.splice(answerIndex, 0, texts[k]);
       out.push({
@@ -1149,6 +1401,45 @@ export function toWire(s: Step, ev: number): WireStep {
         wire.goals = s.goals;
         wire.goalIndex = s.goalIndex ?? 0;
       }
+      break;
+
+    case 'pattern':
+      if (ev < 3) throw new Error('toWire: «pattern» танҳо аз ev≥3');
+      wire = {
+        kind: s.kind,
+        badge: s.badge,
+        prompt: s.prompt,
+        target: s.target,
+        targetWords: s.targetWords,
+        itemId: s.itemId,
+        translit,
+        meaning,
+        grammar,
+        audioUrl,
+        patternHead: s.patternHead ?? '',
+        patternTail: s.patternTail ?? '',
+        patternOptions: s.patternOptions ?? [],
+        askIndex: s.askIndex ?? 0,
+      };
+      break;
+
+    case 'own':
+      if (ev < 3) throw new Error('toWire: «own» танҳо аз ev≥3');
+      wire = {
+        kind: s.kind,
+        badge: s.badge,
+        prompt: s.prompt,
+        target: s.target,
+        targetWords: s.targetWords,
+        itemId: s.itemId,
+        translit,
+        meaning,
+        grammar,
+        audioUrl,
+        cue,
+        cueTranslation,
+        intent: s.intent ?? '',
+      };
       break;
 
     default:
