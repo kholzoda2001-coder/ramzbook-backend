@@ -20,6 +20,10 @@
 //   node prisma/_ru-speaking-audio.mjs <ramz-audio dir> [--dry]
 //
 // Идемпотент: танҳо воҳидҳои бе `audioUrl`.
+//
+// 26.09.2026: сатрҳои ҲАМСӮҲБАТ низ (`cue` → `cueAudioUrl`, файл `<id>_cue.mp3`).
+// Матн бо ҷойгузор ({name}, {job}) ё ҷои холӣ («___») САБТ НАМЕШАВАД: онро
+// барнома барои ҳар хонанда иваз мекунад ва бо TTS мехонад.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
 import { execFileSync, execSync, spawnSync } from 'child_process';
 import { neon } from '@neondatabase/serverless';
@@ -58,13 +62,26 @@ const letters = (t) => (t.match(/\p{L}/gu) ?? []).length;
 const minSpeech = (t) => (letters(t) <= 3 ? 0.12 : letters(t) <= 6 ? 0.18 : 0.25);
 const normKey = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
 
-const items = await sql.query(
-  `SELECT i.id, i.text, l."order" AS lesson
-     FROM "SpeakingItem" i
-     JOIN "SpeakingLesson" l ON i."lessonId" = l.id
-     JOIN "SpeakingCategory" c ON l."categoryId" = c.id
-    WHERE c."targetLanguageId" = $1 AND (i."audioUrl" IS NULL OR i."audioUrl" = '')
-    ORDER BY l."order", i."order"`, [RU]);
+const personal = (t) => t.includes('{') || t.includes('___');
+const items = [
+  ...(await sql.query(
+    `SELECT i.id, i.text, l."order" AS lesson
+       FROM "SpeakingItem" i
+       JOIN "SpeakingLesson" l ON i."lessonId" = l.id
+       JOIN "SpeakingCategory" c ON l."categoryId" = c.id
+      WHERE c."targetLanguageId" = $1 AND (i."audioUrl" IS NULL OR i."audioUrl" = '')
+      ORDER BY l."order", i."order"`, [RU]))
+    .map((r) => ({ ...r, key: r.id, col: 'audioUrl' })),
+  ...(await sql.query(
+    `SELECT i.id, i.cue AS text, l."order" AS lesson
+       FROM "SpeakingItem" i
+       JOIN "SpeakingLesson" l ON i."lessonId" = l.id
+       JOIN "SpeakingCategory" c ON l."categoryId" = c.id
+      WHERE c."targetLanguageId" = $1 AND coalesce(trim(i.cue), '') <> ''
+        AND coalesce(i."cueAudioUrl", '') = ''
+      ORDER BY l."order", i."order"`, [RU]))
+    .map((r) => ({ ...r, key: `${r.id}_cue`, col: 'cueAudioUrl' })),
+].filter((i) => !personal(i.text));
 console.log(`Воҳидҳои гуфтори русӣ бе аудио: ${items.length}`);
 if (!items.length) { console.log('Ҳама аудио доранд.'); process.exit(0); }
 if (DRY) { items.forEach((i) => console.log(`  L${i.lesson + 1} ${i.text}`)); console.log('--dry: чизе сохта нашуд.'); process.exit(0); }
@@ -109,7 +126,7 @@ console.log(`\n== Тавлид (${VOICE}) ==`);
 mkdirSync(WORK, { recursive: true });
 const used = {};
 for (const it of items) {
-  const path = `${WORK}/${it.id}.mp3`;
+  const path = `${WORK}/${it.key}.mp3`;
   let ok = false;
   for (const [n, st] of STAGES.entries()) {
     const buf = await st.make(it.text);
@@ -135,15 +152,15 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim(
 // СОЛИМ ~0.12–0.19 с садо доранд ва онҳоро рад мекард (13.09.2026). Ин ҷо ҳамон ҳадди `minSpeech`:
 // нусхаи бурида нагузарад, вале хом гузарад → хом (~0.2 с хомӯшии иловагӣ беҳтар аз хомӯшии пурра).
 {
-  const raw = measure(items.map((i) => `${WORK}/${i.id}.mp3`));
-  const cut = measure(items.map((i) => `${TRIM}/${i.id}.mp3`));
+  const raw = measure(items.map((i) => `${WORK}/${i.key}.mp3`));
+  const cut = measure(items.map((i) => `${TRIM}/${i.key}.mp3`));
   const passes = (v, t) => v && !v.error && v.peak >= 0.3 && v.speech >= minSpeech(t);
   let usedRaw = 0;
   const still = [];
   for (const it of items) {
-    if (passes(cut[`${TRIM}/${it.id}.mp3`], it.text)) continue;
-    if (passes(raw[`${WORK}/${it.id}.mp3`], it.text)) {
-      writeFileSync(`${TRIM}/${it.id}.mp3`, readFileSync(`${WORK}/${it.id}.mp3`));
+    if (passes(cut[`${TRIM}/${it.key}.mp3`], it.text)) continue;
+    if (passes(raw[`${WORK}/${it.key}.mp3`], it.text)) {
+      writeFileSync(`${TRIM}/${it.key}.mp3`, readFileSync(`${WORK}/${it.key}.mp3`));
       usedRaw++;
       console.log(`  ↩ «${it.text}»: нусхаи бурида хомӯш шуд → хом`);
     } else still.push(it.text);
@@ -157,20 +174,20 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim(
 // ffmpeg дар PATH нест — бинарӣ аз бастаи Python `imageio_ffmpeg` меояд (ниг. хотираи ramz-audio-audit).
 const FFMPEG = execFileSync('python', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], PY).trim();
 {
-  const pre = measure(items.map((i) => `${TRIM}/${i.id}.mp3`));
+  const pre = measure(items.map((i) => `${TRIM}/${i.key}.mp3`));
   for (const it of items) {
-    const p = `${TRIM}/${it.id}.mp3`;
+    const p = `${TRIM}/${it.key}.mp3`;
     if (pre[p].peak < 0.97) continue;
-    const tmp = `${TRIM}/${it.id}.vol.mp3`;
+    const tmp = `${TRIM}/${it.key}.vol.mp3`;
     execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-i', p, '-af', 'volume=0.85', '-ar', '24000', '-ac', '1', '-b:a', '64k', tmp]);
     writeFileSync(p, readFileSync(tmp));
     console.log(`  🔉 «${it.text}»: peak ${pre[p].peak} → оромтар`);
   }
 }
-const final = measure(items.map((i) => `${TRIM}/${i.id}.mp3`));
+const final = measure(items.map((i) => `${TRIM}/${i.key}.mp3`));
 let bad = 0;
 for (const it of items) {
-  const m = final[`${TRIM}/${it.id}.mp3`];
+  const m = final[`${TRIM}/${it.key}.mp3`];
   const ok = m.peak >= 0.3 && m.peak < 0.99 && m.speech >= minSpeech(it.text) && m.lead <= 0.5;
   console.log(`  ${ok ? '✓' : '✗'} L${it.lesson + 1} «${it.text}» [${it.stage}]: ${m.dur}s нутқ=${m.speech}s пеш=${m.lead}s peak=${m.peak}`);
   if (!ok) bad++;
@@ -178,7 +195,7 @@ for (const it of items) {
 if (bad) { console.error(`⛔ ${bad} файли бад — ҳеҷ чиз бор нашуд`); process.exit(1); }
 
 // ── 3. Ба репои CDN → push → навиштани audioUrl ─────────────────────────────
-for (const it of items) copyFileSync(`${TRIM}/${it.id}.mp3`, `${CDN_DIR}/${it.id}.mp3`);
+for (const it of items) copyFileSync(`${TRIM}/${it.key}.mp3`, `${CDN_DIR}/${it.key}.mp3`);
 console.log(`
 == Ба репо: ${items.length} файл ==`);
 const dirty = execSync('git status --porcelain audio/ru', { cwd: REPO }).toString().trim();
@@ -186,7 +203,7 @@ if (dirty) {
   execSync('git add audio/ru', { cwd: REPO, stdio: 'inherit' });
   execSync(
     'git -c user.email="255218020+kholzoda2001-coder@users.noreply.github.com" '
-    + '-c user.name="kholzoda2001-coder" commit -m "Speaking RU: audio for the new lessons of the Znakomstvo chapter"',
+    + '-c user.name="kholzoda2001-coder" commit -m "Speaking RU: audio for new phrases and partner lines"',
     { cwd: REPO, stdio: 'inherit' });
   execSync('git push origin HEAD', { cwd: REPO, stdio: 'inherit' });
 } else {
@@ -199,8 +216,8 @@ console.log('SHA:', sha);
 let done = 0;
 for (const it of items) {
   await sql.query(
-    `UPDATE "SpeakingItem" SET "audioUrl" = $1 WHERE id = $2 AND ("audioUrl" IS NULL OR "audioUrl" = '')`,
-    [cdn(it.id), it.id]);
+    `UPDATE "SpeakingItem" SET "${it.col}" = $1 WHERE id = $2 AND coalesce("${it.col}", '') = ''`,
+    [cdn(it.key), it.id]);
   if (++done % 50 === 0) console.log(`  ...${done}/${items.length}`);
 }
 await sql.query(

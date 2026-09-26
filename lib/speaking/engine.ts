@@ -816,6 +816,31 @@ export function generateSteps(
   cfg: EngineConfig = DEFAULT_CONFIG,
   opts: EngineOptions = { repeat: false },
 ): Step[] {
+  const steps = generateStepsInner(items, cfg, opts);
+
+  // Аудиои тайёри ҲАМСӮҲБАТ ба ҳар қадаме, ки ҳамон `cue`-ро нишон медиҳад —
+  // на танҳо ба навбатҳои нақшбозӣ. Бе ин «бигӯ»/«тарҷума» сатри духтурро
+  // бо овози телефон мехонд, гарчи файли тайёр дар база буд (26.09.2026).
+  const cueAudio = new Map<string, { cue: string; url: string }>();
+  for (const i of [...items, ...(opts.review ?? [])]) {
+    const url = i.cueAudioUrl?.trim();
+    const cue = i.cue?.trim();
+    if (url && cue) cueAudio.set(i.id, { cue, url });
+  }
+  if (cueAudio.size === 0) return steps;
+  return steps.map((st) => {
+    const a = cueAudio.get(st.itemId);
+    return a && !st.cueAudioUrl && st.cue?.trim() === a.cue
+      ? { ...st, cueAudioUrl: a.url }
+      : st;
+  });
+}
+
+function generateStepsInner(
+  items: EngineItem[],
+  cfg: EngineConfig,
+  opts: EngineOptions,
+): Step[] {
   const stage = opts.stage ?? null;
 
   // ── Нақшбозӣ ва миссия (ev ≥ 3) ─────────────────────────────────────
@@ -1470,6 +1495,11 @@ export function toWire(s: Step, ev: number): WireStep {
       throw new Error(
         `toWire: навъи «${s.kind}» ҳанӯз амалӣ нашудааст (M5, §10.2).`,
       );
+  }
+
+  // Аудиои тайёри ҳамсӯҳбат — ба ҳар шакле, ки `cue` дорад (ev ≥ 3).
+  if (ev >= 3 && wire.cue && s.cueAudioUrl && !wire.cueAudioUrl) {
+    wire.cueAudioUrl = s.cueAudioUrl;
   }
 
   // Майдонҳои иловагӣ танҳо барои клиенти нав (§10.2). Дар M0 ҳеҷ гоҳ.

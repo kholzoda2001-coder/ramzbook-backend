@@ -359,3 +359,27 @@ describe('валидатор: ҷойгузорҳои шахсисозӣ', () => 
     expect(run([cue])).toContain('E_PLACEHOLDER');
   });
 });
+
+describe('аудиои ҳамсӯҳбат дар машқҳои оддӣ', () => {
+  it('«бигӯ»/«тарҷума» бо сатри духтур аудиои тайёри онро мегиранд (ev 3)', () => {
+    const it0: EngineItem = {
+      ...sentence('s1', 'У меня болит голова.'),
+      cue: 'Что у вас болит?',
+      cueTranslation: 'Шуморо чӣ дард мекунад?',
+      cueAudioUrl: 'https://cdn/s1_cue.mp3',
+      audioUrl: 'https://cdn/s1.mp3',
+    };
+    const steps = generateSteps([it0, sentence('s2', 'Где аптека?')], v3, {
+      repeat: false,
+      stage: 'sentences',
+    });
+    const withCue = steps.filter((s) => s.cue);
+    expect(withCue.length).toBeGreaterThan(0);
+    for (const s of withCue) {
+      expect(s.cueAudioUrl).toBe('https://cdn/s1_cue.mp3');
+      expect(toWire(s, 3).cueAudioUrl).toBe('https://cdn/s1_cue.mp3');
+    }
+    // Клиенти кӯҳна майдони навро намегирад.
+    expect('cueAudioUrl' in toWire(withCue[0], 2)).toBe(false);
+  });
+});
