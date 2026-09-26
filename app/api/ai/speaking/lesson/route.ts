@@ -15,7 +15,7 @@ import {
   SPEAKING_LOCKED,
 } from '@/lib/speaking/access';
 import { pickSpeakingLesson } from '@/lib/speaking/pick';
-import { asGoal, orderChapters } from '@/lib/speaking/situations';
+import { asGoal, inPath, orderChapters } from '@/lib/speaking/situations';
 
 export const dynamic = 'force-dynamic';
 
@@ -156,6 +156,7 @@ export async function GET(req: NextRequest) {
     // Тартиб ҲАМОН тартиби `/categories` аст: вазъиятҳо аз рӯи ҳадафи
     // хонанда, бобҳои кӯҳна дар охир. Пас «дарси навбатӣ» ва рақами боб
     // дар ду роут як хел мебароянд.
+    const goal = asGoal(req.nextUrl.searchParams.get('goal'));
     const all = orderChapters(
       categories
         .map((c) => ({
@@ -165,11 +166,21 @@ export async function GET(req: NextRequest) {
           ),
         }))
         .filter((c) => c.lessons.length > 0),
-      asGoal(req.nextUrl.searchParams.get('goal')),
+      goal,
     );
 
+    // РОҲИ хонанда: вазъиятҳои нишаи ӯ ва умумӣ. Занҷири одатӣ (бе
+    // `categoryId`) ТАНҲО дар дохили он меравад — пештар баъди нишаи худ
+    // хонанда хомӯшона ба нишаи бегона («Такси») мегузашт. Забоне, ки ҳанӯз
+    // вазъият надорад (танҳо бобҳои кӯҳна), занҷири пештараро нигоҳ медорад.
+    const path = all.filter((c) => inPath(c, goal));
+
     // Боби интихобшуда — ФАҚАТ барои интихоби дарс; гейт `all`-ро мебинад.
-    const chapters = categoryId ? all.filter((c) => c.id === categoryId) : all;
+    const chapters = categoryId
+      ? all.filter((c) => c.id === categoryId)
+      : path.length
+        ? path
+        : all;
 
     if (chapters.length === 0) {
       return NextResponse.json(
@@ -188,6 +199,29 @@ export async function GET(req: NextRequest) {
       select: { lessonId: true },
     });
     const doneIds = new Set(done.map((d) => d.lessonId));
+
+    // ── Роҳ тамом шуд ─────────────────────────────────────────────────────
+    //
+    // Пештар ин ҷо «дарси охирин боз» медод — хонанда ба ҳадафаш расида буд,
+    // вале инро намедонист ва ҳамон миссияро аз нав мегирифт. Акнун экран
+    // лаҳзаи ғалаба ва интихоби роҳи навро нишон медиҳад (`409 pathComplete`).
+    // Боби интихобшуда ё дарси мушаххас — ҳамеша кушода (такрори ихтиёрӣ).
+    if (
+      !categoryId &&
+      !lessonId &&
+      chapters.every((c) => c.lessons.every((l) => doneIds.has(l.id)))
+    ) {
+      return NextResponse.json(
+        {
+          error: 'Speaking path complete',
+          pathComplete: true,
+          goal,
+          situations: chapters.length,
+          sessions: chapters.reduce((n, c) => n + c.lessons.length, 0),
+        },
+        { status: 409 },
+      );
+    }
 
     // МАҲЗ `lessonId` (аз рӯйхати дарсҳои боб), ё аввалин дарси нагузашта;
     // ҳама тамом → охиринаш такрор. Қоида дар `lib/speaking/pick.ts` (тест).

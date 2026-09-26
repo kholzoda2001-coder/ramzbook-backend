@@ -2,7 +2,7 @@
  * «Гуфтор»-и нав: тартиби вазъиятҳо ва дастрасии ройгон (26.09.2026).
  */
 import { describe, expect, it } from 'vitest';
-import { asGoal, isSituation, orderChapters } from '../situations';
+import { asGoal, inPath, isSituation, orderChapters } from '../situations';
 import {
   FREE_SESSIONS_PER_SITUATION,
   unlockedSpeakingLessonIds,
@@ -33,28 +33,46 @@ describe('orderChapters', () => {
     situation('site', 1, ['build']),
   ];
 
-  it('ҳадафи хонанда аввал, баъд умумӣ, баъд дигарон, кӯҳна дар охир', () => {
+  it('роҳ (ҳадаф + умумӣ) БАҲАМ аз рӯи order, баъд нишаҳои дигар, кӯҳна дар охир', () => {
     expect(orderChapters(chapters, 'build').map((c) => c.id)).toEqual([
       'site',
       'doctor',
       'taxi',
       'old',
     ]);
+    // «Назди духтур» (order 2) пеш аз «Такси» (order 3) — умумӣ ва ҳадаф баҳам.
     expect(orderChapters(chapters, 'drive').map((c) => c.id)).toEqual([
-      'taxi',
       'doctor',
+      'taxi',
       'site',
       'old',
     ]);
   });
 
-  it('бе ҳадаф: умумӣ аввал, баъд бо `order`', () => {
+  it('Шиносоӣ (умумӣ, order 1) пеш аз «Кор ёфтан» (ҳадаф, order 2)', () => {
+    const path = [
+      situation('job', 2, ['build', 'drive']),
+      situation('meet', 1, []),
+      situation('site', 3, ['build']),
+    ];
+    expect(orderChapters(path, 'build').map((c) => c.id)).toEqual(['meet', 'job', 'site']);
+  });
+
+  it('бе ҳадаф: ҳамаи вазъиятҳо бо `order`', () => {
     expect(orderChapters(chapters, null).map((c) => c.id)).toEqual([
-      'doctor',
       'site',
+      'doctor',
       'taxi',
       'old',
     ]);
+  });
+
+  it('inPath: ҳадаф + умумӣ; нишаи дигар ва кӯҳна — не', () => {
+    expect(inPath(situation('site', 1, ['build']), 'build')).toBe(true);
+    expect(inPath(situation('doctor', 2, []), 'build')).toBe(true);
+    expect(inPath(situation('taxi', 3, ['drive']), 'build')).toBe(false);
+    expect(inPath(legacy('old', 0), 'build')).toBe(false);
+    expect(inPath(situation('taxi', 3, ['drive']), null)).toBe(true);
   });
 
   it('isSituation / asGoal', () => {

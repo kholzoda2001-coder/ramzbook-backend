@@ -6,7 +6,7 @@ import {
   FREE_SPEAKING_LESSONS,
   FREE_SESSIONS_PER_SITUATION,
 } from '@/lib/speaking/access';
-import { asGoal, isSituation, orderChapters } from '@/lib/speaking/situations';
+import { asGoal, isSituation, orderChapters, inPath } from '@/lib/speaking/situations';
 
 export const dynamic = 'force-dynamic';
 
@@ -129,6 +129,9 @@ export async function GET(req: NextRequest) {
           // «Гуфтор»-и нав: вазъият (бо зинаҳо) ё боби кӯҳна.
           isSituation: isSituation(c),
           goals: c.goals,
+          // Дар роҳи хонанда (ҳадафи ӯ ё умумӣ)? Нишаҳои дигар ҷудо нишон
+          // дода мешаванд ва «Навбатӣ» ба онҳо намегузарад.
+          inPath: inPath(c, goal),
           lessons: total,
           lessonsDone: finished,
           progress: total ? finished / total : 0,
