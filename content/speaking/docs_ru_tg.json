@@ -1,0 +1,560 @@
+{
+  "slug": "docs_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Документы и полиция",
+    "titleTranslated": "Ҳуҷҷатҳо ва полис",
+    "scenario": "Полис ҳуҷҷатҳоятонро месанҷад ё шумо ба идораи муҳоҷират меравед: ҳуҷҷат нишон медиҳед, мегӯед, ки аз куҷо ҳастед ва чӣ кор мекунед; агар нафаҳмед — хоҳиш мекунед, ки оҳиста гап зананд ё тарҷумон биёранд.",
+    "emoji": "🪪",
+    "order": 9,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Паспорт",
+          "translation": "шиноснома",
+          "literal": null,
+          "note": "Зарба: ПАС-порт.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Патент",
+          "translation": "патент",
+          "literal": null,
+          "note": "Иҷозатномаи кор барои муҳоҷир. Зарба: па-ТЕНТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Регистрация",
+          "translation": "бақайдгирӣ",
+          "literal": null,
+          "note": "Зарба: ре-гист-РА-ци-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Полиция",
+          "translation": "полис",
+          "literal": null,
+          "note": "Зарба: по-ЛИ-ци-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Вот",
+          "translation": "ана",
+          "literal": null,
+          "note": "Ҳангоми додани чизе: «Вот» — ана.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Понимаю",
+          "translation": "мефаҳмам",
+          "literal": null,
+          "note": "Зарба: по-ни-МА-ю. «Не понимаю» — намефаҳмам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Полис мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте. Паспорт!",
+          "cueTranslation": "Салом. Шиноснома!",
+          "intent": "Бигӯ: ана",
+          "text": "Вот.",
+          "accepts": [
+            "Вот паспорт.",
+            "Вот, пожалуйста."
+          ],
+          "translation": "Ана.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Патент есть?",
+          "cueTranslation": "Патент доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Да.",
+          "accepts": [
+            "Да, есть."
+          ],
+          "translation": "Ҳа.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Понимаете по-русски?",
+          "cueTranslation": "Русӣ мефаҳмед?",
+          "intent": "Бигӯ, ки ҳа, мефаҳмӣ",
+          "text": "Да, понимаю.",
+          "accepts": [
+            "Понимаю."
+          ],
+          "translation": "Ҳа, мефаҳмам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Намефаҳмам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Вот паспорт",
+          "translation": "Ана шиноснома",
+          "literal": null,
+          "note": "Қолаб: «вот» + ҳуҷҷат.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "паспорт|шиноснома",
+            "патент|патент"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Не понимаю",
+          "translation": "Намефаҳмам",
+          "literal": null,
+          "note": "Беҳтар аст бигӯед, ки намефаҳмед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Медленно",
+          "translation": "оҳиста",
+          "literal": null,
+          "note": "Зарба: МЕД-лен-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Говорите медленно",
+          "translation": "Оҳиста гап занед",
+          "literal": null,
+          "note": "Ибораи наҷотбахш.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Повторите, пожалуйста",
+          "translation": "Лутфан, такрор кунед",
+          "literal": null,
+          "note": "Бо «пожалуйста» — хушмуомила.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ваши документы, пожалуйста.",
+          "cueTranslation": "Ҳуҷҷатҳоятон, лутфан.",
+          "intent": "Бигӯ: ана шиноснома",
+          "text": "Вот паспорт.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Вот мой паспорт."
+          ],
+          "translation": "Ана шиноснома.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Где ваша регистрация?",
+          "cueTranslation": "Бақайдгирии шумо куҷост?",
+          "intent": "Бигӯ, ки намефаҳмӣ",
+          "text": "Не понимаю.",
+          "accepts": [
+            "Я не понимаю.",
+            "Извините, не понимаю."
+          ],
+          "translation": "Намефаҳмам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Регистрация! Документ!",
+          "cueTranslation": "Бақайдгирӣ! Ҳуҷҷат!",
+          "intent": "Хоҳиш кун, ки оҳиста гап занад",
+          "text": "Говорите медленно, пожалуйста.",
+          "accepts": [
+            "Медленно, пожалуйста.",
+            "Повторите, пожалуйста."
+          ],
+          "translation": "Лутфан, оҳиста гап занед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи худ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я из Таджикистана.",
+          "translation": "Ман аз Тоҷикистон ҳастам.",
+          "literal": null,
+          "note": "Баъди «из»: Таджикистан → Таджикиста́на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот мой паспорт.",
+          "translation": "Ана шиносномаи ман.",
+          "literal": null,
+          "note": "«Мой» — ман (моли ман).",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "паспорт|шиноснома",
+            "патент|патент"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Всё в порядке?",
+          "translation": "Ҳама чиз дуруст аст?",
+          "literal": null,
+          "note": "Баъди санҷиш бипурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я работаю здесь.",
+          "translation": "Ман ин ҷо кор мекунам.",
+          "literal": null,
+          "note": "Ҷавоб ба «Где работаете?».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "own",
+          "text": "Мой адрес: ___.",
+          "translation": "Суроғаи ман: ___.",
+          "literal": null,
+          "note": "Суроғаи худро гӯед: кӯча ва рақами хона.",
+          "cue": "Где вы живёте?",
+          "cueTranslation": "Шумо дар куҷо зиндагӣ мекунед?",
+          "intent": "Суроғаи худро гӯед",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: санҷиши ҳуҷҷат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте. Проверка документов.",
+          "cueTranslation": "Салом. Санҷиши ҳуҷҷатҳо.",
+          "intent": "Бигӯ: ана шиносномаи ман",
+          "text": "Вот мой паспорт.",
+          "accepts": [
+            "Вот паспорт.",
+            "Вот, пожалуйста."
+          ],
+          "translation": "Ана шиносномаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Откуда вы?",
+          "cueTranslation": "Шумо аз куҷо?",
+          "intent": "Бигӯ, ки аз Тоҷикистон",
+          "text": "Я из Таджикистана.",
+          "accepts": [
+            "Из Таджикистана."
+          ],
+          "translation": "Ман аз Тоҷикистон ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Где работаете?",
+          "cueTranslation": "Дар куҷо кор мекунед?",
+          "intent": "Бигӯ, ки ин ҷо кор мекунӣ",
+          "text": "Я работаю здесь.",
+          "accepts": [
+            "Здесь, на стройке.",
+            "Работаю здесь."
+          ],
+          "translation": "Ман ин ҷо кор мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, спасибо.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бипурс, ки ҳама чиз дуруст аст",
+          "text": "Всё в порядке?",
+          "accepts": [
+            "Всё хорошо?",
+            "Всё нормально?"
+          ],
+          "translation": "Ҳама чиз дуруст аст?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳуқуқи ман",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Переводчик",
+          "translation": "тарҷумон",
+          "literal": null,
+          "note": "Зарба: пе-ре-ВОД-чик. Шумо ҳуқуқ доред тарҷумон талаб кунед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужен переводчик.",
+          "translation": "Ба ман тарҷумон лозим.",
+          "literal": null,
+          "note": "Агар нафаҳмед — ҳамин ҷумла.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно позвонить?",
+          "translation": "Занг задан мумкин?",
+          "literal": null,
+          "note": "Ба наздикон ё ба корфармо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не понимаю.",
+          "translation": "Ман намефаҳмам.",
+          "literal": null,
+          "note": "Ҷумлаи пурра.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот регистрация.",
+          "translation": "Ана бақайдгирӣ.",
+          "literal": null,
+          "note": "Ҳуҷҷатро ором диҳед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо, до свидания.",
+          "translation": "Ташаккур, то дидан.",
+          "literal": null,
+          "note": "Хайрухуши хушмуомила.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: нафаҳмидам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ваша регистрация закончилась.",
+          "cueTranslation": "Бақайдгирии шумо тамом шудааст.",
+          "intent": "Бигӯ, ки намефаҳмӣ",
+          "text": "Я не понимаю.",
+          "accepts": [
+            "Не понимаю.",
+            "Извините, не понимаю."
+          ],
+          "translation": "Ман намефаҳмам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Регистрация. Закончилась. Понимаете?",
+          "cueTranslation": "Бақайдгирӣ. Тамом шуд. Мефаҳмед?",
+          "intent": "Бигӯ, ки тарҷумон лозим",
+          "text": "Мне нужен переводчик.",
+          "accepts": [
+            "Нужен переводчик.",
+            "Переводчик, пожалуйста."
+          ],
+          "translation": "Ба ман тарҷумон лозим.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Можете позвонить работодателю.",
+          "cueTranslation": "Метавонед ба корфармо занг занед.",
+          "intent": "Бипурс, ки занг задан мумкин",
+          "text": "Можно позвонить?",
+          "accepts": [
+            "Можно позвонить сейчас?",
+            "Я могу позвонить?"
+          ],
+          "translation": "Занг задан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте, проверка документов.",
+          "cueTranslation": "Салом, санҷиши ҳуҷҷатҳо.",
+          "intent": "Бигӯ: ана шиносномаи ман",
+          "text": "Вот мой паспорт.",
+          "accepts": [
+            "Вот паспорт.",
+            "Вот, пожалуйста."
+          ],
+          "translation": "Ана шиносномаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Кем вы работаете?",
+          "cueTranslation": "Шумо кӣ шуда кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "Я {job}.",
+          "accepts": [
+            "{job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Регистрация есть?",
+          "cueTranslation": "Бақайдгирӣ доред?",
+          "intent": "Бигӯ: ҳа, ана бақайдгирӣ",
+          "text": "Да, вот регистрация.",
+          "accepts": [
+            "Да, есть.",
+            "Вот регистрация."
+          ],
+          "translation": "Ҳа, ана бақайдгирӣ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Всё в порядке.",
+          "cueTranslation": "Хуб. Ҳама чиз дуруст аст.",
+          "intent": "Ташаккур гӯй ва хайрухуш кун",
+          "text": "Спасибо, до свидания.",
+          "accepts": [
+            "Спасибо.",
+            "До свидания."
+          ],
+          "translation": "Ташаккур, то дидан.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

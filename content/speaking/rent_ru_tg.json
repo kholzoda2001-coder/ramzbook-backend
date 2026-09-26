@@ -1,0 +1,566 @@
+{
+  "slug": "rent_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Снять комнату",
+    "titleTranslated": "Иҷораи хона",
+    "scenario": "Шумо ҳуҷра ё хона ба иҷора мегиред: занг мезанед, нарх ва шартҳоро мепурсед, барои дидан вақт мемонед. Аз дарси дуюм худатон бо соҳибхона гап мезанед.",
+    "emoji": "🏠",
+    "order": 8,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Квартира",
+          "translation": "хона (квартира)",
+          "literal": null,
+          "note": "Зарба: квар-ТИ-ра.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Комната",
+          "translation": "ҳуҷра",
+          "literal": null,
+          "note": "Зарба: КОМ-на-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Хозяин",
+          "translation": "соҳибхона",
+          "literal": null,
+          "note": "Зарба: хо-ЗЯ-ин. Зан бошад — «хозяйка».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Адрес",
+          "translation": "суроға",
+          "literal": null,
+          "note": "Зарба: А-дрес.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Месяц",
+          "translation": "моҳ",
+          "literal": null,
+          "note": "Зарба: МЕ-сяц. «В месяц» — дар як моҳ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Свободна",
+          "translation": "холӣ",
+          "literal": null,
+          "note": "«Комната свободна?» — ҳуҷра холӣ аст?",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Занги аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло, слушаю.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Салом гӯед",
+          "text": "Здравствуйте!",
+          "accepts": [
+            "Алло, здравствуйте!"
+          ],
+          "translation": "Салом!",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вам комната или квартира?",
+          "cueTranslation": "Ба шумо ҳуҷра лозим ё хона?",
+          "intent": "Бигӯ: ҳуҷра",
+          "text": "Комната.",
+          "accepts": [
+            "Комнату.",
+            "Нужна комната."
+          ],
+          "translation": "Ҳуҷра.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "На месяц?",
+          "cueTranslation": "Барои як моҳ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Да.",
+          "accepts": [
+            "Да, на месяц."
+          ],
+          "translation": "Ҳа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Нарх ва шарт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ищу комнату",
+          "translation": "Ҳуҷра меҷӯям",
+          "literal": null,
+          "note": "«Комната» → «комнату» баъди «ищу».",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "комнату|ҳуҷра",
+            "квартиру|хона"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Комната свободна?",
+          "translation": "Ҳуҷра холӣ аст?",
+          "literal": null,
+          "note": "Саволи аввал ҳангоми занг.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Цена",
+          "translation": "нарх",
+          "literal": null,
+          "note": "Зарба: це-НА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Какая цена?",
+          "translation": "Нарх чанд аст?",
+          "literal": null,
+          "note": "«Какая?» — кадом, чӣ гуна?",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Залог",
+          "translation": "гарав",
+          "literal": null,
+          "note": "Пуле, ки пешакӣ медиҳед ва баъд бармегардад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Залог нужен?",
+          "translation": "Гарав лозим?",
+          "literal": null,
+          "note": "Пеш аз розӣ шудан бипурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Занг ба соҳибхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло?",
+          "cueTranslation": "Алло?",
+          "intent": "Бипурс, ки ҳуҷра холӣ аст",
+          "text": "Комната свободна?",
+          "accepts": [
+            "Здравствуйте! Комната свободна?",
+            "Комната ещё свободна?"
+          ],
+          "translation": "Ҳуҷра холӣ аст?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, свободна.",
+          "cueTranslation": "Ҳа, холӣ.",
+          "intent": "Бипурс: нарх чанд?",
+          "text": "Какая цена?",
+          "accepts": [
+            "Сколько стоит?",
+            "Сколько в месяц?"
+          ],
+          "translation": "Нарх чанд аст?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Двадцать тысяч в месяц.",
+          "cueTranslation": "Бист ҳазор дар як моҳ.",
+          "intent": "Бипурс, ки гарав лозим",
+          "text": "Залог нужен?",
+          "accepts": [
+            "А залог нужен?",
+            "Нужен залог?"
+          ],
+          "translation": "Гарав лозим?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Мо ду нафарем",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Посмотреть",
+          "translation": "дидан",
+          "literal": null,
+          "note": "«Можно посмотреть?» — дидан мумкин?",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я ищу комнату.",
+          "translation": "Ман ҳуҷра меҷӯям.",
+          "literal": null,
+          "note": "Ҷумлаи пурра.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "комнату|ҳуҷра",
+            "квартиру|хона"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Нас двое.",
+          "translation": "Мо ду нафарем.",
+          "literal": null,
+          "note": "«Нас трое» — мо се нафарем.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "двое|ду нафар",
+            "трое|се нафар"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно посмотреть?",
+          "translation": "Дидан мумкин?",
+          "literal": null,
+          "note": "Хонаро пеш аз пардохт ҳатман бинед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Коммуналка включена?",
+          "translation": "Пули об ва барқ дохил аст?",
+          "literal": null,
+          "note": "«Коммуналка» — пули об, барқ ва газ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "Мой номер: ___.",
+          "translation": "Рақами ман: ___.",
+          "literal": null,
+          "note": "Рақами телефонатонро гӯед.",
+          "cue": "Ваш номер телефона?",
+          "cueTranslation": "Рақами телефони шумо?",
+          "intent": "Рақами телефонатонро гӯед",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: шартҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сколько вас человек?",
+          "cueTranslation": "Шумо чанд нафаред?",
+          "intent": "Бигӯ, ки ду нафар",
+          "text": "Нас двое.",
+          "accepts": [
+            "Два человека.",
+            "Двое."
+          ],
+          "translation": "Мо ду нафарем.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Двадцать тысяч в месяц.",
+          "cueTranslation": "Хуб. Бист ҳазор дар як моҳ.",
+          "intent": "Бипурс, ки пули об ва барқ дохил аст",
+          "text": "Коммуналка включена?",
+          "accepts": [
+            "А коммуналка?",
+            "Коммуналка входит?"
+          ],
+          "translation": "Пули об ва барқ дохил аст?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, включена.",
+          "cueTranslation": "Ҳа, дохил аст.",
+          "intent": "Бипурс, ки дидан мумкин",
+          "text": "Можно посмотреть?",
+          "accepts": [
+            "Можно прийти посмотреть?",
+            "Когда можно посмотреть?"
+          ],
+          "translation": "Дидан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Вохӯрӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Вечером",
+          "translation": "бегоҳ",
+          "literal": null,
+          "note": "Зарба: ВЕ-че-ром.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Сегодня вечером можно?",
+          "translation": "Имрӯз бегоҳ мешавад?",
+          "literal": null,
+          "note": "Вақти дидан.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я приду в шесть.",
+          "translation": "Ман соати шаш меоям.",
+          "literal": null,
+          "note": "«В шесть» — соати шаш.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "шесть|шаш",
+            "семь|ҳафт",
+            "восемь|ҳашт"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой адрес?",
+          "translation": "Суроға чист?",
+          "literal": null,
+          "note": "Суроғаро ҳатман нависед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда можно посмотреть?",
+          "translation": "Кай дидан мумкин?",
+          "literal": null,
+          "note": "Савол бо «когда» — кай.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: вохӯрӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Когда вам удобно?",
+          "cueTranslation": "Кай ба шумо қулай аст?",
+          "intent": "Бигӯ: имрӯз бегоҳ",
+          "text": "Сегодня вечером.",
+          "accepts": [
+            "Сегодня вечером можно?",
+            "Вечером."
+          ],
+          "translation": "Имрӯз бегоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, в семь часов.",
+          "cueTranslation": "Хуб, соати ҳафт.",
+          "intent": "Суроғаро пурс",
+          "text": "Какой адрес?",
+          "accepts": [
+            "Скажите адрес.",
+            "А какой адрес?"
+          ],
+          "translation": "Суроға чист?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Улица Ленина, дом пять.",
+          "cueTranslation": "Кӯчаи Ленин, хонаи панҷ.",
+          "intent": "Ташаккур гӯй ва бигӯ, ки соати ҳафт меоӣ",
+          "text": "Спасибо, я приду в семь.",
+          "accepts": [
+            "Спасибо, приду в семь.",
+            "Хорошо, в семь."
+          ],
+          "translation": "Ташаккур, ман соати ҳафт меоям.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: иҷораи хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ, ки ҳуҷра меҷӯӣ",
+          "text": "Здравствуйте, я ищу комнату.",
+          "accepts": [
+            "Я ищу комнату.",
+            "Здравствуйте, комната свободна?"
+          ],
+          "translation": "Салом, ман ҳуҷра меҷӯям.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Комната есть. Вас сколько?",
+          "cueTranslation": "Ҳуҷра ҳаст. Шумо чанд нафаред?",
+          "intent": "Бигӯ, ки ду нафар",
+          "text": "Нас двое.",
+          "accepts": [
+            "Два человека.",
+            "Двое."
+          ],
+          "translation": "Мо ду нафарем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Двадцать пять тысяч в месяц.",
+          "cueTranslation": "Бисту панҷ ҳазор дар як моҳ.",
+          "intent": "Бипурс, ки гарав лозим",
+          "text": "Залог нужен?",
+          "accepts": [
+            "А залог нужен?",
+            "Нужен залог?"
+          ],
+          "translation": "Гарав лозим?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, за один месяц.",
+          "cueTranslation": "Ҳа, барои як моҳ.",
+          "intent": "Бипурс, ки кай дидан мумкин",
+          "text": "Когда можно посмотреть?",
+          "accepts": [
+            "Можно посмотреть?",
+            "Можно сегодня посмотреть?"
+          ],
+          "translation": "Кай дидан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

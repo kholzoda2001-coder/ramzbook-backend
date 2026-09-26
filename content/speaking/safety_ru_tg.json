@@ -1,0 +1,587 @@
+{
+  "slug": "safety_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Безопасность и помощь",
+    "titleTranslated": "Бехатарӣ ва ёрӣ",
+    "scenario": "Дар объект хатар ҳаст: чизе меафтад, касе захмӣ мешавад, ёрӣ лозим аст. Шумо огоҳ мекунед, ёрӣ мехоҳед, мегӯед, ки чӣ шуд, ва ба ёрии таъҷилӣ (112) занг мезанед.",
+    "emoji": "⛑️",
+    "order": 5,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хатар",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Осторожно",
+          "translation": "эҳтиёт!",
+          "literal": null,
+          "note": "Зарба: ос-то-РОЖ-но. Дар объект бештар аз ҳама мешунавед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Каска",
+          "translation": "каска",
+          "literal": null,
+          "note": "Кулоҳи муҳофиз. Бе каска ба объект намедароянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Помогите",
+          "translation": "ёрӣ диҳед!",
+          "literal": null,
+          "note": "Зарба: по-мо-ГИ-те.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Больно",
+          "translation": "дард мекунад",
+          "literal": null,
+          "note": "Зарба: БОЛЬ-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Рука",
+          "translation": "даст",
+          "literal": null,
+          "note": "Зарба дар охир: ру-КА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Нога",
+          "translation": "пой",
+          "literal": null,
+          "note": "Зарба дар охир: но-ГА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Эҳтиёт!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сверху кирпич падает!",
+          "cueTranslation": "Аз боло хишт меафтад!",
+          "intent": "Ба рафиқ бигӯ: эҳтиёт!",
+          "text": "Осторожно!",
+          "accepts": [
+            "Осторожно, сверху!"
+          ],
+          "translation": "Эҳтиёт!",
+          "literal": null,
+          "note": "Як калима — ва ҳаёти касеро наҷот медиҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Каска есть?",
+          "cueTranslation": "Каска дорӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Да.",
+          "accepts": [
+            "Да, есть.",
+            "Есть."
+          ],
+          "translation": "Ҳа.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Что болит?",
+          "cueTranslation": "Чӣ дард мекунад?",
+          "intent": "Бигӯ: даст",
+          "text": "Рука.",
+          "accepts": [
+            "Рука болит.",
+            "Болит рука."
+          ],
+          "translation": "Даст.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ёрӣ ва дард",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Мне больно",
+          "translation": "Маро дард мекунад",
+          "literal": null,
+          "note": "«Мне больно» — ба ман дард аст.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Болит нога",
+          "translation": "Пойам дард мекунад",
+          "literal": null,
+          "note": "Қолаб: «болит» + узв.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "нога|пой",
+            "рука|даст",
+            "спина|пушт"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Помогите, пожалуйста",
+          "translation": "Лутфан, ёрӣ диҳед",
+          "literal": null,
+          "note": "Бо «пожалуйста» — хушмуомила.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Скорая",
+          "translation": "ёрии таъҷилӣ",
+          "literal": null,
+          "note": "Мошини ёрии таъҷилӣ. Рақам: 103 ё 112.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Вызовите скорую",
+          "translation": "Ёрии таъҷилиро ҷеғ занед",
+          "literal": null,
+          "note": "«Скорая» → «скорую» баъди «вызовите».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что случилось?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ, ки пойат дард мекунад",
+          "text": "Болит нога.",
+          "accepts": [
+            "Нога болит.",
+            "Мне больно, нога."
+          ],
+          "translation": "Пойам дард мекунад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сильно болит?",
+          "cueTranslation": "Сахт дард мекунад?",
+          "intent": "Бигӯ, ки ҳа, дард мекунад",
+          "text": "Да, мне больно.",
+          "accepts": [
+            "Да, очень больно.",
+            "Больно."
+          ],
+          "translation": "Ҳа, дард мекунад.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Скорую вызвать?",
+          "cueTranslation": "Ёрии таъҷилиро ҷеғ занам?",
+          "intent": "Бигӯ: ҳа, лутфан ҷеғ занед",
+          "text": "Да, вызовите скорую.",
+          "accepts": [
+            "Да, пожалуйста.",
+            "Вызовите скорую."
+          ],
+          "translation": "Ҳа, ёрии таъҷилиро ҷеғ занед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ба ман ёрӣ лозим",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Помощь",
+          "translation": "ёрӣ",
+          "literal": null,
+          "note": "Зарба: ПО-мощь.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Опасно",
+          "translation": "хатарнок",
+          "literal": null,
+          "note": "Зарба: о-ПАС-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужна помощь.",
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": null,
+          "note": "Ибораи асосӣ дар ҳар мушкилӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь опасно.",
+          "translation": "Ин ҷо хатарнок аст.",
+          "literal": null,
+          "note": "Огоҳии ҳамкор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не могу.",
+          "translation": "Ман наметавонам.",
+          "literal": null,
+          "note": "«Не могу» — наметавонам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где аптечка?",
+          "translation": "Қуттии дору куҷост?",
+          "literal": null,
+          "note": "«Аптечка» — қуттии ёрии аввал.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: захм",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Эй, что с тобой?",
+          "cueTranslation": "Эй, туро чӣ шуд?",
+          "intent": "Бигӯ, ки ба ту ёрӣ лозим",
+          "text": "Мне нужна помощь.",
+          "accepts": [
+            "Помогите!",
+            "Помогите, пожалуйста."
+          ],
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Что болит?",
+          "cueTranslation": "Чӣ дард мекунад?",
+          "intent": "Бигӯ, ки дастат дард мекунад",
+          "text": "Болит рука.",
+          "accepts": [
+            "Рука болит.",
+            "Рука, мне больно."
+          ],
+          "translation": "Дастам дард мекунад.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Работать можешь?",
+          "cueTranslation": "Кор карда метавонӣ?",
+          "intent": "Бигӯ, ки наметавонӣ",
+          "text": "Нет, я не могу.",
+          "accepts": [
+            "Не могу.",
+            "Нет, не могу."
+          ],
+          "translation": "Не, ман наметавонам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Сиди здесь. Я принесу аптечку.",
+          "cueTranslation": "Ин ҷо шин. Ман қуттии доруро меорам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Занг ба 112",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Адрес",
+          "translation": "суроға",
+          "literal": null,
+          "note": "Зарба: А-дрес.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужна скорая.",
+          "translation": "Ёрии таъҷилӣ лозим.",
+          "literal": null,
+          "note": "Ҷумлаи аввал ҳангоми занг.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Человек упал.",
+          "translation": "Одам афтод.",
+          "literal": null,
+          "note": "«Упал» — афтод.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Идёт кровь.",
+          "translation": "Хун меравад.",
+          "literal": null,
+          "note": "Зарба: и-ДЁТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Приезжайте быстрее!",
+          "translation": "Зудтар биёед!",
+          "literal": null,
+          "note": "Зарба: при-ез-ЖАЙ-те.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "Наш адрес: ___.",
+          "translation": "Суроғаи мо: ___.",
+          "literal": null,
+          "note": "Суроғаи объектро гӯед: кӯча ва рақами хона.",
+          "cue": "Какой адрес?",
+          "cueTranslation": "Суроға чист?",
+          "intent": "Суроғаи объектро гӯед",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: 112",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сто двенадцать. Что случилось?",
+          "cueTranslation": "Сад-у-дувоздаҳ. Чӣ шуд?",
+          "intent": "Бигӯ, ки одам афтод",
+          "text": "Человек упал.",
+          "accepts": [
+            "Нужна скорая. Человек упал.",
+            "Рабочий упал."
+          ],
+          "translation": "Одам афтод.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Он в сознании?",
+          "cueTranslation": "Ӯ ба худ аст?",
+          "intent": "Бигӯ, ки ҳа, вале хун меравад",
+          "text": "Да. Идёт кровь.",
+          "accepts": [
+            "Да, но идёт кровь.",
+            "Идёт кровь."
+          ],
+          "translation": "Ҳа. Хун меравад.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой адрес?",
+          "cueTranslation": "Суроға чист?",
+          "intent": "Суроғаро гӯед: кӯчаи Ленин, 5",
+          "text": "Улица Ленина, пять.",
+          "accepts": [
+            "Ленина, пять.",
+            "Адрес: улица Ленина, пять."
+          ],
+          "translation": "Кӯчаи Ленин, панҷ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Скорая едет.",
+          "cueTranslation": "Ёрии таъҷилӣ меояд.",
+          "intent": "Бигӯ: зудтар биёед, лутфан",
+          "text": "Приезжайте быстрее, пожалуйста!",
+          "accepts": [
+            "Быстрее, пожалуйста!",
+            "Спасибо, быстрее!"
+          ],
+          "translation": "Лутфан, зудтар биёед!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: садама дар объект",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Осторожно! Ты в порядке?",
+          "cueTranslation": "Эҳтиёт! Ту хубӣ?",
+          "intent": "Бигӯ, ки не, ба ту ёрӣ лозим",
+          "text": "Нет. Мне нужна помощь.",
+          "accepts": [
+            "Нет. Помогите!",
+            "Помогите, пожалуйста."
+          ],
+          "translation": "Не. Ба ман ёрӣ лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Что болит?",
+          "cueTranslation": "Чӣ дард мекунад?",
+          "intent": "Бигӯ, ки пойат дард мекунад",
+          "text": "Болит нога.",
+          "accepts": [
+            "Нога болит.",
+            "Нога, очень больно."
+          ],
+          "translation": "Пойам дард мекунад.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Встать можешь?",
+          "cueTranslation": "Хеста метавонӣ?",
+          "intent": "Бигӯ, ки наметавонӣ",
+          "text": "Нет, не могу.",
+          "accepts": [
+            "Я не могу.",
+            "Не могу."
+          ],
+          "translation": "Не, наметавонам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Скорую вызвать?",
+          "cueTranslation": "Ёрии таъҷилиро ҷеғ занам?",
+          "intent": "Бигӯ: ҳа, ҷеғ занед",
+          "text": "Да, вызовите скорую.",
+          "accepts": [
+            "Да, пожалуйста.",
+            "Вызовите скорую!"
+          ],
+          "translation": "Ҳа, ёрии таъҷилиро ҷеғ занед.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

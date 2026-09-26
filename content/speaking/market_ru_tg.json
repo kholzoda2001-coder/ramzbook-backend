@@ -1,0 +1,556 @@
+{
+  "slug": "market_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "На рынке",
+    "titleTranslated": "Бозор",
+    "scenario": "Шумо ба бозор ё мағоза меравед: нархро мепурсед, миқдор мегӯед, тахфиф мехоҳед ва пул медиҳед. Аз дарси дуюм худатон бо фурӯшанда гап мезанед.",
+    "emoji": "🛒",
+    "order": 6,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хӯрок",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Хлеб",
+          "translation": "нон",
+          "literal": null,
+          "note": "Як ҳиҷо: хлеб.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Мясо",
+          "translation": "гӯшт",
+          "literal": null,
+          "note": "Зарба: МЯ-со.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Картошка",
+          "translation": "картошка",
+          "literal": null,
+          "note": "Ҳамон калима! Зарба: кар-ТОШ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Молоко",
+          "translation": "шир",
+          "literal": null,
+          "note": "Зарба дар охир: мо-ло-КО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Дорого",
+          "translation": "қимат",
+          "literal": null,
+          "note": "Зарба дар охир: до-ро-ГО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Дёшево",
+          "translation": "арзон",
+          "literal": null,
+          "note": "Зарба: ДЁ-ше-во.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Фурӯшанда мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что вам?",
+          "cueTranslation": "Ба шумо чӣ?",
+          "intent": "Бигӯ: нон",
+          "text": "Хлеб.",
+          "accepts": [
+            "Хлеб, пожалуйста."
+          ],
+          "translation": "Нон.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Двести рублей. Дорого?",
+          "cueTranslation": "Дусад рубл. Қимат?",
+          "intent": "Бигӯ, ки ҳа, қимат",
+          "text": "Да, дорого.",
+          "accepts": [
+            "Дорого.",
+            "Очень дорого."
+          ],
+          "translation": "Ҳа, қимат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Молоко нужно?",
+          "cueTranslation": "Шир лозим?",
+          "intent": "Бигӯ, ки не",
+          "text": "Нет.",
+          "accepts": [
+            "Нет, спасибо."
+          ],
+          "translation": "Не.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Нарх ва миқдор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Сколько стоит?",
+          "translation": "Чанд пул аст?",
+          "literal": null,
+          "note": "Муҳимтарин савол дар бозор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Дайте",
+          "translation": "диҳед",
+          "literal": null,
+          "note": "«Дайте» — диҳед (хушмуомила).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Дайте хлеб",
+          "translation": "Нон диҳед",
+          "literal": null,
+          "note": "Қолаб: «дайте» + мол.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "хлеб|нон",
+            "мясо|гӯшт",
+            "молоко|шир"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Кило",
+          "translation": "кило",
+          "literal": null,
+          "note": "Кӯтоҳи «килограмм».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Два кило",
+          "translation": "Ду кило",
+          "literal": null,
+          "note": "«Два» — ду.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Харид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Что хотите?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бипурс: картошка чанд пул?",
+          "text": "Сколько стоит картошка?",
+          "accepts": [
+            "Картошка сколько стоит?",
+            "Почём картошка?"
+          ],
+          "translation": "Картошка чанд пул аст?",
+          "literal": null,
+          "note": "«Почём?» — ҳам «чанд пул?», дар бозор маъмул.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Пятьдесят рублей кило.",
+          "cueTranslation": "Кило панҷоҳ рубл.",
+          "intent": "Бигӯ: ду кило диҳед",
+          "text": "Дайте два кило.",
+          "accepts": [
+            "Два кило, пожалуйста.",
+            "Два кило."
+          ],
+          "translation": "Ду кило диҳед.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сто рублей.",
+          "cueTranslation": "Сад рубл.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Вот, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Тахфиф",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Очень",
+          "translation": "хеле",
+          "literal": null,
+          "note": "«Очень дорого» — хеле қимат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Скидка",
+          "translation": "тахфиф",
+          "literal": null,
+          "note": "Зарба: СКИД-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько стоит мясо?",
+          "translation": "Гӯшт чанд пул аст?",
+          "literal": null,
+          "note": "Қолаб: «Сколько стоит» + мол.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "мясо|гӯшт",
+            "хлеб|нон",
+            "молоко|шир"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это очень дорого.",
+          "translation": "Ин хеле қимат аст.",
+          "literal": null,
+          "note": "Барои оғози савдо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно скидку?",
+          "translation": "Тахфиф мешавад?",
+          "literal": null,
+          "note": "«Скидка» → «скидку» баъди «можно».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "Дайте, пожалуйста, ___.",
+          "translation": "Лутфан, ___ диҳед.",
+          "literal": null,
+          "note": "Ба ҷои «___» гӯед, ки чӣ мехаред.",
+          "cue": "Что вам нужно?",
+          "cueTranslation": "Ба шумо чӣ лозим?",
+          "intent": "Бигӯед, ки чӣ мехаред",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: тахфиф",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Мясо — семьсот рублей.",
+          "cueTranslation": "Гӯшт — ҳафтсад рубл.",
+          "intent": "Бигӯ, ки хеле қимат",
+          "text": "Это очень дорого.",
+          "accepts": [
+            "Очень дорого.",
+            "Дорого!"
+          ],
+          "translation": "Ин хеле қимат аст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошее мясо, свежее.",
+          "cueTranslation": "Гӯшти хуб, тоза.",
+          "intent": "Тахфиф хоҳ",
+          "text": "Можно скидку?",
+          "accepts": [
+            "А скидка есть?",
+            "Скидку можно?"
+          ],
+          "translation": "Тахфиф мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно, шестьсот.",
+          "cueTranslation": "Майлаш, шашсад.",
+          "intent": "Бигӯ: хуб, як кило диҳед",
+          "text": "Хорошо, дайте кило.",
+          "accepts": [
+            "Хорошо, один кило.",
+            "Дайте один килограмм."
+          ],
+          "translation": "Хуб, як кило диҳед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пардохт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Карта",
+          "translation": "корт",
+          "literal": null,
+          "note": "«Картой» — бо корт.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Пакет",
+          "translation": "халта",
+          "literal": null,
+          "note": "Халтаи пластикӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно картой?",
+          "translation": "Бо корт мешавад?",
+          "literal": null,
+          "note": "Пеш аз пардохт бипурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Наличными.",
+          "translation": "Бо пули нақд.",
+          "literal": null,
+          "note": "Зарба: на-ЛИЧ-ны-ми.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Сдачи не надо.",
+          "translation": "Бақия лозим нест.",
+          "literal": null,
+          "note": "«Сдача» — бақияи пул.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Пакет не нужен.",
+          "translation": "Халта лозим нест.",
+          "literal": null,
+          "note": "Халта пулакӣ аст — агар лозим набошад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: пардохт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Картой или наличными?",
+          "cueTranslation": "Бо корт ё бо пули нақд?",
+          "intent": "Бипурс, ки бо корт мешавад",
+          "text": "Можно картой?",
+          "accepts": [
+            "Картой можно?",
+            "Картой, пожалуйста."
+          ],
+          "translation": "Бо корт мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, только наличные.",
+          "cueTranslation": "Не, фақат пули нақд.",
+          "intent": "Бигӯ: хуб, бо пули нақд",
+          "text": "Хорошо, наличными.",
+          "accepts": [
+            "Наличными.",
+            "Ладно, наличными."
+          ],
+          "translation": "Хуб, бо пули нақд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Пакет нужен?",
+          "cueTranslation": "Халта лозим?",
+          "intent": "Бигӯ, ки лозим нест",
+          "text": "Пакет не нужен.",
+          "accepts": [
+            "Нет, не нужен.",
+            "Нет, спасибо."
+          ],
+          "translation": "Халта лозим нест.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бозор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что вам нужно?",
+          "cueTranslation": "Ба шумо чӣ лозим?",
+          "intent": "Бипурс, ки гӯшт чанд пул аст",
+          "text": "Сколько стоит мясо?",
+          "accepts": [
+            "Мясо сколько стоит?",
+            "Почём мясо?"
+          ],
+          "translation": "Гӯшт чанд пул аст?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Шестьсот пятьдесят за кило.",
+          "cueTranslation": "Кило шашсаду панҷоҳ.",
+          "intent": "Тахфиф хоҳ",
+          "text": "Можно скидку?",
+          "accepts": [
+            "Дорого. Можно скидку?",
+            "Скидка есть?"
+          ],
+          "translation": "Тахфиф мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно, шестьсот.",
+          "cueTranslation": "Майлаш, шашсад.",
+          "intent": "Бигӯ: ду кило диҳед",
+          "text": "Дайте два кило.",
+          "accepts": [
+            "Два кило, пожалуйста."
+          ],
+          "translation": "Ду кило диҳед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Как будете платить?",
+          "cueTranslation": "Чӣ хел пардохт мекунед?",
+          "intent": "Бипурс, ки бо корт мешавад",
+          "text": "Можно картой?",
+          "accepts": [
+            "Картой, пожалуйста."
+          ],
+          "translation": "Бо корт мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

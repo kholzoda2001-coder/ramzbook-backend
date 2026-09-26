@@ -1,0 +1,565 @@
+{
+  "slug": "pay_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Зарплата и время",
+    "titleTranslated": "Музд ва вақти кор",
+    "scenario": "Шумо дар объект кор мекунед. Бо прораб дар бораи музд, пешпардохт (аванс), рӯзи истироҳат ва соатҳои иловагӣ гап мезанед — хушмуомила, вале ҳаққи худро медонед.",
+    "emoji": "💵",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул ва рӯз",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Зарплата",
+          "translation": "музд",
+          "literal": null,
+          "note": "Зарба: зар-ПЛА-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Аванс",
+          "translation": "пешпардохт",
+          "literal": null,
+          "note": "Зарба: а-ВАНС. Қисми музд пеш аз охири моҳ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Выходной",
+          "translation": "рӯзи истироҳат",
+          "literal": null,
+          "note": "Зарба дар охир: вы-ход-НОЙ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Час",
+          "translation": "соат (вақт)",
+          "literal": null,
+          "note": "«Час» — як соат. «Два часа» — ду соат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Сегодня",
+          "translation": "имрӯз",
+          "literal": null,
+          "note": "Зарба: се-ВОД-ня. Ҳарфи «г» мисли «в» хонда мешавад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Завтра",
+          "translation": "фардо",
+          "literal": null,
+          "note": "Зарба: ЗАВ-тра.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Прораб мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Завтра работаешь?",
+          "cueTranslation": "Фардо кор мекунӣ?",
+          "intent": "Бигӯ, ки не",
+          "text": "Нет.",
+          "accepts": [
+            "Нет, выходной."
+          ],
+          "translation": "Не.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Почему? Выходной?",
+          "cueTranslation": "Чаро? Рӯзи истироҳат?",
+          "intent": "Бигӯ, ки ҳа, рӯзи истироҳат",
+          "text": "Да, выходной.",
+          "accepts": [
+            "Да.",
+            "Выходной."
+          ],
+          "translation": "Ҳа, рӯзи истироҳат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Аванс нужен?",
+          "cueTranslation": "Пешпардохт лозим?",
+          "intent": "Бигӯ, ки ҳа, лозим",
+          "text": "Да, нужен.",
+          "accepts": [
+            "Да.",
+            "Нужен."
+          ],
+          "translation": "Ҳа, лозим.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кай ва чанд?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Когда",
+          "translation": "кай",
+          "literal": null,
+          "note": "Зарба: ког-ДА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда зарплата?",
+          "translation": "Музд кай?",
+          "literal": null,
+          "note": "Саволи муҳим — пурсидан айб нест.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Сколько",
+          "translation": "чанд, чӣ қадар",
+          "literal": null,
+          "note": "Зарба: СКОЛЬ-ко.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько часов?",
+          "translation": "Чанд соат?",
+          "literal": null,
+          "note": "Барои соатҳои кор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Каждый день",
+          "translation": "Ҳар рӯз",
+          "literal": null,
+          "note": "Зарба: КАЖ-дый.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "До вечера",
+          "translation": "То бегоҳ",
+          "literal": null,
+          "note": "«До» — то.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Вақти кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Работаем каждый день.",
+          "cueTranslation": "Ҳар рӯз кор мекунем.",
+          "intent": "Бипурс: чанд соат?",
+          "text": "Сколько часов?",
+          "accepts": [
+            "А сколько часов?",
+            "Сколько часов в день?"
+          ],
+          "translation": "Чанд соат?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "С восьми до вечера.",
+          "cueTranslation": "Аз соати ҳашт то бегоҳ.",
+          "intent": "Бипурс, ки музд кай",
+          "text": "Когда зарплата?",
+          "accepts": [
+            "А зарплата когда?",
+            "Когда деньги?"
+          ],
+          "translation": "Музд кай?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В конце месяца.",
+          "cueTranslation": "Дар охири моҳ.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Хорошо, понял.",
+            "Понял."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Пешпардохт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Деньги",
+          "translation": "пул",
+          "literal": null,
+          "note": "Зарба: ДЕНЬ-ги.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Тысяча",
+          "translation": "ҳазор",
+          "literal": null,
+          "note": "«Десять тысяч» — даҳ ҳазор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно аванс?",
+          "translation": "Пешпардохт мешавад?",
+          "literal": null,
+          "note": "Хушмуомила ва кӯтоҳ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужны деньги.",
+          "translation": "Ба ман пул лозим.",
+          "literal": null,
+          "note": "«Нужны» — барои «деньги» (ҷамъ).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Завтра у меня выходной.",
+          "translation": "Фардо ман рӯзи истироҳат дорам.",
+          "literal": null,
+          "note": "«У меня» — ман дорам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я работаю до вечера.",
+          "translation": "Ман то бегоҳ кор мекунам.",
+          "literal": null,
+          "note": "«До вечера» — то бегоҳ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: аванс",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что хотел?",
+          "cueTranslation": "Чӣ мехостӣ?",
+          "intent": "Бипурс, ки пешпардохт мешавад",
+          "text": "Можно аванс?",
+          "accepts": [
+            "Мне нужен аванс.",
+            "Можно аванс, пожалуйста?"
+          ],
+          "translation": "Пешпардохт мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Зачем тебе?",
+          "cueTranslation": "Барои чӣ лозим?",
+          "intent": "Бигӯ, ки ба ту пул лозим",
+          "text": "Мне нужны деньги.",
+          "accepts": [
+            "Нужны деньги.",
+            "Деньги нужны."
+          ],
+          "translation": "Ба ман пул лозим.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько нужно?",
+          "cueTranslation": "Чӣ қадар лозим?",
+          "intent": "Бигӯ: даҳ ҳазор",
+          "text": "Десять тысяч.",
+          "accepts": [
+            "Десять тысяч рублей.",
+            "Тысяч десять."
+          ],
+          "translation": "Даҳ ҳазор.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, дам в пятницу.",
+          "cueTranslation": "Хуб, ҷумъа медиҳам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо большое.",
+          "accepts": [
+            "Спасибо.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Кори иловагӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Переработка",
+          "translation": "кори иловагӣ",
+          "literal": null,
+          "note": "Соатҳое, ки аз вақти муқаррарӣ зиёд кор мекунед. Зарба: пе-ре-ра-БОТ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Это переработка.",
+          "translation": "Ин кори иловагӣ аст.",
+          "literal": null,
+          "note": "Барои кори иловагӣ бояд иловатан пардохт кунанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько за час?",
+          "translation": "Барои як соат чанд?",
+          "literal": null,
+          "note": "«За час» — барои як соат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не могу сегодня.",
+          "translation": "Ман имрӯз наметавонам.",
+          "literal": null,
+          "note": "Бо оҳанги ором — ҳаққи шумост.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошо, договорились.",
+          "translation": "Хуб, розӣ шудем.",
+          "literal": null,
+          "note": "Зарба: до-го-во-РИ-лись.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: кори иловагӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сегодня работаем до десяти.",
+          "cueTranslation": "Имрӯз то соати даҳ кор мекунем.",
+          "intent": "Бигӯ, ки ин кори иловагӣ аст",
+          "text": "Это переработка.",
+          "accepts": [
+            "Это переработка, да?",
+            "Значит, переработка."
+          ],
+          "translation": "Ин кори иловагӣ аст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, заплачу.",
+          "cueTranslation": "Ҳа, пардохт мекунам.",
+          "intent": "Бипурс: барои як соат чанд?",
+          "text": "Сколько за час?",
+          "accepts": [
+            "А сколько за час?",
+            "Сколько платите за час?"
+          ],
+          "translation": "Барои як соат чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Триста рублей.",
+          "cueTranslation": "Сесад рубл.",
+          "intent": "Бигӯ: хуб, розӣ шудем",
+          "text": "Хорошо, договорились.",
+          "accepts": [
+            "Хорошо.",
+            "Договорились."
+          ],
+          "translation": "Хуб, розӣ шудем.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: музд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Зарплата в конце месяца.",
+          "cueTranslation": "Музд дар охири моҳ.",
+          "intent": "Бипурс, ки пешпардохт мешавад",
+          "text": "Можно аванс?",
+          "accepts": [
+            "А аванс можно?",
+            "Мне нужен аванс."
+          ],
+          "translation": "Пешпардохт мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько нужно?",
+          "cueTranslation": "Чӣ қадар лозим?",
+          "intent": "Бигӯ: даҳ ҳазор",
+          "text": "Десять тысяч.",
+          "accepts": [
+            "Десять тысяч рублей."
+          ],
+          "translation": "Даҳ ҳазор.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. А в субботу работаешь?",
+          "cueTranslation": "Хуб. Шанбе кор мекунӣ?",
+          "intent": "Бигӯ, ки не, рӯзи истироҳат дорӣ",
+          "text": "Нет, у меня выходной.",
+          "accepts": [
+            "Нет, выходной.",
+            "Нет. Выходной."
+          ],
+          "translation": "Не, ман рӯзи истироҳат дорам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Надо поработать. Заплачу.",
+          "cueTranslation": "Бояд кор кард. Пардохт мекунам.",
+          "intent": "Бипурс: барои як соат чанд?",
+          "text": "Сколько за час?",
+          "accepts": [
+            "Сколько платите?",
+            "А сколько за час?"
+          ],
+          "translation": "Барои як соат чанд?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
