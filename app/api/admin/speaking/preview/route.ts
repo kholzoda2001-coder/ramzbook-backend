@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
             id: true, kind: true, text: true, translation: true, literal: true,
             note: true, audioUrl: true, cue: true, cueTranslation: true,
             chainOverride: true, swaps: true, wordCount: true,
-            intent: true, accepts: true,
+            intent: true, accepts: true, cueAudioUrl: true, intentAudioUrl: true,
           },
         },
       },

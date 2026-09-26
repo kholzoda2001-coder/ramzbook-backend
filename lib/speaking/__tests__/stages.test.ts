@@ -307,3 +307,31 @@ describe('валидатор: «Ҷавоби худат»', () => {
     expect(codes).not.toContain('E_OWN_NO_SLOT');
   });
 });
+
+describe('аудиои тайёр: ҳамсӯҳбат ва нияти тоҷикӣ (нишасти Б)', () => {
+  const voiced = doctor.map((t, i) =>
+    i === 0
+      ? { ...t, cueAudioUrl: 'https://cdn/cue-t1.mp3', intentAudioUrl: 'https://cdn/int-t1.mp3' }
+      : t,
+  );
+
+  it('«dialogue»: ҳарду ба навбат ва ба сим мераванд; cue дар муколама', () => {
+    const steps = generateSteps(voiced, v3, { repeat: false, stage: 'dialogue' });
+    expect(steps[0].lines![0].audioUrl).toBe('https://cdn/cue-t1.mp3');
+    // Сатри бе аудио — холӣ (TTS), на `undefined`.
+    expect(steps[0].lines![2].audioUrl).toBe('');
+    const w = steps.filter((s) => s.kind === 'turn').map((s) => toWire(s, 3));
+    expect(w[0].cueAudioUrl).toBe('https://cdn/cue-t1.mp3');
+    expect(w[0].intentAudioUrl).toBe('https://cdn/int-t1.mp3');
+    // Бе аудио — калид умуман нест (клиент холиро TTS мекунад).
+    expect('intentAudioUrl' in w[1]).toBe(false);
+    expect('cueAudioUrl' in w[1]).toBe(false);
+  });
+
+  it('«mission»: ният пинҳон → овози ният ҳам НАМЕРАВАД, cue меравад', () => {
+    const steps = generateSteps(voiced, v3, { repeat: false, stage: 'mission' });
+    const w = toWire(steps[0], 3);
+    expect(w.intentAudioUrl).toBeUndefined();
+    expect(w.cueAudioUrl).toBe('https://cdn/cue-t1.mp3');
+  });
+});

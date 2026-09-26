@@ -180,6 +180,10 @@ export interface EngineItem {
   intent?: string | null;
   /** Ҷавобҳои ДИГАРИ дуруст барои `turn`. */
   accepts?: string[];
+  /** Аудиои тайёри ҷумлаи ҳамсӯҳбат (`cue`). Холӣ = TTS-и дастгоҳ. */
+  cueAudioUrl?: string | null;
+  /** Ният бо овози тоҷикӣ (`turn`/`own`). Холӣ = танҳо матн. */
+  intentAudioUrl?: string | null;
 }
 
 export interface EngineOptions {
@@ -237,6 +241,9 @@ export interface Step {
   /** `turn`: ҷавобҳои дигари дуруст ва нияти забони модарӣ. */
   accepts?: string[];
   intent?: string;
+  /** Аудиои тайёри `cue` ва нияти тоҷикӣ — ниг. [EngineItem]. */
+  cueAudioUrl?: string;
+  intentAudioUrl?: string;
   /** `turn` дар миссия: корти ният пинҳон, танҳо рӯйхати ҳадафҳо. */
   hideIntent?: boolean;
   goals?: string[];
@@ -280,6 +287,8 @@ export interface WireStep {
   answerIndex?: number;
   accepts?: string[];
   intent?: string;
+  cueAudioUrl?: string;
+  intentAudioUrl?: string;
   hideIntent?: boolean;
   goals?: string[];
   goalIndex?: number;
@@ -302,6 +311,8 @@ export function toEngineItem(i: {
   cueTranslation: string | null;
   intent?: string | null;
   accepts?: string[];
+  cueAudioUrl?: string | null;
+  intentAudioUrl?: string | null;
 }): EngineItem {
   return {
     id: i.id,
@@ -315,6 +326,8 @@ export function toEngineItem(i: {
             : 'sentence',
     intent: i.intent ?? null,
     accepts: i.accepts ?? [],
+    cueAudioUrl: i.cueAudioUrl ?? null,
+    intentAudioUrl: i.intentAudioUrl ?? null,
     text: i.text,
     translation: i.translation,
     literal: i.literal,
@@ -1020,6 +1033,8 @@ function composeSessionA(
       showSlots: false,
       timerMs: null,
       intent: it.intent?.trim() || it.translation.trim(),
+      cueAudioUrl: it.cueAudioUrl?.trim() || undefined,
+      intentAudioUrl: it.intentAudioUrl?.trim() || undefined,
     });
   }
 
@@ -1175,8 +1190,8 @@ function generateDialogueSteps(
           who: 'partner' as const,
           text: (t.cue ?? '').trim(),
           translation: t.cueTranslation?.trim() ?? '',
-          // ⚠️ Ҷумлаи ҳамсӯҳбат ҳанӯз аудиои тайёр надорад — TTS-и дастгоҳ.
-          audioUrl: '',
+          // Аудиои тайёр агар бошад; холӣ = TTS-и дастгоҳ.
+          audioUrl: t.cueAudioUrl?.trim() ?? '',
         },
         {
           who: 'me' as const,
@@ -1249,6 +1264,10 @@ function generateDialogueSteps(
       timerMs: null,
       accepts: (t.accepts ?? []).map((a) => a.trim()).filter(Boolean),
       intent,
+      cueAudioUrl: t.cueAudioUrl?.trim() || undefined,
+      // Дар миссия ният ПИНҲОН аст — овози он ҳам намеравад.
+      intentAudioUrl:
+        stage === 'mission' ? undefined : t.intentAudioUrl?.trim() || undefined,
       hideIntent: stage === 'mission',
       goals,
       goalIndex: stage === 'mission' ? i : undefined,
@@ -1397,6 +1416,8 @@ export function toWire(s: Step, ev: number): WireStep {
         intent: s.intent ?? '',
         hideIntent: s.hideIntent ?? false,
       };
+      if (s.cueAudioUrl) wire.cueAudioUrl = s.cueAudioUrl;
+      if (s.intentAudioUrl) wire.intentAudioUrl = s.intentAudioUrl;
       if (s.goals) {
         wire.goals = s.goals;
         wire.goalIndex = s.goalIndex ?? 0;
@@ -1440,6 +1461,8 @@ export function toWire(s: Step, ev: number): WireStep {
         cueTranslation,
         intent: s.intent ?? '',
       };
+      if (s.cueAudioUrl) wire.cueAudioUrl = s.cueAudioUrl;
+      if (s.intentAudioUrl) wire.intentAudioUrl = s.intentAudioUrl;
       break;
 
     default:

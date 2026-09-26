@@ -994,6 +994,12 @@ model SpeakingItem {
   intent         String?  @db.Text
   accepts        String[] @default([])
 
+  // Аудиои тайёр (нишасти Б, 26.09.2026). Ҳарду ихтиёрӣ: холӣ = TTS-и дастгоҳ
+  // (cue) ё танҳо матн (ният). `intentAudioUrl` — НИЯТ бо овози ТОҶИКӢ, то
+  // хонанда корти ниятро нахонда, ШУНАВАД (мисли гапи воқеӣ).
+  cueAudioUrl    String?
+  intentAudioUrl String?
+
   text        String  @db.Text // матн ба забони омӯзиш
   translation String  @db.Text // тарҷума ба забони модарӣ
   literal     String? @db.Text // калима ба калима / транслитератсия

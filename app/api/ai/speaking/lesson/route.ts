@@ -141,6 +141,9 @@ export async function GET(req: NextRequest) {
                 // Нақшбозӣ (ev ≥ 3): ният ва ҷавобҳои дигари дуруст.
                 intent: true,
                 accepts: true,
+                // Аудиои тайёри ҳамсӯҳбат ва нияти тоҷикӣ (ҳарду ихтиёрӣ).
+                cueAudioUrl: true,
+                intentAudioUrl: true,
               },
             },
           },
