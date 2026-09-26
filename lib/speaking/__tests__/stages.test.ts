@@ -335,3 +335,27 @@ describe('аудиои тайёр: ҳамсӯҳбат ва нияти тоҷик
     expect(w.cueAudioUrl).toBe('https://cdn/cue-t1.mp3');
   });
 });
+
+describe('валидатор: ҷойгузорҳои шахсисозӣ', () => {
+  const ctx = { targetScript: /^[А-Яа-яЁё\s.,!?-]+$/, categoryTexts: new Set<string>() };
+  const run = (items: EngineItem[]) =>
+    validateLesson({ id: 'L', items, stage: 'sentences' }, ctx, DEFAULT_CONFIG).map((i) => i.code);
+
+  it('«Я {job}.» — алифбо дуруст, бе хато', () => {
+    const codes = run([sentence('j1', 'Я {job}.')]);
+    expect(codes).not.toContain('E_SCRIPT');
+    expect(codes).not.toContain('E_PLACEHOLDER');
+  });
+
+  it('{name} дар ҷумлаи хонанда — огоҳӣ; дар cue — не', () => {
+    expect(run([sentence('n1', 'Меня зовут {name}.')])).toContain('W_NAME_IN_ANSWER');
+    const ok = { ...sentence('n2', 'Спасибо, доктор.'), cue: 'Проходите, {name}!' };
+    expect(run([ok])).not.toContain('W_NAME_IN_ANSWER');
+  });
+
+  it('ҷойгузори ношинос — хато', () => {
+    expect(run([sentence('x1', 'Я {jbo}.')])).toContain('E_PLACEHOLDER');
+    const cue = { ...sentence('x2', 'Да.'), cue: 'Вы {nmae}?' };
+    expect(run([cue])).toContain('E_PLACEHOLDER');
+  });
+});

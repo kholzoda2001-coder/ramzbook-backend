@@ -25,6 +25,10 @@ import {
   type Stage,
 } from './engine';
 
+/** Ҷойгузорҳои шахсисозӣ, ки клиент мешиносад. */
+const KNOWN_PLACEHOLDERS = ['{name}', '{job}', '{job_tg}'];
+const PLACEHOLDER_RE = /\{(?:name|job|job_tg)\}/g;
+
 /**
  * Аз ин зиёд қадам — нишаст барои як машқи гуфтор хеле дароз мешавад.
  *
@@ -116,9 +120,28 @@ export function validateLesson(
     // ── E_SCRIPT ────────────────────────────────────────────────────────
     // «Ҷавоби худат»: ҷои холӣ «___» ҳарфи ягон алифбо нест — пеш аз санҷиш
     // бардошта мешавад (вагарна «Меня зовут ___.» хатои E_SCRIPT мегирифт).
-    const scriptText = text.split(OWN_SLOT).join(' ').replace(/\s+/g, ' ').trim();
+    // Ҷойгузорҳои шахсисозӣ ({name}, {job}, {job_tg}) низ — онҳоро барнома
+    // бо ному касби хонанда иваз мекунад (ниг. `SpeakingPersona` дар клиент).
+    const scriptText = text
+      .split(OWN_SLOT)
+      .join(' ')
+      .replace(PLACEHOLDER_RE, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
     if (ctx.targetScript && scriptText && !ctx.targetScript.test(scriptText)) {
       add('E_SCRIPT', 'error', `Матн бо алифбои забони омӯзиш нест: «${text}»`, it.id);
+    }
+
+    // ── W_NAME_IN_ANSWER ────────────────────────────────────────────────
+    // {name} дар ҷумлаи ХОНАНДА хатарнок аст: муҳаррики нутқ номҳои тоҷикиро
+    // бад мешиносад ва ҷумлаи дурустро рад мекунад. Ҷояш — сатри ҳамсӯҳбат.
+    if (text.includes('{name}')) {
+      add('W_NAME_IN_ANSWER', 'warning', `{name} дар ҷумлаи хонанда: «${text}» — онро ба cue гузаронед`, it.id);
+    }
+    // Ҷойгузори ношинос ({nmae}) — иваз намешавад ва ба экран меафтад.
+    const unknown = (text + ' ' + (it.cue ?? '')).match(/\{[a-z_]+\}/g)?.filter((m) => !KNOWN_PLACEHOLDERS.includes(m));
+    if (unknown && unknown.length) {
+      add('E_PLACEHOLDER', 'error', `Ҷойгузори ношинос ${unknown.join(', ')}: «${text}»`, it.id);
     }
 
     // ── E_DUP_IN_LESSON ─────────────────────────────────────────────────
