@@ -11,7 +11,7 @@ const sql = neon(env.DATABASE_URL);
 const lessons = await sql.query(`
   SELECT l.id, l."order", l.stage, l.title FROM "SpeakingLesson" l
     JOIN "SpeakingCategory" c ON c.id = l."categoryId"
-   WHERE c."titleTranslated" = 'Назди духтур' AND l."isActive" ORDER BY l."order"`);
+   WHERE c."titleTranslated" = $1 AND l."isActive" ORDER BY l."order"`, [process.argv[2] ?? 'Назди духтур']);
 for (const l of lessons) {
   const r = await fetch(`https://admin.ramz.tj/api/admin/speaking/preview?lessonId=${l.id}&ev=3`, {
     headers: { 'x-admin-api-key': env.ADMIN_API_KEY },
