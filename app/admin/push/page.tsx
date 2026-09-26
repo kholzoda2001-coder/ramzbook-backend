@@ -42,6 +42,7 @@ interface Campaign {
   countries: string | null;
   friendStreak: string | null;
   wager: string | null;
+  speaking?: string | null;
   texts: Texts;
   route: string;
   countdownToHour: number | null;
@@ -89,6 +90,7 @@ const ROUTES = [
   { v: 'lesson', l: 'Дарси навбатӣ' },
   { v: 'roadmap', l: 'Роҳнамо' },
   { v: 'home', l: 'Асосӣ' },
+  { v: 'speaking', l: 'Гуфтор' },
 ];
 
 const splitList = (v: string | null) => (v ? v.split(',').filter(Boolean) : []);
@@ -113,6 +115,7 @@ function emptyDraft(): Partial<Campaign> {
     countries: null,
     friendStreak: null,
     wager: null,
+    speaking: null,
     texts: { tg: { title: '', body: '' } },
     route: 'lesson',
     countdownToHour: null,
@@ -253,6 +256,18 @@ function SegmentEditor({
             <option value="">Фарқ надорад</option>
             <option value="yes">Гарави ФАЪОЛ дорад</option>
             <option value="no">Надорад</option>
+          </select>
+        </Field>
+
+        <Field label="Гуфтор" hint="Дар 30 рӯзи охир дарси гуфтор хатм кардааст — барои {phrase}">
+          <select
+            className={inputCls}
+            value={draft.speaking ?? ''}
+            onChange={(e) => set({ speaking: e.target.value || null })}
+          >
+            <option value="">Фарқ надорад</option>
+            <option value="yes">Хонандаи гуфтор</option>
+            <option value="no">Не</option>
           </select>
         </Field>
       </div>
@@ -672,7 +687,7 @@ function CampaignEditor({
   const segKey = useMemo(() => JSON.stringify([
     draft.langs, draft.tier, draft.studiedToday, draft.minStreak, draft.maxStreak,
     draft.minInactiveDays, draft.maxInactiveDays, draft.levels, draft.countries, draft.tzOffsetMin,
-    draft.friendStreak, draft.wager,
+    draft.friendStreak, draft.wager, draft.speaking,
   ]), [draft]);
 
   useEffect(() => {
@@ -691,6 +706,7 @@ function CampaignEditor({
             levels: splitList(draft.levels ?? null),
             countries: splitList(draft.countries ?? null),
             friendStreak: draft.friendStreak, wager: draft.wager,
+            speaking: draft.speaking ?? null,
             tzOffsetMin: draft.tzOffsetMin ?? 300,
           }),
         });
@@ -812,7 +828,7 @@ function BroadcastTab({
   const [draft, setDraft] = useState<any>({
     langs: 'tg', tier: null, studiedToday: null,
     minStreak: null, maxStreak: null, minInactiveDays: null, maxInactiveDays: null,
-    levels: null, countries: null, friendStreak: null, wager: null, tzOffsetMin: 300,
+    levels: null, countries: null, friendStreak: null, wager: null, speaking: null, tzOffsetMin: 300,
     route: 'home', force: false,
   });
   const [texts, setTexts] = useState<Texts>({ tg: { title: '', body: '' } });
@@ -860,6 +876,7 @@ function BroadcastTab({
             minInactiveDays: draft.minInactiveDays, maxInactiveDays: draft.maxInactiveDays,
             levels: splitList(draft.levels), countries: splitList(draft.countries),
             friendStreak: draft.friendStreak, wager: draft.wager,
+            speaking: draft.speaking,
           },
           texts, route: draft.route, dryRun, force: draft.force,
           tzOffsetMin: draft.tzOffsetMin, label: 'broadcast',

@@ -31,7 +31,12 @@ export type Segment = {
   friendStreak?: string | null;
   /** yes = гарави алмоси ФАЪОЛ дорад | no | null. */
   wager?: string | null;
+  /** yes = хонандаи гуфтор (дарси гуфтор дар [SPEAKER_WINDOW_DAYS]) | no | null. */
+  speaking?: string | null;
 };
+
+/** «Хонандаи гуфтор» = дар ин муддат ҳадди ақал як дарси гуфтор хатм кардааст. */
+export const SPEAKER_WINDOW_DAYS = 30;
 
 /** "tg,ru" → ['tg','ru'] (холӣ → null). */
 export function parseList(v: string | null | undefined): string[] | null {
@@ -133,6 +138,18 @@ export function buildWhere(
     (where.AND ??= [] as Prisma.UserWhereInput[]);
     (where.AND as Prisma.UserWhereInput[]).push(
       seg.wager === 'yes' ? has : { NOT: has },
+    );
+  }
+
+  // Хонандаи ГУФТОР: ибораи худашро дар ёдрасон мегирад («Гуфтори рӯз»).
+  if (seg.speaking === 'yes' || seg.speaking === 'no') {
+    const since = new Date(now.getTime() - SPEAKER_WINDOW_DAYS * 86_400_000);
+    const has: Prisma.UserWhereInput = {
+      speakingProgress: { some: { completedAt: { gte: since } } },
+    };
+    (where.AND ??= [] as Prisma.UserWhereInput[]);
+    (where.AND as Prisma.UserWhereInput[]).push(
+      seg.speaking === 'yes' ? has : { NOT: has },
     );
   }
 

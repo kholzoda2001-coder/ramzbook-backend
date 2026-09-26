@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
       countries: s.countries ?? null,
       friendStreak: s.friendStreak ?? null,
       wager: s.wager ?? null,
+      speaking: s.speaking ?? null,
     };
 
     const result = await sendBroadcast(segment, texts, {

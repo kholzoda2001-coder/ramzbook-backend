@@ -29,6 +29,7 @@ type Seed = {
   maxInactiveDays?: number | null;
   friendStreak?: string | null;
   wager?: string | null;
+  speaking?: string | null;
   countdownToHour?: number | null;
   cooldownHours?: number;
   priority?: number;
@@ -91,6 +92,22 @@ const HARD_EN = {
   body: '⏳ Your {streak}-day streak burns tonight. Five minutes is enough: {lesson}.',
 };
 
+/** «Гуфтори рӯз» — ибораи худи хонанда. Содир ва ОММАВӢ: скрипти муҳоҷират низ онро мегирад. */
+export const SPEAKING_DAILY = {
+  tg: {
+    title: '🗣 {name}, имрӯз инро бигӯед',
+    body: '«{phrase}» ({phrase_tr}) — 3 дақиқа гуфтор, ва ин ибора аз они шумост.',
+  },
+  ru: {
+    title: '🗣 {name}, скажи сегодня вслух',
+    body: '«{phrase}» ({phrase_tr}) — 3 минуты разговора, и эта фраза твоя.',
+  },
+  en: {
+    title: '🗣 {name}, say this today',
+    body: '“{phrase}” ({phrase_tr}) — three minutes of speaking and it is yours.',
+  },
+};
+
 export const DEFAULT_CAMPAIGNS: Seed[] = [
   // ── Занҷири рӯзона: тоҷикӣ ──────────────────────────────────────────────
   {
@@ -101,6 +118,9 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     hour: 19,
     langs: 'tg,uz,en',
     studiedToday: 'no',
+    // Хонандаи гуфтор ба ҷои ин «Гуфтори рӯз»-ро мегирад (ибораи худаш) —
+    // вагарна ду паёми 19:00 лимити 2-и рӯзро мехӯрд ва огоҳии 22:00 намерафт.
+    speaking: 'no',
     maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 10,
     route: 'lesson',
@@ -125,6 +145,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     hour: 19,
     langs: 'ru',
     studiedToday: 'no',
+    speaking: 'no',
     maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 11,
     route: 'lesson',
@@ -142,6 +163,21 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     priority: 21,
     route: 'lesson',
     texts: { ru: HARD_RU },
+  },
+  // ── «Гуфтори рӯз» (хонандагони гуфтор) ────────────────────────────────
+  //
+  // Ба ҷои ёдрасони нарми 19:00: ибораи ВОҚЕИИ худи хонанда аз дарсҳои
+  // гуфтор ({phrase}), на «вақти дарс расид». Тап → бахши «Гуфтор».
+  // Бе ибора (`{phrase}` холӣ) паём фиристода намешавад — ниг. `renderCampaignText`.
+  {
+    name: 'Гуфтори рӯз 19:00',
+    hour: 19,
+    studiedToday: 'no',
+    speaking: 'yes',
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    priority: 9,
+    route: 'speaking',
+    texts: SPEAKING_DAILY,
   },
   // ── Win-back (ҳама забонҳо) ─────────────────────────────────────────────
   //
@@ -269,6 +305,7 @@ export async function ensureDefaultCampaigns(): Promise<number> {
         maxInactiveDays: s.maxInactiveDays ?? null,
         friendStreak: s.friendStreak ?? null,
         wager: s.wager ?? null,
+        speaking: s.speaking ?? null,
         countdownToHour: s.countdownToHour ?? null,
         cooldownHours: s.cooldownHours ?? 20,
         priority: s.priority ?? 0,

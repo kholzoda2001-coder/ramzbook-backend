@@ -32,6 +32,7 @@ export function bodyToData(body: any, forCreate: boolean) {
   set('countries', body.countries !== undefined ? joinList(body.countries) : undefined);
   set('friendStreak', body.friendStreak !== undefined ? (body.friendStreak || null) : undefined);
   set('wager', body.wager !== undefined ? (body.wager || null) : undefined);
+  set('speaking', body.speaking !== undefined ? (body.speaking || null) : undefined);
 
   set('texts', body.texts !== undefined ? body.texts : undefined);
   set('route', body.route !== undefined ? (body.route || 'lesson') : undefined);

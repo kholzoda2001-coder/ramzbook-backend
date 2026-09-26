@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
       countries: body?.countries ?? null,
       friendStreak: body?.friendStreak ?? null,
       wager: body?.wager ?? null,
+      speaking: body?.speaking ?? null,
     };
 
     const [count, byLang, reachableTotal] = await Promise.all([

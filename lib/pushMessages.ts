@@ -52,7 +52,48 @@ export type LearnerContext = {
   nextLesson?: string;
   nextLessonEmoji?: string;
   nextLessonMinutes?: number;
+  /** Ибора аз дарсҳои ГУФТОРИ худи хонанда (забони омӯзиш) — «Гуфтори рӯз». */
+  phrase?: string;
+  /** Тарҷумаи [phrase] ба забони модарӣ. */
+  phraseTr?: string;
 };
+
+/**
+ * Ибораи «Гуфтори рӯз»: аз 5 дарси гуфтори охирини хатмкардаи хонанда, ҷумлаи
+ * 2–6 калимагӣ. Ҳар рӯз дигар (аз рӯи рақами рӯз), вале дар як рӯз ҳамон —
+ * то пешнамоиши панел бо фиристодани воқеӣ мувофиқ ояд.
+ */
+export function pickDailyPhrase<T extends { text: string; translation: string }>(
+  items: T[],
+  now = new Date(),
+): T | null {
+  const ok = items.filter((i) => {
+    const n = i.text.trim().split(/\s+/).filter(Boolean).length;
+    return n >= 2 && n <= 6 && i.translation.trim() !== '' && !i.text.includes('___');
+  });
+  if (ok.length === 0) return null;
+  const day = Math.floor(now.getTime() / 86_400_000);
+  return ok[day % ok.length];
+}
+
+async function loadDailyPhrase(userId: string, now = new Date()) {
+  const recent = await prisma.speakingProgress.findMany({
+    where: { userId },
+    orderBy: { completedAt: 'desc' },
+    take: 5,
+    select: { lessonId: true },
+  });
+  if (recent.length === 0) return null;
+  const items = await prisma.speakingItem.findMany({
+    where: {
+      lessonId: { in: recent.map((r) => r.lessonId) },
+      kind: { in: ['sentence', 'turn'] },
+    },
+    orderBy: [{ lessonId: 'asc' }, { order: 'asc' }],
+    select: { text: true, translation: true },
+  });
+  return pickDailyPhrase(items, now);
+}
 
 /**
  * Ном → танҳо калимаи аввал ('Аҳмад Раҳимов' → 'Аҳмад').
@@ -142,6 +183,15 @@ export async function loadLearnerContext(userId: string): Promise<LearnerContext
   // ҷойгузоре, ки паёмро шахсӣ мекунанд — ҳамеша ба матни умумии «дарси
   // навбатӣ» меафтоданд. Пас агар майдон холӣ бошад, курсро аз ХУДИ прогресси
   // хонанда мебарорем.
+  // «Гуфтори рӯз»: ибораи худи хонанда. Хато — паём танҳо бе ибора мемонад.
+  try {
+    const p = await loadDailyPhrase(userId);
+    if (p) {
+      ctx.phrase = p.text.trim();
+      ctx.phraseTr = p.translation.trim();
+    }
+  } catch {/* ибора ихтиёрист */}
+
   const courseId = u.currentCourseId ?? (await inferCourseId(userId, u.targetLang));
 
   if (courseId) {

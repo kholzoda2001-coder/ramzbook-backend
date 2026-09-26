@@ -35,6 +35,7 @@ export function segmentOf(c: PushCampaign): Segment {
     countries: parseList(c.countries),
     friendStreak: c.friendStreak,
     wager: c.wager,
+    speaking: c.speaking,
   };
 }
 

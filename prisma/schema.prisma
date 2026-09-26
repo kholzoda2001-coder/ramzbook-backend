@@ -189,6 +189,9 @@ model PushCampaign {
   /// yes = гарави алмос («Дубора ё ҳеҷ») ФАЪОЛ дорад | no | null.
   /// Ҷои ёдрасони маҳаллии 103 (`StreakWager.status = 'active'`).
   wager           String?
+  /// yes = хонандаи ГУФТОР (дар 30 рӯзи охир дарси гуфтор хатм кардааст) | no | null.
+  /// «Гуфтори рӯз» бо ибораи худи хонанда ({phrase}) ба ҷои ёдрасони умумӣ.
+  speaking        String?
 
   // ── Мазмун ──
   texts           Json // { tg: {title, body}, ru: {...}, en: {...} }

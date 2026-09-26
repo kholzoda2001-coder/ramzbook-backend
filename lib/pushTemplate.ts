@@ -27,6 +27,8 @@ export const PLACEHOLDERS: { key: string; desc: string }[] = [
   { key: '{days_inactive}', desc: 'Чанд рӯз нахондааст' },
   { key: '{countdown}', desc: 'То дедлайн чанд вақт монд (2 соату 30 дақиқа)' },
   { key: '{countdown_short}', desc: 'Ҳамон, кӯтоҳ (2:30)' },
+  { key: '{phrase}', desc: 'Ибора аз дарсҳои ГУФТОРИ хонанда (бе он паём фиристода намешавад)' },
+  { key: '{phrase_tr}', desc: 'Тарҷумаи ҳамон ибора' },
 ];
 
 /**
@@ -140,6 +142,8 @@ export function renderTemplate(
     '{days_inactive}': String(ctx.daysInactive),
     '{countdown}': countdownMin != null ? formatCountdown(countdownMin, lang) : '',
     '{countdown_short}': countdownMin != null ? shortCountdown(countdownMin) : '',
+    '{phrase}': ctx.phrase ?? '',
+    '{phrase_tr}': ctx.phraseTr ?? '',
   };
 
   let out = template;
@@ -177,6 +181,9 @@ export function renderCampaignText(
 ): { title: string; body: string } | null {
   const t = pickText(texts, ctx.lang);
   if (!t) return null;
+  // Шаблон ибораи хонандаро мехоҳад, вале ибора нест → паём НАМЕРАВАД:
+  // «Имрӯз инро бигӯед: «»» аз ҳеҷ паём бадтар аст.
+  if (`${t.title} ${t.body}`.includes('{phrase') && !ctx.phrase) return null;
   // Ҳамон забонеро, ки матн аз он гирифта шуд, ба формат мегузаронем.
   const o: RenderOptions = { ...opts, lang: t.lang };
   return {
