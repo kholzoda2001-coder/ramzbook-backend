@@ -1,0 +1,636 @@
+{
+  "slug": "job_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Ищу работу",
+    "titleTranslated": "Кор ёфтан",
+    "scenario": "Шумо дар Русия кор меҷӯед. Аз дарси дуюм худатон бо корфармо гап мезанед: аввал бо як калима, баъд бо ибора, дар охир бо ҷумлаҳо — касбатонро мегӯед, дар бораи музд ва вақти кор мепурсед.",
+    "emoji": "👷",
+    "order": 3,
+    "goals": [
+      "build",
+      "service",
+      "drive",
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Калимаҳо: кор",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Работа",
+          "translation": "кор",
+          "literal": null,
+          "note": "Зарба: ра-БО-та. «Работа есть?» — кор ҳаст?",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Документы",
+          "translation": "ҳуҷҷатҳо",
+          "literal": null,
+          "note": "Зарба: до-ку-МЕН-ты. Корфармо аввал ҳуҷҷатҳоро мепурсад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Есть",
+          "translation": "ҳаст",
+          "literal": null,
+          "note": "«Есть?» бо оҳанги боло — ҳаст? Бе оҳанги боло — ҳаст.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Да",
+          "translation": "ҳа",
+          "literal": null,
+          "note": "«Да» — ҳа. Ҷавоби кӯтоҳтарин.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Завтра",
+          "translation": "фардо",
+          "literal": null,
+          "note": "Зарба: ЗАВ-тра.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "kind": "word",
+          "text": "Нет",
+          "translation": "не",
+          "literal": null,
+          "note": "«Нет» — не. Бо оҳанги поён дар охир.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Корфармо мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вам нужна работа?",
+          "cueTranslation": "Салом! Ба шумо кор лозим аст?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Да.",
+          "accepts": [
+            "Да, нужна."
+          ],
+          "translation": "Ҳа.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Документы есть?",
+          "cueTranslation": "Ҳуҷҷатҳо доред?",
+          "intent": "Бигӯ, ки ҳаст",
+          "text": "Есть.",
+          "accepts": [
+            "Да, есть."
+          ],
+          "translation": "Ҳаст.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Можете сегодня?",
+          "cueTranslation": "Имрӯз метавонед?",
+          "intent": "Бигӯ, ки не, фардо",
+          "text": "Нет, завтра.",
+          "accepts": [
+            "Завтра.",
+            "Нет. Завтра."
+          ],
+          "translation": "Не, фардо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кор ҳаст?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Хорошо",
+          "translation": "хуб",
+          "literal": null,
+          "note": "Зарба дар охир: хо-ро-ШО. Барои розӣ шудан: «Хорошо!» — хуб!",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Сегодня",
+          "translation": "имрӯз",
+          "literal": null,
+          "note": "Зарба: се-ВОД-ня. Ҳарфи «г» дар ин калима мисли «в» хонда мешавад!",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Утром",
+          "translation": "саҳар, пагоҳӣ",
+          "literal": null,
+          "note": "Зарба: У-тром. «Завтра утром» — фардо саҳар.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Работа есть?",
+          "translation": "Кор ҳаст?",
+          "literal": null,
+          "note": "Саволи аввал ба корфармо. Оҳанг дар охир боло меравад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Ищу",
+          "translation": "меҷӯям",
+          "literal": null,
+          "note": "«Ищу» — меҷӯям. Зарба дар охир: и-ЩУ.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Ищу работу",
+          "translation": "Кор меҷӯям",
+          "literal": null,
+          "note": "«Работа» баъди «ищу» → «работу». Ҳамин тавр: «ищу комнату» — ҳуҷра меҷӯям.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "работу|кор",
+            "комнату|ҳуҷра",
+            "квартиру|хона"
+          ]
+        },
+        {
+          "order": 6,
+          "kind": "word",
+          "text": "Могу",
+          "translation": "метавонам",
+          "literal": null,
+          "note": "«Могу» — метавонам. «Не могу» — наметавонам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "Могу завтра",
+          "translation": "Фардо метавонам",
+          "literal": null,
+          "note": "Ҷавоб ба «Когда можете?» — кай метавонед?",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Занг ба корфармо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло, слушаю.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Бипурс, ки кор ҳаст",
+          "text": "Работа есть?",
+          "accepts": [
+            "Здравствуйте, работа есть?",
+            "Работа есть? Ищу работу."
+          ],
+          "translation": "Кор ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Есть. Когда можете?",
+          "cueTranslation": "Ҳаст. Кай метавонед?",
+          "intent": "Бигӯ: фардо саҳар",
+          "text": "Завтра утром.",
+          "accepts": [
+            "Могу завтра.",
+            "Могу завтра утром.",
+            "Завтра."
+          ],
+          "translation": "Фардо саҳар.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Приходите в восемь.",
+          "cueTranslation": "Соати ҳашт биёед.",
+          "intent": "Бигӯ, ки хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Хорошо, приду.",
+            "Да, хорошо."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман кор меҷӯям",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Я",
+          "translation": "ман",
+          "literal": null,
+          "note": "Дар русӣ «ҳастам» гуфта намешавад: «Я строитель» — ман сохтмончӣ (ҳастам).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "У меня",
+          "translation": "ман … дорам",
+          "literal": null,
+          "note": "«У меня есть» — ман дорам: «У меня есть опыт» — ман таҷриба дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "sentence",
+          "text": "Я ищу работу.",
+          "translation": "Ман кор меҷӯям.",
+          "literal": null,
+          "note": "Ҷумлаи пурра: «я» + «ищу» + «работу».",
+          "cue": "Что вы хотите?",
+          "cueTranslation": "Шумо чӣ мехоҳед?",
+          "swaps": [
+            "работу|кор",
+            "комнату|ҳуҷра"
+          ]
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Я {job}.",
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": "Касби худро гӯед — барнома онро аз ҳадафи шумо медонад.",
+          "cue": "Какая у вас профессия?",
+          "cueTranslation": "Касби шумо чист?"
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "У меня есть опыт.",
+          "translation": "Ман таҷриба дорам.",
+          "literal": null,
+          "note": "«Опыт» — таҷриба. «У меня есть» — ман дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "own",
+          "text": "Я из ___.",
+          "translation": "Ман аз ___ ҳастам.",
+          "literal": null,
+          "note": "Шаҳр ё кишвари худро гӯед. Баъди «из» номи ҷой шакл иваз мекунад: «из Таджикистана», вале «из Душанбе» бетағйир.",
+          "cue": "Откуда вы?",
+          "cueTranslation": "Шумо аз куҷо?",
+          "intent": "Бигӯед, ки аз куҷо ҳастед"
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: кор ҳаст?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "turn",
+          "cue": "Алло, слушаю.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Салом гӯед ва бипурсед, ки кор ҳаст",
+          "text": "Здравствуйте! Работа есть?",
+          "accepts": [
+            "Работа есть?",
+            "Здравствуйте, работа есть?",
+            "Добрый день! Работа есть?"
+          ],
+          "translation": "Салом! Кор ҳаст?",
+          "literal": null,
+          "note": "Аввал салом, баъд савол — ҳамин тавр хушмуомила аст."
+        },
+        {
+          "order": 1,
+          "kind": "turn",
+          "cue": "Есть. Какая у вас профессия?",
+          "cueTranslation": "Ҳаст. Касби шумо чист?",
+          "intent": "Касби худро гӯед",
+          "text": "Я {job}.",
+          "accepts": [
+            "{job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": "Кӯтоҳ кофист: танҳо касб."
+        },
+        {
+          "order": 2,
+          "kind": "turn",
+          "cue": "Опыт есть?",
+          "cueTranslation": "Таҷриба доред?",
+          "intent": "Бигӯед, ки ҳа, таҷриба доред",
+          "text": "Да, у меня есть опыт.",
+          "accepts": [
+            "Да, есть.",
+            "Да, есть опыт.",
+            "Есть опыт."
+          ],
+          "translation": "Ҳа, ман таҷриба дорам.",
+          "literal": null,
+          "note": "«Да, есть» ҳам ҷавоби пурра аст."
+        },
+        {
+          "order": 3,
+          "kind": "turn",
+          "cue": "Хорошо. Приходите завтра.",
+          "cueTranslation": "Хуб. Фардо биёед.",
+          "intent": "Бипурсед, ки соати чанд биёед",
+          "text": "Во сколько?",
+          "accepts": [
+            "Когда?",
+            "Во сколько приходить?",
+            "В какое время?"
+          ],
+          "translation": "Соати чанд?",
+          "literal": null,
+          "note": "«Во сколько?» — соати чанд? (на «чанд пул»)."
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Музд ва ҳуҷҷат",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Сколько",
+          "translation": "чанд, чӣ қадар",
+          "literal": null,
+          "note": "Калимаи саволӣ: «Сколько?» — чанд? Барои пул ва миқдор.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Зарплата",
+          "translation": "музд, маош",
+          "literal": null,
+          "note": "Зарба: зар-ПЛА-та. Пули кор барои моҳ ё ҳафта.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Месяц",
+          "translation": "моҳ",
+          "literal": null,
+          "note": "Зарба: МЕ-сяц. «В месяц» — дар як моҳ.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Когда",
+          "translation": "кай",
+          "literal": null,
+          "note": "Калимаи саволӣ: «Когда?» — кай? Зарба: ког-ДА.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Сколько платите?",
+          "translation": "Чанд пул медиҳед?",
+          "literal": null,
+          "note": "Саволи асосӣ дар бораи музд. «Платите» — шумо пул медиҳед.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Сколько в месяц?",
+          "translation": "Дар як моҳ чанд?",
+          "literal": null,
+          "note": "Музд одатан барои моҳ гуфта мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 6,
+          "kind": "sentence",
+          "text": "Когда начинать?",
+          "translation": "Кай сар кунам?",
+          "literal": null,
+          "note": "«Начинать» — сар кардан. Бо оҳанги саволӣ.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 7,
+          "kind": "sentence",
+          "text": "У меня есть патент.",
+          "translation": "Ман патент дорам.",
+          "literal": null,
+          "note": "«Патент» — иҷозатномаи кор барои муҳоҷир. Зарба: па-ТЕНТ.",
+          "cue": "Документы есть?",
+          "cueTranslation": "Ҳуҷҷатҳо доред?"
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: музд",
+      "items": [
+        {
+          "order": 0,
+          "kind": "turn",
+          "cue": "Работа с утра до вечера.",
+          "cueTranslation": "Кор аз саҳар то бегоҳ.",
+          "intent": "Бипурсед, ки чанд пул медиҳанд",
+          "text": "Сколько платите?",
+          "accepts": [
+            "Какая зарплата?",
+            "Сколько в месяц?",
+            "Сколько денег?"
+          ],
+          "translation": "Чанд пул медиҳед?",
+          "literal": null,
+          "note": "Дар бораи музд пурсидан айб нест — ин муҳим аст."
+        },
+        {
+          "order": 1,
+          "kind": "turn",
+          "cue": "Шестьдесят тысяч в месяц.",
+          "cueTranslation": "Шаст ҳазор дар як моҳ.",
+          "intent": "Бигӯед, ки хуб аст ва бипурсед, ки кай сар кунед",
+          "text": "Хорошо. Когда начинать?",
+          "accepts": [
+            "Когда начинать?",
+            "Хорошо, когда начать?",
+            "Хорошо. Когда можно начать?"
+          ],
+          "translation": "Хуб. Кай сар кунам?",
+          "literal": null,
+          "note": "«Хорошо» — хуб, розӣ."
+        },
+        {
+          "order": 2,
+          "kind": "turn",
+          "cue": "Можете завтра?",
+          "cueTranslation": "Фардо метавонед?",
+          "intent": "Бигӯед, ки ҳа, фардо саҳар метавонед",
+          "text": "Да, могу завтра утром.",
+          "accepts": [
+            "Да, могу.",
+            "Могу завтра.",
+            "Да, завтра утром."
+          ],
+          "translation": "Ҳа, фардо саҳар метавонам.",
+          "literal": null,
+          "note": "Ҳамаи калимаҳо аз дарсҳои пешина."
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: кор ёфтан",
+      "items": [
+        {
+          "order": 0,
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы по какому вопросу?",
+          "cueTranslation": "Салом! Бо кадом кор омадед?",
+          "intent": "Бигӯед, ки кор меҷӯед",
+          "text": "Я ищу работу.",
+          "accepts": [
+            "Ищу работу.",
+            "Здравствуйте, я ищу работу.",
+            "Работа есть?"
+          ],
+          "translation": "Ман кор меҷӯям.",
+          "literal": null,
+          "note": null
+        },
+        {
+          "order": 1,
+          "kind": "turn",
+          "cue": "Какая у вас профессия?",
+          "cueTranslation": "Касби шумо чист?",
+          "intent": "Касби худро гӯед",
+          "text": "Я {job}.",
+          "accepts": [
+            "{job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null
+        },
+        {
+          "order": 2,
+          "kind": "turn",
+          "cue": "Документы есть?",
+          "cueTranslation": "Ҳуҷҷатҳо доред?",
+          "intent": "Бигӯед, ки ҳа, патент доред",
+          "text": "Да, у меня есть патент.",
+          "accepts": [
+            "Да, есть.",
+            "Да, патент есть.",
+            "Есть патент."
+          ],
+          "translation": "Ҳа, ман патент дорам.",
+          "literal": null,
+          "note": null
+        },
+        {
+          "order": 3,
+          "kind": "turn",
+          "cue": "Зарплата пятьдесят тысяч.",
+          "cueTranslation": "Музд панҷоҳ ҳазор.",
+          "intent": "Бипурсед, ки кай сар кунед",
+          "text": "Когда начинать?",
+          "accepts": [
+            "Когда начать?",
+            "Хорошо. Когда начинать?",
+            "Когда можно начать?"
+          ],
+          "translation": "Кай сар кунам?",
+          "literal": null,
+          "note": null
+        }
+      ]
+    }
+  ]
+}
