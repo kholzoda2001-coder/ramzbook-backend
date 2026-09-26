@@ -31,12 +31,14 @@ export async function validateLessonById(
     select: {
       id: true,
       categoryId: true,
+      stage: true,
       items: {
         orderBy: { order: 'asc' },
         select: {
           id: true, kind: true, text: true, translation: true, literal: true,
           note: true, audioUrl: true, cue: true, cueTranslation: true,
           chainOverride: true, swaps: true,
+          intent: true, accepts: true,
         },
       },
       category: {
@@ -83,7 +85,11 @@ export async function validateLessonById(
 
   // Рӯйхатҳои чанк барои баъзе забонҳо хосанд (ниг. `LANG_LISTS` дар engine).
   const cfg = { ...DEFAULT_CONFIG, lang: lesson.category.targetLanguage.code };
-  return validateLesson({ id: lesson.id, items }, { targetScript, categoryTexts }, cfg);
+  return validateLesson(
+    { id: lesson.id, items, stage: lesson.stage },
+    { targetScript, categoryTexts },
+    cfg,
+  );
 }
 
 /** `{ ok: false, issues }` агар хатои манъкунанда бошад. */

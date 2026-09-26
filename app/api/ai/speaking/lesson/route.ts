@@ -7,6 +7,7 @@ import {
   toEngineItem,
   configForEv,
   DEFAULT_CONFIG,
+  asStage,
 } from '@/lib/speaking/engine';
 import {
   unlockedSpeakingLessonIds,
@@ -114,6 +115,8 @@ export async function GET(req: NextRequest) {
           select: {
             id: true,
             title: true,
+            // Зинаи дарс (калима → … → миссия). `null` = дарси кӯҳна.
+            stage: true,
             items: {
               orderBy: { order: 'asc' },
               select: {
@@ -132,6 +135,9 @@ export async function GET(req: NextRequest) {
                 // Барои `chunk` ва `swap` (ev ≥ 2).
                 chainOverride: true,
                 swaps: true,
+                // Нақшбозӣ (ev ≥ 3): ният ва ҷавобҳои дигари дуруст.
+                intent: true,
+                accepts: true,
               },
             },
           },
@@ -241,7 +247,7 @@ export async function GET(req: NextRequest) {
         swaps: i.swaps,
       })),
       cfg,
-      { repeat },
+      { repeat, stage: asStage(lesson.stage) },
     );
     const exercises = steps.map((s) => toWire(s, ev));
 

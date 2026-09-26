@@ -1,0 +1,528 @@
+{
+  "slug": "doctor_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "У врача",
+    "titleTranslated": "Назди духтур",
+    "scenario": "Шумо бемор шудед ва ба духтур меравед. Мегӯед, ки куҷоятон дард мекунад, аз кай сар шуд, ва мепурсед, ки дору аз куҷо харед. Аввал калимаҳо, баъд ибораҳо, баъд худатон бо духтур гап мезанед.",
+    "emoji": "🩺",
+    "order": 2,
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Калимаҳо: духтур ва дард",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Врач",
+          "translation": "духтур",
+          "literal": null,
+          "note": "«Врач» — духтур. Дар гуфтугӯ «доктор» ҳам мегӯянд.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Больно",
+          "translation": "дард мекунад",
+          "literal": null,
+          "note": "«Больно» — вақте ки дард ҳаст. «Мне больно» — маро дард мекунад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Голова",
+          "translation": "сар",
+          "literal": null,
+          "note": "Зарба дар охир: голо-ВА.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Живот",
+          "translation": "шикам",
+          "literal": null,
+          "note": "Зарба дар охир: жи-ВОТ.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "words",
+      "title": "Калимаҳо: бадан ва дору",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Зуб",
+          "translation": "дандон",
+          "literal": null,
+          "note": "«Зуб» — дандон. Духтури дандон — «стоматолог».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Спина",
+          "translation": "пушт",
+          "literal": null,
+          "note": "Зарба дар охир: спи-НА. Барои коргари сохтмон калимаи зарурӣ.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Температура",
+          "translation": "таб",
+          "literal": null,
+          "note": "«Температура» — таби бадан. «У меня температура» — ман таб дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Лекарство",
+          "translation": "дору",
+          "literal": null,
+          "note": "Зарба: лекАрство. Ҳарфи «т» қариб шунида намешавад.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Чӣ дард мекунад?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Болит",
+          "translation": "дард мекунад",
+          "literal": null,
+          "note": "«Болит» + номи узв: «болит голова» — сар дард мекунад.\n\nФарқ: «больно» — умуман дард, «болит» — ин узв дард мекунад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "sentence",
+          "text": "Болит голова",
+          "translation": "сарам дард мекунад",
+          "literal": null,
+          "note": "Ибораи тайёр. Ба духтур ҳамин ду калима кофист.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "sentence",
+          "text": "Болит живот",
+          "translation": "шикамам дард мекунад",
+          "literal": null,
+          "note": "Ҳамон қолаб: «болит» + узв.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Болит спина",
+          "translation": "пуштам дард мекунад",
+          "literal": null,
+          "note": "Ҳамон қолаб: «болит» + узв.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "chunks",
+      "title": "Кай ва чӣ қадар?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Да",
+          "translation": "ҳа",
+          "literal": null,
+          "note": "«Да» — ҳа. Ҷавоби кӯтоҳтарин ба саволи духтур.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Нет",
+          "translation": "не",
+          "literal": null,
+          "note": "«Нет» — не. Бо оҳанги поён дар охир.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Вчера",
+          "translation": "дирӯз",
+          "literal": null,
+          "note": "Зарба дар охир: вче-РА.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "Со вчера",
+          "translation": "аз дирӯз",
+          "literal": null,
+          "note": "«Со вчера» — аз дирӯз инҷониб. Ҷавоб ба саволи «Когда это началось?» (кай сар шуд?).",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "word",
+          "text": "Очень",
+          "translation": "хеле",
+          "literal": null,
+          "note": "«Очень» — хеле. Пеш аз калима меистад: «очень больно».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Очень больно",
+          "translation": "хеле дард мекунад",
+          "literal": null,
+          "note": "Ба духтур гӯед, агар дард сахт бошад.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман бемор ҳастам",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "У меня",
+          "translation": "ман … дорам",
+          "literal": null,
+          "note": "«У меня» — «дар ман ҳаст». Бо он дард ва бемориро мегӯянд: «у меня температура» — ман таб дорам.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "sentence",
+          "text": "У меня болит голова.",
+          "translation": "Сарам дард мекунад.",
+          "literal": null,
+          "note": "Ҷумлаи пурра: «у меня» + «болит» + узв.",
+          "cue": "Что у вас болит?",
+          "cueTranslation": "Шуморо чӣ дард мекунад?"
+        },
+        {
+          "order": 2,
+          "kind": "sentence",
+          "text": "У меня болит зуб.",
+          "translation": "Дандонам дард мекунад.",
+          "literal": null,
+          "note": "Ҳамон қолаб — танҳо узв иваз мешавад.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "sentence",
+          "text": "У меня температура.",
+          "translation": "Ман таб дорам.",
+          "literal": null,
+          "note": "«Болит» лозим нест: таб «дард» нест, балки чизест, ки «дар ман ҳаст».",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "sentences",
+      "title": "Дору ва дорухона",
+      "items": [
+        {
+          "order": 0,
+          "kind": "word",
+          "text": "Где",
+          "translation": "куҷо",
+          "literal": null,
+          "note": "Калимаи саволӣ: «где?» — дар куҷо?",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 1,
+          "kind": "word",
+          "text": "Аптека",
+          "translation": "дорухона",
+          "literal": null,
+          "note": "Зарба: ап-ТЕ-ка. Нишонаи сабзи салиб дар кӯча.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 2,
+          "kind": "word",
+          "text": "Нужно",
+          "translation": "лозим",
+          "literal": null,
+          "note": "«Нужно» — лозим аст. «Нужно лекарство» — дору лозим.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 3,
+          "kind": "word",
+          "text": "Спасибо",
+          "translation": "ташаккур",
+          "literal": null,
+          "note": "«Спасибо» — ташаккур. Ба духтур: «Спасибо, доктор».",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 4,
+          "kind": "sentence",
+          "text": "Где аптека?",
+          "translation": "Дорухона куҷост?",
+          "literal": null,
+          "note": "Савол бо оҳанги боло дар охир.",
+          "cue": null,
+          "cueTranslation": null
+        },
+        {
+          "order": 5,
+          "kind": "sentence",
+          "text": "Нужно лекарство.",
+          "translation": "Дору лозим.",
+          "literal": null,
+          "note": "Ду калима — ҷумлаи пурра.",
+          "cue": null,
+          "cueTranslation": null
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "dialogue",
+      "title": "Муколама: чӣ дард мекунад?",
+      "items": [
+        {
+          "order": 0,
+          "kind": "turn",
+          "cue": "Здравствуйте! Что вас беспокоит?",
+          "cueTranslation": "Салом! Шуморо чӣ ташвиш медиҳад?",
+          "intent": "Бигӯ, ки сарат дард мекунад",
+          "text": "У меня болит голова.",
+          "accepts": [
+            "Болит голова.",
+            "Голова болит.",
+            "Болит голова, очень больно."
+          ],
+          "translation": "Сарам дард мекунад.",
+          "literal": null,
+          "note": "Ҳар яке дуруст аст: «У меня болит голова», «Болит голова», «Голова болит»."
+        },
+        {
+          "order": 1,
+          "kind": "turn",
+          "cue": "Когда это началось?",
+          "cueTranslation": "Ин кай сар шуд?",
+          "intent": "Бигӯ, ки аз дирӯз",
+          "text": "Со вчера.",
+          "accepts": [
+            "Вчера.",
+            "Болит со вчера."
+          ],
+          "translation": "Аз дирӯз.",
+          "literal": null,
+          "note": "Ҷавоби кӯтоҳ кофист: «Со вчера»."
+        },
+        {
+          "order": 2,
+          "kind": "turn",
+          "cue": "Очень больно?",
+          "cueTranslation": "Хеле дард мекунад?",
+          "intent": "Бигӯ, ки ҳа, хеле дард мекунад",
+          "text": "Да, очень больно.",
+          "accepts": [
+            "Очень больно.",
+            "Да, очень."
+          ],
+          "translation": "Ҳа, хеле дард мекунад.",
+          "literal": null,
+          "note": "«Да» — ҳа. Баъд ҳамон ибораи омӯхта."
+        },
+        {
+          "order": 3,
+          "kind": "turn",
+          "cue": "Температура есть?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ, ки ҳа, таб дорӣ",
+          "text": "Да, у меня температура.",
+          "accepts": [
+            "Да, температура.",
+            "Да, есть.",
+            "У меня температура."
+          ],
+          "translation": "Ҳа, ман таб дорам.",
+          "literal": null,
+          "note": "«Есть?» — ҳаст? Ҷавоб: «Да» ё «Да, у меня температура»."
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дору",
+      "items": [
+        {
+          "order": 0,
+          "kind": "turn",
+          "cue": "Вам нужно лекарство.",
+          "cueTranslation": "Ба шумо дору лозим.",
+          "intent": "Бипурс, ки дорухона куҷост",
+          "text": "Где аптека?",
+          "accepts": [
+            "Где здесь аптека?",
+            "Аптека где?"
+          ],
+          "translation": "Дорухона куҷост?",
+          "literal": null,
+          "note": "Савол бо «где» ва оҳанги боло."
+        },
+        {
+          "order": 1,
+          "kind": "turn",
+          "cue": "Аптека рядом, на первом этаже.",
+          "cueTranslation": "Дорухона наздик аст, дар ошёнаи якум.",
+          "intent": "Ба духтур ташаккур гӯй",
+          "text": "Спасибо, доктор.",
+          "accepts": [
+            "Спасибо.",
+            "Спасибо большое.",
+            "Спасибо, врач."
+          ],
+          "translation": "Ташаккур, духтур.",
+          "literal": null,
+          "note": "Ба духтур «доктор» мегӯянд — хушмуомила ва маъмул."
+        },
+        {
+          "order": 2,
+          "kind": "turn",
+          "cue": "Выздоравливайте!",
+          "cueTranslation": "Шифо ёбед!",
+          "intent": "Ташаккур гӯй ва хайрухуш кун",
+          "text": "Спасибо, до свидания.",
+          "accepts": [
+            "До свидания.",
+            "Спасибо, до свидания!"
+          ],
+          "translation": "Ташаккур, то дидан.",
+          "literal": null,
+          "note": "«Выздоравливайте» — шифо ёбед. Ҷавоб: ташаккур ва «до свидания»."
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: назди духтур",
+      "items": [
+        {
+          "order": 0,
+          "kind": "turn",
+          "cue": "Здравствуйте! Что вас беспокоит?",
+          "cueTranslation": "Салом! Шуморо чӣ ташвиш медиҳад?",
+          "intent": "Бигӯ, ки шикамат дард мекунад",
+          "text": "У меня болит живот.",
+          "accepts": [
+            "Болит живот.",
+            "Живот болит."
+          ],
+          "translation": "Шикамам дард мекунад.",
+          "literal": null,
+          "note": null
+        },
+        {
+          "order": 1,
+          "kind": "turn",
+          "cue": "Давно болит?",
+          "cueTranslation": "Кайҳо боз дард мекунад?",
+          "intent": "Бигӯ, ки аз дирӯз",
+          "text": "Со вчера.",
+          "accepts": [
+            "Вчера.",
+            "Болит со вчера."
+          ],
+          "translation": "Аз дирӯз.",
+          "literal": null,
+          "note": null
+        },
+        {
+          "order": 2,
+          "kind": "turn",
+          "cue": "У вас есть аллергия?",
+          "cueTranslation": "Шумо аллергия доред?",
+          "intent": "Бигӯ, ки не",
+          "text": "Нет.",
+          "accepts": [
+            "Нет, нету.",
+            "Нет аллергии.",
+            "Нет, аллергии нет."
+          ],
+          "translation": "Не.",
+          "literal": null,
+          "note": "Саволи ғайричашмдошт: «аллергия» — ҳамон калима дар тоҷикӣ."
+        },
+        {
+          "order": 3,
+          "kind": "turn",
+          "cue": "Вот рецепт.",
+          "cueTranslation": "Ин ретсепт.",
+          "intent": "Бипурс, ки дорухона куҷост",
+          "text": "Где аптека?",
+          "accepts": [
+            "Где здесь аптека?",
+            "Спасибо. Где аптека?"
+          ],
+          "translation": "Дорухона куҷост?",
+          "literal": null,
+          "note": null
+        }
+      ]
+    }
+  ]
+}

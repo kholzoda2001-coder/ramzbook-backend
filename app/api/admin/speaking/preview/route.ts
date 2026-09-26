@@ -5,6 +5,8 @@ import {
   toWire,
   toEngineItem,
   DEFAULT_CONFIG,
+  configForEv,
+  asStage,
   ENGINE_VERSION,
 } from '@/lib/speaking/engine';
 import { validateLessonById } from '@/lib/speaking/validateDb';
@@ -39,6 +41,7 @@ export async function GET(req: NextRequest) {
         id: true,
         title: true,
         order: true,
+        stage: true,
         category: {
           select: {
             title: true, titleTranslated: true, emoji: true,
@@ -52,6 +55,7 @@ export async function GET(req: NextRequest) {
             id: true, kind: true, text: true, translation: true, literal: true,
             note: true, audioUrl: true, cue: true, cueTranslation: true,
             chainOverride: true, swaps: true, wordCount: true,
+            intent: true, accepts: true,
           },
         },
       },
@@ -69,8 +73,11 @@ export async function GET(req: NextRequest) {
         chainOverride: i.chainOverride,
         swaps: i.swaps,
       })),
-      { ...DEFAULT_CONFIG, lang: lesson.category.targetLanguage.code },
-      { repeat: false },
+      configForEv(Math.max(ev, 1), {
+        ...DEFAULT_CONFIG,
+        lang: lesson.category.targetLanguage.code,
+      }),
+      { repeat: false, stage: asStage(lesson.stage) },
     );
 
     const issues = await validateLessonById(lessonId);

@@ -17,8 +17,10 @@ import {
   buildChain,
   generateSteps,
   configForEv,
+  asStage,
   type EngineConfig,
   type EngineItem,
+  type Stage,
 } from './engine';
 
 /**
@@ -50,7 +52,7 @@ const norm = (s: string) => s.trim().toLowerCase();
 const words = (s: string) => s.trim().split(/\s+/).filter(Boolean);
 
 export function validateLesson(
-  lesson: { id: string; items: EngineItem[] },
+  lesson: { id: string; items: EngineItem[]; stage?: string | null },
   ctx: ValidateContext,
   cfg: EngineConfig,
 ): Issue[] {
@@ -153,7 +155,8 @@ export function validateLesson(
     }
 
     // ── W_SENTENCE_ONE_WORD ─────────────────────────────────────────────
-    if (it.kind !== 'word' && wc === 1) {
+    // (Навбати нақшбозӣ як калима шуда метавонад: «Нет.», «Да, спасибо.»)
+    if (it.kind === 'sentence' && wc === 1) {
       add(
         'W_SENTENCE_ONE_WORD',
         'warning',
@@ -188,7 +191,8 @@ export function validateLesson(
     }
 
     // ── W_NO_SWAPS / W_NO_CHAIN (танҳо барои ҷумла) ─────────────────────
-    if (it.kind !== 'word') {
+    // Навбати нақшбозӣ на қолаб дорад, на занҷир — огоҳӣ дар он ҷо садо аст.
+    if (it.kind === 'sentence') {
       if ((it.swaps ?? []).length < 2) {
         add('W_NO_SWAPS', 'warning', `Варианти иваз нест — қолаб автоматӣ намешавад: «${text}»`, it.id);
       }
@@ -213,7 +217,10 @@ export function validateLesson(
   // мебинем, ки хонанда воқеан мегирад. `ev=2` гирифта мешавад — ҳолати
   // бадтарин, чунки он қадамҳои `chunk`/`swap`-ро низ дар бар мегирад.
   try {
-    const steps = generateSteps(items, configForEv(2, cfg), { repeat: false }).length;
+    const steps = generateSteps(items, configForEv(3, cfg), {
+      repeat: false,
+      stage: asStage(lesson.stage),
+    }).length;
     if (steps > MAX_STEPS_WARN) {
       add(
         'W_LESSON_TOO_LONG',
@@ -240,7 +247,93 @@ export function validateLesson(
     );
   }
 
+  // ── Зинаҳои вазъият (26.09.2026) ───────────────────────────────────────
+  const stage = asStage(lesson.stage);
+  if (stage) {
+    for (const i of validateStage(stage, items)) issues.push(i);
+  } else if (items.some((i) => i.kind === 'turn')) {
+    add(
+      'W_TURN_NO_STAGE',
+      'warning',
+      'Дарс қадами нақшбозӣ дорад, вале зинааш «dialogue»/«mission» нест — ҳамчун машқи оддӣ нишон дода мешавад',
+    );
+  }
+
   return issues;
+}
+
+/**
+ * Қоидаҳои ЗИНА — «аз осон ба душвор» дар дохили як вазъият.
+ *
+ *   words     → танҳо калима (то 2 калима: «спасибо», «добрый день»);
+ *   chunks    → ибораҳои то 2 калима;
+ *   sentences → ҷумлаҳои то 4 калима;
+ *   dialogue  → танҳо навбатҳои нақшбозӣ (`turn`), ҳадди ақал 2;
+ *   mission   → навбатҳои нақшбозӣ, ҳадди ақал 3 (се ҳадаф).
+ *
+ * Ҳадаф: дарсҳои аввал ~90% дар кӯшиши аввал гузаранд. Ҷумлаи дароз дар
+ * дарси 1 маҳз ҳамон чизест, ки хонандаро дар рӯзи аввал мерабояд.
+ */
+export function validateStage(stage: Stage, items: EngineItem[]): Issue[] {
+  const out: Issue[] = [];
+  const add = (code: string, severity: Severity, message: string, itemId?: string) =>
+    out.push({ code, severity, message, itemId });
+
+  const maxWords: Record<Stage, number> = {
+    words: 2,
+    chunks: 2,
+    sentences: 4,
+    dialogue: 8,
+    mission: 8,
+  };
+
+  if (stage === 'dialogue' || stage === 'mission') {
+    const turns = items.filter((i) => i.kind === 'turn');
+    const min = stage === 'mission' ? 3 : 2;
+    if (turns.length < min) {
+      add(
+        'E_STAGE_FEW_TURNS',
+        'error',
+        `Зинаи «${stage}» ҳадди ақал ${min} навбати нақшбозӣ мехоҳад (ҳоло ${turns.length})`,
+      );
+    }
+    for (const it of items) {
+      if (it.kind !== 'turn') {
+        add('E_STAGE_KIND', 'error', `Дар зинаи «${stage}» танҳо навбати нақшбозӣ мешавад: «${it.text}»`, it.id);
+        continue;
+      }
+      if (!it.cue?.trim()) {
+        add('E_TURN_NO_CUE', 'error', `Навбат бе ҷумлаи ҳамсӯҳбат: «${it.text}»`, it.id);
+      }
+      if (!it.intent?.trim()) {
+        add('W_TURN_NO_INTENT', 'warning', `Нияти тоҷикӣ холӣ — ба ҷояш тарҷума нишон дода мешавад: «${it.text}»`, it.id);
+      }
+      if (words(it.text).length > maxWords[stage]) {
+        add('W_STAGE_LONG', 'warning', `Ҷавоб барои нақшбозӣ дароз аст: «${it.text}»`, it.id);
+      }
+    }
+    return out;
+  }
+
+  for (const it of items) {
+    const wc = words(it.text).length;
+    if (it.kind === 'turn') {
+      add('E_STAGE_KIND', 'error', `Навбати нақшбозӣ дар зинаи «${stage}» — зинаро «dialogue» кунед`, it.id);
+      continue;
+    }
+    if (stage === 'words' && it.kind !== 'word') {
+      add('E_STAGE_KIND', 'error', `Зинаи «words» танҳо калима дорад: «${it.text}»`, it.id);
+    }
+    if (wc > maxWords[stage]) {
+      add(
+        'E_STAGE_TOO_LONG',
+        'error',
+        `Дар зинаи «${stage}» ҳадди аксар ${maxWords[stage]} калима: «${it.text}» (${wc})`,
+        it.id,
+      );
+    }
+  }
+  return out;
 }
 
 /** Ихтисори қулай: танҳо хатоҳо. */

@@ -47,12 +47,35 @@ await sql.query(
 let lessons = 0, items = 0;
 for (const L of pack.lessons) {
   const lid = cuid();
-  await sql.query(
-    `INSERT INTO "SpeakingLesson" (id, "categoryId", title, "order", "isActive", "createdAt")
-     VALUES ($1,$2,$3,$4,true, NOW())`,
-    [lid, catId, L.title ?? null, L.order ?? 0]);
+  // Зинаи дарс (26.09.2026). Сутун танҳо вақте навишта мешавад, ки баста
+  // онро дорад — бастаҳои кӯҳна дар базаи ҳанӯз муҳоҷиратнашуда ҳам кор кунанд.
+  if (L.stage) {
+    await sql.query(
+      `INSERT INTO "SpeakingLesson" (id, "categoryId", title, "order", stage, "isActive", "createdAt")
+       VALUES ($1,$2,$3,$4,$5,true, NOW())`,
+      [lid, catId, L.title ?? null, L.order ?? 0, L.stage]);
+  } else {
+    await sql.query(
+      `INSERT INTO "SpeakingLesson" (id, "categoryId", title, "order", "isActive", "createdAt")
+       VALUES ($1,$2,$3,$4,true, NOW())`,
+      [lid, catId, L.title ?? null, L.order ?? 0]);
+  }
   lessons++;
   for (const i of L.items) {
+    // Навбати нақшбозӣ: ният ва ҷавобҳои дигари дуруст (ниг. `SpeakingItem.intent`).
+    if (i.kind === 'turn' || i.intent || (i.accepts ?? []).length) {
+      await sql.query(
+        `INSERT INTO "SpeakingItem"
+           (id, "lessonId", kind, text, translation, literal, note,
+            cue, "cueTranslation", "audioUrl", "order", "wordCount", intent, accepts)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,NULL,$10,$11,$12,$13)`,
+        [cuid(), lid, i.kind, i.text, i.translation, i.literal ?? null,
+         i.note ?? null, i.cue ?? null, i.cueTranslation ?? null, i.order ?? 0,
+         i.text.trim().split(/\s+/).filter(Boolean).length,
+         i.intent ?? null, i.accepts ?? []]);
+      items++;
+      continue;
+    }
     await sql.query(
       // ⚠️ `wordCount` ҲАМИН ҶО ҳисоб мешавад — мисли роҳи админи seed. Бе он
       // ҳар воҳид «сифр калима» менамояд ва валидатор онро рад мекунад

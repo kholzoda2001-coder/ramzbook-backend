@@ -947,6 +947,14 @@ model SpeakingLesson {
   isActive   Boolean          @default(true)
   createdAt  DateTime         @default(now())
 
+  /// Зинаи дарс дар дохили вазъият (26.09.2026): "words" | "chunks" |
+  /// "sentences" | "dialogue" | "mission". Аз осон ба душвор: калима →
+  /// ибораи 2-калимагӣ → ҷумлаи кӯтоҳ → нақшбозӣ → миссия.
+  ///
+  /// `null` = дарси КӮҲНА — муҳаррик рафтори пештараро нигоҳ медорад.
+  /// Ихтиёрӣ, то `db push` дар ҷадвали пур бехатар бошад.
+  stage      String?
+
   items    SpeakingItem[]
   progress SpeakingProgress[]
 
@@ -973,6 +981,13 @@ model SpeakingItem {
   // пур аз сатр иҷро намешуд (ниг. доми миграцияи 2026-08-15).
   cue            String? @db.Text // ба забони омӯзиш
   cueTranslation String? @db.Text // тарҷумаи он ба забони модарӣ
+
+  // Қадами НАҚШБОЗӢ (`kind = "turn"`, 26.09.2026): ба хонанда ҷумлаи тайёр
+  // нишон дода НАМЕШАВАД — танҳо НИЯТ ба забони модарӣ («Бигӯ, ки сарат дард
+  // мекунад»). `text` ҷавоби намунавӣ аст; `accepts` — ҷавобҳои ДИГАРИ дуруст
+  // («Голова болит»). Ҳарду ихтиёрӣ.
+  intent         String?  @db.Text
+  accepts        String[] @default([])
 
   text        String  @db.Text // матн ба забони омӯзиш
   translation String  @db.Text // тарҷума ба забони модарӣ
