@@ -42,6 +42,7 @@ export async function GET(req: NextRequest) {
         title: true,
         order: true,
         stage: true,
+        categoryId: true,
         category: {
           select: {
             title: true, titleTranslated: true, emoji: true,
@@ -56,6 +57,7 @@ export async function GET(req: NextRequest) {
             note: true, audioUrl: true, cue: true, cueTranslation: true,
             chainOverride: true, swaps: true, wordCount: true,
             intent: true, accepts: true, cueAudioUrl: true, intentAudioUrl: true,
+            cueRealAudioUrl: true,
           },
         },
       },
@@ -67,6 +69,15 @@ export async function GET(req: NextRequest) {
     // Ҳамон филтри роути хонанда: воҳиди бе матн машқ дода наметавонад.
     const usable = lesson.items.filter((i) => i.text.trim() && i.translation.trim());
 
+    // Рақами дарс дар вазъият — ҳамон `position`-и роути хонанда («Нутқи
+    // воқеӣ» аз нишасти 4, гардиши «Шунидед?»). Вагарна админ дигар чиз медид.
+    const siblings = await prisma.speakingLesson.findMany({
+      where: { categoryId: lesson.categoryId, isActive: true },
+      orderBy: { order: 'asc' },
+      select: { id: true },
+    });
+    const position = Math.max(0, siblings.findIndex((l) => l.id === lesson.id));
+
     const steps = generateSteps(
       usable.map((i) => ({
         ...toEngineItem(i),
@@ -77,7 +88,7 @@ export async function GET(req: NextRequest) {
         ...DEFAULT_CONFIG,
         lang: lesson.category.targetLanguage.code,
       }),
-      { repeat: false, stage: asStage(lesson.stage) },
+      { repeat: false, stage: asStage(lesson.stage), position },
     );
 
     const issues = await validateLessonById(lessonId);
