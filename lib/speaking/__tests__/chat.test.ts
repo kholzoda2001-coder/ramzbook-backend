@@ -3,7 +3,13 @@
  */
 import { describe, expect, it } from 'vitest';
 import {
+  A1_TOPICS,
+  CHAT_LEVEL,
   FREE_TALKS_TOTAL,
+  askedQuestions,
+  replyProblem,
+  sameQuestion,
+  trimToOneQuestion,
   FREE_TURNS,
   freeTalkAllowed,
   freeTalksLeft,
@@ -184,5 +190,81 @@ describe('ҳадди ройгон: 3 суҳбат дар умр (27.09.2026)', (
     expect(freeTalksLeft(0)).toBe(3);
     expect(freeTalksLeft(2)).toBe(1);
     expect(freeTalksLeft(7)).toBe(0);
+  });
+});
+
+describe('Рамз — устоди озод, A1, бе такрор (28.09.2026)', () => {
+  const sys = (msgs: { content: string }[]) => msgs[0].content;
+  const talk: ChatLine[] = [
+    { who: 'ai', text: 'Привет, Алишер! Что ты любишь есть?' },
+    { who: 'me', text: 'Я люблю плов' },
+  ];
+
+  it('сатҳ ҳамеша A1; ниша/кор дар промпт нест', () => {
+    expect(CHAT_LEVEL).toBe('A1');
+    const s = sys(buildChatMessages({ ...base, history: talk }, 'turn'));
+    expect(s).not.toMatch(/construction|driving/);
+    expect(s).toMatch(/Do NOT talk about work/);
+    expect(A1_TOPICS).not.toContain('work');
+  });
+
+  it('саволҳои пешина ба модел мераванд — «такрор накун»', () => {
+    const s = sys(buildChatMessages({ ...base, history: talk }, 'turn'));
+    expect(s).toContain('Что ты любишь есть?');
+    expect(s).toMatch(/NEVER ask the same or a similar question again/);
+    expect(s).toMatch(/must END with exactly one question/);
+    expect(askedQuestions(talk)).toEqual(['Привет, Алишер! Что ты любишь есть?']);
+  });
+
+  it('оғоз бо мавзӯи додашуда (ҳар бор дигар)', () => {
+    const s = sys(
+      buildChatMessages({ ...base, memory: { name: 'Алишер', facts: [] }, openTopic: 'weather' }, 'turn'),
+    );
+    expect(s).toMatch(/ask ONE easy question about weather/);
+  });
+
+  it('nudge: хонанда хомӯш → саволи ОСОНТАР, на такрор', () => {
+    const h: ChatLine[] = [{ who: 'ai', text: 'Что ты делаешь в выходные?' }];
+    expect(chatValid(h, 'nudge', FREE_TURNS)).toBe(true);
+    const s = sys(buildChatMessages({ ...base, history: h }, 'nudge'));
+    expect(s).toMatch(/stayed SILENT/);
+    expect(s).toMatch(/much easier question/);
+    expect(s).toContain('Что ты делаешь в выходные?');
+  });
+
+  it('таърих: Рамз то 2 бор пай дар пай (савол + nudge), на 3; хонанда ҳеҷ гоҳ 2 бор', () => {
+    const a = (t: string): ChatLine => ({ who: 'ai', text: t });
+    const m = (t: string): ChatLine => ({ who: 'me', text: t });
+    expect(chatValid([a('Q?'), a('Чай или кофе?'), m('Чай')], 'turn', FREE_TURNS)).toBe(true);
+    expect(chatValid([a('Q?'), a('Чай?'), a('Кофе?'), m('Чай')], 'turn', FREE_TURNS)).toBe(false);
+    expect(chatValid([a('Q?'), m('да'), m('нет')], 'turn', FREE_TURNS)).toBe(false);
+    // nudge-и дуюм пай дар пай ҷоиз нест — клиент ба таваққуф мегузарад.
+    expect(chatValid([a('Q?'), a('Чай?')], 'nudge', FREE_TURNS)).toBe(false);
+    expect(chatValid([m('салом')], 'turn', FREE_TURNS)).toBe(false);
+  });
+
+  it('replyProblem: бе савол ё саволи такрорӣ → кӯшиши дуюм', () => {
+    const opts = { closing: false, goodbye: false };
+    expect(replyProblem('Понятно, яблоки не нужны.', talk, opts)).toBe('no_question');
+    expect(replyProblem('Плов — вкусно! А что ты любишь есть?', talk, opts)).toBe('repeat');
+    expect(replyProblem('Плов — вкусно! Ты любишь чай?', talk, opts)).toBeNull();
+    expect(replyProblem('Ты любишь еду? Что ты ешь обычно?', talk, opts)).toBe('many_questions');
+    // Хайрухуш савол намехоҳад.
+    expect(replyProblem('До встречи, Алишер!', talk, { closing: true, goodbye: false })).toBeNull();
+    expect(replyProblem('Пока!', talk, { closing: false, goodbye: true })).toBeNull();
+  });
+
+  it('sameQuestion: ҳамон савол бо сухани дигар дар аввал', () => {
+    expect(sameQuestion('Хорошо. Что ты ищешь?', 'Понятно! Что ты ищешь?')).toBe(true);
+    expect(sameQuestion('Где ты живёшь?', 'Где работает твой брат?')).toBe(false);
+    expect(sameQuestion('Спасибо.', 'Спасибо.')).toBe(false); // савол нест
+  });
+});
+
+describe('trimToOneQuestion', () => {
+  it('танҳо саволи аввал мемонад', () => {
+    expect(trimToOneQuestion('Погода хорошая? Какой сегодня день?')).toBe('Погода хорошая?');
+    expect(trimToOneQuestion('Плов вкусный! Ты любишь чай? А кофе?')).toBe('Плов вкусный! Ты любишь чай?');
+    expect(trimToOneQuestion('До встречи!')).toBe('До встречи!');
   });
 });

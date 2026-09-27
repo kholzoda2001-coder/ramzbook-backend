@@ -6,8 +6,9 @@ import { openAiChat } from '@/lib/ai/openai';
 import { translateTexts } from '@/lib/ai/translate';
 import { synthesizeMp3 } from '@/lib/ai/tts';
 import { isReasoningModel, languageName } from '@/lib/speaking/judge';
-import { cefrOfLevel } from '@/lib/speaking/situations';
 import {
+  A1_TOPICS,
+  CHAT_LEVEL,
   FREE_TURNS,
   freeTalkAllowed,
   PREMIUM_TURNS,
@@ -18,6 +19,9 @@ import {
   mergeMemory,
   parseChatReply,
   parseHints,
+  replyProblem,
+  retryNote,
+  trimToOneQuestion,
   saysGoodbye,
   type ChatLine,
   type ChatMode,
@@ -66,7 +70,8 @@ export async function POST(req: NextRequest) {
     };
     const sessionId = typeof body.sessionId === 'string' ? body.sessionId.trim() : '';
     const langId = typeof body.langId === 'string' ? body.langId.trim() : '';
-    const mode: ChatMode = body.mode === 'hint' ? 'hint' : 'turn';
+    const mode: ChatMode =
+      body.mode === 'hint' ? 'hint' : body.mode === 'nudge' ? 'nudge' : 'turn';
     if (!SESSION_RE.test(sessionId) || !langId) {
       return NextResponse.json({ error: 'sessionId and langId are required.', reason: 'invalid' }, { status: 400 });
     }
@@ -107,7 +112,7 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Хонанда: хотира, ибораҳои омӯхта, сатҳ ───────────────────────────
-    const [memRow, knownRows, levels] = await Promise.all([
+    const [memRow, knownRows] = await Promise.all([
       prisma.speakingChatMemory.findUnique({ where: { userId } }),
       prisma.speakingItem.findMany({
         where: {
@@ -118,19 +123,15 @@ export async function POST(req: NextRequest) {
         orderBy: { id: 'desc' },
         take: 60,
       }),
-      prisma.speakingCategory.findMany({
-        where: {
-          targetLanguageId: langId,
-          lessons: { some: { progress: { some: { userId } } } },
-        },
-        select: { level: true },
-      }),
     ]);
     const memory = { name: memRow?.name ?? '', facts: memRow?.facts ?? [] };
     const known = knownRows
       .map((r) => r.text.trim())
       .filter((t) => t && !t.includes('{') && !t.includes('___'));
-    const level = cefrOfLevel(Math.max(1, ...levels.map((l) => l.level)));
+    // Ҳамеша A1 — ниг. [CHAT_LEVEL]. Мавзӯи оғоз ҳар бор тасодуфӣ, то
+    // «Как твой день?» ҳар суҳбат такрор нашавад.
+    const level = CHAT_LEVEL;
+    const openTopic = A1_TOPICS[Math.floor(Math.random() * A1_TOPICS.length)];
     const closing = mode === 'turn' && learnerTurns(history) >= maxTurns;
 
     const cfg = await loadAiSettingsConfig(prisma);
@@ -140,16 +141,16 @@ export async function POST(req: NextRequest) {
     }
     const reasoning = isReasoningModel(cfg.model);
     const messages = buildChatMessages(
-      { language: languageName(language.code), level, memory, known, history, closing },
+      { language: languageName(language.code), level, memory, known, history, closing, openTopic },
       mode,
     );
-    const ask = async () => {
+    const ask = async (note?: string) => {
       const call = (extra?: Record<string, unknown>) =>
         openAiChat({
           apiKey,
           model: cfg.model,
           baseUrl: cfg.baseUrl,
-          messages,
+          messages: note ? [...messages, { role: 'user', content: note }] : messages,
           maxTokens: reasoning ? 900 : 350,
           temperature: 0.7,
           timeoutMs: 9000,
@@ -182,12 +183,37 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // ── Навбат ───────────────────────────────────────────────────────────
+    // ── Навбат (ва `nudge` — хонанда хомӯш монд) ──────────────────────────
+    const noFix = history.length === 0 || mode === 'nudge';
     let res = await ask();
-    let parsed = res.ok && res.reply ? parseChatReply(res.reply, history.length === 0) : null;
+    let parsed = res.ok && res.reply ? parseChatReply(res.reply, noFix) : null;
     if (!parsed && res.ok) {
       res = await ask(); // JSON-и вайрон — як бори дигар
-      parsed = res.ok && res.reply ? parseChatReply(res.reply, history.length === 0) : null;
+      parsed = res.ok && res.reply ? parseChatReply(res.reply, noFix) : null;
+    }
+    // Рамз бе савол ё бо саволи ТАКРОРӢ → як бори дигар бо дастури равшан.
+    // Кӯшиши дуюм ҳам бад бошад — ҳамонро медиҳем (суҳбат беҳтар аз хато).
+    const problem = parsed
+      ? replyProblem(parsed.reply, history, {
+          closing: mode === 'turn' && closing,
+          goodbye: mode === 'turn' && parsed.goodbye,
+        })
+      : null;
+    if (parsed && problem) {
+      const again = await ask(retryNote(problem));
+      const second = again.ok && again.reply ? parseChatReply(again.reply, noFix) : null;
+      const secondProblem = second
+        ? replyProblem(second.reply, history, { closing: false, goodbye: second.goodbye })
+        : problem;
+      console.log(`[speaking/chat] ${problem} → ${second ? secondProblem ?? 'ислоҳ шуд' : 'кӯшиши 2 нашуд'}`);
+      // Кӯшиши дуюм танҳо вақте, ки беҳтар аст (ё ҳадди ақал на бадтар).
+      if (second && (!secondProblem || secondProblem === problem || problem === 'repeat')) {
+        parsed = second;
+      }
+    }
+    // Захираи охирин: ду савол → танҳо аввалаш (A1).
+    if (parsed && replyProblem(parsed.reply, history, { closing: false, goodbye: parsed.goodbye }) === 'many_questions') {
+      parsed = { ...parsed, reply: trimToOneQuestion(parsed.reply) };
     }
     if (!parsed) {
       console.error(`[speaking/chat] AI: ${res.status ?? '-'} ${res.error ?? 'unparsable'}`);
@@ -205,7 +231,8 @@ export async function POST(req: NextRequest) {
     }
 
     const lastMine = [...history].reverse().find((l) => l.who === 'me')?.text ?? '';
-    const done = closing || parsed.goodbye || (!!lastMine && saysGoodbye(lastMine));
+    const done =
+      mode === 'turn' && (closing || parsed.goodbye || (!!lastMine && saysGoodbye(lastMine)));
 
     await prisma.speakingChatSession.update({
       where: { id: sessionId },

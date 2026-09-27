@@ -62,7 +62,31 @@ export const MAX_LINE_CHARS = 240;
 
 export type ChatLine = { who: 'ai' | 'me'; text: string };
 
-export type ChatMode = 'turn' | 'hint';
+/**
+ * `turn` — хонанда гап зад, Рамз ҷавоб медиҳад.
+ * `hint` — «Чӣ гӯям?».
+ * `nudge` — хонанда ХОМӮШ монд: Рамз мисли устод саволи ОСОНТАР медиҳад, на
+ *   ин ки хомӯш интизор шавад (корбар, 28.09.2026: «хомӯш наистад»).
+ */
+export type ChatMode = 'turn' | 'hint' | 'nudge';
+
+/**
+ * Сатҳи суҳбат — ҲАМЕША A1 (қарори корбар, 28.09.2026: «саволҳо бояд мутобиқ
+ * ба сатҳи A1 бошанд»). Пештар аз сатҳи бобҳои гузашта (A2 ҳам) гирифта мешуд.
+ */
+export const CHAT_LEVEL = 'A1';
+
+/**
+ * Мавзӯъҳои ҳаррӯзаи A1 — Рамз аз инҳо интихоб мекунад. ⚠️ Ниша (сохтмон,
+ * ронандагӣ) ҚАСДАН нест: суҳбат озод аст, на дарси касбӣ (корбар, 28.09.2026:
+ * «мавзӯъ ва ниша фарқ надорад»).
+ */
+export const A1_TOPICS = [
+  'family', 'food', 'drinks', 'weather', 'home', 'city', 'hobbies',
+  'weekend', 'friends', 'shopping', 'daily routine', 'sport', 'music',
+  'films', 'holidays', 'animals', 'clothes', 'languages', 'transport',
+  'colours', 'time and days', 'the body and health',
+];
 
 export type ChatMemory = {
   /** Номи хонанда (холӣ = ҳанӯз намедонем). */
@@ -82,6 +106,8 @@ export type ChatInput = {
   history: ChatLine[];
   /** Навбати ОХИРИНИ ҷоиз — Рамз бояд хайрухуш кунад. */
   closing: boolean;
+  /** Мавзӯи саволи АВВАЛ (оғози суҳбат) — ҳар бор дигар, то такрор нашавад. */
+  openTopic?: string;
 };
 
 export type ChatFix = { said: string; better: string; why: string };
@@ -121,24 +147,107 @@ export function learnerTurns(h: ChatLine[]): number {
 }
 
 /**
- * Таърих дуруст аст? Рамз сар мекунад, навбатҳо иваз мешаванд, сатри охирин
- * аз хонанда (ё холӣ — оғоз). Барои `hint` сатри охирин аз Рамз аст.
+ * Таърих дуруст аст? Рамз сар мекунад; хонанда ҳеҷ гоҳ ду бор пай дар пай
+ * намегӯяд; Рамз то ДУ бор пай дар пай (савол + `nudge` баъди хомӯшӣ).
+ * `turn` — сатри охирин аз хонанда (ё холӣ — оғоз); `hint`/`nudge` — аз Рамз.
  */
 export function chatValid(h: ChatLine[], mode: ChatMode, maxTurns: number): boolean {
-  if (h.length > maxTurns * 2 + 1) return false;
+  if (h.length > maxTurns * 3 + 1) return false;
+  if (h.length > 0 && h[0].who !== 'ai') return false;
+  let aiRun = 0;
   for (let k = 0; k < h.length; k++) {
-    if (h[k].who !== (k % 2 === 0 ? 'ai' : 'me')) return false;
     const t = h[k].text.trim();
     if (!t || t.length > MAX_LINE_CHARS) return false;
+    if (h[k].who === 'ai') {
+      if (++aiRun > 2) return false;
+    } else {
+      if (k > 0 && h[k - 1].who === 'me') return false;
+      aiRun = 0;
+    }
   }
-  if (mode === 'hint') return h.length > 0 && h[h.length - 1].who === 'ai';
-  if (h.length > 0 && h[h.length - 1].who !== 'me') return false;
+  const last = h.length ? h[h.length - 1].who : null;
+  if (mode === 'hint') return last === 'ai';
+  // `nudge` танҳо баъди ЯК саволи бе ҷавоб — дуюмаш таваққуф аст (клиент).
+  if (mode === 'nudge') return last === 'ai' && aiRun === 1;
+  if (last !== null && last !== 'me') return false;
   return learnerTurns(h) <= maxTurns;
 }
 
+/** Саволҳое, ки Рамз дар ҳамин суҳбат аллакай дод — барои «такрор накун». */
+export function askedQuestions(h: ChatLine[]): string[] {
+  return h.filter((l) => l.who === 'ai').map((l) => clip(l.text, 120));
+}
+
+const words = (s: string) => bare(s).split(' ').filter((w) => w.length > 1);
+
+/** Ду ҷумла ҳамон як саволанд? (калимаҳои умумӣ ≥ 70% — Jaccard). СОФ. */
+export function sameQuestion(a: string, b: string): boolean {
+  const qa = lastQuestion(a);
+  const qb = lastQuestion(b);
+  if (!qa || !qb) return false;
+  if (bare(qa) === bare(qb)) return true;
+  const A = new Set(words(qa));
+  const Bw = new Set(words(qb));
+  if (A.size < 2 || Bw.size < 2) return false;
+  let common = 0;
+  A.forEach((w) => {
+    if (Bw.has(w)) common++;
+  });
+  return common / (A.size + Bw.size - common) >= 0.7;
+}
+
+/** Ҷумлаи саволии охир («Понятно. Где ты живёшь?» → «Где ты живёшь?»). */
+function lastQuestion(s: string): string {
+  // ⚠️ Бе lookbehind: `tsconfig` target надорад (ES5).
+  const qs = s.match(/[^.!?]*\?/g);
+  return qs ? qs[qs.length - 1].trim() : '';
+}
+
+/**
+ * Ҷавоби модел қабул аст? `null` = ҳа. Вагарна сабаб — роут як бори дигар
+ * мепурсад. Рамз бояд ҲАМЕША савол диҳад (ба ҷуз хайрухуш) ва ҳеҷ гоҳ
+ * саволи пешинаро такрор накунад (корбар, 28.09.2026: «ҳар дафъа дубора
+ * мепурсад»). СОФ.
+ */
+export function replyProblem(
+  reply: string,
+  history: ChatLine[],
+  opts: { closing: boolean; goodbye: boolean },
+): 'no_question' | 'many_questions' | 'repeat' | null {
+  if (opts.closing || opts.goodbye) return null;
+  if (!reply.includes('?')) return 'no_question';
+  // A1: як савол дар як сатр — ду савол навомӯзро гум мекунад («Ты любишь
+  // еду? Что ты ешь обычно?» — санҷиши зинда, 28.09.2026).
+  if ((reply.match(/\?/g) || []).length > 1) return 'many_questions';
+  if (history.some((l) => l.who === 'ai' && sameQuestion(l.text, reply))) return 'repeat';
+  return null;
+}
+
+/**
+ * Танҳо саволи АВВАЛ: «Погода хорошая? Какой сегодня день?» → «Погода
+ * хорошая?». Захираи охирин, вақте модел ду бор ду савол дод. СОФ.
+ */
+export function trimToOneQuestion(reply: string): string {
+  const i = reply.indexOf('?');
+  return i < 0 ? reply : reply.slice(0, i + 1).trim();
+}
+
+/** Дастури иловагӣ барои кӯшиши дуюм. */
+export function retryNote(problem: 'no_question' | 'many_questions' | 'repeat'): string {
+  switch (problem) {
+    case 'no_question':
+      return 'Your last draft had NO question. Rewrite it: react briefly and END with ONE easy new question.';
+    case 'many_questions':
+      return 'Your last draft had MORE than one question. Rewrite it with exactly ONE short question.';
+    case 'repeat':
+      return 'Your last draft repeated a question you already asked. Rewrite it with a DIFFERENT question on a NEW everyday topic.';
+  }
+}
+
 const PERSONA = (lang: string) =>
-  `You are Ramz, a warm, curious ${lang} speaking partner in a language app for Tajik adults ` +
-  `(many work abroad: construction, driving, service). You are NOT a teacher in the chat: you talk like a friendly person.`;
+  `You are Ramz, a warm, patient ${lang} teacher having a FREE everyday conversation with a Tajik beginner in a language app. ` +
+  `You lead the talk like a good teacher: you are never silent, you keep asking simple questions about the learner's everyday life ` +
+  `(${A1_TOPICS.join(', ')}). Do NOT talk about work or jobs unless the learner brings it up.`;
 
 export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
   const known = i.known.slice(0, MAX_KNOWN).map((k) => `"${clip(k, 60)}"`).join(', ');
@@ -152,7 +261,7 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
       ? 'The learner is B1: normal short sentences are fine.'
       : i.level === 'A2'
         ? 'The learner is A2: short simple sentences, everyday words.'
-        : 'The learner is A1: very short simple sentences (max 8 words), the most common words only, one question at a time.';
+        : 'The learner is A1: very short simple sentences (max 8 words), present tense, the most common everyday words only, one question at a time.';
 
   const aboutLearner = [
     name ? `The learner's name is ${name}.` : `You don't know the learner's name yet.`,
@@ -177,14 +286,46 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
     ];
   }
 
+  const asked = askedQuestions(hist);
+  const noRepeat = asked.length
+    ? `You ALREADY said these lines — NEVER ask the same or a similar question again: ${asked.map((q) => `"${q}"`).join(' | ')}.`
+    : '';
+  const noKnown = facts.length
+    ? `Do not ask about things you already know about the learner.`
+    : '';
+  const topic = clip(i.openTopic || 'daily routine', 30);
+
+  if (mode === 'nudge') {
+    const system = [
+      PERSONA(i.language),
+      level,
+      aboutLearner,
+      `Speak ONLY ${i.language}.`,
+      `The learner stayed SILENT after your last line: maybe they did not understand or do not know what to say.`,
+      `Like a kind teacher: say a very short encouragement (max 3 words) and ask a DIFFERENT, much easier question on a new everyday topic — a yes/no question or a choice ("tea or coffee?").`,
+      noRepeat,
+      `Reply with JSON only: {"reply": "<your line in ${i.language}>", "reply_tg": "<Tajik translation, Cyrillic>", "topics": [], "fix": null, "name": "", "remember": [], "goodbye": false}`,
+    ]
+      .filter(Boolean)
+      .join(' ');
+    return [
+      { role: 'system', content: system },
+      { role: 'user', content: transcript(hist, name) },
+    ];
+  }
+
   const plan = first
     ? name
-      ? `Start the conversation: greet ${name} by name and ask one question about their life, using what you remember (for example about their work or their day).`
+      ? `Start the conversation: greet ${name} by name and ask ONE easy question about ${topic}.`
       : `Start the conversation: say hi, introduce yourself as Ramz, and ask the learner's name.`
     : i.closing
       ? `Time is up: react briefly to their last line and say a warm goodbye (use their name), with NO question.`
       : [
-          `React to what the learner just said (show you understood, one short sentence) and ask ONE new, easy follow-up question.`,
+          `React to what the learner just said (show you understood, one short sentence) and ask ONE new, easy question.`,
+          `EVERY line you say must END with exactly one question — never leave the learner without a question.`,
+          `Ask at most 2 questions about the same topic, then move to a NEW everyday topic the learner has not talked about yet.`,
+          noRepeat,
+          noKnown,
           name
             ? ''
             : `If they just told you their name, use it.`,
@@ -192,7 +333,7 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
             ? `Now ALSO offer 2-3 conversation topics that fit their life in "topics" (ask "What shall we talk about?").`
             : `"topics" must be [].`,
           `If the learner says goodbye or wants to stop ("пока", "до свидания", "хватит", "bye", "stop"...), say a warm goodbye and set "goodbye": true.`,
-          `If their line is unclear, ask again more simply.`,
+          `If their answer does not fit your question or is unclear, do NOT repeat the question: turn the SAME question into a choice of two concrete options (for "What animal do you like?" → "Cats or dogs?"), or move on to a new topic.`,
         ]
           .filter(Boolean)
           .join(' ');
