@@ -47,6 +47,11 @@ await sql.query(
   [catId, tgt.id, nat.id, c.title, c.titleTranslated, c.scenario ?? null,
    c.emoji ?? '🎙️', c.order ?? 0, !!c.isPremium, c.isActive !== false,
    ...(Array.isArray(c.goals) ? [c.goals] : [])]);
+// Сатҳи ниша (27.09.2026) — ҷудо, то бастаи бе `level` ба сутуни нав
+// вобаста набошад (пешфарзи база = 1).
+if (Number.isInteger(c.level) && c.level > 1) {
+  await sql.query(`UPDATE "SpeakingCategory" SET level = $1 WHERE id = $2`, [c.level, catId]);
+}
 
 let lessons = 0, items = 0;
 for (const L of pack.lessons) {
@@ -63,6 +68,10 @@ for (const L of pack.lessons) {
       `INSERT INTO "SpeakingLesson" (id, "categoryId", title, "order", "isActive", "createdAt")
        VALUES ($1,$2,$3,$4,true, NOW())`,
       [lid, catId, L.title ?? null, L.order ?? 0]);
+  }
+  // Миссия ҳамчун «Занги телефон» (27.09.2026).
+  if (L.mode) {
+    await sql.query(`UPDATE "SpeakingLesson" SET mode = $1 WHERE id = $2`, [L.mode, lid]);
   }
   lessons++;
   for (const i of L.items) {

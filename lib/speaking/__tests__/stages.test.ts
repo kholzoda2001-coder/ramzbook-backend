@@ -383,3 +383,69 @@ describe('аудиои ҳамсӯҳбат дар машқҳои оддӣ', () =>
     expect('cueAudioUrl' in toWire(withCue[0], 2)).toBe(false);
   });
 });
+
+describe('«Нутқи воқеӣ» (ev 4)', () => {
+  const ev4 = configForEv(4, DEFAULT_CONFIG);
+  const real = doctor.map((t) => ({ ...t, cueRealAudioUrl: `https://cdn/${t.id}_real.mp3` }));
+  const gen = (items: EngineItem[], position: number, cfg = ev4) =>
+    generateSteps(items, cfg, { repeat: false, stage: 'dialogue', position });
+
+  it('аз нишасти 4 (индекс 3): баъди «шунидӣ?», пеш аз навбатҳо', () => {
+    const kinds = gen(real, 3).map((s) => s.kind);
+    const first = kinds.indexOf('real');
+    expect(first).toBeGreaterThan(kinds.lastIndexOf('heard'));
+    expect(first).toBeLessThan(kinds.indexOf('turn'));
+    expect(kinds.filter((k) => k === 'real').length).toBeGreaterThan(0);
+    expect(kinds.filter((k) => k === 'real').length).toBeLessThanOrEqual(2);
+  });
+
+  it('нишасти 2 (индекс 1) — ҳанӯз не', () => {
+    expect(gen(real, 1).some((s) => s.kind === 'real')).toBe(false);
+  });
+
+  it('бе файли «воқеӣ» — қадам нест (TTS нутқи воқеӣ нест)', () => {
+    expect(gen(doctor, 5).some((s) => s.kind === 'real')).toBe(false);
+  });
+
+  it('клиенти ev 3 ҳеҷ гоҳ «real» намегирад', () => {
+    expect(gen(real, 5, configForEv(3, DEFAULT_CONFIG)).some((s) => s.kind === 'real')).toBe(false);
+  });
+
+  it('вариантҳо: се маънои тоҷикии гуногун, ҷавоб дар answerIndex', () => {
+    for (const pos of [3, 4, 5, 6, 7]) {
+      for (const s of gen(real, pos).filter((x) => x.kind === 'real')) {
+        const item = real.find((t) => t.id === s.itemId)!;
+        expect(s.options).toHaveLength(3);
+        expect(new Set(s.options!.map((o) => o.toLowerCase())).size).toBe(3);
+        expect(s.options![s.answerIndex!]).toBe(item.cueTranslation);
+        expect(s.audioUrl).toBe(item.cueRealAudioUrl);
+        expect(s.target).toBe(item.cue);
+      }
+    }
+  });
+
+  it('ҷои ҷавоб гардон аст (на ҳамеша якум)', () => {
+    const idx = new Set<number>();
+    for (const pos of [3, 4, 5, 6, 7, 8]) {
+      for (const s of gen(real, pos).filter((x) => x.kind === 'real')) idx.add(s.answerIndex!);
+    }
+    expect(idx.size).toBeGreaterThan(1);
+  });
+
+  it('toWire: овози воқеӣ дар audioUrl, бе cueAudioUrl; ev 3 → хато', () => {
+    const withCue = real.map((t) => ({ ...t, cueAudioUrl: `https://cdn/${t.id}_cue.mp3` }));
+    const s = gen(withCue, 3).find((x) => x.kind === 'real')!;
+    const w = toWire(s, 4);
+    expect(w.kind).toBe('real');
+    expect(w.audioUrl).toMatch(/_real\.mp3$/);
+    expect(w.cueAudioUrl).toBeUndefined();
+    expect(w.options).toHaveLength(3);
+    expect(w.stepId).toBe(s.stepId);
+    expect(() => toWire(s, 3)).toThrow();
+  });
+
+  it('маъноҳои якхела → қадам нест', () => {
+    const same = real.map((t) => ({ ...t, cueTranslation: 'як хел' }));
+    expect(gen(same, 3).some((s) => s.kind === 'real')).toBe(false);
+  });
+});

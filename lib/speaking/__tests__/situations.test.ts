@@ -2,7 +2,7 @@
  * «Гуфтор»-и нав: тартиби вазъиятҳо ва дастрасии ройгон (26.09.2026).
  */
 import { describe, expect, it } from 'vitest';
-import { asGoal, inPath, isSituation, orderChapters } from '../situations';
+import { asGoal, inPath, isSituation, levelOf, orderChapters } from '../situations';
 import {
   FREE_SESSIONS_PER_SITUATION,
   unlockedSpeakingLessonIds,
@@ -113,5 +113,30 @@ describe('дастрасии ройгон', () => {
       ),
     ).toBe(true);
     expect(unlockedSpeakingLessonIds({ chapters, isPremium: true }).size).toBe(5);
+  });
+});
+
+describe('сатҳҳои ниша (27.09.2026)', () => {
+  it('роҳ: ҳамаи сатҳи 1, баъд сатҳи 2 — новобаста аз order', () => {
+    const chapters = [
+      { ...situation('pay2', 1, ['build']), level: 2 },
+      { ...situation('meet', 1, []), level: 1 },
+      { ...situation('site', 3, ['build']), level: 1 },
+      { ...situation('meet2', 0, []), level: 2 },
+    ];
+    expect(orderChapters(chapters, 'build').map((c) => c.id)).toEqual([
+      'meet',
+      'site',
+      'meet2',
+      'pay2',
+    ]);
+  });
+
+  it('levelOf: холӣ ё ғалат → 1', () => {
+    expect(levelOf({})).toBe(1);
+    expect(levelOf({ level: null })).toBe(1);
+    expect(levelOf({ level: 2 })).toBe(2);
+    expect(levelOf({ level: 9 })).toBe(1);
+    expect(levelOf({ level: 0 })).toBe(1);
   });
 });

@@ -21,9 +21,20 @@ export function asGoal(v: string | null | undefined): SpeakingGoal | null {
 
 export interface OrderableChapter {
   order: number;
+  /**
+   * Сатҳи ниша: 1 = A1 («Сохтмон 1»), 2 = A2, 3 = B1. Холӣ = 1. Роҳ сатҳҳоро
+   * ПАЙ ДАР ПАЙ мегузарад: ҳамаи вазъиятҳои сатҳи 1, баъд сатҳи 2.
+   */
+  level?: number | null;
   /** Ҳадафҳое, ки ин вазъият барояшон аст. Холӣ = барои ҳама (умумӣ). */
   goals?: string[];
   lessons: { stage?: string | null }[];
+}
+
+/** Сатҳи вазъият (1 = A1). Қимати ғалат ё холӣ → 1. */
+export function levelOf(c: { level?: number | null }): number {
+  const l = Math.round(c.level ?? 1);
+  return l >= 1 && l <= 3 ? l : 1;
 }
 
 /** Боб вазъият аст — яъне ягон дарсаш зина дорад. */
@@ -66,6 +77,12 @@ export function orderChapters<T extends OrderableChapter>(
   };
   return chapters
     .map((c, i) => ({ c, i, r: rank(c) }))
-    .sort((a, b) => a.r - b.r || a.c.order - b.c.order || a.i - b.i)
+    .sort(
+      (a, b) =>
+        a.r - b.r ||
+        levelOf(a.c) - levelOf(b.c) ||
+        a.c.order - b.c.order ||
+        a.i - b.i,
+    )
     .map((x) => x.c);
 }

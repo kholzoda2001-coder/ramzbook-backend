@@ -15,7 +15,7 @@ import {
   SPEAKING_LOCKED,
 } from '@/lib/speaking/access';
 import { pickSpeakingLesson } from '@/lib/speaking/pick';
-import { asGoal, inPath, orderChapters } from '@/lib/speaking/situations';
+import { asGoal, inPath, levelOf, orderChapters } from '@/lib/speaking/situations';
 
 export const dynamic = 'force-dynamic';
 
@@ -112,6 +112,8 @@ export async function GET(req: NextRequest) {
         emoji: true,
         order: true,
         goals: true,
+        // Сатҳи ниша — роҳ аввал сатҳи 1, баъд 2 (`orderChapters`).
+        level: true,
         lessons: {
           where: { isActive: true },
           orderBy: { order: 'asc' },
@@ -120,6 +122,8 @@ export async function GET(req: NextRequest) {
             title: true,
             // Зинаи дарс (калима → … → миссия). `null` = дарси кӯҳна.
             stage: true,
+            // "call" = миссия ҳамчун занги телефон (ev ≥ 4).
+            mode: true,
             items: {
               orderBy: { order: 'asc' },
               select: {
@@ -144,6 +148,8 @@ export async function GET(req: NextRequest) {
                 // Аудиои тайёри ҳамсӯҳбат ва нияти тоҷикӣ (ҳарду ихтиёрӣ).
                 cueAudioUrl: true,
                 intentAudioUrl: true,
+                // «Нутқи воқеӣ» (ev ≥ 4) — холӣ = қадам нест.
+                cueRealAudioUrl: true,
               },
             },
           },
@@ -218,6 +224,19 @@ export async function GET(req: NextRequest) {
           goal,
           situations: chapters.length,
           sessions: chapters.reduce((n, c) => n + c.lessons.length, 0),
+          // Чанд ибораи ГУНОГУН хонанда дар ин роҳ гуфт — барои корти ғалаба.
+          phrases: new Set(
+            chapters.flatMap((c) =>
+              c.lessons.flatMap((l) =>
+                l.items
+                  .filter((i) => i.kind !== 'own')
+                  .map((i) => i.text.trim().toLowerCase())
+                  .filter(Boolean),
+              ),
+            ),
+          ).size,
+          // Баландтарин сатҳи тамомшуда (1 = A1).
+          level: Math.max(1, ...chapters.map((c) => levelOf(c))),
         },
         { status: 409 },
       );
@@ -324,10 +343,15 @@ export async function GET(req: NextRequest) {
       // Зинаи дарс — клиент дар зинаҳои осон (калима, ибора) мулоимтар қабул
       // мекунад: холи Azure барои калимаи якҳиҷоӣ боэътимод нест.
       stage: lesson.stage ?? '',
+      // Миссия ҳамчун «Занги телефон» — танҳо клиенте, ки онро мекашад.
+      ...(ev >= 4 ? { mode: lesson.mode ?? '' } : {}),
       // Ҳанӯз ягон дарси гуфтор нагузаштааст → тугма «Оғози дарс» мешавад,
       // на «Дарси навбатӣ».
       firstEver: doneIds.size === 0,
       chapter: {
+        // Барои «Озод гап занед» (`/freetalk`) ва корти сатҳ.
+        id: chapter.id,
+        level: levelOf(chapter),
         number: chapterIndex + 1,
         title: chapter.titleTranslated,
         emoji: chapter.emoji,

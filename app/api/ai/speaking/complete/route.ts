@@ -141,6 +141,12 @@ export async function POST(req: NextRequest) {
         words: newWords,
         xp: awardAmount,
       });
+    } else {
+      // Такрори дарс XP НАМЕДИҲАД, вале рӯзи гуфтор ҳамоно рӯзи таҳсил аст:
+      // силсилаи УМУМӢ (🔥) бояд наафтад (27.09.2026, «Гуфтори рӯз» ба
+      // силсилаи умумӣ пайваст). `awardXp(…, 0)` танҳо силсиларо пеш мебарад —
+      // ҳамон қоидаи ягона, на ҳисоби дуюм.
+      award = await awardXp(userId, 0, 'speaking');
     }
 
     return NextResponse.json({

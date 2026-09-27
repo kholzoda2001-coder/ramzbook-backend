@@ -28,7 +28,9 @@ export type StepKind =
   | 'heard' // «Кадом ибораро шунидӣ?» — интихоб аз 3, бе микрофон
   | 'turn' // нақшбозӣ: ҷумлаи ҳамсӯҳбат + НИЯТ, хонанда бо калимаҳои худ
   | 'pattern' // «Иваз кун»: қолаб + вариант бо маънои тоҷикӣ, ҷумлаи пурра
-  | 'own'; // «Ҷавоби худат»: қолаб бо ҷои холӣ — «Меня зовут ___»
+  | 'own' // «Ҷавоби худат»: қолаб бо ҷои холӣ — «Меня зовут ___»
+  // ── ev ≥ 4 (27.09.2026) ───────────────────────────────────────────────
+  | 'real'; // «Нутқи воқеӣ»: сатри ҳамсӯҳбат бо суръати аслӣ + садои атроф → маъно аз 3
 
 /**
  * Зинаи дарс дар дохили вазъият (`SpeakingLesson.stage`).
@@ -109,6 +111,21 @@ export const V3_KINDS: StepKind[] = [
   'own',
 ];
 
+/** + «Нутқи воқеӣ» (ev ≥ 4). */
+export const V4_KINDS: StepKind[] = [...V3_KINDS, 'real'];
+
+/**
+ * «Нутқи воқеӣ» аз кадом нишаст (рақами дарс дар вазъият, аз 0).
+ *
+ * Нишастҳои Б рақамҳои 2, 4, 6, 8 доранд (индекс 1, 3, 5, 7). Дар нишасти 2
+ * хонанда ҳанӯз ба овози мулоими курс одат мекунад — нутқи тез ва садои
+ * атроф аз нишасти 4 (индекс 3) сар мешавад.
+ */
+export const REAL_FROM_POSITION = 3;
+
+/** Дар як нишаст на бештар аз ин қадами «Нутқи воқеӣ». */
+export const MAX_REAL_STEPS = 2;
+
 /** Ҷои холӣ дар қолаби «Ҷавоби худат»: «Меня зовут ___.» */
 export const OWN_SLOT = '___';
 
@@ -152,6 +169,7 @@ export const DEFAULT_CONFIG: EngineConfig = {
  * тамоман намефиристад → `1` → рафтори M1 бе ягон тағйир.
  */
 export function configForEv(ev: number, base: EngineConfig = DEFAULT_CONFIG): EngineConfig {
+  if (ev >= 4) return { ...base, allowedKinds: V4_KINDS };
   if (ev >= 3) return { ...base, allowedKinds: V3_KINDS };
   return ev >= 2 ? { ...base, allowedKinds: V2_KINDS } : { ...base, allowedKinds: LEGACY_KINDS };
 }
@@ -184,6 +202,12 @@ export interface EngineItem {
   cueAudioUrl?: string | null;
   /** Ният бо овози тоҷикӣ (`turn`/`own`). Холӣ = танҳо матн. */
   intentAudioUrl?: string | null;
+  /**
+   * `cue` бо суръати АСЛӢ, овози дигар ва садои атроф — барои «Нутқи
+   * воқеӣ» (`real`). Холӣ = қадами `real` барои ин навбат сохта НАМЕШАВАД:
+   * TTS-и дастгоҳ «нутқи воқеӣ» нест.
+   */
+  cueRealAudioUrl?: string | null;
 }
 
 export interface EngineOptions {
@@ -313,8 +337,10 @@ export function toEngineItem(i: {
   accepts?: string[];
   cueAudioUrl?: string | null;
   intentAudioUrl?: string | null;
+  cueRealAudioUrl?: string | null;
 }): EngineItem {
   return {
+    cueRealAudioUrl: i.cueRealAudioUrl ?? null,
     id: i.id,
     kind:
       i.kind === 'word'
@@ -845,7 +871,7 @@ function generateStepsInner(
 
   // ── Нақшбозӣ ва миссия (ev ≥ 3) ─────────────────────────────────────
   if ((stage === 'dialogue' || stage === 'mission') && cfg.allowedKinds.includes('turn')) {
-    const d = generateDialogueSteps(items, stage, opts);
+    const d = generateDialogueSteps(items, stage, opts, cfg);
     if (d.length) return d;
     // Дарси «муколама» бе қадами `turn` — ба роҳи оддӣ меафтем.
   }
@@ -1179,6 +1205,7 @@ function generateDialogueSteps(
   items: EngineItem[],
   stage: 'dialogue' | 'mission',
   opts: EngineOptions,
+  cfg: EngineConfig = DEFAULT_CONFIG,
 ): Step[] {
   const turns = items.filter(
     (i) => i.kind === 'turn' && !!i.cue?.trim() && !!i.text.trim(),
@@ -1259,6 +1286,14 @@ function generateDialogueSteps(
         answerIndex,
       });
     }
+
+    // 2б. «Нутқи воқеӣ» (ev ≥ 4) — аз нишасти 4 (ниг. [REAL_FROM_POSITION]).
+    if (
+      cfg.allowedKinds.includes('real') &&
+      (opts.position ?? 0) >= REAL_FROM_POSITION
+    ) {
+      out.push(...realSteps(turns, opts, badge));
+    }
   }
 
   // 3. Навбатҳои нақшбозӣ.
@@ -1299,6 +1334,81 @@ function generateDialogueSteps(
     });
   });
 
+  return out;
+}
+
+/**
+ * «Нутқи воқеӣ»: хонанда сатри ҳамсӯҳбатро бо суръати АСЛӢ, бо овози дигар
+ * ва садои атроф мешунавад (матн пинҳон) ва МАЪНОИ онро аз се тарҷумаи
+ * тоҷикӣ интихоб мекунад. Ин ҳамон малакаест, ки курсҳо намеомӯзонанд:
+ * фаҳмидани гапи прораб дар майдон, на овози тозаи студия.
+ *
+ * Танҳо навбатҳое, ки файли `cueRealAudioUrl` доранд — TTS-и дастгоҳ нутқи
+ * воқеӣ нест ва хонандаро фиреб медод. Вариантҳо — `cueTranslation`-и се
+ * навбати ГУНОГУН; камтар аз се маънои гуногун → қадам нест.
+ *
+ * СОФ ва детерминистӣ: интихоб ва ҷои ҷавоб аз [EngineOptions.position].
+ */
+function realSteps(
+  turns: EngineItem[],
+  opts: EngineOptions,
+  badge: Badge,
+): Step[] {
+  const norm = (s: string | null | undefined) => (s ?? '').trim();
+  const meaningOf = (t: EngineItem) => norm(t.cueTranslation);
+  const ready = turns.filter(
+    (t) => norm(t.cueRealAudioUrl) && norm(t.cue) && meaningOf(t),
+  );
+  if (!ready.length) return [];
+
+  const pos = Math.max(0, opts.position ?? 0);
+  const n = ready.length;
+  const picks = [pos % n, (pos + Math.floor(n / 2)) % n]
+    .filter((k, i, a) => a.indexOf(k) === i)
+    .slice(0, MAX_REAL_STEPS);
+
+  const out: Step[] = [];
+  for (const k of picks) {
+    const t = ready[k];
+    const answer = meaningOf(t);
+    // Ду маънои ДИГАР аз ҳамаи навбатҳо (на танҳо омодаҳо).
+    const others: string[] = [];
+    const ti = turns.indexOf(t);
+    for (let j = 1; j < turns.length && others.length < 2; j++) {
+      const o = meaningOf(turns[(ti + j) % turns.length]);
+      if (
+        o &&
+        o.toLowerCase() !== answer.toLowerCase() &&
+        !others.some((x) => x.toLowerCase() === o.toLowerCase())
+      ) {
+        others.push(o);
+      }
+    }
+    if (others.length < 2) continue;
+    const answerIndex = (k + pos + 1) % 3;
+    const options = [...others];
+    options.splice(answerIndex, 0, answer);
+    out.push({
+      stepId: `${t.id}:real:${k}`,
+      itemId: t.id,
+      kind: 'real',
+      prompt: '',
+      // Матни сатр — пас аз ҷавоб нишон дода мешавад.
+      target: norm(t.cue),
+      translation: answer,
+      literal: null,
+      note: null,
+      cue: norm(t.cue),
+      cueTranslation: answer,
+      audioUrl: norm(t.cueRealAudioUrl),
+      badge,
+      targetWords: [],
+      showSlots: false,
+      timerMs: null,
+      options,
+      answerIndex,
+    });
+  }
   return out;
 }
 
@@ -1489,6 +1599,26 @@ export function toWire(s: Step, ev: number): WireStep {
       if (s.cueAudioUrl) wire.cueAudioUrl = s.cueAudioUrl;
       if (s.intentAudioUrl) wire.intentAudioUrl = s.intentAudioUrl;
       break;
+
+    case 'real':
+      if (ev < 4) throw new Error('toWire: «real» танҳо аз ev≥4');
+      // ⚠️ `cueAudioUrl` ҚАСДАН нест: сатр бояд ТАНҲО бо овози «воқеӣ»
+      // шунида шавад (`audioUrl`), на бо овози тозаи курс.
+      wire = {
+        kind: s.kind,
+        badge: s.badge,
+        target: s.target,
+        itemId: s.itemId,
+        translit,
+        meaning,
+        grammar,
+        audioUrl,
+        options: s.options ?? [],
+        answerIndex: s.answerIndex ?? 0,
+      };
+      return ev >= 2
+        ? { ...wire, stepId: s.stepId, showSlots: s.showSlots, timerMs: s.timerMs }
+        : wire;
 
     default:
       // Навъи тамоман ношинос — хомӯшона шакли нодуруст додан хатарноктар.

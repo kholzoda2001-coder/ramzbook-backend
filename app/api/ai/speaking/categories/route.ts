@@ -6,7 +6,7 @@ import {
   FREE_SPEAKING_LESSONS,
   FREE_SESSIONS_PER_SITUATION,
 } from '@/lib/speaking/access';
-import { asGoal, isSituation, orderChapters, inPath } from '@/lib/speaking/situations';
+import { asGoal, isSituation, levelOf, orderChapters, inPath } from '@/lib/speaking/situations';
 
 export const dynamic = 'force-dynamic';
 
@@ -63,6 +63,7 @@ export async function GET(req: NextRequest) {
         isPremium: true,
         order: true,
         goals: true,
+        level: true,
         lessons: {
           where: { isActive: true },
           orderBy: { order: 'asc' },
@@ -132,6 +133,13 @@ export async function GET(req: NextRequest) {
           // Дар роҳи хонанда (ҳадафи ӯ ё умумӣ)? Нишаҳои дигар ҷудо нишон
           // дода мешаванд ва «Навбатӣ» ба онҳо намегузарад.
           inPath: inPath(c, goal),
+          // Сатҳи ниша (1 = A1) — корти «Сохтмон 2» аз ҳамин ҳисоб мешавад.
+          level: levelOf(c),
+          // «Озод гап занед»: миссияи ин вазъият гузашта шуд. Ҳамон шарте,
+          // ки `/freetalk` дар сервер месанҷад.
+          freeTalk: c.lessons.some(
+            (l) => l.stage === 'mission' && doneIds.has(l.id),
+          ),
           lessons: total,
           lessonsDone: finished,
           progress: total ? finished / total : 0,

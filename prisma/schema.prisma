@@ -935,6 +935,10 @@ model SpeakingCategory {
   /// Тартиби вазъиятҳо дар «Гуфтор» аз ин вобаста аст (`lib/speaking/situations.ts`).
   goals          String[] @default([])
 
+  /// Сатҳи ниша (27.09.2026): 1 = A1 («Сохтмон 1»), 2 = A2, 3 = B1. Роҳ
+  /// сатҳҳоро пай дар пай мегузарад (`orderChapters`).
+  level          Int      @default(1)
+
   lessons SpeakingLesson[]
 
   @@index([targetLanguageId, nativeLanguageId])
@@ -962,6 +966,10 @@ model SpeakingLesson {
   /// `null` = дарси КӮҲНА — муҳаррик рафтори пештараро нигоҳ медорад.
   /// Ихтиёрӣ, то `db push` дар ҷадвали пур бехатар бошад.
   stage      String?
+
+  /// Шакли миссия (27.09.2026): "call" = миссия ҳамчун ЗАНГИ ТЕЛЕФОН (бе
+  /// рӯй, танҳо овоз). `null` = муколамаи оддӣ. Ба клиент танҳо ev ≥ 4.
+  mode       String?
 
   items    SpeakingItem[]
   progress SpeakingProgress[]
@@ -1002,6 +1010,9 @@ model SpeakingItem {
   // хонанда корти ниятро нахонда, ШУНАВАД (мисли гапи воқеӣ).
   cueAudioUrl    String?
   intentAudioUrl String?
+  // «Нутқи воқеӣ» (27.09.2026): ҳамон `cue` бо суръати аслӣ, овози дигар ва
+  // садои атроф. Холӣ = қадами `real` барои ин навбат сохта намешавад.
+  cueRealAudioUrl String?
 
   text        String  @db.Text // матн ба забони омӯзиш
   translation String  @db.Text // тарҷума ба забони модарӣ
