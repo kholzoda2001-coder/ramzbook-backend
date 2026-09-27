@@ -31,7 +31,12 @@ export type Segment = {
   friendStreak?: string | null;
   /** yes = гарави алмоси ФАЪОЛ дорад | no | null. */
   wager?: string | null;
-  /** yes = хонандаи гуфтор (дарси гуфтор дар [SPEAKER_WINDOW_DAYS]) | no | null. */
+  /**
+   * yes = хонандаи гуфтор (дарси гуфтор дар [SPEAKER_WINDOW_DAYS]) | no |
+   * vip = хонандаи гуфтор ВА Premium («Гуфтори рӯз» — Premium, 27.09.2026) |
+   * not_vip = ҳама ба ҷуз vip (ёдрасони оддӣ — то ройгонҳо бе паём намонанд) |
+   * null = фарқ надорад.
+   */
   speaking?: string | null;
 };
 
@@ -142,14 +147,25 @@ export function buildWhere(
   }
 
   // Хонандаи ГУФТОР: ибораи худашро дар ёдрасон мегирад («Гуфтори рӯз»).
-  if (seg.speaking === 'yes' || seg.speaking === 'no') {
+  //
+  // `vip` / `not_vip` (27.09.2026): «Гуфтори рӯз» танҳо барои Premium аст —
+  // ройгон ба он паём мерафт ва экрани пейволро медид. `not_vip` ДАҚИҚАН
+  // иловаи `vip` аст, пас ду кампанияи 19:00 ҳар корбарро як бор мегиранд.
+  // ⚠️ `isPremium` — ҳамон байрақе, ки роутҳои гуфтор месанҷанд (на
+  // `subscriptionTier`).
+  const SPEAKING = ['yes', 'no', 'vip', 'not_vip'];
+  if (seg.speaking && SPEAKING.indexOf(seg.speaking) !== -1) {
     const since = new Date(now.getTime() - SPEAKER_WINDOW_DAYS * 86_400_000);
     const has: Prisma.UserWhereInput = {
       speakingProgress: { some: { completedAt: { gte: since } } },
     };
+    const vip: Prisma.UserWhereInput = { AND: [has, { isPremium: true }] };
     (where.AND ??= [] as Prisma.UserWhereInput[]);
     (where.AND as Prisma.UserWhereInput[]).push(
-      seg.speaking === 'yes' ? has : { NOT: has },
+      seg.speaking === 'yes' ? has
+        : seg.speaking === 'no' ? { NOT: has }
+        : seg.speaking === 'vip' ? vip
+        : { NOT: vip },
     );
   }
 

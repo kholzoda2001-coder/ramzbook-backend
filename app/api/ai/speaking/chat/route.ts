@@ -8,8 +8,8 @@ import { synthesizeMp3 } from '@/lib/ai/tts';
 import { isReasoningModel, languageName } from '@/lib/speaking/judge';
 import { cefrOfLevel } from '@/lib/speaking/situations';
 import {
-  FREE_SESSIONS_PER_DAY,
   FREE_TURNS,
+  freeTalkAllowed,
   PREMIUM_TURNS,
   TOPICS_AT_TURN,
   buildChatMessages,
@@ -35,18 +35,11 @@ export const dynamic = 'force-dynamic';
  *   hint → { hints: [{say, tg}], translationExact }
  *
  * Таърих ҳар бор аз клиент меояд; сервер хотира (ном, далелҳо) ва шумораи
- * навбатҳоро нигоҳ медорад. Ҳадди ройгон: [FREE_SESSIONS_PER_DAY] суҳбат дар
- * рӯз ва [FREE_TURNS] навбат; Premium — [PREMIUM_TURNS] навбат, бемаҳдуд.
+ * навбатҳоро нигоҳ медорад. Ҳадди ройгон: [FREE_TALKS_TOTAL] суҳбат дар
+ * умр ва [FREE_TURNS] навбат; Premium — [PREMIUM_TURNS] навбат, бемаҳдуд.
  */
 
 const SESSION_RE = /^[a-zA-Z0-9-]{8,64}$/;
-
-/** Оғози рӯз бо вақти Душанбе (UTC+5) — ҳамон «рӯз»-и хонанда. */
-function dayStart(now = new Date()): Date {
-  const local = new Date(now.getTime() + 5 * 3600_000);
-  local.setUTCHours(0, 0, 0, 0);
-  return new Date(local.getTime() - 5 * 3600_000);
-}
 
 function parseHistory(v: unknown): ChatLine[] {
   if (!Array.isArray(v)) return [];
@@ -91,15 +84,17 @@ export async function POST(req: NextRequest) {
     if (session && session.userId !== userId) {
       return NextResponse.json({ error: 'Foreign session.', reason: 'invalid' }, { status: 403 });
     }
-    if (!session) {
-      if (!user.isPremium) {
-        const today = await prisma.speakingChatSession.count({
-          where: { userId, startedAt: { gte: dayStart() } },
-        });
-        if (today >= FREE_SESSIONS_PER_DAY) {
-          return NextResponse.json({ error: 'Daily limit.', reason: 'limit' }, { status: 403 });
-        }
+    // Ройгон: [FREE_TALKS_TOTAL] суҳбат дар умр. Сессияе, ки хонанда дар он
+    // ҳанӯз гап назадааст (`turns = 0`), ҳар бор санҷида мешавад.
+    if (!user.isPremium && (session?.turns ?? 0) === 0) {
+      const used = await prisma.speakingChatSession.count({
+        where: { userId, turns: { gt: 0 }, id: { not: sessionId } },
+      });
+      if (!freeTalkAllowed(used, session?.turns ?? 0)) {
+        return NextResponse.json({ error: 'Free talks used.', reason: 'limit' }, { status: 403 });
       }
+    }
+    if (!session) {
       session = await prisma.speakingChatSession.create({
         data: { id: sessionId, userId, languageId: langId },
       });

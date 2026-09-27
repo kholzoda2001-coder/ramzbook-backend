@@ -109,15 +109,26 @@ describe('сегменти «speaking»', () => {
     });
     expect(buildWhere({}, 300, now).AND).toBeUndefined();
   });
+
+  it('vip = гуфтор ВА Premium; not_vip = ДАҚИҚАН иловааш', () => {
+    const since = new Date(now.getTime() - 30 * 86_400_000);
+    const has = { speakingProgress: { some: { completedAt: { gte: since } } } };
+    const vip = { AND: [has, { isPremium: true }] };
+    expect(buildWhere({ speaking: 'vip' }, 300, now).AND).toContainEqual(vip);
+    expect(buildWhere({ speaking: 'not_vip' }, 300, now).AND).toContainEqual({ NOT: vip });
+    expect(buildWhere({ speaking: 'junk' }, 300, now).AND).toBeUndefined();
+  });
 });
 
 describe('кампанияҳои оғозӣ', () => {
   it('«Гуфтори рӯз» ва ёдрасони нарми 19:00 якдигарро истисно мекунанд', () => {
     const daily = DEFAULT_CAMPAIGNS.find((c) => c.name === 'Гуфтори рӯз 19:00')!;
-    expect(daily.speaking).toBe('yes');
+    // «Гуфтори рӯз» — Premium; ройгон (ҳатто хонандаи гуфтор) ёдрасони
+    // оддиро мегирад, на паёме ки ба пейвол мебарад.
+    expect(daily.speaking).toBe('vip');
     expect(daily.route).toBe('speaking');
     const softs = DEFAULT_CAMPAIGNS.filter((c) => c.name.startsWith('Ёдрасони нарм 19:00'));
     expect(softs.length).toBe(2);
-    for (const s of softs) expect(s.speaking).toBe('no');
+    for (const s of softs) expect(s.speaking).toBe('not_vip');
   });
 });

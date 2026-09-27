@@ -268,6 +268,8 @@ function SegmentEditor({
             <option value="">Фарқ надорад</option>
             <option value="yes">Хонандаи гуфтор</option>
             <option value="no">Не</option>
+            <option value="vip">Хонандаи гуфтор + Premium («Гуфтори рӯз»)</option>
+            <option value="not_vip">Ҳама ба ҷуз гуфтор + Premium</option>
           </select>
         </Field>
       </div>

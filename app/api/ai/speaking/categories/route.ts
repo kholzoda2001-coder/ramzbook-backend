@@ -4,7 +4,7 @@ import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import {
   unlockedSpeakingLessonIds,
   FREE_SPEAKING_LESSONS,
-  FREE_SESSIONS_PER_SITUATION,
+  FREE_SITUATIONS,
 } from '@/lib/speaking/access';
 import { asGoal, isSituation, levelOf, orderChapters, inPath } from '@/lib/speaking/situations';
 
@@ -115,7 +115,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       isPremium: user.isPremium,
       freeLessons: FREE_SPEAKING_LESSONS,
-      freeSessionsPerSituation: FREE_SESSIONS_PER_SITUATION,
+      freeSituations: FREE_SITUATIONS,
       categories: usable.map((c, i) => {
         const total = c.lessons.length;
         const finished = c.lessons.filter((l) => doneIds.has(l.id)).length;

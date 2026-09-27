@@ -38,15 +38,21 @@
 export const FREE_SPEAKING_LESSONS = 1;
 
 /**
- * Чанд нишасти аввали ҲАР вазъият (боби бо зина) ройгон аст.
+ * Чанд вазъияти АВВАЛИ роҳ пурра ройгон аст (ҳамаи нишастҳояш).
  *
- * Қарори соҳиби маҳсулот (26.09.2026): «2 нишаст ройгон бошад». Ҳар вазъият
- * бо зинаҳои осон (калимаҳо) сар мешавад — хонанда метавонад ҳар вазъиятро
- * бичашад, на танҳо як дарси тамоми бахшро.
+ * Қарори соҳиби маҳсулот (27.09.2026): «хонанда фоидаи барномаро фаҳмад ва
+ * ба ман зарар нарасонад — Azure гарон аст». Пештар ҲАР вазъият 2 нишасти
+ * ройгон медод (26.09) — бо 20+ вазъият ин 40+ нишасти Azure барои ҳар
+ * корбари ройгон буд.
+ *
+ * Акнун: вазъияти якум («Салом ва шиносоӣ») ПУРРА — ҳамаи 9 нишаст, ҳамаи
+ * навъҳои машқ (калима, ибора, гуфтори воқеӣ, миссия, гапи озод). Хонанда
+ * тамоми таҷрибаро мебинад ва ба сари худ як натиҷа мегирад («худамро
+ * муаррифӣ карда метавонам»). Вазъиятҳои дигар — 0 нишасти ройгон.
  *
  * Бобҳои КӮҲНА (бе зина) қоидаи [FREE_SPEAKING_LESSONS]-ро нигоҳ медоранд.
  */
-export const FREE_SESSIONS_PER_SITUATION = 2;
+export const FREE_SITUATIONS = 1;
 
 /**
  * Гейт УМУМАН фаъол аст?
@@ -74,7 +80,7 @@ export const SPEAKING_GATE_ENABLED = true;
 
 /** Он майдонҳое, ки қоидаи дастрасӣ лозим дорад. */
 export type AccessLesson = { id: string; stage?: string | null };
-export type AccessChapter = { lessons: AccessLesson[] };
+export type AccessChapter = { lessons: AccessLesson[]; goals?: string[] | null };
 
 export interface AccessInput {
   /** Бобҳо бо тартиби `order`, дарсҳо низ бо тартиби `order`. */
@@ -99,19 +105,25 @@ export function unlockedSpeakingLessonIds({
   const all = chapters.flatMap((c) => c.lessons.map((l) => l.id));
   if (!SPEAKING_GATE_ENABLED || isPremium) return new Set(all);
 
-  // Вазъият = боби бо зина (ниг. `situations.ts`). Ҳар вазъият 2 нишасти
-  // аввалро ройгон медиҳад; занҷири «дарси 1-и тамоми бахш» танҳо аз бобҳои
-  // КӮҲНА сохта мешавад — вагарна тартиби нав (аз рӯи ҳадаф) дарси ройгони
-  // кӯҳнаро ба дигар ҷо мекӯчонд.
+  // Вазъият = боби бо зина (ниг. `situations.ts`). Занҷири «дарси 1-и
+  // тамоми бахш» танҳо аз бобҳои КӮҲНА сохта мешавад — вагарна тартиби нав
+  // (аз рӯи ҳадаф) дарси ройгони кӯҳнаро ба дигар ҷо мекӯчонд.
   const situation = (c: AccessChapter) => c.lessons.some((l) => !!l.stage);
   const legacy = chapters
     .filter((c) => !situation(c))
     .flatMap((c) => c.lessons.map((l) => l.id));
 
   const open = new Set(legacy.slice(0, FREE_SPEAKING_LESSONS));
-  chapters.filter(situation).forEach((c) => {
-    c.lessons.slice(0, FREE_SESSIONS_PER_SITUATION).forEach((l) => open.add(l.id));
-  });
+  // Вазъияти(ҳои) ройгон — аввалин вазъиятҳои УМУМӢ (бе ҳадаф) дар тартиби
+  // додашуда. ⚠️ Умумӣ, на «аввалин дар рӯйхат»: тартиб аз ҳадафи хонанда
+  // вобаста аст (`orderChapters`) ва агар ҳадафро иваз кунад, вазъияти
+  // ройгон набояд ҷаҳад — вагарна ду вазъият ройгон мегирифт. Вазъияти умумӣ
+  // нест → аввалин вазъият.
+  const situations = chapters.filter(situation);
+  const general = situations.filter((c) => !(c.goals ?? []).length);
+  (general.length ? general : situations)
+    .slice(0, FREE_SITUATIONS)
+    .forEach((c) => c.lessons.forEach((l) => open.add(l.id)));
   // ⚠️ `Array.from`, на `for…of`: `tsconfig` ҳадафи поёнтар аз ES2015 дорад
   // ва гардиши мустақими `Set`/`Iterable` дар билд хато медиҳад.
   Array.from(completedIds ?? []).forEach((id) => {

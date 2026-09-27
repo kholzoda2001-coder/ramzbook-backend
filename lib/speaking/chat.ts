@@ -20,8 +20,34 @@ import type { ChatMessage } from '../ai/openai';
 export const FREE_TURNS = 12;
 export const PREMIUM_TURNS = 40;
 
-/** Суҳбатҳои ройгон дар як рӯз. Premium — бемаҳдуд. */
-export const FREE_SESSIONS_PER_DAY = 1;
+/**
+ * Суҳбатҳои ройгон дар ТАМОМИ умр (озмоишӣ). Premium — бемаҳдуд.
+ *
+ * Қарори соҳиби маҳсулот (27.09.2026): «хонанда фоидаро фаҳмад, ба ман
+ * зарар нарасад». Пештар 1 суҳбат ҲАР РӮЗ буд — ҳар навбат Azure (гӯш) +
+ * AI мехӯрад, пас корбари ройгони ҳаррӯза моҳе ~30 суҳбат мегирифт.
+ *
+ * Суҳбат танҳо вақте ҳисоб мешавад, ки хонанда ақаллан ЯК бор гап зад
+ * (`turns > 0`): кушоду баромад — суҳбат сарф намешавад.
+ */
+export const FREE_TALKS_TOTAL = 3;
+
+/**
+ * Суҳбати НАВ (ҳанӯз бе навбати хонанда) барои корбари ройгон иҷозат аст?
+ * СОФ. `used` — суҳбатҳои ДИГАРИ ӯ, ки дар онҳо гап зад.
+ *
+ * ⚠️ Санҷиш на танҳо ҳангоми сохтани сессия: сессияи холӣ (`turns = 0`)
+ * ҳанӯз «суҳбат» нест, вале агар гейт танҳо дар сохтан мебуд, хонанда
+ * метавонист 10 сессияи холӣ кушояду баъд дар ҳар кадом гап занад.
+ */
+export function freeTalkAllowed(used: number, sessionTurns: number): boolean {
+  return sessionTurns > 0 || used < FREE_TALKS_TOTAL;
+}
+
+/** Чанд суҳбати ройгон боқӣ монд (барои экран). */
+export function freeTalksLeft(used: number): number {
+  return Math.max(0, FREE_TALKS_TOTAL - used);
+}
 
 /** Чанд сатри охирини суҳбат ба модел меравад. */
 export const MAX_HISTORY = 16;

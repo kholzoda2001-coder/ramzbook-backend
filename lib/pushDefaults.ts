@@ -118,9 +118,10 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     hour: 19,
     langs: 'tg,uz,en',
     studiedToday: 'no',
-    // Хонандаи гуфтор ба ҷои ин «Гуфтори рӯз»-ро мегирад (ибораи худаш) —
-    // вагарна ду паёми 19:00 лимити 2-и рӯзро мехӯрд ва огоҳии 22:00 намерафт.
-    speaking: 'no',
+    // Хонандаи гуфтори PREMIUM ба ҷои ин «Гуфтори рӯз»-ро мегирад (ибораи
+    // худаш) — вагарна ду паёми 19:00 лимити 2-и рӯзро мехӯрд ва огоҳии 22:00
+    // намерафт. Хонандаи гуфтори РОЙГОН ҳамин ёдрасонро мегирад.
+    speaking: 'not_vip',
     maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 10,
     route: 'lesson',
@@ -145,7 +146,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     hour: 19,
     langs: 'ru',
     studiedToday: 'no',
-    speaking: 'no',
+    speaking: 'not_vip',
     maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 11,
     route: 'lesson',
@@ -173,7 +174,8 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     name: 'Гуфтори рӯз 19:00',
     hour: 19,
     studiedToday: 'no',
-    speaking: 'yes',
+    // Танҳо Premium: «Гуфтори рӯз» барои ройгон қулф аст (27.09.2026).
+    speaking: 'vip',
     maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
     priority: 9,
     route: 'speaking',

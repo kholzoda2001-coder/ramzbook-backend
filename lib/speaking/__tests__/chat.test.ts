@@ -3,7 +3,10 @@
  */
 import { describe, expect, it } from 'vitest';
 import {
+  FREE_TALKS_TOTAL,
   FREE_TURNS,
+  freeTalkAllowed,
+  freeTalksLeft,
   MAX_FACTS,
   buildChatMessages,
   chatValid,
@@ -161,5 +164,25 @@ describe('хотира ва хайрухуш', () => {
     expect(saysGoodbye('Пока, до завтра')).toBe(true);
     expect(saysGoodbye('Я работаю пока здесь')).toBe(false);
     expect(saysGoodbye('Я строитель')).toBe(false);
+  });
+});
+
+describe('ҳадди ройгон: 3 суҳбат дар умр (27.09.2026)', () => {
+  it('се суҳбат, баъд — не', () => {
+    expect(FREE_TALKS_TOTAL).toBe(3);
+    expect(freeTalkAllowed(0, 0)).toBe(true);
+    expect(freeTalkAllowed(2, 0)).toBe(true);
+    expect(freeTalkAllowed(3, 0)).toBe(false);
+  });
+
+  it('суҳбати САРШУДА то охир идома меёбад, ҳатто агар ҳад расида бошад', () => {
+    expect(freeTalkAllowed(3, 1)).toBe(true);
+    expect(freeTalkAllowed(9, 5)).toBe(true);
+  });
+
+  it('боқимонда ҳеҷ гоҳ манфӣ нест', () => {
+    expect(freeTalksLeft(0)).toBe(3);
+    expect(freeTalksLeft(2)).toBe(1);
+    expect(freeTalksLeft(7)).toBe(0);
   });
 });

@@ -4,7 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import { asGoal, inPath, isSituation, levelOf, orderChapters } from '../situations';
 import {
-  FREE_SESSIONS_PER_SITUATION,
+  FREE_SITUATIONS,
   unlockedSpeakingLessonIds,
 } from '../access';
 
@@ -85,12 +85,40 @@ describe('orderChapters', () => {
 });
 
 describe('дастрасии ройгон', () => {
-  it(`ҳар вазъият ${FREE_SESSIONS_PER_SITUATION} нишасти аввалро медиҳад`, () => {
+  it(`${FREE_SITUATIONS} вазъияти аввал ПУРРА ройгон, дигарҳо — 0 (27.09.2026)`, () => {
+    expect(FREE_SITUATIONS).toBe(1);
     const open = unlockedSpeakingLessonIds({
-      chapters: [situation('doctor', 0, []), situation('site', 1, ['build'])],
+      chapters: [situation('meet', 0, []), situation('site', 1, ['build']), situation('doctor', 2, [])],
       isPremium: false,
     });
-    expect(Array.from(open).sort()).toEqual(['doctor0', 'doctor1', 'site0', 'site1']);
+    expect(Array.from(open).sort()).toEqual(['meet0', 'meet1', 'meet2', 'meet3', 'meet4']);
+  });
+
+  it('вазъияти ройгон аз ҳадаф намеҷаҳад — аввалин УМУМӢ, на аввалин дар рӯйхат', () => {
+    // Ҳадафи «сохтмон» бобҳоро дигар тартиб медиҳад; «Шиносоӣ» ройгон мемонад.
+    const open = unlockedSpeakingLessonIds({
+      chapters: [situation('site', 0, ['build']), situation('meet', 1, []), situation('doctor', 2, [])],
+      isPremium: false,
+    });
+    expect(Array.from(open).sort()).toEqual(['meet0', 'meet1', 'meet2', 'meet3', 'meet4']);
+  });
+
+  it('вазъияти умумӣ нест → аввалин вазъият', () => {
+    const open = unlockedSpeakingLessonIds({
+      chapters: [situation('site', 0, ['build']), situation('shop', 1, ['trade'])],
+      isPremium: false,
+    });
+    expect(Array.from(open).sort()).toEqual(['site0', 'site1', 'site2', 'site3', 'site4']);
+  });
+
+  it('гузаштаи вазъияти дигар кушода мемонад (ройгони пештара гирифта намешавад)', () => {
+    const open = unlockedSpeakingLessonIds({
+      chapters: [situation('meet', 0, []), situation('doctor', 1, [])],
+      completedIds: ['doctor0', 'doctor1'],
+      isPremium: false,
+    });
+    expect(open.has('doctor0') && open.has('doctor1')).toBe(true);
+    expect(open.has('doctor2')).toBe(false);
   });
 
   it('бобҳои кӯҳна қоидаи пештараро доранд — танҳо дарси аввали занҷири кӯҳна', () => {
@@ -102,7 +130,7 @@ describe('дастрасии ройгон', () => {
     expect(open.has('old0')).toBe(true);
     expect(open.has('old1')).toBe(false);
     expect(open.has('old20')).toBe(false);
-    expect(open.has('doctor2')).toBe(false);
+    expect(open.has('doctor4')).toBe(true);
   });
 
   it('гузашта ҳамеша кушода, премиум — ҳама', () => {
