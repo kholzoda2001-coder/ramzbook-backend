@@ -49,7 +49,13 @@ export type PoolLine = {
 
 /** Сатри видоъ барои навбати охирин — ҳар забон. */
 export const CLOSING_LINES: Record<string, PoolLine> = {
-  ru: { text: 'Хорошо, спасибо! До встречи!', tg: 'Хуб, ташаккур! То дидор!', audioUrl: '' },
+  // Аудио: овози курс (Chirp3-Kore), `prisma/_ru-speaking-real-audio.mjs`.
+  ru: {
+    text: 'Хорошо, спасибо! До встречи!',
+    tg: 'Хуб, ташаккур! То дидор!',
+    audioUrl:
+      'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@0737fe314399223f1be2e835500890200b524c08/audio/ru/freetalk_close_ru.mp3',
+  },
   en: { text: 'Great, thank you! See you later!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   de: { text: 'Super, danke! Bis später!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   tr: { text: 'Harika, teşekkürler! Görüşürüz!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },

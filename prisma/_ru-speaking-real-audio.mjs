@@ -54,7 +54,9 @@ const measure = (paths) => {
   return out;
 };
 const letters = (t) => (t.match(/\p{L}/gu) ?? []).length;
-const minSpeech = (t) => (letters(t) <= 3 ? 0.12 : letters(t) <= 6 ? 0.18 : 0.25);
+// Ҳадди нутқ аз скрипти курс, вале барои суръати ТЕЗ (1.12×) кӯтоҳтар: «В час.»-и
+// солим (peak 0.6) ҳамагӣ 0.12–0.14 с нутқ дорад ва ҳадди 0.18 онро рад мекард.
+const minSpeech = (t) => (letters(t) <= 3 ? 0.12 : letters(t) <= 6 ? 0.18 : 0.25) * 0.65;
 const personal = (t) => t.includes('{') || t.includes('___');
 
 // ── Кадом навбатҳо ──────────────────────────────────────────────────────────
