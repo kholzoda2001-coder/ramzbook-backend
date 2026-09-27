@@ -37,6 +37,11 @@ export function levelOf(c: { level?: number | null }): number {
   return l >= 1 && l <= 3 ? l : 1;
 }
 
+/** CEFR барои сатҳ: 1 → «A1», 2 → «A2», 3 → «B1». */
+export function cefrOfLevel(level: number): string {
+  return ['A1', 'A2', 'B1'][Math.min(3, Math.max(1, Math.round(level))) - 1];
+}
+
 /** Боб вазъият аст — яъне ягон дарсаш зина дорад. */
 export function isSituation(c: OrderableChapter): boolean {
   return c.lessons.some((l) => !!l.stage);

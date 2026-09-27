@@ -1769,3 +1769,29 @@ model LeagueResult {
   /// «Натиҷаи гирифтанашуда ҳаст?» — дархости экрани оғози барнома.
   @@index([userId, claimed])
 }
+
+/// «Сӯҳбат бо AI» (27.09.2026): як суҳбати овозӣ бо ҳамсӯҳбати «Рамз».
+/// `id` — аз клиент (uuid), то навбатҳои як суҳбат якҷоя ҳисоб шаванд.
+/// Барои ҳадди ройгон (суҳбат дар рӯз), ҳадди навбат ва XP-и анҷом.
+model SpeakingChatSession {
+  id         String    @id
+  userId     String
+  languageId String
+  /// Навбатҳои ХОНАНДА, ки сервер коркард кард — XP аз ҳамин, на аз клиент.
+  turns      Int       @default(0)
+  startedAt  DateTime  @default(now())
+  lastAt     DateTime  @default(now())
+  /// Кай XP дода шуд (`null` = ҳанӯз) — такрори «анҷом» XP-и дуюм намедиҳад.
+  completedAt DateTime?
+
+  @@index([userId, startedAt])
+}
+
+/// Хотираи «Рамз» дар бораи хонанда: ном ва далелҳои кӯтоҳ (бо англисӣ) —
+/// «works on a construction site», «lives in Moscow». Як сатр барои корбар.
+model SpeakingChatMemory {
+  userId    String   @id
+  name      String   @default("")
+  facts     String[] @default([])
+  updatedAt DateTime @updatedAt
+}
