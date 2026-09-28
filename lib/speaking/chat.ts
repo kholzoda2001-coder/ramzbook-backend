@@ -137,6 +137,8 @@ const clip = (s: string, n: number) => s.replace(/\s+/g, ' ').trim().slice(0, n)
 const bare = (s: string) =>
   s
     .toLowerCase()
+    // Туркӣ: «İ».toLowerCase() = «i» + нуқтаи ҷудо (U+0307) — «İyi» ≠ «iyi» мешуд.
+    .replace(/\u0307/g, '')
     .replace(/[\u064B-\u0652\u0670]/g, '') // ҳаракот
     // шаклҳои ҳамза, ة/ه, ى/ي — STT онҳоро гоҳ ин хел, гоҳ он хел менависад
     .replace(/[أإآ]/g, 'ا')
@@ -320,6 +322,14 @@ export function scriptRules(language: string): string {
       'Write Korean in Hangul only (no Hanja, no romanization), in the polite 해요체 style (endings with -요) in every line. ' +
       'Write your own name in Hangul: 람즈. ' +
       "The learner's text is speech-to-text: never treat spacing or digits instead of number words as a mistake."
+    );
+  }
+  if (/turk/i.test(language)) {
+    // Туркӣ (28.09.2026): STT рақам («3'te»), ҳарфи калон ва апострофро дигар хел менависад —
+    // ин хатои хонанда нест. Бе ҳарфҳои махсус (ı/i, ş/s) калима дигар мешавад: kız ≠ kiz.
+    return (
+      'Write Turkish with the correct Turkish letters (ç ğ ı İ ö ş ü) in every line, and speak to the learner with "sen". ' +
+      "The learner's text is speech-to-text: never treat digits instead of number words, capital letters or a missing apostrophe before a suffix (İstanbula) as a mistake."
     );
   }
   if (!/arab/i.test(language)) return '';
@@ -604,7 +614,9 @@ export function saysGoodbye(text: string): boolean {
   return [
     'пока', 'до свидания', 'до завтра', 'хватит',
     'bye', 'goodbye', 'see you',
-    'tschüss', 'auf wiedersehen', 'görüşürüz', 'hoşça kal',
+    'tschüss', 'auf wiedersehen',
+    // туркӣ
+    'görüşürüz', 'hoşça kal', 'hoşça kalın', 'güle güle', 'görüşmek üzere', 'iyi geceler', 'allahaısmarladık',
     // арабӣ — БЕ ҳаракат (`bare` онҳоро мепартояд); ҳамза ду хел, чунки STT гоҳ менависад, гоҳ не
     'مع السلامة', 'مع السلامه', 'إلى اللقاء', 'الى اللقاء', 'وداعا', 'باي',
     // кореягӣ

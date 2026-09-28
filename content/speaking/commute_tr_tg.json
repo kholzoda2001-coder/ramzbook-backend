@@ -1,0 +1,536 @@
+{
+  "slug": "commute_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "İşe yolculuk",
+    "titleTranslated": "Роҳ то кор",
+    "scenario": "Ба кор бо servis (автобуси ширкат), автобус, метро ё такси меравед. Мепурсед, ки кадом автобус, истгоҳ куҷост ва чанд пул мешавад.",
+    "emoji": "🚌",
+    "order": 13,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Нақлиёт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Otobüs",
+          "translation": "автобус",
+          "literal": "отобю́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Metro",
+          "translation": "метро",
+          "literal": "мэтро́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Durak",
+          "translation": "истгоҳ",
+          "literal": "дура́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Servis",
+          "translation": "автобуси корӣ",
+          "literal": "сэрви́с",
+          "note": "Мошини ширкат, ки коргаронро ба объект мебарад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Taksi",
+          "translation": "такси",
+          "literal": "такси́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Kart",
+          "translation": "корт (барои роҳ)",
+          "literal": "ка́рт",
+          "note": "Дар Истанбул — «İstanbulkart».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бо чӣ меоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Servis kaçta geliyor?",
+          "cueTranslation": "Автобуси корӣ соати чанд меояд?",
+          "intent": "Бигӯ: соати ҳафт",
+          "text": "Saat yedide.",
+          "accepts": [
+            "Yedide."
+          ],
+          "translation": "Соати ҳафт.",
+          "literal": "саа́т йэдидэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Metroyla mı geliyorsun?",
+          "cueTranslation": "Бо метро меоӣ?",
+          "intent": "Бигӯ: не, бо автобус",
+          "text": "Hayır, otobüsle.",
+          "accepts": [
+            "Otobüsle geliyorum."
+          ],
+          "translation": "Не, бо автобус.",
+          "literal": "ҳайы́р отобюслэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kartın var mı?",
+          "cueTranslation": "Корт дорӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet, var.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, дорам.",
+          "literal": "эвэ́т ва́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hangi otobüs?",
+          "translation": "Кадом автобус?",
+          "literal": "ҳанги́ отобю́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Durak nerede?",
+          "translation": "Истгоҳ куҷост?",
+          "literal": "дура́к нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Burada ineceğim",
+          "translation": "Ин ҷо мефароям",
+          "literal": "бурада́ инэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Aktarma",
+          "translation": "иваз кардан (дар роҳ)",
+          "literal": "актарма́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Son durak",
+          "translation": "истгоҳи охир",
+          "literal": "со́н дура́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Çok kalabalık",
+          "translation": "Хеле серодам",
+          "literal": "чо́к калабалы́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Истгоҳ куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nereye gidiyorsunuz?",
+          "cueTranslation": "Ба куҷо меравед?",
+          "intent": "Бигӯ: ба Эсенюрт",
+          "text": "Esenyurt'a.",
+          "accepts": [
+            "Esenyurt'a gidiyorum."
+          ],
+          "translation": "Ба Эсенюрт.",
+          "literal": "эсэнйурта́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Otuz dört numara.",
+          "cueTranslation": "Рақами сиву чор.",
+          "intent": "Бипурс: истгоҳ куҷост?",
+          "text": "Durak nerede?",
+          "accepts": [],
+          "translation": "Истгоҳ куҷост?",
+          "literal": "дура́к нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Karşıda.",
+          "cueTranslation": "Дар он тараф.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Teşekkürler.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар автобус",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Esenyurt'a gider mi?",
+          "translation": "Ба Эсенюрт меравад?",
+          "literal": "эсэнйурта́ гидэ́р ми́",
+          "note": "«mi» — ҷузъи савол, ҳамчун калимаи ҷудо ҳисоб мешавад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kartıma para yükledim.",
+          "translation": "Ба кортам пул андохтам.",
+          "literal": "картыма́ пара́ йюклэди́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Burada iniyorum.",
+          "translation": "Ин ҷо мефароям.",
+          "literal": "бурада́ инийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Servisi kaçırdım.",
+          "translation": "Автобуси кориро аз даст додам.",
+          "literal": "сэрвиси́ качырды́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Trafik çok yoğun.",
+          "translation": "Роҳ хеле серодам.",
+          "literal": "трафи́к чо́к йо:у́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kaç durak var?",
+          "translation": "Чанд истгоҳ ҳаст?",
+          "literal": "ка́ч дура́к ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: автобус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nereye?",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бипурс: ин автобус ба Эсенюрт меравад?",
+          "text": "Bu otobüs Esenyurt'a gider mi?",
+          "accepts": [
+            "Esenyurt'a gider mi?"
+          ],
+          "translation": "Ин автобус ба Эсенюрт меравад?",
+          "literal": "бу́ отобю́с эсэнйурта́ гидэ́р ми́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, gider.",
+          "cueTranslation": "Ҳа, меравад.",
+          "intent": "Бипурс: чанд истгоҳ ҳаст?",
+          "text": "Kaç durak var?",
+          "accepts": [],
+          "translation": "Чанд истгоҳ ҳаст?",
+          "literal": "ка́ч дура́к ва́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "On durak.",
+          "cueTranslation": "Даҳ истгоҳ.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Teşekkür ederim.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккю́р эдэри́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Такси",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Taksi çağırır mısın?",
+          "translation": "Такси ҷеғ мезанӣ?",
+          "literal": "такси́ ча:ыры́р мысы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Şantiyeye gidiyorum.",
+          "translation": "Ба объект меравам.",
+          "literal": "шантийэйэ́ гидийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Adres bu.",
+          "translation": "Суроға ин.",
+          "literal": "адрэ́с бу́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Burada durun lütfen.",
+          "translation": "Лутфан ин ҷо истед.",
+          "literal": "бурада́ дуру́н лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne kadar tutar?",
+          "translation": "Чанд пул мешавад?",
+          "literal": "нэ́ када́р тута́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yolda kaza var.",
+          "translation": "Дар роҳ садама.",
+          "literal": "йолда́ каза́ ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: такси",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nereye gidiyoruz?",
+          "cueTranslation": "Ба куҷо меравем?",
+          "intent": "Бигӯ: суроға ин",
+          "text": "Adres bu.",
+          "accepts": [
+            "Bu adres."
+          ],
+          "translation": "Суроға ин.",
+          "literal": "адрэ́с бу́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Geldik.",
+          "cueTranslation": "Хуб. Расидем.",
+          "intent": "Бигӯ: лутфан ин ҷо истед",
+          "text": "Burada durun lütfen.",
+          "accepts": [
+            "Burada durun."
+          ],
+          "translation": "Лутфан ин ҷо истед.",
+          "literal": "бурада́ дуру́н лютфэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yüz elli lira.",
+          "cueTranslation": "Саду панҷоҳ лира.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [
+            "Buyurun, teşekkürler."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: servis рафт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo, neredesin? Servis gitti.",
+          "cueTranslation": "Алло, куҷоӣ? Автобуси корӣ рафт.",
+          "intent": "Бигӯ: автобуси кориро аз даст додам",
+          "text": "Servisi kaçırdım.",
+          "accepts": [],
+          "translation": "Автобуси кориро аз даст додам.",
+          "literal": "сэрвиси́ качырды́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Otobüsle gel.",
+          "cueTranslation": "Бо автобус биё.",
+          "intent": "Бипурс: кадом автобус?",
+          "text": "Hangi otobüs?",
+          "accepts": [],
+          "translation": "Кадом автобус?",
+          "literal": "ҳанги́ отобю́с",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yüz kırk iki numara.",
+          "cueTranslation": "Рақами саду чилу ду.",
+          "intent": "Бигӯ: хуб, ҳозир меоям",
+          "text": "Tamam, hemen geliyorum.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Хуб, ҳозир меоям.",
+          "literal": "тама́м ҳэмэ́н гэлийору́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Çabuk ol, iş başladı.",
+          "cueTranslation": "Зуд шав, кор сар шуд.",
+          "intent": "Бигӯ: роҳ хеле серодам",
+          "text": "Trafik çok yoğun.",
+          "accepts": [
+            "Yolda kaza var."
+          ],
+          "translation": "Роҳ хеле серодам.",
+          "literal": "трафи́к чо́к йо:у́н",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "slug": "measure_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Sayılar ve ölçüler",
+    "titleTranslated": "Шумора ва андоза",
+    "scenario": "Дар кор ҳама чиз бо рақам аст: метр, кило, дона, халта. Мепурсед ва мегӯед, ки чанд лозим ва чанд вақт мекашад.",
+    "emoji": "📏",
+    "order": 9,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Рақам ва андоза",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Bir",
+          "translation": "як",
+          "literal": "би́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "İki",
+          "translation": "ду",
+          "literal": "ики́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Üç",
+          "translation": "се",
+          "literal": "ю́ч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Metre",
+          "translation": "метр",
+          "literal": "мэтрэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kilo",
+          "translation": "кило",
+          "literal": "кило́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Tane",
+          "translation": "дона",
+          "literal": "танэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kaç tane tuğla?",
+          "cueTranslation": "Чанд дона хишт?",
+          "intent": "Бигӯ: даҳ",
+          "text": "On.",
+          "accepts": [
+            "On tane."
+          ],
+          "translation": "Даҳ.",
+          "literal": "о́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kaç metre?",
+          "cueTranslation": "Чанд метр?",
+          "intent": "Бигӯ: се метр",
+          "text": "Üç metre.",
+          "accepts": [
+            "Üç."
+          ],
+          "translation": "Се метр.",
+          "literal": "ю́ч мэтрэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kaç kilo?",
+          "cueTranslation": "Чанд кило?",
+          "intent": "Бигӯ: панҷоҳ кило",
+          "text": "Elli kilo.",
+          "accepts": [
+            "Elli."
+          ],
+          "translation": "Панҷоҳ кило.",
+          "literal": "элли́ кило́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Beş metre",
+          "translation": "панҷ метр",
+          "literal": "бэ́ш мэтрэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yirmi tane",
+          "translation": "бист дона",
+          "literal": "йирми́ танэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Yarım metre",
+          "translation": "ним метр",
+          "literal": "йары́м мэтрэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir buçuk",
+          "translation": "якуним",
+          "literal": "би́р бучу́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Çok uzun",
+          "translation": "хеле дароз",
+          "literal": "чо́к узу́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Biraz kısa",
+          "translation": "каме кӯтоҳ",
+          "literal": "бира́з кыса́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Сим чанд метр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kablo kaç metre?",
+          "cueTranslation": "Сим чанд метр?",
+          "intent": "Бигӯ: панҷ метр",
+          "text": "Beş metre.",
+          "accepts": [
+            "Beş metre lazım."
+          ],
+          "translation": "Панҷ метр.",
+          "literal": "бэ́ш мэтрэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu yeter mi?",
+          "cueTranslation": "Ин басанда аст?",
+          "intent": "Бигӯ: не, каме кӯтоҳ",
+          "text": "Hayır, biraz kısa.",
+          "accepts": [
+            "Kısa."
+          ],
+          "translation": "Не, каме кӯтоҳ.",
+          "literal": "ҳайы́р бира́з кыса́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kaç metre lazım?",
+          "cueTranslation": "Чанд метр лозим?",
+          "intent": "Бигӯ: шаш метр",
+          "text": "Altı metre.",
+          "accepts": [
+            "Altı metre lazım."
+          ],
+          "translation": "Шаш метр.",
+          "literal": "алты́ мэтрэ́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҳисоб",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "On iki metre kablo.",
+          "translation": "Дувоздаҳ метр сим.",
+          "literal": "о́н ики́ мэтрэ́ кабло́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kaç tane lazım?",
+          "translation": "Чанд дона лозим?",
+          "literal": "ка́ч танэ́ лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Elli tuğla yeter.",
+          "translation": "Панҷоҳ хишт басанда.",
+          "literal": "элли́ ту:ла́ йэтэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Duvar üç metre.",
+          "translation": "Девор се метр.",
+          "literal": "дува́р ю́ч мэтрэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir torba elli kilo.",
+          "translation": "Як халта панҷоҳ кило.",
+          "literal": "би́р торба́ элли́ кило́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Önce ölç, sonra kes.",
+          "translation": "Аввал чен кун, баъд бибур.",
+          "literal": "ёнҷэ́ ё́лч сонра́ кэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: тиреза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pencere kaç metre?",
+          "cueTranslation": "Тиреза чанд метр?",
+          "intent": "Бигӯ: якуним метр",
+          "text": "Bir buçuk metre.",
+          "accepts": [],
+          "translation": "Якуним метр.",
+          "literal": "би́р бучу́к мэтрэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Emin misin?",
+          "cueTranslation": "Боварӣ дорӣ?",
+          "intent": "Бигӯ: ҳа, чен кардам",
+          "text": "Evet, ölçtüm.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, чен кардам.",
+          "literal": "эвэ́т ёлчтю́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Kaç tahta lazım?",
+          "cueTranslation": "Хуб. Чанд тахта лозим?",
+          "intent": "Бигӯ: чор дона",
+          "text": "Dört tane.",
+          "accepts": [
+            "Dört."
+          ],
+          "translation": "Чор дона.",
+          "literal": "дё́рт танэ́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Вазн ва вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Metre nerede?",
+          "translation": "Метр (рулетка) куҷост?",
+          "literal": "мэтрэ́ нэрэдэ́",
+          "note": "«Metre» — ҳам воҳид, ҳам асбоби ченкунӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yüz kilo çok ağır.",
+          "translation": "Сад кило хеле вазнин.",
+          "literal": "йю́з кило́ чо́к а:ы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Otuz santim kes.",
+          "translation": "Сӣ сантиметр бибур.",
+          "literal": "оту́з санти́м кэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Üç kat yukarı.",
+          "translation": "Се ошёна боло.",
+          "literal": "ю́ч ка́т йукары́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kaç saat sürer?",
+          "translation": "Чанд соат мекашад?",
+          "literal": "ка́ч саа́т сюрэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "İki saat sürer.",
+          "translation": "Ду соат мекашад.",
+          "literal": "ики́ саа́т сюрэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: тахта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bu tahtayı kes.",
+          "cueTranslation": "Ин тахтаро бибур.",
+          "intent": "Бипурс: чанд сантиметр?",
+          "text": "Kaç santim?",
+          "accepts": [],
+          "translation": "Чанд сантиметр?",
+          "literal": "ка́ч санти́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Otuz santim.",
+          "cueTranslation": "Сӣ сантиметр.",
+          "intent": "Бигӯ: хуб, сӣ сантиметр",
+          "text": "Tamam, otuz santim.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Хуб, сӣ сантиметр.",
+          "literal": "тама́м оту́з санти́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kaç saat sürer?",
+          "cueTranslation": "Чанд соат мекашад?",
+          "intent": "Бигӯ: ду соат",
+          "text": "İki saat.",
+          "accepts": [
+            "İki saat sürer."
+          ],
+          "translation": "Ду соат.",
+          "literal": "ики́ саа́т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сим ва семент",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bana kablo lazım.",
+          "cueTranslation": "Ба ман сим лозим.",
+          "intent": "Бипурс: чанд метр?",
+          "text": "Kaç metre?",
+          "accepts": [
+            "Kaç metre lazım?"
+          ],
+          "translation": "Чанд метр?",
+          "literal": "ка́ч мэтрэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "On beş metre.",
+          "cueTranslation": "Понздаҳ метр.",
+          "intent": "Бигӯ: хуб, понздаҳ метр",
+          "text": "Tamam, on beş metre.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Хуб, понздаҳ метр.",
+          "literal": "тама́м о́н бэ́ш мэтрэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bir de çimento getir.",
+          "cueTranslation": "Боз семент биёр.",
+          "intent": "Бипурс: чанд халта?",
+          "text": "Kaç torba?",
+          "accepts": [],
+          "translation": "Чанд халта?",
+          "literal": "ка́ч торба́",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Üç torba.",
+          "cueTranslation": "Се халта.",
+          "intent": "Бигӯ: хуб, се халта",
+          "text": "Tamam, üç torba.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Хуб, се халта.",
+          "literal": "тама́м ю́ч торба́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

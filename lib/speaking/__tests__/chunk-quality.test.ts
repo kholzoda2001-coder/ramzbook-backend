@@ -57,7 +57,25 @@ const DE_GLUED = new Set([
   'zwei','drei','vier','fünf','zehn','zwanzig','dreißig',
   'guten','gute','gutes','schönen','schöne','neue','neuen','große','kleine',
 ]);
-const langSet = (lang: string, base: Set<string>, de: Set<string>) => (lang === 'de' ? de : base);
+/**
+ * Туркӣ (28.09.2026): «on» = ДАҲ, на пешоянд («on saat çalıştım» дуруст аст); хатар —
+ * пасоянд, ҷузъи савол, «değil», исми мураккаб (ниг. `LANG_LISTS.tr` дар `engine.ts`).
+ */
+const TR_MID = new Set([
+  'için','gibi','kadar','ile','sonra','önce','göre','beri','karşı','değil','değilim','da','de','ki',
+  've','veya','ama','fakat','çünkü','mi','mı','mu','mü','misin','mısın','musun','müsün','miyim',
+  'mıyım','misiniz','mısınız','buçuk','var','yok','eder','ederim','edelim',
+]);
+const TR_WH = new Set(['ne','nerede','nereye','nereden','nasıl','kim','kaç','hangi','neden','niye','niçin']);
+const TR_GLUED = new Set([
+  'bu','şu','bir','her','hiç','birkaç','bütün','tüm','hangi','kaç','çok','biraz','daha','en',
+  'benim','senin','onun','bizim','sizin','onların','on','iki','üç','dört','beş','altı','yedi',
+  'sekiz','dokuz','yirmi','otuz','kırk','elli','altmış','yetmiş','seksen','doksan','yüz','bin',
+  'yeni','eski','büyük','küçük','uzun','kısa','iyi','kötü','sıcak','soğuk','ağır','hafif',
+  'ilk','son','birinci','ikinci','üçüncü','dördüncü','beşinci','altıncı',
+]);
+const langSet = (lang: string, base: Set<string>, de: Set<string>, tr: Set<string> = base) =>
+  lang === 'de' ? de : lang === 'tr' ? tr : base;
 
 const WH = new Set(['what','which','how','where','who','whom','whose','why','when',
   'как','что','где','когда','почему','зачем','кто','куда','откуда','сколько',
@@ -116,7 +134,7 @@ describe('сифати чунк бар тамоми мазмун', () => {
 
   it('ҳеҷ чунк дар МОБАЙНИ таркиб сар намешавад', () => {
     const bad = chunks.filter((c) =>
-      langSet(c.lang, MID_PHRASE, DE_MID).has(bare(W(c.chunk)[0])));
+      langSet(c.lang, MID_PHRASE, DE_MID, TR_MID).has(bare(W(c.chunk)[0])));
     expect(bad.map((c) => `${c.chunk} ← ${c.parent}`)).toEqual([]);
   });
 
@@ -124,7 +142,7 @@ describe('сифати чунк бар тамоми мазмун', () => {
     const bad = chunks.filter((c) => {
       const w = W(c.parent);
       const k = w.length - W(c.chunk).length;
-      return k > 0 && langSet(c.lang, WH, DE_WH).has(bare(w[k - 1]));
+      return k > 0 && langSet(c.lang, WH, DE_WH, TR_WH).has(bare(w[k - 1]));
     });
     expect(bad.map((c) => `${c.chunk} ← ${c.parent}`)).toEqual([]);
   });
@@ -155,7 +173,7 @@ describe('сифати чунк бар тамоми мазмун', () => {
       const w = W(c.parent);
       const k = w.length - W(c.chunk).length;
       // Истиснои ягона: часпондан тамоми ҷумларо медод (ниг. `buildChain`).
-      return k > 0 && langSet(c.lang, GLUED, DE_GLUED).has(bare(w[k - 1])) && k > 1;
+      return k > 0 && langSet(c.lang, GLUED, DE_GLUED, TR_GLUED).has(bare(w[k - 1])) && k > 1;
     });
     expect(bad.map((c) => `${c.chunk} ← ${c.parent}`)).toEqual([]);
   });

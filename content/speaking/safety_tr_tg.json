@@ -1,0 +1,546 @@
+{
+  "slug": "safety_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Güvenlik ve yardım",
+    "titleTranslated": "Бехатарӣ ва ёрӣ",
+    "scenario": "Дар объект хатар ҳаст. Огоҳ мекунед, ёрӣ мехоҳед, ёрии таъҷилӣ ҷеғ мезанед (112) ва мегӯед, ки чӣ шуд.",
+    "emoji": "⛑️",
+    "order": 8,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хатар",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Dikkat",
+          "translation": "эҳтиёт",
+          "literal": "дикка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Tehlike",
+          "translation": "хатар",
+          "literal": "тэҳликэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Yardım",
+          "translation": "ёрӣ",
+          "literal": "йарды́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Yangın",
+          "translation": "сӯхтор",
+          "literal": "йангы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ambulans",
+          "translation": "ёрии таъҷилӣ",
+          "literal": "амбула́нс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Yasak",
+          "translation": "манъ",
+          "literal": "йаса́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Хубӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dikkat! Yukarıya bak!",
+          "cueTranslation": "Эҳтиёт! Ба боло нигоҳ кун!",
+          "intent": "Бигӯ: дидам",
+          "text": "Gördüm!",
+          "accepts": [
+            "Tamam, gördüm."
+          ],
+          "translation": "Дидам!",
+          "literal": "гёрдю́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "İyi misin?",
+          "cueTranslation": "Хубӣ?",
+          "intent": "Бигӯ: ҳа, хубам",
+          "text": "Evet, iyiyim.",
+          "accepts": [
+            "İyiyim."
+          ],
+          "translation": "Ҳа, хубам.",
+          "literal": "эвэ́т ийийи́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yardım lazım mı?",
+          "cueTranslation": "Ёрӣ лозим?",
+          "intent": "Бигӯ: ҳа, ёрӣ лозим",
+          "text": "Evet, yardım lazım.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, ёрӣ лозим.",
+          "literal": "эвэ́т йарды́м лазы́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои фаврӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "İmdat",
+          "translation": "ёрӣ диҳед!",
+          "literal": "имда́т",
+          "note": "Фарёди ёрӣ — баланд гӯед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ambulans çağırın",
+          "translation": "Ёрии таъҷилӣ ҷеғ занед",
+          "literal": "амбула́нс ча:ыры́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Düştü",
+          "translation": "афтод",
+          "literal": "дюштю́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Kanıyor",
+          "translation": "хун меравад",
+          "literal": "каныйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Dikkat et",
+          "translation": "Эҳтиёт бош",
+          "literal": "дикка́т э́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Herkes dışarı",
+          "translation": "Ҳама ба берун",
+          "literal": "ҳэркэ́с дышары́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: ӯ афтод!",
+          "text": "Düştü!",
+          "accepts": [
+            "Arkadaşım düştü!"
+          ],
+          "translation": "Афтод!",
+          "literal": "дюштю́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kanıyor mu?",
+          "cueTranslation": "Хун меравад?",
+          "intent": "Бигӯ: ҳа, хун меравад",
+          "text": "Evet, kanıyor.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, хун меравад.",
+          "literal": "эвэ́т каныйо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ambulans çağırayım mı?",
+          "cueTranslation": "Ёрии таъҷилӣ ҷеғ занам?",
+          "intent": "Бигӯ: ҳа, зуд!",
+          "text": "Evet, çabuk!",
+          "accepts": [
+            "Evet, lütfen."
+          ],
+          "translation": "Ҳа, зуд!",
+          "literal": "эвэ́т чабу́к",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Огоҳӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yüz on iki arayın!",
+          "translation": "Ба 112 занг занед!",
+          "literal": "йю́з о́н ики́ арайы́н",
+          "note": "112 — рақами ягонаи ёрии таъҷилӣ дар Туркия.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Arkadaşım yaralandı.",
+          "translation": "Рафиқам захмӣ шуд.",
+          "literal": "аркадашы́м йараланды́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Burası tehlikeli.",
+          "translation": "Ин ҷо хатарнок аст.",
+          "literal": "бурасы́ тэҳликэли́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Emniyet kemeri tak.",
+          "translation": "Камарбанди бехатарӣ бибанд.",
+          "literal": "эмнийэ́т кэмэри́ та́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Yangın var!",
+          "translation": "Сӯхтор!",
+          "literal": "йангы́н ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Buraya girmek yasak.",
+          "translation": "Ба ин ҷо даромадан манъ.",
+          "literal": "бурайа́ гирмэ́к йаса́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: ҳавоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Neden iskeleye çıkmadın?",
+          "cueTranslation": "Чаро ба ҳавоза набаромадӣ?",
+          "intent": "Бигӯ: ин ҷо хатарнок аст",
+          "text": "Burası tehlikeli.",
+          "accepts": [
+            "Çok tehlikeli."
+          ],
+          "translation": "Ин ҷо хатарнок аст.",
+          "literal": "бурасы́ тэҳликэли́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Emniyet kemerin var mı?",
+          "cueTranslation": "Камарбанди бехатарӣ дорӣ?",
+          "intent": "Бигӯ: не, надорам",
+          "text": "Hayır, yok.",
+          "accepts": [
+            "Kemerim yok."
+          ],
+          "translation": "Не, надорам.",
+          "literal": "ҳайы́р йо́к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, depodan al.",
+          "cueTranslation": "Хуб, аз анбор гир.",
+          "intent": "Бигӯ: ташаккур, усто",
+          "text": "Teşekkürler, usta.",
+          "accepts": [
+            "Tamam, usta."
+          ],
+          "translation": "Ташаккур, усто.",
+          "literal": "тэшэккюрлэ́р уста́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Захм ва ёрии аввал",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Elimi kestim.",
+          "translation": "Дастамро буридам.",
+          "literal": "элими́ кэсти́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "İlk yardım çantası nerede?",
+          "translation": "Қуттии ёрии аввал куҷост?",
+          "literal": "и́лк йарды́м чантасы́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Başım dönüyor.",
+          "translation": "Сарам чарх мезанад.",
+          "literal": "башы́м дёнюйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Oturmam lazım.",
+          "translation": "Бояд нишинам.",
+          "literal": "отурма́м лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Su verir misin?",
+          "translation": "Об медиҳӣ?",
+          "literal": "су́ вэри́р миси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Şimdi daha iyiyim.",
+          "translation": "Ҳоло беҳтарам.",
+          "literal": "шимди́ даҳа́ ийийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дастам бурид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne oldu? Kan var!",
+          "cueTranslation": "Чӣ шуд? Хун ҳаст!",
+          "intent": "Бигӯ: дастамро буридам",
+          "text": "Elimi kestim.",
+          "accepts": [
+            "Elim kesildi."
+          ],
+          "translation": "Дастамро буридам.",
+          "literal": "элими́ кэсти́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gel, otur.",
+          "cueTranslation": "Биё, нишин.",
+          "intent": "Бипурс: қуттии ёрии аввал куҷост?",
+          "text": "İlk yardım çantası nerede?",
+          "accepts": [
+            "Çanta nerede?"
+          ],
+          "translation": "Қуттии ёрии аввал куҷост?",
+          "literal": "и́лк йарды́м чантасы́ нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Konteynerde. Getiriyorum.",
+          "cueTranslation": "Дар вагонча. Меорам.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ ol."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рафиқ афтод",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dikkat! Arkadaşın düştü!",
+          "cueTranslation": "Эҳтиёт! Рафиқат афтод!",
+          "intent": "Бигӯ: ёрӣ! Ёрии таъҷилӣ ҷеғ занед!",
+          "text": "İmdat! Ambulans çağırın!",
+          "accepts": [
+            "Ambulans çağırın!"
+          ],
+          "translation": "Ёрӣ! Ёрии таъҷилӣ ҷеғ занед!",
+          "literal": "имда́т амбула́нс ча:ыры́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, arıyorum. Konuşabiliyor mu?",
+          "cueTranslation": "Хуб, занг мезанам. Гап зада метавонад?",
+          "intent": "Бигӯ: ҳа, вале хун меравад",
+          "text": "Evet, ama kanıyor.",
+          "accepts": [
+            "Evet, kanıyor."
+          ],
+          "translation": "Ҳа, вале хун меравад.",
+          "literal": "эвэ́т ама́ каныйо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Onu kıpırdatma!",
+          "cueTranslation": "Ӯро наҷунбон!",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Tamam, anladım.",
+          "accepts": [
+            "Anladım."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "тама́м анлады́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ambulans geliyor.",
+          "cueTranslation": "Ёрии таъҷилӣ омада истодааст.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Teşekkür ederim."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

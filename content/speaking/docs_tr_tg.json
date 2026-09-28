@@ -1,0 +1,534 @@
+{
+  "slug": "docs_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Belgeler ve polis",
+    "titleTranslated": "Ҳуҷҷатҳо ва полис",
+    "scenario": "Полис ҳуҷҷат мепурсад ё шумо ба идораи муҳоҷират (Göç İdaresi) меравед. Шиноснома, иҷозати истиқомат (ikamet) ва иҷозати кор нишон медиҳед.",
+    "emoji": "🪪",
+    "order": 16,
+    "goals": [],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Pasaport",
+          "translation": "шиноснома",
+          "literal": "пасапо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Kimlik",
+          "translation": "ҳуҷҷати шахсият",
+          "literal": "кимли́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "İkamet",
+          "translation": "иҷозати истиқомат",
+          "literal": "икамэ́т",
+          "note": "Корти истиқомати хориҷӣ дар Туркия.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Polis",
+          "translation": "полис",
+          "literal": "поли́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Adres",
+          "translation": "суроға",
+          "literal": "адрэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Form",
+          "translation": "форма (варақа)",
+          "literal": "фо́рм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷататон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kimliğiniz lütfen.",
+          "cueTranslation": "Ҳуҷҷататон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Türk müsünüz?",
+          "cueTranslation": "Туркед?",
+          "intent": "Бигӯ: не, тоҷикам",
+          "text": "Hayır, Tacikim.",
+          "accepts": [
+            "Hayır."
+          ],
+          "translation": "Не, тоҷикам.",
+          "literal": "ҳайы́р таҷики́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "İkametiniz var mı?",
+          "cueTranslation": "Иҷозати истиқомат доред?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet, var.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, дорам.",
+          "literal": "эвэ́т ва́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Pasaportum burada",
+          "translation": "Шиносномаам ин ҷо",
+          "literal": "пасапорту́м бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Çalışma izni",
+          "translation": "иҷозати кор",
+          "literal": "чалышма́ изни́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ev adresim",
+          "translation": "суроғаи хонаам",
+          "literal": "э́в адрэси́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Anlamıyorum",
+          "translation": "намефаҳмам",
+          "literal": "анламыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Tercüman lazım",
+          "translation": "Тарҷумон лозим",
+          "literal": "тэрҷюма́н лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir saniye",
+          "translation": "Як сония",
+          "literal": "би́р санийэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Санҷиши ҳуҷҷат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pasaportunuz nerede?",
+          "cueTranslation": "Шиносномаатон куҷост?",
+          "intent": "Бигӯ: шиносномаам ин ҷо",
+          "text": "Pasaportum burada.",
+          "accepts": [
+            "Burada, buyurun."
+          ],
+          "translation": "Шиносномаам ин ҷо.",
+          "literal": "пасапорту́м бурада́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Çalışma izniniz var mı?",
+          "cueTranslation": "Иҷозати кор доред?",
+          "intent": "Бигӯ: ҳа, ҳаст",
+          "text": "Evet, var.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, ҳаст.",
+          "literal": "эвэ́т ва́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Adresiniz ne?",
+          "cueTranslation": "Суроғаатон чист?",
+          "intent": "Бигӯ: як сония",
+          "text": "Bir saniye.",
+          "accepts": [
+            "Bir dakika."
+          ],
+          "translation": "Як сония.",
+          "literal": "би́р санийэ́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман кистам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ben Tacikistan vatandaşıyım.",
+          "translation": "Ман шаҳрванди Тоҷикистонам.",
+          "literal": "бэ́н таҷикиста́н ватандашыйы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "İkametim var.",
+          "translation": "Иҷозати истиқомат дорам.",
+          "literal": "икамэти́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Pasaportum evde.",
+          "translation": "Шиносномаам дар хона.",
+          "literal": "пасапорту́м эвдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Türkçem az.",
+          "translation": "Туркиам кам.",
+          "literal": "тюркчэ́м а́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Tercüman istiyorum.",
+          "translation": "Тарҷумон мехоҳам.",
+          "literal": "тэрҷюма́н истийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Konsolosluğu arayabilir miyim?",
+          "translation": "Ба консулгарӣ занг зада метавонам?",
+          "literal": "консолослу:у́ арайабили́р мийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Neden kimliğin yok?",
+          "cueTranslation": "Чаро ҳуҷҷат надорӣ?",
+          "intent": "Бигӯ: шиносномаам дар хона",
+          "text": "Pasaportum evde.",
+          "accepts": [
+            "Evde."
+          ],
+          "translation": "Шиносномаам дар хона.",
+          "literal": "пасапорту́м эвдэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nerede oturuyorsun?",
+          "cueTranslation": "Дар куҷо зиндагӣ мекунӣ?",
+          "intent": "Бигӯ: дар Эсенюрт",
+          "text": "Esenyurt'ta.",
+          "accepts": [
+            "Esenyurt'ta oturuyorum."
+          ],
+          "translation": "Дар Эсенюрт.",
+          "literal": "эсэнйуртта́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Türkçe anlıyor musun?",
+          "cueTranslation": "Туркӣ мефаҳмӣ?",
+          "intent": "Бигӯ: каме",
+          "text": "Biraz.",
+          "accepts": [
+            "Biraz anlıyorum."
+          ],
+          "translation": "Каме.",
+          "literal": "бира́з",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Идораи муҳоҷират",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Randevum var.",
+          "translation": "Навбат дорам.",
+          "literal": "рандэву́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Göç idaresi nerede?",
+          "translation": "Идораи муҳоҷират куҷост?",
+          "literal": "гё́ч идарэси́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Fotoğraf lazım mı?",
+          "translation": "Акс лозим?",
+          "literal": "фото:ра́ф лазы́м мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hangi belgeler lazım?",
+          "translation": "Кадом ҳуҷҷатҳо лозим?",
+          "literal": "ҳанги́ бэлгэлэ́р лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Formu doldurdum.",
+          "translation": "Формаро пур кардам.",
+          "literal": "форму́ долдурду́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kaç gün sürer?",
+          "translation": "Чанд рӯз мекашад?",
+          "literal": "ка́ч гю́н сюрэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: навбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun, sıra numaranız?",
+          "cueTranslation": "Марҳамат, рақами навбататон?",
+          "intent": "Бигӯ: навбат дорам",
+          "text": "Randevum var.",
+          "accepts": [],
+          "translation": "Навбат дорам.",
+          "literal": "рандэву́м ва́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Formu doldurdunuz mu?",
+          "cueTranslation": "Формаро пур кардед?",
+          "intent": "Бигӯ: ҳа, пур кардам",
+          "text": "Evet, doldurdum.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, пур кардам.",
+          "literal": "эвэ́т долдурду́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, iki fotoğraf da lazım.",
+          "cueTranslation": "Хуб, ду акс ҳам лозим.",
+          "intent": "Бипурс: чанд рӯз мекашад?",
+          "text": "Kaç gün sürer?",
+          "accepts": [],
+          "translation": "Чанд рӯз мекашад?",
+          "literal": "ка́ч гю́н сюрэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba. Kimlik kontrolü.",
+          "cueTranslation": "Салом. Санҷиши ҳуҷҷат.",
+          "intent": "Бигӯ: марҳамат, шиноснома",
+          "text": "Buyurun, pasaport.",
+          "accepts": [
+            "Buyurun."
+          ],
+          "translation": "Марҳамат, шиноснома.",
+          "literal": "буйуру́н пасапо́рт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nerelisiniz?",
+          "cueTranslation": "Аз куҷоед?",
+          "intent": "Бигӯ: аз Тоҷикистонам",
+          "text": "Tacikistanlıyım.",
+          "accepts": [],
+          "translation": "Аз Тоҷикистонам.",
+          "literal": "таҷикистанлыйы́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "İkametiniz var mı?",
+          "cueTranslation": "Иҷозати истиқомат доред?",
+          "intent": "Бигӯ: ҳа, ҳаст",
+          "text": "Evet, var.",
+          "accepts": [
+            "Evet, ikametim var."
+          ],
+          "translation": "Ҳа, ҳаст.",
+          "literal": "эвэ́т ва́р",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Burada ne yapıyorsunuz?",
+          "cueTranslation": "Ин ҷо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "Ben {job}.",
+          "accepts": [],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

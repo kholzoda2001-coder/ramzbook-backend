@@ -37,6 +37,9 @@ const LANGS = {
   // Кореягӣ: мардони Chirp3; видоъ бо овози курс (Despina).
   ko: { voices: ['ko-KR-Chirp3-HD-Orus', 'ko-KR-Chirp3-HD-Fenrir'], course: 'ko-KR-Chirp3-HD-Despina',
         code: 'ko-KR', closing: '좋아요, 감사합니다! 또 만나요!' },
+  // Туркӣ: мардон — edge Ahmet ва Google Wavenet-E; видоъ бо овози курс (Emel).
+  tr: { voices: ['edge:tr-TR-AhmetNeural', 'tr-TR-Wavenet-E'], course: 'edge:tr-TR-EmelNeural',
+        code: 'tr-TR', closing: 'Harika, teşekkürler! Görüşürüz!' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);

@@ -50,6 +50,9 @@ const LANGS = {
   // Кореягӣ: овози КУРС (`_ko-tts-google.mjs`) — Despina; эҳтиётӣ Neural2-B (ҳиҷои якка:
   // Neural2-B 100%, Despina 33% — хотираи ramz-ko-alphabet-voice).
   ko: { voice: 'ko-KR-Chirp3-HD-Despina', fallback: 'ko-KR-Neural2-B', code: 'ko-KR' },
+  // Туркӣ (28.09.2026): ОВОЗИ КУРС — edge-tts Emel (`_tr-audio.mjs`), то хонанда як овозро
+  // дар дарс ва гуфтор шунавад. Эҳтиётӣ — Google Wavenet-A (зан).
+  tr: { voice: 'edge:tr-TR-EmelNeural', fallback: 'tr-TR-Wavenet-A', code: 'tr-TR' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);

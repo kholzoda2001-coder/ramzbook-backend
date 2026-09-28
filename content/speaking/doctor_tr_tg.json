@@ -1,0 +1,540 @@
+{
+  "slug": "doctor_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Doktorda",
+    "titleTranslated": "Назди духтур",
+    "scenario": "Бемор шудед. Дар беморхона навбат мегиред, мегӯед, ки куҷоятон дард мекунад, ва мепурсед, ки доруро чӣ хел гиред.",
+    "emoji": "🩺",
+    "order": 6,
+    "goals": [],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Беморхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Doktor",
+          "translation": "духтур",
+          "literal": "докто́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Hastane",
+          "translation": "беморхона",
+          "literal": "ҳастанэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Ağrı",
+          "translation": "дард",
+          "literal": "а:ры́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ateş",
+          "translation": "таб",
+          "literal": "атэ́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "İlaç",
+          "translation": "дору",
+          "literal": "ила́ч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Eczane",
+          "translation": "дорухона",
+          "literal": "эҷзанэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Беморед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Geçmiş olsun! Hasta mısınız?",
+          "cueTranslation": "Шифо ёбед! Беморед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Evet.",
+          "accepts": [
+            "Evet, hastayım."
+          ],
+          "translation": "Ҳа.",
+          "literal": "эвэ́т",
+          "note": "«Geçmiş olsun» — ба бемор ҳамеша мегӯянд.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ateşiniz var mı?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet, var.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, дорам.",
+          "literal": "эвэ́т ва́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Buyurun, ilacınız.",
+          "cueTranslation": "Марҳамат, доруятон.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Teşekkür ederim."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Куҷо дард мекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Başım ağrıyor",
+          "translation": "Сарам дард мекунад",
+          "literal": "башы́м а:рыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Midem ağrıyor",
+          "translation": "Меъдаам дард мекунад",
+          "literal": "мидэ́м а:рыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Sırtım ağrıyor",
+          "translation": "Пуштам дард мекунад",
+          "literal": "сырты́м а:рыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ateşim var",
+          "translation": "Таб дорам",
+          "literal": "атэши́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Çok kötüyüm",
+          "translation": "Хеле бадам",
+          "literal": "чо́к кётюйю́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Dünden beri",
+          "translation": "Аз дирӯз",
+          "literal": "дюндэ́н бэри́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ шикоят доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Neyiniz var?",
+          "cueTranslation": "Чӣ шикоят доред?",
+          "intent": "Бигӯ: сарам дард мекунад",
+          "text": "Başım ağrıyor.",
+          "accepts": [
+            "Başım çok ağrıyor."
+          ],
+          "translation": "Сарам дард мекунад.",
+          "literal": "башы́м а:рыйо́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne zamandan beri?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "Dünden beri.",
+          "accepts": [
+            "Dün başladı."
+          ],
+          "translation": "Аз дирӯз.",
+          "literal": "дюндэ́н бэри́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ateşiniz var mı?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: ҳа, таб дорам",
+          "text": "Evet, ateşim var.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, таб дорам.",
+          "literal": "эвэ́т атэши́м ва́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар қабулгоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Doktor lazım.",
+          "translation": "Духтур лозим.",
+          "literal": "докто́р лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Elim kesildi.",
+          "translation": "Дастам бурида шуд.",
+          "literal": "эли́м кэсилди́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ayağım çok ağrıyor.",
+          "translation": "Поям хеле дард мекунад.",
+          "literal": "айа:ы́м чо́к а:рыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Randevu istiyorum.",
+          "translation": "Навбат мехоҳам.",
+          "literal": "рандэву́ истийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sigortam var.",
+          "translation": "Суғурта дорам.",
+          "literal": "сигорта́м ва́р",
+          "note": "Суғуртаи иҷтимоӣ дар Туркия — SGK.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Eczane nerede?",
+          "translation": "Дорухона куҷост?",
+          "literal": "эҷзанэ́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: қабулгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba, buyurun.",
+          "cueTranslation": "Салом, марҳамат.",
+          "intent": "Бигӯ: навбат мехоҳам",
+          "text": "Randevu istiyorum.",
+          "accepts": [
+            "Doktor lazım."
+          ],
+          "translation": "Навбат мехоҳам.",
+          "literal": "рандэву́ истийору́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sigortanız var mı?",
+          "cueTranslation": "Суғурта доред?",
+          "intent": "Бигӯ: ҳа, суғурта дорам",
+          "text": "Evet, sigortam var.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, суғурта дорам.",
+          "literal": "эвэ́т сигорта́м ва́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Neyiniz var?",
+          "cueTranslation": "Хуб. Чӣ шикоят доред?",
+          "intent": "Бигӯ: поям хеле дард мекунад",
+          "text": "Ayağım çok ağrıyor.",
+          "accepts": [
+            "Ayağım ağrıyor."
+          ],
+          "translation": "Поям хеле дард мекунад.",
+          "literal": "айа:ы́м чо́к а:рыйо́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дору",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bu ilacı nasıl alayım?",
+          "translation": "Ин доруро чӣ хел гирам?",
+          "literal": "бу́ илаҷы́ насы́л алайы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Günde kaç kere?",
+          "translation": "Дар як рӯз чанд бор?",
+          "literal": "гюндэ́ ка́ч кэрэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Yemekten sonra mı?",
+          "translation": "Баъд аз хӯрок?",
+          "literal": "йэмэктэ́н сонра́ мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Yarın çalışabilir miyim?",
+          "translation": "Фардо кор карда метавонам?",
+          "literal": "йары́н чалышабили́р мийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Rapor lazım.",
+          "translation": "Маълумотнома лозим.",
+          "literal": "рапо́р лазы́м",
+          "note": "«Rapor» — варақаи беморӣ барои кор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Geçmiş olsun.",
+          "translation": "Шифо ёбед.",
+          "literal": "гэчми́ш олсу́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дору",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bu ilacı alın.",
+          "cueTranslation": "Ин доруро гиред.",
+          "intent": "Бипурс: дар як рӯз чанд бор?",
+          "text": "Günde kaç kere?",
+          "accepts": [
+            "Kaç kere?"
+          ],
+          "translation": "Дар як рӯз чанд бор?",
+          "literal": "гюндэ́ ка́ч кэрэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Günde üç kere, yemekten sonra.",
+          "cueTranslation": "Дар як рӯз се бор, баъд аз хӯрок.",
+          "intent": "Бипурс: фардо кор карда метавонам?",
+          "text": "Yarın çalışabilir miyim?",
+          "accepts": [],
+          "translation": "Фардо кор карда метавонам?",
+          "literal": "йары́н чалышабили́р мийи́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, iki gün dinlenin.",
+          "cueTranslation": "Не, ду рӯз дам гиред.",
+          "intent": "Бигӯ: маълумотнома лозим",
+          "text": "Rapor lazım.",
+          "accepts": [
+            "Rapor verir misiniz?"
+          ],
+          "translation": "Маълумотнома лозим.",
+          "literal": "рапо́р лазы́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: назди духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Geçmiş olsun. Neyiniz var?",
+          "cueTranslation": "Шифо ёбед. Чӣ шикоят доред?",
+          "intent": "Бигӯ: меъдаам дард мекунад",
+          "text": "Midem ağrıyor.",
+          "accepts": [
+            "Midem çok ağrıyor."
+          ],
+          "translation": "Меъдаам дард мекунад.",
+          "literal": "мидэ́м а:рыйо́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne zamandan beri?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "Dünden beri.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "дюндэ́н бэри́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ateşiniz var mı?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: не",
+          "text": "Hayır, yok.",
+          "accepts": [
+            "Hayır."
+          ],
+          "translation": "Не, нест.",
+          "literal": "ҳайы́р йо́к",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu ilacı alın. Günde iki kere.",
+          "cueTranslation": "Ин доруро гиред. Дар як рӯз ду бор.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkür ederim.",
+          "accepts": [
+            "Teşekkürler."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккю́р эдэри́м",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

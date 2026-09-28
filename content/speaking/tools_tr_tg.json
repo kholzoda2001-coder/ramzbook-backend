@@ -1,0 +1,544 @@
+{
+  "slug": "tools_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Alet ve malzeme",
+    "titleTranslated": "Асбоб ва мавод",
+    "scenario": "Дар объект асбоб ва мавод лозим мешавад: болға, парма, семент, хишт. Мепурсед, ки куҷост, чанд лозим ва куҷо монед.",
+    "emoji": "🧰",
+    "order": 4,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Асбоб",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Çekiç",
+          "translation": "болға",
+          "literal": "чэки́ч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Matkap",
+          "translation": "парма",
+          "literal": "матка́п",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Merdiven",
+          "translation": "нардбон, зина",
+          "literal": "мэрдивэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Çimento",
+          "translation": "семент",
+          "literal": "чимэнто́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kum",
+          "translation": "рег",
+          "literal": "ку́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Tuğla",
+          "translation": "хишт",
+          "literal": "ту:ла́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Çekiç nerede?",
+          "cueTranslation": "Болға куҷост?",
+          "intent": "Бигӯ: ин ҷо",
+          "text": "Burada.",
+          "accepts": [
+            "İşte burada."
+          ],
+          "translation": "Ин ҷо.",
+          "literal": "бурада́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bana tuğla getir.",
+          "cueTranslation": "Ба ман хишт биёр.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Tamam, usta."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kum bitti mi?",
+          "cueTranslation": "Рег тамом шуд?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet.",
+          "accepts": [
+            "Evet, bitti."
+          ],
+          "translation": "Ҳа.",
+          "literal": "эвэ́т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Çekiç lazım",
+          "translation": "Болға лозим",
+          "literal": "чэки́ч лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "El arabası",
+          "translation": "аробачаи дастӣ",
+          "literal": "э́л арабасы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kablo",
+          "translation": "сим",
+          "literal": "кабло́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Nereye koyayım?",
+          "translation": "Куҷо монам?",
+          "literal": "нэрэйэ́ койайы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kürek",
+          "translation": "бел",
+          "literal": "кюрэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir tane",
+          "translation": "як дона",
+          "literal": "би́р танэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne lazım?",
+          "cueTranslation": "Чӣ лозим?",
+          "intent": "Бигӯ: болға лозим",
+          "text": "Çekiç lazım.",
+          "accepts": [
+            "Bir çekiç lazım."
+          ],
+          "translation": "Болға лозим.",
+          "literal": "чэки́ч лазы́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tuğlaları getir.",
+          "cueTranslation": "Хиштҳоро биёр.",
+          "intent": "Бипурс: куҷо монам?",
+          "text": "Nereye koyayım?",
+          "accepts": [
+            "Nereye?"
+          ],
+          "translation": "Куҷо монам?",
+          "literal": "нэрэйэ́ койайы́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Duvarın yanına koy.",
+          "cueTranslation": "Дар паҳлӯи девор мон.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Tamam, usta."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Асбоб вайрон аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Matkap çalışmıyor.",
+          "translation": "Парма кор намекунад.",
+          "literal": "матка́п чалышмыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Çimento bitti.",
+          "translation": "Семент тамом шуд.",
+          "literal": "чимэнто́ битти́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "El arabası nerede?",
+          "translation": "Аробача куҷост?",
+          "literal": "э́л арабасы́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir kürek verir misin?",
+          "translation": "Як бел медиҳӣ?",
+          "literal": "би́р кюрэ́к вэри́р миси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Merdiven lazım.",
+          "translation": "Нардбон лозим.",
+          "literal": "мэрдивэ́н лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bunu nereye koyayım?",
+          "translation": "Инро куҷо монам?",
+          "literal": "буну́ нэрэйэ́ койайы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: парма",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: парма кор намекунад",
+          "text": "Matkap çalışmıyor.",
+          "accepts": [
+            "Matkap bozuk."
+          ],
+          "translation": "Парма кор намекунад.",
+          "literal": "матка́п чалышмыйо́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Başka matkap al.",
+          "cueTranslation": "Пармаи дигар гир.",
+          "intent": "Бипурс: дар куҷо?",
+          "text": "Nerede?",
+          "accepts": [
+            "Nerede var?"
+          ],
+          "translation": "Дар куҷо?",
+          "literal": "нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Depoda. Konteynerin içinde.",
+          "cueTranslation": "Дар анбор. Дар дохили вагонча.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Anladım.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "анлады́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чанд ва чӣ хел",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Kaç torba çimento?",
+          "translation": "Чанд халта семент?",
+          "literal": "ка́ч торба́ чимэнто́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "İki torba yeter.",
+          "translation": "Ду халта басанда.",
+          "literal": "ики́ торба́ йэтэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu çok ağır.",
+          "translation": "Ин хеле вазнин.",
+          "literal": "бу́ чо́к а:ы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Yardım eder misin?",
+          "translation": "Ёрӣ медиҳӣ?",
+          "literal": "йарды́м эдэ́р миси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kablo kısa.",
+          "translation": "Сим кӯтоҳ.",
+          "literal": "кабло́ кыса́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Daha uzun lazım.",
+          "translation": "Дарозтар лозим.",
+          "literal": "даҳа́ узу́н лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: семент",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kaç torba çimento lazım?",
+          "cueTranslation": "Чанд халта семент лозим?",
+          "intent": "Бигӯ: ду халта",
+          "text": "İki torba.",
+          "accepts": [
+            "İki torba lazım."
+          ],
+          "translation": "Ду халта.",
+          "literal": "ики́ торба́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Getir o zaman.",
+          "cueTranslation": "Пас биёр.",
+          "intent": "Бигӯ: ин хеле вазнин",
+          "text": "Bu çok ağır.",
+          "accepts": [
+            "Çok ağır."
+          ],
+          "translation": "Ин хеле вазнин.",
+          "literal": "бу́ чо́к а:ы́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "El arabasını al.",
+          "cueTranslation": "Аробачаро гир.",
+          "intent": "Бигӯ: хуб, усто",
+          "text": "Tamam, usta.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Хуб, усто.",
+          "literal": "тама́м уста́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: девор мечинем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bugün duvar örüyoruz.",
+          "cueTranslation": "Имрӯз девор мечинем.",
+          "intent": "Бипурс: чӣ лозим?",
+          "text": "Ne lazım?",
+          "accepts": [
+            "Ne getireyim?"
+          ],
+          "translation": "Чӣ лозим?",
+          "literal": "нэ́ лазы́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tuğla ve çimento getir.",
+          "cueTranslation": "Хишт ва семент биёр.",
+          "intent": "Бипурс: чанд халта семент?",
+          "text": "Kaç torba çimento?",
+          "accepts": [
+            "Kaç torba?"
+          ],
+          "translation": "Чанд халта семент?",
+          "literal": "ка́ч торба́ чимэнто́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Üç torba.",
+          "cueTranslation": "Се халта.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Tamam, usta."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Kürek de al.",
+          "cueTranslation": "Бел ҳам гир.",
+          "intent": "Бипурс: бел куҷост?",
+          "text": "Kürek nerede?",
+          "accepts": [],
+          "translation": "Бел куҷост?",
+          "literal": "кюрэ́к нэрэдэ́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

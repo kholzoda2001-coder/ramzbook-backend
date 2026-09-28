@@ -654,6 +654,40 @@ const LANG_LISTS: Record<string, LangChainLists> = {
       'عشرة', 'عشرون', 'عشرين', 'ثلاثون', 'ثلاثين', 'مئة', 'مائة',
     ]),
   },
+  // ── ТУРКӢ (28.09.2026) ────────────────────────────────────────────────
+  // Забони SOV бо пасояндҳо: калимаи вобаста ПАС аз исм меояд. Порчае, ки аз
+  // пасоянд, ҷузъи савол ё пайвандак сар шавад, исмро гум мекунад:
+  //   «Senin için yaptım» → «için yaptım» ✗, «Türk müsün?» → «müsün?» ✗,
+  //   «Öğrenci değilim» → «değilim» ✗, «Ben de geliyorum» → «de geliyorum» ✗.
+  // Муайянкунандаҳо (bu/şu, bir, рақам, соҳибӣ) пеш аз исм меоянд ва кашида мешаванд:
+  //   «Bu kablo çok uzun» → «bu kablo…», «İki kilo çimento» → «iki kilo…».
+  // ⚠️ «o» (ҳам «он», ҳам «вай») ҚАСДАН нест — пеш аз феъл ҷонишин аст.
+  tr: {
+    blocked: new Set<string>([
+      'için', 'gibi', 'kadar', 'ile', 'sonra', 'önce', 'göre', 'beri', 'karşı', 'doğru',
+      'rağmen', 'dolayı', 'boyunca', 'değil', 'değilim', 'değilsin', 'değiliz', 'değilsiniz',
+      'değiller', 'da', 'de', 'ki', 've', 'veya', 'ama', 'fakat', 'çünkü', 'mi', 'mı', 'mu', 'mü',
+      'misin', 'mısın', 'musun', 'müsün', 'miyim', 'mıyım', 'muyum', 'müyüm', 'miyiz', 'mıyız',
+      'muyuz', 'müyüz', 'misiniz', 'mısınız', 'musunuz', 'müsünüz', 'midir', 'mıdır', 'mudur',
+      'müdür', 'mıydı', 'miydi', 'muydu', 'müydü',
+      // «bir buçuk» — «buçuk» бе рақам нест; «var/yok» бе исм («Su var mı?» → «var mı?»);
+      // феъли ёрирасони «etmek» бе исм («Yardım eder misin?» → «eder misin?»)
+      'buçuk', 'var', 'yok', 'eder', 'ederim', 'edelim', 'ediyor', 'ediyorum', 'edin', 'etti', 'ettim',
+    ]),
+    // «Ne | zaman geliyorsun?», «Hangi | otobüs?» набояд шикананд
+    wh: new Set<string>(['ne', 'nerede', 'nereye', 'nereden', 'nasıl', 'kim', 'kaç', 'hangi', 'neden', 'niye', 'niçin']),
+    glued: new Set<string>([
+      'bu', 'şu', 'bir', 'her', 'hiç', 'birkaç', 'bütün', 'tüm', 'hangi', 'kaç', 'çok', 'biraz', 'daha', 'en',
+      'benim', 'senin', 'onun', 'bizim', 'sizin', 'onların',
+      // «on» = даҳ (дар рӯйхати англисӣ «on» пешоянди маҳкам аст): «on iki metre» → «iki metre» ✗ (12 → 2)
+      'on', 'iki', 'üç', 'dört', 'beş', 'altı', 'yedi', 'sekiz', 'dokuz', 'yirmi', 'otuz',
+      'kırk', 'elli', 'altmış', 'yetmiş', 'seksen', 'doksan', 'yüz', 'bin',
+      'yeni', 'eski', 'büyük', 'küçük', 'uzun', 'kısa', 'iyi', 'kötü', 'sıcak', 'soğuk', 'ağır', 'hafif',
+      // тартибӣ: «Dördüncü katta çalışıyorum» → «katta çalışıyorum» ✗
+      'ilk', 'son', 'birinci', 'ikinci', 'üçüncü', 'dördüncü', 'beşinci', 'altıncı', 'yedinci',
+      'sekizinci', 'dokuzuncu', 'onuncu',
+    ]),
+  },
   // ── КОРЕЯГӢ (28.09.2026) ───────────────────────────────────────────────
   // Пасвандҳо (는/을/에…) ба калима часпидаанд, пас хатари асосӣ — калимаи
   // МУАЙЯНКУНАНДА, ки пеш аз исм ҷудо навишта мешавад: ишора (이/그/저), саволӣ
@@ -690,6 +724,14 @@ function arCutsNounAdjective(prev: string, cur: string): boolean {
   const curGen = c.indexOf('ال') === 0 || /[\u0650\u064D]$/.test(cur);
   return p.indexOf('ال') !== 0 && !AR_TANWEEN.test(prev) && prevShort && curGen;
 }
+
+/**
+ * Туркӣ: исми мураккаб (belirtisiz isim tamlaması) — исми дуюм пасванди соҳибии
+ * «-(s)ı/-ği» мегирад: «el arabası», «toz maskesi», «öğle yemeği», «ilk yardım çantası».
+ * Порча аз исми дуюм сар шавад, аввалиро мебурад: «arabası nerede?» ✗ («аробааш куҷост?»).
+ * Санҷиш аз рӯи шакли калима (пасванди «-sı/-si/-su/-sü», «-ğı/-ği/-ğu/-ğü» ва ҳолати баъдӣ).
+ */
+const TR_COMPOUND_HEAD = /(s|ğ)[ıiuü](n[ıiuü]|n[ae]|nd[ae]|nd[ae]n)?$/;
 
 /** Калимае, ки ибораи ПЕШИНро тамом мекунад («النُّور،», «شَيْء.») — порча аз он сар намешавад. */
 const AR_ENDS_CLAUSE = /[\u060C\u061F,.!?:;]$/;
@@ -752,12 +794,14 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
 
     if (isBlockedStart(bare(w[start]), cfg)) continue; // қоидаи 1
     if (start > 0 && isWhWord(bare(w[start - 1]), cfg)) continue; // қоидаи 2
-    const arKo = cfg.lang === 'ar' || cfg.lang === 'ko';
+    // Туркӣ низ: порча аз калимаи охири ибора («Tamam, …») сар намешавад ва ду ҷумларо намепайвандад.
+    const arKo = cfg.lang === 'ar' || cfg.lang === 'ko' || cfg.lang === 'tr';
     if (arKo && AR_ENDS_CLAUSE.test(w[start])) continue;
     if (cfg.lang === 'ko' && koDependentStart(w[start])) continue;
     // Порча ду ҷумларо намепайвандад: «빨리 가 주세요. 늦었어요.» → «가 주세요. 늦었어요.» ✗.
     if (arKo && w.slice(start, n - 1).some((x) => /[.!?\u061F]$/.test(x))) continue;
     if (cfg.lang === 'ar' && start > 0 && arCutsNounAdjective(w[start - 1], w[start])) continue;
+    if (cfg.lang === 'tr' && start > 0 && TR_COMPOUND_HEAD.test(bare(w[start]))) continue;
 
     // қоидаи 3 — муайянкунанда/адади пешомадаро ба чунк мечаспонем
     const plain = w.slice(start).join(' ');
@@ -769,6 +813,7 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
     let seg = w.slice(glued).join(' ');
     // Арабӣ: бе калимаи часпанда порча маъно надорад («شَيْءٍ تَمَام» бе «كُلُّ») —
     // пас агар часпондан тамоми ҷумларо диҳад, порча НЕСТ, на шакли бечасп.
+    // Туркӣ низ: «Kırk iki numara» → «iki numara» (42 → 2), «Dördüncü katta» → «katta».
     if (seg === full && arKo && glued < start) continue;
     if (seg === full) seg = plain;
     if (seg === full) continue; // чунк набояд тамоми ҷумла бошад

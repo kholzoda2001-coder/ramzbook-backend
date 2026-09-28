@@ -1,0 +1,540 @@
+{
+  "slug": "hours_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Çalışma saatleri ve puantaj",
+    "titleTranslated": "Соатҳо ва табел",
+    "scenario": "Кай сар мекунед ва кай тамом, чанд соат кор кардед ва оё номатон дар табел (puantaj) ҳаст. Инчунин рухсатӣ ва барвақт рафтан.",
+    "emoji": "🕗",
+    "order": 20,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Вақт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Saat",
+          "translation": "соат",
+          "literal": "саа́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Giriş",
+          "translation": "омадан (ба кор)",
+          "literal": "гири́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Çıkış",
+          "translation": "рафтан (аз кор)",
+          "literal": "чыкы́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Puantaj",
+          "translation": "табел",
+          "literal": "пуанта́ж",
+          "note": "Дафтари ҳисоби рӯзҳо ва соатҳои кор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Cumartesi",
+          "translation": "шанбе",
+          "literal": "ҷумартэси́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "İzin",
+          "translation": "рухсатӣ",
+          "literal": "изи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Соати чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kaçta geldin?",
+          "cueTranslation": "Соати чанд омадӣ?",
+          "intent": "Бигӯ: соати ҳафт",
+          "text": "Saat yedide.",
+          "accepts": [
+            "Yedide."
+          ],
+          "translation": "Соати ҳафт.",
+          "literal": "саа́т йэдидэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kaçta çıkıyorsun?",
+          "cueTranslation": "Соати чанд меравӣ?",
+          "intent": "Бигӯ: соати шаш",
+          "text": "Saat altıda.",
+          "accepts": [
+            "Altıda."
+          ],
+          "translation": "Соати шаш.",
+          "literal": "саа́т алтыда́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Cumartesi çalışıyor musun?",
+          "cueTranslation": "Шанбе кор мекунӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet.",
+          "accepts": [
+            "Evet, çalışıyorum."
+          ],
+          "translation": "Ҳа.",
+          "literal": "эвэ́т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Sabah yedide",
+          "translation": "Саҳар соати ҳафт",
+          "literal": "саба́ҳ йэдидэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Akşam altıda",
+          "translation": "Бегоҳ соати шаш",
+          "literal": "акша́м алтыда́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Yarım gün",
+          "translation": "ним рӯз",
+          "literal": "йары́м гю́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Tam gün",
+          "translation": "рӯзи пурра",
+          "literal": "та́м гю́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "İmza at",
+          "translation": "Имзо кун",
+          "literal": "имза́ а́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Pazartesi",
+          "translation": "душанбе",
+          "literal": "пазартэси́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Табел",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Puantaja imza at.",
+          "cueTranslation": "Дар табел имзо кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Tamam, usta."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dün kaç saat çalıştın?",
+          "cueTranslation": "Дирӯз чанд соат кор кардӣ?",
+          "intent": "Бигӯ: даҳ соат",
+          "text": "On saat.",
+          "accepts": [
+            "On saat çalıştım."
+          ],
+          "translation": "Даҳ соат.",
+          "literal": "о́н саа́т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yarım gün mü?",
+          "cueTranslation": "Ним рӯз?",
+          "intent": "Бигӯ: не, рӯзи пурра",
+          "text": "Hayır, tam gün.",
+          "accepts": [],
+          "translation": "Не, рӯзи пурра.",
+          "literal": "ҳайы́р та́м гю́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Рӯзи кор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Sabah yedide başlıyoruz.",
+          "translation": "Саҳар соати ҳафт сар мекунем.",
+          "literal": "саба́ҳ йэдидэ́ башлыйору́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Akşam altıda bitiyor.",
+          "translation": "Бегоҳ соати шаш тамом мешавад.",
+          "literal": "акша́м алтыда́ битийо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Dün on saat çalıştım.",
+          "translation": "Дирӯз даҳ соат кор кардам.",
+          "literal": "дю́н о́н саа́т чалышты́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Puantajda adım yok.",
+          "translation": "Дар табел номам нест.",
+          "literal": "пуантажда́ ады́м йо́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Pazar izin var mı?",
+          "translation": "Якшанбе рухсатӣ ҳаст?",
+          "literal": "паза́р изи́н ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Öğle arası bir saat.",
+          "translation": "Танаффуси нисфирӯзӣ як соат.",
+          "literal": "ё:лэ́ арасы́ би́р саа́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: номам нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Puantajı kontrol et.",
+          "cueTranslation": "Табелро санҷ.",
+          "intent": "Бигӯ: дар табел номам нест",
+          "text": "Puantajda adım yok.",
+          "accepts": [
+            "Adım yok."
+          ],
+          "translation": "Дар табел номам нест.",
+          "literal": "пуантажда́ ады́м йо́к",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi gün?",
+          "cueTranslation": "Кадом рӯз?",
+          "intent": "Бигӯ: сешанбе",
+          "text": "Salı.",
+          "accepts": [
+            "Salı günü."
+          ],
+          "translation": "Сешанбе.",
+          "literal": "салы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, ekliyorum.",
+          "cueTranslation": "Хуб, илова мекунам.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Teşekkürler.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳафта ва ид",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Altı gün çalıştım.",
+          "translation": "Шаш рӯз кор кардам.",
+          "literal": "алты́ гю́н чалышты́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Cumartesi yarım gün.",
+          "translation": "Шанбе ним рӯз.",
+          "literal": "ҷумартэси́ йары́м гю́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bayramda tatil mi?",
+          "translation": "Дар ид истироҳат аст?",
+          "literal": "байрамда́ тати́л ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Gece mesaisi var mı?",
+          "translation": "Кори шабона ҳаст?",
+          "literal": "гэҷэ́ мэсаиси́ ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Erken çıkabilir miyim?",
+          "translation": "Барвақт рафта метавонам?",
+          "literal": "эркэ́н чыкабили́р мийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Doktora gideceğim.",
+          "translation": "Ба духтур меравам.",
+          "literal": "доктора́ гидэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: ҳафта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bu hafta kaç gün çalıştın?",
+          "cueTranslation": "Ин ҳафта чанд рӯз кор кардӣ?",
+          "intent": "Бигӯ: шаш рӯз",
+          "text": "Altı gün.",
+          "accepts": [
+            "Altı gün çalıştım."
+          ],
+          "translation": "Шаш рӯз.",
+          "literal": "алты́ гю́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Cumartesi de mi?",
+          "cueTranslation": "Шанбе ҳам?",
+          "intent": "Бигӯ: ҳа, шанбе ним рӯз",
+          "text": "Evet, cumartesi yarım gün.",
+          "accepts": [
+            "Yarım gün."
+          ],
+          "translation": "Ҳа, шанбе ним рӯз.",
+          "literal": "эвэ́т ҷумартэси́ йары́м гю́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, doğru.",
+          "cueTranslation": "Хуб, дуруст.",
+          "intent": "Бипурс: барвақт рафта метавонам?",
+          "text": "Erken çıkabilir miyim?",
+          "accepts": [],
+          "translation": "Барвақт рафта метавонам?",
+          "literal": "эркэ́н чыкабили́р мийи́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: кори шабона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Günaydın! Kaçta geldin?",
+          "cueTranslation": "Субҳ ба хайр! Соати чанд омадӣ?",
+          "intent": "Бигӯ: соати ҳафт",
+          "text": "Saat yedide.",
+          "accepts": [
+            "Yedide geldim."
+          ],
+          "translation": "Соати ҳафт.",
+          "literal": "саа́т йэдидэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bugün gece mesaisi var.",
+          "cueTranslation": "Имрӯз кори шабона ҳаст.",
+          "intent": "Бипурс: соати чанд тамом мешавад?",
+          "text": "Kaçta bitiyor?",
+          "accepts": [
+            "Saat kaçta bitiyor?"
+          ],
+          "translation": "Соати чанд тамом мешавад?",
+          "literal": "качта́ битийо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Saat on birde.",
+          "cueTranslation": "Соати ёздаҳ.",
+          "intent": "Бипурс: фардо барвақт рафта метавонам?",
+          "text": "Yarın erken çıkabilir miyim?",
+          "accepts": [
+            "Erken çıkabilir miyim?"
+          ],
+          "translation": "Фардо барвақт рафта метавонам?",
+          "literal": "йары́н эркэ́н чыкабили́р мийи́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Olur, öğleden sonra çık.",
+          "cueTranslation": "Мешавад, баъд аз нисфирӯзӣ рав.",
+          "intent": "Бигӯ: ташаккур, усто",
+          "text": "Teşekkürler, usta.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур, усто.",
+          "literal": "тэшэккюрлэ́р уста́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

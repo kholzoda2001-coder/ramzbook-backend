@@ -1,0 +1,544 @@
+{
+  "slug": "place_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Şantiyede yerler",
+    "titleTranslated": "Ҷой дар объект",
+    "scenario": "Объект калон аст: ошёнаҳо, бом, таҳхона, анбор. Мепурсед ва мегӯед, ки кӣ ва чӣ куҷост, ва чӣ хел то он ҷо равед.",
+    "emoji": "📍",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": false
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҷойҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kat",
+          "translation": "ошёна",
+          "literal": "ка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Çatı",
+          "translation": "бом",
+          "literal": "чаты́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Bodrum",
+          "translation": "таҳхона",
+          "literal": "бодру́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Sağ",
+          "translation": "рост",
+          "literal": "са́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Sol",
+          "translation": "чап",
+          "literal": "со́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Yukarı",
+          "translation": "боло",
+          "literal": "йукары́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Usta nerede?",
+          "cueTranslation": "Усто куҷост?",
+          "intent": "Бигӯ: дар боло",
+          "text": "Yukarıda.",
+          "accepts": [
+            "Yukarıda, çatıda."
+          ],
+          "translation": "Дар боло.",
+          "literal": "йукарыда́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Merdiven solda mı?",
+          "cueTranslation": "Зина дар тарафи чап?",
+          "intent": "Бигӯ: не, дар тарафи рост",
+          "text": "Hayır, sağda.",
+          "accepts": [
+            "Sağda."
+          ],
+          "translation": "Не, дар тарафи рост.",
+          "literal": "ҳайы́р са:да́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bodrumda kim var?",
+          "cueTranslation": "Дар таҳхона кӣ ҳаст?",
+          "intent": "Бигӯ: ҳеҷ кас нест",
+          "text": "Kimse yok.",
+          "accepts": [
+            "Hiç kimse yok."
+          ],
+          "translation": "Ҳеҷ кас нест.",
+          "literal": "кимсэ́ йо́к",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "İkinci kat",
+          "translation": "ошёнаи дуюм",
+          "literal": "икинҷи́ ка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Üçüncü kat",
+          "translation": "ошёнаи сеюм",
+          "literal": "ючюнҷю́ ка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Aşağı",
+          "translation": "поён",
+          "literal": "аша:ы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Sağda",
+          "translation": "дар тарафи рост",
+          "literal": "са:да́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Solda",
+          "translation": "дар тарафи чап",
+          "literal": "солда́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Depo",
+          "translation": "анбор",
+          "literal": "дэпо́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Рег куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kum nerede?",
+          "cueTranslation": "Рег куҷост?",
+          "intent": "Бигӯ: дар ошёнаи дуюм",
+          "text": "İkinci katta.",
+          "accepts": [
+            "İkinci kat."
+          ],
+          "translation": "Дар ошёнаи дуюм.",
+          "literal": "икинҷи́ катта́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Merdiven nerede?",
+          "cueTranslation": "Зина куҷост?",
+          "intent": "Бигӯ: дар тарафи чап",
+          "text": "Solda.",
+          "accepts": [
+            "Sol tarafta."
+          ],
+          "translation": "Дар тарафи чап.",
+          "literal": "солда́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Asansör çalışıyor mu?",
+          "cueTranslation": "Лифт кор мекунад?",
+          "intent": "Бигӯ: не",
+          "text": "Hayır.",
+          "accepts": [
+            "Hayır, çalışmıyor."
+          ],
+          "translation": "Не.",
+          "literal": "ҳайы́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Боло ва поён",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Kaçıncı kat?",
+          "translation": "Ошёнаи чандум?",
+          "literal": "качынҷы́ ка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Üçüncü kata çık.",
+          "translation": "Ба ошёнаи сеюм баро.",
+          "literal": "ючюнҷю́ ката́ чы́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Aşağı iniyorum.",
+          "translation": "Поён мефароям.",
+          "literal": "аша:ы́ инийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Depo nerede?",
+          "translation": "Анбор куҷост?",
+          "literal": "дэпо́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapının yanında.",
+          "translation": "Дар паҳлӯи дар.",
+          "literal": "капыны́н йанында́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Asansör çalışmıyor.",
+          "translation": "Лифт кор намекунад.",
+          "literal": "асансё́р чалышмыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: анбор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nereye gidiyorsun?",
+          "cueTranslation": "Ба куҷо меравӣ?",
+          "intent": "Бигӯ: ба анбор",
+          "text": "Depoya.",
+          "accepts": [
+            "Depoya gidiyorum."
+          ],
+          "translation": "Ба анбор.",
+          "literal": "дэпойа́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Depo aşağıda, bodrumda.",
+          "cueTranslation": "Анбор поён, дар таҳхона.",
+          "intent": "Бипурс: лифт кор мекунад?",
+          "text": "Asansör çalışıyor mu?",
+          "accepts": [],
+          "translation": "Лифт кор мекунад?",
+          "literal": "асансё́р чалышыйо́р му́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, merdivenden in.",
+          "cueTranslation": "Не, аз зина фуро.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Anladım."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ман дар куҷо кор мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Beni bekle, geliyorum.",
+          "translation": "Маро интизор шав, меоям.",
+          "literal": "бэни́ бэклэ́ гэлийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Usta yukarıda mı?",
+          "translation": "Усто дар боло?",
+          "literal": "уста́ йукарыда́ мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Dördüncü katta çalışıyorum.",
+          "translation": "Дар ошёнаи чорум кор мекунам.",
+          "literal": "дёрдюнҷю́ катта́ чалышыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Çatıya çıkmak yasak.",
+          "translation": "Ба бом баромадан манъ аст.",
+          "literal": "чатыйа́ чыкма́к йаса́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Konteyner kapının önünde.",
+          "translation": "Вагонча дар пеши дарвоза.",
+          "literal": "контэйнэ́р капыны́н ёнюндэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yolu gösterir misin?",
+          "translation": "Роҳро нишон медиҳӣ?",
+          "literal": "йолу́ гёстэри́р миси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: усто куҷост",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kaçıncı katta çalışıyorsun?",
+          "cueTranslation": "Дар ошёнаи чандум кор мекунӣ?",
+          "intent": "Бигӯ: дар ошёнаи чорум",
+          "text": "Dördüncü katta.",
+          "accepts": [
+            "Dördüncü katta çalışıyorum."
+          ],
+          "translation": "Дар ошёнаи чорум.",
+          "literal": "дёрдюнҷю́ катта́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Usta seni arıyor.",
+          "cueTranslation": "Усто туро мекобад.",
+          "intent": "Бипурс: усто дар боло?",
+          "text": "Usta yukarıda mı?",
+          "accepts": [
+            "Nerede?"
+          ],
+          "translation": "Усто дар боло?",
+          "literal": "уста́ йукарыда́ мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, çatıda.",
+          "cueTranslation": "Ҳа, дар бом.",
+          "intent": "Бигӯ: ҳозир меравам",
+          "text": "Hemen gidiyorum.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Ҳозир меравам.",
+          "literal": "ҳэмэ́н гидийору́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: болға лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bana çekiç lazım. Nerede?",
+          "cueTranslation": "Ба ман болға лозим. Куҷост?",
+          "intent": "Бигӯ: дар анбор",
+          "text": "Depoda.",
+          "accepts": [
+            "Depoda var."
+          ],
+          "translation": "Дар анбор.",
+          "literal": "дэпода́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Depo nerede?",
+          "cueTranslation": "Анбор куҷост?",
+          "intent": "Бигӯ: поён, дар таҳхона",
+          "text": "Aşağıda, bodrumda.",
+          "accepts": [
+            "Bodrumda."
+          ],
+          "translation": "Поён, дар таҳхона.",
+          "literal": "аша:ыда́ бодрумда́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Asansörle mi ineyim?",
+          "cueTranslation": "Бо лифт фуроям?",
+          "intent": "Бигӯ: не, лифт кор намекунад",
+          "text": "Hayır, asansör çalışmıyor.",
+          "accepts": [
+            "Hayır."
+          ],
+          "translation": "Не, лифт кор намекунад.",
+          "literal": "ҳайы́р асансё́р чалышмыйо́р",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, merdivenden inerim.",
+          "cueTranslation": "Хуб, аз зина мефароям.",
+          "intent": "Бигӯ: зина дар тарафи чап",
+          "text": "Merdiven solda.",
+          "accepts": [
+            "Solda."
+          ],
+          "translation": "Зина дар тарафи чап.",
+          "literal": "мэрдивэ́н солда́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
