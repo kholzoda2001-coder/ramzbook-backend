@@ -31,8 +31,9 @@ const LANGS = {
         code: 'ru-RU', closing: 'Хорошо, спасибо! До встречи!' },
   en: { voices: ['en-US-Chirp3-HD-Orus', 'en-US-Chirp3-HD-Fenrir'], course: 'en-US-Chirp3-HD-Kore',
         code: 'en-US', closing: 'Great, thank you! See you later!' },
-  ar: { voices: ['ar-XA-Chirp3-HD-Orus', 'ar-XA-Chirp3-HD-Fenrir'], course: 'ar-XA-Chirp3-HD-Kore',
-        code: 'ar-XA', closing: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!' },
+  // Арабӣ: edge-tts — мардони Саудӣ ва Иморат (ҷойҳои кори муҳоҷирон); видоъ бо овози курс (Zariyah).
+  ar: { voices: ['edge:ar-SA-HamedNeural', 'edge:ar-AE-HamdanNeural'], course: 'edge:ar-SA-ZariyahNeural',
+        code: 'ar-SA', closing: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);
@@ -105,7 +106,18 @@ if (DRY) {
   process.exit(0);
 }
 
+// edge-tts: `edge:<овоз>`, суръат бо фоиз («+12%»).
+function edgeSynth(text, voice, rate) {
+  const out = `${WORK}/_edge.mp3`;
+  const pct = `${rate >= 1 ? '+' : '-'}${Math.round(Math.abs(rate - 1) * 100)}%`;
+  for (let a = 0; a < 3; a++) {
+    const r = spawnSync(PYTHON, ['-m', 'edge_tts', '--voice', voice, `--rate=${pct}`, '--text', text, '--write-media', out], PY);
+    if (r.status === 0 && existsSync(out)) return readFileSync(out);
+  }
+  return null;
+}
 async function synth(input, voice, rate = 1) {
+  if (voice.startsWith('edge:')) return edgeSynth(input.text, voice.slice(5), rate);
   for (let a = 0; a < 4; a++) {
     const res = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${env.GOOGLE_TTS_KEY}`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },

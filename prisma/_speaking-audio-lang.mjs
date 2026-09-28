@@ -43,9 +43,10 @@ const LANGS = {
   // Англисӣ: ҳамон оилаи Chirp3 (санҷишҳо барои он калибр шудаанд); эҳтиётӣ —
   // овози курси англисӣ (`en-US-Neural2-F`, ниг. `gen-all-audio-google.mjs`).
   en: { voice: 'en-US-Chirp3-HD-Kore', fallback: 'en-US-Neural2-F', code: 'en-US' },
-  // Арабӣ (28.09.2026): ҳамон оилаи Chirp3 (ar-XA — арабии стандартӣ); эҳтиётӣ Wavenet-A.
+  // Арабӣ (28.09.2026): ОВОЗИ КУРС — edge-tts Zariyah (интихоби корбар баъди гӯш кардани
+  // Chirp3-Kore ва Zariyah). Эҳтиётӣ — Google Wavenet-A. `edge:` = edge-tts, на Google.
   // ⚠️ Матн БО ҳаракат фиристода мешавад — TTS маҳз ҳамон ҳаракотро мехонад.
-  ar: { voice: 'ar-XA-Chirp3-HD-Kore', fallback: 'ar-XA-Wavenet-A', code: 'ar-XA' },
+  ar: { voice: 'edge:ar-SA-ZariyahNeural', fallback: 'ar-XA-Wavenet-A', code: 'ar-SA' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);
@@ -119,7 +120,20 @@ for (const w of await sql.query(
   wordClip[normKey(w.word)] ??= w.au;
 }
 
+// edge-tts (ройгон, бе калид): `edge:<овоз>`. `markup`-и Google надорад — матни оддӣ.
+const PYTHON = existsSync('C:/Users/ASUS1/AppData/Local/Python/pythoncore-3.14-64/python.exe')
+  ? 'C:/Users/ASUS1/AppData/Local/Python/pythoncore-3.14-64/python.exe'
+  : 'python';
+function edgeSynth(text, voice) {
+  const out = `${WORK}/_edge.mp3`;
+  for (let a = 0; a < 3; a++) {
+    const r = spawnSync(PYTHON, ['-m', 'edge_tts', '--voice', voice, '--text', text, '--write-media', out], PY);
+    if (r.status === 0 && existsSync(out)) return readFileSync(out);
+  }
+  throw new Error(`edge-tts ${voice}: «${text}» нашуд`);
+}
 async function synth(input, voice) {
+  if (voice.startsWith('edge:')) return edgeSynth(input.text ?? input.markup.replace(/\[pause short\]/g, '').trim(), voice.slice(5));
   for (let a = 0; a < 4; a++) {
     const res = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${env.GOOGLE_TTS_KEY}`, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },

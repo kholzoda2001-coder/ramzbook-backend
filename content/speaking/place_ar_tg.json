@@ -1,0 +1,539 @@
+{
+  "slug": "place_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "أَيْنَ فِي الْمَوْقِع؟",
+    "titleTranslated": "Ҷой дар объект",
+    "scenario": "Объект калон аст: анбор, ошёнаҳо, дарвоза. Шумо мепурсед, ки чиз ва одам куҷост, роҳ нишон медиҳед ва мегӯед, ки худатон куҷоед.",
+    "emoji": "📍",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Самтҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "فَوْق",
+          "translation": "боло",
+          "literal": "фавқ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "تَحْت",
+          "translation": "поён",
+          "literal": "таҳт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "يَمِين",
+          "translation": "рост",
+          "literal": "ямин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "يَسَار",
+          "translation": "чап",
+          "literal": "ясар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "قَرِيب",
+          "translation": "наздик",
+          "literal": "қариб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "بَعِيد",
+          "translation": "дур",
+          "literal": "баъид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "الْمَخْزَنُ قَرِيب؟",
+          "cueTranslation": "Анбор наздик аст?",
+          "intent": "Бигӯ, ки не",
+          "text": "لَا.",
+          "accepts": [
+            "لَا، بَعِيد."
+          ],
+          "translation": "Не.",
+          "literal": "ла",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "فَوْقَ أَمْ تَحْت؟",
+          "cueTranslation": "Боло ё поён?",
+          "intent": "Бигӯ: боло",
+          "text": "فَوْق.",
+          "accepts": [],
+          "translation": "Боло.",
+          "literal": "фавқ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "يَمِينًا أَمْ يَسَارًا؟",
+          "cueTranslation": "Рост ё чап?",
+          "intent": "Бигӯ: чап",
+          "text": "يَسَارًا.",
+          "accepts": [],
+          "translation": "Чап.",
+          "literal": "ясаран",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Дар куҷо?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "عَلَى الْيَمِين",
+          "translation": "Дар тарафи рост",
+          "literal": "ала-л-ямин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "عَلَى الْيَسَار",
+          "translation": "Дар тарафи чап",
+          "literal": "ала-л-ясар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "الطَّابِقُ الثَّانِي",
+          "translation": "Ошёнаи дуюм",
+          "literal": "ат-табиқу-с-сани",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "بِجَانِبِ الْبَاب",
+          "translation": "Назди дар",
+          "literal": "биҷаниби-л-баб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "أَيْنَ أَنْتَ؟",
+          "translation": "Ту куҷоӣ?",
+          "literal": "айна анта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "أَنَا هُنَا",
+          "translation": "Ман ин ҷоям",
+          "literal": "ана ҳуна",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом ошёна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَيْنَ أَنْتَ؟",
+          "cueTranslation": "Ту куҷоӣ?",
+          "intent": "Бигӯ: ман ин ҷоям",
+          "text": "أَنَا هُنَا.",
+          "accepts": [
+            "هُنَا."
+          ],
+          "translation": "Ман ин ҷоям.",
+          "literal": "ана ҳуна",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "فِي الطَّابِقِ الْأَوَّل؟",
+          "cueTranslation": "Дар ошёнаи якум?",
+          "intent": "Бигӯ: не, ошёнаи дуюм",
+          "text": "لَا، الطَّابِقُ الثَّانِي.",
+          "accepts": [
+            "فِي الطَّابِقِ الثَّانِي."
+          ],
+          "translation": "Не, ошёнаи дуюм.",
+          "literal": "ла, ат-табиқу-с-сани",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "حَسَنًا، أَنَا قَادِم.",
+          "cueTranslation": "Хуб, ман меоям.",
+          "intent": "Бигӯ: интизорам",
+          "text": "أَنَا أَنْتَظِر.",
+          "accepts": [
+            "أَنْتَظِرُك."
+          ],
+          "translation": "Интизорам.",
+          "literal": "ана антазир",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَيْنَ السُّلَّم؟",
+          "translation": "Нардбон куҷост?",
+          "literal": "айна-с-суллам",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "السُّلَّم|нардбон",
+            "الْمَخْزَن|анбор",
+            "الْمُشْرِف|бригадир"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "الْمَخْزَنُ عَلَى الْيَسَار.",
+          "translation": "Анбор дар тарафи чап.",
+          "literal": "ал-махзану ала-л-ясар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "اذْهَبْ إِلَى الْأَمَام.",
+          "translation": "Рост ба пеш рав.",
+          "literal": "изҳаб ила-л-амам",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "إِنَّهُ فِي الطَّابِقِ الثَّالِث.",
+          "translation": "Вай дар ошёнаи сеюм.",
+          "literal": "иннаҳу фи-т-табиқи-с-салис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "الْحَمَّامُ بَعِيد؟",
+          "translation": "Ҳоҷатхона дур аст?",
+          "literal": "ал-ҳаммаму баъид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "عِنْدَ الْبَوَّابَة.",
+          "translation": "Назди дарвоза.",
+          "literal": "инда-л-бавваба",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бригадир куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَبْحَثُ عَنِ الْمُشْرِف. أَيْنَ هُوَ؟",
+          "cueTranslation": "Бригадирро меҷӯям. Вай куҷост?",
+          "intent": "Бигӯ: дар ошёнаи сеюм",
+          "text": "فِي الطَّابِقِ الثَّالِث.",
+          "accepts": [
+            "إِنَّهُ فِي الطَّابِقِ الثَّالِث."
+          ],
+          "translation": "Дар ошёнаи сеюм.",
+          "literal": "фи-т-табиқи-с-салис",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "وَالسُّلَّم؟",
+          "cueTranslation": "Нардбон чӣ?",
+          "intent": "Бигӯ: дар тарафи чап",
+          "text": "عَلَى الْيَسَار.",
+          "accepts": [],
+          "translation": "Дар тарафи чап.",
+          "literal": "ала-л-ясар",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "شُكْرًا!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: хоҳиш мекунам",
+          "text": "عَفْوًا.",
+          "accepts": [],
+          "translation": "Хоҳиш мекунам.",
+          "literal": "афван",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хиштро куҷо гузорам?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَيْنَ أَضَعُ الطُّوب؟",
+          "translation": "Хиштро куҷо гузорам?",
+          "literal": "айна азаъу-т-туб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "ضَعْهُ هُنَاكَ فِي الزَّاوِيَة.",
+          "translation": "Онро он ҷо, дар кунҷ гузор.",
+          "literal": "заъҳу ҳунака фи-з-завия",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "الشَّاحِنَةُ عِنْدَ الْبَوَّابَة.",
+          "translation": "Боркаш назди дарвоза аст.",
+          "literal": "аш-шаҳинату инда-л-бавваба",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذَا الطَّرِيقُ مُغْلَق.",
+          "translation": "Ин роҳ баста аст.",
+          "literal": "ҳаза-т-тариқу муғлақ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "لَا أَرَاك.",
+          "translation": "Туро намебинам.",
+          "literal": "ла арак",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "تَعَالَ إِلَى هُنَا.",
+          "translation": "Ба ин ҷо биё.",
+          "literal": "таъала ила ҳуна",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Назди дарвоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَيْنَ أَنْتَ؟ لَا أَرَاك.",
+          "cueTranslation": "Ту куҷоӣ? Туро намебинам.",
+          "intent": "Бигӯ: назди дарвоза",
+          "text": "عِنْدَ الْبَوَّابَة.",
+          "accepts": [
+            "أَنَا عِنْدَ الْبَوَّابَة."
+          ],
+          "translation": "Назди дарвоза.",
+          "literal": "инда-л-бавваба",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "الْبَوَّابَةُ الْكَبِيرَة؟",
+          "cueTranslation": "Дарвозаи калон?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "نَعَمْ.",
+          "accepts": [
+            "نَعَمْ، الْكَبِيرَة."
+          ],
+          "translation": "Ҳа.",
+          "literal": "наъам",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "انْتَظِرْ، أَنَا قَادِم.",
+          "cueTranslation": "Интизор шав, меоям.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: семент куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَيْنَ الْإِسْمَنْت؟",
+          "cueTranslation": "Семент куҷост?",
+          "intent": "Бигӯ: дар анбор",
+          "text": "فِي الْمَخْزَن.",
+          "accepts": [],
+          "translation": "Дар анбор.",
+          "literal": "фи-л-махзан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "وَأَيْنَ الْمَخْزَن؟",
+          "cueTranslation": "Анбор куҷост?",
+          "intent": "Бигӯ: дар тарафи чап, назди дарвоза",
+          "text": "عَلَى الْيَسَار، عِنْدَ الْبَوَّابَة.",
+          "accepts": [
+            "عَلَى الْيَسَار."
+          ],
+          "translation": "Дар тарафи чап, назди дарвоза.",
+          "literal": "ала-л-ясар, инда-л-бавваба",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "أَحْضِرْ كِيسَيْنِ إِلَى الطَّابِقِ الثَّانِي.",
+          "cueTranslation": "Ду халтаро ба ошёнаи дуюм биёр.",
+          "intent": "Бипурс: ошёнаи дуюм?",
+          "text": "الطَّابِقُ الثَّانِي؟",
+          "accepts": [
+            "إِلَى الطَّابِقِ الثَّانِي؟"
+          ],
+          "translation": "Ошёнаи дуюм?",
+          "literal": "ат-табиқу-с-сани",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ، أَنَا هُنَاكَ.",
+          "cueTranslation": "Ҳа, ман он ҷоям.",
+          "intent": "Бигӯ: хуб, ҳозир меоям",
+          "text": "حَسَنًا، أَنَا قَادِم.",
+          "accepts": [
+            "حَاضِر."
+          ],
+          "translation": "Хуб, ҳозир меоям.",
+          "literal": "ҳасанан, ана қадим",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -634,12 +634,17 @@ const LANG_LISTS: Record<string, LangChainLists> = {
   // ⚠️ Калидҳо БЕ ҳаракат (ниг. `bare`), вале БО ҳамза — мазмуни мо ҳамзаро
   // ҳамеша менависад.
   ar: {
-    blocked: new Set<string>(),
+    // «أَنْ» ва зарфи ҷонишинӣ ба калимаи ПЕШИН тааллуқ доранд:
+    // «أُرِيدُ أَنْ أَرَاهَا» → «أَنْ أَرَاهَا» ✗, «سَأُرْسِلُ لَكَ رِسَالَة» → «لَكَ رِسَالَة» ✗.
+    blocked: new Set<string>(['أن', 'لك', 'لي', 'له', 'لها', 'لكم', 'معي', 'معك']),
     wh: new Set<string>(),
     glued: new Set<string>([
       // пешояндҳои ҷудонавишта
       'في', 'من', 'مع', 'عند', 'بعد', 'قبل', 'منذ', 'بين', 'فوق', 'تحت',
       'أمام', 'خلف', 'حول', 'مثل', 'بدون', 'حتى', 'لدى', 'نحو', 'ضد',
+      // пешояндҳои вобаста ба феъл — «блок» ҳастанд (ниг. CHAIN_BLOCKED_STARTS), вале
+      // исми баъдиро низ бе онҳо намемонем: «إِلَى اللِّقَاءِ غَدًا» → «اللِّقَاءِ غَدًا» ✗.
+      'إلى', 'الى', 'على', 'عن',
       // нидо ва ишора
       'يا', 'هذا', 'هذه', 'ذلك', 'تلك', 'هؤلاء', 'هذان', 'هاتان',
       // миқдор
@@ -662,8 +667,17 @@ const AR_TANWEEN = /[\u064B-\u064D]/; // танвин: ً ٌ ٍ
 function arCutsNounAdjective(prev: string, cur: string): boolean {
   const p = bare(prev), c = bare(cur);
   if (p.indexOf('ال') === 0 && c.indexOf('ال') === 0) return true;
-  return AR_TANWEEN.test(prev) && AR_TANWEEN.test(cur);
+  if (AR_TANWEEN.test(prev) && AR_TANWEEN.test(cur)) return true;
+  // Изофа: исми аввал бе «ال» ва бе танвин, бо ҳаракати кӯтоҳи охир; исми дуюм
+  // бо «ال» ё дар ҳолати ҷарр (касра/танвини касра): «يَوْمَ السَّبْتِ» →
+  // «السَّبْتِ أَيْضًا» ✗, «مَقَاسُ اثْنَيْنِ» → «اثْنَيْنِ وَأَرْبَعِين» ✗.
+  const prevShort = /[\u064E-\u0650]$/.test(prev);
+  const curGen = c.indexOf('ال') === 0 || /[\u0650\u064D]$/.test(cur);
+  return p.indexOf('ال') !== 0 && !AR_TANWEEN.test(prev) && prevShort && curGen;
 }
+
+/** Калимае, ки ибораи ПЕШИНро тамом мекунад («النُّور،», «شَيْء.») — порча аз он сар намешавад. */
+const AR_ENDS_CLAUSE = /[\u060C\u061F,.!?:;]$/;
 
 const isBlockedStart = (w: string, cfg: EngineConfig) =>
   CHAIN_BLOCKED_STARTS.has(w) || (cfg.lang ? !!LANG_LISTS[cfg.lang]?.blocked.has(w) : false);
@@ -693,6 +707,7 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
 
     if (isBlockedStart(bare(w[start]), cfg)) continue; // қоидаи 1
     if (start > 0 && isWhWord(bare(w[start - 1]), cfg)) continue; // қоидаи 2
+    if (cfg.lang === 'ar' && AR_ENDS_CLAUSE.test(w[start])) continue;
     if (cfg.lang === 'ar' && start > 0 && arCutsNounAdjective(w[start - 1], w[start])) continue;
 
     // қоидаи 3 — муайянкунанда/адади пешомадаро ба чунк мечаспонем
@@ -703,6 +718,9 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
     // Агар часпондан тамоми ҷумларо диҳад, шакли бечаспро мегирем:
     // «The bill, please.» набояд ба худи ҷумла табдил ёбад.
     let seg = w.slice(glued).join(' ');
+    // Арабӣ: бе калимаи часпанда порча маъно надорад («شَيْءٍ تَمَام» бе «كُلُّ») —
+    // пас агар часпондан тамоми ҷумларо диҳад, порча НЕСТ, на шакли бечасп.
+    if (seg === full && cfg.lang === 'ar' && glued < start) continue;
     if (seg === full) seg = plain;
     if (seg === full) continue; // чунк набояд тамоми ҷумла бошад
     if (!out.includes(seg)) out.push(seg);

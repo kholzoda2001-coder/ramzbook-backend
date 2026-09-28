@@ -1,0 +1,528 @@
+{
+  "slug": "measure_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "الْأَرْقَامُ وَالْمَقَاسَات",
+    "titleTranslated": "Шумора ва андоза",
+    "scenario": "Дар сохтмон ҳама чиз бо рақам аст: метр, халта, дона. Шумо чен мекунед, мегӯед, ки чанд лозим, ва мепурсед, ки басанда аст ё не.",
+    "emoji": "📏",
+    "order": 9,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Рақамҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "مِتْر",
+          "translation": "метр",
+          "literal": "митр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "وَاحِد",
+          "translation": "як",
+          "literal": "ваҳид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "اثْنَان",
+          "translation": "ду",
+          "literal": "иснан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "ثَلَاثَة",
+          "translation": "се",
+          "literal": "саласа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "طَوِيل",
+          "translation": "дароз",
+          "literal": "тавил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "قَصِير",
+          "translation": "кӯтоҳ",
+          "literal": "қасир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "كَمْ مِتْرًا؟ اثْنَان؟",
+          "cueTranslation": "Чанд метр? Ду?",
+          "intent": "Бигӯ: се",
+          "text": "ثَلَاثَة.",
+          "accepts": [
+            "ثَلَاثَةُ أَمْتَار."
+          ],
+          "translation": "Се.",
+          "literal": "саласа",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "طَوِيلٌ أَمْ قَصِير؟",
+          "cueTranslation": "Дароз ё кӯтоҳ?",
+          "intent": "Бигӯ: дароз",
+          "text": "طَوِيل.",
+          "accepts": [],
+          "translation": "Дароз.",
+          "literal": "тавил",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "هَذَا يَكْفِي؟",
+          "cueTranslation": "Ин басанда аст?",
+          "intent": "Бигӯ, ки не",
+          "text": "لَا.",
+          "accepts": [
+            "لَا، لَا يَكْفِي."
+          ],
+          "translation": "Не.",
+          "literal": "ла",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Андоза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "ثَلَاثَةُ أَمْتَار",
+          "translation": "Се метр",
+          "literal": "саласату амтар",
+          "note": "Рақамҳои 3–10 бо исми мардона шакли «ـة» мегиранд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "خَمْسَةُ أَكْيَاس",
+          "translation": "Панҷ халта",
+          "literal": "хамсату акяс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "عَشْرُ قِطَع",
+          "translation": "Даҳ дона",
+          "literal": "ашру қитаъ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "نِصْفُ مِتْر",
+          "translation": "Ним метр",
+          "literal": "нисфу митр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "عَرْض",
+          "translation": "паҳно",
+          "literal": "арз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "ارْتِفَاع",
+          "translation": "баландӣ",
+          "literal": "иртифаъ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Девор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "كَمْ طُولُ الْجِدَار؟",
+          "cueTranslation": "Дарозии девор чанд аст?",
+          "intent": "Бигӯ: се метр",
+          "text": "ثَلَاثَةُ أَمْتَار.",
+          "accepts": [],
+          "translation": "Се метр.",
+          "literal": "саласату амтар",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "وَالْعَرْض؟",
+          "cueTranslation": "Паҳноиаш?",
+          "intent": "Бигӯ: ним метр",
+          "text": "نِصْفُ مِتْر.",
+          "accepts": [],
+          "translation": "Ним метр.",
+          "literal": "нисфу митр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "كَمْ كِيسًا نَحْتَاج؟",
+          "cueTranslation": "Чанд халта лозим?",
+          "intent": "Бигӯ: панҷ халта",
+          "text": "خَمْسَةُ أَكْيَاس.",
+          "accepts": [],
+          "translation": "Панҷ халта.",
+          "literal": "хамсату акяс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Чен мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَحْتَاجُ ثَلَاثَةَ أَمْتَار.",
+          "translation": "Ба ман се метр лозим.",
+          "literal": "аҳтаҷу саласата амтар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "كَمْ طُولُه؟",
+          "translation": "Дарозиаш чанд?",
+          "literal": "кам тулуҳ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذَا قَصِيرٌ جِدًّا.",
+          "translation": "Ин хеле кӯтоҳ аст.",
+          "literal": "ҳаза қасирун ҷиддан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "قِسْهُ مِنْ فَضْلِكَ.",
+          "translation": "Лутфан, чен кун.",
+          "literal": "қисҳу мин фазлика",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "الطُّولُ خَمْسَةُ أَمْتَار.",
+          "translation": "Дарозӣ панҷ метр.",
+          "literal": "ат-тулу хамсату амтар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "عِنْدَنَا عِشْرُونَ قِطْعَة.",
+          "translation": "Мо бист дона дорем.",
+          "literal": "индана ишруна қитъа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Қубур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "اقْطَعِ الْأُنْبُوب.",
+          "cueTranslation": "Қубурро бур.",
+          "intent": "Бипурс: дарозиаш чанд?",
+          "text": "كَمْ طُولُه؟",
+          "accepts": [
+            "كَمْ مِتْرًا؟"
+          ],
+          "translation": "Дарозиаш чанд?",
+          "literal": "кам тулуҳ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "مِتْرَانِ وَنِصْف.",
+          "cueTranslation": "Ду ва ним метр.",
+          "intent": "Такрор кун, то дуруст фаҳмидӣ",
+          "text": "مِتْرَانِ وَنِصْف؟",
+          "accepts": [
+            "مِتْرَانِ وَنِصْف."
+          ],
+          "translation": "Ду ва ним метр?",
+          "literal": "митрани ванисф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ. قِسْهُ جَيِّدًا.",
+          "cueTranslation": "Ҳа. Хуб чен кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Басанда нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "كَمْ قِطْعَةً تَحْتَاج؟",
+          "translation": "Ба ту чанд дона лозим?",
+          "literal": "кам қитъатан таҳтаҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذِهِ لَا تَكْفِي.",
+          "translation": "Инҳо басанда нестанд.",
+          "literal": "ҳазиҳи ла такфи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "نَحْتَاجُ عَشَرَةً أُخْرَى.",
+          "translation": "Боз даҳтои дигар лозим.",
+          "literal": "наҳтаҷу ашаратан ухра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "الْجِدَارُ مُرْتَفِعٌ جِدًّا.",
+          "translation": "Девор хеле баланд аст.",
+          "literal": "ал-ҷидару муртафиъун ҷиддан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "خَمْسُونَ سَنْتِيمِتْرًا.",
+          "translation": "Панҷоҳ сантиметр.",
+          "literal": "хамсуна сантимитран",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "وَاحِد، اثْنَان، ثَلَاثَة.",
+          "translation": "Як, ду, се.",
+          "literal": "ваҳид, иснан, саласа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Қубурҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "كَمْ أُنْبُوبًا عِنْدَنَا؟",
+          "cueTranslation": "Чанд қубур дорем?",
+          "intent": "Бигӯ: бист дона",
+          "text": "عِشْرُونَ قِطْعَة.",
+          "accepts": [
+            "عِشْرُون."
+          ],
+          "translation": "Бист дона.",
+          "literal": "ишруна қитъа",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "نَحْتَاجُ ثَلَاثِين.",
+          "cueTranslation": "Сӣ лозим.",
+          "intent": "Бигӯ: боз даҳтои дигар лозим",
+          "text": "نَحْتَاجُ عَشَرَةً أُخْرَى.",
+          "accepts": [
+            "عَشَرَةٌ أُخْرَى."
+          ],
+          "translation": "Боз даҳтои дигар лозим.",
+          "literal": "наҳтаҷу ашаратан ухра",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "صَحِيح. اطْلُبْهَا مِنَ الْمَخْزَن.",
+          "cueTranslation": "Дуруст. Аз анбор талаб кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳуҷраро чен кун",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "قِسِ الْغُرْفَة.",
+          "cueTranslation": "Ҳуҷраро чен кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [
+            "حَاضِر."
+          ],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "كَمِ الطُّول؟",
+          "cueTranslation": "Дарозӣ чанд?",
+          "intent": "Бигӯ: панҷ метр",
+          "text": "خَمْسَةُ أَمْتَار.",
+          "accepts": [],
+          "translation": "Панҷ метр.",
+          "literal": "хамсату амтар",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "وَالْعَرْض؟",
+          "cueTranslation": "Паҳноӣ?",
+          "intent": "Бигӯ: се ва ним метр",
+          "text": "ثَلَاثَةُ أَمْتَارٍ وَنِصْف.",
+          "accepts": [],
+          "translation": "Се ва ним метр.",
+          "literal": "саласату амтарин ванисф",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "كَمْ بَلَاطَةً نَحْتَاج؟",
+          "cueTranslation": "Чанд кошин лозим?",
+          "intent": "Бигӯ: ҳафтод дона",
+          "text": "سَبْعُونَ قِطْعَة.",
+          "accepts": [],
+          "translation": "Ҳафтод дона.",
+          "literal": "сабъуна қитъа",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
