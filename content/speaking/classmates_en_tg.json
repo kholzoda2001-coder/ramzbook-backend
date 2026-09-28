@@ -1,0 +1,571 @@
+{
+  "slug": "classmates_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Classmates",
+    "titleTranslated": "Ҳамсинфон",
+    "scenario": "Ҳамсинфон аз кишварҳои гуногун: шиносоӣ, чӣ мехонед, кадом забонҳоро медонед. Шумо ҷой мепурсед, рақами телефон мегиред ва якҷоя дарс хонданро пешниҳод мекунед.",
+    "emoji": "👫",
+    "order": 9,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳамсинфон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Classmate",
+          "translation": "ҳамсинф",
+          "literal": "клэсмейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Study",
+          "translation": "хондан (омӯхтан)",
+          "literal": "стадӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Together",
+          "translation": "якҷоя",
+          "literal": "тугеҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Country",
+          "translation": "кишвар",
+          "literal": "кантрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Language",
+          "translation": "забон",
+          "literal": "лэнгвидж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Coffee",
+          "translation": "қаҳва",
+          "literal": "кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шиносоӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you a new classmate?",
+          "cueTranslation": "Ту ҳамсинфи навӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am.",
+            "Yes, I'm new."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you study? Math?",
+          "cueTranslation": "Чӣ мехонӣ? Математика?",
+          "intent": "Бигӯ: англисӣ",
+          "text": "English.",
+          "accepts": [
+            "I study English.",
+            "No, English."
+          ],
+          "translation": "Англисӣ.",
+          "literal": "инглиш",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tea or coffee?",
+          "cueTranslation": "Чой ё қаҳва?",
+          "intent": "Бигӯ: қаҳва",
+          "text": "Coffee.",
+          "accepts": [
+            "Coffee, please."
+          ],
+          "translation": "Қаҳва.",
+          "literal": "кофӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Якҷоя",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Me too",
+          "translation": "Ман ҳам",
+          "literal": "мӣ ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Study together",
+          "translation": "Якҷоя дарс хондан",
+          "literal": "стадӣ тугеҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Which country?",
+          "translation": "Кадом кишвар?",
+          "literal": "вич кантрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Good idea",
+          "translation": "Фикри хуб",
+          "literal": "гуд айдиэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "After class",
+          "translation": "Баъди дарс",
+          "literal": "эфтэр клэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Your language",
+          "translation": "Забони ту",
+          "literal": "ёр лэнгвидж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Аз куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where are you from? Which country?",
+          "cueTranslation": "Аз куҷоӣ? Кадом кишвар?",
+          "intent": "Бигӯ: Тоҷикистон",
+          "text": "Tajikistan.",
+          "accepts": [
+            "I'm from Tajikistan.",
+            "From Tajikistan."
+          ],
+          "translation": "Тоҷикистон.",
+          "literal": "тоҷикистон",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Let's study together after class.",
+          "cueTranslation": "Биё баъди дарс якҷоя дарс хонем.",
+          "intent": "Бигӯ: фикри хуб",
+          "text": "Good idea!",
+          "accepts": [
+            "Okay, good idea.",
+            "Sure!"
+          ],
+          "translation": "Фикри хуб!",
+          "literal": "гуд айдиэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What languages do you speak?",
+          "cueTranslation": "Бо кадом забонҳо гап мезанӣ?",
+          "intent": "Бигӯ: тоҷикӣ ва русӣ",
+          "text": "Tajik and Russian.",
+          "accepts": [
+            "Tajik, Russian.",
+            "I speak Tajik and Russian."
+          ],
+          "translation": "Тоҷикӣ ва русӣ.",
+          "literal": "таҷик энд рашэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи худам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What do you study?",
+          "translation": "Чӣ мехонӣ?",
+          "literal": "вот ду ю стадӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I study English.",
+          "translation": "Ман англисӣ мехонам.",
+          "literal": "ай стадӣ инглиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "English|англисӣ",
+            "business|тиҷорат",
+            "medicine|тиб"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Let's study together.",
+          "translation": "Биё якҷоя дарс хонем.",
+          "literal": "летс стадӣ тугеҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Do you want coffee?",
+          "translation": "Қаҳва мехоҳӣ?",
+          "literal": "ду ю вонт кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I speak Tajik.",
+          "translation": "Ман тоҷикӣ гап мезанам.",
+          "literal": "ай спик таҷик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "Tajik|тоҷикӣ",
+            "Russian|русӣ"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "And you?",
+          "translation": "Ту-чӣ?",
+          "literal": "энд ю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Қаҳва баъди дарс",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! I'm Maria. What do you study?",
+          "cueTranslation": "Салом! Ман Мария. Чӣ мехонӣ?",
+          "intent": "Бигӯ: англисӣ. Ту-чӣ?",
+          "text": "I study English. And you?",
+          "accepts": [
+            "English. And you?",
+            "I study English."
+          ],
+          "translation": "Ман англисӣ мехонам. Ту-чӣ?",
+          "literal": "ай стадӣ инглиш энд ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Medicine. Do you want coffee?",
+          "cueTranslation": "Тиб. Қаҳва мехоҳӣ?",
+          "intent": "Бигӯ: ҳа, ташаккур",
+          "text": "Yes, thank you.",
+          "accepts": [
+            "Sure.",
+            "Yes, please."
+          ],
+          "translation": "Ҳа, ташаккур.",
+          "literal": "йес ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Let's go after class.",
+          "cueTranslation": "Баъди дарс меравем.",
+          "intent": "Бигӯ: хуб, фикри хуб",
+          "text": "Okay, good idea.",
+          "accepts": [
+            "Good idea!",
+            "Okay!"
+          ],
+          "translation": "Хуб, фикри хуб.",
+          "literal": "оукей гуд айдиэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Рақами телефон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What's your phone number?",
+          "translation": "Рақами телефонат чанд?",
+          "literal": "вотс ёр фоун намбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "own",
+          "text": "My number is ___.",
+          "translation": "Рақами ман ___.",
+          "literal": "май намбэр из ___",
+          "note": "Рақами телефони худро гӯед.",
+          "cue": "What's your number?",
+          "cueTranslation": "Рақамат чанд?",
+          "intent": "Рақами худро гӯед",
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Let's meet tomorrow.",
+          "translation": "Фардо вомехӯрем.",
+          "literal": "летс мит туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "See you in class.",
+          "translation": "То дидор дар дарс.",
+          "literal": "сӣ ю ин клэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I sit here?",
+          "translation": "Ин ҷо нишаста метавонам?",
+          "literal": "кен ай сит ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this seat free?",
+          "translation": "Ин ҷо холист?",
+          "literal": "из ҙис сит фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҷои холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi!",
+          "cueTranslation": "Салом!",
+          "intent": "Бипурс: ин ҷо холист?",
+          "text": "Is this seat free?",
+          "accepts": [
+            "Can I sit here?",
+            "Is it free?"
+          ],
+          "translation": "Ин ҷо холист?",
+          "literal": "из ҙис сит фрӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, sit down.",
+          "cueTranslation": "Ҳа, шинед.",
+          "intent": "Ташаккур гӯй ва пешниҳод кун якҷоя дарс хонед",
+          "text": "Thanks. Let's study together.",
+          "accepts": [
+            "Thanks!",
+            "Let's study together."
+          ],
+          "translation": "Ташаккур. Биё якҷоя дарс хонем.",
+          "literal": "ҫенкс летс стадӣ тугеҙэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sure! Let's meet tomorrow.",
+          "cueTranslation": "Албатта! Фардо вомехӯрем.",
+          "intent": "Бигӯ: хуб, то фардо",
+          "text": "Okay. See you tomorrow.",
+          "accepts": [
+            "See you tomorrow!",
+            "Okay!"
+          ],
+          "translation": "Хуб. То фардо.",
+          "literal": "оукей сӣ ю туморроу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳамсинфи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you new? Which country are you from?",
+          "cueTranslation": "Салом! Навӣ? Аз кадом кишварӣ?",
+          "intent": "Бигӯ: Тоҷикистон ва бипурс: ту-чӣ?",
+          "text": "Tajikistan. And you?",
+          "accepts": [
+            "I'm from Tajikistan. And you?",
+            "From Tajikistan."
+          ],
+          "translation": "Тоҷикистон. Ту-чӣ?",
+          "literal": "тоҷикистон энд ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Brazil! What do you study?",
+          "cueTranslation": "Бразилия! Чӣ мехонӣ?",
+          "intent": "Бигӯ: англисӣ мехонам",
+          "text": "I study English.",
+          "accepts": [
+            "English.",
+            "English. And you?"
+          ],
+          "translation": "Ман англисӣ мехонам.",
+          "literal": "ай стадӣ инглиш",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Me too! Let's study together?",
+          "cueTranslation": "Ман ҳам! Якҷоя дарс хонем?",
+          "intent": "Бигӯ: фикри хуб!",
+          "text": "Good idea!",
+          "accepts": [
+            "Sure!",
+            "Okay, good idea."
+          ],
+          "translation": "Фикри хуб!",
+          "literal": "гуд айдиэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Great. See you in class!",
+          "cueTranslation": "Олӣ. То дидор дар дарс!",
+          "intent": "Бигӯ: то дидор дар дарс",
+          "text": "See you in class!",
+          "accepts": [
+            "See you!",
+            "Bye, see you in class!"
+          ],
+          "translation": "То дидор дар дарс!",
+          "literal": "сӣ ю ин клэс",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

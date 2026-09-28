@@ -1,0 +1,577 @@
+{
+  "slug": "help_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Asking for help",
+    "titleTranslated": "Ёрӣ пурсидан",
+    "scenario": "Чизеро нафаҳмидед ё дарсро аз даст додед — ба назди муаллим меравед. Шумо мегӯед, ки чиро намефаҳмед, хоҳиш мекунед фаҳмонад ва вақти бештар мепурсед.",
+    "emoji": "🙋",
+    "order": 11,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ёрӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Help",
+          "translation": "ёрӣ",
+          "literal": "ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Problem",
+          "translation": "мушкил",
+          "literal": "проблэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Homework",
+          "translation": "вазифаи хонагӣ",
+          "literal": "ҳоумвёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Email",
+          "translation": "почтаи электронӣ",
+          "literal": "имейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Office",
+          "translation": "ҳуҷраи корӣ (кабинет)",
+          "literal": "офис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Understand",
+          "translation": "фаҳмидан",
+          "literal": "андэрстэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ёрӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you need help?",
+          "cueTranslation": "Ёрӣ лозим?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, please.",
+            "Yes, I do."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is it the homework or the exam?",
+          "cueTranslation": "Вазифаи хонагӣ ё имтиҳон?",
+          "intent": "Бигӯ: вазифаи хонагӣ",
+          "text": "The homework.",
+          "accepts": [
+            "Homework.",
+            "It's the homework."
+          ],
+          "translation": "Вазифаи хонагӣ.",
+          "literal": "ҙэ ҳоумвёрк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you understand?",
+          "cueTranslation": "Мефаҳмед?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, I don't.",
+            "Not really."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Фаҳмо нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Help me",
+          "translation": "Ёрӣ деҳ",
+          "literal": "ҳелп мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "This question",
+          "translation": "Ин савол",
+          "literal": "ҙис квесчэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Your email",
+          "translation": "Почтаи шумо",
+          "literal": "ёр имейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Office hours",
+          "translation": "Соатҳои қабул",
+          "literal": "офис ауэрз",
+          "note": "Вақте ки муаллим донишҷӯёнро қабул мекунад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Not clear",
+          "translation": "Фаҳмо нест",
+          "literal": "нот клир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Explain",
+          "translation": "фаҳмондан",
+          "literal": "иксплейн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар кабинети муаллим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Come in.",
+          "cueTranslation": "Салом! Дароед.",
+          "intent": "Бигӯ: ба ман ёрӣ лозим",
+          "text": "I need help.",
+          "accepts": [
+            "Can you help me?",
+            "Hello, I need help."
+          ],
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": "ай нид ҳелп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "With what?",
+          "cueTranslation": "Бо чӣ?",
+          "intent": "Бигӯ: ин савол",
+          "text": "This question.",
+          "accepts": [
+            "This one.",
+            "This question here."
+          ],
+          "translation": "Ин савол.",
+          "literal": "ҙис квесчэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. What is not clear?",
+          "cueTranslation": "Хуб. Чӣ фаҳмо нест?",
+          "intent": "Бигӯ: вазифаи хонагӣ",
+          "text": "The homework.",
+          "accepts": [
+            "The homework is not clear.",
+            "Homework."
+          ],
+          "translation": "Вазифаи хонагӣ.",
+          "literal": "ҙэ ҳоумвёрк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Can you explain this?",
+          "translation": "Инро фаҳмонда метавонед?",
+          "literal": "кен ю иксплейн ҙис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I don't understand this.",
+          "translation": "Инро намефаҳмам.",
+          "literal": "ай доунт андэрстэнд ҙис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I email you?",
+          "translation": "Ба шумо почта фиристода метавонам?",
+          "literal": "кен ай имейл ю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "When are office hours?",
+          "translation": "Соатҳои қабул кай?",
+          "literal": "вен ар офис ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Thanks for your time.",
+          "translation": "Ташаккур барои вақтатон.",
+          "literal": "ҫенкс фор ёр тайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I need more time.",
+          "translation": "Ба ман вақти бештар лозим.",
+          "literal": "ай нид мор тайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Фаҳмонед, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi. Can I help you?",
+          "cueTranslation": "Салом. Ёрӣ диҳам?",
+          "intent": "Бигӯ: инро намефаҳмам",
+          "text": "I don't understand this.",
+          "accepts": [
+            "I don't understand.",
+            "This is not clear."
+          ],
+          "translation": "Инро намефаҳмам.",
+          "literal": "ай доунт андэрстэнд ҙис",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Which part?",
+          "cueTranslation": "Кадом қисм?",
+          "intent": "Бипурс: инро фаҳмонда метавонед?",
+          "text": "Can you explain this?",
+          "accepts": [
+            "This part. Can you explain?",
+            "Can you explain it?"
+          ],
+          "translation": "Инро фаҳмонда метавонед?",
+          "literal": "кен ю иксплейн ҙис",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sure. Look...",
+          "cueTranslation": "Албатта. Бинед...",
+          "intent": "Ташаккур гӯй барои вақт",
+          "text": "Thanks for your time.",
+          "accepts": [
+            "Thank you.",
+            "Thanks a lot."
+          ],
+          "translation": "Ташаккур барои вақтатон.",
+          "literal": "ҫенкс фор ёр тайм",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дарсро аз даст додам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I was sick.",
+          "translation": "Бемор будам.",
+          "literal": "ай воз сик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Missed",
+          "translation": "аз даст додам",
+          "literal": "мист",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I missed the class.",
+          "translation": "Дарсро аз даст додам.",
+          "literal": "ай мист ҙэ клэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "What did I miss?",
+          "translation": "Чиро аз даст додам?",
+          "literal": "вот дид ай мис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Is Friday okay?",
+          "translation": "Ҷумъа мешавад?",
+          "literal": "из фрайдей оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I understand now.",
+          "translation": "Акнун фаҳмидам.",
+          "literal": "ай андэрстэнд нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Баъди беморӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "You weren't in class yesterday.",
+          "cueTranslation": "Дирӯз дар дарс набудӣ.",
+          "intent": "Бигӯ: бемор будам",
+          "text": "I was sick.",
+          "accepts": [
+            "Sorry, I was sick.",
+            "I was sick, sorry."
+          ],
+          "translation": "Бемор будам.",
+          "literal": "ай воз сик",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I see. Are you better now?",
+          "cueTranslation": "Фаҳмо. Акнун беҳтарӣ?",
+          "intent": "Бигӯ: ҳа ва бипурс чиро аз даст додам",
+          "text": "Yes. What did I miss?",
+          "accepts": [
+            "Yes, thanks. What did I miss?",
+            "What did I miss?"
+          ],
+          "translation": "Ҳа. Чиро аз даст додам?",
+          "literal": "йес вот дид ай мис",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Page thirty. The homework is for tomorrow.",
+          "cueTranslation": "Саҳифаи сӣ. Вазифа барои фардо.",
+          "intent": "Бигӯ: ба ман вақти бештар лозим",
+          "text": "I need more time.",
+          "accepts": [
+            "Can I have more time?",
+            "More time, please."
+          ],
+          "translation": "Ба ман вақти бештар лозим.",
+          "literal": "ай нид мор тайм",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Friday is fine.",
+          "cueTranslation": "Хуб. Ҷумъа мешавад.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you!",
+          "accepts": [
+            "Thanks!",
+            "Thank you very much."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: назди муаллим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Come in. How can I help?",
+          "cueTranslation": "Салом! Дароед. Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: дарсро аз даст додам, бемор будам",
+          "text": "I missed the class. I was sick.",
+          "accepts": [
+            "I was sick. I missed the class.",
+            "I missed the class."
+          ],
+          "translation": "Дарсро аз даст додам. Бемор будам.",
+          "literal": "ай мист ҙэ клэс ай воз сик",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sorry to hear that. What do you need?",
+          "cueTranslation": "Афсӯс. Чӣ лозим?",
+          "intent": "Бипурс: инро фаҳмонда метавонед?",
+          "text": "Can you explain this?",
+          "accepts": [
+            "Can you explain it?",
+            "Please explain this."
+          ],
+          "translation": "Инро фаҳмонда метавонед?",
+          "literal": "кен ю иксплейн ҙис",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Of course. Is it clear now?",
+          "cueTranslation": "Албатта. Акнун фаҳмо?",
+          "intent": "Бигӯ: ҳа, акнун фаҳмидам",
+          "text": "Yes, I understand now.",
+          "accepts": [
+            "Yes, I understand.",
+            "Yes, thank you."
+          ],
+          "translation": "Ҳа, акнун фаҳмидам.",
+          "literal": "йес ай андэрстэнд нау",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Any more questions?",
+          "cueTranslation": "Хуб. Боз савол ҳаст?",
+          "intent": "Бигӯ: не, ташаккур барои вақтатон",
+          "text": "No. Thanks for your time.",
+          "accepts": [
+            "No, thank you.",
+            "Thanks for your time."
+          ],
+          "translation": "Не. Ташаккур барои вақтатон.",
+          "literal": "ноу ҫенкс фор ёр тайм",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

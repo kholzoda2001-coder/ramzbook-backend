@@ -1,0 +1,569 @@
+{
+  "slug": "hours_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Hours and timesheet",
+    "titleTranslated": "Соатҳо ва табел",
+    "scenario": "Дар Амрико ва Англия ҳар рӯз омадан ва рафтанро дар табел сабт мекунанд — аз он музд ҳисоб мешавад. Шумо имзо мегузоред, соатҳоятонро мегӯед ва хаторо нишон медиҳед.",
+    "emoji": "🕗",
+    "order": 20,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Табел",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Timesheet",
+          "translation": "табел",
+          "literal": "таймшит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Sign",
+          "translation": "имзо кардан",
+          "literal": "сайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Start",
+          "translation": "сар кардан",
+          "literal": "старт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Finish",
+          "translation": "тамом кардан",
+          "literal": "финиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Break",
+          "translation": "танаффус",
+          "literal": "брейк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Minutes",
+          "translation": "дақиқаҳо",
+          "literal": "минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Имзо гузоштӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Did you sign in?",
+          "cueTranslation": "Имзо гузоштӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I did."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "When did you start? Seven or eight?",
+          "cueTranslation": "Кай сар кардӣ? Ҳафт ё ҳашт?",
+          "intent": "Бигӯ: ҳафт",
+          "text": "Seven.",
+          "accepts": [
+            "At seven.",
+            "7."
+          ],
+          "translation": "Ҳафт.",
+          "literal": "севэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How long was your break?",
+          "cueTranslation": "Танаффусат чанд буд?",
+          "intent": "Бигӯ: сӣ дақиқа",
+          "text": "Thirty minutes.",
+          "accepts": [
+            "30 minutes.",
+            "Thirty."
+          ],
+          "translation": "Сӣ дақиқа.",
+          "literal": "ҫёртӣ минитс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Имзо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Sign here",
+          "translation": "Ин ҷо имзо кун",
+          "literal": "сайн ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sign in",
+          "translation": "Омаданро сабт кун",
+          "literal": "сайн ин",
+          "note": "«Sign in» — омадан, «sign out» — рафтан.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Sign out",
+          "translation": "Рафтанро сабт кун",
+          "literal": "сайн аут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Eight hours",
+          "translation": "Ҳашт соат",
+          "literal": "эйт ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Thirty minutes",
+          "translation": "Сӣ дақиқа",
+          "literal": "ҫёртӣ минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "My hours",
+          "translation": "Соатҳои ман",
+          "literal": "май ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Саҳар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Morning! Sign here.",
+          "cueTranslation": "Субҳ ба хайр! Ин ҷо имзо кун.",
+          "intent": "Бипурс: ин ҷо?",
+          "text": "Here?",
+          "accepts": [
+            "Sign here?",
+            "Right here?"
+          ],
+          "translation": "Ин ҷо?",
+          "literal": "ҳир",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. And sign out at five.",
+          "cueTranslation": "Ҳа. Соати панҷ рафтанро ҳам сабт кун.",
+          "intent": "Бигӯ: хуб, соати панҷ",
+          "text": "Okay, at five.",
+          "accepts": [
+            "Okay.",
+            "Sure, at five."
+          ],
+          "translation": "Хуб, соати панҷ.",
+          "literal": "оукей эт файв",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How many hours today?",
+          "cueTranslation": "Имрӯз чанд соат?",
+          "intent": "Бигӯ: ҳашт соат",
+          "text": "Eight hours.",
+          "accepts": [
+            "Eight.",
+            "8 hours."
+          ],
+          "translation": "Ҳашт соат.",
+          "literal": "эйт ауэрз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Соатҳои ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I started at seven.",
+          "translation": "Соати ҳафт сар кардам.",
+          "literal": "ай стартид эт севэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "seven|ҳафт",
+            "eight|ҳашт"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I finished at five.",
+          "translation": "Соати панҷ тамом кардам.",
+          "literal": "ай финишт эт файв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "five|панҷ",
+            "six|шаш"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "My hours are wrong.",
+          "translation": "Соатҳои ман нодурустанд.",
+          "literal": "май ауэрз ар ронг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where do I sign?",
+          "translation": "Куҷо имзо кунам?",
+          "literal": "вэр ду ай сайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I worked eight hours.",
+          "translation": "Ҳашт соат кор кардам.",
+          "literal": "ай вёркт эйт ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I forgot to sign.",
+          "translation": "Имзо гузоштанро фаромӯш кардам.",
+          "literal": "ай фэргот ту сайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Хато дар табел",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Your timesheet says six hours.",
+          "cueTranslation": "Дар табелат шаш соат.",
+          "intent": "Бигӯ: соатҳои ман нодурустанд",
+          "text": "My hours are wrong.",
+          "accepts": [
+            "That's wrong.",
+            "It's wrong."
+          ],
+          "translation": "Соатҳои ман нодурустанд.",
+          "literal": "май ауэрз ар ронг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Why? When did you start?",
+          "cueTranslation": "Чаро? Кай сар кардӣ?",
+          "intent": "Бигӯ: соати ҳафт сар кардам",
+          "text": "I started at seven.",
+          "accepts": [
+            "At seven.",
+            "Seven."
+          ],
+          "translation": "Соати ҳафт сар кардам.",
+          "literal": "ай стартид эт севэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And you finished at...?",
+          "cueTranslation": "Ва тамом кардӣ соати...?",
+          "intent": "Бигӯ: соати панҷ тамом кардам",
+          "text": "I finished at five.",
+          "accepts": [
+            "At five.",
+            "Five."
+          ],
+          "translation": "Соати панҷ тамом кардам.",
+          "literal": "ай финишт эт файв",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Шанбе ва танаффус",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I worked on Saturday.",
+          "translation": "Шанбе кор кардам.",
+          "literal": "ай вёркт он сэтэрдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I had no break.",
+          "translation": "Танаффус надоштам.",
+          "literal": "ай ҳэд ноу брейк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Please check again.",
+          "translation": "Лутфан, боз санҷед.",
+          "literal": "плиз чек эген",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Saturday",
+          "translation": "шанбе",
+          "literal": "сэтэрдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Thanks for checking.",
+          "translation": "Ташаккур барои санҷиш.",
+          "literal": "ҫенкс фор чекинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Can you fix it?",
+          "translation": "Ислоҳ карда метавонед?",
+          "literal": "кен ю фикс ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ислоҳи табел",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Okay, I see. I'll fix it.",
+          "cueTranslation": "Хуб, фаҳмидам. Ислоҳ мекунам.",
+          "intent": "Бигӯ: инчунин шанбе кор кардам",
+          "text": "I also worked on Saturday.",
+          "accepts": [
+            "I worked on Saturday too.",
+            "And Saturday."
+          ],
+          "translation": "Ман шанбе ҳам кор кардам.",
+          "literal": "ай олсоу вёркт он сэтэрдей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Saturday? How many hours?",
+          "cueTranslation": "Шанбе? Чанд соат?",
+          "intent": "Бигӯ: шаш соат",
+          "text": "Six hours.",
+          "accepts": [
+            "Six.",
+            "6 hours."
+          ],
+          "translation": "Шаш соат.",
+          "literal": "сикс ауэрз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And your break?",
+          "cueTranslation": "Танаффусат чӣ?",
+          "intent": "Бигӯ: танаффус надоштам",
+          "text": "I had no break.",
+          "accepts": [
+            "No break.",
+            "I didn't have a break."
+          ],
+          "translation": "Танаффус надоштам.",
+          "literal": "ай ҳэд ноу брейк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: саҳари кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi. Did you sign in today?",
+          "cueTranslation": "Салом. Имрӯз имзо гузоштӣ?",
+          "intent": "Бигӯ: не, фаромӯш кардам",
+          "text": "No, I forgot to sign.",
+          "accepts": [
+            "No, I forgot.",
+            "Sorry, I forgot."
+          ],
+          "translation": "Не, имзо гузоштанро фаромӯш кардам.",
+          "literal": "ноу ай фэргот ту сайн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. What time did you start?",
+          "cueTranslation": "Хуб. Соати чанд сар кардӣ?",
+          "intent": "Бигӯ: соати ҳафт сар кардам",
+          "text": "I started at seven.",
+          "accepts": [
+            "At seven.",
+            "Seven."
+          ],
+          "translation": "Соати ҳафт сар кардам.",
+          "literal": "ай стартид эт севэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And when will you finish?",
+          "cueTranslation": "Кай тамом мекунӣ?",
+          "intent": "Бигӯ: соати панҷ",
+          "text": "At five.",
+          "accepts": [
+            "Five.",
+            "At five o'clock."
+          ],
+          "translation": "Соати панҷ.",
+          "literal": "эт файв",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Sign here, please.",
+          "cueTranslation": "Хуб. Лутфан, ин ҷо имзо кун.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "bank_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Bank and phone",
+    "titleTranslated": "Бонк ва телефон",
+    "scenario": "Донишҷӯ дар хориҷ ҳисоби бонкӣ ва SIM-корт лозим дорад. Шумо ҳисоб мекушоед, тарифи телефонро мепурсед ва агар корт кор накунад — ёрӣ мепурсед.",
+    "emoji": "🏦",
+    "order": 15,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Бонк",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Bank",
+          "translation": "бонк",
+          "literal": "бэнк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Account",
+          "translation": "ҳисоб",
+          "literal": "экаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Card",
+          "translation": "корт",
+          "literal": "кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Phone",
+          "translation": "телефон",
+          "literal": "фоун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Money",
+          "translation": "пул",
+          "literal": "манӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Internet",
+          "translation": "интернет",
+          "literal": "интэрнет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you need a bank account?",
+          "cueTranslation": "Ҳисоби бонкӣ лозим?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, please.",
+            "Yes, I do."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "A new phone or a SIM card?",
+          "cueTranslation": "Телефони нав ё SIM-корт?",
+          "intent": "Бигӯ: SIM-корт",
+          "text": "A SIM card.",
+          "accepts": [
+            "SIM card.",
+            "Just a SIM card."
+          ],
+          "translation": "SIM-корт.",
+          "literal": "э сим кард",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Cash or card?",
+          "cueTranslation": "Нақд ё корт?",
+          "intent": "Бигӯ: корт",
+          "text": "Card.",
+          "accepts": [
+            "By card.",
+            "Card, please."
+          ],
+          "translation": "Корт.",
+          "literal": "кард",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳисоб",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bank account",
+          "translation": "Ҳисоби бонкӣ",
+          "literal": "бэнк экаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "SIM card",
+          "translation": "SIM-корт",
+          "literal": "сим кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Every month",
+          "translation": "Ҳар моҳ",
+          "literal": "еврӣ манҫ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "More internet",
+          "translation": "Интернети бештар",
+          "literal": "мор интэрнет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Student account",
+          "translation": "Ҳисоби донишҷӯӣ",
+          "literal": "стюдэнт экаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Plan",
+          "translation": "тариф",
+          "literal": "плэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар бонк",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! How can I help?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ҳисоби бонкӣ",
+          "text": "A bank account.",
+          "accepts": [
+            "I need a bank account.",
+            "Bank account, please."
+          ],
+          "translation": "Ҳисоби бонкӣ.",
+          "literal": "э бэнк экаунт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. A student account?",
+          "cueTranslation": "Хуб. Ҳисоби донишҷӯӣ?",
+          "intent": "Бигӯ: ҳа, ҳисоби донишҷӯӣ",
+          "text": "Yes, a student account.",
+          "accepts": [
+            "Yes.",
+            "Yes, please."
+          ],
+          "translation": "Ҳа, ҳисоби донишҷӯӣ.",
+          "literal": "йес э стюдэнт экаунт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "It's free for students.",
+          "cueTranslation": "Барои донишҷӯён ройгон.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Great, thank you.",
+          "accepts": [
+            "Great!",
+            "Thanks."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": "грейт ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I need an account.",
+          "translation": "Ба ман ҳисоб лозим.",
+          "literal": "ай нид эн экаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "A SIM card, please.",
+          "translation": "SIM-корт, лутфан.",
+          "literal": "э сим кард плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "How much per month?",
+          "translation": "Дар як моҳ чанд?",
+          "literal": "ҳау мач пёр манҫ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "How much internet?",
+          "translation": "Интернет чанд?",
+          "literal": "ҳау мач интэрнет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Here is my passport.",
+          "translation": "Ана шиносномаи ман.",
+          "literal": "ҳир из май паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it free?",
+          "translation": "Ройгон аст?",
+          "literal": "из ит фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мағозаи телефон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! What do you need?",
+          "cueTranslation": "Салом! Чӣ лозим?",
+          "intent": "Бигӯ: SIM-корт, лутфан",
+          "text": "A SIM card, please.",
+          "accepts": [
+            "A SIM card.",
+            "I need a SIM card."
+          ],
+          "translation": "SIM-корт, лутфан.",
+          "literal": "э сим кард плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. This plan is twenty dollars.",
+          "cueTranslation": "Хуб. Ин тариф бист доллар.",
+          "intent": "Бипурс: интернет чанд?",
+          "text": "How much internet?",
+          "accepts": [
+            "How much data?",
+            "And internet?"
+          ],
+          "translation": "Интернет чанд?",
+          "literal": "ҳау мач интэрнет",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ten gigabytes per month.",
+          "cueTranslation": "Моҳе даҳ гигабайт.",
+          "intent": "Бигӯ: хуб, мегирам",
+          "text": "Okay, I'll take it.",
+          "accepts": [
+            "I'll take it.",
+            "Okay."
+          ],
+          "translation": "Хуб, мегирам.",
+          "literal": "оукей айл тейк ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Корт кор намекунад",
+      "items": [
+        {
+          "kind": "word",
+          "text": "ATM",
+          "translation": "банкомат",
+          "literal": "эй ти эм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is an ATM?",
+          "translation": "Банкомат куҷост?",
+          "literal": "вэр из эн эй ти эм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "My card doesn't work.",
+          "translation": "Корти ман кор намекунад.",
+          "literal": "май кард дазнт вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I forgot my PIN.",
+          "translation": "Рамзамро фаромӯш кардам.",
+          "literal": "ай фэргот май пин",
+          "note": "PIN — рамзи корт.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Pay by phone?",
+          "translation": "Бо телефон пардохт?",
+          "literal": "пей бай фоун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Please help me.",
+          "translation": "Лутфан, ёрӣ диҳед.",
+          "literal": "плиз ҳелп мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дар бонк",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Next! How can I help?",
+          "cueTranslation": "Навбатӣ! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: корти ман кор намекунад",
+          "text": "My card doesn't work.",
+          "accepts": [
+            "My card is not working.",
+            "The card doesn't work."
+          ],
+          "translation": "Корти ман кор намекунад.",
+          "literal": "май кард дазнт вёрк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Did you enter the right PIN?",
+          "cueTranslation": "Рамзи дурустро ворид кардед?",
+          "intent": "Бигӯ: рамзамро фаромӯш кардам",
+          "text": "I forgot my PIN.",
+          "accepts": [
+            "I forgot it.",
+            "No, I forgot my PIN."
+          ],
+          "translation": "Рамзамро фаромӯш кардам.",
+          "literal": "ай фэргот май пин",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "No problem. We can make a new one.",
+          "cueTranslation": "Мушкил нест. Навашро месозем.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you very much.",
+          "accepts": [
+            "Thank you!",
+            "Thanks a lot."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": "ҫенк ю верӣ мач",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳисоби бонкӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Welcome! How can I help you?",
+          "cueTranslation": "Хуш омадед! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ба ман ҳисоб лозим",
+          "text": "I need an account.",
+          "accepts": [
+            "I need a bank account.",
+            "A bank account, please."
+          ],
+          "translation": "Ба ман ҳисоб лозим.",
+          "literal": "ай нид эн экаунт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Your passport, please.",
+          "cueTranslation": "Хуб. Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: ана шиносномаи ман",
+          "text": "Here is my passport.",
+          "accepts": [
+            "Here you go.",
+            "Here."
+          ],
+          "translation": "Ана шиносномаи ман.",
+          "literal": "ҳир из май паспорт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks. Do you want a card too?",
+          "cueTranslation": "Ташаккур. Корт ҳам мехоҳед?",
+          "intent": "Бигӯ: ҳа ва бипурс дар як моҳ чанд",
+          "text": "Yes. How much per month?",
+          "accepts": [
+            "Yes, please. How much?",
+            "How much per month?"
+          ],
+          "translation": "Ҳа. Дар як моҳ чанд?",
+          "literal": "йес ҳау мач пёр манҫ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "It's free for students.",
+          "cueTranslation": "Барои донишҷӯён ройгон.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Great, thank you!",
+          "accepts": [
+            "Great!",
+            "Thank you!"
+          ],
+          "translation": "Олӣ, ташаккур!",
+          "literal": "грейт ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

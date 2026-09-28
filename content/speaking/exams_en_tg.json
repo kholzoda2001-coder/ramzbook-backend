@@ -1,0 +1,559 @@
+{
+  "slug": "exams_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Homework and exams",
+    "titleTranslated": "Вазифа ва имтиҳон",
+    "scenario": "Имтиҳон наздик: кай, чанд вақт, чӣ лозим. Шумо мепурсед, мегӯед, ки тайёред ё не, вақти бештар мехоҳед ва баҳои худро мепурсед.",
+    "emoji": "📝",
+    "order": 12,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Имтиҳон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Exam",
+          "translation": "имтиҳон",
+          "literal": "игзэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Test",
+          "translation": "санҷиш",
+          "literal": "тест",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Grade",
+          "translation": "баҳо",
+          "literal": "грейд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Pass",
+          "translation": "гузаштан",
+          "literal": "пэс",
+          "note": "«I passed» — гузаштам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ready",
+          "translation": "тайёр",
+          "literal": "редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Pen",
+          "translation": "қалам",
+          "literal": "пен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Кай?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is the exam today or tomorrow?",
+          "cueTranslation": "Имтиҳон имрӯз аст ё фардо?",
+          "intent": "Бигӯ: фардо",
+          "text": "Tomorrow.",
+          "accepts": [
+            "It's tomorrow."
+          ],
+          "translation": "Фардо.",
+          "literal": "туморроу",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Are you ready?",
+          "cueTranslation": "Тайёрӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am.",
+            "I think so."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a pen?",
+          "cueTranslation": "Қалам дорӣ?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, I don't."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Барори кор!",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Next Friday",
+          "translation": "Ҷумъаи оянда",
+          "literal": "некст фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Good luck",
+          "translation": "Барори кор",
+          "literal": "гуд лак",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I passed",
+          "translation": "Гузаштам",
+          "literal": "ай пэст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "My grade",
+          "translation": "Баҳои ман",
+          "literal": "май грейд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Not ready",
+          "translation": "Тайёр нестам",
+          "literal": "нот редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Paper",
+          "translation": "коғаз",
+          "literal": "пейпэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Имтиҳони ҷумъа",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "The exam is next Friday.",
+          "cueTranslation": "Имтиҳон ҷумъаи оянда.",
+          "intent": "Бигӯ: ҷумъаи оянда? хуб",
+          "text": "Next Friday? Okay.",
+          "accepts": [
+            "Okay.",
+            "Next Friday."
+          ],
+          "translation": "Ҷумъаи оянда? Хуб.",
+          "literal": "некст фрайдей оукей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Good luck!",
+          "cueTranslation": "Барори кор!",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you!",
+          "accepts": [
+            "Thanks!"
+          ],
+          "translation": "Ташаккур!",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How was the exam?",
+          "cueTranslation": "Имтиҳон чӣ хел гузашт?",
+          "intent": "Бигӯ: гузаштам!",
+          "text": "I passed!",
+          "accepts": [
+            "I passed it!",
+            "Good, I passed."
+          ],
+          "translation": "Гузаштам!",
+          "literal": "ай пэст",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "When is the exam?",
+          "translation": "Имтиҳон кай?",
+          "literal": "вен из ҙэ игзэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "How long is it?",
+          "translation": "Чанд вақт давом мекунад?",
+          "literal": "ҳау лонг из ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "A pen, please.",
+          "translation": "Қалам, лутфан.",
+          "literal": "э пен плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I finished the test.",
+          "translation": "Санҷишро тамом кардам.",
+          "literal": "ай финишт ҙэ тест",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "What is my grade?",
+          "translation": "Баҳои ман чанд?",
+          "literal": "вот из май грейд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm not ready.",
+          "translation": "Ман тайёр нестам.",
+          "literal": "айм нот редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Фардо санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Tomorrow we have a test.",
+          "cueTranslation": "Фардо санҷиш дорем.",
+          "intent": "Бипурс: чанд вақт давом мекунад?",
+          "text": "How long is it?",
+          "accepts": [
+            "How long?",
+            "Is it long?"
+          ],
+          "translation": "Чанд вақт давом мекунад?",
+          "literal": "ҳау лонг из ит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "One hour.",
+          "cueTranslation": "Як соат.",
+          "intent": "Бигӯ: ман тайёр нестам",
+          "text": "I'm not ready.",
+          "accepts": [
+            "Not ready.",
+            "Oh no, I'm not ready."
+          ],
+          "translation": "Ман тайёр нестам.",
+          "literal": "айм нот редӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Study tonight. You can do it!",
+          "cueTranslation": "Бегоҳ тайёрӣ бин. Ту метавонӣ!",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you!",
+          "accepts": [
+            "Thanks!",
+            "Thank you, I will."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Вақт тамом!",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Is this correct?",
+          "translation": "Ин дуруст аст?",
+          "literal": "из ҙис кэрект",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Correct",
+          "translation": "дуруст",
+          "literal": "кэрект",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I did my best.",
+          "translation": "Кӯшиши худро кардам.",
+          "literal": "ай дид май бест",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I try again?",
+          "translation": "Боз кӯшиш карда метавонам?",
+          "literal": "кен ай трай эген",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I need more time.",
+          "translation": "Ба ман вақти бештар лозим.",
+          "literal": "ай нид мор тайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I go now?",
+          "translation": "Ҳозир рафта метавонам?",
+          "literal": "кен ай гоу нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Баъди имтиҳон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Time's up! Finish, please.",
+          "cueTranslation": "Вақт тамом! Лутфан, тамом кунед.",
+          "intent": "Бигӯ: ба ман вақти бештар лозим",
+          "text": "I need more time.",
+          "accepts": [
+            "One more minute, please.",
+            "More time, please."
+          ],
+          "translation": "Ба ман вақти бештар лозим.",
+          "literal": "ай нид мор тайм",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "One more minute.",
+          "cueTranslation": "Боз як дақиқа.",
+          "intent": "Бигӯ: санҷишро тамом кардам",
+          "text": "I finished the test.",
+          "accepts": [
+            "I finished.",
+            "Done. I finished."
+          ],
+          "translation": "Санҷишро тамом кардам.",
+          "literal": "ай финишт ҙэ тест",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Your grade is C.",
+          "cueTranslation": "Баҳои шумо C.",
+          "intent": "Бипурс: боз кӯшиш карда метавонам?",
+          "text": "Can I try again?",
+          "accepts": [
+            "Can I try again, please?",
+            "Again?"
+          ],
+          "translation": "Боз кӯшиш карда метавонам?",
+          "literal": "кен ай трай эген",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи имтиҳон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "The exam starts now. Are you ready?",
+          "cueTranslation": "Имтиҳон ҳозир сар мешавад. Тайёрӣ?",
+          "intent": "Бигӯ: ҳа ва қалам пурс",
+          "text": "Yes. A pen, please.",
+          "accepts": [
+            "Yes. Do you have a pen?",
+            "Yes."
+          ],
+          "translation": "Ҳа. Қалам, лутфан.",
+          "literal": "йес э пен плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here. You have one hour.",
+          "cueTranslation": "Ана. Як соат вақт доред.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Time's up! Did you finish?",
+          "cueTranslation": "Вақт тамом! Тамом кардед?",
+          "intent": "Бигӯ: ҳа, санҷишро тамом кардам",
+          "text": "Yes, I finished the test.",
+          "accepts": [
+            "Yes, I finished.",
+            "Yes."
+          ],
+          "translation": "Ҳа, санҷишро тамом кардам.",
+          "literal": "йес ай финишт ҙэ тест",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Grades on Monday.",
+          "cueTranslation": "Хуб. Баҳоҳо рӯзи душанбе.",
+          "intent": "Бигӯ: хуб, кӯшиши худро кардам",
+          "text": "Okay. I did my best.",
+          "accepts": [
+            "I did my best.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб. Кӯшиши худро кардам.",
+          "literal": "оукей ай дид май бест",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

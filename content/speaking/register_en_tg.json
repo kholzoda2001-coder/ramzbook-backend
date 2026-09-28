@@ -1,0 +1,567 @@
+{
+  "slug": "register_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Registration office",
+    "titleTranslated": "Дафтари қабул",
+    "scenario": "Рӯзи аввал дар донишгоҳ: дафтари қабул. Шумо мегӯед, ки донишҷӯи навед, варақа пур мекунед, сурат ва нусхаи шиноснома медиҳед ва корти донишҷӯӣ мегиред.",
+    "emoji": "🏫",
+    "order": 3,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Office",
+          "translation": "идора (дафтар)",
+          "literal": "офис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Form",
+          "translation": "варақа",
+          "literal": "форм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Photo",
+          "translation": "сурат",
+          "literal": "фоутоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Copy",
+          "translation": "нусха",
+          "literal": "копӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Course",
+          "translation": "курс",
+          "literal": "корс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Card",
+          "translation": "корт",
+          "literal": "кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Донишҷӯи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! New student?",
+          "cueTranslation": "Салом! Донишҷӯи нав?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am.",
+            "Yes, I'm new."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Passport or a copy?",
+          "cueTranslation": "Шиноснома ё нусха?",
+          "intent": "Бигӯ: нусха",
+          "text": "A copy.",
+          "accepts": [
+            "Copy.",
+            "The copy."
+          ],
+          "translation": "Нусха.",
+          "literal": "э копӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What course? English?",
+          "cueTranslation": "Кадом курс? Англисӣ?",
+          "intent": "Бигӯ: англисӣ",
+          "text": "English.",
+          "accepts": [
+            "English course.",
+            "Yes, English."
+          ],
+          "translation": "Англисӣ.",
+          "literal": "инглиш",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Варақа",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "This form",
+          "translation": "Ин варақа",
+          "literal": "ҙис форм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Two photos",
+          "translation": "Ду сурат",
+          "literal": "ту фоутоуз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Sign here",
+          "translation": "Ин ҷо имзо кунед",
+          "literal": "сайн ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "My course",
+          "translation": "Курси ман",
+          "literal": "май корс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Student card",
+          "translation": "Корти донишҷӯӣ",
+          "literal": "стюдэнт кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Surname",
+          "translation": "насаб",
+          "literal": "сёрнейм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Қабул",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fill in this form, please.",
+          "cueTranslation": "Лутфан, ин варақаро пур кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, sure.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "And we need two photos.",
+          "cueTranslation": "Ду сурат ҳам лозим.",
+          "intent": "Бигӯ: ду сурат? хуб",
+          "text": "Two photos? Okay.",
+          "accepts": [
+            "Okay.",
+            "Two photos."
+          ],
+          "translation": "Ду сурат? Хуб.",
+          "literal": "ту фоутоуз оукей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Your student card is ready on Monday.",
+          "cueTranslation": "Корти донишҷӯиатон душанбе тайёр.",
+          "intent": "Бипурс: корти донишҷӯӣ?",
+          "text": "Student card?",
+          "accepts": [
+            "My student card?",
+            "Monday?"
+          ],
+          "translation": "Корти донишҷӯӣ?",
+          "literal": "стюдэнт кард",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I'm a new student.",
+          "translation": "Ман донишҷӯи навам.",
+          "literal": "айм э ню стюдэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "own",
+          "text": "My surname is ___.",
+          "translation": "Насаби ман ___.",
+          "literal": "май сёрнейм из ___",
+          "note": "Насаби худро гӯед.",
+          "cue": "What is your surname?",
+          "cueTranslation": "Насабатон чист?",
+          "intent": "Насаби худро гӯед",
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where do I sign?",
+          "translation": "Куҷо имзо кунам?",
+          "literal": "вэр ду ай сайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I have my passport.",
+          "translation": "Шиносномаам бо ман аст.",
+          "literal": "ай ҳэв май паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Here are my photos.",
+          "translation": "Ана суратҳои ман.",
+          "literal": "ҳир ар май фоутоуз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "When is it ready?",
+          "translation": "Кай тайёр мешавад?",
+          "literal": "вен из ит редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дар дафтар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello. How can I help?",
+          "cueTranslation": "Салом. Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ман донишҷӯи навам",
+          "text": "I'm a new student.",
+          "accepts": [
+            "I'm new here.",
+            "New student."
+          ],
+          "translation": "Ман донишҷӯи навам.",
+          "literal": "айм э ню стюдэнт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Welcome! Do you have your passport?",
+          "cueTranslation": "Хуш омадед! Шиносномаатон ҳаст?",
+          "intent": "Бигӯ: ҳа, шиносномаам бо ман",
+          "text": "Yes, I have my passport.",
+          "accepts": [
+            "Yes, here it is.",
+            "Yes."
+          ],
+          "translation": "Ҳа, шиносномаам бо ман.",
+          "literal": "йес ай ҳэв май паспорт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Sign this form.",
+          "cueTranslation": "Хуб. Ин варақаро имзо кунед.",
+          "intent": "Бипурс: куҷо имзо кунам?",
+          "text": "Where do I sign?",
+          "accepts": [
+            "Where?",
+            "Sign where?"
+          ],
+          "translation": "Куҷо имзо кунам?",
+          "literal": "вэр ду ай сайн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳуҷра ва пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Free",
+          "translation": "ройгон",
+          "literal": "фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it free?",
+          "translation": "Ройгон аст?",
+          "literal": "из ит фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Do I pay?",
+          "translation": "Пул медиҳам?",
+          "literal": "ду ай пей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Which room?",
+          "translation": "Кадом ҳуҷра?",
+          "literal": "вич рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Room twelve.",
+          "translation": "Ҳуҷраи дувоздаҳ.",
+          "literal": "рум твелв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "twelve|дувоздаҳ",
+            "ten|даҳ"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Thanks for your help.",
+          "translation": "Ташаккур барои ёрӣ.",
+          "literal": "ҫенкс фор ёр ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Корт тайёр",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Your student card is ready.",
+          "cueTranslation": "Корти донишҷӯиатон тайёр.",
+          "intent": "Бипурс: пул медиҳам?",
+          "text": "Do I pay?",
+          "accepts": [
+            "Is it free?",
+            "How much?"
+          ],
+          "translation": "Пул медиҳам?",
+          "literal": "ду ай пей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "No, it's free.",
+          "cueTranslation": "Не, ройгон.",
+          "intent": "Бипурс: кадом ҳуҷра?",
+          "text": "Which room?",
+          "accepts": [
+            "Which room is my class?",
+            "What room?"
+          ],
+          "translation": "Кадом ҳуҷра?",
+          "literal": "вич рум",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Room twelve, second floor.",
+          "cueTranslation": "Ҳуҷраи дувоздаҳ, ошёнаи дуюм.",
+          "intent": "Ташаккур гӯй барои ёрӣ",
+          "text": "Thanks for your help.",
+          "accepts": [
+            "Thank you.",
+            "Thanks a lot."
+          ],
+          "translation": "Ташаккур барои ёрӣ.",
+          "literal": "ҫенкс фор ёр ҳелп",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: қабул ба донишгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Can I help you?",
+          "cueTranslation": "Салом! Ёрӣ диҳам?",
+          "intent": "Бигӯ: ман донишҷӯи навам",
+          "text": "I'm a new student.",
+          "accepts": [
+            "I'm new here.",
+            "Hi, I'm a new student."
+          ],
+          "translation": "Ман донишҷӯи навам.",
+          "literal": "айм э ню стюдэнт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have your documents?",
+          "cueTranslation": "Ҳуҷҷатҳоятон ҳаст?",
+          "intent": "Бигӯ: ҳа, шиноснома ва суратҳо",
+          "text": "Yes, my passport and photos.",
+          "accepts": [
+            "Yes, here they are.",
+            "Yes."
+          ],
+          "translation": "Ҳа, шиноснома ва суратҳо.",
+          "literal": "йес май паспорт энд фоутоуз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Great. Sign here, please.",
+          "cueTranslation": "Олӣ. Лутфан, ин ҷо имзо кунед.",
+          "intent": "Бипурс: корт кай тайёр?",
+          "text": "When is my card ready?",
+          "accepts": [
+            "When is it ready?",
+            "When can I get my card?"
+          ],
+          "translation": "Корти ман кай тайёр?",
+          "literal": "вен из май кард редӣ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "On Monday. Welcome!",
+          "cueTranslation": "Рӯзи душанбе. Хуш омадед!",
+          "intent": "Ташаккур гӯй барои ёрӣ",
+          "text": "Thanks for your help.",
+          "accepts": [
+            "Thank you.",
+            "Thanks!"
+          ],
+          "translation": "Ташаккур барои ёрӣ.",
+          "literal": "ҫенкс фор ёр ҳелп",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

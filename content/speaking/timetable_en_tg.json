@@ -1,0 +1,561 @@
+{
+  "slug": "timetable_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Timetable",
+    "titleTranslated": "Ҷадвали дарсҳо",
+    "scenario": "Ҷадвали дарсҳо: кадом рӯз, соати чанд, дар кадом ҳуҷра. Шумо мепурсед ва мефаҳмед, ки дарс кай аст, бекор шуд ё не, ва бо ҳамсинф вохӯриро муайян мекунед.",
+    "emoji": "🗓️",
+    "order": 7,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Рӯзҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Monday",
+          "translation": "душанбе",
+          "literal": "мандей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Tuesday",
+          "translation": "сешанбе",
+          "literal": "тюздей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Wednesday",
+          "translation": "чоршанбе",
+          "literal": "вензей",
+          "note": "Хонда мешавад: «вензей» — «d» шунида намешавад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Class",
+          "translation": "дарс",
+          "literal": "клэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Room",
+          "translation": "ҳуҷра",
+          "literal": "рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Time",
+          "translation": "вақт",
+          "literal": "тайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Кадом рӯз?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is the class on Monday or Tuesday?",
+          "cueTranslation": "Дарс душанбе аст ё сешанбе?",
+          "intent": "Бигӯ: душанбе",
+          "text": "Monday.",
+          "accepts": [
+            "On Monday."
+          ],
+          "translation": "Душанбе.",
+          "literal": "мандей",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What day is today? Wednesday?",
+          "cueTranslation": "Имрӯз чӣ рӯз? Чоршанбе?",
+          "intent": "Бигӯ: сешанбе",
+          "text": "Tuesday.",
+          "accepts": [
+            "It's Tuesday.",
+            "No, Tuesday."
+          ],
+          "translation": "Сешанбе.",
+          "literal": "тюздей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you have now? Lunch?",
+          "cueTranslation": "Ҳозир чӣ дорӣ? Хӯроки пешин?",
+          "intent": "Бигӯ: дарс",
+          "text": "Class.",
+          "accepts": [
+            "A class.",
+            "I have class."
+          ],
+          "translation": "Дарс.",
+          "literal": "клэс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "On Monday",
+          "translation": "Рӯзи душанбе",
+          "literal": "он мандей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "At nine",
+          "translation": "Соати нӯҳ",
+          "literal": "эт найн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Room ten",
+          "translation": "Ҳуҷраи даҳ",
+          "literal": "рум тен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Every Tuesday",
+          "translation": "Ҳар сешанбе",
+          "literal": "еврӣ тюздей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Thursday",
+          "translation": "панҷшанбе",
+          "literal": "ҫёрздей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Next week",
+          "translation": "Ҳафтаи оянда",
+          "literal": "некст вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дарси англисӣ кай?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "When is English class?",
+          "cueTranslation": "Дарси англисӣ кай?",
+          "intent": "Бигӯ: рӯзи душанбе",
+          "text": "On Monday.",
+          "accepts": [
+            "Monday.",
+            "It's on Monday."
+          ],
+          "translation": "Рӯзи душанбе.",
+          "literal": "он мандей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What time?",
+          "cueTranslation": "Соати чанд?",
+          "intent": "Бигӯ: соати нӯҳ",
+          "text": "At nine.",
+          "accepts": [
+            "Nine.",
+            "At 9."
+          ],
+          "translation": "Соати нӯҳ.",
+          "literal": "эт найн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Which room?",
+          "cueTranslation": "Кадом ҳуҷра?",
+          "intent": "Бигӯ: ҳуҷраи даҳ",
+          "text": "Room ten.",
+          "accepts": [
+            "Ten.",
+            "Room 10."
+          ],
+          "translation": "Ҳуҷраи даҳ.",
+          "literal": "рум тен",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "When is the class?",
+          "translation": "Дарс кай?",
+          "literal": "вен из ҙэ клэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "What time is class?",
+          "translation": "Дарс соати чанд?",
+          "literal": "вот тайм из клэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is room ten?",
+          "translation": "Ҳуҷраи даҳ куҷост?",
+          "literal": "вэр из рум тен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I have class today.",
+          "translation": "Имрӯз дарс дорам.",
+          "literal": "ай ҳэв клэс тудей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Is there class tomorrow?",
+          "translation": "Фардо дарс ҳаст?",
+          "literal": "из ҙэр клэс туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "The class is cancelled.",
+          "translation": "Дарс бекор шуд.",
+          "literal": "ҙэ клэс из кэнсэлд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бо ҳамсинф",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Do you have class today?",
+          "cueTranslation": "Салом! Имрӯз дарс дорӣ?",
+          "intent": "Бигӯ: ҳа, имрӯз дарс дорам",
+          "text": "Yes, I have class today.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes."
+          ],
+          "translation": "Ҳа, имрӯз дарс дорам.",
+          "literal": "йес ай ҳэв клэс тудей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What time?",
+          "cueTranslation": "Соати чанд?",
+          "intent": "Бигӯ: соати даҳ",
+          "text": "At ten.",
+          "accepts": [
+            "Ten.",
+            "At 10."
+          ],
+          "translation": "Соати даҳ.",
+          "literal": "эт тен",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Me too! Which room?",
+          "cueTranslation": "Ман ҳам! Кадом ҳуҷра?",
+          "intent": "Бигӯ: ҳуҷраи дувоздаҳ",
+          "text": "Room twelve.",
+          "accepts": [
+            "Twelve.",
+            "Room 12."
+          ],
+          "translation": "Ҳуҷраи дувоздаҳ.",
+          "literal": "рум твелв",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳафта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "See you on Friday.",
+          "translation": "То ҷумъа.",
+          "literal": "сӣ ю он фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it every week?",
+          "translation": "Ҳар ҳафта аст?",
+          "literal": "из ит еврӣ вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Class is at eight.",
+          "translation": "Дарс соати ҳашт.",
+          "literal": "клэс из эт эйт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "No class on Sunday.",
+          "translation": "Якшанбе дарс нест.",
+          "literal": "ноу клэс он сандей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Cancelled",
+          "translation": "бекор шуд",
+          "literal": "кэнсэлд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Next week, Monday.",
+          "translation": "Ҳафтаи оянда, душанбе.",
+          "literal": "некст вик мандей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дарс бекор шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "The Tuesday class is cancelled.",
+          "cueTranslation": "Дарси сешанбе бекор шуд.",
+          "intent": "Бипурс: фардо дарс ҳаст?",
+          "text": "Is there class tomorrow?",
+          "accepts": [
+            "Class tomorrow?",
+            "And tomorrow?"
+          ],
+          "translation": "Фардо дарс ҳаст?",
+          "literal": "из ҙэр клэс туморроу",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, on Wednesday at nine.",
+          "cueTranslation": "Ҳа, чоршанбе соати нӯҳ.",
+          "intent": "Бипурс: ҳар ҳафта?",
+          "text": "Is it every week?",
+          "accepts": [
+            "Every week?",
+            "Is it every Wednesday?"
+          ],
+          "translation": "Ҳар ҳафта аст?",
+          "literal": "из ит еврӣ вик",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, every Wednesday.",
+          "cueTranslation": "Ҳа, ҳар чоршанбе.",
+          "intent": "Бигӯ: хуб, то чоршанбе",
+          "text": "Okay. See you on Wednesday.",
+          "accepts": [
+            "See you on Wednesday.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб. То чоршанбе.",
+          "literal": "оукей сӣ ю он вензей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҷадвал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you in my English class?",
+          "cueTranslation": "Салом! Ту дар синфи англисии манӣ?",
+          "intent": "Бигӯ: ҳа ва бипурс дарс кай",
+          "text": "Yes. When is the class?",
+          "accepts": [
+            "Yes. When is it?",
+            "Yes."
+          ],
+          "translation": "Ҳа. Дарс кай?",
+          "literal": "йес вен из ҙэ клэс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "On Monday and Thursday.",
+          "cueTranslation": "Рӯзҳои душанбе ва панҷшанбе.",
+          "intent": "Бипурс: дарс соати чанд?",
+          "text": "What time is class?",
+          "accepts": [
+            "What time?",
+            "At what time?"
+          ],
+          "translation": "Дарс соати чанд?",
+          "literal": "вот тайм из клэс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "At nine, room twelve.",
+          "cueTranslation": "Соати нӯҳ, ҳуҷраи дувоздаҳ.",
+          "intent": "Такрор кун ва ташаккур гӯй",
+          "text": "At nine, room twelve. Thanks.",
+          "accepts": [
+            "Thanks!",
+            "Nine, room twelve. Thank you."
+          ],
+          "translation": "Соати нӯҳ, ҳуҷраи дувоздаҳ. Ташаккур.",
+          "literal": "эт найн рум твелв ҫенкс",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "See you on Monday!",
+          "cueTranslation": "То душанбе!",
+          "intent": "Бигӯ: то душанбе",
+          "text": "See you on Monday!",
+          "accepts": [
+            "See you!",
+            "Bye, see you Monday!"
+          ],
+          "translation": "То душанбе!",
+          "literal": "сӣ ю он мандей",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "class_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "In class",
+    "titleTranslated": "Дар дарс",
+    "scenario": "Дар дарс муаллим мегӯяд, ки китобро кушоед, саволҳо медиҳад ва вазифа месупорад. Шумо савол медиҳед, хоҳиш мекунед такрор кунад ва мегӯед, ки чиро намефаҳмед.",
+    "emoji": "📚",
+    "order": 5,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Дарс",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Teacher",
+          "translation": "муаллим",
+          "literal": "тичэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Book",
+          "translation": "китоб",
+          "literal": "бук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Page",
+          "translation": "саҳифа",
+          "literal": "пейдж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Question",
+          "translation": "савол",
+          "literal": "квесчэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Late",
+          "translation": "дер",
+          "literal": "лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Repeat",
+          "translation": "такрор кардан",
+          "literal": "рипит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Муаллим мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you need? A pen?",
+          "cueTranslation": "Чӣ лозим? Қалам?",
+          "intent": "Бигӯ: китоб",
+          "text": "A book.",
+          "accepts": [
+            "Book.",
+            "My book."
+          ],
+          "translation": "Китоб.",
+          "literal": "э бук",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a question?",
+          "cueTranslation": "Савол доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes, one question."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Page ten or twelve?",
+          "cueTranslation": "Саҳифаи даҳ ё дувоздаҳ?",
+          "intent": "Бигӯ: дувоздаҳ",
+          "text": "Twelve.",
+          "accepts": [
+            "Page twelve.",
+            "12."
+          ],
+          "translation": "Дувоздаҳ.",
+          "literal": "твелв",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Дар синф",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Sorry, teacher",
+          "translation": "Бубахшед, муаллим",
+          "literal": "сорӣ тичэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "One question",
+          "translation": "Як савол",
+          "literal": "ван квесчэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Page twelve",
+          "translation": "Саҳифаи дувоздаҳ",
+          "literal": "пейдж твелв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Good morning",
+          "translation": "Субҳ ба хайр",
+          "literal": "гуд морнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm late",
+          "translation": "Дер кардам",
+          "literal": "айм лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Homework",
+          "translation": "вазифаи хонагӣ",
+          "literal": "ҳоумвёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Оғози дарс",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Good morning, class!",
+          "cueTranslation": "Субҳ ба хайр, синф!",
+          "intent": "Салом гӯй",
+          "text": "Good morning!",
+          "accepts": [
+            "Good morning, teacher.",
+            "Morning!"
+          ],
+          "translation": "Субҳ ба хайр!",
+          "literal": "гуд морнинг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "You're late!",
+          "cueTranslation": "Дер кардӣ!",
+          "intent": "Бигӯ: бубахшед, муаллим",
+          "text": "Sorry, teacher.",
+          "accepts": [
+            "Sorry, I'm late.",
+            "Sorry."
+          ],
+          "translation": "Бубахшед, муаллим.",
+          "literal": "сорӣ тичэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Open your books to page twelve.",
+          "cueTranslation": "Китобҳоро дар саҳифаи дувоздаҳ кушоед.",
+          "intent": "Бипурс: саҳифаи дувоздаҳ?",
+          "text": "Page twelve?",
+          "accepts": [
+            "Twelve?",
+            "Which page?"
+          ],
+          "translation": "Саҳифаи дувоздаҳ?",
+          "literal": "пейдж твелв",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I have a question.",
+          "translation": "Ман савол дорам.",
+          "literal": "ай ҳэв э квесчэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Can you repeat, please?",
+          "translation": "Лутфан, такрор карда метавонед?",
+          "literal": "кен ю рипит плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "What does it mean?",
+          "translation": "Ин чӣ маъно дорад?",
+          "literal": "вот даз ит мин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Spell it, please?",
+          "translation": "Ҳарф ба ҳарф гӯед, лутфан?",
+          "literal": "спел ит плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I don't know.",
+          "translation": "Намедонам.",
+          "literal": "ай доунт ноу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I forgot my book.",
+          "translation": "Китобамро фаромӯш кардам.",
+          "literal": "ай фэргот май бук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Савол",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Any questions?",
+          "cueTranslation": "Савол ҳаст?",
+          "intent": "Бигӯ: савол дорам",
+          "text": "I have a question.",
+          "accepts": [
+            "Yes, one question.",
+            "Yes, I have a question."
+          ],
+          "translation": "Ман савол дорам.",
+          "literal": "ай ҳэв э квесчэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes? Go ahead.",
+          "cueTranslation": "Ҳа? Бипурсед.",
+          "intent": "Бипурс: «homework» чӣ маъно дорад?",
+          "text": "What does homework mean?",
+          "accepts": [
+            "What does it mean?",
+            "What is homework?"
+          ],
+          "translation": "«Homework» чӣ маъно дорад?",
+          "literal": "вот даз ҳоумвёрк мин",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Homework is work at home.",
+          "cueTranslation": "«Homework» — кор дар хона.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Got it, thanks.",
+          "accepts": [
+            "Thank you.",
+            "I understand, thanks."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "гот ит ҫенкс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Вазифа",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "For tomorrow?",
+          "translation": "Барои фардо?",
+          "literal": "фор туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I finished it.",
+          "translation": "Тамомаш кардам.",
+          "literal": "ай финишт ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Difficult",
+          "translation": "душвор",
+          "literal": "дификэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's difficult.",
+          "translation": "Душвор аст.",
+          "literal": "итс дификэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Easy",
+          "translation": "осон",
+          "literal": "изӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "It's easy.",
+          "translation": "Осон аст.",
+          "literal": "итс изӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Вазифаи хонагӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Your homework is page twenty.",
+          "cueTranslation": "Вазифаатон саҳифаи бист.",
+          "intent": "Бипурс: барои фардо?",
+          "text": "For tomorrow?",
+          "accepts": [
+            "Is it for tomorrow?",
+            "Tomorrow?"
+          ],
+          "translation": "Барои фардо?",
+          "literal": "фор туморроу",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Is it easy?",
+          "cueTranslation": "Ҳа. Осон аст?",
+          "intent": "Бигӯ: не, душвор",
+          "text": "No, it's difficult.",
+          "accepts": [
+            "It's difficult.",
+            "No, difficult."
+          ],
+          "translation": "Не, душвор аст.",
+          "literal": "ноу итс дификэлт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Don't worry, I'll help you.",
+          "cueTranslation": "Хавотир нашав, ёрӣ медиҳам.",
+          "intent": "Ба муаллим ташаккур гӯй",
+          "text": "Thank you, teacher.",
+          "accepts": [
+            "Thank you!",
+            "Thanks."
+          ],
+          "translation": "Ташаккур, муаллим.",
+          "literal": "ҫенк ю тичэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дарси англисӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "You're late again!",
+          "cueTranslation": "Боз дер кардӣ!",
+          "intent": "Бигӯ: бубахшед, муаллим",
+          "text": "Sorry, teacher.",
+          "accepts": [
+            "Sorry, I'm late.",
+            "Sorry."
+          ],
+          "translation": "Бубахшед, муаллим.",
+          "literal": "сорӣ тичэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is your book?",
+          "cueTranslation": "Китобат куҷост?",
+          "intent": "Бигӯ: китобамро фаромӯш кардам",
+          "text": "I forgot my book.",
+          "accepts": [
+            "I forgot it.",
+            "Sorry, I forgot my book."
+          ],
+          "translation": "Китобамро фаромӯш кардам.",
+          "literal": "ай фэргот май бук",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Look at page twelve. Questions?",
+          "cueTranslation": "Хуб. Ба саҳифаи дувоздаҳ нигоҳ кун. Савол?",
+          "intent": "Бигӯ: савол дорам ва хоҳиш кун такрор кунад",
+          "text": "I have a question. Can you repeat, please?",
+          "accepts": [
+            "Can you repeat, please?",
+            "Please repeat."
+          ],
+          "translation": "Савол дорам. Такрор карда метавонед?",
+          "literal": "ай ҳэв э квесчэн кен ю рипит плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Of course. Page twelve, exercise three.",
+          "cueTranslation": "Албатта. Саҳифаи дувоздаҳ, машқи се.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Got it, thank you.",
+          "accepts": [
+            "Thank you.",
+            "Got it."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "гот ит ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

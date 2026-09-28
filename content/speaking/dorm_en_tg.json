@@ -1,0 +1,566 @@
+{
+  "slug": "dorm_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "The dorm",
+    "titleTranslated": "Хобгоҳ",
+    "scenario": "Хобгоҳи донишҷӯён: ҳуҷра, калид, ҳамҳуҷра, душ ва ошхона. Шумо ҷой мепурсед, бо ҳамҳуҷра шинос мешавед ва қоидаҳоро мефаҳмед.",
+    "emoji": "🛏️",
+    "order": 4,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хобгоҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Dorm",
+          "translation": "хобгоҳ",
+          "literal": "дорм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Room",
+          "translation": "ҳуҷра",
+          "literal": "рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Key",
+          "translation": "калид",
+          "literal": "кӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Roommate",
+          "translation": "ҳамҳуҷра",
+          "literal": "руммейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Bed",
+          "translation": "кат",
+          "literal": "бед",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Quiet",
+          "translation": "ором",
+          "literal": "квайэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷраи ман",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you in the dorm?",
+          "cueTranslation": "Шумо дар хобгоҳед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you need? Your key?",
+          "cueTranslation": "Чӣ лозим? Калидатон?",
+          "intent": "Бигӯ: калид",
+          "text": "The key.",
+          "accepts": [
+            "My key.",
+            "Yes, the key."
+          ],
+          "translation": "Калид.",
+          "literal": "ҙэ кӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where do you sleep? Here?",
+          "cueTranslation": "Куҷо мехобӣ? Ин ҷо?",
+          "intent": "Бигӯ: он кат",
+          "text": "That bed.",
+          "accepts": [
+            "There.",
+            "That one."
+          ],
+          "translation": "Он кат.",
+          "literal": "ҙэт бед",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳуҷра",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Room five",
+          "translation": "Ҳуҷраи панҷ",
+          "literal": "рум файв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "My key",
+          "translation": "Калиди ман",
+          "literal": "май кӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "My roommate",
+          "translation": "Ҳамҳуҷраи ман",
+          "literal": "май руммейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Quiet, please",
+          "translation": "Ором, лутфан",
+          "literal": "квайэт плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Shower",
+          "translation": "душ",
+          "literal": "шауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hot water",
+          "translation": "Оби гарм",
+          "literal": "ҳот вотэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Қабул дар хобгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Your room is number five.",
+          "cueTranslation": "Ҳуҷраи шумо рақами панҷ.",
+          "intent": "Бигӯ: ҳуҷраи панҷ? хуб",
+          "text": "Room five? Okay.",
+          "accepts": [
+            "Okay.",
+            "Room five."
+          ],
+          "translation": "Ҳуҷраи панҷ? Хуб.",
+          "literal": "рум файв оукей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here is your key.",
+          "cueTranslation": "Ана калидатон.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you very much."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hi! I'm your roommate, Ali.",
+          "cueTranslation": "Салом! Ман ҳамҳуҷраи ту, Алӣ.",
+          "intent": "Салом гӯй ва бигӯ, ки аз шиносоӣ шодӣ",
+          "text": "Hi! Nice to meet you.",
+          "accepts": [
+            "Nice to meet you.",
+            "Hello! Nice to meet you."
+          ],
+          "translation": "Салом! Аз шиносоӣ шодам.",
+          "literal": "ҳай найс ту мит ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where is the shower?",
+          "translation": "Душ куҷост?",
+          "literal": "вэр из ҙэ шауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "shower|душ",
+            "kitchen|ошхона",
+            "laundry|ҷомашӯйхона"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is there hot water?",
+          "translation": "Оби гарм ҳаст?",
+          "literal": "из ҙэр ҳот вотэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I lost my key.",
+          "translation": "Калидамро гум кардам.",
+          "literal": "ай лост май кӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Please be quiet.",
+          "translation": "Лутфан, ором бошед.",
+          "literal": "плиз бӣ квайэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "When does it close?",
+          "translation": "Кай баста мешавад?",
+          "literal": "вен даз ит клоуз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I use this?",
+          "translation": "Инро истифода бурда метавонам?",
+          "literal": "кен ай юз ҙис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Душ куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Do you need anything?",
+          "cueTranslation": "Салом! Ягон чиз лозим?",
+          "intent": "Бипурс: душ куҷост?",
+          "text": "Where is the shower?",
+          "accepts": [
+            "Where's the shower?",
+            "The shower?"
+          ],
+          "translation": "Душ куҷост?",
+          "literal": "вэр из ҙэ шауэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "At the end of the hall.",
+          "cueTranslation": "Дар охири долон.",
+          "intent": "Бипурс: оби гарм ҳаст?",
+          "text": "Is there hot water?",
+          "accepts": [
+            "Hot water?",
+            "Is the water hot?"
+          ],
+          "translation": "Оби гарм ҳаст?",
+          "literal": "из ҙэр ҳот вотэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, all day.",
+          "cueTranslation": "Ҳа, тамоми рӯз.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Great, thanks."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Шом дар хобгоҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Studying",
+          "translation": "дарс хондан",
+          "literal": "стадиинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm studying.",
+          "translation": "Ман дарс мехонам.",
+          "literal": "айм стадиинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Cook",
+          "translation": "пухтан",
+          "literal": "кук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Let's cook together.",
+          "translation": "Биё якҷоя хӯрок пазем.",
+          "literal": "летс кук тугеҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "It's late.",
+          "translation": "Дер шуд.",
+          "literal": "итс лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Good night!",
+          "translation": "Шаб ба хайр!",
+          "literal": "гуд найт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҳамҳуҷра",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Let's listen to music!",
+          "cueTranslation": "Биё мусиқӣ гӯш кунем!",
+          "intent": "Бигӯ: бубахшед, ман дарс мехонам",
+          "text": "Sorry, I'm studying.",
+          "accepts": [
+            "I'm studying.",
+            "Sorry, not now."
+          ],
+          "translation": "Бубахшед, ман дарс мехонам.",
+          "literal": "сорӣ айм стадиинг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, sorry! I'm hungry. Are you?",
+          "cueTranslation": "Оҳ, бубахшед! Гуруснаам. Ту чӣ?",
+          "intent": "Бигӯ: ҳа, биё якҷоя пазем",
+          "text": "Yes. Let's cook together.",
+          "accepts": [
+            "Let's cook together.",
+            "Yes, let's cook."
+          ],
+          "translation": "Ҳа. Биё якҷоя пазем.",
+          "literal": "йес летс кук тугеҙэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Great! What do we cook?",
+          "cueTranslation": "Олӣ! Чӣ мепазем?",
+          "intent": "Бигӯ: палав",
+          "text": "Plov!",
+          "accepts": [
+            "Let's make plov.",
+            "Plov."
+          ],
+          "translation": "Палав!",
+          "literal": "плов",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи аввал дар хобгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Welcome to the dorm! Are you a new student?",
+          "cueTranslation": "Хуш омадед ба хобгоҳ! Донишҷӯи навед?",
+          "intent": "Бигӯ: ҳа, донишҷӯи навам",
+          "text": "Yes, I'm a new student.",
+          "accepts": [
+            "Yes, I'm new.",
+            "Yes."
+          ],
+          "translation": "Ҳа, ман донишҷӯи навам.",
+          "literal": "йес айм э ню стюдэнт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Your room is number five. Here's the key.",
+          "cueTranslation": "Ҳуҷраатон рақами панҷ. Ана калид.",
+          "intent": "Бипурс: душ куҷост?",
+          "text": "Where is the shower?",
+          "accepts": [
+            "Where's the shower?",
+            "The shower?"
+          ],
+          "translation": "Душ куҷост?",
+          "literal": "вэр из ҙэ шауэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "On the first floor. Anything else?",
+          "cueTranslation": "Дар ошёнаи якум. Боз чизе?",
+          "intent": "Бипурс: хобгоҳ кай баста мешавад?",
+          "text": "When does it close?",
+          "accepts": [
+            "When is it closed?",
+            "What time does it close?"
+          ],
+          "translation": "Кай баста мешавад?",
+          "literal": "вен даз ит клоуз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "At eleven. Good night!",
+          "cueTranslation": "Соати ёздаҳ. Шаб ба хайр!",
+          "intent": "Ташаккур гӯй ва шаби хуш гӯй",
+          "text": "Thank you. Good night!",
+          "accepts": [
+            "Thanks, good night!",
+            "Good night!"
+          ],
+          "translation": "Ташаккур. Шаб ба хайр!",
+          "literal": "ҫенк ю гуд найт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

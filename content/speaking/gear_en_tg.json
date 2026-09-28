@@ -1,0 +1,567 @@
+{
+  "slug": "gear_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Work gear",
+    "titleTranslated": "Либоси корӣ",
+    "scenario": "Дар объект бе либоси муҳофизатӣ кор кардан мумкин нест: каска, дастпӯшак, айнак, жилет, мӯза. Шумо мепурсед, андоза мегӯед ва чизи лозимиро мегиред.",
+    "emoji": "🦺",
+    "order": 18,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Либоси муҳофизатӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Gloves",
+          "translation": "дастпӯшак",
+          "literal": "гловз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Goggles",
+          "translation": "айнаки муҳофизатӣ",
+          "literal": "гогэлз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Vest",
+          "translation": "жилет",
+          "literal": "вест",
+          "note": "Жилети дурахшон — барои он ки шуморо бубинанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Boots",
+          "translation": "мӯзаи корӣ",
+          "literal": "бутс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Mask",
+          "translation": "ниқоб",
+          "literal": "маск",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Helmet",
+          "translation": "каска",
+          "literal": "ҳелмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you need for your hands?",
+          "cueTranslation": "Барои дастҳо чӣ лозим?",
+          "intent": "Бигӯ: дастпӯшак",
+          "text": "Gloves.",
+          "accepts": [
+            "Some gloves.",
+            "I need gloves."
+          ],
+          "translation": "Дастпӯшак.",
+          "literal": "гловз",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What goes on your head?",
+          "cueTranslation": "Ба сар чӣ мепӯшанд?",
+          "intent": "Бигӯ: каска",
+          "text": "A helmet.",
+          "accepts": [
+            "Helmet.",
+            "The helmet."
+          ],
+          "translation": "Каска.",
+          "literal": "э ҳелмит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "It's dusty. What do you need?",
+          "cueTranslation": "Чанг аст. Чӣ лозим?",
+          "intent": "Бигӯ: ниқоб",
+          "text": "A mask.",
+          "accepts": [
+            "Mask.",
+            "I need a mask."
+          ],
+          "translation": "Ниқоб.",
+          "literal": "э маск",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Андоза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "My gloves",
+          "translation": "Дастпӯшаки ман",
+          "literal": "май гловз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Your helmet",
+          "translation": "Каскаи ту",
+          "literal": "ёр ҳелмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Size",
+          "translation": "андоза",
+          "literal": "сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "What size?",
+          "translation": "Чӣ андоза?",
+          "literal": "вот сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Big",
+          "translation": "калон",
+          "literal": "биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Safety first",
+          "translation": "Аввал бехатарӣ",
+          "literal": "сейфтӣ фёрст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Каскаатро пӯш!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where are your gloves?",
+          "cueTranslation": "Дастпӯшакҳоят куҷо?",
+          "intent": "Бигӯ: дастпӯшаки ман ин ҷо",
+          "text": "My gloves are here.",
+          "accepts": [
+            "Here.",
+            "They're here."
+          ],
+          "translation": "Дастпӯшаки ман ин ҷо.",
+          "literal": "май гловз ар ҳир",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Put on your helmet!",
+          "cueTranslation": "Каскаатро пӯш!",
+          "intent": "Бигӯ: хуб, албатта",
+          "text": "Okay, sure.",
+          "accepts": [
+            "Sure.",
+            "Okay."
+          ],
+          "translation": "Хуб, албатта.",
+          "literal": "оукей шуэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "New boots? What size?",
+          "cueTranslation": "Мӯзаи нав? Чӣ андоза?",
+          "intent": "Бигӯ: чил",
+          "text": "Forty.",
+          "accepts": [
+            "Size forty.",
+            "40."
+          ],
+          "translation": "Чил.",
+          "literal": "фортӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I don't have gloves.",
+          "translation": "Ман дастпӯшак надорам.",
+          "literal": "ай доунт ҳэв гловз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "gloves|дастпӯшак",
+            "boots|мӯза",
+            "goggles|айнак"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are the vests?",
+          "translation": "Жилетҳо куҷоянд?",
+          "literal": "вэр ар ҙэ вестс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "These are too big.",
+          "translation": "Инҳо хеле калонанд.",
+          "literal": "ҙиз ар ту биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "A mask, please.",
+          "translation": "Ниқоб, лутфан.",
+          "literal": "э маск плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Size forty, please.",
+          "translation": "Андозаи чил, лутфан.",
+          "literal": "сайз фортӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Wear",
+          "translation": "пӯшидан",
+          "literal": "веэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Жилет куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hey! Where is your vest?",
+          "cueTranslation": "Эй! Жилетат куҷост?",
+          "intent": "Бигӯ: жилет надорам",
+          "text": "I don't have a vest.",
+          "accepts": [
+            "No vest.",
+            "I don't have one."
+          ],
+          "translation": "Ман жилет надорам.",
+          "literal": "ай доунт ҳэв э вест",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Go get one. Take the orange one.",
+          "cueTranslation": "Рав як дона гир. Норанҷиашро гир.",
+          "intent": "Бипурс: жилетҳо куҷоянд?",
+          "text": "Where are the vests?",
+          "accepts": [
+            "Where?",
+            "The vests?"
+          ],
+          "translation": "Жилетҳо куҷоянд?",
+          "literal": "вэр ар ҙэ вестс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "In the trailer.",
+          "cueTranslation": "Дар вагонча.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Got it, thanks.",
+          "accepts": [
+            "Thanks.",
+            "Okay, thank you."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "гот ит ҫенкс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чанг ва садо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Dusty",
+          "translation": "чангнок",
+          "literal": "дастӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It's very dusty.",
+          "translation": "Хеле чанг аст.",
+          "literal": "итс верӣ дастӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Loud",
+          "translation": "баланд (пурсадо)",
+          "literal": "лауд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's too loud.",
+          "translation": "Садо хеле баланд аст.",
+          "literal": "итс ту лауд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Earplugs",
+          "translation": "гӯшпӯшак",
+          "literal": "ирплагз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I need earplugs.",
+          "translation": "Ба ман гӯшпӯшак лозим.",
+          "literal": "ай нид ирплагз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Имрӯз бетон мебурем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "We're cutting concrete today.",
+          "cueTranslation": "Имрӯз бетон мебурем.",
+          "intent": "Бигӯ: хеле чанг, ба ман ниқоб лозим",
+          "text": "It's very dusty. I need a mask.",
+          "accepts": [
+            "I need a mask.",
+            "Dusty. A mask, please."
+          ],
+          "translation": "Хеле чанг. Ба ман ниқоб лозим.",
+          "literal": "итс верӣ дастӣ ай нид э маск",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here's a mask. Anything else?",
+          "cueTranslation": "Ана ниқоб. Боз чизе?",
+          "intent": "Бигӯ: садо баланд, гӯшпӯшак лозим",
+          "text": "It's too loud. I need earplugs.",
+          "accepts": [
+            "I need earplugs.",
+            "Earplugs, please."
+          ],
+          "translation": "Садо баланд. Ба ман гӯшпӯшак лозим.",
+          "literal": "итс ту лауд ай нид ирплагз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Safety first!",
+          "cueTranslation": "Хуб. Аввал бехатарӣ!",
+          "intent": "Бигӯ: ҳа, аввал бехатарӣ",
+          "text": "Yes, safety first!",
+          "accepts": [
+            "Safety first!",
+            "Yes."
+          ],
+          "translation": "Ҳа, аввал бехатарӣ!",
+          "literal": "йес сейфтӣ фёрст",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши бехатарӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Stop! Where is your helmet?",
+          "cueTranslation": "Ист! Каскаат куҷост?",
+          "intent": "Бигӯ: бубахшед, ҳозир мепӯшам",
+          "text": "Sorry. I'll put it on.",
+          "accepts": [
+            "Sorry, one moment.",
+            "Sorry, I'll put it on now."
+          ],
+          "translation": "Бубахшед. Ҳозир мепӯшам.",
+          "literal": "сорӣ айл пут ит он",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "And your gloves?",
+          "cueTranslation": "Дастпӯшакат чӣ?",
+          "intent": "Бигӯ: дастпӯшак надорам",
+          "text": "I don't have gloves.",
+          "accepts": [
+            "No gloves.",
+            "I don't have any."
+          ],
+          "translation": "Ман дастпӯшак надорам.",
+          "literal": "ай доунт ҳэв гловз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Take these. Are they okay?",
+          "cueTranslation": "Инҳоро гир. Мувофиқанд?",
+          "intent": "Бигӯ: хеле калонанд",
+          "text": "These are too big.",
+          "accepts": [
+            "Too big.",
+            "They're too big."
+          ],
+          "translation": "Инҳо хеле калонанд.",
+          "literal": "ҙиз ар ту биг",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Try the small ones.",
+          "cueTranslation": "Хурдашро пӯш.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

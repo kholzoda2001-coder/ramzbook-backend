@@ -1,0 +1,577 @@
+{
+  "slug": "check_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Checking the work",
+    "titleTranslated": "Санҷиши кор",
+    "scenario": "Бригадир кори шуморо месанҷад: рост аст ё не, аз нав кардан лозим аст ё тайёр. Шумо мепурсед «ҳамин хел?», хоҳиш мекунед нишон диҳад ва хатоятонро ислоҳ мекунед.",
+    "emoji": "✅",
+    "order": 19,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Check",
+          "translation": "санҷидан",
+          "literal": "чек",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Wrong",
+          "translation": "нодуруст",
+          "literal": "ронг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Straight",
+          "translation": "рост (ҳамвор)",
+          "literal": "стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Again",
+          "translation": "боз",
+          "literal": "эген",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Finished",
+          "translation": "тамом",
+          "literal": "финишт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Perfect",
+          "translation": "олӣ",
+          "literal": "пёрфект",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Тайёр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is the wall finished?",
+          "cueTranslation": "Девор тамом шуд?",
+          "intent": "Бигӯ: тамом",
+          "text": "Finished.",
+          "accepts": [
+            "Yes, finished.",
+            "Yes, it's finished."
+          ],
+          "translation": "Тамом.",
+          "literal": "финишт",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is it straight?",
+          "cueTranslation": "Рост аст?",
+          "intent": "Бигӯ: ҳа, рост",
+          "text": "Yes, straight.",
+          "accepts": [
+            "Yes.",
+            "Yes, it's straight."
+          ],
+          "translation": "Ҳа, рост.",
+          "literal": "йес стрейт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "This is wrong. Do it again.",
+          "cueTranslation": "Ин нодуруст. Боз кун.",
+          "intent": "Бипурс: боз?",
+          "text": "Again?",
+          "accepts": [
+            "Again? Okay.",
+            "One more time?"
+          ],
+          "translation": "Боз?",
+          "literal": "эген",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳамин хел?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Like this?",
+          "translation": "Ҳамин хел?",
+          "literal": "лайк ҙис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Show me",
+          "translation": "Нишон деҳ",
+          "literal": "шоу мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Check it",
+          "translation": "Санҷ",
+          "literal": "чек ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Looks good",
+          "translation": "Хуб менамояд",
+          "literal": "лукс гуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Not straight",
+          "translation": "Рост нест",
+          "literal": "нот стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Redo it",
+          "translation": "Аз нав кун",
+          "literal": "ридӯ ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бригадир нишон медиҳад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Put the tiles in a line.",
+          "cueTranslation": "Кошинҳоро дар як қатор гузор.",
+          "intent": "Бипурс: ҳамин хел?",
+          "text": "Like this?",
+          "accepts": [
+            "Like this? Okay?",
+            "This way?"
+          ],
+          "translation": "Ҳамин хел?",
+          "literal": "лайк ҙис",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "No. Look, I'll show you.",
+          "cueTranslation": "Не. Бин, нишон медиҳам.",
+          "intent": "Бигӯ: лутфан, нишон деҳ",
+          "text": "Show me, please.",
+          "accepts": [
+            "Please show me.",
+            "Okay, show me."
+          ],
+          "translation": "Лутфан, нишон деҳ.",
+          "literal": "шоу мӣ плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "See? Now you try.",
+          "cueTranslation": "Дидӣ? Акнун ту кӯшиш кун.",
+          "intent": "Бипурс: хуб менамояд?",
+          "text": "Looks good?",
+          "accepts": [
+            "Is it good?",
+            "Like this?"
+          ],
+          "translation": "Хуб менамояд?",
+          "literal": "лукс гуд",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Can you check it?",
+          "translation": "Санҷида метавонед?",
+          "literal": "кен ю чек ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this okay?",
+          "translation": "Ин хуб аст?",
+          "literal": "из ҙис оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's not straight.",
+          "translation": "Рост нест.",
+          "literal": "итс нот стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll do it again.",
+          "translation": "Аз нав мекунам.",
+          "literal": "айл ду ит эген",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "How is it?",
+          "translation": "Чӣ хел аст?",
+          "literal": "ҳау из ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Thanks, I understand.",
+          "translation": "Ташаккур, фаҳмидам.",
+          "literal": "ҫенкс ай андэрстэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Девор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you done with the wall?",
+          "cueTranslation": "Деворро тамом кардӣ?",
+          "intent": "Бигӯ: ҳа, санҷида метавонед?",
+          "text": "Yes. Can you check it?",
+          "accepts": [
+            "Yes, can you check it?",
+            "Yes. Check it, please."
+          ],
+          "translation": "Ҳа. Санҷида метавонед?",
+          "literal": "йес кен ю чек ит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hmm. This part is not straight.",
+          "cueTranslation": "Ҳм. Ин қисм рост нест.",
+          "intent": "Бигӯ: аз нав мекунам",
+          "text": "I'll do it again.",
+          "accepts": [
+            "Okay, I'll redo it.",
+            "Sorry, I'll do it again."
+          ],
+          "translation": "Аз нав мекунам.",
+          "literal": "айл ду ит эген",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Be careful this time.",
+          "cueTranslation": "Хуб. Ин дафъа эҳтиёт бош.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Okay, I understand.",
+          "accepts": [
+            "Got it.",
+            "Okay."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "оукей ай андэрстэнд",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хатои ман",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Mistake",
+          "translation": "хато",
+          "literal": "мистейк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, my mistake.",
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "сорӣ май мистейк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Minutes",
+          "translation": "дақиқаҳо",
+          "literal": "минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ten more minutes.",
+          "translation": "Боз даҳ дақиқа.",
+          "literal": "тен мор минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "It's ready now.",
+          "translation": "Акнун тайёр.",
+          "literal": "итс редӣ нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it good now?",
+          "translation": "Акнун хуб аст?",
+          "literal": "из ит гуд нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай тайёр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Why is this wrong?",
+          "cueTranslation": "Чаро ин нодуруст?",
+          "intent": "Бигӯ: бубахшед, хатои ман",
+          "text": "Sorry, my mistake.",
+          "accepts": [
+            "My mistake.",
+            "Sorry."
+          ],
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "сорӣ май мистейк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "When will it be ready?",
+          "cueTranslation": "Кай тайёр мешавад?",
+          "intent": "Бигӯ: боз даҳ дақиқа",
+          "text": "Ten more minutes.",
+          "accepts": [
+            "Ten minutes.",
+            "In ten minutes."
+          ],
+          "translation": "Боз даҳ дақиқа.",
+          "literal": "тен мор минитс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Let me see.",
+          "cueTranslation": "Хуб. Бигзор бубинам.",
+          "intent": "Бипурс: акнун хуб аст?",
+          "text": "Is it good now?",
+          "accepts": [
+            "Is it okay now?",
+            "Good now?"
+          ],
+          "translation": "Акнун хуб аст?",
+          "literal": "из ит гуд нау",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, perfect. Good job!",
+          "cueTranslation": "Ҳа, олӣ. Офарин!",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you!",
+          "accepts": [
+            "Thanks!",
+            "Thank you, boss."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: кори ман",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Show me your work.",
+          "cueTranslation": "Кори худро нишон деҳ.",
+          "intent": "Бигӯ: ана, хуб аст?",
+          "text": "Here. Is this okay?",
+          "accepts": [
+            "Is this okay?",
+            "Here it is."
+          ],
+          "translation": "Ана. Ин хуб аст?",
+          "literal": "ҳир из ҙис оукей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "This line is not straight.",
+          "cueTranslation": "Ин хат рост нест.",
+          "intent": "Бигӯ: бубахшед, аз нав мекунам",
+          "text": "Sorry. I'll do it again.",
+          "accepts": [
+            "I'll do it again.",
+            "Sorry, I'll redo it."
+          ],
+          "translation": "Бубахшед. Аз нав мекунам.",
+          "literal": "сорӣ айл ду ит эген",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Use the level.",
+          "cueTranslation": "Хуб. Аз нивелир истифода бар.",
+          "intent": "Бипурс: ҳамин хел?",
+          "text": "Like this?",
+          "accepts": [
+            "This way?",
+            "Like this? Okay?"
+          ],
+          "translation": "Ҳамин хел?",
+          "literal": "лайк ҙис",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, now it's perfect.",
+          "cueTranslation": "Ҳа, акнун олӣ.",
+          "intent": "Ташаккур гӯй ва бигӯ, ки фаҳмидӣ",
+          "text": "Thanks, I understand.",
+          "accepts": [
+            "Thank you.",
+            "Got it, thanks."
+          ],
+          "translation": "Ташаккур, фаҳмидам.",
+          "literal": "ҫенкс ай андэрстэнд",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

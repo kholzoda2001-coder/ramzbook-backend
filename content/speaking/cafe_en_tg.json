@@ -1,0 +1,566 @@
+{
+  "slug": "cafe_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Campus café",
+    "titleTranslated": "Ошхонаи донишгоҳ",
+    "scenario": "Ошхона ва қаҳвахонаи донишгоҳ: шӯрбо, сандвич, нӯшокӣ. Шумо фармоиш медиҳед, мегӯед, ки гӯшти хук намехӯред ва тахфифи донишҷӯӣ мепурсед.",
+    "emoji": "🥪",
+    "order": 13,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Меню",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Sandwich",
+          "translation": "сандвич",
+          "literal": "сэндвич",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Soup",
+          "translation": "шӯрбо",
+          "literal": "суп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Coffee",
+          "translation": "қаҳва",
+          "literal": "кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Juice",
+          "translation": "шарбат",
+          "literal": "джус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Menu",
+          "translation": "меню",
+          "literal": "меню",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Hungry",
+          "translation": "гурусна",
+          "literal": "ҳангрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Фармоиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What would you like? Soup?",
+          "cueTranslation": "Чӣ мехоҳед? Шӯрбо?",
+          "intent": "Бигӯ: сандвич",
+          "text": "A sandwich.",
+          "accepts": [
+            "Sandwich.",
+            "A sandwich, please."
+          ],
+          "translation": "Сандвич.",
+          "literal": "э сэндвич",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Coffee or juice?",
+          "cueTranslation": "Қаҳва ё шарбат?",
+          "intent": "Бигӯ: шарбат",
+          "text": "Juice.",
+          "accepts": [
+            "Juice, please."
+          ],
+          "translation": "Шарбат.",
+          "literal": "джус",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Are you hungry?",
+          "cueTranslation": "Гуруснаӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, very.",
+            "Yes, I am."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бурдан ё дар ин ҷо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Chicken soup",
+          "translation": "Шӯрбои мурғ",
+          "literal": "чикин суп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "To go",
+          "translation": "Барои бурдан",
+          "literal": "ту гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "For here",
+          "translation": "Дар ин ҷо",
+          "literal": "фор ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "No sugar",
+          "translation": "Бе шакар",
+          "literal": "ноу шугэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Sugar",
+          "translation": "шакар",
+          "literal": "шугэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Large coffee",
+          "translation": "Қаҳваи калон",
+          "literal": "лардж кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар пешхон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! What can I get you?",
+          "cueTranslation": "Салом! Ба шумо чӣ диҳам?",
+          "intent": "Бигӯ: шӯрбои мурғ",
+          "text": "Chicken soup.",
+          "accepts": [
+            "Chicken soup, please.",
+            "The chicken soup."
+          ],
+          "translation": "Шӯрбои мурғ.",
+          "literal": "чикин суп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "For here or to go?",
+          "cueTranslation": "Дар ин ҷо ё барои бурдан?",
+          "intent": "Бигӯ: барои бурдан",
+          "text": "To go.",
+          "accepts": [
+            "To go, please.",
+            "Take away."
+          ],
+          "translation": "Барои бурдан.",
+          "literal": "ту гоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Anything to drink?",
+          "cueTranslation": "Нӯшокӣ?",
+          "intent": "Бигӯ: қаҳва, бе шакар",
+          "text": "Coffee, no sugar.",
+          "accepts": [
+            "Coffee, please. No sugar.",
+            "Coffee."
+          ],
+          "translation": "Қаҳва, бе шакар.",
+          "literal": "кофӣ ноу шугэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "The menu, please.",
+          "translation": "Меню, лутфан.",
+          "literal": "ҙэ меню плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'd like a sandwich.",
+          "translation": "Сандвич мехоҳам.",
+          "literal": "айд лайк э сэндвич",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "sandwich|сандвич",
+            "soup|шӯрбо",
+            "coffee|қаҳва"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Is there meat?",
+          "translation": "Гӯшт дорад?",
+          "literal": "из ҙэр мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I don't eat pork.",
+          "translation": "Ман гӯшти хук намехӯрам.",
+          "literal": "ай доунт ит порк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Discount",
+          "translation": "тахфиф",
+          "literal": "дискаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Student discount?",
+          "translation": "Тахфифи донишҷӯӣ?",
+          "literal": "стюдэнт дискаунт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мурғ ё ветчина?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What would you like?",
+          "cueTranslation": "Чӣ мехоҳед?",
+          "intent": "Бигӯ: сандвич мехоҳам",
+          "text": "I'd like a sandwich.",
+          "accepts": [
+            "A sandwich, please.",
+            "Sandwich."
+          ],
+          "translation": "Сандвич мехоҳам.",
+          "literal": "айд лайк э сэндвич",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Chicken or ham?",
+          "cueTranslation": "Мурғ ё ветчина?",
+          "intent": "Бигӯ: мурғ, гӯшти хук намехӯрам",
+          "text": "Chicken. I don't eat pork.",
+          "accepts": [
+            "Chicken, please.",
+            "Chicken. No pork."
+          ],
+          "translation": "Мурғ. Гӯшти хук намехӯрам.",
+          "literal": "чикин ай доунт ит порк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Six dollars.",
+          "cueTranslation": "Хуб. Шаш доллар.",
+          "intent": "Бипурс: тахфифи донишҷӯӣ?",
+          "text": "Student discount?",
+          "accepts": [
+            "Is there a student discount?",
+            "Discount for students?"
+          ],
+          "translation": "Тахфифи донишҷӯӣ?",
+          "literal": "стюдэнт дискаунт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хӯрок чӣ хел?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "The soup is cold.",
+          "translation": "Шӯрбо хунук аст.",
+          "literal": "ҙэ суп из коулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Cold",
+          "translation": "хунук",
+          "literal": "коулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "One more coffee.",
+          "translation": "Боз як қаҳва.",
+          "literal": "ван мор кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are the napkins?",
+          "translation": "Дастмолҳо куҷоянд?",
+          "literal": "вэр ар ҙэ нэпкинз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "It's very good.",
+          "translation": "Хеле бомаза.",
+          "literal": "итс верӣ гуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this seat free?",
+          "translation": "Ин ҷо холист?",
+          "literal": "из ҙис сит фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Шӯрбо хунук",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "How is the food?",
+          "cueTranslation": "Хӯрок чӣ хел?",
+          "intent": "Бигӯ: шӯрбо хунук аст",
+          "text": "The soup is cold.",
+          "accepts": [
+            "It's cold.",
+            "The soup is cold, sorry."
+          ],
+          "translation": "Шӯрбо хунук аст.",
+          "literal": "ҙэ суп из коулд",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, sorry! I'll change it.",
+          "cueTranslation": "Оҳ, бубахшед! Иваз мекунам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you very much."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Anything else?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бигӯ: боз як қаҳва",
+          "text": "One more coffee.",
+          "accepts": [
+            "One more coffee, please.",
+            "Another coffee."
+          ],
+          "translation": "Боз як қаҳва.",
+          "literal": "ван мор кофӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: хӯроки пешин",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you ready to order?",
+          "cueTranslation": "Салом! Фармоиш медиҳед?",
+          "intent": "Бигӯ: ҳа, шӯрбои мурғ, лутфан",
+          "text": "Yes. Chicken soup, please.",
+          "accepts": [
+            "Chicken soup, please.",
+            "Yes, chicken soup."
+          ],
+          "translation": "Ҳа. Шӯрбои мурғ, лутфан.",
+          "literal": "йес чикин суп плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Anything else?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бигӯ: сандвич, бе гӯшти хук",
+          "text": "A sandwich, please. No pork.",
+          "accepts": [
+            "A sandwich, no pork.",
+            "I'd like a sandwich. No pork."
+          ],
+          "translation": "Сандвич, лутфан. Бе гӯшти хук.",
+          "literal": "э сэндвич плиз ноу порк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, chicken sandwich. Eight dollars.",
+          "cueTranslation": "Хуб, сандвичи мурғ. Ҳашт доллар.",
+          "intent": "Бипурс: тахфифи донишҷӯӣ ҳаст?",
+          "text": "Is there a student discount?",
+          "accepts": [
+            "Student discount?",
+            "Discount for students?"
+          ],
+          "translation": "Тахфифи донишҷӯӣ ҳаст?",
+          "literal": "из ҙэр э стюдэнт дискаунт",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, ten percent. Seven twenty.",
+          "cueTranslation": "Ҳа, даҳ фоиз. Ҳафт доллару бист.",
+          "intent": "Ташаккур гӯй",
+          "text": "Great, thank you!",
+          "accepts": [
+            "Thank you!",
+            "Thanks!"
+          ],
+          "translation": "Олӣ, ташаккур!",
+          "literal": "грейт ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
