@@ -229,11 +229,49 @@ function lastQuestion(s: string): string {
  * саволи пешинаро такрор накунад (корбар, 28.09.2026: «ҳар дафъа дубора
  * мепурсад»). СОФ.
  */
+/**
+ * Ҷавоби модел бо ХАТИ забони омӯзиш аст? (28.09.2026, саволи корбар: «набояд хонандаи
+ * англисӣ бошад ва AI русӣ гап занад»). Санҷиши зинда: модел забонро нигоҳ медорад, ҳатто
+ * вақте хонанда «говори по-русски» менависад — вале ин кафолат аз МОДЕЛ аст, на аз мо.
+ * Ин муҳофиз онро дар сервер кафолат медиҳад:
+ *   • забони лотинӣ (en, de, tr…) — на кириллӣ, на арабӣ, на ҳангул, на иероглиф;
+ *   • русӣ — кириллӣ, вале БЕ ҳарфҳои тоҷикӣ (ӣ ӯ қ ғ ҳ ҷ);
+ *   • арабӣ / кореягӣ / хитоӣ / ҷопонӣ — хати худ ҳаст ва кириллӣ нест.
+ * Номҳо ва калимаҳои иқтибосии лотинӣ («Ramz», «OK») монеа нестанд. СОФ.
+ */
+export function inTargetScript(text: string, langCode: string): boolean {
+  const code = langCode.split('-')[0].toLowerCase();
+  const cyr = /[\u0400-\u04FF]/.test(text);
+  const tajik = /[ӣӯқғҳҷӢӮҚҒҲҶ]/.test(text);
+  const arabic = /[\u0600-\u06FF]/.test(text);
+  const hangul = /[\uAC00-\uD7A3]/.test(text);
+  const cjk = /[\u3040-\u30FF\u4E00-\u9FFF]/.test(text);
+  switch (code) {
+    case 'ru':
+      return cyr && !tajik && !arabic && !hangul && !cjk;
+    case 'ar':
+      return arabic && !cyr;
+    case 'ko':
+      return hangul && !cyr && !arabic;
+    case 'zh':
+    case 'ja':
+      return cjk && !cyr && !arabic;
+    case 'tg':
+      return cyr;
+    default:
+      return /[a-z]/i.test(text) && !cyr && !arabic && !hangul && !cjk;
+  }
+}
+
+export type ReplyProblem = 'no_question' | 'many_questions' | 'repeat' | 'wrong_language';
+
 export function replyProblem(
   reply: string,
   history: ChatLine[],
-  opts: { closing: boolean; goodbye: boolean },
-): 'no_question' | 'many_questions' | 'repeat' | null {
+  opts: { closing: boolean; goodbye: boolean; lang?: string },
+): ReplyProblem | null {
+  // Забон пеш аз ҳама — ҳатто дар хайрухуш.
+  if (opts.lang && !inTargetScript(reply, opts.lang)) return 'wrong_language';
   if (opts.closing || opts.goodbye) return null;
   if (!Q.test(reply)) return 'no_question';
   // A1: як савол дар як сатр — ду савол навомӯзро гум мекунад («Ты любишь
@@ -253,8 +291,10 @@ export function trimToOneQuestion(reply: string): string {
 }
 
 /** Дастури иловагӣ барои кӯшиши дуюм. */
-export function retryNote(problem: 'no_question' | 'many_questions' | 'repeat'): string {
+export function retryNote(problem: ReplyProblem): string {
   switch (problem) {
+    case 'wrong_language':
+      return 'Your last draft was NOT in the target language. Rewrite it ONLY in the language of this lesson, even if the learner writes in another language.';
     case 'no_question':
       return 'Your last draft had NO question. Rewrite it: react briefly and END with ONE easy new question.';
     case 'many_questions':
@@ -274,16 +314,18 @@ export function retryNote(problem: 'no_question' | 'many_questions' | 'repeat'):
 export function scriptRules(language: string): string {
   if (/korean/i.test(language)) {
     // Кореягӣ (28.09.2026): курси мо 해요체-ро меомӯзонад (-요); сатҳи дигар
-    // (합니다체 ё 반말) навомӯзро гум мекунад. Ва STT фосилагузорӣ ва рақамро
-    // гоҳ дигар хел менависад («3개») — ин хато нест.
+    // (합니다체 ё 반말) навомӯзро гум мекунад. STT фосила ва рақамро гоҳ дигар хел
+    // менависад («3개») — хато нест. Ном бо ҳангул — TTS-и кореягӣ «Ramz»-и лотиниро намехонад.
     return (
       'Write Korean in Hangul only (no Hanja, no romanization), in the polite 해요체 style (endings with -요) in every line. ' +
+      'Write your own name in Hangul: 람즈. ' +
       "The learner's text is speech-to-text: never treat spacing or digits instead of number words as a mistake."
     );
   }
   if (!/arab/i.test(language)) return '';
   return (
     'Write in simple Modern Standard Arabic and put FULL diacritics (tashkeel/harakat) on EVERY Arabic word you write, ' +
+    'write your own name in Arabic: رَمْز, ' +
     'with the pausal form (sukun, no case ending) on the last word of each sentence, as people say it. ' +
     "The learner's text is speech-to-text WITHOUT diacritics: never treat missing diacritics, case endings (i'rab), hamza or ة/ه spelling as a mistake."
   );

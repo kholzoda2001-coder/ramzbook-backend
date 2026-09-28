@@ -46,18 +46,24 @@ CORRECTION FORMAT (strict)
  * Ҳама хатоҳо фурӯ бурда мешаванд: контекст «хуб мешуд», на шарт — чат набояд
  * аз сабаби як дархости иловагӣ шикаст хӯрад.
  */
-async function buildLearnerContext(userId: string): Promise<string> {
+async function buildLearnerContext(userId: string, targetCode: string | null): Promise<string> {
   try {
+    // Танҳо курси ҲАМИН забон: хонандае, ки ҳам русӣ ва ҳам англисӣ мехонад,
+    // дар чати англисӣ набояд калимаҳои русиро ҳамчун «барои такрор» гирад —
+    // модел онҳоро ба ҷавоб медаровард ва забон омехта мешуд.
+    const inCourse = targetCode
+      ? { module: { course: { targetLanguage: { code: targetCode } } } }
+      : {};
     const [lastLesson, dueCards] = await Promise.all([
       prisma.userProgress.findFirst({
-        where: { userId, completedAt: { not: null } },
+        where: { userId, completedAt: { not: null }, lesson: inCourse },
         orderBy: { completedAt: 'desc' },
         select: { lesson: { select: { title: true } } },
       }),
       prisma.srsCard.findMany({
         where: { userId, itemType: 'word', dueAt: { lte: new Date() } },
         orderBy: { dueAt: 'asc' },
-        take: 6,
+        take: 30, // баъди филтри забон 6 боқӣ мемонад
         select: { itemId: true },
       }),
     ]);
@@ -68,7 +74,7 @@ async function buildLearnerContext(userId: string): Promise<string> {
 
     if (dueCards.length) {
       const words = await prisma.word.findMany({
-        where: { id: { in: dueCards.map((c) => c.itemId) } },
+        where: { id: { in: dueCards.map((c) => c.itemId) }, lesson: inCourse },
         select: { word: true },
         take: 6,
       });
@@ -88,7 +94,7 @@ async function buildLearnerContext(userId: string): Promise<string> {
 
 /**
  * POST /api/mobile/ai/chat
- * Body: { messages: [{ role: 'user'|'assistant', content }] }
+ * Body: { messages: [{ role: 'user'|'assistant', content }], targetLang?: 'en' }
  * Returns: { reply, remaining, limit } — or 429 when the daily limit is reached.
  */
 export async function POST(req: NextRequest) {
@@ -106,7 +112,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'AI tutor is not configured.' }, { status: 503 });
     }
 
-    const body = (await req.json()) as { messages?: Array<{ role?: string; content?: string }> };
+    const body = (await req.json()) as {
+      messages?: Array<{ role?: string; content?: string }>;
+      targetLang?: string;
+    };
     const incoming = Array.isArray(body.messages) ? body.messages : [];
     const history: ChatMessage[] = incoming
       .filter((m) => (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string' && m.content.trim())
@@ -146,9 +155,15 @@ export async function POST(req: NextRequest) {
     // ── Build prompt & call OpenAI ────────────────────────────────────────────
     // Персона аз админ таҳрир мешавад; шакли ислоҳ ва контексти хонанда дар код
     // илова мешаванд, то онҳо ҳамеша ҷой дошта бошанд.
-    const learnerContext = await buildLearnerContext(userId);
+    // Забон — КУРСЕ, ки дар телефон ҳоло кушода аст (барнома мефиристад).
+    // `user.targetLang` танҳо эҳтиётӣ: `savePreferences` хатоҳоро фурӯ мебарад,
+    // пас баъди ивази курс бе интернет дар база забони КӮҲНА мемонд ва чати
+    // курси англисӣ метавонист русӣ ҷавоб диҳад.
+    const sent = typeof body.targetLang === 'string' ? body.targetLang.trim().toLowerCase() : '';
+    const targetCode = sent && LANG_NAMES[sent.split('-')[0]] ? sent : user.targetLang;
+    const learnerContext = await buildLearnerContext(userId, targetCode);
     const systemContent = (cfg.systemPrompt + '\n' + CORRECTION_CONTRACT + learnerContext)
-      .replaceAll('{target}', langName(user.targetLang))
+      .replaceAll('{target}', langName(targetCode))
       .replaceAll('{native}', langName(user.nativeLang))
       .replaceAll('{level}', user.level || 'A1');
 

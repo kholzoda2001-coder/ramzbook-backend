@@ -17,6 +17,7 @@ import {
   type FreeTalkInput,
   type FreeTalkLine,
 } from '@/lib/speaking/freetalk';
+import { inTargetScript } from '@/lib/speaking/chat';
 
 export const dynamic = 'force-dynamic';
 
@@ -178,6 +179,8 @@ export async function POST(req: NextRequest) {
       console.error(`[speaking/freetalk] AI: ${res.status ?? '-'} ${res.error ?? 'empty'} → сатри пайдарпай`);
     }
     const verdict = parseFreeTalkReply(aiOk ? res.reply! : '', pool.length, history.length === 0);
+    // Ислоҳи «беҳтар» бо забони ДИГАР (модел гоҳ бо забони хонанда ҷавоб медиҳад) — нест.
+    if (verdict.fix && !inTargetScript(verdict.fix.better, category.targetLanguage.code)) verdict.fix = null;
 
     // Навбати охирин — видоъ; дигарон — сатри ҳавз (интихоби модел ё
     // аввалин сатри нав, агар модел ғалат кард).

@@ -23,6 +23,7 @@ import {
   retryNote,
   trimToOneQuestion,
   saysGoodbye,
+  inTargetScript,
   type ChatLine,
   type ChatMode,
 } from '@/lib/speaking/chat';
@@ -171,7 +172,10 @@ export async function POST(req: NextRequest) {
     // ── «Чӣ гӯям?» ───────────────────────────────────────────────────────
     if (mode === 'hint') {
       const res = await ask();
-      const hints = res.ok && res.reply ? parseHints(res.reply) : [];
+      // Ёрӣ бо забони ДИГАР («Скажи: я строитель» дар курси англисӣ) — партофта мешавад.
+      const hints = (res.ok && res.reply ? parseHints(res.reply) : []).filter((h) =>
+        inTargetScript(h.say, language.code),
+      );
       if (!hints.length) {
         console.error(`[speaking/chat] hint: ${res.status ?? '-'} ${res.error ?? 'unparsable'}`);
         return NextResponse.json({ error: 'AI failed.', reason: 'ai' }, { status: 502 });
@@ -197,13 +201,14 @@ export async function POST(req: NextRequest) {
       ? replyProblem(parsed.reply, history, {
           closing: mode === 'turn' && closing,
           goodbye: mode === 'turn' && parsed.goodbye,
+          lang: language.code,
         })
       : null;
     if (parsed && problem) {
       const again = await ask(retryNote(problem));
       const second = again.ok && again.reply ? parseChatReply(again.reply, noFix) : null;
       const secondProblem = second
-        ? replyProblem(second.reply, history, { closing: false, goodbye: second.goodbye })
+        ? replyProblem(second.reply, history, { closing: false, goodbye: second.goodbye, lang: language.code })
         : problem;
       console.log(`[speaking/chat] ${problem} → ${second ? secondProblem ?? 'ислоҳ шуд' : 'кӯшиши 2 нашуд'}`);
       // Кӯшиши дуюм танҳо вақте, ки беҳтар аст (ё ҳадди ақал на бадтар).
@@ -215,6 +220,13 @@ export async function POST(req: NextRequest) {
     if (parsed && replyProblem(parsed.reply, history, { closing: false, goodbye: parsed.goodbye }) === 'many_questions') {
       parsed = { ...parsed, reply: trimToOneQuestion(parsed.reply) };
     }
+    // Забони нодуруст баъди кӯшиши дуюм ҳам — ба хонанда НАМЕРАСАД (барнома «боз кӯшиш»
+    // нишон медиҳад): сатри русӣ дар курси англисӣ бадтар аз таваққуфи кӯтоҳ аст.
+    if (parsed && !inTargetScript(parsed.reply, language.code)) {
+      console.error(`[speaking/chat] ${language.code}: забони нодуруст — «${parsed.reply.slice(0, 60)}»`);
+      parsed = null;
+    }
+    if (parsed?.fix && !inTargetScript(parsed.fix.better, language.code)) parsed = { ...parsed, fix: null };
     if (!parsed) {
       console.error(`[speaking/chat] AI: ${res.status ?? '-'} ${res.error ?? 'unparsable'}`);
       return NextResponse.json({ error: 'AI failed.', reason: 'ai' }, { status: 502 });
