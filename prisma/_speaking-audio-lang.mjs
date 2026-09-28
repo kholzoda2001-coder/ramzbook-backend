@@ -84,7 +84,9 @@ const letters = (t) => (t.match(/\p{L}/gu) ?? []).length;
 // ҳамсадоҳои беҷаранг («Sick» — 0.16 с нутқ, peak 0.55, солим) ҳадди 0.18-ро
 // намегузашт ва ТАМОМИ борро манъ мекард (28.09.2026) → 20% пасттар. Баъд «Test»:
 // шаш муҳаррик (Chirp3/markup/Wavenet) ҳамеша 0.14 с — хосияти калима (t-s-t), на вайронӣ → 25%.
-const SPEECH_K = { ru: 1, en: 0.75 }[LANG] ?? 1;
+// Арабӣ (28.09.2026): «قِفْ» 0.10 с ва «افْحَصْه» 0.16 с дар ҳар 4 кӯшиш айнан ҳамон —
+// ҳамсадоҳои беҷаранг (қ-ф, ҳ-с), ҳамон ҳолати «Test»-и англисӣ → ҳамон 25%.
+const SPEECH_K = { ru: 1, en: 0.75, ar: 0.75 }[LANG] ?? 1;
 const minSpeech = (t) => (letters(t) <= 3 ? 0.12 : letters(t) <= 6 ? 0.18 : 0.25) * SPEECH_K;
 const normKey = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
 
@@ -153,8 +155,14 @@ const STAGES = [
   { name: 'course-clip', make: async (t) => {
     const u = wordClip[normKey(t)];
     if (!u) return null;
-    const r = await fetch(u);
-    return r.ok ? Buffer.from(await r.arrayBuffer()) : null;
+    // 🔴 28.09.2026: ECONNABORTED дар ин ҷо ТАМОМИ скриптро (1198 клип) мекушт.
+    // Зинаи эҳтиётӣ аст — шабака нашуд, зинаи баъдӣ.
+    try {
+      const r = await fetch(u, { signal: AbortSignal.timeout(15000) });
+      return r.ok ? Buffer.from(await r.arrayBuffer()) : null;
+    } catch {
+      return null;
+    }
   } },
   { name: 'wavenet', make: (t) => synth({ text: t }, FALLBACK_VOICE) },
   { name: 'wavenet', make: (t) => synth({ text: t }, FALLBACK_VOICE) },

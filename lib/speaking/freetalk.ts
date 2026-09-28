@@ -64,9 +64,14 @@ export const CLOSING_LINES: Record<string, PoolLine> = {
     audioUrl:
       'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@87a770f1d06b0f57e0d8f570c3d95d47573dfd01/audio/en/freetalk_close_en.mp3',
   },
-  // Арабӣ: бо ҳаракот, охир бо вақф (чунон ки мегӯянд). Аудио — ҳамон скрипт
-  // бо `--lang=ar`; то он вақт барнома матнро бо TTS-и дастгоҳ мехонад.
-  ar: { text: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
+  // Арабӣ: бо ҳаракот, охир бо вақф (чунон ки мегӯянд). Аудио: овози курс (Zariyah),
+  // `prisma/_speaking-real-audio-lang.mjs --lang=ar`.
+  ar: {
+    text: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!',
+    tg: 'Олӣ, ташаккур! То дидор!',
+    audioUrl:
+      'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@569156a04d7e6d43f592e2bc381117c294592840/audio/ar/freetalk_close_ar.mp3',
+  },
   de: { text: 'Super, danke! Bis später!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   tr: { text: 'Harika, teşekkürler! Görüşürüz!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
 };
