@@ -9,9 +9,23 @@ import { validateLesson } from '../lib/speaking/validate';
 
 // Ҳар забон ҶУДО: ҳарфи ҳадаф ва талабот ба транскрипсияи тоҷикӣ (`literal`).
 // Англисӣ: транскрипсия ҲАТМӢ (хонандаи тоҷик ҳарфи лотиниро душвор мехонад);
-// русӣ: лозим нест (қарори корбар, 12.09.2026).
-const SCRIPT: Record<string, RegExp> = { ru: /[а-яё]/i, en: /[a-z]/i };
-const NEEDS_LITERAL: Record<string, boolean> = { ru: false, en: true };
+// русӣ: лозим нест (қарори корбар, 12.09.2026). Арабӣ: ҲАТМӢ — алифбо ношинос.
+const SCRIPT: Record<string, RegExp> = { ru: /[а-яё]/i, en: /[a-z]/i, ar: /[\u0621-\u064A]/ };
+const NEEDS_LITERAL: Record<string, boolean> = { ru: false, en: true, ar: true };
+
+// ── Арабӣ (28.09.2026) ────────────────────────────────────────────────────
+// Хонандаи A1-и тоҷик арабии БЕ ҳаракатро хонда наметавонад → ҳар калимаи
+// ≥2-ҳарфа ақаллан як ҳаракат (َ ُ ِ ْ ّ ً ٌ ٍ) дорад. Аломатҳо — арабӣ: ؟ ، ؛
+const AR_WORD = /[\u0621-\u064A\u0671][\u0621-\u0652\u0670\u0671]*/g;
+const AR_MARK = /[\u064B-\u0652]/;
+function arabicProblems(label: string, t: string | null | undefined): string[] {
+  if (!t || !/[\u0621-\u064A]/.test(t)) return [];
+  const out: string[] = [];
+  const bare = (t.match(AR_WORD) ?? []).filter((w) => w.replace(/[\u064B-\u0652\u0670]/g, '').length >= 2 && !AR_MARK.test(w));
+  if (bare.length) out.push(`NO_HARAKAT ${label} «${t}»: ${bare.join(' ')}`);
+  if (/[?,;]/.test(t)) out.push(`LATIN_PUNCT ${label} «${t}» — ؟ ، ؛ лозим`);
+  return out;
+}
 let total = 0;
 for (const slug of process.argv.slice(2)) {
   const j = JSON.parse(readFileSync(`content/speaking/${slug}.json`, 'utf8'));
@@ -34,6 +48,18 @@ for (const slug of process.argv.slice(2)) {
         if (!it.literal?.trim()) { if (!String(it.text).includes('{')) { errs++; console.log(`   ❌ NO_LITERAL «${it.text}»`); } }
         // Транскрипсия ҳарфи тоҷикӣ бошад, на лотинӣ.
         else if (/[a-z]/i.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_LATIN «${it.text}» → «${it.literal}»`); }
+        else if (/[\u0600-\u06FF]/.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_ARABIC «${it.text}» → «${it.literal}»`); }
+      }
+    }
+    if (j.targetLanguage === 'ar') {
+      for (const it of L.items as any[]) {
+        const probs = [
+          ...arabicProblems('text', it.text),
+          ...arabicProblems('cue', it.cue),
+          ...((it.accepts ?? []) as string[]).flatMap((a) => arabicProblems('accepts', a)),
+          ...((it.swaps ?? []) as string[]).flatMap((w) => arabicProblems('swaps', String(w).split('|')[0])),
+        ];
+        for (const m of probs) { errs++; console.log(`   ❌ ${m}`); }
       }
     }
     console.log(`#${L.order + 1} ${(L.stage ?? '-').padEnd(9)} ${L.title}${L.mode ? ' [' + L.mode + ']' : ''} | ${steps.length} қадам: ${steps.map((s: any) => s.kind).join(',')}`);

@@ -31,6 +31,8 @@ const LANGS = {
         code: 'ru-RU', closing: 'Хорошо, спасибо! До встречи!' },
   en: { voices: ['en-US-Chirp3-HD-Orus', 'en-US-Chirp3-HD-Fenrir'], course: 'en-US-Chirp3-HD-Kore',
         code: 'en-US', closing: 'Great, thank you! See you later!' },
+  ar: { voices: ['ar-XA-Chirp3-HD-Orus', 'ar-XA-Chirp3-HD-Fenrir'], course: 'ar-XA-Chirp3-HD-Kore',
+        code: 'ar-XA', closing: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);

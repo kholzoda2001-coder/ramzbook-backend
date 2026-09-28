@@ -22,6 +22,7 @@
  * СОФ: сохтани промпт ва хондани ҷавоб, бе шабака — то тест онро бигирад.
  */
 import type { ChatMessage } from '../ai/openai';
+import { scriptRules } from './chat';
 
 /** Чанд навбати ҲАМСӮҲБАТ дар як суҳбат (хонанда 5 бор ҷавоб медиҳад). */
 export const FREE_TALK_TURNS = 6;
@@ -63,6 +64,9 @@ export const CLOSING_LINES: Record<string, PoolLine> = {
     audioUrl:
       'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@87a770f1d06b0f57e0d8f570c3d95d47573dfd01/audio/en/freetalk_close_en.mp3',
   },
+  // Арабӣ: бо ҳаракот, охир бо вақф (чунон ки мегӯянд). Аудио — ҳамон скрипт
+  // бо `--lang=ar`; то он вақт барнома матнро бо TTS-и дастгоҳ мехонад.
+  ar: { text: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   de: { text: 'Super, danke! Bis später!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   tr: { text: 'Harika, teşekkürler! Görüşürüz!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
 };
@@ -170,6 +174,7 @@ export function buildFreeTalkMessages(i: FreeTalkInput): ChatMessage[] {
 
   const system = [
     `You direct a spoken ${i.language} roleplay with a Tajik beginner (CEFR A1). Situation (in Tajik): "${clip(i.situation, 120)}".`,
+    scriptRules(i.language),
     `You play the other person, but you may ONLY say lines from the numbered list of PARTNER LINES — you pick the number.`,
     closing
       ? `The conversation is ending now: do not pick a line, use "pick": -1.`
@@ -180,7 +185,9 @@ export function buildFreeTalkMessages(i: FreeTalkInput): ChatMessage[] {
     `"understood": true if a native ${i.language} speaker would understand what they mean (true on the first turn);`,
     `"fix": if the reply has ANY grammar mistake — wrong case ending, wrong verb form or tense, wrong gender or agreement, a missing needed word, or an unnatural word order — give {"said": "<their reply>", "better": "<the most natural correct ${i.language} sentence for what they meant, max 10 words>"}; if it is correct, null. Never "fix" a name.`,
     `Reply with JSON only: {"pick": <number>, "understood": <true|false>, "fix": <null or object>}.`,
-  ].join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const lines = `PARTNER LINES:\n${i.pool.map((p, k) => `${k}. ${clip(p.text, 120)}`).join('\n')}`;
   // ⚠️ Луғати хонанда ба промпт НАМЕРАВАД: барои интихоби сатр ва санҷиши

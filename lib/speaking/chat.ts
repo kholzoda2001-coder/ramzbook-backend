@@ -132,7 +132,21 @@ export type ChatReply = {
 const clip = (s: string, n: number) => s.replace(/\s+/g, ' ').trim().slice(0, n);
 
 // ⚠️ Бе флаги `u`: `tsconfig` target надорад (ES5).
-const bare = (s: string) => s.toLowerCase().replace(/[\s.,!?;:"'«»()\-—–…]+/g, ' ').trim();
+// Арабӣ (28.09.2026): ҳаракот партофта мешаванд (модел як калимаро гоҳ бо
+// ҳаракоти дигар менависад), ва ؟ ، ؛ — аломатҳои китобатии арабӣ.
+const bare = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[\u064B-\u0652\u0670]/g, '') // ҳаракот
+    // шаклҳои ҳамза, ة/ه, ى/ي — STT онҳоро гоҳ ин хел, гоҳ он хел менависад
+    .replace(/[أإآ]/g, 'ا')
+    .replace(/ة/g, 'ه')
+    .replace(/ى/g, 'ي')
+    .replace(/[\s.,!?;:"'«»()\-—–…؟،؛]+/g, ' ')
+    .trim();
+
+/** Аломати савол: `?` ва арабии `؟`. */
+const Q = /[?؟]/;
 
 /**
  * Навбати ягонае, ки Рамз мавзӯъ пешниҳод мекунад: баъди ҷавоби ДУЮМИ хонанда
@@ -178,7 +192,13 @@ export function askedQuestions(h: ChatLine[]): string[] {
   return h.filter((l) => l.who === 'ai').map((l) => clip(l.text, 120));
 }
 
-const words = (s: string) => bare(s).split(' ').filter((w) => w.length > 1);
+// Арабӣ: артикли «ال» ҷузъи калима навишта мешавад («الشاي» = «шай»), вале маъно
+// ҳамон аст — барои муқоисаи калимаҳо ҷудо мешавад.
+const words = (s: string) =>
+  bare(s)
+    .split(' ')
+    .filter((w) => w.length > 1)
+    .map((w) => (w.length > 3 && w.indexOf('ال') === 0 ? w.slice(2) : w));
 
 /** Ду ҷумла ҳамон як саволанд? (калимаҳои умумӣ ≥ 70% — Jaccard). СОФ. */
 export function sameQuestion(a: string, b: string): boolean {
@@ -199,7 +219,7 @@ export function sameQuestion(a: string, b: string): boolean {
 /** Ҷумлаи саволии охир («Понятно. Где ты живёшь?» → «Где ты живёшь?»). */
 function lastQuestion(s: string): string {
   // ⚠️ Бе lookbehind: `tsconfig` target надорад (ES5).
-  const qs = s.match(/[^.!?]*\?/g);
+  const qs = s.match(/[^.!?؟]*[?؟]/g);
   return qs ? qs[qs.length - 1].trim() : '';
 }
 
@@ -215,10 +235,10 @@ export function replyProblem(
   opts: { closing: boolean; goodbye: boolean },
 ): 'no_question' | 'many_questions' | 'repeat' | null {
   if (opts.closing || opts.goodbye) return null;
-  if (!reply.includes('?')) return 'no_question';
+  if (!Q.test(reply)) return 'no_question';
   // A1: як савол дар як сатр — ду савол навомӯзро гум мекунад («Ты любишь
   // еду? Что ты ешь обычно?» — санҷиши зинда, 28.09.2026).
-  if ((reply.match(/\?/g) || []).length > 1) return 'many_questions';
+  if ((reply.match(/[?؟]/g) || []).length > 1) return 'many_questions';
   if (history.some((l) => l.who === 'ai' && sameQuestion(l.text, reply))) return 'repeat';
   return null;
 }
@@ -228,8 +248,8 @@ export function replyProblem(
  * хорошая?». Захираи охирин, вақте модел ду бор ду савол дод. СОФ.
  */
 export function trimToOneQuestion(reply: string): string {
-  const i = reply.indexOf('?');
-  return i < 0 ? reply : reply.slice(0, i + 1).trim();
+  const m = Q.exec(reply);
+  return m ? reply.slice(0, m.index + 1).trim() : reply;
 }
 
 /** Дастури иловагӣ барои кӯшиши дуюм. */
@@ -243,6 +263,30 @@ export function retryNote(problem: 'no_question' | 'many_questions' | 'repeat'):
       return 'Your last draft repeated a question you already asked. Rewrite it with a DIFFERENT question on a NEW everyday topic.';
   }
 }
+
+/**
+ * Қоидаҳои ХОСИ забон барои промпт. Ҳоло танҳо арабӣ (28.09.2026):
+ *  • хонандаи A1-и тоҷик арабии БЕ ҳаракатро хонда наметавонад → ҳар калима
+ *    бо ташкили пурра, охири ҷумла бо вақф (сукун) — чунон ки мегӯянд;
+ *  • гуфтори хонанда аз STT БЕ ҳаракат меояд → ҳаракот, эъроб, ҳамза ва
+ *    ة/ه ҳеҷ гоҳ «хато» нестанд (бе ин модел ҳар ҷумлаи дурустро «ислоҳ» мекард).
+ */
+export function scriptRules(language: string): string {
+  if (!/arab/i.test(language)) return '';
+  return (
+    'Write in simple Modern Standard Arabic and put FULL diacritics (tashkeel/harakat) on EVERY Arabic word you write, ' +
+    'with the pausal form (sukun, no case ending) on the last word of each sentence, as people say it. ' +
+    "The learner's text is speech-to-text WITHOUT diacritics: never treat missing diacritics, case endings (i'rab), hamza or ة/ه spelling as a mistake."
+  );
+}
+
+/**
+ * 🔴 Санҷиши зинда бо арабӣ (28.09.2026): «тарҷумаи тоҷикӣ»-и модел аксаран
+ * ӮЗБЕКӢ буд («таңертең не жеймени ёқтирасан», «Қизил ёки кўкни ёқтирасиз») —
+ * модел «Tajik, Cyrillic»-ро бо забонҳои туркии кириллӣ омехта мекард.
+ */
+const TAJIK_NOTE =
+  'Tajik is a PERSIAN language (like Farsi/Dari) written in Cyrillic: in every Tajik field use only Tajik words, never Uzbek, Kazakh or other Turkic words.';
 
 const PERSONA = (lang: string) =>
   `You are Ramz, a warm, patient ${lang} teacher having a FREE everyday conversation with a Tajik beginner in a language app. ` +
@@ -274,12 +318,16 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
   if (mode === 'hint') {
     const system = [
       PERSONA(i.language),
+      scriptRules(i.language),
+      TAJIK_NOTE,
       level,
       aboutLearner,
       `The learner is stuck and does not know how to answer your last line.`,
       `Suggest 3 different short answers (max 8 words each) the learner could say, in ${i.language}, natural and correct, about themselves (use what you know about them).`,
       `Reply with JSON only: {"hints": [{"say": "<${i.language}>", "tg": "<Tajik translation, Cyrillic>"}]}`,
-    ].join(' ');
+    ]
+      .filter(Boolean)
+      .join(' ');
     return [
       { role: 'system', content: system },
       { role: 'user', content: transcript(hist, name) },
@@ -298,6 +346,8 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
   if (mode === 'nudge') {
     const system = [
       PERSONA(i.language),
+      scriptRules(i.language),
+      TAJIK_NOTE,
       level,
       aboutLearner,
       `Speak ONLY ${i.language}.`,
@@ -340,11 +390,13 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
 
   const system = [
     PERSONA(i.language),
+    scriptRules(i.language),
+    TAJIK_NOTE,
     level,
     aboutLearner,
     `Speak ONLY ${i.language}. Never correct the learner inside your line.`,
     plan,
-    `Check the learner's LAST line like a careful teacher (it is speech-to-text: ignore spelling, punctuation, capitals): if it has a real grammar or word mistake, give "fix"; else null. Never fix names.`,
+    `Check the learner's LAST line like a careful teacher (it is speech-to-text: ignore spelling, punctuation, capitals): if it has a real grammar or word mistake, give "fix"; else null. Never fix names. A fix keeps the learner's OWN meaning — an answer that does not fit your question is not a mistake.`,
     `Reply with JSON only:`,
     `{"reply": "<your line in ${i.language}>", "reply_tg": "<Tajik translation, Cyrillic>",`,
     `"topics": [{"label_en": "<2-3 word topic name in English>", "label_tg": "<the same in Tajik, Cyrillic>", "say": "<the short phrase the LEARNER says to choose it, in ${i.language}, 1-3 words, e.g. \"О работе\">"}] or [],`,
@@ -352,7 +404,9 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
     `"name": "<the learner's first name if they told it in their last line, else empty>",`,
     `"remember": ["<new short facts about the learner in English (not the name), max 8 words each, only if they just told you something personal>"],`,
     `"goodbye": <true|false>}`,
-  ].join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return [
     { role: 'system', content: system },
@@ -379,20 +433,50 @@ function json(raw: string): Record<string, unknown> | null {
 
 const str = (v: unknown, n: number) => (typeof v === 'string' ? clip(v, n) : '');
 
+/**
+ * Ҳаракати «овезон»: модел гоҳ сукунро ПАС аз аломат мегузорад («جَمِيلٌ؟ْ») —
+ * дар экран як аломати беҳарф мемонад. Ҳаракат танҳо баъди ҳарфи арабӣ (ё
+ * ҳаракати дигар — шадда + фатҳа) ҷоиз аст. Барои матни ғайриарабӣ бетаъсир. СОФ.
+ */
+export function tidyArabicMarks(s: string): string {
+  return s.replace(/([^\u0621-\u064A\u0671-\u06D3\u064B-\u0652\u0670])[\u064B-\u0652]+/g, '$1');
+}
+
+/**
+ * «Ислоҳ» маънои ХУДИ хонандаро нигоҳ медорад? Санҷиши зинда (28.09.2026):
+ * ба саволи «ранг» хонанда «أحب البلوف» (палавро дӯст медорам) гуфт ва модел
+ * «ислоҳ» кард → «أُحِبُّ اللَّوْنَ الأَزْرَقَ» — ин ислоҳ не, ҷавоби ДИГАР аст, ва
+ * дастури промпт онро боздошта натавонист. Ислоҳи воқеӣ аксари калимаҳоро
+ * нигоҳ медорад («I has brother» → «I have a brother»: 1/3). Ҷавоби якқалима
+ * («Чай» → «Я люблю чай») ҳамеша ҷоиз аст. СОФ.
+ */
+export function fixKeepsMeaning(said: string, better: string): boolean {
+  const A = new Set(words(said));
+  if (A.size < 2) return true;
+  const Bw = new Set(words(better));
+  let common = 0;
+  A.forEach((w) => {
+    if (Bw.has(w)) common++;
+  });
+  return common / (A.size + Bw.size - common) >= 0.3;
+}
+
 /** Ҷавоби навбат. `null` = модел сатр надод (роут дубора мепурсад ё 502). */
 export function parseChatReply(raw: string, firstTurn = false): ChatReply | null {
   const j = json(raw);
   if (!j) return null;
-  const reply = str(j.reply, 300);
+  const reply = tidyArabicMarks(str(j.reply, 300));
   if (!reply) return null;
 
   let fix: ChatFix | null = null;
   const f = j.fix as Record<string, unknown> | null | undefined;
   if (!firstTurn && f && typeof f === 'object') {
     const said = str(f.said, 200);
-    const better = str(f.better, 160);
+    const better = tidyArabicMarks(str(f.better, 160));
     const why = str(f.why_en, 160);
-    if (said && better && bare(said) !== bare(better)) fix = { said, better, why };
+    if (said && better && bare(said) !== bare(better) && fixKeepsMeaning(said, better)) {
+      fix = { said, better, why };
+    }
   }
 
   const topics: ChatTopic[] = Array.isArray(j.topics)
@@ -429,7 +513,7 @@ export function parseHints(raw: string): ChatHint[] {
   const seen = new Set<string>();
   return (j.hints as unknown[])
     .filter((h): h is Record<string, unknown> => !!h && typeof h === 'object')
-    .map((h) => ({ say: str(h.say, 80), tg: str(h.tg, 120) }))
+    .map((h) => ({ say: tidyArabicMarks(str(h.say, 80)), tg: str(h.tg, 120) }))
     .filter((h) => {
       const k = bare(h.say);
       if (!h.say || seen.has(k)) return false;
@@ -470,5 +554,9 @@ export function saysGoodbye(text: string): boolean {
     'пока', 'до свидания', 'до завтра', 'хватит',
     'bye', 'goodbye', 'see you',
     'tschüss', 'auf wiedersehen', 'görüşürüz', 'hoşça kal',
-  ].some((p) => t === p || t.endsWith(` ${p}`) || t.startsWith(`${p} `));
+    // арабӣ — БЕ ҳаракат (`bare` онҳоро мепартояд); ҳамза ду хел, чунки STT гоҳ менависад, гоҳ не
+    'مع السلامة', 'مع السلامه', 'إلى اللقاء', 'الى اللقاء', 'وداعا', 'باي',
+  ]
+    .map(bare) // ҳамон якхелакунӣ, ки матни хонанда мегирад (ҳамза, ى, ة)
+    .some((p) => t === p || t.endsWith(` ${p}`) || t.startsWith(`${p} `));
 }

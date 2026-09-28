@@ -43,6 +43,9 @@ const LANGS = {
   // Англисӣ: ҳамон оилаи Chirp3 (санҷишҳо барои он калибр шудаанд); эҳтиётӣ —
   // овози курси англисӣ (`en-US-Neural2-F`, ниг. `gen-all-audio-google.mjs`).
   en: { voice: 'en-US-Chirp3-HD-Kore', fallback: 'en-US-Neural2-F', code: 'en-US' },
+  // Арабӣ (28.09.2026): ҳамон оилаи Chirp3 (ar-XA — арабии стандартӣ); эҳтиётӣ Wavenet-A.
+  // ⚠️ Матн БО ҳаракат фиристода мешавад — TTS маҳз ҳамон ҳаракотро мехонад.
+  ar: { voice: 'ar-XA-Chirp3-HD-Kore', fallback: 'ar-XA-Wavenet-A', code: 'ar-XA' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);
