@@ -92,7 +92,7 @@ const letters = (t) => (t.match(/\p{L}/gu) ?? []).length;
 // шаш муҳаррик (Chirp3/markup/Wavenet) ҳамеша 0.14 с — хосияти калима (t-s-t), на вайронӣ → 25%.
 // Арабӣ (28.09.2026): «قِفْ» 0.10 с ва «افْحَصْه» 0.16 с дар ҳар 4 кӯшиш айнан ҳамон —
 // ҳамсадоҳои беҷаранг (қ-ф, ҳ-с), ҳамон ҳолати «Test»-и англисӣ → ҳамон 25%.
-const SPEECH_K = { ru: 1, en: 0.75, ar: 0.75 }[LANG] ?? 1;
+const SPEECH_K = { ru: 1, en: 0.75, ar: 0.75, tr: 0.75 }[LANG] ?? 1; // tr: «Çekiç» 0.16 с
 const minSpeech = (t) => (letters(t) <= 3 ? 0.12 : letters(t) <= 6 ? 0.18 : 0.25) * SPEECH_K;
 const normKey = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
 

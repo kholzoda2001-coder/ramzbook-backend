@@ -21,6 +21,8 @@ const LOCALES = { tr: 'tr-TR', en: 'en-US', ru: 'ru-RU', ar: 'ar-SA', ko: 'ko-KR
 const VOICES = { tr: 'tr-TR-EmelNeural', en: 'en-US-AriaNeural', ru: 'ru-RU-SvetlanaNeural', ar: 'ar-SA-ZariyahNeural', ko: 'ko-KR-SunHiNeural', de: 'de-DE-KatjaNeural' };
 const VOICE = arg('voice', VOICES[LANG]);
 const LOCALE = LOCALES[LANG];
+// `--nopa` — бе баҳои талаффуз (танҳо STT): барои забоне, ки PA надорад (tr-TR).
+const NOPA = process.argv.includes('--nopa');
 const API = 'https://admin.ramz.tj';
 const PYTHON = process.env.PYTHON || 'C:/Users/ASUS1/AppData/Local/Python/pythoncore-3.14-64/python.exe';
 const TMP = join('tmp', `azure-live-${LANG}`);
@@ -50,7 +52,7 @@ async function userAccess() {
 }
 
 async function azureToken(access) {
-  const r = await fetch(`${API}/api/mobile/speech/token`, { headers: { Authorization: `Bearer ${access}` } });
+  const r = await fetch(`${API}/api/mobile/speech/token`, { method: 'POST', headers: { Authorization: `Bearer ${access}` } });
   if (!r.ok) throw new Error(`token ${r.status} ${await r.text()}`);
   return r.json();
 }
@@ -85,7 +87,7 @@ async function assess(tok, audio, reference) {
   const r = await fetch(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${tok.token}`, 'Content-Type': 'audio/wav; codecs=audio/pcm; samplerate=16000',
-      'Pronunciation-Assessment': params, Accept: 'application/json' },
+      ...(NOPA ? {} : { 'Pronunciation-Assessment': params }), Accept: 'application/json' },
     body: new Uint8Array(audio),
   });
   const body = await r.text();
@@ -96,7 +98,7 @@ async function assess(tok, audio, reference) {
 const phrases = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const neg = process.argv.includes('--neg'); // назорати манфӣ: аудиои ибораи i бо матни ибораи i+1
 const list = phrases.length ? phrases : DEFAULTS[LANG];
-const clip = wavOf;
+const clip = (i) => wavOf(list[i], i);
 const access = await userAccess();
 const tok = await azureToken(access);
 console.log(`${LOCALE} · ${list.length} ибора${neg ? ' · НАЗОРАТИ МАНФӢ' : ''}

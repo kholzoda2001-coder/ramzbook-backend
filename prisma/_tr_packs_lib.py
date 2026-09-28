@@ -82,9 +82,9 @@ def pack(slug, title, title_tg, emoji, order, goals, scenario, lessons, mission_
     d = {"slug": slug, "targetLanguage": "tr", "nativeLanguage": "tg",
          "category": {"title": title, "titleTranslated": title_tg, "scenario": scenario,
                       "emoji": emoji, "order": order, "goals": goals,
-                      # ⚠️ ПИНҲОН то санҷиши телефон: Azure барои tr-TR баҳои талаффуз НАМЕДИҲАД
-                      # (ҳуҷҷати Microsoft, 28.09.2026) — ҳукм бояд аз матни шунида бошад.
-                      "isPremium": False, "isActive": False},
+                      # Санҷиши зинда (29.09.2026): Azure tr-TR-ро ВОҚЕАН баҳо медиҳад (90–100 барои
+                      # ибораи дуруст, «Kiz» ба ҷои «Kız» → 9) — ҷадвали ҳуҷҷати Microsoft кӯҳна буд.
+                      "isPremium": False, "isActive": True},
          "lessons": out}
     io.open(OUT + slug + '.json', 'w', encoding='utf-8').write(
         json.dumps(d, ensure_ascii=False, indent=2) + '\n')
