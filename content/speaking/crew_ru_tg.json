@@ -1,0 +1,565 @@
+{
+  "slug": "crew_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Бытовка и коллеги",
+    "titleTranslated": "Вагонча ва ҳамкорон",
+    "scenario": "Танаффус дар вагонча: чой, хӯрок ва суҳбат бо ҳамкорон аз кишварҳои гуногун. Шумо мегӯед, ки аз куҷоед, чанд вақт кор мекунед, ва бо ҳам дам мегиред.",
+    "emoji": "☕",
+    "order": 17,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Танаффус",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Брат",
+          "translation": "бародар",
+          "literal": null,
+          "note": "Байни ҳамкорон ба якдигар «брат» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Перерыв",
+          "translation": "танаффус",
+          "literal": null,
+          "note": "Зарба: пе-ре-РЫВ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Устал",
+          "translation": "монда шудам",
+          "literal": null,
+          "note": "Зарба: ус-ТАЛ. Зан: «устала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Вместе",
+          "translation": "якҷоя",
+          "literal": null,
+          "note": "Зарба: ВМЕС-те.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Чай",
+          "translation": "чой",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Друг",
+          "translation": "дӯст",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Дам мегирем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сейчас работаем или отдыхаем?",
+          "cueTranslation": "Ҳозир кор мекунем ё дам мегирем?",
+          "intent": "Бигӯ: танаффус",
+          "text": "Перерыв.",
+          "accepts": [
+            "Сейчас перерыв."
+          ],
+          "translation": "Танаффус.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ты устал?",
+          "cueTranslation": "Монда шудӣ?",
+          "intent": "Бигӯ: ҳа, монда шудам",
+          "text": "Устал.",
+          "accepts": [
+            "Да, устал.",
+            "Очень устал."
+          ],
+          "translation": "Монда шудам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Обедать будем отдельно или вместе?",
+          "cueTranslation": "Хӯрокро алоҳида мехӯрем ё якҷоя?",
+          "intent": "Бигӯ: якҷоя",
+          "text": "Вместе.",
+          "accepts": [
+            "Давай вместе."
+          ],
+          "translation": "Якҷоя.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Биё!",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Давай",
+          "translation": "биё (биё ки ...)",
+          "literal": null,
+          "note": "«Давай вместе» — биё якҷоя. Зарба: да-ВАЙ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Давай вместе",
+          "translation": "Биё якҷоя",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Давай отдохнём",
+          "translation": "Биё дам гирем",
+          "literal": null,
+          "note": "Зарба: от-дох-НЁМ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Откуда",
+          "translation": "аз куҷо",
+          "literal": null,
+          "note": "Зарба: от-КУ-да.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ты откуда?",
+          "translation": "Ту аз куҷоӣ?",
+          "literal": null,
+          "note": "Ба ҳамкор — «ты».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я тоже",
+          "translation": "Ман ҳам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Шиносоӣ дар вагонча",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Брат, ты откуда?",
+          "cueTranslation": "Бародар, ту аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон ва бипурс: ту аз куҷоӣ?",
+          "text": "Из Таджикистана. А ты откуда?",
+          "accepts": [
+            "Из Таджикистана. Ты откуда?",
+            "Я из Таджикистана."
+          ],
+          "translation": "Аз Тоҷикистон. Ту аз куҷоӣ?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я из Узбекистана. Устал сегодня!",
+          "cueTranslation": "Ман аз Ӯзбекистон. Имрӯз монда шудам!",
+          "intent": "Бигӯ: ман ҳам. Биё дам гирем",
+          "text": "Я тоже. Давай отдохнём.",
+          "accepts": [
+            "Давай отдохнём.",
+            "Я тоже устал."
+          ],
+          "translation": "Ман ҳам. Биё дам гирем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Давай. Чай будешь?",
+          "cueTranslation": "Биё. Чой мехӯрӣ?",
+          "intent": "Бигӯ: ҳа, биё якҷоя",
+          "text": "Да, давай вместе.",
+          "accepts": [
+            "Давай вместе.",
+            "Да, давай."
+          ],
+          "translation": "Ҳа, биё якҷоя.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи худам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Как тебя зовут?",
+          "translation": "Номат чист?",
+          "literal": null,
+          "note": "Ба ҳамкор — «тебя» (ту).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "own",
+          "text": "Меня зовут ___.",
+          "translation": "Номи ман ___.",
+          "literal": null,
+          "note": "Ба ҷои «___» номи ХУДАТОНРО гӯед.",
+          "cue": "А тебя как зовут?",
+          "cueTranslation": "Номи ту чист?",
+          "intent": "Номи худатонро гӯед",
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ты давно здесь?",
+          "translation": "Кайҳо ин ҷоӣ?",
+          "literal": null,
+          "note": "«Давно» — кайҳо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Уже год.",
+          "translation": "Аллакай як сол.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "год|як сол",
+            "месяц|як моҳ"
+          ],
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где ты живёшь?",
+          "translation": "Ту дар куҷо зиндагӣ мекунӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я живу рядом.",
+          "translation": "Ман наздик зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суҳбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты давно здесь работаешь?",
+          "cueTranslation": "Кайҳо ин ҷо кор мекунӣ?",
+          "intent": "Бигӯ: аллакай як сол",
+          "text": "Уже год.",
+          "accepts": [
+            "Год.",
+            "Уже один год."
+          ],
+          "translation": "Аллакай як сол.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А где ты живёшь?",
+          "cueTranslation": "Ту дар куҷо зиндагӣ мекунӣ?",
+          "intent": "Бигӯ: наздик зиндагӣ мекунам",
+          "text": "Я живу рядом.",
+          "accepts": [
+            "Рядом.",
+            "Тут, рядом."
+          ],
+          "translation": "Ман наздик зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Я тоже! Вместе пойдём домой?",
+          "cueTranslation": "Ман ҳам! Якҷоя ба хона равем?",
+          "intent": "Бигӯ: ҳа, биё",
+          "text": "Да, давай.",
+          "accepts": [
+            "Давай вместе.",
+            "Давай!"
+          ],
+          "translation": "Ҳа, биё.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Сари дастурхон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Помоги мне, пожалуйста.",
+          "translation": "Лутфан, ба ман ёрӣ деҳ.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо, брат.",
+          "translation": "Ташаккур, бародар.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Вкусно",
+          "translation": "бомаза",
+          "literal": null,
+          "note": "Зарба: ВКУС-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень вкусно.",
+          "translation": "Хеле бомаза.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Хочешь чай?",
+          "translation": "Чой мехоҳӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Приятного аппетита.",
+          "translation": "Иштиҳои хуш.",
+          "literal": null,
+          "note": "Пеш аз хӯрок мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Хӯроки пешин",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Садись, поешь с нами.",
+          "cueTranslation": "Шин, бо мо хӯрок хӯр.",
+          "intent": "Бигӯ: ташаккур, бародар",
+          "text": "Спасибо, брат.",
+          "accepts": [
+            "Спасибо.",
+            "Спасибо большое, брат."
+          ],
+          "translation": "Ташаккур, бародар.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Это плов. Нравится?",
+          "cueTranslation": "Ин палав. Маъқул аст?",
+          "intent": "Бигӯ: хеле бомаза",
+          "text": "Очень вкусно!",
+          "accepts": [
+            "Вкусно!",
+            "Очень вкусно, спасибо."
+          ],
+          "translation": "Хеле бомаза!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хочешь ещё чаю?",
+          "cueTranslation": "Боз чой мехоҳӣ?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Да, пожалуйста.",
+          "accepts": [
+            "Да, спасибо.",
+            "Давай."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳамкори нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет, брат! Ты новенький? Откуда ты?",
+          "cueTranslation": "Салом, бародар! Навкорӣ? Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон ва бипурс: ту аз куҷоӣ?",
+          "text": "Из Таджикистана. А ты откуда?",
+          "accepts": [
+            "Из Таджикистана. Ты откуда?",
+            "Я из Таджикистана."
+          ],
+          "translation": "Аз Тоҷикистон. Ту аз куҷоӣ?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я из Киргизии. Давно здесь работаешь?",
+          "cueTranslation": "Ман аз Қирғизистон. Кайҳо ин ҷо кор мекунӣ?",
+          "intent": "Бигӯ: аллакай як сол",
+          "text": "Уже год.",
+          "accepts": [
+            "Год.",
+            "Уже один год."
+          ],
+          "translation": "Аллакай як сол.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Молодец! Устал сегодня?",
+          "cueTranslation": "Офарин! Имрӯз монда шудӣ?",
+          "intent": "Бигӯ: ҳа, монда шудам. Биё дам гирем",
+          "text": "Да, устал. Давай отдохнём.",
+          "accepts": [
+            "Устал. Давай отдохнём.",
+            "Да, устал."
+          ],
+          "translation": "Ҳа, монда шудам. Биё дам гирем.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Давай. Хочешь чаю?",
+          "cueTranslation": "Биё. Чой мехоҳӣ?",
+          "intent": "Бигӯ: ҳа, ташаккур, бародар",
+          "text": "Да, спасибо, брат.",
+          "accepts": [
+            "Спасибо, брат.",
+            "Да, давай."
+          ],
+          "translation": "Ҳа, ташаккур, бародар.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

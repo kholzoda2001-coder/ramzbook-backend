@@ -1,0 +1,561 @@
+{
+  "slug": "foreman_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Команды бригадира",
+    "titleTranslated": "Бригадир мегӯяд",
+    "scenario": "Бригадир тез ва кӯтоҳ фармон медиҳад: «Неси!», «Подожди!», «Быстрее!». Шумо мефаҳмед ва ҷавоб медиҳед: «Иду!», «Сейчас!», ёрӣ мепурсед ва хоҳиш мекунед, ки оҳистатар гап занад.",
+    "emoji": "👷",
+    "order": 5,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фармон ва ҷавоб",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Иду",
+          "translation": "меоям",
+          "literal": null,
+          "note": "Ҷавоб ба «Иди сюда!» — «Иду!». Зарба: и-ДУ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Сейчас",
+          "translation": "ҳозир",
+          "literal": null,
+          "note": "Зарба: сей-ЧАС. Дар гуфтор «щас».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Неси",
+          "translation": "бар (дар даст)",
+          "literal": null,
+          "note": "Фармон: «Неси!». Зарба: не-СИ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Подожди",
+          "translation": "сабр кун",
+          "literal": null,
+          "note": "Зарба: по-дож-ДИ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Быстрее",
+          "translation": "тезтар",
+          "literal": null,
+          "note": "Зарба: быст-РЕ-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Сюда",
+          "translation": "ба ин ҷо",
+          "literal": null,
+          "note": "Зарба: сю-ДА. «Иди сюда!» — биё ин ҷо!",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Биё ин ҷо!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Эй, иди сюда!",
+          "cueTranslation": "Эй, биё ин ҷо!",
+          "intent": "Бигӯ: меоям",
+          "text": "Иду!",
+          "accepts": [
+            "Иду.",
+            "Иду, иду!"
+          ],
+          "translation": "Меоям!",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Неси доски. Быстро!",
+          "cueTranslation": "Тахтаҳоро бар. Зуд!",
+          "intent": "Бигӯ: ҳозир",
+          "text": "Сейчас!",
+          "accepts": [
+            "Сейчас.",
+            "Сейчас, сейчас!"
+          ],
+          "translation": "Ҳозир!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Неси сюда.",
+          "cueTranslation": "Ба ин ҷо бар.",
+          "intent": "Бипурс: ба ин ҷо?",
+          "text": "Сюда?",
+          "accepts": [
+            "Куда? Сюда?"
+          ],
+          "translation": "Ба ин ҷо?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гузор ва бардор",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Положи",
+          "translation": "бимон (гузор)",
+          "literal": null,
+          "note": "Зарба: по-ло-ЖИ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Положи здесь",
+          "translation": "Ин ҷо гузор",
+          "literal": null,
+          "note": "Фармони маъмул.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Подними",
+          "translation": "бардор",
+          "literal": null,
+          "note": "Зарба: под-ни-МИ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Подними доску",
+          "translation": "Тахтаро бардор",
+          "literal": null,
+          "note": "Доска → доску баъди «подними».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Стой",
+          "translation": "ист",
+          "literal": null,
+          "note": "Фармони фаврӣ: «Стой!» — ист!",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошо, сейчас",
+          "translation": "Хуб, ҳозир",
+          "literal": null,
+          "note": "Ҷавоби кӯтоҳ ба ҳар фармон.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бригадир фармон медиҳад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Положи доски здесь.",
+          "cueTranslation": "Тахтаҳоро ин ҷо гузор.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Хорошо, сейчас.",
+          "accepts": [
+            "Сейчас.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Подними мешок.",
+          "cueTranslation": "Халтаро бардор.",
+          "intent": "Бипурс: ба куҷо барам?",
+          "text": "Куда нести?",
+          "accepts": [
+            "Куда?",
+            "А куда?"
+          ],
+          "translation": "Ба куҷо барам?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Стой! Подожди.",
+          "cueTranslation": "Ист! Сабр кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Понял.",
+            "Жду."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ҷавоб медиҳам",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Тяжело",
+          "translation": "вазнин (аст)",
+          "literal": null,
+          "note": "Зарба дар охир: тя-же-ЛО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Это тяжело.",
+          "translation": "Ин вазнин аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Помоги",
+          "translation": "ёрӣ деҳ",
+          "literal": null,
+          "note": "Зарба: по-мо-ГИ. Ба бегона — «помогите».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Помоги, пожалуйста.",
+          "translation": "Лутфан, ёрӣ деҳ.",
+          "literal": null,
+          "note": "Ҳеҷ гоҳ шарм накунед — ёрӣ пурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Куда положить?",
+          "translation": "Куҷо гузорам?",
+          "literal": null,
+          "note": "Вақте намедонед, ки чизро куҷо гузоред.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Сейчас иду.",
+          "translation": "Ҳозир меоям.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Вазнин аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Неси мешок наверх.",
+          "cueTranslation": "Халтаро ба боло бар.",
+          "intent": "Бигӯ, ки вазнин аст ва ёрӣ пурс",
+          "text": "Тяжело. Помоги, пожалуйста.",
+          "accepts": [
+            "Это тяжело. Помоги.",
+            "Помоги, пожалуйста."
+          ],
+          "translation": "Вазнин. Лутфан, ёрӣ деҳ.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно, я помогу. Бери.",
+          "cueTranslation": "Хуб, ман ёрӣ медиҳам. Гир.",
+          "intent": "Бипурс: куҷо гузорем?",
+          "text": "Куда положить?",
+          "accepts": [
+            "Куда класть?",
+            "А куда положить?"
+          ],
+          "translation": "Куҷо гузорам?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Положи у стены.",
+          "cueTranslation": "Назди девор гузор.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Понял.",
+          "accepts": [
+            "Понял, хорошо.",
+            "Хорошо."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Оҳистатар, лутфан",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Медленнее",
+          "translation": "оҳистатар",
+          "literal": null,
+          "note": "Зарба: МЕД-лен-не-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Медленнее, пожалуйста.",
+          "translation": "Лутфан, оҳистатар.",
+          "literal": null,
+          "note": "Вақте тез гап мезананд ва намефаҳмед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я сделал.",
+          "translation": "Ман кардам.",
+          "literal": null,
+          "note": "Зан бошад: «Я сделала». Зарба: сде-ЛАЛ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Дальше",
+          "translation": "баъд (минбаъд)",
+          "literal": null,
+          "note": "Зарба: ДАЛЬ-ше.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Что дальше?",
+          "translation": "Баъд чӣ?",
+          "literal": null,
+          "note": "Вақте корро тамом кардед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Уже готово.",
+          "translation": "Аллакай тайёр.",
+          "literal": null,
+          "note": "«Уже» — аллакай.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бригадир тез гап мезанад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Быстрее, быстрее! Неси цемент к лестнице!",
+          "cueTranslation": "Тезтар! Сементро назди нардбон бар!",
+          "intent": "Хоҳиш кун, ки оҳистатар гӯяд",
+          "text": "Медленнее, пожалуйста.",
+          "accepts": [
+            "Помедленнее, пожалуйста.",
+            "Не понял. Медленнее."
+          ],
+          "translation": "Лутфан, оҳистатар.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Цемент. К лестнице. Понял?",
+          "cueTranslation": "Семент. Назди нардбон. Фаҳмидӣ?",
+          "intent": "Бигӯ: фаҳмидам, ҳозир",
+          "text": "Понял, сейчас.",
+          "accepts": [
+            "Понял.",
+            "Сейчас."
+          ],
+          "translation": "Фаҳмидам, ҳозир.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ну что, сделал?",
+          "cueTranslation": "Хуб, кардӣ?",
+          "intent": "Бигӯ, ки кардӣ ва бипурс: баъд чӣ?",
+          "text": "Я сделал. Что дальше?",
+          "accepts": [
+            "Сделал. Что дальше?",
+            "Готово. Что дальше?"
+          ],
+          "translation": "Ман кардам. Баъд чӣ?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи пур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Эй, новенький! Иди сюда!",
+          "cueTranslation": "Эй, навкор! Биё ин ҷо!",
+          "intent": "Бигӯ: меоям",
+          "text": "Иду!",
+          "accepts": [
+            "Иду.",
+            "Сейчас иду!"
+          ],
+          "translation": "Меоям!",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Неси доски на второй этаж. Быстро!",
+          "cueTranslation": "Тахтаҳоро ба ошёнаи дуюм бар. Зуд!",
+          "intent": "Хоҳиш кун, ки оҳистатар гӯяд",
+          "text": "Медленнее, пожалуйста.",
+          "accepts": [
+            "Помедленнее, пожалуйста.",
+            "Не понял. Медленнее."
+          ],
+          "translation": "Лутфан, оҳистатар.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Доски. Второй этаж. Понял?",
+          "cueTranslation": "Тахтаҳо. Ошёнаи дуюм. Фаҳмидӣ?",
+          "intent": "Бигӯ, ки фаҳмидӣ ва вазнин аст — ёрӣ пурс",
+          "text": "Понял. Это тяжело. Помоги.",
+          "accepts": [
+            "Понял. Помоги, пожалуйста.",
+            "Тяжело. Помоги."
+          ],
+          "translation": "Фаҳмидам. Ин вазнин аст. Ёрӣ деҳ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Всё, донесли. Готово?",
+          "cueTranslation": "Тамом, расондем. Тайёр шуд?",
+          "intent": "Бигӯ, ки тайёр ва бипурс: баъд чӣ?",
+          "text": "Готово. Что дальше?",
+          "accepts": [
+            "Да, готово.",
+            "Что дальше?"
+          ],
+          "translation": "Тайёр. Баъд чӣ?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

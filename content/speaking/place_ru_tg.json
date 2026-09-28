@@ -1,0 +1,583 @@
+{
+  "slug": "place_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Где? Куда?",
+    "titleTranslated": "Ҷой дар объект",
+    "scenario": "Объект калон аст: ошёнаҳо, нардбон, анбор. Шумо мепурсед ва мефаҳмед, ки чиз ва одам куҷост: боло ё поён, аз чап ё рост, наздик ё дур.",
+    "emoji": "🧭",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Боло ва поён",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Наверх",
+          "translation": "ба боло",
+          "literal": null,
+          "note": "Зарба: на-ВЕРХ. Ҳаракат: «иди наверх» — ба боло рав.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Вниз",
+          "translation": "ба поён",
+          "literal": null,
+          "note": "Як ҳиҷо: вниз.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Этаж",
+          "translation": "ошёна",
+          "literal": null,
+          "note": "Зарба: э-ТАЖ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Слева",
+          "translation": "аз тарафи чап",
+          "literal": null,
+          "note": "Зарба: СЛЕ-ва.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Справа",
+          "translation": "аз тарафи рост",
+          "literal": null,
+          "note": "Зарба: СПРА-ва.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Там",
+          "translation": "он ҷо",
+          "literal": null,
+          "note": "«Там» — он ҷо, «здесь» — ин ҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Доски нести наверх или вниз?",
+          "cueTranslation": "Тахтаҳоро ба боло барам ё ба поён?",
+          "intent": "Бигӯ: ба боло",
+          "text": "Наверх.",
+          "accepts": [
+            "Неси наверх."
+          ],
+          "translation": "Ба боло.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Где лестница? Слева?",
+          "cueTranslation": "Нардбон куҷост? Аз чап?",
+          "intent": "Бигӯ: аз рост",
+          "text": "Справа.",
+          "accepts": [
+            "Нет, справа."
+          ],
+          "translation": "Аз рост.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Где бригадир? Здесь?",
+          "cueTranslation": "Бригадир куҷост? Ин ҷо?",
+          "intent": "Бигӯ: он ҷо",
+          "text": "Там.",
+          "accepts": [
+            "Вон там.",
+            "Он там."
+          ],
+          "translation": "Он ҷо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ошёнаҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Первый",
+          "translation": "якум",
+          "literal": null,
+          "note": "Зарба: ПЕР-вый.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Первый этаж",
+          "translation": "Ошёнаи якум",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Второй",
+          "translation": "дуюм",
+          "literal": null,
+          "note": "Зарба дар охир: вто-РОЙ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Второй этаж",
+          "translation": "Ошёнаи дуюм",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Третий",
+          "translation": "сеюм",
+          "literal": null,
+          "note": "Зарба: ТРЕ-тий.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Третий этаж",
+          "translation": "Ошёнаи сеюм",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом ошёна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты на каком этаже работаешь?",
+          "cueTranslation": "Ту дар кадом ошёна кор мекунӣ?",
+          "intent": "Бигӯ: ошёнаи дуюм",
+          "text": "Второй этаж.",
+          "accepts": [
+            "На втором.",
+            "На втором этаже."
+          ],
+          "translation": "Ошёнаи дуюм.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Цемент на каком этаже?",
+          "cueTranslation": "Семент дар кадом ошёна?",
+          "intent": "Бигӯ: ошёнаи якум",
+          "text": "Первый этаж.",
+          "accepts": [
+            "На первом.",
+            "На первом этаже."
+          ],
+          "translation": "Ошёнаи якум.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Неси его на третий.",
+          "cueTranslation": "Онро ба сеюм бар.",
+          "intent": "Бигӯ: ошёнаи сеюм, фаҳмидам",
+          "text": "Третий этаж. Понял.",
+          "accepts": [
+            "Понял, третий.",
+            "На третий. Понял."
+          ],
+          "translation": "Ошёнаи сеюм. Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Роҳро мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "На каком этаже?",
+          "translation": "Дар кадом ошёна?",
+          "literal": null,
+          "note": "Саволи кӯтоҳ ва фоиданок.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Иди наверх.",
+          "translation": "Ба боло рав.",
+          "literal": null,
+          "note": "«Иди» — рав.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Прямо",
+          "translation": "рост (мустақим)",
+          "literal": null,
+          "note": "Зарба: ПРЯ-мо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Иди прямо.",
+          "translation": "Рост рав.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Лестница справа.",
+          "translation": "Нардбон аз рост.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "справа|аз рост",
+            "слева|аз чап",
+            "там|он ҷо"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Там, слева.",
+          "translation": "Он ҷо, аз чап.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бригадир куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Тебе что нужно?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бипурс: бригадир дар кадом ошёна?",
+          "text": "Бригадир на каком этаже?",
+          "accepts": [
+            "Где бригадир?",
+            "На каком этаже бригадир?"
+          ],
+          "translation": "Бригадир дар кадом ошёна?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На третьем. Иди наверх.",
+          "cueTranslation": "Дар сеюм. Ба боло рав.",
+          "intent": "Бипурс: нардбон куҷост?",
+          "text": "Где лестница?",
+          "accepts": [
+            "А где лестница?",
+            "Лестница где?"
+          ],
+          "translation": "Нардбон куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Лестница справа, там.",
+          "cueTranslation": "Нардбон аз рост, он ҷо.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Понял, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понял."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Наздик ва дур",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Рядом",
+          "translation": "наздик",
+          "literal": null,
+          "note": "Зарба: РЯ-дом.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Далеко",
+          "translation": "дур",
+          "literal": null,
+          "note": "Зарба дар охир: да-ле-КО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Это далеко?",
+          "translation": "Ин дур аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Нет, рядом.",
+          "translation": "Не, наздик.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я наверху.",
+          "translation": "Ман дар боло.",
+          "literal": null,
+          "note": "«Наверху» — дар боло (ҷой), «наверх» — ба боло (ҳаракат).",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "наверху|дар боло",
+            "внизу|дар поён"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я внизу.",
+          "translation": "Ман дар поён.",
+          "literal": null,
+          "note": "«Внизу» — дар поён.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ту куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты где? Я тебя не вижу.",
+          "cueTranslation": "Ту куҷоӣ? Ман туро намебинам.",
+          "intent": "Бигӯ: ман дар боло",
+          "text": "Я наверху.",
+          "accepts": [
+            "Наверху.",
+            "Я тут, наверху."
+          ],
+          "translation": "Ман дар боло.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Спускайся. Машина пришла.",
+          "cueTranslation": "Фуро. Мошин омад.",
+          "intent": "Бипурс: мошин куҷост?",
+          "text": "Где машина?",
+          "accepts": [
+            "А где машина?",
+            "Машина где?"
+          ],
+          "translation": "Мошин куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Справа от ворот.",
+          "cueTranslation": "Аз тарафи рости дарвоза.",
+          "intent": "Бипурс: дур аст?",
+          "text": "Это далеко?",
+          "accepts": [
+            "Далеко?"
+          ],
+          "translation": "Ин дур аст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, рядом.",
+          "cueTranslation": "Не, наздик.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Хорошо, иду.",
+          "accepts": [
+            "Иду.",
+            "Понял, иду."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: роҳ дар объект",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты на каком этаже работаешь?",
+          "cueTranslation": "Салом! Ту дар кадом ошёна кор мекунӣ?",
+          "intent": "Бигӯ: ошёнаи дуюм",
+          "text": "Второй этаж.",
+          "accepts": [
+            "На втором.",
+            "На втором этаже."
+          ],
+          "translation": "Ошёнаи дуюм.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Неси эти доски наверх, на третий.",
+          "cueTranslation": "Хуб. Ин тахтаҳоро ба боло, ба сеюм бар.",
+          "intent": "Бипурс: нардбон куҷост?",
+          "text": "Где лестница?",
+          "accepts": [
+            "А где лестница?",
+            "Лестница где?"
+          ],
+          "translation": "Нардбон куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Лестница слева. Там.",
+          "cueTranslation": "Нардбон аз чап. Он ҷо.",
+          "intent": "Бигӯ, ки фаҳмидӣ ва бипурс: дур аст?",
+          "text": "Понял. Это далеко?",
+          "accepts": [
+            "Понял. Далеко?",
+            "Это далеко?"
+          ],
+          "translation": "Фаҳмидам. Ин дур аст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, рядом. Иди!",
+          "cueTranslation": "Не, наздик. Рав!",
+          "intent": "Бигӯ: хуб, меравам",
+          "text": "Хорошо, иду.",
+          "accepts": [
+            "Иду.",
+            "Понял, иду."
+          ],
+          "translation": "Хуб, меравам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

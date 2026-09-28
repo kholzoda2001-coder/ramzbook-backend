@@ -1,0 +1,596 @@
+{
+  "slug": "measure_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Сколько? Размеры",
+    "titleTranslated": "Шумора ва андоза",
+    "scenario": "Дар сохтмон ҳама чиз бо рақам аст: чанд халта, чанд метр, соати чанд. Шумо рақамҳои 1–10-ро мегӯед, андоза мепурсед ва вақтро мефаҳмед.",
+    "emoji": "📏",
+    "order": 9,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Рақамҳо 1–5",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Один",
+          "translation": "як",
+          "literal": null,
+          "note": "Зарба дар охир: о-ДИН.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Два",
+          "translation": "ду",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Три",
+          "translation": "се",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Четыре",
+          "translation": "чор",
+          "literal": null,
+          "note": "Зарба: че-ТЫ-ре.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Пять",
+          "translation": "панҷ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Метр",
+          "translation": "метр",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сколько мешков? Один?",
+          "cueTranslation": "Чанд халта? Як?",
+          "intent": "Бигӯ: ду",
+          "text": "Два.",
+          "accepts": [
+            "2.",
+            "Два мешка."
+          ],
+          "translation": "Ду.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько досок нужно?",
+          "cueTranslation": "Чанд тахта лозим?",
+          "intent": "Бигӯ: панҷ",
+          "text": "Пять.",
+          "accepts": [
+            "5.",
+            "Пять досок."
+          ],
+          "translation": "Панҷ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько метров?",
+          "cueTranslation": "Чанд метр?",
+          "intent": "Бигӯ: се",
+          "text": "Три.",
+          "accepts": [
+            "3.",
+            "Три метра."
+          ],
+          "translation": "Се.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Рақамҳо 6–10",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Шесть",
+          "translation": "шаш",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Семь",
+          "translation": "ҳафт",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Восемь",
+          "translation": "ҳашт",
+          "literal": null,
+          "note": "Зарба: ВО-семь.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Девять",
+          "translation": "нӯҳ",
+          "literal": null,
+          "note": "Зарба: ДЕ-вять.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Десять",
+          "translation": "даҳ",
+          "literal": null,
+          "note": "Зарба: ДЕ-сять.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Два метра",
+          "translation": "Ду метр",
+          "literal": null,
+          "note": "Баъди 2, 3, 4 — «метра», баъди 5–10 — «метров».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Андоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сколько человек в бригаде?",
+          "cueTranslation": "Дар бригада чанд нафар?",
+          "intent": "Бигӯ: ҳашт",
+          "text": "Восемь.",
+          "accepts": [
+            "8.",
+            "Восемь человек."
+          ],
+          "translation": "Ҳашт.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какая высота стены?",
+          "cueTranslation": "Баландии девор чанд?",
+          "intent": "Бигӯ: ду метр",
+          "text": "Два метра.",
+          "accepts": [
+            "2 метра.",
+            "Два."
+          ],
+          "translation": "Ду метр.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько часов ты работал?",
+          "cueTranslation": "Чанд соат кор кардӣ?",
+          "intent": "Бигӯ: даҳ",
+          "text": "Десять.",
+          "accepts": [
+            "10.",
+            "Десять часов."
+          ],
+          "translation": "Даҳ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Кам ва зиёд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Сколько метров?",
+          "translation": "Чанд метр?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько нужно?",
+          "translation": "Чанд лозим?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужно два мешка.",
+          "translation": "Ду халта лозим.",
+          "literal": null,
+          "note": "Баъди «пять» — «мешков».",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "два мешка|ду халта",
+            "три мешка|се халта",
+            "пять мешков|панҷ халта"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Мало",
+          "translation": "кам",
+          "literal": null,
+          "note": "Зарба: МА-ло.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Много",
+          "translation": "зиёд",
+          "literal": null,
+          "note": "Зарба: МНО-го.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Это мало.",
+          "translation": "Ин кам аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "мало|кам",
+            "много|зиёд"
+          ],
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Басанда аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Режь трубу.",
+          "cueTranslation": "Қубурро бур.",
+          "intent": "Бипурс: чанд метр?",
+          "text": "Сколько метров?",
+          "accepts": [
+            "Какая длина?",
+            "Сколько?"
+          ],
+          "translation": "Чанд метр?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Три метра.",
+          "cueTranslation": "Се метр.",
+          "intent": "Бигӯ: се метр, фаҳмидам",
+          "text": "Три метра. Понял.",
+          "accepts": [
+            "Понял, три метра.",
+            "Три. Понял."
+          ],
+          "translation": "Се метр. Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Цемента хватит?",
+          "cueTranslation": "Семент мерасад?",
+          "intent": "Бигӯ: не, кам аст",
+          "text": "Нет, это мало.",
+          "accepts": [
+            "Мало.",
+            "Нет, мало."
+          ],
+          "translation": "Не, ин кам аст.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько ещё нужно?",
+          "cueTranslation": "Боз чанд лозим?",
+          "intent": "Бигӯ: ду халта лозим",
+          "text": "Нужно два мешка.",
+          "accepts": [
+            "Два мешка.",
+            "Ещё два мешка."
+          ],
+          "translation": "Ду халта лозим.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Соат чанд?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Который час?",
+          "translation": "Соат чанд?",
+          "literal": null,
+          "note": "Саволи маъмул. Зарба: ко-ТО-рый.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Сейчас восемь.",
+          "translation": "Ҳозир ҳашт.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "восемь|ҳашт",
+            "семь|ҳафт",
+            "девять|нӯҳ"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "В восемь.",
+          "translation": "Соати ҳашт.",
+          "literal": null,
+          "note": "«В» + рақам — дар соати ...",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "восемь|ҳашт",
+            "девять|нӯҳ",
+            "шесть|шаш"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Через",
+          "translation": "баъд аз",
+          "literal": null,
+          "note": "«Через час» — баъди як соат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Через час.",
+          "translation": "Баъди як соат.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Два часа.",
+          "translation": "Ду соат.",
+          "literal": null,
+          "note": "Баъди 2, 3, 4 — «часа».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Вақти кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Во сколько начинаем?",
+          "cueTranslation": "Соати чанд сар мекунем?",
+          "intent": "Бигӯ: соати ҳашт",
+          "text": "В восемь.",
+          "accepts": [
+            "В 8.",
+            "В восемь утра."
+          ],
+          "translation": "Соати ҳашт.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А сейчас который час?",
+          "cueTranslation": "Ҳозир соат чанд?",
+          "intent": "Бигӯ: ҳозир ҳафт",
+          "text": "Сейчас семь.",
+          "accepts": [
+            "Семь.",
+            "7."
+          ],
+          "translation": "Ҳозир ҳафт.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Когда машина с песком?",
+          "cueTranslation": "Мошини рег кай меояд?",
+          "intent": "Бигӯ: баъди як соат",
+          "text": "Через час.",
+          "accepts": [
+            "Через один час.",
+            "Через час, наверно."
+          ],
+          "translation": "Баъди як соат.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳисоби девор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Считаем. Стена сколько метров?",
+          "cueTranslation": "Ҳисоб мекунем. Девор чанд метр?",
+          "intent": "Бигӯ: панҷ метр",
+          "text": "Пять метров.",
+          "accepts": [
+            "Пять.",
+            "5 метров."
+          ],
+          "translation": "Панҷ метр.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько мешков цемента нужно?",
+          "cueTranslation": "Чанд халта семент лозим?",
+          "intent": "Бигӯ: се халта",
+          "text": "Три мешка.",
+          "accepts": [
+            "Три.",
+            "3 мешка."
+          ],
+          "translation": "Се халта.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "У нас два. Хватит?",
+          "cueTranslation": "Мо ду дорем. Мерасад?",
+          "intent": "Бигӯ: не, кам аст, боз як лозим",
+          "text": "Нет, мало. Нужен ещё один.",
+          "accepts": [
+            "Мало. Ещё один.",
+            "Нет, нужен ещё один."
+          ],
+          "translation": "Не, кам. Боз як лозим.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Машина будет через час.",
+          "cueTranslation": "Хуб. Мошин баъди як соат меояд.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Хорошо, понял.",
+          "accepts": [
+            "Понял.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

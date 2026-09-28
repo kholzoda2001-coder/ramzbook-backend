@@ -1,0 +1,564 @@
+{
+  "slug": "call_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Звонок бригадиру",
+    "titleTranslated": "Занг ба бригадир",
+    "scenario": "Дер мемонед, бемор шудед ё имрӯз намеоед — бояд ба бригадир занг занед. Дар телефон рӯй намебинед, садо бад аст. Шумо кӯтоҳ ва фаҳмо мегӯед, ки чӣ шуд ва кай меоед.",
+    "emoji": "📞",
+    "order": 15,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Алло",
+          "translation": "алло",
+          "literal": null,
+          "note": "Зарба дар охир: ал-ЛО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Опоздаю",
+          "translation": "дер мемонам",
+          "literal": null,
+          "note": "Зарба: о-по-ЗДА-ю. «Я опоздаю».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Заболел",
+          "translation": "бемор шудам",
+          "literal": null,
+          "note": "Зарба: за-бо-ЛЕЛ. Зан: «заболела».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Приду",
+          "translation": "меоям",
+          "literal": null,
+          "note": "Зарба: при-ДУ. «Не приду» — намеоям.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Извините",
+          "translation": "мебахшед",
+          "literal": null,
+          "note": "Зарба: из-ВИ-ни-те.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Сегодня",
+          "translation": "имрӯз",
+          "literal": null,
+          "note": "Хонда мешавад: «севодня». Зарба: се-ВОД-ня.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ту куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ: алло",
+          "text": "Алло!",
+          "accepts": [
+            "Алло.",
+            "Алло, здравствуйте."
+          ],
+          "translation": "Алло!",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ты где? Опоздаешь?",
+          "cueTranslation": "Ту куҷоӣ? Дер мемонӣ?",
+          "intent": "Бигӯ: ҳа, дер мемонам",
+          "text": "Опоздаю.",
+          "accepts": [
+            "Да, опоздаю.",
+            "Да."
+          ],
+          "translation": "Дер мемонам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Почему не на работе? Заболел?",
+          "cueTranslation": "Чаро дар кор нестӣ? Бемор шудӣ?",
+          "intent": "Бигӯ: ҳа, бемор шудам",
+          "text": "Заболел.",
+          "accepts": [
+            "Да, заболел.",
+            "Заболела."
+          ],
+          "translation": "Бемор шудам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кӯтоҳ мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я опоздаю",
+          "translation": "Ман дер мемонам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я заболел",
+          "translation": "Ман бемор шудам",
+          "literal": null,
+          "note": "Зан: «Я заболела».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Не приду",
+          "translation": "Намеоям",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Приду завтра",
+          "translation": "Фардо меоям",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Через час",
+          "translation": "Баъди як соат",
+          "literal": null,
+          "note": "«Через» — баъд аз.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, пожалуйста",
+          "translation": "Лутфан, мебахшед",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дер мемонам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло, слушаю.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Бигӯ: мебахшед, ман дер мемонам",
+          "text": "Извините, я опоздаю.",
+          "accepts": [
+            "Я опоздаю, извините.",
+            "Извините, опоздаю."
+          ],
+          "translation": "Мебахшед, ман дер мемонам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Когда придёшь?",
+          "cueTranslation": "Кай меоӣ?",
+          "intent": "Бигӯ: баъди як соат",
+          "text": "Через час.",
+          "accepts": [
+            "Приду через час.",
+            "Через один час."
+          ],
+          "translation": "Баъди як соат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно, жду.",
+          "cueTranslation": "Хуб, интизорам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Спасибо, до встречи."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Сабаб",
+      "items": [
+        {
+          "kind": "own",
+          "text": "Это ___.",
+          "translation": "Ин ___ (ҳастам).",
+          "literal": null,
+          "note": "Ба ҷои «___» номи ХУДАТОНРО гӯед.",
+          "cue": "Алло, кто это?",
+          "cueTranslation": "Алло, ин кӣ?",
+          "intent": "Номи худатонро гӯед",
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я сегодня не приду.",
+          "translation": "Ман имрӯз намеоям.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "У меня температура.",
+          "translation": "Ман таб дорам.",
+          "literal": null,
+          "note": "Зарба: тем-пе-ра-ТУ-ра.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Автобус опоздал.",
+          "translation": "Автобус дер кард.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я опоздаю на час.",
+          "translation": "Ман як соат дер мемонам.",
+          "literal": null,
+          "note": "«На час» — ба андозаи як соат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно завтра?",
+          "translation": "Фардо мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бемор шудам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло! Ты почему не на работе?",
+          "cueTranslation": "Алло! Чаро дар кор нестӣ?",
+          "intent": "Бигӯ: бемор шудам, таб дорам",
+          "text": "Я заболел. У меня температура.",
+          "accepts": [
+            "Заболел, температура.",
+            "Я заболел."
+          ],
+          "translation": "Ман бемор шудам. Таб дорам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Понятно. Завтра придёшь?",
+          "cueTranslation": "Фаҳмо. Фардо меоӣ?",
+          "intent": "Бигӯ: ҳа, фардо меоям",
+          "text": "Да, приду завтра.",
+          "accepts": [
+            "Приду завтра.",
+            "Да, завтра приду."
+          ],
+          "translation": "Ҳа, фардо меоям.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Выздоравливай!",
+          "cueTranslation": "Хуб. Шифо ёбӣ!",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо!",
+          "accepts": [
+            "Спасибо большое.",
+            "Спасибо, до завтра."
+          ],
+          "translation": "Ташаккур!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Садо бад аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Плохо слышно.",
+          "translation": "Бад шунида мешавад.",
+          "literal": null,
+          "note": "Дар телефон ибораи зарурӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Перезвоните",
+          "translation": "боз занг занед",
+          "literal": null,
+          "note": "Зарба: пе-ре-зво-НИ-те.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Перезвоните, пожалуйста.",
+          "translation": "Лутфан, боз занг занед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Позвоню",
+          "translation": "занг мезанам",
+          "literal": null,
+          "note": "Зарба: по-зво-НЮ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я позвоню вечером.",
+          "translation": "Ман бегоҳ занг мезанам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я уже в пути.",
+          "translation": "Ман аллакай дар роҳам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Алоқа бад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло! Ты где? Мы уже...",
+          "cueTranslation": "Алло! Ту куҷоӣ? Мо аллакай...",
+          "intent": "Бигӯ: бад шунида мешавад",
+          "text": "Плохо слышно.",
+          "accepts": [
+            "Алло! Плохо слышно.",
+            "Не слышно."
+          ],
+          "translation": "Бад шунида мешавад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ты где, говорю?",
+          "cueTranslation": "Мегӯям, ту куҷоӣ?",
+          "intent": "Бигӯ: ман дар роҳам, автобус дер кард",
+          "text": "Я уже в пути. Автобус опоздал.",
+          "accepts": [
+            "Я в пути. Автобус опоздал.",
+            "Автобус опоздал, я еду."
+          ],
+          "translation": "Ман дар роҳам. Автобус дер кард.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно. Позвони, когда будешь рядом.",
+          "cueTranslation": "Хуб. Вақте наздик шудӣ, занг зан.",
+          "intent": "Бигӯ: хуб, занг мезанам",
+          "text": "Хорошо, позвоню.",
+          "accepts": [
+            "Хорошо, я позвоню.",
+            "Позвоню."
+          ],
+          "translation": "Хуб, занг мезанам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг ба бригадир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло, слушаю.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Салом гӯй ва бигӯ: мебахшед",
+          "text": "Здравствуйте! Извините.",
+          "accepts": [
+            "Алло, здравствуйте!",
+            "Здравствуйте, извините."
+          ],
+          "translation": "Салом! Мебахшед.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Что случилось?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: бемор шудам, имрӯз намеоям",
+          "text": "Я заболел. Сегодня не приду.",
+          "accepts": [
+            "Я заболел, не приду.",
+            "Я сегодня не приду, заболел."
+          ],
+          "translation": "Ман бемор шудам. Имрӯз намеоям.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Понятно. Температура есть?",
+          "cueTranslation": "Фаҳмо. Таб ҳаст?",
+          "intent": "Бигӯ: ҳа, таб дорам",
+          "text": "Да, у меня температура.",
+          "accepts": [
+            "Да, температура.",
+            "Да, есть."
+          ],
+          "translation": "Ҳа, ман таб дорам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, лечись. Позвони вечером.",
+          "cueTranslation": "Хуб, табобат шав. Бегоҳ занг зан.",
+          "intent": "Бигӯ: хуб, бегоҳ занг мезанам",
+          "text": "Хорошо, позвоню вечером.",
+          "accepts": [
+            "Хорошо, позвоню.",
+            "Позвоню вечером, спасибо."
+          ],
+          "translation": "Хуб, бегоҳ занг мезанам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

@@ -1,0 +1,564 @@
+{
+  "slug": "commute_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Дорога на работу",
+    "titleTranslated": "Роҳ то кор",
+    "scenario": "Ҳар саҳар ба объект меравед: автобус, метро, маршрутка. Шумо истгоҳ ва чиптаро мепурсед, ҷои фаромаданро мегӯед ва ба бригадир хабар медиҳед, ки дар роҳед.",
+    "emoji": "🚌",
+    "order": 13,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Нақлиёт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Автобус",
+          "translation": "автобус",
+          "literal": null,
+          "note": "Зарба: ав-ТО-бус.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Метро",
+          "translation": "метро",
+          "literal": null,
+          "note": "Зарба дар охир: мет-РО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Остановка",
+          "translation": "истгоҳ",
+          "literal": null,
+          "note": "Зарба: о-ста-НОВ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Билет",
+          "translation": "чипта",
+          "literal": null,
+          "note": "Зарба: би-ЛЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Маршрутка",
+          "translation": "маршрутка",
+          "literal": null,
+          "note": "Зарба: мар-ШРУТ-ка. Автобуси хурд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Номер",
+          "translation": "рақам",
+          "literal": null,
+          "note": "Зарба: НО-мер.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бо чӣ меравӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Как ты едешь на работу? На метро?",
+          "cueTranslation": "Ба кор бо чӣ меравӣ? Бо метро?",
+          "intent": "Бигӯ: автобус",
+          "text": "Автобус.",
+          "accepts": [
+            "На автобусе."
+          ],
+          "translation": "Автобус.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Что ищешь?",
+          "cueTranslation": "Чӣ меҷӯӣ?",
+          "intent": "Бигӯ: истгоҳ",
+          "text": "Остановку.",
+          "accepts": [
+            "Остановка.",
+            "Остановку ищу."
+          ],
+          "translation": "Истгоҳро.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Что вам?",
+          "cueTranslation": "Ба шумо чӣ?",
+          "intent": "Бигӯ: чипта",
+          "text": "Билет.",
+          "accepts": [
+            "Один билет.",
+            "Билет, пожалуйста."
+          ],
+          "translation": "Чипта.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "На автобусе",
+          "translation": "Бо автобус",
+          "literal": null,
+          "note": "«На» + нақлиёт: на автобусе, на метро.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "На метро",
+          "translation": "Бо метро",
+          "literal": null,
+          "note": "«Метро» шакл иваз намекунад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Один билет",
+          "translation": "Як чипта",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой номер?",
+          "translation": "Кадом рақам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Выход",
+          "translation": "баромадгоҳ",
+          "literal": null,
+          "note": "Зарба: ВЫ-ход.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Номер пять",
+          "translation": "Рақами панҷ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты как едешь? На метро?",
+          "cueTranslation": "Ту чӣ хел меравӣ? Бо метро?",
+          "intent": "Бигӯ: бо автобус",
+          "text": "На автобусе.",
+          "accepts": [
+            "Автобусом.",
+            "Нет, на автобусе."
+          ],
+          "translation": "Бо автобус.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой автобус?",
+          "cueTranslation": "Кадом автобус?",
+          "intent": "Бигӯ: рақами панҷ",
+          "text": "Номер пять.",
+          "accepts": [
+            "Пятый.",
+            "5."
+          ],
+          "translation": "Рақами панҷ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Что вам?",
+          "cueTranslation": "Ба шумо чӣ?",
+          "intent": "Бигӯ: як чипта",
+          "text": "Один билет.",
+          "accepts": [
+            "Билет, пожалуйста.",
+            "Один билет, пожалуйста."
+          ],
+          "translation": "Як чипта.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где остановка?",
+          "translation": "Истгоҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько стоит билет?",
+          "translation": "Чипта чанд пул аст?",
+          "literal": null,
+          "note": "«Сколько стоит?» — чанд пул?",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Где выход?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": null,
+          "note": "Дар метро ва бино.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Опаздываю",
+          "translation": "дер мемонам",
+          "literal": null,
+          "note": "Зарба: о-ПАЗ-ды-ва-ю.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я опаздываю.",
+          "translation": "Ман дер мемонам.",
+          "literal": null,
+          "note": "Ҳозир, дар роҳ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне здесь выходить?",
+          "translation": "Ман бояд ин ҷо фароям?",
+          "literal": null,
+          "note": "Аз ронанда ё мусофир пурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Истгоҳ куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вам помочь?",
+          "cueTranslation": "Ба шумо ёрӣ диҳам?",
+          "intent": "Бипурс: истгоҳ куҷост?",
+          "text": "Где остановка?",
+          "accepts": [
+            "Где тут остановка?",
+            "Остановка где?"
+          ],
+          "translation": "Истгоҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Там, справа.",
+          "cueTranslation": "Он ҷо, аз рост.",
+          "intent": "Ташаккур гӯй ва бипурс: чипта чанд пул?",
+          "text": "Спасибо. Сколько стоит билет?",
+          "accepts": [
+            "Сколько стоит билет?",
+            "Спасибо. А билет сколько?"
+          ],
+          "translation": "Ташаккур. Чипта чанд пул аст?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Шестьдесят рублей.",
+          "cueTranslation": "Шаст рубл.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дер мемонам",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Следующая",
+          "translation": "навбатӣ",
+          "literal": null,
+          "note": "Зарба: СЛЕ-ду-ю-ща-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "На следующей.",
+          "translation": "Дар (истгоҳи) навбатӣ.",
+          "literal": null,
+          "note": "Ҷавоб ба «Где выходите?».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Пробка",
+          "translation": "роҳ банд (тиқма)",
+          "literal": null,
+          "note": "Зарба: ПРОБ-ка. Мошинҳо зиёд, роҳ банд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Большая пробка.",
+          "translation": "Роҳ сахт банд аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я уже еду.",
+          "translation": "Ман аллакай дар роҳам.",
+          "literal": null,
+          "note": "«Еду» — (бо нақлиёт) меравам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я в метро.",
+          "translation": "Ман дар метро.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "в метро|дар метро",
+            "в автобусе|дар автобус"
+          ],
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бригадир занг мезанад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Молодой человек, вам где выходить?",
+          "cueTranslation": "Ҷавон, шумо дар куҷо мефароед?",
+          "intent": "Бигӯ: дар навбатӣ",
+          "text": "На следующей.",
+          "accepts": [
+            "На следующей остановке.",
+            "Следующая."
+          ],
+          "translation": "Дар навбатӣ.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Алло! Ты где? Уже восемь!",
+          "cueTranslation": "Алло! Ту куҷоӣ? Аллакай ҳашт!",
+          "intent": "Бигӯ: ман дар роҳам, роҳ банд",
+          "text": "Я уже еду. Большая пробка.",
+          "accepts": [
+            "Я еду. Пробка.",
+            "Уже еду, пробка."
+          ],
+          "translation": "Ман дар роҳам. Роҳ сахт банд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, жду тебя.",
+          "cueTranslation": "Хуб, туро интизорам.",
+          "intent": "Бигӯ: дер мемонам, мебахшед",
+          "text": "Я опаздываю. Извините.",
+          "accepts": [
+            "Извините, опаздываю.",
+            "Опаздываю, извините."
+          ],
+          "translation": "Ман дер мемонам. Мебахшед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: саҳари аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Добрый день! Вам помочь?",
+          "cueTranslation": "Рӯз ба хайр! Ёрӣ лозим?",
+          "intent": "Бипурс: истгоҳ куҷост?",
+          "text": "Где остановка?",
+          "accepts": [
+            "Где тут остановка?",
+            "Остановка где?"
+          ],
+          "translation": "Истгоҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вон там, слева. Вам какой автобус?",
+          "cueTranslation": "Ана он ҷо, аз чап. Ба шумо кадом автобус?",
+          "intent": "Бигӯ: рақами панҷ",
+          "text": "Номер пять.",
+          "accepts": [
+            "Пятый.",
+            "Пятый автобус."
+          ],
+          "translation": "Рақами панҷ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Пятый идёт до стройки. Билет у водителя.",
+          "cueTranslation": "Панҷум то объект меравад. Чипта назди ронанда.",
+          "intent": "Бипурс: чипта чанд пул?",
+          "text": "Сколько стоит билет?",
+          "accepts": [
+            "А билет сколько?",
+            "Сколько стоит?"
+          ],
+          "translation": "Чипта чанд пул аст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Шестьдесят рублей. Счастливого пути!",
+          "cueTranslation": "Шаст рубл. Роҳи сафед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо большое!",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо, до свидания!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

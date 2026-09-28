@@ -1,0 +1,585 @@
+{
+  "slug": "problem_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Проблема на работе",
+    "titleTranslated": "Мушкил дар кор",
+    "scenario": "Асбоб мешиканад, мавод тамом мешавад, барқ нест, об мешорад. Шумо мушкилро кӯтоҳ мегӯед, мегӯед, ки гуноҳи шумо нест, ва чизи лозимиро мепурсед.",
+    "emoji": "🔧",
+    "order": 11,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Проблема",
+          "translation": "мушкил",
+          "literal": null,
+          "note": "Зарба: проб-ЛЕ-ма.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Сломался",
+          "translation": "шикаст",
+          "literal": null,
+          "note": "Барои калимаҳои мардона (молоток). Занона: «сломалась».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Кончился",
+          "translation": "тамом шуд",
+          "literal": null,
+          "note": "Зарба: КОН-чил-ся. «Цемент кончился».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Нужен",
+          "translation": "лозим",
+          "literal": null,
+          "note": "Мардона: «нужен молоток». Занона: «нужна дрель».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Свет",
+          "translation": "барқ (равшанӣ)",
+          "literal": null,
+          "note": "«Нет света» — барқ нест.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Вода",
+          "translation": "об",
+          "literal": null,
+          "note": "Зарба дар охир: во-ДА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Мушкил ҳаст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что случилось?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: мушкил (ҳаст)",
+          "text": "Проблема.",
+          "accepts": [
+            "Есть проблема.",
+            "Проблема!"
+          ],
+          "translation": "Мушкил.",
+          "literal": null,
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Молоток где? Сломался?",
+          "cueTranslation": "Болға куҷо? Шикаст?",
+          "intent": "Бигӯ: ҳа, шикаст",
+          "text": "Сломался.",
+          "accepts": [
+            "Да, сломался."
+          ],
+          "translation": "Шикаст.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Почему стоишь? Цемент кончился?",
+          "cueTranslation": "Чаро истодаӣ? Семент тамом шуд?",
+          "intent": "Бигӯ: ҳа, тамом шуд",
+          "text": "Кончился.",
+          "accepts": [
+            "Да, кончился.",
+            "Да."
+          ],
+          "translation": "Тамом шуд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кор намекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Не работает",
+          "translation": "Кор намекунад",
+          "literal": null,
+          "note": "Барои дастгоҳ: дрель не работает.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Нет света",
+          "translation": "Барқ нест",
+          "literal": null,
+          "note": "Свет → света баъди «нет».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Нет воды",
+          "translation": "Об нест",
+          "literal": null,
+          "note": "Вода → воды баъди «нет».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Сломалась",
+          "translation": "шикаст (занона)",
+          "literal": null,
+          "note": "Дрель, тачка, лестница — «сломалась».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Дрель сломалась",
+          "translation": "Парма шикаст",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Почему",
+          "translation": "чаро",
+          "literal": null,
+          "note": "Зарба: по-че-МУ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ба бригадир мегӯям",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Почему не работаешь?",
+          "cueTranslation": "Чаро кор намекунӣ?",
+          "intent": "Бигӯ: парма шикаст",
+          "text": "Дрель сломалась.",
+          "accepts": [
+            "Сломалась дрель.",
+            "Дрель не работает."
+          ],
+          "translation": "Парма шикаст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А другая дрель?",
+          "cueTranslation": "Пармаи дигар чӣ?",
+          "intent": "Бигӯ: кор намекунад",
+          "text": "Не работает.",
+          "accepts": [
+            "Тоже не работает.",
+            "Она не работает."
+          ],
+          "translation": "Кор намекунад.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Понятно. А что ещё?",
+          "cueTranslation": "Фаҳмо. Боз чӣ?",
+          "intent": "Бигӯ: барқ нест",
+          "text": "Нет света.",
+          "accepts": [
+            "Света нет.",
+            "И света нет."
+          ],
+          "translation": "Барқ нест.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ба ман лозим",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Мне нужен молоток.",
+          "translation": "Ба ман болға лозим.",
+          "literal": null,
+          "note": "«Нужен» — барои калимаҳои мардона.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "молоток|болға",
+            "мешок|халта",
+            "ключ|калид"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Цемент кончился.",
+          "translation": "Семент тамом шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "Цемент|семент",
+            "Песок|рег"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Есть другой?",
+          "translation": "Дигараш ҳаст?",
+          "literal": null,
+          "note": "«Другой» — мардона (молоток), «другая» — занона (дрель).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не виноват.",
+          "translation": "Гуноҳи ман нест.",
+          "literal": null,
+          "note": "Зан бошад: «Я не виновата».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Случайно",
+          "translation": "тасодуфан",
+          "literal": null,
+          "note": "Зарба: слу-ЧАЙ-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я сломал случайно.",
+          "translation": "Ман тасодуфан шикастам.",
+          "literal": null,
+          "note": "Ростгӯӣ беҳтар аст. Зан: «сломала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Семент тамом шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ну что? Почему стоите?",
+          "cueTranslation": "Хуб чӣ? Чаро истодаед?",
+          "intent": "Бигӯ: семент тамом шуд",
+          "text": "Цемент кончился.",
+          "accepts": [
+            "Кончился цемент.",
+            "Нет цемента."
+          ],
+          "translation": "Семент тамом шуд.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Как кончился? Утром было десять мешков!",
+          "cueTranslation": "Чӣ хел тамом шуд? Саҳар даҳ халта буд!",
+          "intent": "Бигӯ: гуноҳи ман нест",
+          "text": "Я не виноват.",
+          "accepts": [
+            "Не я.",
+            "Я не виноват, честно."
+          ],
+          "translation": "Гуноҳи ман нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно. Что тебе нужно?",
+          "cueTranslation": "Хуб. Ба ту чӣ лозим?",
+          "intent": "Бигӯ: ба ман болға лозим",
+          "text": "Мне нужен молоток.",
+          "accepts": [
+            "Нужен молоток.",
+            "Молоток."
+          ],
+          "translation": "Ба ман болға лозим.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Фаврӣ!",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Течёт",
+          "translation": "мешорад (мечакад)",
+          "literal": null,
+          "note": "Зарба: те-ЧЁТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Вода течёт.",
+          "translation": "Об мешорад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Срочно",
+          "translation": "фаврӣ",
+          "literal": null,
+          "note": "Зарба: СРОЧ-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это срочно.",
+          "translation": "Ин фаврӣ аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Починить",
+          "translation": "таъмир кардан",
+          "literal": null,
+          "note": "Зарба: по-чи-НИТЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно починить?",
+          "translation": "Таъмир кардан мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Об мешорад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло, это бригадир. Что там у вас?",
+          "cueTranslation": "Алло, ин бригадир. Он ҷо чӣ гап?",
+          "intent": "Бигӯ: об мешорад, ин фаврӣ",
+          "text": "Вода течёт. Это срочно.",
+          "accepts": [
+            "Течёт вода! Срочно!",
+            "Вода течёт, срочно."
+          ],
+          "translation": "Об мешорад. Ин фаврӣ аст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Где течёт?",
+          "cueTranslation": "Куҷо мешорад?",
+          "intent": "Бигӯ: дар ошёнаи дуюм",
+          "text": "На втором этаже.",
+          "accepts": [
+            "Второй этаж.",
+            "На втором."
+          ],
+          "translation": "Дар ошёнаи дуюм.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сейчас пришлю мастера.",
+          "cueTranslation": "Ҳозир усторо мефиристам.",
+          "intent": "Бипурс: таъмир кардан мумкин?",
+          "text": "Можно починить?",
+          "accepts": [
+            "Это можно починить?",
+            "Починить можно?"
+          ],
+          "translation": "Таъмир кардан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, не волнуйся.",
+          "cueTranslation": "Ҳа, хавотир нашав.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понял, спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: парма шикаст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Эй! Почему не работаешь?",
+          "cueTranslation": "Эй! Чаро кор намекунӣ?",
+          "intent": "Бигӯ: мушкил ҳаст, парма шикаст",
+          "text": "Проблема. Дрель сломалась.",
+          "accepts": [
+            "Дрель сломалась.",
+            "Есть проблема. Дрель не работает."
+          ],
+          "translation": "Мушкил. Парма шикаст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Опять? Ты сломал?",
+          "cueTranslation": "Боз? Ту шикастӣ?",
+          "intent": "Бигӯ: не, гуноҳи ман нест",
+          "text": "Нет, я не виноват.",
+          "accepts": [
+            "Я не виноват.",
+            "Нет, не я."
+          ],
+          "translation": "Не, гуноҳи ман нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Что тебе нужно?",
+          "cueTranslation": "Хуб. Ба ту чӣ лозим?",
+          "intent": "Бипурс: пармаи дигар ҳаст?",
+          "text": "Есть другая дрель?",
+          "accepts": [
+            "Другая дрель есть?",
+            "Есть другая?"
+          ],
+          "translation": "Пармаи дигар ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Есть, на складе. Иди возьми.",
+          "cueTranslation": "Ҳаст, дар анбор. Рав гир.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понял, спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

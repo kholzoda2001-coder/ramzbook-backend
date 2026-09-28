@@ -24,13 +24,16 @@
 // 26.09.2026: сатрҳои ҲАМСӮҲБАТ низ (`cue` → `cueAudioUrl`, файл `<id>_cue.mp3`).
 // Матн бо ҷойгузор ({name}, {job}) ё ҷои холӣ («___») САБТ НАМЕШАВАД: онро
 // барнома барои ҳар хонанда иваз мекунад ва бо TTS мехонад.
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'fs';
 import { execFileSync, execSync, spawnSync } from 'child_process';
 import { neon } from '@neondatabase/serverless';
 
 const REPO = process.argv[2];
 if (!REPO || REPO.startsWith('--')) throw new Error('Истифода: node prisma/_ru-speaking-audio.mjs <ramz-audio dir> [--dry]');
 const DRY = process.argv.includes('--dry');
+// Файлҳои аллакай сохташуда (ва солим) дар `WORK` аз нав тавлид намешаванд —
+// барои такрори скрипт баъди нокомӣ дар қадамҳои баъдӣ (28.09.2026).
+const REUSE = process.argv.includes('--reuse');
 const RU = 'cmpqk40yz00009rhl1uazdfi3';
 const VOICE = 'ru-RU-Chirp3-HD-Kore';
 const FALLBACK_VOICE = 'ru-RU-Wavenet-C';
@@ -125,8 +128,17 @@ const STAGES = [
 console.log(`\n== Тавлид (${VOICE}) ==`);
 mkdirSync(WORK, { recursive: true });
 const used = {};
+const reusable = REUSE
+  ? measure(items.map((i) => `${WORK}/${i.key}.mp3`).filter((p) => existsSync(p)))
+  : {};
 for (const it of items) {
   const path = `${WORK}/${it.key}.mp3`;
+  const prev = reusable[path];
+  if (prev && !prev.error && prev.peak >= 0.3 && prev.speech >= minSpeech(it.text)) {
+    it.stage = 'reuse';
+    used.reuse = (used.reuse ?? 0) + 1;
+    continue;
+  }
   let ok = false;
   for (const [n, st] of STAGES.entries()) {
     const buf = await st.make(it.text);
@@ -147,6 +159,8 @@ for (const it of items) {
 console.log('зинаҳо:', JSON.stringify(used));
 
 // ── 2. Буриши хомӯшӣ ────────────────────────────────────────────────────────
+// ffmpeg дар PATH нест — бинарӣ аз бастаи Python `imageio_ffmpeg` меояд (ниг. хотираи ramz-audio-audit).
+const FFMPEG = execFileSync('python', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], PY).trim();
 console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim());
 // ⚠️ `useTrimOrRaw`-и кореягӣ ҳадди худро дорад (садои воқеӣ < 0.20 с = хомӯш) — «Я» ва «Да»-и
 // СОЛИМ ~0.12–0.19 с садо доранд ва онҳоро рад мекард (13.09.2026). Ин ҷо ҳамон ҳадди `minSpeech`:
@@ -159,10 +173,22 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim(
   const still = [];
   for (const it of items) {
     if (passes(cut[`${TRIM}/${it.key}.mp3`], it.text)) continue;
-    if (passes(raw[`${WORK}/${it.key}.mp3`], it.text)) {
-      writeFileSync(`${TRIM}/${it.key}.mp3`, readFileSync(`${WORK}/${it.key}.mp3`));
+    const r = raw[`${WORK}/${it.key}.mp3`];
+    if (passes(r, it.text)) {
+      // 🔴 28.09.2026: «Пять», «Шесть», «Кончился.» — буриш клипро хомӯш кард, хом
+      // бошад 0.54–0.76 с хомӯшӣ пеш аз садо дошт (ҳадди санҷиши ниҳоӣ 0.5 с) ва
+      // ТАМОМИ бор (454 файл) манъ шуд. Акнун хомӯшии сар бо андозаи ЧЕНШУДА
+      // бурида мешавад (0.12 с захира мемонад), на бо буридани худкор.
+      if (r.lead > 0.35) {
+        const ss = Math.max(0, r.lead - 0.12).toFixed(2);
+        execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-ss', ss, '-i', `${WORK}/${it.key}.mp3`,
+          '-ar', '24000', '-ac', '1', '-b:a', '64k', `${TRIM}/${it.key}.mp3`]);
+        console.log(`  ✂️ «${it.text}»: буриш хомӯш шуд → хом, хомӯшии сар ${r.lead}s → −${ss}s`);
+      } else {
+        writeFileSync(`${TRIM}/${it.key}.mp3`, readFileSync(`${WORK}/${it.key}.mp3`));
+        console.log(`  ↩ «${it.text}»: нусхаи бурида хомӯш шуд → хом`);
+      }
       usedRaw++;
-      console.log(`  ↩ «${it.text}»: нусхаи бурида хомӯш шуд → хом`);
     } else still.push(it.text);
   }
   if (usedRaw) console.log(`  ${usedRaw} клипи кӯтоҳ бе буриш монд`);
@@ -171,8 +197,6 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim(
 
 // Буриш клипро аз нав рамзгузорӣ мекунад ва peak-и Chirp3 (~0.98) баъзан ба 0.99+ мерасад
 // («Здравствуйте», «Как» — 13.09.2026). Чунин клип 15% оромтар карда мешавад.
-// ffmpeg дар PATH нест — бинарӣ аз бастаи Python `imageio_ffmpeg` меояд (ниг. хотираи ramz-audio-audit).
-const FFMPEG = execFileSync('python', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], PY).trim();
 {
   const pre = measure(items.map((i) => `${TRIM}/${i.key}.mp3`));
   for (const it of items) {
