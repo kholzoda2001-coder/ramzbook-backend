@@ -1,0 +1,564 @@
+{
+  "slug": "doctor_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the doctor",
+    "titleTranslated": "Назди духтур",
+    "scenario": "Шумо бемор шудед ва ба духтур меравед. Мегӯед, ки куҷо дард мекунад, аз кай, ва мепурсед, ки доруро чанд вақт як бор гиред.",
+    "emoji": "🩺",
+    "order": 6,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Бемор",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Doctor",
+          "translation": "духтур",
+          "literal": "доктэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Sick",
+          "translation": "бемор",
+          "literal": "сик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Head",
+          "translation": "сар",
+          "literal": "ҳед",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Stomach",
+          "translation": "шикам",
+          "literal": "стамэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Hurts",
+          "translation": "дард мекунад",
+          "literal": "ҳёртс",
+          "note": "«It hurts» — дард мекунад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Fever",
+          "translation": "таб",
+          "literal": "фивэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What's wrong?",
+          "cueTranslation": "Чӣ шудааст?",
+          "intent": "Бигӯ: беморам",
+          "text": "Sick.",
+          "accepts": [
+            "I'm sick.",
+            "I feel sick."
+          ],
+          "translation": "Беморам.",
+          "literal": "сик",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where does it hurt? Your head?",
+          "cueTranslation": "Куҷо дард мекунад? Сар?",
+          "intent": "Бигӯ: шикам",
+          "text": "Stomach.",
+          "accepts": [
+            "My stomach."
+          ],
+          "translation": "Шикам.",
+          "literal": "стамэк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a fever?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes, a fever."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Дард",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "My head",
+          "translation": "Сари ман",
+          "literal": "май ҳед",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It hurts",
+          "translation": "Дард мекунад",
+          "literal": "ит ҳёртс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Cough",
+          "translation": "сулфа",
+          "literal": "коф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "A cough",
+          "translation": "Сулфа",
+          "literal": "э коф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Pills",
+          "translation": "ҳабҳо",
+          "literal": "пилз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "How often?",
+          "translation": "Чанд вақт як бор?",
+          "literal": "ҳау офэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Духтур мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "How can I help?",
+          "cueTranslation": "Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: сарам дард мекунад",
+          "text": "My head hurts.",
+          "accepts": [
+            "My head.",
+            "I have a headache."
+          ],
+          "translation": "Сарам дард мекунад.",
+          "literal": "май ҳед ҳёртс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a cough?",
+          "cueTranslation": "Сулфа доред?",
+          "intent": "Бигӯ: ҳа, сулфа",
+          "text": "Yes, a cough.",
+          "accepts": [
+            "Yes.",
+            "Yes, I have a cough."
+          ],
+          "translation": "Ҳа, сулфа.",
+          "literal": "йес э коф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Take these pills.",
+          "cueTranslation": "Ин ҳабҳоро гиред.",
+          "intent": "Бипурс: чанд вақт як бор?",
+          "text": "How often?",
+          "accepts": [
+            "How many times?",
+            "How often do I take them?"
+          ],
+          "translation": "Чанд вақт як бор?",
+          "literal": "ҳау офэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I feel sick.",
+          "translation": "Худро бемор ҳис мекунам.",
+          "literal": "ай фил сик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "My head hurts.",
+          "translation": "Сарам дард мекунад.",
+          "literal": "май ҳед ҳёртс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "head|сар",
+            "stomach|шикам",
+            "back|пушт"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I have a fever.",
+          "translation": "Ман таб дорам.",
+          "literal": "ай ҳэв э фивэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a doctor.",
+          "translation": "Ба ман духтур лозим.",
+          "literal": "ай нид э доктэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Yesterday",
+          "translation": "дирӯз",
+          "literal": "естэрдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Since yesterday.",
+          "translation": "Аз дирӯз.",
+          "literal": "синс естэрдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Қабули духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello. What's wrong?",
+          "cueTranslation": "Салом. Чӣ шудааст?",
+          "intent": "Бигӯ: худро бемор ҳис мекунам",
+          "text": "I feel sick.",
+          "accepts": [
+            "I'm sick.",
+            "I don't feel well."
+          ],
+          "translation": "Худро бемор ҳис мекунам.",
+          "literal": "ай фил сик",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where does it hurt?",
+          "cueTranslation": "Куҷо дард мекунад?",
+          "intent": "Бигӯ: сарам дард мекунад",
+          "text": "My head hurts.",
+          "accepts": [
+            "My head.",
+            "Here, my head."
+          ],
+          "translation": "Сарам дард мекунад.",
+          "literal": "май ҳед ҳёртс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Since when?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "Since yesterday.",
+          "accepts": [
+            "Yesterday.",
+            "From yesterday."
+          ],
+          "translation": "Аз дирӯз.",
+          "literal": "синс естэрдей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дору",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Pharmacy",
+          "translation": "дорухона",
+          "literal": "фармэсӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the pharmacy?",
+          "translation": "Дорухона куҷост?",
+          "literal": "вэр из ҙэ фармэсӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Two times a day.",
+          "translation": "Рӯзе ду бор.",
+          "literal": "ту таймз э дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I work?",
+          "translation": "Кор карда метавонам?",
+          "literal": "кен ай вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Thank you, doctor.",
+          "translation": "Ташаккур, духтур.",
+          "literal": "ҫенк ю доктэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Rest",
+          "translation": "дам гирифтан",
+          "literal": "рест",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дорухат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Take one pill two times a day.",
+          "cueTranslation": "Рӯзе ду бор як ҳаб гиред.",
+          "intent": "Бипурс: кор карда метавонам?",
+          "text": "Can I work?",
+          "accepts": [
+            "Can I go to work?",
+            "Work?"
+          ],
+          "translation": "Кор карда метавонам?",
+          "literal": "кен ай вёрк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "No, you need to rest. Two days.",
+          "cueTranslation": "Не, шумо бояд дам гиред. Ду рӯз.",
+          "intent": "Бипурс: дорухона куҷост?",
+          "text": "Where is the pharmacy?",
+          "accepts": [
+            "Where's the pharmacy?",
+            "The pharmacy?"
+          ],
+          "translation": "Дорухона куҷост?",
+          "literal": "вэр из ҙэ фармэсӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Next door, on the left.",
+          "cueTranslation": "Дари паҳлӯ, аз чап.",
+          "intent": "Ба духтур ташаккур гӯй",
+          "text": "Thank you, doctor.",
+          "accepts": [
+            "Thank you.",
+            "Thanks, doctor."
+          ],
+          "translation": "Ташаккур, духтур.",
+          "literal": "ҫенк ю доктэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: назди духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello. What's the problem?",
+          "cueTranslation": "Салом. Мушкил чист?",
+          "intent": "Бигӯ: беморам ва таб дорам",
+          "text": "I feel sick. I have a fever.",
+          "accepts": [
+            "I'm sick. I have a fever.",
+            "I have a fever."
+          ],
+          "translation": "Худро бемор ҳис мекунам. Таб дорам.",
+          "literal": "ай фил сик ай ҳэв э фивэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Does anything hurt?",
+          "cueTranslation": "Ягон ҷо дард мекунад?",
+          "intent": "Бигӯ: сарам дард мекунад",
+          "text": "My head hurts.",
+          "accepts": [
+            "My head.",
+            "Yes, my head hurts."
+          ],
+          "translation": "Сарам дард мекунад.",
+          "literal": "май ҳед ҳёртс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Take these pills and rest.",
+          "cueTranslation": "Ин ҳабҳоро гиреду дам гиред.",
+          "intent": "Бипурс: чанд вақт як бор?",
+          "text": "How often?",
+          "accepts": [
+            "How many times a day?",
+            "How often do I take them?"
+          ],
+          "translation": "Чанд вақт як бор?",
+          "literal": "ҳау офэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Two times a day. Feel better!",
+          "cueTranslation": "Рӯзе ду бор. Шифо ёбед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you, doctor.",
+          "accepts": [
+            "Thank you.",
+            "Thanks, doctor."
+          ],
+          "translation": "Ташаккур, духтур.",
+          "literal": "ҫенк ю доктэр",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

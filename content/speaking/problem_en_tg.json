@@ -1,0 +1,586 @@
+{
+  "slug": "problem_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Problems at work",
+    "titleTranslated": "Мушкил дар кор",
+    "scenario": "Асбоб мешиканад, мавод тамом мешавад, барқ нест, об мешорад. Шумо мушкилро кӯтоҳ мегӯед, мегӯед, ки гуноҳи шумо нест, ва чизи лозимиро мепурсед.",
+    "emoji": "🔧",
+    "order": 11,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Problem",
+          "translation": "мушкил",
+          "literal": "проблэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Broken",
+          "translation": "шикаста",
+          "literal": "броукэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Empty",
+          "translation": "холӣ",
+          "literal": "емптӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Need",
+          "translation": "лозим",
+          "literal": "нид",
+          "note": "«I need …» — ба ман … лозим.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Power",
+          "translation": "барқ",
+          "literal": "пауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Water",
+          "translation": "об",
+          "literal": "вотэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Мушкил ҳаст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What happened?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: мушкил (ҳаст)",
+          "text": "A problem.",
+          "accepts": [
+            "Problem.",
+            "There's a problem."
+          ],
+          "translation": "Мушкил.",
+          "literal": "э проблэм",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where's the hammer? Is it broken?",
+          "cueTranslation": "Болға куҷо? Шикаст?",
+          "intent": "Бигӯ: ҳа, шикаста",
+          "text": "Broken.",
+          "accepts": [
+            "Yes, broken.",
+            "Yes, it's broken."
+          ],
+          "translation": "Шикаста.",
+          "literal": "броукэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the cement bag empty?",
+          "cueTranslation": "Халтаи семент холӣ шуд?",
+          "intent": "Бигӯ: холӣ",
+          "text": "Empty.",
+          "accepts": [
+            "Yes, empty.",
+            "Yes, it's empty."
+          ],
+          "translation": "Холӣ.",
+          "literal": "емптӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кор намекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Not working",
+          "translation": "Кор намекунад",
+          "literal": "нот вёркинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "No power",
+          "translation": "Барқ нест",
+          "literal": "ноу пауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "No water",
+          "translation": "Об нест",
+          "literal": "ноу вотэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's broken",
+          "translation": "Шикаст",
+          "literal": "итс броукэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Why",
+          "translation": "чаро",
+          "literal": "вай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Drill",
+          "translation": "парма",
+          "literal": "дрил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ба бригадир мегӯям",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Why aren't you working?",
+          "cueTranslation": "Чаро кор намекунӣ?",
+          "intent": "Бигӯ: парма шикаст",
+          "text": "The drill is broken.",
+          "accepts": [
+            "It's broken.",
+            "The drill doesn't work."
+          ],
+          "translation": "Парма шикаст.",
+          "literal": "ҙэ дрил из броукэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "And the other drill?",
+          "cueTranslation": "Пармаи дигар чӣ?",
+          "intent": "Бигӯ: кор намекунад",
+          "text": "Not working.",
+          "accepts": [
+            "It's not working.",
+            "It doesn't work."
+          ],
+          "translation": "Кор намекунад.",
+          "literal": "нот вёркинг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "I see. What else?",
+          "cueTranslation": "Фаҳмо. Боз чӣ?",
+          "intent": "Бигӯ: барқ нест",
+          "text": "No power.",
+          "accepts": [
+            "There's no power.",
+            "The power is off."
+          ],
+          "translation": "Барқ нест.",
+          "literal": "ноу пауэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ба ман лозим",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I need a hammer.",
+          "translation": "Ба ман болға лозим.",
+          "literal": "ай нид э ҳэмэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "hammer|болға",
+            "bag|халта",
+            "drill|парма"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "We're out of cement.",
+          "translation": "Семент тамом шуд.",
+          "literal": "вир аут ов симент",
+          "note": "«We're out of …» — … тамом шуд.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "cement|семент",
+            "sand|рег"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Is there another one?",
+          "translation": "Дигараш ҳаст?",
+          "literal": "из ҙэр эназэр ван",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's not my fault.",
+          "translation": "Гуноҳи ман нест.",
+          "literal": "итс нот май фолт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Accident",
+          "translation": "тасодуф (ҳодиса)",
+          "literal": "эксидэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "It was an accident.",
+          "translation": "Тасодуфан шуд.",
+          "literal": "ит воз эн эксидэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Семент тамом шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Why are you standing there?",
+          "cueTranslation": "Чаро он ҷо истодаӣ?",
+          "intent": "Бигӯ: семент тамом шуд",
+          "text": "We're out of cement.",
+          "accepts": [
+            "No cement.",
+            "The cement is gone."
+          ],
+          "translation": "Семент тамом шуд.",
+          "literal": "вир аут ов симент",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What? We had ten bags this morning!",
+          "cueTranslation": "Чӣ? Саҳар даҳ халта доштем!",
+          "intent": "Бигӯ: гуноҳи ман нест",
+          "text": "It's not my fault.",
+          "accepts": [
+            "Not me.",
+            "It's not my fault, really."
+          ],
+          "translation": "Гуноҳи ман нест.",
+          "literal": "итс нот май фолт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. What do you need?",
+          "cueTranslation": "Хуб. Ба ту чӣ лозим?",
+          "intent": "Бигӯ: ба ман болға лозим",
+          "text": "I need a hammer.",
+          "accepts": [
+            "A hammer.",
+            "I need a hammer, please."
+          ],
+          "translation": "Ба ман болға лозим.",
+          "literal": "ай нид э ҳэмэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Фаврӣ!",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Leaking",
+          "translation": "мешорад",
+          "literal": "ликинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Water is leaking.",
+          "translation": "Об мешорад.",
+          "literal": "вотэр из ликинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Urgent",
+          "translation": "фаврӣ",
+          "literal": "ёрджэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's urgent.",
+          "translation": "Фаврӣ аст.",
+          "literal": "итс ёрджэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Fix",
+          "translation": "таъмир кардан",
+          "literal": "фикс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Can you fix it?",
+          "translation": "Таъмир карда метавонед?",
+          "literal": "кен ю фикс ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Об мешорад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello, it's the foreman. What's going on?",
+          "cueTranslation": "Алло, ин бригадир. Он ҷо чӣ гап?",
+          "intent": "Бигӯ: об мешорад, фаврӣ аст",
+          "text": "Water is leaking. It's urgent.",
+          "accepts": [
+            "Water is leaking! Urgent!",
+            "It's urgent. Water is leaking."
+          ],
+          "translation": "Об мешорад. Фаврӣ аст.",
+          "literal": "вотэр из ликинг итс ёрджэнт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is it leaking?",
+          "cueTranslation": "Куҷо мешорад?",
+          "intent": "Бигӯ: дар ошёнаи дуюм",
+          "text": "On the second floor.",
+          "accepts": [
+            "Second floor.",
+            "The second floor."
+          ],
+          "translation": "Дар ошёнаи дуюм.",
+          "literal": "он ҙэ секэнд флор",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "I'll send a repairman.",
+          "cueTranslation": "Усторо мефиристам.",
+          "intent": "Бипурс: таъмир карда метавонад?",
+          "text": "Can he fix it?",
+          "accepts": [
+            "Can you fix it?",
+            "Can it be fixed?"
+          ],
+          "translation": "Таъмир карда метавонад?",
+          "literal": "кен ҳӣ фикс ит",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, don't worry.",
+          "cueTranslation": "Ҳа, хавотир нашав.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thank you.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: парма шикаст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hey! Why aren't you working?",
+          "cueTranslation": "Эй! Чаро кор намекунӣ?",
+          "intent": "Бигӯ: мушкил ҳаст, парма шикаст",
+          "text": "There's a problem. The drill is broken.",
+          "accepts": [
+            "The drill is broken.",
+            "Problem. The drill doesn't work."
+          ],
+          "translation": "Мушкил ҳаст. Парма шикаст.",
+          "literal": "ҙэрз э проблэм ҙэ дрил из броукэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Again? Did you break it?",
+          "cueTranslation": "Боз? Ту шикастӣ?",
+          "intent": "Бигӯ: не, гуноҳи ман нест",
+          "text": "No, it's not my fault.",
+          "accepts": [
+            "It's not my fault.",
+            "No, not me."
+          ],
+          "translation": "Не, гуноҳи ман нест.",
+          "literal": "ноу итс нот май фолт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. What do you need?",
+          "cueTranslation": "Хуб. Ба ту чӣ лозим?",
+          "intent": "Бипурс: пармаи дигар ҳаст?",
+          "text": "Is there another drill?",
+          "accepts": [
+            "Another drill?",
+            "Is there another one?"
+          ],
+          "translation": "Пармаи дигар ҳаст?",
+          "literal": "из ҙэр эназэр дрил",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, in the warehouse. Go get it.",
+          "cueTranslation": "Ҳа, дар анбор. Рав гир.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

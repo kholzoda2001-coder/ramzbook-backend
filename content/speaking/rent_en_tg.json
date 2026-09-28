@@ -1,0 +1,566 @@
+{
+  "slug": "rent_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Renting a room",
+    "titleTranslated": "Иҷораи хона",
+    "scenario": "Шумо ҳуҷра меҷӯед: нарх, ошхона, душ, пешпардохт. Ҳуҷраро мебинед ва калид мегиред. Миссия — бо телефон.",
+    "emoji": "🏠",
+    "order": 14,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷра",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Room",
+          "translation": "ҳуҷра",
+          "literal": "рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Rent",
+          "translation": "иҷора",
+          "literal": "рент",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Month",
+          "translation": "моҳ",
+          "literal": "манҫ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Kitchen",
+          "translation": "ошхона",
+          "literal": "кичэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Available",
+          "translation": "холӣ (дастрас)",
+          "literal": "эвейлэбэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Key",
+          "translation": "калид",
+          "literal": "кӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷра меҷӯед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you looking for a room?",
+          "cueTranslation": "Ҳуҷра меҷӯед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am.",
+            "Yes, a room."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "For a week or a month?",
+          "cueTranslation": "Барои як ҳафта ё як моҳ?",
+          "intent": "Бигӯ: як моҳ",
+          "text": "A month.",
+          "accepts": [
+            "One month.",
+            "For a month."
+          ],
+          "translation": "Як моҳ.",
+          "literal": "э манҫ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "The room is ready. What else do you need?",
+          "cueTranslation": "Ҳуҷра тайёр. Боз чӣ лозим?",
+          "intent": "Бигӯ: калид",
+          "text": "The key.",
+          "accepts": [
+            "A key.",
+            "The key, please."
+          ],
+          "translation": "Калид.",
+          "literal": "ҙэ кӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Нарх",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Deposit",
+          "translation": "гарав (пешпардохт)",
+          "literal": "дипозит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Per month",
+          "translation": "Дар як моҳ",
+          "literal": "пёр манҫ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Still available?",
+          "translation": "Ҳанӯз холӣ?",
+          "literal": "стил эвейлэбэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "How much?",
+          "translation": "Чанд пул?",
+          "literal": "ҳау мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Shower",
+          "translation": "душ",
+          "literal": "шауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "No problem",
+          "translation": "Мушкил нест",
+          "literal": "ноу проблэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Эълон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! I have a room for rent.",
+          "cueTranslation": "Салом! Ҳуҷраи иҷоравӣ дорам.",
+          "intent": "Бипурс: ҳанӯз холӣ?",
+          "text": "Still available?",
+          "accepts": [
+            "Is it still available?",
+            "Is it available?"
+          ],
+          "translation": "Ҳанӯз холӣ?",
+          "literal": "стил эвейлэбэл",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, it's free.",
+          "cueTranslation": "Ҳа, холӣ.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "How much?",
+          "accepts": [
+            "How much is it?",
+            "How much per month?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "ҳау мач",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Eight hundred per month.",
+          "cueTranslation": "Моҳе ҳаштсад.",
+          "intent": "Бигӯ: дар як моҳ? хуб",
+          "text": "Per month? Okay.",
+          "accepts": [
+            "Okay.",
+            "Okay, per month."
+          ],
+          "translation": "Дар як моҳ? Хуб.",
+          "literal": "пёр манҫ оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I need a room.",
+          "translation": "Ба ман ҳуҷра лозим.",
+          "literal": "ай нид э рум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is there a kitchen?",
+          "translation": "Ошхона ҳаст?",
+          "literal": "из ҙэр э кичэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "kitchen|ошхона",
+            "shower|душ"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "What's the deposit?",
+          "translation": "Гарав чанд аст?",
+          "literal": "вотс ҙэ дипозит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "When can I come?",
+          "translation": "Кай омада метавонам?",
+          "literal": "вен кен ай кам",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I see it?",
+          "translation": "Дида метавонам?",
+          "literal": "кен ай сӣ ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "My number is ___.",
+          "translation": "Рақами ман ___.",
+          "literal": "май намбэр из ___",
+          "note": "Рақами телефони худро гӯед.",
+          "cue": "What's your phone number?",
+          "cueTranslation": "Рақами телефонатон чанд?",
+          "intent": "Рақами худро гӯед",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Соҳибхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello, how can I help?",
+          "cueTranslation": "Салом, чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ба ман ҳуҷра лозим",
+          "text": "I need a room.",
+          "accepts": [
+            "I'm looking for a room.",
+            "A room, please."
+          ],
+          "translation": "Ба ман ҳуҷра лозим.",
+          "literal": "ай нид э рум",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I have one room. Eight hundred a month.",
+          "cueTranslation": "Як ҳуҷра дорам. Моҳе ҳаштсад.",
+          "intent": "Бипурс: ошхона ҳаст?",
+          "text": "Is there a kitchen?",
+          "accepts": [
+            "A kitchen?",
+            "Is there a kitchen too?"
+          ],
+          "translation": "Ошхона ҳаст?",
+          "literal": "из ҙэр э кичэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, and a shower.",
+          "cueTranslation": "Ҳа, душ ҳам.",
+          "intent": "Бипурс: дида метавонам?",
+          "text": "Can I see it?",
+          "accepts": [
+            "Can I see the room?",
+            "Can I see?"
+          ],
+          "translation": "Дида метавонам?",
+          "literal": "кен ай сӣ ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мегирам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I'll take it.",
+          "translation": "Мегирам.",
+          "literal": "айл тейк ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Here is the deposit.",
+          "translation": "Ана гарав.",
+          "literal": "ҳир из ҙэ дипозит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are the keys?",
+          "translation": "Калидҳо куҷоянд?",
+          "literal": "вэр ар ҙэ киз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I pay tomorrow?",
+          "translation": "Фардо пардохта метавонам?",
+          "literal": "кен ай пей туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Keys",
+          "translation": "калидҳо",
+          "literal": "киз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Thank you, see you.",
+          "translation": "Ташаккур, то дидор.",
+          "literal": "ҫенк ю сӣ ю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Қарор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "So, do you like it?",
+          "cueTranslation": "Хуб, маъқул аст?",
+          "intent": "Бигӯ: ҳа, мегирам",
+          "text": "Yes, I'll take it.",
+          "accepts": [
+            "I'll take it.",
+            "Yes, I like it."
+          ],
+          "translation": "Ҳа, мегирам.",
+          "literal": "йес айл тейк ит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "The deposit is one month.",
+          "cueTranslation": "Гарав — як моҳ.",
+          "intent": "Бипурс: фардо пардохта метавонам?",
+          "text": "Can I pay tomorrow?",
+          "accepts": [
+            "Tomorrow okay?",
+            "Can I pay it tomorrow?"
+          ],
+          "translation": "Фардо пардохта метавонам?",
+          "literal": "кен ай пей туморроу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, okay. Here are the keys.",
+          "cueTranslation": "Ҳа, хуб. Ана калидҳо.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you very much.",
+          "accepts": [
+            "Thank you!",
+            "Thanks a lot."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": "ҫенк ю верӣ мач",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг барои ҳуҷра",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello?",
+          "cueTranslation": "Алло?",
+          "intent": "Салом гӯй ва бигӯ, ки ба ту ҳуҷра лозим",
+          "text": "Hello! I need a room.",
+          "accepts": [
+            "Hi, I'm looking for a room.",
+            "Hello, is the room available?"
+          ],
+          "translation": "Салом! Ба ман ҳуҷра лозим.",
+          "literal": "ҳелоу ай нид э рум",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, I have a room. Eight hundred a month.",
+          "cueTranslation": "Ҳа, ҳуҷра дорам. Моҳе ҳаштсад.",
+          "intent": "Бипурс: ошхона ҳаст?",
+          "text": "Is there a kitchen?",
+          "accepts": [
+            "A kitchen?",
+            "Is there a kitchen too?"
+          ],
+          "translation": "Ошхона ҳаст?",
+          "literal": "из ҙэр э кичэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. When do you want to see it?",
+          "cueTranslation": "Ҳа. Кай дидан мехоҳед?",
+          "intent": "Бигӯ: фардо, лутфан",
+          "text": "Tomorrow, please.",
+          "accepts": [
+            "Tomorrow.",
+            "Can I come tomorrow?"
+          ],
+          "translation": "Фардо, лутфан.",
+          "literal": "туморроу плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, see you tomorrow!",
+          "cueTranslation": "Хуб, то фардо!",
+          "intent": "Ташаккур гӯй ва хайрухуш кун",
+          "text": "Thank you. See you tomorrow!",
+          "accepts": [
+            "Thanks, bye!",
+            "See you tomorrow!"
+          ],
+          "translation": "Ташаккур. То фардо!",
+          "literal": "ҫенк ю сӣ ю туморроу",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

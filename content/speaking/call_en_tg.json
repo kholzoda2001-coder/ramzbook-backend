@@ -1,0 +1,564 @@
+{
+  "slug": "call_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Calling the foreman",
+    "titleTranslated": "Занг ба бригадир",
+    "scenario": "Дер мемонед, бемор шудед ё имрӯз намеоед — бояд ба бригадир занг занед. Дар телефон рӯй намебинед, садо бад аст. Шумо кӯтоҳ ва фаҳмо мегӯед, ки чӣ шуд ва кай меоед.",
+    "emoji": "📞",
+    "order": 15,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Late",
+          "translation": "дер",
+          "literal": "лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Sick",
+          "translation": "бемор",
+          "literal": "сик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Sorry",
+          "translation": "бубахшед",
+          "literal": "сорӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Today",
+          "translation": "имрӯз",
+          "literal": "тудей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Come",
+          "translation": "омадан",
+          "literal": "кам",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Call",
+          "translation": "занг задан",
+          "literal": "кол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ту куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello?",
+          "cueTranslation": "Алло?",
+          "intent": "Салом гӯй",
+          "text": "Hello!",
+          "accepts": [
+            "Hi!",
+            "Hello, it's me."
+          ],
+          "translation": "Салом!",
+          "literal": "ҳелоу",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you? Are you late?",
+          "cueTranslation": "Ту куҷоӣ? Дер мемонӣ?",
+          "intent": "Бигӯ: ҳа, дер",
+          "text": "Yes, late.",
+          "accepts": [
+            "Yes, I'm late.",
+            "Yes."
+          ],
+          "translation": "Ҳа, дер.",
+          "literal": "йес лейт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Why aren't you at work? Are you sick?",
+          "cueTranslation": "Чаро дар кор нестӣ? Беморӣ?",
+          "intent": "Бигӯ: ҳа, беморам",
+          "text": "Yes, sick.",
+          "accepts": [
+            "Yes, I'm sick.",
+            "I'm sick."
+          ],
+          "translation": "Ҳа, беморам.",
+          "literal": "йес сик",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кӯтоҳ мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I'm late",
+          "translation": "Ман дер мондам",
+          "literal": "айм лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm sick",
+          "translation": "Ман беморам",
+          "literal": "айм сик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Not coming",
+          "translation": "Намеоям",
+          "literal": "нот каминг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "One hour",
+          "translation": "Як соат",
+          "literal": "ван ауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, boss",
+          "translation": "Бубахшед, бригадир",
+          "literal": "сорӣ бос",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Tomorrow morning",
+          "translation": "Фардо саҳар",
+          "literal": "туморроу морнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дер мемонам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello, I'm listening.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Бигӯ: бубахшед, дер мондам",
+          "text": "Sorry, I'm late.",
+          "accepts": [
+            "I'm late, sorry.",
+            "Sorry, boss. I'm late."
+          ],
+          "translation": "Бубахшед, дер мондам.",
+          "literal": "сорӣ айм лейт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "When will you come?",
+          "cueTranslation": "Кай меоӣ?",
+          "intent": "Бигӯ: баъди як соат",
+          "text": "In one hour.",
+          "accepts": [
+            "One hour.",
+            "In an hour."
+          ],
+          "translation": "Баъди як соат.",
+          "literal": "ин ван ауэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, I'm waiting.",
+          "cueTranslation": "Хуб, интизорам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you, see you."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Сабаб",
+      "items": [
+        {
+          "kind": "own",
+          "text": "This is ___.",
+          "translation": "Ин ___ (ҳастам).",
+          "literal": "ҙис из ___",
+          "note": "Ба ҷои «___» номи ХУДАТОНРО гӯед.",
+          "cue": "Hello, who is this?",
+          "cueTranslation": "Алло, ин кӣ?",
+          "intent": "Номи худатонро гӯед",
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I can't come today.",
+          "translation": "Имрӯз омада наметавонам.",
+          "literal": "ай кент кам тудей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I have a fever.",
+          "translation": "Ман таб дорам.",
+          "literal": "ай ҳэв э фивэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "The bus is late.",
+          "translation": "Автобус дер кард.",
+          "literal": "ҙэ бас из лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll be late.",
+          "translation": "Дер мемонам.",
+          "literal": "айл бӣ лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I come tomorrow?",
+          "translation": "Фардо омада метавонам?",
+          "literal": "кен ай кам туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Беморам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Why aren't you at work?",
+          "cueTranslation": "Алло! Чаро дар кор нестӣ?",
+          "intent": "Бигӯ: беморам, таб дорам",
+          "text": "I'm sick. I have a fever.",
+          "accepts": [
+            "I'm sick.",
+            "I have a fever."
+          ],
+          "translation": "Беморам. Таб дорам.",
+          "literal": "айм сик ай ҳэв э фивэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I see. Tomorrow?",
+          "cueTranslation": "Фаҳмо. Фардо?",
+          "intent": "Бигӯ: ҳа, фардо меоям",
+          "text": "Yes, I'll come tomorrow.",
+          "accepts": [
+            "Yes, tomorrow.",
+            "Tomorrow, yes."
+          ],
+          "translation": "Ҳа, фардо меоям.",
+          "literal": "йес айл кам туморроу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Get well!",
+          "cueTranslation": "Хуб. Шифо ёбӣ!",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you!",
+          "accepts": [
+            "Thanks!",
+            "Thank you, boss."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Садо бад аст",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hear",
+          "translation": "шунидан",
+          "literal": "ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I can't hear you.",
+          "translation": "Шуморо намешунавам.",
+          "literal": "ай кент ҳир ю",
+          "note": "Дар телефон ибораи зарурӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Call me back, please.",
+          "translation": "Лутфан, боз занг занед.",
+          "literal": "кол мӣ бэк плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll call tonight.",
+          "translation": "Бегоҳ занг мезанам.",
+          "literal": "айл кол тунайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm on my way.",
+          "translation": "Ман дар роҳам.",
+          "literal": "айм он май вей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, I'm late.",
+          "translation": "Бубахшед, дер мондам.",
+          "literal": "сорӣ айм лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Алоқа бад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Where are you? We already...",
+          "cueTranslation": "Алло! Ту куҷоӣ? Мо аллакай...",
+          "intent": "Бигӯ: шуморо намешунавам",
+          "text": "I can't hear you.",
+          "accepts": [
+            "Sorry, I can't hear you.",
+            "Hello? I can't hear."
+          ],
+          "translation": "Шуморо намешунавам.",
+          "literal": "ай кент ҳир ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you, I said?",
+          "cueTranslation": "Мегӯям, ту куҷоӣ?",
+          "intent": "Бигӯ: дар роҳам, автобус дер кард",
+          "text": "I'm on my way. The bus is late.",
+          "accepts": [
+            "On my way. The bus is late.",
+            "The bus is late. I'm coming."
+          ],
+          "translation": "Дар роҳам. Автобус дер кард.",
+          "literal": "айм он май вей ҙэ бас из лейт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Call me when you're close.",
+          "cueTranslation": "Хуб. Вақте наздик шудӣ, занг зан.",
+          "intent": "Бигӯ: хуб, занг мезанам",
+          "text": "Okay, I'll call.",
+          "accepts": [
+            "I'll call.",
+            "Okay."
+          ],
+          "translation": "Хуб, занг мезанам.",
+          "literal": "оукей айл кол",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг ба бригадир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello, I'm listening.",
+          "cueTranslation": "Алло, гӯш мекунам.",
+          "intent": "Салом гӯй ва бубахшед",
+          "text": "Hello! Sorry.",
+          "accepts": [
+            "Hi, boss. Sorry.",
+            "Hello, sorry."
+          ],
+          "translation": "Салом! Бубахшед.",
+          "literal": "ҳелоу сорӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What happened?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: беморам, имрӯз омада наметавонам",
+          "text": "I'm sick. I can't come today.",
+          "accepts": [
+            "I'm sick, I can't come.",
+            "I can't come today. I'm sick."
+          ],
+          "translation": "Беморам. Имрӯз омада наметавонам.",
+          "literal": "айм сик ай кент кам тудей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "I see. Do you have a fever?",
+          "cueTranslation": "Фаҳмо. Таб дорӣ?",
+          "intent": "Бигӯ: ҳа, таб дорам",
+          "text": "Yes, I have a fever.",
+          "accepts": [
+            "Yes.",
+            "Yes, a fever."
+          ],
+          "translation": "Ҳа, таб дорам.",
+          "literal": "йес ай ҳэв э фивэр",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, rest. Call me tonight.",
+          "cueTranslation": "Хуб, дам гир. Бегоҳ занг зан.",
+          "intent": "Бигӯ: хуб, бегоҳ занг мезанам",
+          "text": "Okay, I'll call tonight.",
+          "accepts": [
+            "I'll call tonight.",
+            "Okay, thank you."
+          ],
+          "translation": "Хуб, бегоҳ занг мезанам.",
+          "literal": "оукей айл кол тунайт",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

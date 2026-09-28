@@ -1,0 +1,584 @@
+{
+  "slug": "place_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Where on site?",
+    "titleTranslated": "Ҷой дар объект",
+    "scenario": "Объект калон аст: ошёнаҳо, нардбон, анбор. Шумо мепурсед ва мефаҳмед, ки чиз ва одам куҷост: боло ё поён, аз чап ё рост, наздик ё дур.",
+    "emoji": "🧭",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Боло ва поён",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Upstairs",
+          "translation": "ба боло (дар боло)",
+          "literal": "апстеэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Downstairs",
+          "translation": "ба поён (дар поён)",
+          "literal": "даунстеэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Floor",
+          "translation": "ошёна",
+          "literal": "флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Left",
+          "translation": "чап",
+          "literal": "лефт",
+          "note": "«On the left» — аз тарафи чап.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Right",
+          "translation": "рост",
+          "literal": "райт",
+          "note": "«On the right» — аз тарафи рост.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "There",
+          "translation": "он ҷо",
+          "literal": "ҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Boards go upstairs or downstairs?",
+          "cueTranslation": "Тахтаҳо ба боло ё ба поён?",
+          "intent": "Бигӯ: ба боло",
+          "text": "Upstairs.",
+          "accepts": [
+            "Take them upstairs."
+          ],
+          "translation": "Ба боло.",
+          "literal": "апстеэрз",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the ladder on the left?",
+          "cueTranslation": "Нардбон аз чап аст?",
+          "intent": "Бигӯ: аз рост",
+          "text": "On the right.",
+          "accepts": [
+            "Right.",
+            "No, on the right."
+          ],
+          "translation": "Аз рост.",
+          "literal": "он ҙэ райт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is the boss? Here?",
+          "cueTranslation": "Бригадир куҷост? Ин ҷо?",
+          "intent": "Бигӯ: он ҷо",
+          "text": "There.",
+          "accepts": [
+            "Over there.",
+            "He's there."
+          ],
+          "translation": "Он ҷо.",
+          "literal": "ҙэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ошёнаҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "First",
+          "translation": "якум",
+          "literal": "фёрст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "First floor",
+          "translation": "Ошёнаи якум",
+          "literal": "фёрст флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Second",
+          "translation": "дуюм",
+          "literal": "секэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Second floor",
+          "translation": "Ошёнаи дуюм",
+          "literal": "секэнд флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Third",
+          "translation": "сеюм",
+          "literal": "ҫёрд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Third floor",
+          "translation": "Ошёнаи сеюм",
+          "literal": "ҫёрд флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом ошёна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What floor do you work on?",
+          "cueTranslation": "Дар кадом ошёна кор мекунӣ?",
+          "intent": "Бигӯ: ошёнаи дуюм",
+          "text": "Second floor.",
+          "accepts": [
+            "On the second floor.",
+            "The second floor."
+          ],
+          "translation": "Ошёнаи дуюм.",
+          "literal": "секэнд флор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What floor is the cement on?",
+          "cueTranslation": "Семент дар кадом ошёна?",
+          "intent": "Бигӯ: ошёнаи якум",
+          "text": "First floor.",
+          "accepts": [
+            "On the first floor.",
+            "The first floor."
+          ],
+          "translation": "Ошёнаи якум.",
+          "literal": "фёрст флор",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Take it to the third.",
+          "cueTranslation": "Онро ба сеюм бар.",
+          "intent": "Бигӯ: ошёнаи сеюм, фаҳмидам",
+          "text": "Third floor. Got it.",
+          "accepts": [
+            "Got it, third floor.",
+            "Okay, the third."
+          ],
+          "translation": "Ошёнаи сеюм. Фаҳмидам.",
+          "literal": "ҫёрд флор гот ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Роҳро мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Which floor?",
+          "translation": "Кадом ошёна?",
+          "literal": "вич флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Go upstairs.",
+          "translation": "Ба боло рав.",
+          "literal": "гоу апстеэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Straight",
+          "translation": "рост (мустақим)",
+          "literal": "стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Go straight.",
+          "translation": "Рост рав.",
+          "literal": "гоу стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "The ladder is there.",
+          "translation": "Нардбон он ҷост.",
+          "literal": "ҙэ лэдэр из ҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "ladder|нардбон",
+            "boss|бригадир",
+            "truck|мошин"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "There, on the left.",
+          "translation": "Он ҷо, аз чап.",
+          "literal": "ҙэр он ҙэ лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бригадир куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you need?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бипурс: бригадир дар кадом ошёна?",
+          "text": "Which floor is the boss on?",
+          "accepts": [
+            "Where is the boss?",
+            "What floor is the boss on?"
+          ],
+          "translation": "Бригадир дар кадом ошёна?",
+          "literal": "вич флор из ҙэ бос он",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "On the third. Go upstairs.",
+          "cueTranslation": "Дар сеюм. Ба боло рав.",
+          "intent": "Бипурс: нардбон куҷост?",
+          "text": "Where is the ladder?",
+          "accepts": [
+            "Where's the ladder?",
+            "The ladder?"
+          ],
+          "translation": "Нардбон куҷост?",
+          "literal": "вэр из ҙэ лэдэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "The ladder is on the right, there.",
+          "cueTranslation": "Нардбон аз рост, он ҷо.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Got it, thanks.",
+          "accepts": [
+            "Thank you.",
+            "Okay, thanks."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "гот ит ҫенкс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Наздик ва дур",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Near",
+          "translation": "наздик",
+          "literal": "нир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Far",
+          "translation": "дур",
+          "literal": "фар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it far?",
+          "translation": "Дур аст?",
+          "literal": "из ит фар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "No, it's near.",
+          "translation": "Не, наздик аст.",
+          "literal": "ноу итс нир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm upstairs.",
+          "translation": "Ман дар болоям.",
+          "literal": "айм апстеэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "upstairs|дар боло",
+            "downstairs|дар поён"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm downstairs.",
+          "translation": "Ман дар поёнам.",
+          "literal": "айм даунстеэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ту куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where are you? I can't see you.",
+          "cueTranslation": "Ту куҷоӣ? Ман туро намебинам.",
+          "intent": "Бигӯ: ман дар болоям",
+          "text": "I'm upstairs.",
+          "accepts": [
+            "Upstairs.",
+            "I'm here, upstairs."
+          ],
+          "translation": "Ман дар болоям.",
+          "literal": "айм апстеэрз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Come down. The truck is here.",
+          "cueTranslation": "Фуро. Мошин омад.",
+          "intent": "Бипурс: мошин куҷост?",
+          "text": "Where is the truck?",
+          "accepts": [
+            "Where's the truck?",
+            "The truck?"
+          ],
+          "translation": "Мошин куҷост?",
+          "literal": "вэр из ҙэ трак",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "On the right of the gate.",
+          "cueTranslation": "Аз тарафи рости дарвоза.",
+          "intent": "Бипурс: дур аст?",
+          "text": "Is it far?",
+          "accepts": [
+            "Far?"
+          ],
+          "translation": "Дур аст?",
+          "literal": "из ит фар",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "No, it's near.",
+          "cueTranslation": "Не, наздик аст.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Okay, coming.",
+          "accepts": [
+            "Coming.",
+            "Okay, I'm coming."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": "оукей каминг",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: роҳ дар объект",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Which floor do you work on?",
+          "cueTranslation": "Салом! Дар кадом ошёна кор мекунӣ?",
+          "intent": "Бигӯ: ошёнаи дуюм",
+          "text": "Second floor.",
+          "accepts": [
+            "On the second floor.",
+            "The second floor."
+          ],
+          "translation": "Ошёнаи дуюм.",
+          "literal": "секэнд флор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Take these boards upstairs, to the third.",
+          "cueTranslation": "Ин тахтаҳоро ба боло, ба сеюм бар.",
+          "intent": "Бипурс: нардбон куҷост?",
+          "text": "Where is the ladder?",
+          "accepts": [
+            "Where's the ladder?",
+            "The ladder?"
+          ],
+          "translation": "Нардбон куҷост?",
+          "literal": "вэр из ҙэ лэдэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "The ladder is on the left. There.",
+          "cueTranslation": "Нардбон аз чап. Он ҷо.",
+          "intent": "Бигӯ, ки фаҳмидӣ ва бипурс: дур аст?",
+          "text": "Got it. Is it far?",
+          "accepts": [
+            "Okay. Is it far?",
+            "Is it far?"
+          ],
+          "translation": "Фаҳмидам. Дур аст?",
+          "literal": "гот ит из ит фар",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "No, it's near. Go!",
+          "cueTranslation": "Не, наздик. Рав!",
+          "intent": "Бигӯ: хуб, меравам",
+          "text": "Okay, I'm going.",
+          "accepts": [
+            "Okay.",
+            "Going."
+          ],
+          "translation": "Хуб, меравам.",
+          "literal": "оукей айм гоуинг",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

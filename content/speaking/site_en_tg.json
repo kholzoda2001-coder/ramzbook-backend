@@ -1,0 +1,582 @@
+{
+  "slug": "site_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "First day on site",
+    "titleTranslated": "Рӯзи аввал дар объект",
+    "scenario": "Рӯзи аввали кор дар объекти сохтмон. Бригадир вазифа медиҳад: чӣ бояд кард, чиро ба куҷо бурдан, кадом асбоб лозим. Шумо мефаҳмед, мепурсед ва ҷавоб медиҳед.",
+    "emoji": "🏗️",
+    "order": 3,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Асбобҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Brick",
+          "translation": "хишт",
+          "literal": "брик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Cement",
+          "translation": "семент",
+          "literal": "симент",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Shovel",
+          "translation": "бел",
+          "literal": "шавэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Hammer",
+          "translation": "болға",
+          "literal": "ҳэмэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Bucket",
+          "translation": "сатил",
+          "literal": "бакит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Here",
+          "translation": "ин ҷо",
+          "literal": "ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бригадир мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you need?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бигӯ: бел",
+          "text": "A shovel.",
+          "accepts": [
+            "Shovel.",
+            "I need a shovel."
+          ],
+          "translation": "Бел.",
+          "literal": "э шавэл",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is the cement? Here?",
+          "cueTranslation": "Семент куҷост? Ин ҷо?",
+          "intent": "Бигӯ, ки ҳа, ин ҷо",
+          "text": "Yes, here.",
+          "accepts": [
+            "Yes.",
+            "Here."
+          ],
+          "translation": "Ҳа, ин ҷо.",
+          "literal": "йес ҳир",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a hammer?",
+          "cueTranslation": "Болға дорӣ?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, I don't.",
+            "No hammer."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Чӣ кор кунам?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "What",
+          "translation": "чӣ",
+          "literal": "вот",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "What now?",
+          "translation": "Акнун чӣ?",
+          "literal": "вот нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Where",
+          "translation": "куҷо",
+          "literal": "вэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where to?",
+          "translation": "Ба куҷо?",
+          "literal": "вэр ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Got it",
+          "translation": "Фаҳмидам",
+          "literal": "гот ит",
+          "note": "Ҷавоби маъмул дар кор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Say again?",
+          "translation": "Боз гӯед?",
+          "literal": "сей эген",
+          "note": "Вақте нашунидед ё нафаҳмидед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Вазифа",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Take the bricks.",
+          "cueTranslation": "Хиштҳоро гир.",
+          "intent": "Бипурс: ба куҷо?",
+          "text": "Where to?",
+          "accepts": [
+            "Where?",
+            "Where do I take them?"
+          ],
+          "translation": "Ба куҷо?",
+          "literal": "вэр ту",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "There, to the wall.",
+          "cueTranslation": "Ба он ҷо, назди девор.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Got it.",
+          "accepts": [
+            "Okay, got it.",
+            "Okay."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "гот ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Then mix the cement.",
+          "cueTranslation": "Баъд сементро омехта кун.",
+          "intent": "Бипурс: боз гӯед?",
+          "text": "Say again?",
+          "accepts": [
+            "Sorry?",
+            "Can you say that again?"
+          ],
+          "translation": "Боз гӯед?",
+          "literal": "сей эген",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What do I do?",
+          "translation": "Ман чӣ кор кунам?",
+          "literal": "вот ду ай ду",
+          "note": "Саволи асосии рӯзи аввал.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Give",
+          "translation": "додан",
+          "literal": "гив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Give me the shovel.",
+          "translation": "Белро ба ман деҳ.",
+          "literal": "гив мӣ ҙэ шавэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "shovel|бел",
+            "hammer|болға",
+            "bucket|сатил"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I don't understand.",
+          "translation": "Ман намефаҳмам.",
+          "literal": "ай доунт андэрстэнд",
+          "note": "Беҳтар аст бигӯед, ки нафаҳмидед, аз он ки хато кунед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Please say it again.",
+          "translation": "Лутфан, боз гӯед.",
+          "literal": "плиз сей ит эген",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Please",
+          "translation": "лутфан",
+          "literal": "плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: бо бригадир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you new?",
+          "cueTranslation": "Салом! Ту навӣ?",
+          "intent": "Бигӯ, ки ҳа ва бипурс, ки чӣ кор кунӣ",
+          "text": "Yes. What do I do?",
+          "accepts": [
+            "Yes, I'm new. What do I do?",
+            "What do I do?"
+          ],
+          "translation": "Ҳа. Ман чӣ кор кунам?",
+          "literal": "йес вот ду ай ду",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Carry the bricks to the second floor.",
+          "cueTranslation": "Хиштҳоро ба ошёнаи дуюм бар.",
+          "intent": "Бигӯ, ки намефаҳмӣ ва хоҳиш кун, ки боз гӯяд",
+          "text": "I don't understand. Please say it again.",
+          "accepts": [
+            "Please say it again.",
+            "Sorry, I don't understand."
+          ],
+          "translation": "Ман намефаҳмам. Лутфан, боз гӯед.",
+          "literal": "ай доунт андэрстэнд плиз сей ит эген",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bricks. Second floor. Okay?",
+          "cueTranslation": "Хиштҳо. Ошёнаи дуюм. Хуб?",
+          "intent": "Бигӯ: фаҳмидам ва белро пурс",
+          "text": "Got it. Give me the shovel.",
+          "accepts": [
+            "Okay. Give me the shovel.",
+            "Got it."
+          ],
+          "translation": "Фаҳмидам. Белро ба ман деҳ.",
+          "literal": "гот ит гив мӣ ҙэ шавэл",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Танаффус ва ёрӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Lunch",
+          "translation": "хӯроки пешин",
+          "literal": "ланч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "What time is lunch?",
+          "translation": "Хӯроки пешин соати чанд?",
+          "literal": "вот тайм из ланч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the toilet?",
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "вэр из ҙэ тойлет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I have water?",
+          "translation": "Об гирифта метавонам?",
+          "literal": "кен ай ҳэв вотэр",
+          "note": "Хушмуомила об хостан.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "It's done.",
+          "translation": "Тайёр шуд.",
+          "literal": "итс дан",
+          "note": "Вақте кор тамом шуд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Water",
+          "translation": "об",
+          "literal": "вотэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "We work until lunch.",
+          "cueTranslation": "То хӯроки пешин кор мекунем.",
+          "intent": "Бипурс: хӯроки пешин соати чанд?",
+          "text": "What time is lunch?",
+          "accepts": [
+            "When is lunch?",
+            "Lunch at what time?"
+          ],
+          "translation": "Хӯроки пешин соати чанд?",
+          "literal": "вот тайм из ланч",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "At twelve.",
+          "cueTranslation": "Соати дувоздаҳ.",
+          "intent": "Бипурс: ҳоҷатхона куҷост?",
+          "text": "Where is the toilet?",
+          "accepts": [
+            "Where's the toilet?",
+            "Where is the bathroom?"
+          ],
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "вэр из ҙэ тойлет",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Over there, behind the trailer.",
+          "cueTranslation": "Он ҷо, паси вагонча.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Got it, thanks.",
+          "accepts": [
+            "Thank you.",
+            "Okay, thanks."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "гот ит ҫенкс",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the wall done?",
+          "cueTranslation": "Девор тайёр шуд?",
+          "intent": "Бигӯ: ҳа, тайёр шуд",
+          "text": "Yes, it's done.",
+          "accepts": [
+            "Yes.",
+            "Yes, done."
+          ],
+          "translation": "Ҳа, тайёр шуд.",
+          "literal": "йес итс дан",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! You're the new worker?",
+          "cueTranslation": "Салом! Ту коргари навӣ?",
+          "intent": "Бигӯ, ки ҳа ва бипурс, ки чӣ кор кунӣ",
+          "text": "Yes. What do I do?",
+          "accepts": [
+            "Yes. What should I do?",
+            "Hi! What do I do?"
+          ],
+          "translation": "Ҳа. Ман чӣ кор кунам?",
+          "literal": "йес вот ду ай ду",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Take the cement to the wall.",
+          "cueTranslation": "Сементро назди девор бар.",
+          "intent": "Бигӯ, ки намефаҳмӣ",
+          "text": "Sorry, I don't understand.",
+          "accepts": [
+            "I don't understand.",
+            "Say again?"
+          ],
+          "translation": "Бубахшед, ман намефаҳмам.",
+          "literal": "сорӣ ай доунт андэрстэнд",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Cement. To the wall. Okay?",
+          "cueTranslation": "Семент. Назди девор. Хуб?",
+          "intent": "Бигӯ: фаҳмидам ва сатилро пурс",
+          "text": "Got it. Give me the bucket.",
+          "accepts": [
+            "Okay. Give me the bucket.",
+            "Got it. Where is the bucket?"
+          ],
+          "translation": "Фаҳмидам. Сатилро ба ман деҳ.",
+          "literal": "гот ит гив мӣ ҙэ бакит",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "The bucket is there. Any questions?",
+          "cueTranslation": "Сатил он ҷо. Савол ҳаст?",
+          "intent": "Бипурс: хӯроки пешин соати чанд?",
+          "text": "What time is lunch?",
+          "accepts": [
+            "When is lunch?",
+            "Yes. What time is lunch?"
+          ],
+          "translation": "Хӯроки пешин соати чанд?",
+          "literal": "вот тайм из ланч",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

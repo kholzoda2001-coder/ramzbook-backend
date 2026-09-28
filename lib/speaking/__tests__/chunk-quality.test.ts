@@ -198,8 +198,14 @@ describe('сифати чунк бар тамоми мазмун', () => {
     expect(bad.map((c) => c.parent)).toEqual([]);
   });
 
-  it('пӯшиш аз 60% ҷумлаҳо кам нест', () => {
-    const withChain = sentences.filter((s) => buildChain(s.text, cfgOf(s.lang)).length).length;
-    expect(withChain / sentences.length).toBeGreaterThan(0.6);
+  it('пӯшиш аз 60% ҷумлаҳо кам нест (ҷумлаҳои 4+ калимагӣ)', () => {
+    // 28.09.2026: мазмуни НАВ (вазъиятҳои A1 бо зина) қасдан ҷумлаҳои кӯтоҳ
+    // дорад — «I'm late.», «Где склад?». Ҷумлаи то 3 калима порча НАМЕХОҲАД
+    // (худаш порча аст), ва ҳисоби онҳо пӯшишро то 0.49 мефаровард, ҳол он ки
+    // сифати `buildChain` иваз нашуда буд (4+ калима: 0.85).
+    const long = sentences.filter((s) => W(s.text).length >= 4);
+    expect(long.length).toBeGreaterThan(100);
+    const withChain = long.filter((s) => buildChain(s.text, cfgOf(s.lang)).length).length;
+    expect(withChain / long.length).toBeGreaterThan(0.6);
   });
 });

@@ -1,0 +1,582 @@
+{
+  "slug": "safety_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Safety and help",
+    "titleTranslated": "Бехатарӣ ва ёрӣ",
+    "scenario": "Дар объект хатар ҳаст: чизе меафтад, касе захмӣ мешавад, ёрӣ лозим аст. Шумо огоҳ мекунед, мегӯед, ки куҷо дард мекунад, ва ёрии таъҷилӣ ҷеғ мезанед.",
+    "emoji": "⛑️",
+    "order": 8,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Эҳтиёт!",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Careful",
+          "translation": "эҳтиёт",
+          "literal": "кеэрфул",
+          "note": "«Be careful!» — эҳтиёт бош!",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Helmet",
+          "translation": "каска",
+          "literal": "ҳелмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Help",
+          "translation": "ёрӣ",
+          "literal": "ҳелп",
+          "note": "«Help!» — ёрӣ диҳед!",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Hurt",
+          "translation": "захмӣ (дард)",
+          "literal": "ҳёрт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Arm",
+          "translation": "даст",
+          "literal": "арм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Leg",
+          "translation": "пой",
+          "literal": "лег",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Огоҳӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Look! The boards are falling!",
+          "cueTranslation": "Бубин! Тахтаҳо меафтанд!",
+          "intent": "Бигӯ: эҳтиёт!",
+          "text": "Careful!",
+          "accepts": [
+            "Be careful!",
+            "Watch out!"
+          ],
+          "translation": "Эҳтиёт!",
+          "literal": "кеэрфул",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Are you hurt?",
+          "cueTranslation": "Захмӣ шудӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am.",
+            "Yes, it hurts."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where? Your arm?",
+          "cueTranslation": "Куҷо? Даст?",
+          "intent": "Бигӯ: пой",
+          "text": "My leg.",
+          "accepts": [
+            "Leg.",
+            "No, my leg."
+          ],
+          "translation": "Пой.",
+          "literal": "май лег",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Хатар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Help me",
+          "translation": "Ёрӣ деҳ",
+          "literal": "ҳелп мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It hurts",
+          "translation": "Дард мекунад",
+          "literal": "ит ҳёртс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Dangerous",
+          "translation": "хатарнок",
+          "literal": "дейнджэрэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Be careful",
+          "translation": "Эҳтиёт бош",
+          "literal": "бӣ кеэрфул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ambulance",
+          "translation": "ёрии таъҷилӣ",
+          "literal": "эмбюлэнс",
+          "note": "Дар Амрико рақам 911, дар Англия 999.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Very dangerous",
+          "translation": "Хеле хатарнок",
+          "literal": "верӣ дейнджэрэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Захмӣ шудам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What's wrong?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: ёрӣ деҳ, дард мекунад",
+          "text": "Help me. It hurts.",
+          "accepts": [
+            "Help me!",
+            "It hurts. Help me."
+          ],
+          "translation": "Ёрӣ деҳ. Дард мекунад.",
+          "literal": "ҳелп мӣ ит ҳёртс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Can you stand?",
+          "cueTranslation": "Истода метавонӣ?",
+          "intent": "Бигӯ: не, дард мекунад",
+          "text": "No, it hurts.",
+          "accepts": [
+            "No.",
+            "No, I can't."
+          ],
+          "translation": "Не, дард мекунад.",
+          "literal": "ноу ит ҳёртс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Don't go there!",
+          "cueTranslation": "Ба он ҷо нарав!",
+          "intent": "Бипурс: хатарнок аст?",
+          "text": "Dangerous?",
+          "accepts": [
+            "Is it dangerous?"
+          ],
+          "translation": "Хатарнок?",
+          "literal": "дейнджэрэс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ёрӣ лозим",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Call an ambulance!",
+          "translation": "Ёрии таъҷилӣ ҷеғ зан!",
+          "literal": "кол эн эмбюлэнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I need help.",
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": "ай нид ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "My leg hurts.",
+          "translation": "Пойам дард мекунад.",
+          "literal": "май лег ҳёртс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "leg|пой",
+            "arm|даст",
+            "back|пушт"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where's the first aid?",
+          "translation": "Қуттии ёрии аввалия куҷост?",
+          "literal": "вэрз ҙэ фёрст эйд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "A man fell.",
+          "translation": "Одаме афтод.",
+          "literal": "э мэн фел",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I can't.",
+          "translation": "Наметавонам.",
+          "literal": "ай кент",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Хубӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you okay?",
+          "cueTranslation": "Хубӣ?",
+          "intent": "Бигӯ: не, пойам дард мекунад",
+          "text": "No. My leg hurts.",
+          "accepts": [
+            "My leg hurts.",
+            "No, I'm hurt."
+          ],
+          "translation": "Не. Пойам дард мекунад.",
+          "literal": "ноу май лег ҳёртс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Can you walk?",
+          "cueTranslation": "Роҳ гашта метавонӣ?",
+          "intent": "Бигӯ: не, наметавонам",
+          "text": "No, I can't.",
+          "accepts": [
+            "No.",
+            "I can't."
+          ],
+          "translation": "Не, наметавонам.",
+          "literal": "ноу ай кент",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. What do you need?",
+          "cueTranslation": "Хуб. Ба ту чӣ лозим?",
+          "intent": "Бигӯ: ба ман ёрӣ лозим",
+          "text": "I need help.",
+          "accepts": [
+            "Help, please.",
+            "I need a doctor."
+          ],
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": "ай нид ҳелп",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳолати фаврӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Bleeding",
+          "translation": "хун меравад",
+          "literal": "блидинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "He is bleeding.",
+          "translation": "Аз ӯ хун меравад.",
+          "literal": "ҳӣ из блидинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Come quickly!",
+          "translation": "Зуд биёед!",
+          "literal": "кам квиклӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Address",
+          "translation": "суроға",
+          "literal": "эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "own",
+          "text": "Our address is ___.",
+          "translation": "Суроғаи мо ___.",
+          "literal": "ауэр эдрес из ___",
+          "note": "Суроғаи объектро гӯед.",
+          "cue": "What's your address?",
+          "cueTranslation": "Суроғаи шумо чист?",
+          "intent": "Суроғаро гӯед",
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "It's an emergency.",
+          "translation": "Ин ҳолати фаврӣ аст.",
+          "literal": "итс эн имёрджэнсӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Занг ба 911",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nine one one. What's your emergency?",
+          "cueTranslation": "Наҳ-як-як. Чӣ ҳодиса рӯй дод?",
+          "intent": "Бигӯ: одаме афтод",
+          "text": "A man fell.",
+          "accepts": [
+            "A man fell down.",
+            "Someone fell."
+          ],
+          "translation": "Одаме афтод.",
+          "literal": "э мэн фел",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is he bleeding?",
+          "cueTranslation": "Хун меравад?",
+          "intent": "Бигӯ: ҳа, хун меравад",
+          "text": "Yes, he is bleeding.",
+          "accepts": [
+            "Yes.",
+            "Yes, a lot."
+          ],
+          "translation": "Ҳа, хун меравад.",
+          "literal": "йес ҳӣ из блидинг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What's the address?",
+          "cueTranslation": "Суроға чист?",
+          "intent": "Бигӯ: Мейн-стрит, панҷ",
+          "text": "Five Main Street.",
+          "accepts": [
+            "5 Main Street.",
+            "It's Five Main Street."
+          ],
+          "translation": "Мейн-стрит, панҷ.",
+          "literal": "файв мейн стрит",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "An ambulance is coming.",
+          "cueTranslation": "Ёрии таъҷилӣ меояд.",
+          "intent": "Бигӯ: лутфан, зуд биёед!",
+          "text": "Come quickly, please!",
+          "accepts": [
+            "Please come quickly!",
+            "Quickly, please!"
+          ],
+          "translation": "Лутфан, зуд биёед!",
+          "literal": "кам квиклӣ плиз",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ёрии таъҷилӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What happened?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: одаме афтод, ёрии таъҷилӣ ҷеғ зан",
+          "text": "A man fell. Call an ambulance!",
+          "accepts": [
+            "A man fell! Call an ambulance!",
+            "Call an ambulance!"
+          ],
+          "translation": "Одаме афтод. Ёрии таъҷилӣ ҷеғ зан!",
+          "literal": "э мэн фел кол эн эмбюлэнс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is he bleeding?",
+          "cueTranslation": "Хун меравад?",
+          "intent": "Бигӯ: ҳа, хун меравад",
+          "text": "Yes, he is bleeding.",
+          "accepts": [
+            "Yes.",
+            "Yes, a lot."
+          ],
+          "translation": "Ҳа, хун меравад.",
+          "literal": "йес ҳӣ из блидинг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What's the address here?",
+          "cueTranslation": "Суроғаи ин ҷо чист?",
+          "intent": "Бигӯ: Мейн-стрит, панҷ",
+          "text": "Five Main Street.",
+          "accepts": [
+            "5 Main Street.",
+            "It's Five Main Street."
+          ],
+          "translation": "Мейн-стрит, панҷ.",
+          "literal": "файв мейн стрит",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, they're coming. Stay with him.",
+          "cueTranslation": "Хуб, меоянд. Бо ӯ бош.",
+          "intent": "Бигӯ: хуб. Лутфан, зуд биёед!",
+          "text": "Okay. Please come quickly!",
+          "accepts": [
+            "Okay.",
+            "Please come quickly!"
+          ],
+          "translation": "Хуб. Лутфан, зуд биёед!",
+          "literal": "оукей плиз кам квиклӣ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

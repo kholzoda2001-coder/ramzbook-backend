@@ -1,0 +1,562 @@
+{
+  "slug": "foreman_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Foreman's orders",
+    "titleTranslated": "Бригадир мегӯяд",
+    "scenario": "Бригадир тез ва кӯтоҳ фармон медиҳад: «Bring!», «Wait!», «Faster!». Шумо мефаҳмед ва ҷавоб медиҳед, ёрӣ мепурсед ва хоҳиш мекунед, ки оҳистатар гап занад.",
+    "emoji": "👷",
+    "order": 5,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фармон ва ҷавоб",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Coming",
+          "translation": "меоям",
+          "literal": "каминг",
+          "note": "Ҷавоб ба «Come here!» — «Coming!».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Okay",
+          "translation": "хуб",
+          "literal": "оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Bring",
+          "translation": "биёр",
+          "literal": "бринг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Wait",
+          "translation": "сабр кун",
+          "literal": "вейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Faster",
+          "translation": "тезтар",
+          "literal": "фестэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Over here",
+          "translation": "ба ин ҷо",
+          "literal": "оувэр ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Биё ин ҷо!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hey, come here!",
+          "cueTranslation": "Эй, биё ин ҷо!",
+          "intent": "Бигӯ: меоям",
+          "text": "Coming!",
+          "accepts": [
+            "I'm coming!",
+            "Coming."
+          ],
+          "translation": "Меоям!",
+          "literal": "каминг",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bring the boards. Quick!",
+          "cueTranslation": "Тахтаҳоро биёр. Зуд!",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay!",
+          "accepts": [
+            "Okay.",
+            "Right away!"
+          ],
+          "translation": "Хуб!",
+          "literal": "оукей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bring them over here.",
+          "cueTranslation": "Ба ин ҷо биёр.",
+          "intent": "Бипурс: ба ин ҷо?",
+          "text": "Over here?",
+          "accepts": [
+            "Here?",
+            "Where? Over here?"
+          ],
+          "translation": "Ба ин ҷо?",
+          "literal": "оувэр ҳир",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гузор ва бардор",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Put",
+          "translation": "гузоштан",
+          "literal": "пут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Right here",
+          "translation": "Маҳз ин ҷо",
+          "literal": "райт ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Lift",
+          "translation": "бардор",
+          "literal": "лифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Lift it",
+          "translation": "Бардор",
+          "literal": "лифт ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Stop",
+          "translation": "ист",
+          "literal": "стоп",
+          "note": "Фармони фаврӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Okay, sure",
+          "translation": "Хуб, албатта",
+          "literal": "оукей шуэр",
+          "note": "Ҷавоби кӯтоҳ ба ҳар фармон.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бригадир фармон медиҳад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Put the boards here.",
+          "cueTranslation": "Тахтаҳоро ин ҷо гузор.",
+          "intent": "Бигӯ: хуб, албатта",
+          "text": "Okay, sure.",
+          "accepts": [
+            "Sure.",
+            "Okay."
+          ],
+          "translation": "Хуб, албатта.",
+          "literal": "оукей шуэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Lift this bag.",
+          "cueTranslation": "Ин халтаро бардор.",
+          "intent": "Бипурс: ба куҷо?",
+          "text": "Where to?",
+          "accepts": [
+            "Where?",
+            "Where do I take it?"
+          ],
+          "translation": "Ба куҷо?",
+          "literal": "вэр ту",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Stop! Wait.",
+          "cueTranslation": "Ист! Сабр кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, I'm waiting.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ҷавоб медиҳам",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Heavy",
+          "translation": "вазнин",
+          "literal": "ҳевӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It's heavy.",
+          "translation": "Вазнин аст.",
+          "literal": "итс ҳевӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Help",
+          "translation": "ёрӣ",
+          "literal": "ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Help me, please.",
+          "translation": "Лутфан, ёрӣ деҳ.",
+          "literal": "ҳелп мӣ плиз",
+          "note": "Ҳеҷ гоҳ шарм накунед — ёрӣ пурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Where does it go?",
+          "translation": "Инро куҷо гузорам?",
+          "literal": "вэр даз ит гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm coming now.",
+          "translation": "Ҳозир меоям.",
+          "literal": "айм каминг нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Вазнин аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Take this bag upstairs.",
+          "cueTranslation": "Ин халтаро ба боло бар.",
+          "intent": "Бигӯ, ки вазнин аст ва ёрӣ пурс",
+          "text": "It's heavy. Help me, please.",
+          "accepts": [
+            "Help me, please.",
+            "It's too heavy. Help me."
+          ],
+          "translation": "Вазнин аст. Лутфан, ёрӣ деҳ.",
+          "literal": "итс ҳевӣ ҳелп мӣ плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, I'll help. Take it.",
+          "cueTranslation": "Хуб, ёрӣ медиҳам. Гир.",
+          "intent": "Бипурс: куҷо гузорам?",
+          "text": "Where does it go?",
+          "accepts": [
+            "Where do I put it?",
+            "Where?"
+          ],
+          "translation": "Инро куҷо гузорам?",
+          "literal": "вэр даз ит гоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Put it by the wall.",
+          "cueTranslation": "Назди девор гузор.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Got it.",
+          "accepts": [
+            "Okay.",
+            "Okay, got it."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "гот ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Оҳистатар, лутфан",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Slowly",
+          "translation": "оҳиста",
+          "literal": "слоулӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Slowly, please.",
+          "translation": "Лутфан, оҳиста.",
+          "literal": "слоулӣ плиз",
+          "note": "Вақте тез гап мезананд ва намефаҳмед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I did it.",
+          "translation": "Ман кардам.",
+          "literal": "ай дид ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Next",
+          "translation": "баъдӣ",
+          "literal": "некст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "What's next?",
+          "translation": "Баъд чӣ?",
+          "literal": "вотс некст",
+          "note": "Вақте корро тамом кардед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "It's done.",
+          "translation": "Тайёр шуд.",
+          "literal": "итс дан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бригадир тез гап мезанад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Faster, faster! Bring the cement to the ladder!",
+          "cueTranslation": "Тезтар! Сементро назди нардбон биёр!",
+          "intent": "Хоҳиш кун, ки оҳистатар гӯяд",
+          "text": "Slowly, please.",
+          "accepts": [
+            "Slower, please.",
+            "Sorry, slowly please."
+          ],
+          "translation": "Лутфан, оҳиста.",
+          "literal": "слоулӣ плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Cement. To the ladder. Okay?",
+          "cueTranslation": "Семент. Назди нардбон. Хуб?",
+          "intent": "Бигӯ: фаҳмидам, меоям",
+          "text": "Got it. Coming.",
+          "accepts": [
+            "Okay, coming.",
+            "Got it."
+          ],
+          "translation": "Фаҳмидам. Меоям.",
+          "literal": "гот ит каминг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "So, did you do it?",
+          "cueTranslation": "Хуб, кардӣ?",
+          "intent": "Бигӯ, ки кардӣ ва бипурс: баъд чӣ?",
+          "text": "I did it. What's next?",
+          "accepts": [
+            "Done. What's next?",
+            "It's done. What's next?"
+          ],
+          "translation": "Ман кардам. Баъд чӣ?",
+          "literal": "ай дид ит вотс некст",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи пур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hey, new guy! Come here!",
+          "cueTranslation": "Эй, навкор! Биё ин ҷо!",
+          "intent": "Бигӯ: меоям",
+          "text": "Coming!",
+          "accepts": [
+            "I'm coming!",
+            "Coming."
+          ],
+          "translation": "Меоям!",
+          "literal": "каминг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Take the boards to the second floor. Quick!",
+          "cueTranslation": "Тахтаҳоро ба ошёнаи дуюм бар. Зуд!",
+          "intent": "Хоҳиш кун, ки оҳистатар гӯяд",
+          "text": "Slowly, please.",
+          "accepts": [
+            "Slower, please.",
+            "Sorry, slowly please."
+          ],
+          "translation": "Лутфан, оҳиста.",
+          "literal": "слоулӣ плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Boards. Second floor. Okay?",
+          "cueTranslation": "Тахтаҳо. Ошёнаи дуюм. Хуб?",
+          "intent": "Бигӯ, ки фаҳмидӣ, вале вазнин аст — ёрӣ пурс",
+          "text": "Got it. It's heavy. Help me.",
+          "accepts": [
+            "Okay. Help me, please.",
+            "It's heavy. Help me."
+          ],
+          "translation": "Фаҳмидам. Вазнин аст. Ёрӣ деҳ.",
+          "literal": "гот ит итс ҳевӣ ҳелп мӣ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, together. Done?",
+          "cueTranslation": "Хуб, якҷоя. Тайёр?",
+          "intent": "Бигӯ, ки тайёр ва бипурс: баъд чӣ?",
+          "text": "It's done. What's next?",
+          "accepts": [
+            "Done. What's next?",
+            "What's next?"
+          ],
+          "translation": "Тайёр. Баъд чӣ?",
+          "literal": "итс дан вотс некст",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

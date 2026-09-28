@@ -1,0 +1,597 @@
+{
+  "slug": "meet_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Hello and introductions",
+    "titleTranslated": "Салом ва шиносоӣ",
+    "scenario": "Бо англисзабон вомехӯред — дар кор, дар кӯча ё дар идора. Салом медиҳед, мегӯед, ки аз куҷоед ва дар куҷо зиндагӣ мекунед, ва хайрухуш мекунед.",
+    "emoji": "👋",
+    "order": 1,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Калимаҳои аввал",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hello",
+          "translation": "салом",
+          "literal": "ҳелоу",
+          "note": "Бо ҳар кас ва дар ҳар вақти рӯз.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Hi",
+          "translation": "салом (дӯстона)",
+          "literal": "ҳай",
+          "note": "Ба ҳамкор ва дӯст.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Yes",
+          "translation": "ҳа",
+          "literal": "йес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "No",
+          "translation": "не",
+          "literal": "ноу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Thank you",
+          "translation": "ташаккур",
+          "literal": "ҫенк ю",
+          "note": "«th» — забон байни дандонҳо: «ҫенк ю».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Bye",
+          "translation": "хайр",
+          "literal": "бай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Салом!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello!",
+          "cueTranslation": "Салом!",
+          "intent": "Салом гӯй",
+          "text": "Hello!",
+          "accepts": [
+            "Hi!",
+            "Hello."
+          ],
+          "translation": "Салом!",
+          "literal": "ҳелоу",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Are you from Tajikistan?",
+          "cueTranslation": "Шумо аз Тоҷикистонед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I am."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Some tea?",
+          "cueTranslation": "Каме чой?",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Yes, thank you."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, bye!",
+          "cueTranslation": "Хуб, хайр!",
+          "intent": "Хайр гӯй",
+          "text": "Bye!",
+          "accepts": [
+            "Bye.",
+            "Goodbye!"
+          ],
+          "translation": "Хайр!",
+          "literal": "бай",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Корҳо чӣ хел?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Fine",
+          "translation": "хуб",
+          "literal": "файн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm fine",
+          "translation": "Ман хубам",
+          "literal": "айм файн",
+          "note": "«I'm» = «I am» — ман ҳастам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Too",
+          "translation": "ҳам",
+          "literal": "ту",
+          "note": "«Me too» — ман ҳам.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Me too",
+          "translation": "Ман ҳам",
+          "literal": "мӣ ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Good morning",
+          "translation": "Субҳ ба хайр",
+          "literal": "гуд морнинг",
+          "note": "То соати 12.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "See you",
+          "translation": "То дидор",
+          "literal": "сӣ ю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Шиносоӣ дар кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! How are you?",
+          "cueTranslation": "Салом! Корҳо чӣ хел?",
+          "intent": "Бигӯ: хубам",
+          "text": "I'm fine.",
+          "accepts": [
+            "Fine, thanks.",
+            "I'm fine, thank you."
+          ],
+          "translation": "Хубам.",
+          "literal": "айм файн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nice to meet you!",
+          "cueTranslation": "Аз шиносоӣ шодам!",
+          "intent": "Бигӯ: ман ҳам",
+          "text": "Me too.",
+          "accepts": [
+            "Nice to meet you too.",
+            "Me too!"
+          ],
+          "translation": "Ман ҳам.",
+          "literal": "мӣ ту",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "See you tomorrow!",
+          "cueTranslation": "То фардо!",
+          "intent": "Бигӯ: то дидор",
+          "text": "See you!",
+          "accepts": [
+            "Bye!",
+            "See you tomorrow!"
+          ],
+          "translation": "То дидор!",
+          "literal": "сӣ ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман аз куҷоям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What's your name?",
+          "translation": "Номи шумо чист?",
+          "literal": "вотс ёр нейм",
+          "note": "«What's» = «What is».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "own",
+          "text": "My name is ___.",
+          "translation": "Номи ман ___.",
+          "literal": "май нейм из ___",
+          "note": "Ба ҷои «___» номи ХУДАТОНРО гӯед.",
+          "cue": "What's your name?",
+          "cueTranslation": "Номи шумо чист?",
+          "intent": "Номи худатонро гӯед",
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm from Tajikistan.",
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "айм фром тоҷикистон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "Tajikistan|Тоҷикистон",
+            "Uzbekistan|Ӯзбекистон",
+            "Dushanbe|Душанбе"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are you from?",
+          "translation": "Шумо аз куҷоед?",
+          "literal": "вэр ар ю фром",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Nice to meet you.",
+          "translation": "Аз шиносоӣ шодам.",
+          "literal": "найс ту мит ю",
+          "note": "Баъди шиносоӣ мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I live here.",
+          "translation": "Ман ин ҷо зиндагӣ мекунам.",
+          "literal": "ай лив ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: ҳамсоя",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! I'm Tom, your neighbor.",
+          "cueTranslation": "Салом! Ман Том, ҳамсояи шумо.",
+          "intent": "Бигӯ, ки аз шиносоӣ шодӣ",
+          "text": "Nice to meet you.",
+          "accepts": [
+            "Nice to meet you too.",
+            "Hello! Nice to meet you."
+          ],
+          "translation": "Аз шиносоӣ шодам.",
+          "literal": "найс ту мит ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you from?",
+          "cueTranslation": "Шумо аз куҷоед?",
+          "intent": "Бигӯ, ки аз Тоҷикистон",
+          "text": "I'm from Tajikistan.",
+          "accepts": [
+            "From Tajikistan.",
+            "I am from Tajikistan."
+          ],
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "айм фром тоҷикистон",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you live here?",
+          "cueTranslation": "Шумо ин ҷо зиндагӣ мекунед?",
+          "intent": "Бигӯ: ҳа, ман ин ҷо зиндагӣ мекунам",
+          "text": "Yes, I live here.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes."
+          ],
+          "translation": "Ҳа, ман ин ҷо зиндагӣ мекунам.",
+          "literal": "йес ай лив ҳир",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Great. Bye!",
+          "cueTranslation": "Олӣ. Хайр!",
+          "intent": "Хайр гӯй",
+          "text": "Bye!",
+          "accepts": [
+            "Goodbye!",
+            "See you!"
+          ],
+          "translation": "Хайр!",
+          "literal": "бай",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Кор ва хайрухуш",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Work",
+          "translation": "кор (кардан)",
+          "literal": "вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I work here.",
+          "translation": "Ман ин ҷо кор мекунам.",
+          "literal": "ай вёрк ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I am {job}.",
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": "Касби худро гӯед — барнома онро аз ҳадафи шумо медонад.",
+          "cue": "What do you do?",
+          "cueTranslation": "Шумо чӣ кор мекунед?",
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Tomorrow",
+          "translation": "фардо",
+          "literal": "туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "See you tomorrow!",
+          "translation": "То фардо!",
+          "literal": "сӣ ю туморроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "tomorrow|фардо",
+            "later|баъдтар"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Have a nice day!",
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дар кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you work here?",
+          "cueTranslation": "Шумо ин ҷо кор мекунед?",
+          "intent": "Бигӯ: ҳа, ман ин ҷо кор мекунам",
+          "text": "Yes, I work here.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes, here."
+          ],
+          "translation": "Ҳа, ман ин ҷо кор мекунам.",
+          "literal": "йес ай вёрк ҳир",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you do?",
+          "cueTranslation": "Шумо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "I am {job}.",
+          "accepts": [
+            "I'm {job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. See you tomorrow!",
+          "cueTranslation": "Хуб. То фардо!",
+          "intent": "Бигӯ: то фардо",
+          "text": "See you tomorrow!",
+          "accepts": [
+            "Bye!",
+            "See you!"
+          ],
+          "translation": "То фардо!",
+          "literal": "сӣ ю туморроу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Are you new here?",
+          "cueTranslation": "Салом! Шумо навед?",
+          "intent": "Салом гӯй ва бигӯ, ки ҳа",
+          "text": "Hello! Yes.",
+          "accepts": [
+            "Hi! Yes, I am.",
+            "Yes, I'm new."
+          ],
+          "translation": "Салом! Ҳа.",
+          "literal": "ҳелоу йес",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I'm Mike. Nice to meet you!",
+          "cueTranslation": "Ман Майк. Аз шиносоӣ шодам!",
+          "intent": "Бигӯ: ман ҳам шодам",
+          "text": "Nice to meet you too.",
+          "accepts": [
+            "Me too.",
+            "Nice to meet you."
+          ],
+          "translation": "Ман ҳам шодам.",
+          "literal": "найс ту мит ю ту",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you from?",
+          "cueTranslation": "Шумо аз куҷоед?",
+          "intent": "Бигӯ, ки аз Тоҷикистон",
+          "text": "I'm from Tajikistan.",
+          "accepts": [
+            "From Tajikistan.",
+            "I am from Tajikistan."
+          ],
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "айм фром тоҷикистон",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Cool! What do you do?",
+          "cueTranslation": "Олӣ! Шумо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "I am {job}.",
+          "accepts": [
+            "I'm {job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

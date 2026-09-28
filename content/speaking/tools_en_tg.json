@@ -1,0 +1,580 @@
+{
+  "slug": "tools_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Tools and materials",
+    "titleTranslated": "Асбоб ва мавод",
+    "scenario": "Дар объект ҳар рӯз мавод ва асбоб мепурсанд: рег, тахта, мех, нардбон, парма. Шумо мегӯед, ки чӣ лозим, чанд халта ва аз анбор мегиред.",
+    "emoji": "🧰",
+    "order": 4,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мавод",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Sand",
+          "translation": "рег",
+          "literal": "сэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Boards",
+          "translation": "тахтаҳо",
+          "literal": "бордз",
+          "note": "Як тахта — «board».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Nails",
+          "translation": "мехҳо",
+          "literal": "нейлз",
+          "note": "Як мех — «nail».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Bag",
+          "translation": "халта",
+          "literal": "бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ladder",
+          "translation": "нардбон",
+          "literal": "лэдэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Wheelbarrow",
+          "translation": "аробачаи дастӣ",
+          "literal": "вилбэроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you need?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бигӯ: мех",
+          "text": "Nails.",
+          "accepts": [
+            "Some nails.",
+            "I need nails."
+          ],
+          "translation": "Мехҳо.",
+          "literal": "нейлз",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What goes in the wheelbarrow? Sand or cement?",
+          "cueTranslation": "Дар ароба чӣ барем? Рег ё семент?",
+          "intent": "Бигӯ: рег",
+          "text": "Sand.",
+          "accepts": [
+            "The sand."
+          ],
+          "translation": "Рег.",
+          "literal": "сэнд",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How do we go up? What do we need?",
+          "cueTranslation": "Чӣ хел ба боло мебароем? Чӣ лозим?",
+          "intent": "Бигӯ: нардбон",
+          "text": "A ladder.",
+          "accepts": [
+            "Ladder.",
+            "We need a ladder."
+          ],
+          "translation": "Нардбон.",
+          "literal": "э лэдэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Асбобҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Drill",
+          "translation": "парма",
+          "literal": "дрил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Drill, please",
+          "translation": "Парма, лутфан",
+          "literal": "дрил плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "More",
+          "translation": "боз (бештар)",
+          "literal": "мор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "More nails",
+          "translation": "Боз мех",
+          "literal": "мор нейлз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Two",
+          "translation": "ду",
+          "literal": "ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Two bags",
+          "translation": "Ду халта",
+          "literal": "ту бэгз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар анбор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you need?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бигӯ: парма, лутфан",
+          "text": "Drill, please.",
+          "accepts": [
+            "A drill, please.",
+            "The drill."
+          ],
+          "translation": "Парма, лутфан.",
+          "literal": "дрил плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "How many bags of cement?",
+          "cueTranslation": "Чанд халта семент?",
+          "intent": "Бигӯ: ду халта",
+          "text": "Two bags.",
+          "accepts": [
+            "Two.",
+            "2 bags."
+          ],
+          "translation": "Ду халта.",
+          "literal": "ту бэгз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is that all?",
+          "cueTranslation": "Ҳамааш?",
+          "intent": "Бигӯ: боз мех",
+          "text": "More nails.",
+          "accepts": [
+            "More nails, please.",
+            "Some more nails."
+          ],
+          "translation": "Боз мех.",
+          "literal": "мор нейлз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where is the drill?",
+          "translation": "Парма куҷост?",
+          "literal": "вэр из ҙэ дрил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "drill|парма",
+            "ladder|нардбон",
+            "wheelbarrow|аробачаи дастӣ"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Give me the nails.",
+          "translation": "Мехро ба ман деҳ.",
+          "literal": "гив мӣ ҙэ нейлз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "nails|мех",
+            "boards|тахта",
+            "bag|халта"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a wheelbarrow.",
+          "translation": "Ба ман аробачаи дастӣ лозим.",
+          "literal": "ай нид э вилбэроу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "wheelbarrow|аробачаи дастӣ",
+            "ladder|нардбон",
+            "drill|парма"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Paint",
+          "translation": "ранг",
+          "literal": "пейнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "There's no paint.",
+          "translation": "Ранг нест.",
+          "literal": "ҙэрз ноу пейнт",
+          "note": "«There's no …» — … нест.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Tiles",
+          "translation": "кошинҳо",
+          "literal": "тайлз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бо ҳамкор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hey, where is the drill?",
+          "cueTranslation": "Эй, парма куҷост?",
+          "intent": "Бигӯ: парма ин ҷо",
+          "text": "The drill is here.",
+          "accepts": [
+            "Here.",
+            "It's here."
+          ],
+          "translation": "Парма ин ҷо.",
+          "literal": "ҙэ дрил из ҳир",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Give me the nails, please.",
+          "cueTranslation": "Лутфан, мехро ба ман деҳ.",
+          "intent": "Бигӯ: ана мех",
+          "text": "Here are the nails.",
+          "accepts": [
+            "Here you go.",
+            "Here."
+          ],
+          "translation": "Ана мех.",
+          "literal": "ҳир ар ҙэ нейлз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And what do you need?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бигӯ, ки ба ту ароба лозим",
+          "text": "I need a wheelbarrow.",
+          "accepts": [
+            "A wheelbarrow.",
+            "I need a wheelbarrow, please."
+          ],
+          "translation": "Ба ман аробачаи дастӣ лозим.",
+          "literal": "ай нид э вилбэроу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чанд дона?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Warehouse",
+          "translation": "анбор",
+          "literal": "веэрҳаус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the warehouse?",
+          "translation": "Анбор куҷост?",
+          "literal": "вэр из ҙэ веэрҳаус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Pieces",
+          "translation": "дона",
+          "literal": "писиз",
+          "note": "«Five pieces» — панҷ дона.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "How many pieces?",
+          "translation": "Чанд дона?",
+          "literal": "ҳау менӣ писиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Five pieces.",
+          "translation": "Панҷ дона.",
+          "literal": "файв писиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "Five|панҷ",
+            "Ten|даҳ"
+          ],
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "That's all.",
+          "translation": "Ҳамааш ҳамин.",
+          "literal": "ҙэтс ол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: анбордор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! What do you need?",
+          "cueTranslation": "Салом! Чӣ лозим?",
+          "intent": "Бипурс: кошин доред?",
+          "text": "Do you have tiles?",
+          "accepts": [
+            "Any tiles?",
+            "Tiles?"
+          ],
+          "translation": "Кошин доред?",
+          "literal": "ду ю ҳэв тайлз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. How many pieces?",
+          "cueTranslation": "Ҳа. Чанд дона?",
+          "intent": "Бигӯ: панҷ дона",
+          "text": "Five pieces.",
+          "accepts": [
+            "Five.",
+            "5 pieces."
+          ],
+          "translation": "Панҷ дона.",
+          "literal": "файв писиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Here you go. Anything else?",
+          "cueTranslation": "Ана. Боз чизе?",
+          "intent": "Бигӯ: ҳамааш ҳамин, ташаккур",
+          "text": "That's all, thanks.",
+          "accepts": [
+            "That's all.",
+            "No, thank you."
+          ],
+          "translation": "Ҳамааш ҳамин, ташаккур.",
+          "literal": "ҙэтс ол ҫенкс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мавод барои девор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Today we build a wall. What do we need?",
+          "cueTranslation": "Имрӯз девор мемонем. Чӣ лозим?",
+          "intent": "Бигӯ: хишт ва семент",
+          "text": "Bricks and cement.",
+          "accepts": [
+            "Bricks, cement.",
+            "We need bricks and cement."
+          ],
+          "translation": "Хишт ва семент.",
+          "literal": "брикс энд симент",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "How many bags of cement?",
+          "cueTranslation": "Чанд халта семент?",
+          "intent": "Бигӯ: ду халта",
+          "text": "Two bags.",
+          "accepts": [
+            "Two.",
+            "2 bags."
+          ],
+          "translation": "Ду халта.",
+          "literal": "ту бэгз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. What else?",
+          "cueTranslation": "Хуб. Боз чӣ?",
+          "intent": "Бигӯ, ки ба ту ароба лозим",
+          "text": "I need a wheelbarrow.",
+          "accepts": [
+            "A wheelbarrow.",
+            "Wheelbarrow."
+          ],
+          "translation": "Ба ман аробачаи дастӣ лозим.",
+          "literal": "ай нид э вилбэроу",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "The wheelbarrow is in the warehouse. Okay?",
+          "cueTranslation": "Ароба дар анбор. Хуб?",
+          "intent": "Бигӯ, ки фаҳмидӣ ва бипурс, ки анбор куҷост",
+          "text": "Got it. Where is the warehouse?",
+          "accepts": [
+            "Okay. Where is the warehouse?",
+            "Where is the warehouse?"
+          ],
+          "translation": "Фаҳмидам. Анбор куҷост?",
+          "literal": "гот ит вэр из ҙэ веэрҳаус",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

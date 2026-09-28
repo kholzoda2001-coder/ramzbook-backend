@@ -3,12 +3,16 @@
 // Файлҳои коммити додашударо мехонад ва URL-ро ба база менависад — ТАНҲО ба
 // майдонҳои холӣ. `<id>.mp3` → `audioUrl`, `<id>_cue.mp3` → `cueAudioUrl`.
 //
-//   node prisma/_ru-speaking-audio-apply.mjs <ramz-audio dir> <sha>
+//   node prisma/_ru-speaking-audio-apply.mjs <ramz-audio dir> <sha> [--lang=en]
+//
+// 28.09.2026: `--lang` (пешфарз `ru`) ва такрори дархост — ҳангоми навиштани 1192
+// URL-и англисӣ пайвасти Neon `ECONNRESET` дод ва скрипти асосӣ дар мобайн мурд.
 import { readFileSync } from 'fs';
 import { execSync } from 'child_process';
 import { neon } from '@neondatabase/serverless';
 
-const [REPO, SHA] = process.argv.slice(2);
+const [REPO, SHA] = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '--lang=ru').slice(7);
 if (!REPO || !SHA) throw new Error('Истифода: node prisma/_ru-speaking-audio-apply.mjs <ramz-audio dir> <sha>');
 const env = Object.fromEntries(
   readFileSync(new URL('../.env', import.meta.url), 'utf8')
@@ -18,7 +22,7 @@ const env = Object.fromEntries(
 const sql = neon(env.DATABASE_URL);
 
 const files = execSync(`git show --name-only --format= ${SHA}`, { cwd: REPO })
-  .toString().split('\n').map((l) => l.trim()).filter((l) => /^audio\/ru\/[^/]+\.mp3$/.test(l));
+  .toString().split('\n').map((l) => l.trim()).filter((l) => new RegExp(`^audio/${LANG}/[^/]+\.mp3$`).test(l));
 console.log(`файлҳо дар ${SHA.slice(0, 7)}: ${files.length}`);
 
 // Пеш аз навиштан — файл дар CDN воқеан ҳаст? (як намуна)
@@ -32,9 +36,18 @@ for (const f of files) {
   const isCue = name.endsWith('_cue');
   const id = isCue ? name.slice(0, -4) : name;
   const col = isCue ? 'cueAudioUrl' : 'audioUrl';
-  const r = await sql.query(
-    `UPDATE "SpeakingItem" SET "${col}" = $1 WHERE id = $2 AND coalesce("${col}", '') = '' RETURNING id`,
-    [cdn(f), id]);
+  let r;
+  for (let a = 0; ; a++) {
+    try {
+      r = await sql.query(
+        `UPDATE "SpeakingItem" SET "${col}" = $1 WHERE id = $2 AND coalesce("${col}", '') = '' RETURNING id`,
+        [cdn(f), id]);
+      break;
+    } catch (e) {
+      if (a >= 4) throw e;
+      await new Promise((ok) => setTimeout(ok, 1500 * (a + 1)));
+    }
+  }
   if (r.length) { if (isCue) cues++; else items++; } else skipped++;
 }
 await sql.query(

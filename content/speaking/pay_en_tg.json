@@ -1,0 +1,559 @@
+{
+  "slug": "pay_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Pay and hours",
+    "titleTranslated": "Музд ва вақти кор",
+    "scenario": "Шумо мепурсед, ки музд кай ва чанд аст, пешпардохт мехоҳед, дар бораи кори иловагӣ ва рӯзи истироҳат гап мезанед.",
+    "emoji": "💵",
+    "order": 12,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Музд",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Pay",
+          "translation": "музд",
+          "literal": "пей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Advance",
+          "translation": "пешпардохт",
+          "literal": "эдвэнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Weekend",
+          "translation": "охири ҳафта",
+          "literal": "викенд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Hours",
+          "translation": "соатҳо",
+          "literal": "ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Overtime",
+          "translation": "кори иловагӣ",
+          "literal": "оувэртайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Money",
+          "translation": "пул",
+          "literal": "манӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пул лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you need money?",
+          "cueTranslation": "Пул лозим?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I do."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you work on the weekend?",
+          "cueTranslation": "Охири ҳафта кор мекунӣ?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, I don't."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How many hours today? Eight?",
+          "cueTranslation": "Имрӯз чанд соат? Ҳашт?",
+          "intent": "Бигӯ: даҳ",
+          "text": "Ten.",
+          "accepts": [
+            "10.",
+            "Ten hours."
+          ],
+          "translation": "Даҳ.",
+          "literal": "тен",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "When's payday?",
+          "translation": "Музд кай?",
+          "literal": "венз пейдей",
+          "note": "«Payday» — рӯзи музд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Every day",
+          "translation": "Ҳар рӯз",
+          "literal": "еврӣ дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Evening",
+          "translation": "бегоҳ",
+          "literal": "ивнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Until evening",
+          "translation": "То бегоҳ",
+          "literal": "антил ивнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Week",
+          "translation": "ҳафта",
+          "literal": "вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Every week",
+          "translation": "Ҳар ҳафта",
+          "literal": "еврӣ вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Музд кай?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "You work until evening.",
+          "cueTranslation": "То бегоҳ кор мекунӣ.",
+          "intent": "Бипурс: музд кай?",
+          "text": "When's payday?",
+          "accepts": [
+            "When do we get paid?",
+            "When is payday?"
+          ],
+          "translation": "Музд кай?",
+          "literal": "венз пейдей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Every week, on Friday.",
+          "cueTranslation": "Ҳар ҳафта, рӯзи ҷумъа.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, good.",
+            "Good."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you work on Saturday?",
+          "cueTranslation": "Шанбе кор мекунӣ?",
+          "intent": "Бигӯ: ҳар рӯз",
+          "text": "Every day.",
+          "accepts": [
+            "Yes, every day."
+          ],
+          "translation": "Ҳар рӯз.",
+          "literal": "еврӣ дей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Пешпардохт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "An advance, please?",
+          "translation": "Пешпардохт, лутфан?",
+          "literal": "эн эдвэнс плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I need money.",
+          "translation": "Ба ман пул лозим.",
+          "literal": "ай нид манӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "How much per hour?",
+          "translation": "Соате чанд пул?",
+          "literal": "ҳау мач пёр ауэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "This is overtime.",
+          "translation": "Ин кори иловагӣ аст.",
+          "literal": "ҙис из оувэртайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I work until six.",
+          "translation": "Ман то соати шаш кор мекунам.",
+          "literal": "ай вёрк антил сикс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Tomorrow I'm off.",
+          "translation": "Фардо ман кор надорам.",
+          "literal": "туморроу айм оф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Пешпардохт мехоҳам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What do you want?",
+          "cueTranslation": "Чӣ мехоҳӣ?",
+          "intent": "Пешпардохт пурс",
+          "text": "An advance, please?",
+          "accepts": [
+            "Can I have an advance?",
+            "I need an advance."
+          ],
+          "translation": "Пешпардохт, лутфан?",
+          "literal": "эн эдвэнс плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Why?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: ба ман пул лозим",
+          "text": "I need money.",
+          "accepts": [
+            "I need some money.",
+            "Money for my family."
+          ],
+          "translation": "Ба ман пул лозим.",
+          "literal": "ай нид манӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. How much?",
+          "cueTranslation": "Хуб. Чанд?",
+          "intent": "Бигӯ: сесад доллар",
+          "text": "Three hundred dollars.",
+          "accepts": [
+            "300 dollars.",
+            "Three hundred."
+          ],
+          "translation": "Сесад доллар.",
+          "literal": "ҫрӣ ҳандрэд доларз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Кори иловагӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Thank you very much.",
+          "translation": "Ташаккури зиёд.",
+          "literal": "ҫенк ю верӣ мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I can't today.",
+          "translation": "Имрӯз наметавонам.",
+          "literal": "ай кент тудей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's a deal.",
+          "translation": "Хуб, розӣ.",
+          "literal": "итс э дил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "How much for overtime?",
+          "translation": "Кори иловагӣ чанд пул?",
+          "literal": "ҳау мач фор оувэртайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Friday",
+          "translation": "ҷумъа",
+          "literal": "фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Every Friday.",
+          "translation": "Ҳар ҷумъа.",
+          "literal": "еврӣ фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Якшанбе кор мекунӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can you work on Sunday?",
+          "cueTranslation": "Якшанбе кор карда метавонӣ?",
+          "intent": "Бигӯ: фардо кор надорам",
+          "text": "Tomorrow I'm off.",
+          "accepts": [
+            "I'm off tomorrow.",
+            "Sorry, I can't."
+          ],
+          "translation": "Фардо ман кор надорам.",
+          "literal": "туморроу айм оф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "It's overtime. Double pay.",
+          "cueTranslation": "Кори иловагӣ. Музди дучанд.",
+          "intent": "Бипурс: соате чанд?",
+          "text": "How much per hour?",
+          "accepts": [
+            "How much?",
+            "How much an hour?"
+          ],
+          "translation": "Соате чанд пул?",
+          "literal": "ҳау мач пёр ауэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Forty dollars.",
+          "cueTranslation": "Чил доллар.",
+          "intent": "Бигӯ: хуб, розӣ",
+          "text": "Okay, it's a deal.",
+          "accepts": [
+            "It's a deal.",
+            "Okay, deal."
+          ],
+          "translation": "Хуб, розӣ.",
+          "literal": "оукей итс э дил",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бо бригадир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi. Any questions?",
+          "cueTranslation": "Салом. Савол ҳаст?",
+          "intent": "Бипурс: музд кай?",
+          "text": "When's payday?",
+          "accepts": [
+            "When do we get paid?",
+            "When is payday?"
+          ],
+          "translation": "Музд кай?",
+          "literal": "венз пейдей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Every Friday.",
+          "cueTranslation": "Ҳар ҷумъа.",
+          "intent": "Пешпардохт пурс",
+          "text": "An advance, please?",
+          "accepts": [
+            "Can I have an advance?",
+            "I need an advance."
+          ],
+          "translation": "Пешпардохт, лутфан?",
+          "literal": "эн эдвэнс плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How much do you need?",
+          "cueTranslation": "Чанд лозим?",
+          "intent": "Бигӯ: сесад доллар",
+          "text": "Three hundred dollars.",
+          "accepts": [
+            "300 dollars.",
+            "Three hundred."
+          ],
+          "translation": "Сесад доллар.",
+          "literal": "ҫрӣ ҳандрэд доларз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, tomorrow. Can you work late today?",
+          "cueTranslation": "Хуб, фардо. Имрӯз то дер кор карда метавонӣ?",
+          "intent": "Бигӯ: ҳа, то соати шаш",
+          "text": "Yes, until six.",
+          "accepts": [
+            "Yes, I can.",
+            "Yes, I work until six."
+          ],
+          "translation": "Ҳа, то соати шаш.",
+          "literal": "йес антил сикс",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

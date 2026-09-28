@@ -1,0 +1,566 @@
+{
+  "slug": "commute_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Getting to work",
+    "titleTranslated": "Роҳ то кор",
+    "scenario": "Ҳар саҳар ба объект меравед: автобус, метро, қатора. Шумо истгоҳ ва чиптаро мепурсед, ҷои фаромаданро мегӯед ва ба бригадир хабар медиҳед, ки дар роҳед.",
+    "emoji": "🚌",
+    "order": 13,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Нақлиёт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Bus",
+          "translation": "автобус",
+          "literal": "бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Subway",
+          "translation": "метро",
+          "literal": "сабвей",
+          "note": "Дар Англия — «underground» ё «tube».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Stop",
+          "translation": "истгоҳ",
+          "literal": "стоп",
+          "note": "«Bus stop» — истгоҳи автобус.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ticket",
+          "translation": "чипта",
+          "literal": "тикит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Train",
+          "translation": "қатора",
+          "literal": "трейн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Number",
+          "translation": "рақам",
+          "literal": "намбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бо чӣ меравӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "How do you get to work? By subway?",
+          "cueTranslation": "Ба кор бо чӣ меравӣ? Бо метро?",
+          "intent": "Бигӯ: автобус",
+          "text": "Bus.",
+          "accepts": [
+            "By bus.",
+            "The bus."
+          ],
+          "translation": "Автобус.",
+          "literal": "бас",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What are you looking for?",
+          "cueTranslation": "Чӣ меҷӯӣ?",
+          "intent": "Бигӯ: истгоҳ",
+          "text": "Bus stop.",
+          "accepts": [
+            "The bus stop.",
+            "A bus stop."
+          ],
+          "translation": "Истгоҳ.",
+          "literal": "бас стоп",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you need?",
+          "cueTranslation": "Чӣ лозим?",
+          "intent": "Бигӯ: чипта",
+          "text": "A ticket.",
+          "accepts": [
+            "Ticket.",
+            "One ticket."
+          ],
+          "translation": "Чипта.",
+          "literal": "э тикит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "By bus",
+          "translation": "Бо автобус",
+          "literal": "бай бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "By subway",
+          "translation": "Бо метро",
+          "literal": "бай сабвей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "One ticket",
+          "translation": "Як чипта",
+          "literal": "ван тикит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Which number?",
+          "translation": "Кадом рақам?",
+          "literal": "вич намбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Exit",
+          "translation": "баромадгоҳ",
+          "literal": "егзит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Number five",
+          "translation": "Рақами панҷ",
+          "literal": "намбэр файв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "How do you go? By subway?",
+          "cueTranslation": "Чӣ хел меравӣ? Бо метро?",
+          "intent": "Бигӯ: бо автобус",
+          "text": "By bus.",
+          "accepts": [
+            "The bus.",
+            "No, by bus."
+          ],
+          "translation": "Бо автобус.",
+          "literal": "бай бас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Which bus?",
+          "cueTranslation": "Кадом автобус?",
+          "intent": "Бигӯ: рақами панҷ",
+          "text": "Number five.",
+          "accepts": [
+            "Five.",
+            "Bus five."
+          ],
+          "translation": "Рақами панҷ.",
+          "literal": "намбэр файв",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What can I get you?",
+          "cueTranslation": "Ба шумо чӣ диҳам?",
+          "intent": "Бигӯ: як чипта",
+          "text": "One ticket.",
+          "accepts": [
+            "One ticket, please.",
+            "A ticket, please."
+          ],
+          "translation": "Як чипта.",
+          "literal": "ван тикит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where's the bus stop?",
+          "translation": "Истгоҳ куҷост?",
+          "literal": "вэрз ҙэ бас стоп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "How much is it?",
+          "translation": "Чанд пул аст?",
+          "literal": "ҳау мач из ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where's the exit?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": "вэрз ҙэ егзит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Late",
+          "translation": "дер",
+          "literal": "лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm late.",
+          "translation": "Ман дер мондам.",
+          "literal": "айм лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this my stop?",
+          "translation": "Ин истгоҳи ман аст?",
+          "literal": "из ҙис май стоп",
+          "note": "Аз ронанда ё мусофир пурсед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Истгоҳ куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can I help you?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: истгоҳ куҷост?",
+          "text": "Where's the bus stop?",
+          "accepts": [
+            "Where is the bus stop?",
+            "The bus stop?"
+          ],
+          "translation": "Истгоҳ куҷост?",
+          "literal": "вэрз ҙэ бас стоп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "There, on the right.",
+          "cueTranslation": "Он ҷо, аз рост.",
+          "intent": "Ташаккур гӯй ва бипурс: чанд пул?",
+          "text": "Thanks. How much is it?",
+          "accepts": [
+            "How much is it?",
+            "Thank you. How much?"
+          ],
+          "translation": "Ташаккур. Чанд пул аст?",
+          "literal": "ҫенкс ҳау мач из ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Two fifty.",
+          "cueTranslation": "Ду доллару панҷоҳ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дер мемонам",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Next",
+          "translation": "навбатӣ",
+          "literal": "некст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "At the next stop.",
+          "translation": "Дар истгоҳи навбатӣ.",
+          "literal": "эт ҙэ некст стоп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Traffic",
+          "translation": "роҳбандӣ",
+          "literal": "трэфик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Lots of traffic.",
+          "translation": "Роҳ сахт банд аст.",
+          "literal": "лотс ов трэфик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm on my way.",
+          "translation": "Ман дар роҳам.",
+          "literal": "айм он май вей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm on the bus.",
+          "translation": "Ман дар автобусам.",
+          "literal": "айм он ҙэ бас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "bus|автобус",
+            "train|қатора"
+          ],
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бригадир занг мезанад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where do you get off?",
+          "cueTranslation": "Дар куҷо мефароед?",
+          "intent": "Бигӯ: дар истгоҳи навбатӣ",
+          "text": "At the next stop.",
+          "accepts": [
+            "The next stop.",
+            "Next stop."
+          ],
+          "translation": "Дар истгоҳи навбатӣ.",
+          "literal": "эт ҙэ некст стоп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hello? Where are you? It's eight!",
+          "cueTranslation": "Алло? Ту куҷоӣ? Соат ҳашт!",
+          "intent": "Бигӯ: дар роҳам, роҳ банд аст",
+          "text": "I'm on my way. Lots of traffic.",
+          "accepts": [
+            "I'm on the bus. Traffic.",
+            "On my way, lots of traffic."
+          ],
+          "translation": "Ман дар роҳам. Роҳ сахт банд.",
+          "literal": "айм он май вей лотс ов трэфик",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, I'm waiting.",
+          "cueTranslation": "Хуб, интизорам.",
+          "intent": "Бигӯ: дер мондам, бубахшед",
+          "text": "I'm late. Sorry.",
+          "accepts": [
+            "Sorry, I'm late.",
+            "Sorry."
+          ],
+          "translation": "Дер мондам. Бубахшед.",
+          "literal": "айм лейт сорӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: саҳари аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Good morning! Can I help you?",
+          "cueTranslation": "Субҳ ба хайр! Ёрӣ диҳам?",
+          "intent": "Бипурс: истгоҳ куҷост?",
+          "text": "Where's the bus stop?",
+          "accepts": [
+            "Where is the bus stop?",
+            "The bus stop?"
+          ],
+          "translation": "Истгоҳ куҷост?",
+          "literal": "вэрз ҙэ бас стоп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Over there, on the left. Which bus do you need?",
+          "cueTranslation": "Ана он ҷо, аз чап. Кадом автобус лозим?",
+          "intent": "Бигӯ: рақами панҷ",
+          "text": "Number five.",
+          "accepts": [
+            "Five.",
+            "Bus number five."
+          ],
+          "translation": "Рақами панҷ.",
+          "literal": "намбэр файв",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Number five goes to the site. You buy the ticket on the bus.",
+          "cueTranslation": "Рақами панҷ то объект меравад. Чиптаро дар автобус мехаред.",
+          "intent": "Бипурс: чанд пул аст?",
+          "text": "How much is it?",
+          "accepts": [
+            "How much?",
+            "How much is the ticket?"
+          ],
+          "translation": "Чанд пул аст?",
+          "literal": "ҳау мач из ит",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Two fifty. Have a good trip!",
+          "cueTranslation": "Ду доллару панҷоҳ. Роҳи сафед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you very much!",
+          "accepts": [
+            "Thank you!",
+            "Thanks a lot!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "ҫенк ю верӣ мач",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,558 @@
+{
+  "slug": "docs_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Documents and police",
+    "titleTranslated": "Ҳуҷҷатҳо ва полис",
+    "scenario": "Полис ё идора ҳуҷҷатҳоятонро месанҷад. Шумо шиноснома нишон медиҳед, мегӯед, ки чӣ кор мекунед ва иҷозатнома доред, ва агар нафаҳмед — хоҳиш мекунед, ки оҳиста гап зананд.",
+    "emoji": "🪪",
+    "order": 16,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Passport",
+          "translation": "шиноснома",
+          "literal": "паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Police",
+          "translation": "полис",
+          "literal": "пэлис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Permit",
+          "translation": "иҷозатнома",
+          "literal": "пёрмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Address",
+          "translation": "суроға",
+          "literal": "эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Visa",
+          "translation": "виза",
+          "literal": "визэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Officer",
+          "translation": "афсар",
+          "literal": "офисэр",
+          "note": "Ба полис: «officer».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷат доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you have documents?",
+          "cueTranslation": "Ҳуҷҷат доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I do."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What is this? A visa?",
+          "cueTranslation": "Ин чист? Виза?",
+          "intent": "Бигӯ: шиносномаи ман",
+          "text": "My passport.",
+          "accepts": [
+            "Passport.",
+            "It's my passport."
+          ],
+          "translation": "Шиносномаи ман.",
+          "literal": "май паспорт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a work permit?",
+          "cueTranslation": "Иҷозатномаи корӣ доред?",
+          "intent": "Бигӯ: ҳа, иҷозатнома",
+          "text": "Yes, a permit.",
+          "accepts": [
+            "Yes.",
+            "Yes, I do."
+          ],
+          "translation": "Ҳа, иҷозатнома.",
+          "literal": "йес э пёрмит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Марҳамат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "My passport",
+          "translation": "Шиносномаи ман",
+          "literal": "май паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Here, please",
+          "translation": "Ана, марҳамат",
+          "literal": "ҳир плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Understand",
+          "translation": "фаҳмидан",
+          "literal": "андэрстэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I understand",
+          "translation": "Ман мефаҳмам",
+          "literal": "ай андэрстэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Speak slowly",
+          "translation": "Оҳиста гап занед",
+          "literal": "спик слоулӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Excuse me",
+          "translation": "Бубахшед",
+          "literal": "икскюз мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me, sir. Your documents, please.",
+          "cueTranslation": "Бубахшед. Ҳуҷҷатҳоятон, лутфан.",
+          "intent": "Бигӯ: ана, марҳамат",
+          "text": "Here, please.",
+          "accepts": [
+            "Here you go.",
+            "Here."
+          ],
+          "translation": "Ана, марҳамат.",
+          "literal": "ҳир плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is this your passport?",
+          "cueTranslation": "Ин шиносномаи шумост?",
+          "intent": "Бигӯ: ҳа, шиносномаи ман",
+          "text": "Yes, my passport.",
+          "accepts": [
+            "Yes.",
+            "Yes, it's my passport."
+          ],
+          "translation": "Ҳа, шиносномаи ман.",
+          "literal": "йес май паспорт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Why are you here? For work? For a visit?",
+          "cueTranslation": "Чаро ин ҷоед? Барои кор? Барои сафар?",
+          "intent": "Хоҳиш кун, ки оҳиста гап занад",
+          "text": "Speak slowly, please.",
+          "accepts": [
+            "Slowly, please.",
+            "Sorry, speak slowly."
+          ],
+          "translation": "Лутфан, оҳиста гап занед.",
+          "literal": "спик слоулӣ плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ҷавоб медиҳам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Here is my passport.",
+          "translation": "Ана шиносномаи ман.",
+          "literal": "ҳир из май паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I am {job}.",
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": "Касби худро гӯед.",
+          "cue": "What do you do?",
+          "cueTranslation": "Шумо чӣ кор мекунед?",
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I have a permit.",
+          "translation": "Ман иҷозатнома дорам.",
+          "literal": "ай ҳэв э пёрмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "own",
+          "text": "I live at ___.",
+          "translation": "Ман дар ___ зиндагӣ мекунам.",
+          "literal": "ай лив эт ___",
+          "note": "Суроғаи худро гӯед.",
+          "cue": "Where do you live?",
+          "cueTranslation": "Шумо дар куҷо зиндагӣ мекунед?",
+          "intent": "Суроғаи худро гӯед",
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I don't understand.",
+          "translation": "Ман намефаҳмам.",
+          "literal": "ай доунт андэрстэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Can you repeat?",
+          "translation": "Такрор карда метавонед?",
+          "literal": "кен ю рипит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Полис мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello. Your passport, please.",
+          "cueTranslation": "Салом. Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: ана шиносномаи ман",
+          "text": "Here is my passport.",
+          "accepts": [
+            "Here you go.",
+            "Here, my passport."
+          ],
+          "translation": "Ана шиносномаи ман.",
+          "literal": "ҳир из май паспорт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you do here?",
+          "cueTranslation": "Шумо ин ҷо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "I am {job}.",
+          "accepts": [
+            "I'm {job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a work permit?",
+          "cueTranslation": "Иҷозатномаи корӣ доред?",
+          "intent": "Бигӯ: ҳа, иҷозатнома дорам",
+          "text": "Yes, I have a permit.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes, here it is."
+          ],
+          "translation": "Ҳа, ман иҷозатнома дорам.",
+          "literal": "йес ай ҳэв э пёрмит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳама чиз хуб?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Is everything okay?",
+          "translation": "Ҳама чиз хуб аст?",
+          "literal": "из еврӣҫинг оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I go now?",
+          "translation": "Ҳозир рафта метавонам?",
+          "literal": "кен ай гоу нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Thank you, officer.",
+          "translation": "Ташаккур, афсар.",
+          "literal": "ҫенк ю офисэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Translator",
+          "translation": "тарҷумон",
+          "literal": "трэнслейтэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a translator.",
+          "translation": "Ба ман тарҷумон лозим.",
+          "literal": "ай нид э трэнслейтэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Have a good day.",
+          "translation": "Рӯзи хуш.",
+          "literal": "ҳэв э гуд дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Интизорӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wait here, please.",
+          "cueTranslation": "Лутфан, ин ҷо интизор шавед.",
+          "intent": "Бипурс: ҳама чиз хуб аст?",
+          "text": "Is everything okay?",
+          "accepts": [
+            "Is it okay?",
+            "Everything okay?"
+          ],
+          "translation": "Ҳама чиз хуб аст?",
+          "literal": "из еврӣҫинг оукей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, everything is fine.",
+          "cueTranslation": "Ҳа, ҳама чиз хуб.",
+          "intent": "Бипурс: ҳозир рафта метавонам?",
+          "text": "Can I go now?",
+          "accepts": [
+            "Can I go?",
+            "May I go now?"
+          ],
+          "translation": "Ҳозир рафта метавонам?",
+          "literal": "кен ай гоу нау",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, you can go.",
+          "cueTranslation": "Ҳа, рафта метавонед.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you, officer.",
+          "accepts": [
+            "Thank you.",
+            "Thanks."
+          ],
+          "translation": "Ташаккур, афсар.",
+          "literal": "ҫенк ю офисэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши ҳуҷҷат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Good evening. Your documents, please.",
+          "cueTranslation": "Шоми хуш. Ҳуҷҷатҳоятон, лутфан.",
+          "intent": "Бигӯ: ана шиносномаи ман",
+          "text": "Here is my passport.",
+          "accepts": [
+            "Here you go.",
+            "Here, my passport."
+          ],
+          "translation": "Ана шиносномаи ман.",
+          "literal": "ҳир из май паспорт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you do here?",
+          "cueTranslation": "Шумо ин ҷо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "I am {job}.",
+          "accepts": [
+            "I'm {job}."
+          ],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have a work permit?",
+          "cueTranslation": "Иҷозатномаи корӣ доред?",
+          "intent": "Бигӯ: ҳа, иҷозатнома дорам",
+          "text": "Yes, I have a permit.",
+          "accepts": [
+            "Yes, I do.",
+            "Yes, here it is."
+          ],
+          "translation": "Ҳа, ман иҷозатнома дорам.",
+          "literal": "йес ай ҳэв э пёрмит",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Everything is fine.",
+          "cueTranslation": "Хуб. Ҳама чиз дуруст.",
+          "intent": "Ташаккур гӯй ва хайрухуш кун",
+          "text": "Thank you. Have a good day.",
+          "accepts": [
+            "Thank you, officer.",
+            "Thanks. Bye."
+          ],
+          "translation": "Ташаккур. Рӯзи хуш.",
+          "literal": "ҫенк ю ҳэв э гуд дей",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -25,7 +25,12 @@ import {
   type ChatMode,
 } from '../lib/speaking/chat';
 
-const known = ['Меня зовут Мухаммад.', 'Я строитель.', 'Спасибо.', 'Я из Таджикистана.'];
+// Забон: `ru` (пешфарз) ё `en` — prisma/_chat-teacher-live.ts en
+const LANG = process.argv[2] === 'en' ? 'en' : 'ru';
+const LANGUAGE = LANG === 'en' ? 'English' : 'Russian';
+const known = LANG === 'en'
+  ? ['My name is Muhammad.', 'I am a builder.', 'Thank you.', 'I am from Tajikistan.']
+  : ['Меня зовут Мухаммад.', 'Я строитель.', 'Спасибо.', 'Я из Таджикистана.'];
 
 async function main() {
   const env = Object.fromEntries(readFileSync('.env', 'utf8').split(/\r?\n/).filter((l) => l.includes('=') && !l.trim().startsWith('#')).map((l) => { const i = l.indexOf('='); return [l.slice(0, i).trim(), l.slice(i + 1).trim().replace(/^"|"$/g, '')]; }));
@@ -34,7 +39,7 @@ async function main() {
   const reasoning = isReasoningModel(cfg.model);
 
   const once = async (history: ChatLine[], memory: ChatMemory, mode: ChatMode, openTopic: string, note?: string) => {
-    const messages = buildChatMessages({ language: 'Russian', level: CHAT_LEVEL, memory, known, history, closing: false, openTopic }, mode);
+    const messages = buildChatMessages({ language: LANGUAGE, level: CHAT_LEVEL, memory, known, history, closing: false, openTopic }, mode);
     const res = await openAiChat({ apiKey: cfg.apiKey, model: cfg.model, baseUrl: cfg.baseUrl, messages: note ? [...messages, { role: 'user', content: note }] : messages, maxTokens: reasoning ? 900 : 350, temperature: 0.7, timeoutMs: 15000, extra: reasoning ? { reasoning_effort: 'low' } : undefined });
     return res.ok && res.reply ? parseChatReply(res.reply, history.length === 0 || mode === 'nudge') : null;
   };
@@ -43,13 +48,15 @@ async function main() {
   let retries = 0;
   let memory: ChatMemory = { name: 'Мухаммад', facts: ['works on a construction site', 'is from Tajikistan'] };
   // null = хонанда ХОМӮШ монд → nudge.
-  const answers: (string | null)[] = ['Хорошо.', 'Да.', null, 'Чай.', 'Нет.', 'Я люблю плов.', 'Да, у меня брат.', 'Не знаю.'];
+  const answers: (string | null)[] = LANG === 'en'
+    ? ['Good.', 'Yes.', null, 'Tea.', 'No.', 'I like plov.', 'Yes, I have a brother.', "I don't know."]
+    : ['Хорошо.', 'Да.', null, 'Чай.', 'Нет.', 'Я люблю плов.', 'Да, у меня брат.', 'Не знаю.'];
   for (let run = 1; run <= 2; run++) {
     const openTopic = A1_TOPICS[Math.floor(Math.random() * A1_TOPICS.length)];
     console.log(`\n══ Суҳбати ${run} · мавзӯи оғоз: ${openTopic}`);
     const history: ChatLine[] = [];
     let mode: ChatMode = 'turn';
-    for (const ans of [...answers, 'Спасибо.']) {
+    for (const ans of [...answers, LANG === 'en' ? 'Thank you.' : 'Спасибо.']) {
       let r = await once(history, memory, mode, openTopic);
       if (!r) { console.log('✗ модел ҷавоб надод'); bad++; break; }
       const p = replyProblem(r.reply, history, { closing: false, goodbye: r.goodbye });
@@ -66,9 +73,10 @@ async function main() {
       }
       const p2 = replyProblem(r.reply, history, { closing: false, goodbye: r.goodbye });
       const n = r.reply.split(/\s+/).length;
-      const work = /работ|строй|профес|опыт|зарплат/i.test(r.reply);
-      const flags = [p2 ? `❌${p2}` : '', n > 14 ? `❌дароз(${n})` : '', work ? '⚠️кор' : ''].filter(Boolean).join(' ');
-      if (p2 || n > 14) bad++;
+      const work = /работ|строй|профес|опыт|зарплат|job|work|salary|construction/i.test(r.reply);
+      const wrongLang = LANG === 'en' ? /[а-яё]/i.test(r.reply) : /[a-z]{3,}/i.test(r.reply);
+      const flags = [p2 ? `❌${p2}` : '', n > 14 ? `❌дароз(${n})` : '', work ? '⚠️кор' : '', wrongLang ? '❌ЗАБОН' : ''].filter(Boolean).join(' ');
+      if (p2 || n > 14 || wrongLang) bad++;
       console.log(`${mode === 'nudge' ? '🤖💬' : '🤖'} ${r.reply}  ‹${r.replyTg}› ${flags}`);
       memory = mergeMemory(memory, r);
       history.push({ who: 'ai', text: r.reply });

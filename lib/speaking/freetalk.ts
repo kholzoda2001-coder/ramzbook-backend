@@ -56,7 +56,13 @@ export const CLOSING_LINES: Record<string, PoolLine> = {
     audioUrl:
       'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@0737fe314399223f1be2e835500890200b524c08/audio/ru/freetalk_close_ru.mp3',
   },
-  en: { text: 'Great, thank you! See you later!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
+  // Аудио: овози курси англисӣ (Chirp3-Kore), `prisma/_speaking-real-audio-lang.mjs --lang=en`.
+  en: {
+    text: 'Great, thank you! See you later!',
+    tg: 'Олӣ, ташаккур! То дидор!',
+    audioUrl:
+      'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@87a770f1d06b0f57e0d8f570c3d95d47573dfd01/audio/en/freetalk_close_en.mp3',
+  },
   de: { text: 'Super, danke! Bis später!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   tr: { text: 'Harika, teşekkürler! Görüşürüz!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
 };
