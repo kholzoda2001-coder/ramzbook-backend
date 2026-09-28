@@ -72,6 +72,13 @@ export const CLOSING_LINES: Record<string, PoolLine> = {
     audioUrl:
       'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@569156a04d7e6d43f592e2bc381117c294592840/audio/ar/freetalk_close_ar.mp3',
   },
+  // Кореягӣ: 해요체 (сатҳи курс). Аудио: овози курс (Despina), `--lang=ko`.
+  ko: {
+    text: '좋아요, 감사합니다! 또 만나요!',
+    tg: 'Олӣ, ташаккур! То дидор!',
+    audioUrl:
+      'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@985268fa7faeb8963af134a540e6233c5bd5d083/audio/ko/freetalk_close_ko.mp3',
+  },
   de: { text: 'Super, danke! Bis später!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
   tr: { text: 'Harika, teşekkürler! Görüşürüz!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
 };

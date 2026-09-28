@@ -1,0 +1,524 @@
+{
+  "slug": "measure_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "숫자와 치수",
+    "titleTranslated": "Шумора ва андоза",
+    "scenario": "Дар сохтмон ҳама чиз бо рақам аст: метр, халта, дона. Кореягӣ ДУ хел рақам дорад: корейӣ (하나, 둘 — барои дона ва соат) ва хитоӣ (일, 이 — барои метр ва вон).",
+    "emoji": "📏",
+    "order": 9,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Рақамҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "미터",
+          "translation": "метр",
+          "literal": "митхо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "하나",
+          "translation": "як (корейӣ)",
+          "literal": "ҳана",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "둘",
+          "translation": "ду (корейӣ)",
+          "literal": "тул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "셋",
+          "translation": "се (корейӣ)",
+          "literal": "сэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "길어요",
+          "translation": "дароз аст",
+          "literal": "кироё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "짧아요",
+          "translation": "кӯтоҳ аст",
+          "literal": "ччалбаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "몇 미터예요? 이 미터?",
+          "cueTranslation": "Чанд метр? Ду метр?",
+          "intent": "Бигӯ: се метр",
+          "text": "삼 미터요.",
+          "accepts": [],
+          "translation": "Се метр.",
+          "literal": "сам митхоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "길어요, 짧아요?",
+          "cueTranslation": "Дароз ё кӯтоҳ?",
+          "intent": "Бигӯ: дароз",
+          "text": "길어요.",
+          "accepts": [],
+          "translation": "Дароз.",
+          "literal": "кироё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "이거면 돼요?",
+          "cueTranslation": "Ҳамин кифоя?",
+          "intent": "Бигӯ, ки не",
+          "text": "아니요.",
+          "accepts": [
+            "아니요, 부족해요."
+          ],
+          "translation": "Не.",
+          "literal": "аниё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Андоза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "삼 미터",
+          "translation": "Се метр",
+          "literal": "сам митхо",
+          "note": "Барои метр ва вон рақамҳои ХИТОӢ-корейӣ: 일, 이, 삼…",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "다섯 포대",
+          "translation": "Панҷ халта",
+          "literal": "тасот пходэ",
+          "note": "Барои дона ва халта рақамҳои КОРЕЙӢ: 한, 두, 세…",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "열 개",
+          "translation": "Даҳ дона",
+          "literal": "ёл кэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "반 미터",
+          "translation": "Ним метр",
+          "literal": "пан митхо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "폭",
+          "translation": "паҳноӣ",
+          "literal": "пхок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "높이",
+          "translation": "баландӣ",
+          "literal": "нопхи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Девор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "벽 길이가 몇 미터예요?",
+          "cueTranslation": "Дарозии девор чанд метр аст?",
+          "intent": "Бигӯ: се метр",
+          "text": "삼 미터예요.",
+          "accepts": [],
+          "translation": "Се метр.",
+          "literal": "сам митхоэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "폭은요?",
+          "cueTranslation": "Паҳноиаш?",
+          "intent": "Бигӯ: ним метр",
+          "text": "반 미터요.",
+          "accepts": [],
+          "translation": "Ним метр.",
+          "literal": "пан митхоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "몇 포대 필요해요?",
+          "cueTranslation": "Чанд халта лозим?",
+          "intent": "Бигӯ: панҷ халта",
+          "text": "다섯 포대요.",
+          "accepts": [],
+          "translation": "Панҷ халта.",
+          "literal": "тасот пходэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Чен мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "삼 미터 필요해요.",
+          "translation": "Се метр лозим.",
+          "literal": "сам митхо пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "길이가 얼마예요?",
+          "translation": "Дарозиаш чанд?",
+          "literal": "кирига олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 너무 짧아요.",
+          "translation": "Ин хеле кӯтоҳ аст.",
+          "literal": "иго ному ччалбаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "재 주세요.",
+          "translation": "Лутфан, чен кунед.",
+          "literal": "чэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "길이는 오 미터예요.",
+          "translation": "Дарозӣ панҷ метр.",
+          "literal": "киринын о митхоэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "스무 개 있어요.",
+          "translation": "Бист дона дорем.",
+          "literal": "сыму кэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Қубур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "파이프를 자르세요.",
+          "cueTranslation": "Қубурро буред.",
+          "intent": "Бипурс: дарозиаш чанд?",
+          "text": "길이가 얼마예요?",
+          "accepts": [
+            "몇 미터요?"
+          ],
+          "translation": "Дарозиаш чанд?",
+          "literal": "кирига олмаэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "이 미터 반이요.",
+          "cueTranslation": "Ду ва ним метр.",
+          "intent": "Такрор кун, то дуруст фаҳмидӣ",
+          "text": "이 미터 반이요?",
+          "accepts": [
+            "이 미터 반."
+          ],
+          "translation": "Ду ва ним метр?",
+          "literal": "и митхо паниё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네. 잘 재세요.",
+          "cueTranslation": "Ҳа. Хуб чен кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Басанда нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "몇 개 필요해요?",
+          "translation": "Чанд дона лозим?",
+          "literal": "мёт кэ пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 부족해요.",
+          "translation": "Инҳо басанда нест.",
+          "literal": "иго пуҷокхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "열 개 더 필요해요.",
+          "translation": "Боз даҳ дона лозим.",
+          "literal": "ёл кэ то пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "벽이 너무 높아요.",
+          "translation": "Девор хеле баланд аст.",
+          "literal": "пёги ному нопхаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "오십 센티미터예요.",
+          "translation": "Панҷоҳ сантиметр.",
+          "literal": "ошип сэнтхимитхоэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "하나, 둘, 셋.",
+          "translation": "Як, ду, се.",
+          "literal": "ҳана тул сэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Қубурҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "파이프 몇 개 있어요?",
+          "cueTranslation": "Чанд қубур ҳаст?",
+          "intent": "Бигӯ: бист дона",
+          "text": "스무 개 있어요.",
+          "accepts": [
+            "스무 개요."
+          ],
+          "translation": "Бист дона.",
+          "literal": "сыму кэ иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "서른 개 필요해요.",
+          "cueTranslation": "Сӣ дона лозим.",
+          "intent": "Бигӯ: боз даҳ дона лозим",
+          "text": "열 개 더 필요해요.",
+          "accepts": [],
+          "translation": "Боз даҳ дона лозим.",
+          "literal": "ёл кэ то пхирёҳэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "맞아요. 창고에서 가져오세요.",
+          "cueTranslation": "Дуруст. Аз анбор биёред.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳуҷраро чен кун",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "방을 재세요.",
+          "cueTranslation": "Ҳуҷраро чен кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네.",
+          "accepts": [
+            "알겠어요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "길이가 얼마예요?",
+          "cueTranslation": "Дарозӣ чанд?",
+          "intent": "Бигӯ: панҷ метр",
+          "text": "오 미터예요.",
+          "accepts": [],
+          "translation": "Панҷ метр.",
+          "literal": "о митхоэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "폭은요?",
+          "cueTranslation": "Паҳноӣ?",
+          "intent": "Бигӯ: се ва ним метр",
+          "text": "삼 미터 반이요.",
+          "accepts": [],
+          "translation": "Се ва ним метр.",
+          "literal": "сам митхо паниё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "타일 몇 장 필요해요?",
+          "cueTranslation": "Чанд кошин лозим?",
+          "intent": "Бигӯ: ҳафтод дона",
+          "text": "칠십 장이요.",
+          "accepts": [],
+          "translation": "Ҳафтод дона.",
+          "literal": "чхилшшип чангиё",
+          "note": "«장» — шумораи чизи ҳамвор (кошин, коғаз).",
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

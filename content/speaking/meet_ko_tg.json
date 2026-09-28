@@ -1,0 +1,568 @@
+{
+  "slug": "meet_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "첫 만남과 인사",
+    "titleTranslated": "Салом ва шиносоӣ",
+    "scenario": "Бо кореягӣ вомехӯред — дар кор, дар кӯча ё дар хобгоҳ. Салом медиҳед, мегӯед, ки аз куҷоед ва дар куҷо зиндагӣ мекунед, ва хайрухуш мекунед.",
+    "emoji": "👋",
+    "order": 1,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Калимаҳои аввал",
+      "items": [
+        {
+          "kind": "word",
+          "text": "안녕하세요",
+          "translation": "салом",
+          "literal": "аннёнгҳасэё",
+          "note": "Бо ҳар кас ва дар ҳар вақти рӯз.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "네",
+          "translation": "ҳа",
+          "literal": "нэ",
+          "note": "«네» — ҲА! Ба «не»-и тоҷикӣ монанд аст, вале маънояш баръакс.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "아니요",
+          "translation": "не",
+          "literal": "аниё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "감사합니다",
+          "translation": "ташаккур",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "반가워요",
+          "translation": "шодам (аз вохӯрӣ)",
+          "literal": "пангавоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "안녕히 계세요",
+          "translation": "хайр (ба касе ки мемонад)",
+          "literal": "аннёнгҳи кэсэё",
+          "note": "Агар худатон равед. Ба касе ки меравад — «안녕히 가세요».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Салом!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요!",
+          "cueTranslation": "Салом!",
+          "intent": "Салом гӯй",
+          "text": "안녕하세요!",
+          "accepts": [
+            "안녕하세요."
+          ],
+          "translation": "Салом!",
+          "literal": "аннёнгҳасэё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "타지키스탄 사람이에요?",
+          "cueTranslation": "Шумо тоҷикед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 맞아요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "차 드세요.",
+          "cueTranslation": "Чой нӯшед.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "감사합니다.",
+          "accepts": [
+            "고마워요."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "잘 가요!",
+          "cueTranslation": "Хайр (роҳи сафед)!",
+          "intent": "Хайр гӯй — шумо меравед",
+          "text": "안녕히 계세요.",
+          "accepts": [
+            "또 만나요."
+          ],
+          "translation": "Хайр.",
+          "literal": "аннёнгҳи кэсэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Аҳвол чӣ хел?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "잘 지내요",
+          "translation": "Хуб ҳастам",
+          "literal": "чал чинэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "저도",
+          "translation": "ман ҳам",
+          "literal": "чодо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "저도 반가워요",
+          "translation": "Ман ҳам шодам",
+          "literal": "чодо пангавоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "좋은 아침이에요",
+          "translation": "Субҳ ба хайр",
+          "literal": "чоын ачхимиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "또 만나요",
+          "translation": "То дидор",
+          "literal": "тто маннаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "처음 뵙겠습니다",
+          "translation": "Бори аввал мебинам",
+          "literal": "чхоым пвепккэтссымнида",
+          "note": "Шиносоии расмӣ — бо калонсол ва корфармо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Шиносоӣ дар кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요! 잘 지내요?",
+          "cueTranslation": "Салом! Аҳволатон хуб?",
+          "intent": "Бигӯ: хубам",
+          "text": "잘 지내요.",
+          "accepts": [
+            "네, 잘 지내요."
+          ],
+          "translation": "Хубам.",
+          "literal": "чал чинэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "반가워요!",
+          "cueTranslation": "Аз вохӯрӣ шодам!",
+          "intent": "Бигӯ: ман ҳам шодам",
+          "text": "저도 반가워요.",
+          "accepts": [
+            "반가워요."
+          ],
+          "translation": "Ман ҳам шодам.",
+          "literal": "чодо пангавоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "내일 또 만나요!",
+          "cueTranslation": "Фардо боз мебинем!",
+          "intent": "Бигӯ: то дидор",
+          "text": "또 만나요.",
+          "accepts": [
+            "네, 또 만나요."
+          ],
+          "translation": "То дидор.",
+          "literal": "тто маннаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман аз куҷоям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "이름이 뭐예요?",
+          "translation": "Номи шумо чист?",
+          "literal": "ирыми мвоэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "own",
+          "text": "제 이름은 ___.",
+          "translation": "Номи ман ___.",
+          "literal": "чэ ирымын ___",
+          "note": "Номи ХУДАТОНРО гӯед — бо «-예요» ё «-이에요»: «알리예요».",
+          "cue": "이름이 뭐예요?",
+          "cueTranslation": "Номи шумо чист?",
+          "intent": "Номи худатонро гӯед",
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "저는 타지키스탄 사람이에요.",
+          "translation": "Ман тоҷик ҳастам.",
+          "literal": "чонын тхаҷикхисытхан сарамиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "어느 나라 사람이에요?",
+          "translation": "Аз кадом кишваред?",
+          "literal": "оны нара сарамиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "만나서 반가워요.",
+          "translation": "Аз шиносоӣ шодам.",
+          "literal": "маннасо пангавоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "저는 여기에 살아요.",
+          "translation": "Ман ин ҷо зиндагӣ мекунам.",
+          "literal": "чонын ёгиэ сараё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: ҳамсоя",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요! 저는 민수예요. 옆방에 살아요.",
+          "cueTranslation": "Салом! Ман Минсу. Дар ҳуҷраи паҳлӯ зиндагӣ мекунам.",
+          "intent": "Бигӯ, ки аз шиносоӣ шодӣ",
+          "text": "만나서 반가워요.",
+          "accepts": [
+            "반가워요.",
+            "저도 반가워요."
+          ],
+          "translation": "Аз шиносоӣ шодам.",
+          "literal": "маннасо пангавоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어느 나라 사람이에요?",
+          "cueTranslation": "Аз кадом кишваред?",
+          "intent": "Бигӯ: тоҷикам",
+          "text": "타지키스탄 사람이에요.",
+          "accepts": [
+            "저는 타지키스탄 사람이에요."
+          ],
+          "translation": "Ман тоҷикам.",
+          "literal": "тхаҷикхисытхан сарамиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "여기에 살아요?",
+          "cueTranslation": "Ин ҷо зиндагӣ мекунед?",
+          "intent": "Бигӯ: ҳа, ин ҷо зиндагӣ мекунам",
+          "text": "네, 여기에 살아요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, ин ҷо зиндагӣ мекунам.",
+          "literal": "нэ ёгиэ сараё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "그럼 또 만나요!",
+          "cueTranslation": "Пас боз мебинем!",
+          "intent": "Хайр гӯй — ӯ меравад",
+          "text": "안녕히 가세요.",
+          "accepts": [
+            "또 만나요."
+          ],
+          "translation": "Хайр.",
+          "literal": "аннёнгҳи касэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Кор ва хайрухуш",
+      "items": [
+        {
+          "kind": "word",
+          "text": "일해요",
+          "translation": "кор мекунам",
+          "literal": "илҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "저는 여기에서 일해요.",
+          "translation": "Ман ин ҷо кор мекунам.",
+          "literal": "чонын ёгиэсо илҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "저는 {job}.",
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": "Касби худро гӯед — барнома онро аз ҳадафи шумо медонад.",
+          "cue": "무슨 일을 해요?",
+          "cueTranslation": "Шумо чӣ кор мекунед?",
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "내일",
+          "translation": "фардо",
+          "literal": "нэил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "내일 또 만나요.",
+          "translation": "Фардо боз мебинем.",
+          "literal": "нэил тто маннаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "좋은 하루 보내세요.",
+          "translation": "Рӯзи хуш гузаронед.",
+          "literal": "чоын ҳару понэсэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дар кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여기에서 일해요?",
+          "cueTranslation": "Ин ҷо кор мекунед?",
+          "intent": "Бигӯ: ҳа, ин ҷо кор мекунам",
+          "text": "네, 여기에서 일해요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, ин ҷо кор мекунам.",
+          "literal": "нэ ёгиэсо илҳэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "무슨 일을 해요?",
+          "cueTranslation": "Шумо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "저는 {job}.",
+          "accepts": [],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 내일 또 만나요!",
+          "cueTranslation": "Хуб, фардо боз мебинем!",
+          "intent": "Бигӯ: то дидор",
+          "text": "또 만나요.",
+          "accepts": [
+            "안녕히 가세요."
+          ],
+          "translation": "То дидор.",
+          "literal": "тто маннаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요! 새로 왔어요?",
+          "cueTranslation": "Салом! Навомадаед?",
+          "intent": "Салом гӯй ва бигӯ, ки ҳа",
+          "text": "안녕하세요! 네.",
+          "accepts": [
+            "네, 새로 왔어요."
+          ],
+          "translation": "Салом! Ҳа.",
+          "literal": "аннёнгҳасэё нэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "저는 민수예요. 반가워요!",
+          "cueTranslation": "Ман Минсу. Шодам!",
+          "intent": "Бигӯ: ман ҳам шодам",
+          "text": "저도 반가워요.",
+          "accepts": [
+            "반가워요."
+          ],
+          "translation": "Ман ҳам шодам.",
+          "literal": "чодо пангавоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "어느 나라 사람이에요?",
+          "cueTranslation": "Аз кадом кишваред?",
+          "intent": "Бигӯ: тоҷикам",
+          "text": "타지키스탄 사람이에요.",
+          "accepts": [],
+          "translation": "Ман тоҷикам.",
+          "literal": "тхаҷикхисытхан сарамиэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "아, 그래요? 무슨 일을 해요?",
+          "cueTranslation": "А, ҳа? Чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "저는 {job}.",
+          "accepts": [],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

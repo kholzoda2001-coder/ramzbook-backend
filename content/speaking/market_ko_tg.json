@@ -1,0 +1,522 @@
+{
+  "slug": "market_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "마트에서",
+    "titleTranslated": "Бозор",
+    "scenario": "Дар мағоза ё бозор нон, шир ва мева мехаред. Нарх мепурсед, мегӯед, ки қимат аст, нақд ё бо корт пардохт мекунед ва бақияро мегиред.",
+    "emoji": "🛒",
+    "order": 10,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мағоза",
+      "items": [
+        {
+          "kind": "word",
+          "text": "빵",
+          "translation": "нон",
+          "literal": "ппанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "우유",
+          "translation": "шир",
+          "literal": "ую",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "사과",
+          "translation": "себ",
+          "literal": "сагва",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "가격",
+          "translation": "нарх",
+          "literal": "кагёк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "싸요",
+          "translation": "арзон аст",
+          "literal": "ссаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "비싸요",
+          "translation": "қимат аст",
+          "literal": "писсаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Фурӯшанда мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "뭐 드릴까요? 빵?",
+          "cueTranslation": "Чӣ диҳам? Нон?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 빵 주세요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "봉투 필요하세요?",
+          "cueTranslation": "Халта лозим?",
+          "intent": "Бигӯ, ки не",
+          "text": "아니요.",
+          "accepts": [
+            "아니요, 괜찮아요."
+          ],
+          "translation": "Не.",
+          "literal": "аниё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "현금이에요, 카드예요?",
+          "cueTranslation": "Нақд ё корт?",
+          "intent": "Бигӯ: корт",
+          "text": "카드요.",
+          "accepts": [],
+          "translation": "Корт.",
+          "literal": "кхадыё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Чанд пул?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "이거 얼마예요?",
+          "translation": "Ин чанд пул?",
+          "literal": "иго олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "빵하고 우유",
+          "translation": "Нон ва шир",
+          "literal": "ппангҳаго ую",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "사과 주세요",
+          "translation": "Себ диҳед",
+          "literal": "сагва чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "너무 비싸요",
+          "translation": "Хеле қимат",
+          "literal": "ному писсаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 싸요",
+          "translation": "Ин арзон аст",
+          "literal": "иго ссаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "거스름돈",
+          "translation": "бақия",
+          "literal": "косырымдон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар мағоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어서 오세요! 뭐 드릴까요?",
+          "cueTranslation": "Хуш омадед! Чӣ диҳам?",
+          "intent": "Бигӯ: нон ва шир",
+          "text": "빵하고 우유요.",
+          "accepts": [
+            "빵하고 우유 주세요."
+          ],
+          "translation": "Нон ва шир.",
+          "literal": "ппангҳаго уюё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "또 필요한 거 있어요?",
+          "cueTranslation": "Боз чизе лозим?",
+          "intent": "Бигӯ: себ диҳед",
+          "text": "사과 주세요.",
+          "accepts": [],
+          "translation": "Себ диҳед.",
+          "literal": "сагва чусэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "만 오천 원이에요.",
+          "cueTranslation": "Понздаҳ ҳазор вон.",
+          "intent": "Бигӯ: хеле қимат",
+          "text": "너무 비싸요.",
+          "accepts": [],
+          "translation": "Хеле қимат.",
+          "literal": "ному писсаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мехарам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "사과 세 개 주세요.",
+          "translation": "Се себ диҳед.",
+          "literal": "сагва сэ кэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "가격이 얼마예요?",
+          "translation": "Нарх чанд?",
+          "literal": "кагёги олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "빵 있어요?",
+          "translation": "Нон ҳаст?",
+          "literal": "ппанг иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 너무 비싸요.",
+          "translation": "Ин хеле қимат аст.",
+          "literal": "иго ному писсаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "거스름돈 주세요.",
+          "translation": "Бақияро диҳед.",
+          "literal": "косырымдон чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "현금으로 낼게요.",
+          "translation": "Нақд медиҳам.",
+          "literal": "ҳёнгымыро нэлгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Меваи тару тоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "사과 싱싱해요! 사세요!",
+          "cueTranslation": "Себ тару тоза! Харед!",
+          "intent": "Бипурс: чанд пул?",
+          "text": "얼마예요?",
+          "accepts": [
+            "이거 얼마예요?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "олмаэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "한 개에 천 원이에요.",
+          "cueTranslation": "Ҳар кадомаш ҳазор вон.",
+          "intent": "Бигӯ: се дона диҳед",
+          "text": "세 개 주세요.",
+          "accepts": [],
+          "translation": "Се дона диҳед.",
+          "literal": "сэ кэ чусэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "여기 있어요.",
+          "cueTranslation": "Марҳамат.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пардохт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "카드 돼요?",
+          "translation": "Бо корт мешавад?",
+          "literal": "кхады твеё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "잔돈이 없어요.",
+          "translation": "Майда надорам.",
+          "literal": "чандони опссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "봉투 하나 주세요.",
+          "translation": "Як халта диҳед.",
+          "literal": "понгтху ҳана чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "채소는 어디 있어요?",
+          "translation": "Сабзавот куҷост?",
+          "literal": "чхэсонын оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이게 다예요.",
+          "translation": "Ҳамааш ҳамин.",
+          "literal": "игэ таэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "전부 얼마예요?",
+          "translation": "Ҳамагӣ чанд?",
+          "literal": "чонбу олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дар касса",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "전부 삼만 원이에요.",
+          "cueTranslation": "Ҳамагӣ сӣ ҳазор вон.",
+          "intent": "Бипурс: бо корт мешавад?",
+          "text": "카드 돼요?",
+          "accepts": [],
+          "translation": "Бо корт мешавад?",
+          "literal": "кхады твеё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "죄송해요, 현금만 돼요.",
+          "cueTranslation": "Бубахшед, танҳо нақд.",
+          "intent": "Бигӯ: хуб, нақд медиҳам",
+          "text": "네, 현금으로 낼게요.",
+          "accepts": [],
+          "translation": "Хуб, нақд медиҳам.",
+          "literal": "нэ ҳёнгымыро нэлгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "여기 거스름돈이에요.",
+          "cueTranslation": "Ин бақия.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: харид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어서 오세요! 뭐 드릴까요?",
+          "cueTranslation": "Хуш омадед! Чӣ диҳам?",
+          "intent": "Нон ва шир пурс",
+          "text": "빵하고 우유 주세요.",
+          "accepts": [],
+          "translation": "Нон ва шир диҳед.",
+          "literal": "ппангҳаго ую чусэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "또 필요한 거 있어요?",
+          "cueTranslation": "Боз чизе лозим?",
+          "intent": "Бигӯ: ҳамааш ҳамин ва бипурс, ки ҳамагӣ чанд",
+          "text": "이게 다예요. 전부 얼마예요?",
+          "accepts": [
+            "전부 얼마예요?"
+          ],
+          "translation": "Ҳамааш ҳамин. Ҳамагӣ чанд?",
+          "literal": "игэ таэё чонбу олмаэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "오천 원이에요.",
+          "cueTranslation": "Панҷ ҳазор вон.",
+          "intent": "Бипурс: бо корт мешавад?",
+          "text": "카드 돼요?",
+          "accepts": [],
+          "translation": "Бо корт мешавад?",
+          "literal": "кхады твеё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 돼요.",
+          "cueTranslation": "Ҳа, мешавад.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

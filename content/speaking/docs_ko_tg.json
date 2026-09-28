@@ -1,0 +1,531 @@
+{
+  "slug": "docs_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "서류와 경찰",
+    "titleTranslated": "Ҳуҷҷатҳо ва полис",
+    "scenario": "Полис ё идора ҳуҷҷат мепурсад: корти хориҷӣ, шиноснома, ҷои кор, корфармо. Шумо ором ҷавоб медиҳед ва агар нафаҳмед — хоҳиш мекунед оҳиста гӯянд ё тарҷумон мепурсед.",
+    "emoji": "🪪",
+    "order": 16,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "여권",
+          "translation": "шиноснома",
+          "literal": "ёгвон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "외국인등록증",
+          "translation": "корти хориҷӣ (ID)",
+          "literal": "вегугиндынгнокччынг",
+          "note": "Дар Корея ҳар коргари хориҷӣ ин кортро дорад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "경찰",
+          "translation": "полис",
+          "literal": "кёнгчхал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "주소",
+          "translation": "суроға",
+          "literal": "чусо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "대사관",
+          "translation": "сафорат",
+          "literal": "тэсагван",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "사장님",
+          "translation": "корфармо (раис)",
+          "literal": "саҷангним",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여권 있어요?",
+          "cueTranslation": "Шиноснома доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 있어요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "학생이에요, 근로자예요?",
+          "cueTranslation": "Донишҷӯед ё коргар?",
+          "intent": "Бигӯ: коргар",
+          "text": "근로자예요.",
+          "accepts": [],
+          "translation": "Коргарам.",
+          "literal": "кыллоҷаэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "한국어 알아요?",
+          "cueTranslation": "Кореягӣ медонед?",
+          "intent": "Бигӯ: каме",
+          "text": "조금요.",
+          "accepts": [
+            "조금 알아요."
+          ],
+          "translation": "Каме.",
+          "literal": "чогымё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Марҳамат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "제 등록증이에요",
+          "translation": "Ин корти ман",
+          "literal": "чэ тынгнокччынгиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "제 여권이에요",
+          "translation": "Ин шиносномаи ман",
+          "literal": "чэ ёгвониэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "여기서 일해요",
+          "translation": "Ин ҷо кор мекунам",
+          "literal": "ёгисо илҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "조금만 알아요",
+          "translation": "Фақат каме медонам",
+          "literal": "чогымман араё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "잘 몰라요",
+          "translation": "Хуб намедонам",
+          "literal": "чал моллаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "통역",
+          "translation": "тарҷумон",
+          "literal": "тхонгёк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Полис мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요. 외국인등록증 보여 주세요.",
+          "cueTranslation": "Салом. Корти хориҷиатонро нишон диҳед.",
+          "intent": "Бигӯ: ин корти ман",
+          "text": "제 등록증이에요.",
+          "accepts": [
+            "여기 있어요."
+          ],
+          "translation": "Ин корти ман.",
+          "literal": "чэ тынгнокччынгиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "여권도요?",
+          "cueTranslation": "Шиноснома ҳам?",
+          "intent": "Бигӯ: ин шиносномаи ман",
+          "text": "제 여권이에요.",
+          "accepts": [
+            "여기 있어요."
+          ],
+          "translation": "Ин шиносномаи ман.",
+          "literal": "чэ ёгвониэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "어디에서 일해요?",
+          "cueTranslation": "Дар куҷо кор мекунед?",
+          "intent": "Бигӯ: дар объекти сохтмон",
+          "text": "공사 현장에서 일해요.",
+          "accepts": [
+            "건설 회사요."
+          ],
+          "translation": "Дар объекти сохтмон кор мекунам.",
+          "literal": "конгса ҳёнҷангэсо илҳэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ҷавоб медиҳам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "여기 있어요, 제 등록증이에요.",
+          "translation": "Марҳамат, ин корти ман.",
+          "literal": "ёги иссоё чэ тынгнокччынгиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "한국어를 잘 몰라요.",
+          "translation": "Кореягиро хуб намедонам.",
+          "literal": "ҳангугорыл чал моллаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "통역이 필요해요.",
+          "translation": "Ба ман тарҷумон лозим.",
+          "literal": "тхонгёги пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "천천히 다시 말해 주세요.",
+          "translation": "Лутфан, оҳиста такрор кунед.",
+          "literal": "чхончхонҳи таши малҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "own",
+          "text": "제 주소는 ___.",
+          "translation": "Суроғаи ман ___.",
+          "literal": "чэ чусонын ___",
+          "note": "Суроғаи худро гӯед.",
+          "cue": "주소가 어디예요?",
+          "cueTranslation": "Суроғаатон куҷост?",
+          "intent": "Суроғаи худро гӯед",
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "경찰서가 어디예요?",
+          "translation": "Идораи полис куҷост?",
+          "literal": "кёнгчхалсога одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Корфармо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "사장님 이름이 뭐예요?",
+          "cueTranslation": "Номи корфармоятон чист?",
+          "intent": "Бигӯ, ки намефаҳмӣ ва хоҳиш кун оҳиста гап занад",
+          "text": "잘 몰라요. 천천히 말해 주세요.",
+          "accepts": [
+            "다시 말해 주세요."
+          ],
+          "translation": "Намефаҳмам. Оҳиста гап занед.",
+          "literal": "чал моллаё чхончхонҳи малҳэ чусэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "회사 이름은요?",
+          "cueTranslation": "Номи ширкат?",
+          "intent": "Бигӯ: «Ҳанкук Консол»",
+          "text": "한국건설이에요.",
+          "accepts": [],
+          "translation": "«Ҳанкук Консол».",
+          "literal": "ҳангукконсориэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 감사합니다.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бипурс: ҳамааш дуруст?",
+          "text": "다 괜찮아요?",
+          "accepts": [
+            "괜찮아요?"
+          ],
+          "translation": "Ҳамааш дуруст?",
+          "literal": "та квенчханаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳуҷҷат гум шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "여권을 잃어버렸어요.",
+          "translation": "Шиносномаамро гум кардам.",
+          "literal": "ёгвоныл ироборёссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "지갑을 도둑맞았어요.",
+          "translation": "Ҳамёнамро дуздиданд.",
+          "literal": "чигабыл тодунгмаҷассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "타지키스탄 대사관이 어디예요?",
+          "translation": "Сафорати Тоҷикистон куҷост?",
+          "literal": "тхаҷикхисытхан тэсагвани одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "사장님한테 전화하고 싶어요.",
+          "translation": "Мехоҳам ба корфармо занг занам.",
+          "literal": "саҷангнимҳантхэ чонҳваҳаго шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "비자는 괜찮아요.",
+          "translation": "Визаам дуруст аст.",
+          "literal": "пиҷанын квенчханаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "다 괜찮아요.",
+          "translation": "Ҳамааш дуруст.",
+          "literal": "та квенчханаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дар идораи полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "무슨 일이에요?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: шиносномаамро гум кардам",
+          "text": "여권을 잃어버렸어요.",
+          "accepts": [],
+          "translation": "Шиносномаамро гум кардам.",
+          "literal": "ёгвоныл ироборёссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어디서요?",
+          "cueTranslation": "Куҷо?",
+          "intent": "Бигӯ: дар бозор",
+          "text": "시장에서요.",
+          "accepts": [],
+          "translation": "Дар бозор.",
+          "literal": "шиҷангэсоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "대사관에 가세요.",
+          "cueTranslation": "Ба сафорат равед.",
+          "intent": "Бипурс: сафорати Тоҷикистон куҷост?",
+          "text": "타지키스탄 대사관이 어디예요?",
+          "accepts": [],
+          "translation": "Сафорати Тоҷикистон куҷост?",
+          "literal": "тхаҷикхисытхан тэсагвани одиэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши ҳуҷҷат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "잠깐만요! 등록증 보여 주세요.",
+          "cueTranslation": "Истед! Кортатонро нишон диҳед.",
+          "intent": "Бигӯ: марҳамат, ин корти ман",
+          "text": "여기 있어요, 제 등록증이에요.",
+          "accepts": [
+            "여기 있어요."
+          ],
+          "translation": "Марҳамат, ин корти ман.",
+          "literal": "ёги иссоё чэ тынгнокччынгиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어디에서 일해요?",
+          "cueTranslation": "Дар куҷо кор мекунед?",
+          "intent": "Бигӯ: дар объекти сохтмон",
+          "text": "공사 현장에서 일해요.",
+          "accepts": [],
+          "translation": "Дар объекти сохтмон кор мекунам.",
+          "literal": "конгса ҳёнҷангэсо илҳэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "사장님 전화번호 알아요?",
+          "cueTranslation": "Рақами корфармоятонро медонед?",
+          "intent": "Бигӯ, ки намефаҳмӣ ва тарҷумон лозим",
+          "text": "잘 몰라요. 통역이 필요해요.",
+          "accepts": [
+            "통역이 필요해요."
+          ],
+          "translation": "Намефаҳмам. Ба ман тарҷумон лозим.",
+          "literal": "чал моллаё тхонгёги пхирёҳэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "괜찮아요. 다 됐어요.",
+          "cueTranslation": "Ҳеҷ гап не. Ҳамааш тамом.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

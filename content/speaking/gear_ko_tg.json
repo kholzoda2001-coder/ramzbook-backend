@@ -1,0 +1,524 @@
+{
+  "slug": "gear_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "작업복과 안전 장비",
+    "titleTranslated": "Либоси корӣ",
+    "scenario": "Дар объект бе либоси муҳофизатӣ кор кардан мумкин нест: каска, дастпӯшак, айнак, жилет, мӯза. Шумо мепурсед, андоза мегӯед ва чизи лозимиро мегиред.",
+    "emoji": "🦺",
+    "order": 18,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Либоси муҳофизатӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "장갑",
+          "translation": "дастпӯшак",
+          "literal": "чанггап",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "보안경",
+          "translation": "айнаки муҳофизатӣ",
+          "literal": "поангёнг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "조끼",
+          "translation": "жилет",
+          "literal": "чокки",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "안전화",
+          "translation": "мӯзаи корӣ",
+          "literal": "анҷонҳва",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "마스크",
+          "translation": "ниқоб",
+          "literal": "масыкхы",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "안전모",
+          "translation": "каска",
+          "literal": "анҷонмо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "손에 뭐 껴요?",
+          "cueTranslation": "Ба даст чӣ мепӯшанд?",
+          "intent": "Бигӯ: дастпӯшак",
+          "text": "장갑이요.",
+          "accepts": [],
+          "translation": "Дастпӯшак.",
+          "literal": "чанггабиё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "머리에 뭐 써요?",
+          "cueTranslation": "Ба сар чӣ мепӯшанд?",
+          "intent": "Бигӯ: каска",
+          "text": "안전모요.",
+          "accepts": [],
+          "translation": "Каска.",
+          "literal": "анҷонмоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "먼지가 많아요. 뭐가 필요해요?",
+          "cueTranslation": "Чанг бисёр аст. Чӣ лозим?",
+          "intent": "Бигӯ: ниқоб",
+          "text": "마스크요.",
+          "accepts": [],
+          "translation": "Ниқоб.",
+          "literal": "масыкхыё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Андоза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "큰 사이즈",
+          "translation": "Андозаи калон",
+          "literal": "кхын саиҷы",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "몇 사이즈예요?",
+          "translation": "Кадом андоза?",
+          "literal": "мёт саиҷыэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "안전이 먼저예요",
+          "translation": "Аввал бехатарӣ",
+          "literal": "анҷони монҷоэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "안전모 쓰세요",
+          "translation": "Каскаро пӯшед",
+          "literal": "анҷонмо ссысэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "너무 커요",
+          "translation": "Хеле калон",
+          "literal": "ному кхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "좀 작아요",
+          "translation": "Каме хурд",
+          "literal": "чом чагаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Каскаро пӯшед!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "장갑 어디 있어요?",
+          "cueTranslation": "Дастпӯшакатон куҷост?",
+          "intent": "Бигӯ: ин ҷо",
+          "text": "여기요.",
+          "accepts": [
+            "여기 있어요."
+          ],
+          "translation": "Ин ҷо.",
+          "literal": "ёгиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "안전모 쓰세요!",
+          "cueTranslation": "Каскаро пӯшед!",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "새 안전화예요. 몇 사이즈예요?",
+          "cueTranslation": "Мӯзаи нав. Кадом андоза?",
+          "intent": "Бигӯ: дусаду ҳафтод",
+          "text": "이백칠십이요.",
+          "accepts": [],
+          "translation": "Дусаду ҳафтод.",
+          "literal": "ибэкчхилшибиё",
+          "note": "Дар Корея андозаи пойафзол бо миллиметр аст: 270 = 42.",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "장갑이 없어요.",
+          "translation": "Дастпӯшак надорам.",
+          "literal": "чанггаби опссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "조끼 어디 있어요?",
+          "translation": "Жилетҳо куҷоянд?",
+          "literal": "чокки оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 너무 커요.",
+          "translation": "Ин хеле калон аст.",
+          "literal": "иго ному кхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "마스크 하나 주세요.",
+          "translation": "Як ниқоб диҳед.",
+          "literal": "масыкхы ҳана чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이백칠십 사이즈요.",
+          "translation": "Андозаи дусаду ҳафтод.",
+          "literal": "ибэкчхилшшип саиҷыё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "안전이 먼저예요.",
+          "translation": "Аввал бехатарӣ.",
+          "literal": "анҷони монҷоэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Жилет куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "조끼는요?",
+          "cueTranslation": "Жилетатон куҷост?",
+          "intent": "Бигӯ: жилет надорам",
+          "text": "조끼가 없어요.",
+          "accepts": [],
+          "translation": "Жилет надорам.",
+          "literal": "чоккига опссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "하나 가져가세요. 주황색이요.",
+          "cueTranslation": "Якто гиред. Норанҷиашро.",
+          "intent": "Бипурс: жилетҳо куҷоянд?",
+          "text": "조끼는 어디에 있어요?",
+          "accepts": [],
+          "translation": "Жилетҳо куҷоянд?",
+          "literal": "чоккинын одиэ иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "컨테이너 안에 있어요.",
+          "cueTranslation": "Дар вагонча (контейнер).",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "네, 감사합니다.",
+          "accepts": [],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "нэ камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чанг ва садо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "먼지가 많아요.",
+          "translation": "Чанг бисёр аст.",
+          "literal": "монҷига манаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "소리가 너무 커요.",
+          "translation": "Садо хеле баланд аст.",
+          "literal": "сорига ному кхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "마스크가 필요해요.",
+          "translation": "Ба ман ниқоб лозим.",
+          "literal": "масыкхыга пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "귀마개가 필요해요.",
+          "translation": "Ба ман гӯшпӯшак лозим.",
+          "literal": "квимагэга пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "보안경 쓰세요.",
+          "translation": "Айнакро пӯшед.",
+          "literal": "поангёнг ссысэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "안전모 감사합니다.",
+          "translation": "Ташаккур барои каска.",
+          "literal": "анҷонмо камсаҳамнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Имрӯз бетон мебурем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "오늘 콘크리트를 잘라요.",
+          "cueTranslation": "Имрӯз бетон мебурем.",
+          "intent": "Бигӯ: чанг бисёр, ниқоб лозим",
+          "text": "먼지가 많아요. 마스크가 필요해요.",
+          "accepts": [
+            "마스크가 필요해요."
+          ],
+          "translation": "Чанг бисёр. Ниқоб лозим.",
+          "literal": "монҷига манаё масыкхыга пхирёҳэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "여기요. 또 필요한 거 있어요?",
+          "cueTranslation": "Марҳамат. Боз чизе лозим?",
+          "intent": "Бигӯ: садо баланд, гӯшпӯшак лозим",
+          "text": "소리가 커요. 귀마개가 필요해요.",
+          "accepts": [
+            "귀마개 주세요."
+          ],
+          "translation": "Садо баланд. Гӯшпӯшак лозим.",
+          "literal": "сорига кхоё квимагэга пхирёҳэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "좋아요. 안전이 먼저예요!",
+          "cueTranslation": "Хуб. Аввал бехатарӣ!",
+          "intent": "Бигӯ: ҳа, аввал бехатарӣ",
+          "text": "네, 안전이 먼저예요!",
+          "accepts": [],
+          "translation": "Ҳа, аввал бехатарӣ!",
+          "literal": "нэ анҷони монҷоэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши бехатарӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "잠깐만요! 안전모 어디 있어요?",
+          "cueTranslation": "Истед! Каскаатон куҷост?",
+          "intent": "Бигӯ: бубахшед, ҳозир мепӯшам",
+          "text": "죄송해요, 지금 쓸게요.",
+          "accepts": [
+            "죄송해요."
+          ],
+          "translation": "Бубахшед, ҳозир мепӯшам.",
+          "literal": "чвесонгҳэё чигым ссылгэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "장갑은요?",
+          "cueTranslation": "Дастпӯшак-чӣ?",
+          "intent": "Бигӯ: дастпӯшак надорам",
+          "text": "장갑이 없어요.",
+          "accepts": [],
+          "translation": "Дастпӯшак надорам.",
+          "literal": "чанггаби опссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "이거 끼세요. 맞아요?",
+          "cueTranslation": "Инро пӯшед. Мувофиқ аст?",
+          "intent": "Бигӯ: хеле калон аст",
+          "text": "너무 커요.",
+          "accepts": [
+            "좀 커요."
+          ],
+          "translation": "Хеле калон аст.",
+          "literal": "ному кхоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "작은 거 끼세요.",
+          "cueTranslation": "Хурдашро пӯшед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "네, 감사합니다.",
+          "accepts": [],
+          "translation": "Хуб, ташаккур.",
+          "literal": "нэ камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

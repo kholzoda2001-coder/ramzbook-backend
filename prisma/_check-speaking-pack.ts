@@ -9,9 +9,10 @@ import { validateLesson } from '../lib/speaking/validate';
 
 // Ҳар забон ҶУДО: ҳарфи ҳадаф ва талабот ба транскрипсияи тоҷикӣ (`literal`).
 // Англисӣ: транскрипсия ҲАТМӢ (хонандаи тоҷик ҳарфи лотиниро душвор мехонад);
-// русӣ: лозим нест (қарори корбар, 12.09.2026). Арабӣ: ҲАТМӢ — алифбо ношинос.
-const SCRIPT: Record<string, RegExp> = { ru: /[а-яё]/i, en: /[a-z]/i, ar: /[\u0621-\u064A]/ };
-const NEEDS_LITERAL: Record<string, boolean> = { ru: false, en: true, ar: true };
+// русӣ: лозим нест (қарори корбар, 12.09.2026). Арабӣ ва кореягӣ: ҲАТМӢ — алифбо
+// ношинос (кореягӣ аз `_ko-tajik.mjs` — ҳамон хониши курс ва алифбо).
+const SCRIPT: Record<string, RegExp> = { ru: /[а-яё]/i, en: /[a-z]/i, ar: /[\u0621-\u064A]/, ko: /[\uAC00-\uD7A3]/ };
+const NEEDS_LITERAL: Record<string, boolean> = { ru: false, en: true, ar: true, ko: true };
 
 // ── Арабӣ (28.09.2026) ────────────────────────────────────────────────────
 // Хонандаи A1-и тоҷик арабии БЕ ҳаракатро хонда наметавонад → ҳар калимаи
@@ -48,7 +49,7 @@ for (const slug of process.argv.slice(2)) {
         if (!it.literal?.trim()) { if (!String(it.text).includes('{')) { errs++; console.log(`   ❌ NO_LITERAL «${it.text}»`); } }
         // Транскрипсия ҳарфи тоҷикӣ бошад, на лотинӣ.
         else if (/[a-z]/i.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_LATIN «${it.text}» → «${it.literal}»`); }
-        else if (/[\u0600-\u06FF]/.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_ARABIC «${it.text}» → «${it.literal}»`); }
+        else if (/[\u0600-\u06FF\uAC00-\uD7A3\u3130-\u318F]/.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_SCRIPT «${it.text}» → «${it.literal}»`); }
       }
     }
     if (j.targetLanguage === 'ar') {

@@ -1,0 +1,530 @@
+{
+  "slug": "place_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "현장의 위치",
+    "titleTranslated": "Ҷой дар объект",
+    "scenario": "Объект калон аст: анбор, ошёнаҳо, дарвоза. Шумо мепурсед, ки чиз ва одам куҷост, роҳ нишон медиҳед ва мегӯед, ки худатон куҷоед.",
+    "emoji": "📍",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Самтҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "위",
+          "translation": "боло",
+          "literal": "ви",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "아래",
+          "translation": "поён",
+          "literal": "арэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "오른쪽",
+          "translation": "рост",
+          "literal": "орынччок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "왼쪽",
+          "translation": "чап",
+          "literal": "венччок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "가까워요",
+          "translation": "наздик аст",
+          "literal": "каккавоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "멀어요",
+          "translation": "дур аст",
+          "literal": "мороё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "창고가 가까워요?",
+          "cueTranslation": "Анбор наздик аст?",
+          "intent": "Бигӯ, ки не",
+          "text": "아니요.",
+          "accepts": [
+            "아니요, 멀어요."
+          ],
+          "translation": "Не.",
+          "literal": "аниё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "위예요, 아래예요?",
+          "cueTranslation": "Боло ё поён?",
+          "intent": "Бигӯ: боло",
+          "text": "위요.",
+          "accepts": [],
+          "translation": "Боло.",
+          "literal": "виё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "오른쪽이에요, 왼쪽이에요?",
+          "cueTranslation": "Рост ё чап?",
+          "intent": "Бигӯ: чап",
+          "text": "왼쪽이요.",
+          "accepts": [],
+          "translation": "Чап.",
+          "literal": "венччогиё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Дар куҷо?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "오른쪽에 있어요",
+          "translation": "Дар тарафи рост аст",
+          "literal": "орынччогэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "왼쪽에 있어요",
+          "translation": "Дар тарафи чап аст",
+          "literal": "венччогэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "이 층",
+          "translation": "Ошёнаи дуюм",
+          "literal": "и чхынг",
+          "note": "Барои ошёна рақамҳои ХИТОӢ-корейӣ: 일 층, 이 층, 삼 층.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "문 옆",
+          "translation": "Назди дар",
+          "literal": "мун ёп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "어디예요?",
+          "translation": "куҷо?",
+          "literal": "одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "여기 있어요",
+          "translation": "Ман ин ҷоям",
+          "literal": "ёги иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом ошёна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어디예요?",
+          "cueTranslation": "Куҷоед?",
+          "intent": "Бигӯ: ин ҷоям",
+          "text": "여기 있어요.",
+          "accepts": [
+            "여기요."
+          ],
+          "translation": "Ин ҷоям.",
+          "literal": "ёги иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "일 층이에요?",
+          "cueTranslation": "Ошёнаи якум?",
+          "intent": "Бигӯ: не, ошёнаи дуюм",
+          "text": "아니요, 이 층이에요.",
+          "accepts": [
+            "이 층이요."
+          ],
+          "translation": "Не, ошёнаи дуюм.",
+          "literal": "аниё и чхынгиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "알겠어요, 지금 가요.",
+          "cueTranslation": "Хуб, ҳозир меоям.",
+          "intent": "Бигӯ: интизорам",
+          "text": "기다릴게요.",
+          "accepts": [],
+          "translation": "Интизорам.",
+          "literal": "кидарилгэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "사다리 어디 있어요?",
+          "translation": "Нардбон куҷост?",
+          "literal": "садари оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "창고는 왼쪽에 있어요.",
+          "translation": "Анбор дар тарафи чап аст.",
+          "literal": "чханггонын венччогэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "앞으로 쭉 가세요.",
+          "translation": "Рост ба пеш равед.",
+          "literal": "апхыро ччук касэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "삼 층에 있어요.",
+          "translation": "Дар ошёнаи сеюм аст.",
+          "literal": "сам чхынгэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "화장실이 멀어요?",
+          "translation": "Ҳоҷатхона дур аст?",
+          "literal": "ҳваҷангшири мороё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "정문 앞이에요.",
+          "translation": "Назди дарвоза.",
+          "literal": "чонгмун апхиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бригадир куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "반장님 찾아요. 어디 계세요?",
+          "cueTranslation": "Бригадирро меҷӯям. Куҷо ҳастанд?",
+          "intent": "Бигӯ: дар ошёнаи сеюм",
+          "text": "삼 층에 계세요.",
+          "accepts": [
+            "삼 층이요."
+          ],
+          "translation": "Дар ошёнаи сеюм.",
+          "literal": "сам чхынгэ кэсэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "사다리는요?",
+          "cueTranslation": "Нардбон чӣ?",
+          "intent": "Бигӯ: дар тарафи чап",
+          "text": "왼쪽에 있어요.",
+          "accepts": [],
+          "translation": "Дар тарафи чап.",
+          "literal": "венччогэ иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "감사합니다!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: хоҳиш мекунам",
+          "text": "아니에요.",
+          "accepts": [
+            "괜찮아요."
+          ],
+          "translation": "Хоҳиш мекунам.",
+          "literal": "аниэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хиштро куҷо гузорам?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "벽돌을 어디에 놓아요?",
+          "translation": "Хиштро куҷо гузорам?",
+          "literal": "пёктторыл одиэ ноаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "구석에 놓으세요.",
+          "translation": "Дар кунҷ гузоред.",
+          "literal": "кусогэ ноысэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "트럭이 정문에 있어요.",
+          "translation": "Боркаш назди дарвоза аст.",
+          "literal": "тхыроги чонгмунэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "이 길은 막혔어요.",
+          "translation": "Ин роҳ баста аст.",
+          "literal": "и кирын макхёссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "안 보여요.",
+          "translation": "Намебинам.",
+          "literal": "ан поёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "이쪽으로 오세요.",
+          "translation": "Ба ин тараф биёед.",
+          "literal": "иччогыро осэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Назди дарвоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어디예요? 안 보여요.",
+          "cueTranslation": "Куҷоед? Намебинам.",
+          "intent": "Бигӯ: назди дарвоза",
+          "text": "정문 앞이에요.",
+          "accepts": [
+            "정문 앞에 있어요."
+          ],
+          "translation": "Назди дарвоза.",
+          "literal": "чонгмун апхиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "큰 문이요?",
+          "cueTranslation": "Дари калон?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 큰 문이요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "기다리세요, 지금 가요.",
+          "cueTranslation": "Интизор шавед, ҳозир меоям.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: семент куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "시멘트 어디 있어요?",
+          "cueTranslation": "Семент куҷост?",
+          "intent": "Бигӯ: дар анбор",
+          "text": "창고에 있어요.",
+          "accepts": [],
+          "translation": "Дар анбор.",
+          "literal": "чханггоэ иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "창고는 어디예요?",
+          "cueTranslation": "Анбор куҷост?",
+          "intent": "Бигӯ: дар тарафи чап, назди дарвоза",
+          "text": "왼쪽, 정문 옆이에요.",
+          "accepts": [
+            "왼쪽이에요."
+          ],
+          "translation": "Дар тарафи чап, назди дарвоза.",
+          "literal": "венччок чонгмун ёпхиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "두 포대를 이 층으로 가져오세요.",
+          "cueTranslation": "Ду халтаро ба ошёнаи дуюм биёред.",
+          "intent": "Бипурс: ошёнаи дуюм?",
+          "text": "이 층이요?",
+          "accepts": [],
+          "translation": "Ошёнаи дуюм?",
+          "literal": "и чхынгиё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 저는 거기 있어요.",
+          "cueTranslation": "Ҳа, ман он ҷо ҳастам.",
+          "intent": "Бигӯ: хуб, ҳозир меоям",
+          "text": "네, 지금 가요.",
+          "accepts": [],
+          "translation": "Хуб, ҳозир меоям.",
+          "literal": "нэ чигым каё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

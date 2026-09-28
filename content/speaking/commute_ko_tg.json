@@ -1,0 +1,530 @@
+{
+  "slug": "commute_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "출근길",
+    "titleTranslated": "Роҳ то кор",
+    "scenario": "Ҳар саҳар ба кор меравед: автобус, такси, автобуси ширкат. Шумо роҳ мепурсед, бо ронанда нарх мегӯед ва агар дер кунед, ба бригадир хабар медиҳед.",
+    "emoji": "🚌",
+    "order": 13,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Нақлиёт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "버스",
+          "translation": "автобус",
+          "literal": "посы",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "택시",
+          "translation": "такси",
+          "literal": "тхэкшши",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "정류장",
+          "translation": "истгоҳ",
+          "literal": "чонгнюҷанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "표",
+          "translation": "чипта",
+          "literal": "пхё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "차가 막혀요",
+          "translation": "роҳ банд аст",
+          "literal": "чхага макхёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "늦어요",
+          "translation": "дер мекунам",
+          "literal": "ныҷоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бо чӣ меравед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "버스예요, 택시예요?",
+          "cueTranslation": "Автобус ё такси?",
+          "intent": "Бигӯ: автобус",
+          "text": "버스요.",
+          "accepts": [],
+          "translation": "Автобус.",
+          "literal": "посыё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "늦어요?",
+          "cueTranslation": "Дер мекунед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 좀 늦어요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "차가 막혀요?",
+          "cueTranslation": "Роҳ банд аст?",
+          "intent": "Бигӯ: ҳа, хеле банд",
+          "text": "네, 많이 막혀요.",
+          "accepts": [],
+          "translation": "Ҳа, хеле банд.",
+          "literal": "нэ мани макхёё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Истгоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "정류장이 어디예요?",
+          "translation": "Истгоҳ куҷост?",
+          "literal": "чонгнюҷанги одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "몇 번이에요?",
+          "translation": "Рақами чанд?",
+          "literal": "мёт пониэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "현장까지",
+          "translation": "то объект",
+          "literal": "ҳёнҷангккаҷи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "요금이 얼마예요?",
+          "translation": "Кироя чанд?",
+          "literal": "ёгыми олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "가는 중이에요",
+          "translation": "Дар роҳам",
+          "literal": "канын чунгиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "십 분",
+          "translation": "Даҳ дақиқа",
+          "literal": "шип пун",
+          "note": "Барои дақиқа рақамҳои ХИТОӢ-корейӣ: 오 분, 십 분.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Такси",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어디까지 가세요?",
+          "cueTranslation": "То куҷо меравед?",
+          "intent": "Бигӯ: то объект",
+          "text": "현장까지요.",
+          "accepts": [
+            "공사 현장까지 가요."
+          ],
+          "translation": "То объект.",
+          "literal": "ҳёнҷангккаҷиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "오만 원이에요.",
+          "cueTranslation": "Панҷоҳ ҳазор вон.",
+          "intent": "Бигӯ: қимат",
+          "text": "비싸요.",
+          "accepts": [
+            "너무 비싸요."
+          ],
+          "translation": "Қимат.",
+          "literal": "писсаё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "사만 원 어때요?",
+          "cueTranslation": "Чил ҳазор чӣ?",
+          "intent": "Бигӯ: хуб",
+          "text": "좋아요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "чоаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман дар роҳам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "버스 정류장이 어디예요?",
+          "translation": "Истгоҳи автобус куҷост?",
+          "literal": "посы чонгнюҷанги одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "현장 가는 버스 있어요?",
+          "translation": "Автобус ба объект ҳаст?",
+          "literal": "ҳёнҷанг канын посы иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "지금 가는 중이에요.",
+          "translation": "Ҳозир дар роҳам.",
+          "literal": "чигым канын чунгиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "좀 늦을 것 같아요.",
+          "translation": "Каме дер мекунам.",
+          "literal": "чом ныҷыл кот катхаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "여기서 세워 주세요.",
+          "translation": "Лутфан, ин ҷо истед.",
+          "literal": "ёгисо сэво чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "몇 분 걸려요?",
+          "translation": "Чанд дақиқа мегирад?",
+          "literal": "мёт пун коллёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бригадир занг мезанад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여보세요, 어디예요?",
+          "cueTranslation": "Алло, куҷоед?",
+          "intent": "Бигӯ: ҳозир дар роҳам",
+          "text": "지금 가는 중이에요.",
+          "accepts": [],
+          "translation": "Ҳозир дар роҳам.",
+          "literal": "чигым канын чунгиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "일 시작했어요!",
+          "cueTranslation": "Кор сар шуд!",
+          "intent": "Бигӯ: каме дер мекунам",
+          "text": "좀 늦을 것 같아요.",
+          "accepts": [
+            "죄송해요, 늦어요."
+          ],
+          "translation": "Каме дер мекунам.",
+          "literal": "чом ныҷыл кот катхаё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "몇 분 걸려요?",
+          "cueTranslation": "Чанд дақиқа мегирад?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "십 분이요.",
+          "accepts": [],
+          "translation": "Даҳ дақиқа.",
+          "literal": "шип пуниё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Автобуси ширкат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "버스를 놓쳤어요.",
+          "translation": "Аз автобус монда шудам.",
+          "literal": "посырыл нотчхоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "차가 많이 막혀요.",
+          "translation": "Роҳ хеле банд аст.",
+          "literal": "чхага мани макхёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "회사 버스 있어요?",
+          "translation": "Автобуси ширкат ҳаст?",
+          "literal": "ҳвеса посы иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "어디서 내려요?",
+          "translation": "Куҷо фуроям?",
+          "literal": "одисо нэрёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "여기서 내릴게요.",
+          "translation": "Ин ҷо мефуроям.",
+          "literal": "ёгисо нэрилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "표 한 장 주세요.",
+          "translation": "Як чипта диҳед.",
+          "literal": "пхё ҳан чанг чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чаро дер кардед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "왜 늦었어요?",
+          "cueTranslation": "Чаро дер кардед?",
+          "intent": "Бигӯ: аз автобус монда шудам",
+          "text": "버스를 놓쳤어요.",
+          "accepts": [
+            "차가 막혔어요."
+          ],
+          "translation": "Аз автобус монда шудам.",
+          "literal": "посырыл нотчхоссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "회사 버스는 여섯 시에 있어요.",
+          "cueTranslation": "Автобуси ширкат соати шаш аст.",
+          "intent": "Бипурс: аз куҷо?",
+          "text": "어디서요?",
+          "accepts": [],
+          "translation": "Аз куҷо?",
+          "literal": "одисоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "기숙사 앞에서요.",
+          "cueTranslation": "Аз назди хобгоҳ.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: такси то объект",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어디까지 가세요?",
+          "cueTranslation": "То куҷо меравед?",
+          "intent": "Бигӯ: то объекти сохтмон",
+          "text": "공사 현장까지 가요.",
+          "accepts": [
+            "현장까지요."
+          ],
+          "translation": "То объекти сохтмон.",
+          "literal": "конгса ҳёнҷангккаҷи каё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어느 현장이요?",
+          "cueTranslation": "Кадом объект?",
+          "intent": "Бигӯ: назди бозор",
+          "text": "시장 옆이에요.",
+          "accepts": [],
+          "translation": "Назди бозор.",
+          "literal": "шиҷанг ёпхиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "삼만 원이에요.",
+          "cueTranslation": "Сӣ ҳазор вон.",
+          "intent": "Бигӯ: хуб, тезтар равед, дер кардам",
+          "text": "네, 빨리 가 주세요. 늦었어요.",
+          "accepts": [
+            "빨리 가 주세요."
+          ],
+          "translation": "Хуб, тезтар равед. Дер кардам.",
+          "literal": "нэ ппалли ка чусэё ныҷоссоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "도착했어요.",
+          "cueTranslation": "Расидем.",
+          "intent": "Бигӯ: ин ҷо мефуроям, ташаккур",
+          "text": "여기서 내릴게요. 감사합니다.",
+          "accepts": [
+            "감사합니다."
+          ],
+          "translation": "Ин ҷо мефуроям. Ташаккур.",
+          "literal": "ёгисо нэрилгэё камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

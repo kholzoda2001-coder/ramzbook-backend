@@ -1,0 +1,519 @@
+{
+  "slug": "rent_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "방 구하기",
+    "titleTranslated": "Иҷораи хона",
+    "scenario": "Шумо ҳуҷра ё ҷой дар хобгоҳ меҷӯед. Нарх, гарав, барқ ва калидро мепурсед, ҳуҷраро мебинед ва шартнома мехоҳед. Миссия — бо телефон.",
+    "emoji": "🏠",
+    "order": 14,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "방",
+          "translation": "ҳуҷра",
+          "literal": "панг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "기숙사",
+          "translation": "хобгоҳ",
+          "literal": "кисуксса",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "월세",
+          "translation": "иҷорапулии моҳона",
+          "literal": "волсэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "열쇠",
+          "translation": "калид",
+          "literal": "ёлсве",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "부엌",
+          "translation": "ошхона",
+          "literal": "пуок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "화장실",
+          "translation": "ҳоҷатхона (ҳаммом)",
+          "literal": "ҳваҷангшил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷра меҷӯед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "방 찾아요?",
+          "cueTranslation": "Ҳуҷра меҷӯед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "혼자 살아요?",
+          "cueTranslation": "Танҳо зиндагӣ мекунед?",
+          "intent": "Бигӯ: ҳа, танҳо",
+          "text": "네, 혼자요.",
+          "accepts": [],
+          "translation": "Ҳа, танҳо.",
+          "literal": "нэ ҳонҷаё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "오늘 들어와요?",
+          "cueTranslation": "Имрӯз кӯчида меоед?",
+          "intent": "Бигӯ: фардо",
+          "text": "내일이요.",
+          "accepts": [],
+          "translation": "Фардо.",
+          "literal": "нэириё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Иҷора",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "월세 방",
+          "translation": "Ҳуҷраи иҷора",
+          "literal": "волсэ панг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "월세가 얼마예요?",
+          "translation": "Иҷора чанд?",
+          "literal": "волсэга олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "한 달에",
+          "translation": "Дар як моҳ",
+          "literal": "ҳан тарэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "부엌 있어요?",
+          "translation": "Ошхона ҳаст?",
+          "literal": "пуок иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "보증금",
+          "translation": "гарав",
+          "literal": "поҷынггым",
+          "note": "Пули пешакӣ, ки баъд аз рафтан бармегардад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "언제 이사해요?",
+          "translation": "Кай кӯчам?",
+          "literal": "онҷэ исаҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳуҷраи холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "월세 방 있어요.",
+          "cueTranslation": "Ҳуҷраи иҷора ҳаст.",
+          "intent": "Бипурс: иҷора чанд?",
+          "text": "월세가 얼마예요?",
+          "accepts": [],
+          "translation": "Иҷора чанд?",
+          "literal": "волсэга олмаэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "한 달에 삼십만 원이에요.",
+          "cueTranslation": "Дар як моҳ сесад ҳазор вон.",
+          "intent": "Бипурс: ошхона ҳаст?",
+          "text": "부엌 있어요?",
+          "accepts": [],
+          "translation": "Ошхона ҳаст?",
+          "literal": "пуок иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 화장실도 있어요.",
+          "cueTranslation": "Ҳа, ҳаммом ҳам ҳаст.",
+          "intent": "Бигӯ: хуб",
+          "text": "좋아요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "чоаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "방을 찾아요.",
+          "translation": "Ҳуҷра меҷӯям.",
+          "literal": "пангыл чхаҷаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "방 비었어요?",
+          "translation": "Ҳуҷра холист?",
+          "literal": "панг пиоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "방을 보고 싶어요.",
+          "translation": "Ҳуҷраро дидан мехоҳам.",
+          "literal": "пангыл пого шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "보증금이 있어요?",
+          "translation": "Гарав ҳаст?",
+          "literal": "поҷынггыми иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "월세가 비싸요.",
+          "translation": "Иҷора қимат аст.",
+          "literal": "волсэга писсаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "기숙사 어디예요?",
+          "translation": "Хобгоҳ куҷост?",
+          "literal": "кисуксса одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Вохӯрӣ бо соҳиби хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "방 준비됐어요.",
+          "cueTranslation": "Ҳуҷра тайёр аст.",
+          "intent": "Бигӯ: ҳуҷраро дидан мехоҳам",
+          "text": "방을 보고 싶어요.",
+          "accepts": [],
+          "translation": "Ҳуҷраро дидан мехоҳам.",
+          "literal": "пангыл пого шипхоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "내일 다섯 시에 오세요.",
+          "cueTranslation": "Фардо соати панҷ биёед.",
+          "intent": "Бигӯ: хуб, фардо соати панҷ",
+          "text": "네, 내일 다섯 시에요.",
+          "accepts": [],
+          "translation": "Хуб, фардо соати панҷ.",
+          "literal": "нэ нэил тасот шиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "보증금은 백만 원이에요.",
+          "cueTranslation": "Гарав як миллион вон.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Шартнома",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "전기세 포함이에요?",
+          "translation": "Пули барқ дохил аст?",
+          "literal": "чонгисэ пхоҳамиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "열쇠 어디 있어요?",
+          "translation": "Калид куҷост?",
+          "literal": "ёлсве оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "에어컨이 안 돼요.",
+          "translation": "Кондитсионер кор намекунад.",
+          "literal": "эокхони ан твеё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "매달 낼게요.",
+          "translation": "Ҳар моҳ пардохт мекунам.",
+          "literal": "мэдал нэлгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "계약서 주세요.",
+          "translation": "Шартнома диҳед.",
+          "literal": "кэякссо чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "방이 깨끗해요.",
+          "translation": "Ҳуҷра тоза аст.",
+          "literal": "панги ккэккытхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дар ҳуҷра",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여기가 방이에요.",
+          "cueTranslation": "Ҳуҷра ҳамин аст.",
+          "intent": "Бигӯ: ҳуҷра тоза аст",
+          "text": "방이 깨끗해요.",
+          "accepts": [
+            "좋아요."
+          ],
+          "translation": "Ҳуҷра тоза аст.",
+          "literal": "панги ккэккытхэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "월세는 매달 내요.",
+          "cueTranslation": "Иҷораро ҳар моҳ медиҳед.",
+          "intent": "Бипурс: пули барқ дохил аст?",
+          "text": "전기세 포함이에요?",
+          "accepts": [],
+          "translation": "Пули барқ дохил аст?",
+          "literal": "чонгисэ пхоҳамиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네. 할 거예요?",
+          "cueTranslation": "Ҳа. Мегиред?",
+          "intent": "Бигӯ: ҳа, шартнома диҳед",
+          "text": "네, 계약서 주세요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, шартнома диҳед.",
+          "literal": "нэ кэякссо чусэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг барои ҳуҷра",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여보세요?",
+          "cueTranslation": "Алло?",
+          "intent": "Салом гӯй ва бигӯ, ки ҳуҷра меҷӯӣ",
+          "text": "안녕하세요, 방을 찾아요.",
+          "accepts": [
+            "방을 찾아요."
+          ],
+          "translation": "Салом, ҳуҷра меҷӯям.",
+          "literal": "аннёнгҳасэё пангыл чхаҷаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "빈방 있어요.",
+          "cueTranslation": "Ҳуҷраи холӣ ҳаст.",
+          "intent": "Бипурс: иҷора чанд?",
+          "text": "월세가 얼마예요?",
+          "accepts": [],
+          "translation": "Иҷора чанд?",
+          "literal": "волсэга олмаэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "한 달에 이십오만 원이에요.",
+          "cueTranslation": "Дар як моҳ дусаду панҷоҳ ҳазор вон.",
+          "intent": "Бигӯ: ҳуҷраро дидан мехоҳам",
+          "text": "방을 보고 싶어요.",
+          "accepts": [],
+          "translation": "Ҳуҷраро дидан мехоҳам.",
+          "literal": "пангыл пого шипхоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "오늘 여섯 시에 오세요.",
+          "cueTranslation": "Имрӯз соати шаш биёед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "네, 감사합니다.",
+          "accepts": [],
+          "translation": "Хуб, ташаккур.",
+          "literal": "нэ камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

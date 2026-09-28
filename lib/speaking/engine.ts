@@ -654,6 +654,21 @@ const LANG_LISTS: Record<string, LangChainLists> = {
       'عشرة', 'عشرون', 'عشرين', 'ثلاثون', 'ثلاثين', 'مئة', 'مائة',
     ]),
   },
+  // ── КОРЕЯГӢ (28.09.2026) ───────────────────────────────────────────────
+  // Пасвандҳо (는/을/에…) ба калима часпидаанд, пас хатари асосӣ — калимаи
+  // МУАЙЯНКУНАНДА, ки пеш аз исм ҷудо навишта мешавад: ишора (이/그/저), саволӣ
+  // (몇/무슨/어느), шумораи корейӣ пеш аз шумора (한/두/세 개). Бе онҳо порча
+  // маъно надорад: «사과 세 개 주세요» → «개 주세요» ✗, «이 사람» → «사람…» ✗.
+  ko: {
+    blocked: new Set<string>(),
+    wh: new Set<string>(),
+    glued: new Set<string>([
+      '이', '그', '저', '몇', '무슨', '어느', '어떤', '모든', '다른', '새', '첫',
+      // соҳибӣ ва сифати пеш аз исм: «제 시간이», «좋은 하루», «시원한 물»
+      '제', '내', '우리', '저희', '좋은', '시원한', '큰', '작은', '새로', '이런', '그런',
+      '한', '두', '세', '네', '다섯', '여섯', '일곱', '여덟', '아홉', '열', '스무',
+    ]),
+  },
 };
 
 /**
@@ -678,6 +693,36 @@ function arCutsNounAdjective(prev: string, cur: string): boolean {
 
 /** Калимае, ки ибораи ПЕШИНро тамом мекунад («النُّور،», «شَيْء.») — порча аз он сар намешавад. */
 const AR_ENDS_CLAUSE = /[\u060C\u061F,.!?:;]$/;
+
+/**
+ * Кореягӣ (28.09.2026): исми ВОБАСТА ва шумора бе калимаи пешин маъно надорад —
+ * «주실 수 있어요» → «수 있어요?» ✗, «일곱 시에» → «시에 …» ✗, «십만 원» → «원 적어요» ✗,
+ * «사다리 옆에» → «옆에 있어요» ✗. Пасвандҳо (에, 이, 까지, 이에요…) пеш аз санҷиш
+ * бурида мешаванд. «안» (инкор: «안 돼요») ҚАСДАН дар рӯйхат нест.
+ */
+const KO_DEPENDENT = new Set([
+  '수', '것', '걸', '거', '게', '중', '때', '줄', '데',
+  '개', '명', '번', '시', '분', '장', '층', '원', '살', '미터', '포대', '시간',
+  '옆', '앞', '뒤', '밖', '온', '주실', '있지',
+]);
+const KO_PARTICLES = ['이에요', '에서', '까지', '부터', '한테', '에게', '으로', '에요', '예요', '이요',
+  '로', '에', '이', '가', '을', '를', '은', '는', '도', '만', '요'];
+function koHead(word: string): string {
+  let h = bare(word);
+  for (let k = 0; k < 3; k++) {
+    const p = KO_PARTICLES.find((x) => h.length > x.length && h.endsWith(x));
+    if (!p) break;
+    h = h.slice(0, -p.length);
+  }
+  return h;
+}
+function koDependentStart(word: string): boolean {
+  const b = bare(word);
+  return KO_DEPENDENT.has(b) || KO_DEPENDENT.has(koHead(word));
+}
+/** Пайвасткунаки «-하고» (빵하고 우유 — «нон ВА шир»): исми баъдӣ бе он канда мешавад. */
+const koGluedBefore = (word: string, cfg: EngineConfig) =>
+  cfg.lang === 'ko' && bare(word).length > 2 && bare(word).endsWith('하고');
 
 const isBlockedStart = (w: string, cfg: EngineConfig) =>
   CHAIN_BLOCKED_STARTS.has(w) || (cfg.lang ? !!LANG_LISTS[cfg.lang]?.blocked.has(w) : false);
@@ -707,20 +752,24 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
 
     if (isBlockedStart(bare(w[start]), cfg)) continue; // қоидаи 1
     if (start > 0 && isWhWord(bare(w[start - 1]), cfg)) continue; // қоидаи 2
-    if (cfg.lang === 'ar' && AR_ENDS_CLAUSE.test(w[start])) continue;
+    const arKo = cfg.lang === 'ar' || cfg.lang === 'ko';
+    if (arKo && AR_ENDS_CLAUSE.test(w[start])) continue;
+    if (cfg.lang === 'ko' && koDependentStart(w[start])) continue;
+    // Порча ду ҷумларо намепайвандад: «빨리 가 주세요. 늦었어요.» → «가 주세요. 늦었어요.» ✗.
+    if (arKo && w.slice(start, n - 1).some((x) => /[.!?\u061F]$/.test(x))) continue;
     if (cfg.lang === 'ar' && start > 0 && arCutsNounAdjective(w[start - 1], w[start])) continue;
 
     // қоидаи 3 — муайянкунанда/адади пешомадаро ба чунк мечаспонем
     const plain = w.slice(start).join(' ');
     let glued = start;
-    while (glued > 0 && isGluedBefore(bare(w[glued - 1]), cfg)) glued--;
+    while (glued > 0 && (isGluedBefore(bare(w[glued - 1]), cfg) || koGluedBefore(w[glued - 1], cfg))) glued--;
 
     // Агар часпондан тамоми ҷумларо диҳад, шакли бечаспро мегирем:
     // «The bill, please.» набояд ба худи ҷумла табдил ёбад.
     let seg = w.slice(glued).join(' ');
     // Арабӣ: бе калимаи часпанда порча маъно надорад («شَيْءٍ تَمَام» бе «كُلُّ») —
     // пас агар часпондан тамоми ҷумларо диҳад, порча НЕСТ, на шакли бечасп.
-    if (seg === full && cfg.lang === 'ar' && glued < start) continue;
+    if (seg === full && arKo && glued < start) continue;
     if (seg === full) seg = plain;
     if (seg === full) continue; // чунк набояд тамоми ҷумла бошад
     if (!out.includes(seg)) out.push(seg);

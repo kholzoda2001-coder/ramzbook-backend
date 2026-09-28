@@ -1,0 +1,516 @@
+{
+  "slug": "pay_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "월급과 근무 시간",
+    "titleTranslated": "Музд ва вақти кор",
+    "scenario": "Гап дар бораи пул: музд кай ва чанд, кори иловагӣ, пешпардохт. Агар музд кам бошад, шумо ором мефаҳмонед, ки чаро, ва хоҳиш мекунед санҷанд.",
+    "emoji": "💵",
+    "order": 12,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул ва вақт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "월급",
+          "translation": "музди моҳона",
+          "literal": "волгып",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "시간",
+          "translation": "соат",
+          "literal": "шиган",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "야근",
+          "translation": "кори иловагӣ (шабона)",
+          "literal": "ягын",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "가불",
+          "translation": "пешпардохт",
+          "literal": "кабул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "달",
+          "translation": "моҳ",
+          "literal": "тал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "주",
+          "translation": "ҳафта",
+          "literal": "чу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Саволҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "야근해요?",
+          "cueTranslation": "Кори иловагӣ мекунед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "월급은 매달이에요, 매주예요?",
+          "cueTranslation": "Музд ҳар моҳ ё ҳар ҳафта?",
+          "intent": "Бигӯ: ҳар моҳ",
+          "text": "매달이요.",
+          "accepts": [],
+          "translation": "Ҳар моҳ.",
+          "literal": "мэдариё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "통장으로요, 현금으로요?",
+          "cueTranslation": "Ба ҳисоби бонкӣ ё нақд?",
+          "intent": "Бигӯ: ба ҳисоб",
+          "text": "통장으로요.",
+          "accepts": [],
+          "translation": "Ба ҳисоб.",
+          "literal": "тхонгҷангыроё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Музд кай?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "매달 받아요",
+          "translation": "Ҳар моҳ мегирам",
+          "literal": "мэдал падаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "월급날이 언제예요?",
+          "translation": "Рӯзи музд кай?",
+          "literal": "волгымнари онҷээё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "여덟 시간",
+          "translation": "Ҳашт соат",
+          "literal": "ёдол шиган",
+          "note": "Барои соат (давомнокӣ) рақамҳои КОРЕЙӢ: 여덟 시간.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "일요일",
+          "translation": "якшанбе",
+          "literal": "ирёил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "야근 수당",
+          "translation": "Пули кори иловагӣ",
+          "literal": "ягын суданг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "쉬는 날",
+          "translation": "рӯзи истироҳат",
+          "literal": "швинын нал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҷадвали кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "하루에 몇 시간 일해요?",
+          "cueTranslation": "Рӯзе чанд соат кор мекунед?",
+          "intent": "Бигӯ: ҳашт соат",
+          "text": "여덟 시간이요.",
+          "accepts": [],
+          "translation": "Ҳашт соат.",
+          "literal": "ёдол шиганиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "쉬는 날은요?",
+          "cueTranslation": "Рӯзи истироҳат-чӣ?",
+          "intent": "Бигӯ: якшанбе",
+          "text": "일요일이요.",
+          "accepts": [],
+          "translation": "Якшанбе.",
+          "literal": "ирёириё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "질문 있어요?",
+          "cueTranslation": "Савол доред?",
+          "intent": "Бипурс: рӯзи музд кай?",
+          "text": "월급날이 언제예요?",
+          "accepts": [],
+          "translation": "Рӯзи музд кай?",
+          "literal": "волгымнари онҷээё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "월급은 언제 받아요?",
+          "translation": "Музд кай мегирем?",
+          "literal": "волгыбын онҷэ падаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "여덟 시간 일했어요.",
+          "translation": "Ҳашт соат кор кардам.",
+          "literal": "ёдол шиган илҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "가불하고 싶어요.",
+          "translation": "Пешпардохт мехоҳам.",
+          "literal": "кабулҳаго шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "월급이 적어요.",
+          "translation": "Музд кам аст.",
+          "literal": "волгыби чогоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "야근 수당 있어요?",
+          "translation": "Пули кори иловагӣ ҳаст?",
+          "literal": "ягын суданг иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "일요일에도 일해요?",
+          "translation": "Якшанбе ҳам кор мекунем?",
+          "literal": "ирёирэдо илҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Пешпардохт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "월급은 월말에 나와요.",
+          "cueTranslation": "Музд охири моҳ мебарояд.",
+          "intent": "Бигӯ: пешпардохт мехоҳам",
+          "text": "가불하고 싶어요.",
+          "accepts": [],
+          "translation": "Пешпардохт мехоҳам.",
+          "literal": "кабулҳаго шипхоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "얼마요?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: панҷсад ҳазор вон",
+          "text": "오십만 원이요.",
+          "accepts": [],
+          "translation": "Панҷсад ҳазор вон.",
+          "literal": "ошимман вониё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "알겠어요, 내일 줄게요.",
+          "cueTranslation": "Хуб, фардо медиҳам.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Музд кам аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "월급이 십만 원 적어요.",
+          "translation": "Аз музд сад ҳазор вон кам аст.",
+          "literal": "волгыби шимман вон чогоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "아직 월급을 못 받았어요.",
+          "translation": "Ҳанӯз музд нагирифтам.",
+          "literal": "аҷик волгыбыл мот падассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "일요일에도 일했어요.",
+          "translation": "Якшанбе ҳам кор кардам.",
+          "literal": "ирёирэдо илҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 틀렸어요.",
+          "translation": "Ин хато аст.",
+          "literal": "иго тхыллёссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "확인해 주세요.",
+          "translation": "Лутфан, санҷед.",
+          "literal": "ҳвагинҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "경리 어디 있어요?",
+          "translation": "Ҳисобдор куҷост?",
+          "literal": "кёнгни оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Музди моҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "이번 달 월급이에요.",
+          "cueTranslation": "Ин музди ҳамин моҳ.",
+          "intent": "Бигӯ: музд кам аст",
+          "text": "월급이 적어요.",
+          "accepts": [
+            "이거 틀렸어요."
+          ],
+          "translation": "Музд кам аст.",
+          "literal": "волгыби чогоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "왜요?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: якшанбе ҳам кор кардам",
+          "text": "일요일에도 일했어요.",
+          "accepts": [],
+          "translation": "Якшанбе ҳам кор кардам.",
+          "literal": "ирёирэдо илҳэссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "맞아요. 경리한테 확인할게요.",
+          "cueTranslation": "Дуруст. Бо ҳисобдор месанҷам.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: хато дар музд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요, 무슨 일이에요?",
+          "cueTranslation": "Салом, чӣ гап?",
+          "intent": "Бигӯ: музд кам аст",
+          "text": "월급이 적어요.",
+          "accepts": [],
+          "translation": "Музд кам аст.",
+          "literal": "волгыби чогоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "얼마 적어요?",
+          "cueTranslation": "Чӣ қадар кам?",
+          "intent": "Бигӯ: сад ҳазор вон",
+          "text": "십만 원이요.",
+          "accepts": [],
+          "translation": "Сад ҳазор вон.",
+          "literal": "шимман вониё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "왜요?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: ду соат кори иловагӣ кардам",
+          "text": "야근을 두 시간 했어요.",
+          "accepts": [],
+          "translation": "Ду соат кори иловагӣ кардам.",
+          "literal": "ягыныл ту шиган ҳэссоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "알겠어요, 고칠게요.",
+          "cueTranslation": "Хуб, ислоҳ мекунам.",
+          "intent": "Ташаккур гӯй",
+          "text": "정말 감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккури зиёд.",
+          "literal": "чонгмал камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

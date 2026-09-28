@@ -272,6 +272,15 @@ export function retryNote(problem: 'no_question' | 'many_questions' | 'repeat'):
  *    ة/ه ҳеҷ гоҳ «хато» нестанд (бе ин модел ҳар ҷумлаи дурустро «ислоҳ» мекард).
  */
 export function scriptRules(language: string): string {
+  if (/korean/i.test(language)) {
+    // Кореягӣ (28.09.2026): курси мо 해요체-ро меомӯзонад (-요); сатҳи дигар
+    // (합니다체 ё 반말) навомӯзро гум мекунад. Ва STT фосилагузорӣ ва рақамро
+    // гоҳ дигар хел менависад («3개») — ин хато нест.
+    return (
+      'Write Korean in Hangul only (no Hanja, no romanization), in the polite 해요체 style (endings with -요) in every line. ' +
+      "The learner's text is speech-to-text: never treat spacing or digits instead of number words as a mistake."
+    );
+  }
   if (!/arab/i.test(language)) return '';
   return (
     'Write in simple Modern Standard Arabic and put FULL diacritics (tashkeel/harakat) on EVERY Arabic word you write, ' +
@@ -556,6 +565,8 @@ export function saysGoodbye(text: string): boolean {
     'tschüss', 'auf wiedersehen', 'görüşürüz', 'hoşça kal',
     // арабӣ — БЕ ҳаракат (`bare` онҳоро мепартояд); ҳамза ду хел, чунки STT гоҳ менависад, гоҳ не
     'مع السلامة', 'مع السلامه', 'إلى اللقاء', 'الى اللقاء', 'وداعا', 'باي',
+    // кореягӣ
+    '안녕히 계세요', '안녕히 가세요', '또 만나요', '또 봐요', '잘 가요', '안녕',
   ]
     .map(bare) // ҳамон якхелакунӣ, ки матни хонанда мегирад (ҳамза, ى, ة)
     .some((p) => t === p || t.endsWith(` ${p}`) || t.startsWith(`${p} `));

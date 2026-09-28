@@ -1,0 +1,524 @@
+{
+  "slug": "hours_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "근무 시간과 출근부",
+    "titleTranslated": "Соатҳо ва табел",
+    "scenario": "Ҳар рӯз омадан ва рафтанро дар табел (출근부) сабт мекунанд — аз он музд ҳисоб мешавад. Шумо имзо мегузоред, соатҳоятонро мегӯед ва хаторо нишон медиҳед.",
+    "emoji": "🕗",
+    "order": 20,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Табел",
+      "items": [
+        {
+          "kind": "word",
+          "text": "출근부",
+          "translation": "табел (дафтари ҳозирӣ)",
+          "literal": "чхулгынбу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "사인하세요",
+          "translation": "имзо кунед",
+          "literal": "саинҳасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "시작했어요",
+          "translation": "сар кардам",
+          "literal": "шиҷакхэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "끝냈어요",
+          "translation": "тамом кардам",
+          "literal": "ккыннэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "쉬는 시간",
+          "translation": "танаффус",
+          "literal": "швинын шиган",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "분",
+          "translation": "дақиқа",
+          "literal": "пун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Имзо гузоштед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "오늘 사인했어요?",
+          "cueTranslation": "Имрӯз имзо гузоштед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "일곱 시에 시작했어요, 여덟 시에 시작했어요?",
+          "cueTranslation": "Соати ҳафт сар кардед ё ҳашт?",
+          "intent": "Бигӯ: соати ҳафт",
+          "text": "일곱 시요.",
+          "accepts": [
+            "일곱 시에요."
+          ],
+          "translation": "Соати ҳафт.",
+          "literal": "илгоп шиё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "쉬는 시간이 얼마였어요?",
+          "cueTranslation": "Танаффус чанд буд?",
+          "intent": "Бигӯ: сӣ дақиқа",
+          "text": "삼십 분이요.",
+          "accepts": [],
+          "translation": "Сӣ дақиқа.",
+          "literal": "самшип пуниё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Имзо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "여기 사인하세요",
+          "translation": "Ин ҷо имзо кунед",
+          "literal": "ёги саинҳасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "여덟 시간",
+          "translation": "Ҳашт соат",
+          "literal": "ёдол шиган",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "삼십 분",
+          "translation": "Сӣ дақиқа",
+          "literal": "самшип пун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "근무 시간",
+          "translation": "Соатҳои кор",
+          "literal": "кынму шиган",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "일곱 시에",
+          "translation": "Соати ҳафт",
+          "literal": "илгоп шиэ",
+          "note": "Барои «соати чанд» рақамҳои КОРЕЙӢ: 일곱 시, 다섯 시.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "다섯 시에",
+          "translation": "Соати панҷ",
+          "literal": "тасот шиэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Саҳар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "좋은 아침이에요! 여기 사인하세요.",
+          "cueTranslation": "Субҳ ба хайр! Ин ҷо имзо кунед.",
+          "intent": "Бипурс: ин ҷо?",
+          "text": "여기요?",
+          "accepts": [],
+          "translation": "Ин ҷо?",
+          "literal": "ёгиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "네. 다섯 시에도 사인하세요.",
+          "cueTranslation": "Ҳа. Соати панҷ ҳам имзо кунед.",
+          "intent": "Бигӯ: хуб, соати панҷ",
+          "text": "네, 다섯 시에요.",
+          "accepts": [],
+          "translation": "Хуб, соати панҷ.",
+          "literal": "нэ тасот шиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "오늘 몇 시간 일해요?",
+          "cueTranslation": "Имрӯз чанд соат кор мекунед?",
+          "intent": "Бигӯ: ҳашт соат",
+          "text": "여덟 시간이요.",
+          "accepts": [],
+          "translation": "Ҳашт соат.",
+          "literal": "ёдол шиганиё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Соатҳои ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "일곱 시에 시작했어요.",
+          "translation": "Соати ҳафт сар кардам.",
+          "literal": "илгоп шиэ шиҷакхэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "다섯 시에 끝냈어요.",
+          "translation": "Соати панҷ тамом кардам.",
+          "literal": "тасот шиэ ккыннэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "제 시간이 틀렸어요.",
+          "translation": "Соатҳои ман нодурустанд.",
+          "literal": "чэ шигани тхыллёссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "어디에 사인해요?",
+          "translation": "Куҷо имзо кунам?",
+          "literal": "одиэ саинҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "여덟 시간 일했어요.",
+          "translation": "Ҳашт соат кор кардам.",
+          "literal": "ёдол шиган илҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "사인하는 걸 잊었어요.",
+          "translation": "Имзо гузоштанро фаромӯш кардам.",
+          "literal": "саинҳанын кол иҷоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Хато дар табел",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "출근부에 여섯 시간이에요.",
+          "cueTranslation": "Дар табел шаш соат.",
+          "intent": "Бигӯ: соатҳои ман нодурустанд",
+          "text": "제 시간이 틀렸어요.",
+          "accepts": [
+            "틀렸어요."
+          ],
+          "translation": "Соатҳои ман нодурустанд.",
+          "literal": "чэ шигани тхыллёссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "왜요? 몇 시에 시작했어요?",
+          "cueTranslation": "Чаро? Соати чанд сар кардед?",
+          "intent": "Бигӯ: соати ҳафт сар кардам",
+          "text": "일곱 시에 시작했어요.",
+          "accepts": [
+            "일곱 시요."
+          ],
+          "translation": "Соати ҳафт сар кардам.",
+          "literal": "илгоп шиэ шиҷакхэссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "몇 시에 끝냈어요?",
+          "cueTranslation": "Соати чанд тамом кардед?",
+          "intent": "Бигӯ: соати панҷ тамом кардам",
+          "text": "다섯 시에 끝냈어요.",
+          "accepts": [
+            "다섯 시요."
+          ],
+          "translation": "Соати панҷ тамом кардам.",
+          "literal": "тасот шиэ ккыннэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Шанбе ва танаффус",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "토요일에 일했어요.",
+          "translation": "Шанбе кор кардам.",
+          "literal": "тхоёирэ илҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "쉬는 시간이 없었어요.",
+          "translation": "Танаффус надоштам.",
+          "literal": "швинын шигани опссоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 확인해 주세요.",
+          "translation": "Лутфан, боз санҷед.",
+          "literal": "таши ҳвагинҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "토요일",
+          "translation": "шанбе",
+          "literal": "тхоёил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "확인 감사합니다.",
+          "translation": "Ташаккур барои санҷиш.",
+          "literal": "ҳвагин камсаҳамнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "고쳐 주실 수 있어요?",
+          "translation": "Ислоҳ карда метавонед?",
+          "literal": "кочхо чушил су иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ислоҳи табел",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "알겠어요, 고칠게요.",
+          "cueTranslation": "Хуб, ислоҳ мекунам.",
+          "intent": "Бигӯ: шанбе ҳам кор кардам",
+          "text": "토요일에도 일했어요.",
+          "accepts": [],
+          "translation": "Шанбе ҳам кор кардам.",
+          "literal": "тхоёирэдо илҳэссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "토요일이요? 몇 시간이요?",
+          "cueTranslation": "Шанбе? Чанд соат?",
+          "intent": "Бигӯ: шаш соат",
+          "text": "여섯 시간이요.",
+          "accepts": [],
+          "translation": "Шаш соат.",
+          "literal": "ёсот шиганиё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "쉬는 시간은요?",
+          "cueTranslation": "Танаффус-чӣ?",
+          "intent": "Бигӯ: танаффус надоштам",
+          "text": "쉬는 시간이 없었어요.",
+          "accepts": [],
+          "translation": "Танаффус надоштам.",
+          "literal": "швинын шигани опссоссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: саҳари кор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요. 오늘 사인했어요?",
+          "cueTranslation": "Салом. Имрӯз имзо гузоштед?",
+          "intent": "Бигӯ: не, фаромӯш кардам",
+          "text": "아니요, 잊었어요.",
+          "accepts": [
+            "사인하는 걸 잊었어요."
+          ],
+          "translation": "Не, фаромӯш кардам.",
+          "literal": "аниё иҷоссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "괜찮아요. 몇 시에 시작했어요?",
+          "cueTranslation": "Ҳеҷ гап не. Соати чанд сар кардед?",
+          "intent": "Бигӯ: соати ҳафт сар кардам",
+          "text": "일곱 시에 시작했어요.",
+          "accepts": [],
+          "translation": "Соати ҳафт сар кардам.",
+          "literal": "илгоп шиэ шиҷакхэссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "몇 시에 끝나요?",
+          "cueTranslation": "Соати чанд тамом мекунед?",
+          "intent": "Бигӯ: соати панҷ",
+          "text": "다섯 시에요.",
+          "accepts": [],
+          "translation": "Соати панҷ.",
+          "literal": "тасот шиэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "좋아요. 여기 사인하세요.",
+          "cueTranslation": "Хуб. Ин ҷо имзо кунед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "네, 감사합니다.",
+          "accepts": [],
+          "translation": "Хуб, ташаккур.",
+          "literal": "нэ камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

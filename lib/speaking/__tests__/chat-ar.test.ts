@@ -116,7 +116,7 @@ describe('видоъи суҳбати озод — скрипти аудио б�
     const { readFileSync } = await import('node:fs');
     const path = await import('node:path');
     const src = readFileSync(path.resolve(import.meta.dirname, '../../../prisma/_speaking-real-audio-lang.mjs'), 'utf8');
-    for (const lang of ['ru', 'en', 'ar']) {
+    for (const lang of ['ru', 'en', 'ar', 'ko']) {
       const m = new RegExp(String.raw`\n  ${lang}: \{[\s\S]*?closing: '([^']+)'`).exec(src);
       expect(m?.[1], lang).toBe(closingLine(lang).text);
     }

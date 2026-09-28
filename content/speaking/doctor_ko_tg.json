@@ -1,0 +1,520 @@
+{
+  "slug": "doctor_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "병원에서",
+    "titleTranslated": "Назди духтур",
+    "scenario": "Шумо бемор шудед ва назди духтур меравед. Мегӯед, ки чӣ дард мекунад ва аз кай, дар бораи таб ва аллергия ҷавоб медиҳед ва мепурсед, ки доруро чӣ хел хӯред.",
+    "emoji": "🩺",
+    "order": 6,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Бадан",
+      "items": [
+        {
+          "kind": "word",
+          "text": "머리",
+          "translation": "сар",
+          "literal": "мори",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "배",
+          "translation": "шикам",
+          "literal": "пэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "허리",
+          "translation": "камар",
+          "literal": "ҳори",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "열",
+          "translation": "таб",
+          "literal": "ёл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "약",
+          "translation": "дору",
+          "literal": "як",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "약국",
+          "translation": "дорухона",
+          "literal": "яккук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ дард мекунад?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어디가 아파요? 머리?",
+          "cueTranslation": "Куҷоятон дард мекунад? Сар?",
+          "intent": "Бигӯ: шикам",
+          "text": "배요.",
+          "accepts": [
+            "배가 아파요."
+          ],
+          "translation": "Шикам.",
+          "literal": "пэё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "열이 있어요?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 열이 있어요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "언제부터요? 오늘?",
+          "cueTranslation": "Аз кай? Аз имрӯз?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "어제부터요.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "оҷэбутхоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ман беморам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "머리가 아파요",
+          "translation": "Сарам дард мекунад",
+          "literal": "морига апхаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "몸이 아파요",
+          "translation": "Беморам",
+          "literal": "моми апхаё",
+          "note": "Айнан: «баданам дард мекунад».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "어제부터",
+          "translation": "аз дирӯз",
+          "literal": "оҷэбутхо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "의사",
+          "translation": "духтур",
+          "literal": "ыйса",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "세 번",
+          "translation": "Се бор",
+          "literal": "сэ пон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "매일 먹어요",
+          "translation": "Ҳар рӯз мехӯрам",
+          "literal": "мэил могоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дар қабули духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요. 어디가 아파요?",
+          "cueTranslation": "Салом. Куҷоятон дард мекунад?",
+          "intent": "Бигӯ, ки сарат дард мекунад",
+          "text": "머리가 아파요.",
+          "accepts": [],
+          "translation": "Сарам дард мекунад.",
+          "literal": "морига апхаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "열도 있어요?",
+          "cueTranslation": "Таб ҳам доред?",
+          "intent": "Бигӯ: ҳа, дорам",
+          "text": "네, 있어요.",
+          "accepts": [],
+          "translation": "Ҳа, дорам.",
+          "literal": "нэ иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "언제부터요?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "어제부터요.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "оҷэбутхоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "병원에 가고 싶어요.",
+          "translation": "Ба беморхона рафтан мехоҳам.",
+          "literal": "пёнгвонэ каго шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "배가 아파요.",
+          "translation": "Шикамам дард мекунад.",
+          "literal": "пэга апхаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "열이 있어요.",
+          "translation": "Таб дорам.",
+          "literal": "ёри иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "약국이 어디예요?",
+          "translation": "Дорухона куҷост?",
+          "literal": "яккуги одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "하루에 몇 번 먹어요?",
+          "translation": "Рӯзе чанд бор хӯрам?",
+          "literal": "ҳаруэ мёт пон могоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "감사합니다, 선생님.",
+          "translation": "Ташаккур, духтур.",
+          "literal": "камсаҳамнида сонсэнгним",
+          "note": "Ба духтур «선생님» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муоина",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어디가 아파요?",
+          "cueTranslation": "Куҷо дард мекунад?",
+          "intent": "Бигӯ, ки шикамат дард мекунад",
+          "text": "배가 아파요.",
+          "accepts": [],
+          "translation": "Шикамам дард мекунад.",
+          "literal": "пэга апхаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "열이 있어요?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: ҳа, таб дорам",
+          "text": "네, 열이 있어요.",
+          "accepts": [],
+          "translation": "Ҳа, таб дорам.",
+          "literal": "нэ ёри иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "이 약을 드세요.",
+          "cueTranslation": "Ин доруро хӯред.",
+          "intent": "Бипурс: рӯзе чанд бор?",
+          "text": "하루에 몇 번 먹어요?",
+          "accepts": [
+            "몇 번 먹어요?"
+          ],
+          "translation": "Рӯзе чанд бор хӯрам?",
+          "literal": "ҳаруэ мёт пон могоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дору ва истироҳат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "일을 못 해요.",
+          "translation": "Кор карда наметавонам.",
+          "literal": "ирыл мот ҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "쉬고 싶어요.",
+          "translation": "Истироҳат кардан мехоҳам.",
+          "literal": "швиго шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "알레르기가 있어요.",
+          "translation": "Аллергия дорам.",
+          "literal": "аллэрыгига иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "위험해요?",
+          "translation": "Хатарнок аст?",
+          "literal": "виҳомҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이제 좀 나아졌어요.",
+          "translation": "Ҳоло каме беҳтар шудам.",
+          "literal": "иҷэ чом нааҷоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "약값이 얼마예요?",
+          "translation": "Дору чанд пул?",
+          "literal": "яккапшши олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Маслиҳати духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "하루에 세 번 드세요.",
+          "cueTranslation": "Рӯзе се бор хӯред.",
+          "intent": "Бипурс: хатарнок аст?",
+          "text": "위험해요?",
+          "accepts": [],
+          "translation": "Хатарнок аст?",
+          "literal": "виҳомҳэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "아니요, 괜찮아요. 이틀 쉬세요.",
+          "cueTranslation": "Не, ҳеҷ гап не. Ду рӯз истироҳат кунед.",
+          "intent": "Бигӯ: хуб, ташаккур, духтур",
+          "text": "네, 감사합니다, 선생님.",
+          "accepts": [],
+          "translation": "Хуб, ташаккур, духтур.",
+          "literal": "нэ камсаҳамнида сонсэнгним",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "몸조리 잘하세요!",
+          "cueTranslation": "Шифо ёбед!",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: назди духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요. 어떻게 오셨어요?",
+          "cueTranslation": "Салом. Бо чӣ кор омадед?",
+          "intent": "Бигӯ, ки шикамат дард мекунад",
+          "text": "배가 아파요.",
+          "accepts": [],
+          "translation": "Шикамам дард мекунад.",
+          "literal": "пэга апхаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "언제부터요?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "어제부터요.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "оҷэбутхоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "알레르기 있어요?",
+          "cueTranslation": "Аллергия доред?",
+          "intent": "Бигӯ, ки не",
+          "text": "아니요, 없어요.",
+          "accepts": [
+            "없어요."
+          ],
+          "translation": "Не, надорам.",
+          "literal": "аниё опссоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "이 약을 약국에서 사세요.",
+          "cueTranslation": "Ин доруро аз дорухона харед.",
+          "intent": "Бипурс, ки дорухона куҷост",
+          "text": "약국이 어디예요?",
+          "accepts": [],
+          "translation": "Дорухона куҷост?",
+          "literal": "яккуги одиэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

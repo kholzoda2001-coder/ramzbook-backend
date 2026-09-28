@@ -1,0 +1,532 @@
+{
+  "slug": "crew_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "동료들과 쉬는 시간",
+    "titleTranslated": "Вагонча ва ҳамкорон",
+    "scenario": "Танаффус ва хӯроки пешин бо ҳамкорон. Шумо дар бораи худ ва оилаатон мегӯед, хӯрок мечашед, ташаккур мегӯед ва ба кор бармегардед.",
+    "emoji": "☕",
+    "order": 17,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Танаффус",
+      "items": [
+        {
+          "kind": "word",
+          "text": "커피",
+          "translation": "қаҳва",
+          "literal": "кхопхи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "점심",
+          "translation": "хӯроки пешин",
+          "literal": "чомшим",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "동료",
+          "translation": "ҳамкор",
+          "literal": "тонгнё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "피곤해요",
+          "translation": "хаста ҳастам",
+          "literal": "пхигонҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "맛있어요",
+          "translation": "бомаза аст",
+          "literal": "машиссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "같이",
+          "translation": "якҷоя",
+          "literal": "качхи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Қаҳва ё чой?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "커피요, 차요?",
+          "cueTranslation": "Қаҳва ё чой?",
+          "intent": "Бигӯ: чой",
+          "text": "차요.",
+          "accepts": [],
+          "translation": "Чой.",
+          "literal": "чхаё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "피곤해요?",
+          "cueTranslation": "Хастаед?",
+          "intent": "Бигӯ: ҳа, каме",
+          "text": "네, 좀요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, каме.",
+          "literal": "нэ чомё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "맛있어요?",
+          "cueTranslation": "Бомаза?",
+          "intent": "Бигӯ: хеле бомаза",
+          "text": "정말 맛있어요.",
+          "accepts": [],
+          "translation": "Хеле бомаза.",
+          "literal": "чонгмал машиссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Якҷоя",
+      "items": [
+        {
+          "kind": "word",
+          "text": "점심시간이에요",
+          "translation": "Вақти хӯроки пешин",
+          "literal": "чомшимшиганиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "같이 먹어요",
+          "translation": "Якҷоя мехӯрем",
+          "literal": "качхи могоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "같이 가요",
+          "translation": "Биёед якҷоя равем",
+          "literal": "качхи каё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "잘 먹겠습니다",
+          "translation": "Ташаккур барои хӯрок",
+          "literal": "чал моккэтссымнида",
+          "note": "Кореягиҳо ПЕШ аз хӯрок мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "타지키스탄에서 왔어요",
+          "translation": "Аз Тоҷикистон омадам",
+          "literal": "тхаҷикхисытханэсо вассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "가족",
+          "translation": "оила",
+          "literal": "каҷок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Вақти танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "쉬는 시간이에요! 같이 가요.",
+          "cueTranslation": "Танаффус! Якҷоя равем.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "좋아요."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어느 나라에서 왔어요?",
+          "cueTranslation": "Аз кадом кишвар омадед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "타지키스탄에서 왔어요.",
+          "accepts": [],
+          "translation": "Аз Тоҷикистон омадам.",
+          "literal": "тхаҷикхисытханэсо вассоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "드세요! 김밥이에요.",
+          "cueTranslation": "Бихӯред! Ин кимбоп.",
+          "intent": "Бигӯ: хеле бомаза",
+          "text": "정말 맛있어요.",
+          "accepts": [
+            "맛있어요."
+          ],
+          "translation": "Хеле бомаза.",
+          "literal": "чонгмал машиссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Оилаи ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "가족이 많아요.",
+          "translation": "Оилаам калон аст.",
+          "literal": "каҷоги манаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "저는 결혼했어요.",
+          "translation": "Ман оиладорам.",
+          "literal": "чонын кёлҳонҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "아이가 셋 있어요.",
+          "translation": "Се фарзанд дорам.",
+          "literal": "аига сэт иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "가족이 보고 싶어요.",
+          "translation": "Оиламро пазмон шудам.",
+          "literal": "каҷоги пого шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이건 타지크 음식이에요.",
+          "translation": "Ин хӯроки тоҷикӣ аст.",
+          "literal": "игон тхаҷикхы ымшигиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "한번 드셔 보세요.",
+          "translation": "Як бичашед.",
+          "literal": "ҳанбон тышо посэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суҳбат дар танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "결혼했어요?",
+          "cueTranslation": "Оиладоред?",
+          "intent": "Бигӯ: ҳа, оиладорам",
+          "text": "네, 결혼했어요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, оиладорам.",
+          "literal": "нэ кёлҳонҳэссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "아이 있어요?",
+          "cueTranslation": "Фарзанд доред?",
+          "intent": "Бигӯ: се фарзанд дорам",
+          "text": "아이가 셋 있어요.",
+          "accepts": [
+            "네, 셋이요."
+          ],
+          "translation": "Се фарзанд дорам.",
+          "literal": "аига сэт иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "와, 좋겠어요!",
+          "cueTranslation": "Во, чӣ хуб!",
+          "intent": "Бигӯ: оиламро пазмон шудам",
+          "text": "가족이 보고 싶어요.",
+          "accepts": [],
+          "translation": "Оиламро пазмон шудам.",
+          "literal": "каҷоги пого шипхоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳаво гарм",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "쉬는 시간 언제 끝나요?",
+          "translation": "Танаффус кай тамом мешавад?",
+          "literal": "швинын шиган онҷэ ккыннаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "시원한 물 주세요.",
+          "translation": "Оби хунук диҳед.",
+          "literal": "шивонҳан мул чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "오늘 너무 더워요.",
+          "translation": "Имрӯз хеле гарм аст.",
+          "literal": "оныл ному товоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 일하러 가요.",
+          "translation": "Боз ба кор меравем.",
+          "literal": "таши илҳаро каё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "차 감사합니다.",
+          "translation": "Ташаккур барои чой.",
+          "literal": "чха камсаҳамнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "저는 금식 중이에요.",
+          "translation": "Ман рӯзадорам.",
+          "literal": "чонын кымшик чунгиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Об ва рӯза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "너무 덥죠? 물 마실래요?",
+          "cueTranslation": "Хеле гарм, ҳа? Об менӯшед?",
+          "intent": "Бигӯ: ҳа, оби хунук диҳед",
+          "text": "네, 시원한 물 주세요.",
+          "accepts": [
+            "네, 감사합니다."
+          ],
+          "translation": "Ҳа, оби хунук диҳед.",
+          "literal": "нэ шивонҳан мул чусэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "여기요. 뭐 좀 드세요.",
+          "cueTranslation": "Марҳамат. Чизе бихӯред.",
+          "intent": "Бигӯ: ташаккур, ман рӯзадорам",
+          "text": "감사합니다, 저는 금식 중이에요.",
+          "accepts": [],
+          "translation": "Ташаккур, ман рӯзадорам.",
+          "literal": "камсаҳамнида чонын кымшик чунгиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "아, 라마단이에요?",
+          "cueTranslation": "А, Рамазон аст?",
+          "intent": "Бигӯ: ҳа, дуруст",
+          "text": "네, 맞아요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, дуруст.",
+          "literal": "нэ маҷаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: хӯроки пешин",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "점심 먹으러 가요!",
+          "cueTranslation": "Ба хӯроки пешин равем!",
+          "intent": "Ташаккур гӯй ва бигӯ, ки меоӣ",
+          "text": "감사합니다, 지금 가요.",
+          "accepts": [
+            "좋아요."
+          ],
+          "translation": "Ташаккур, ҳозир меоям.",
+          "literal": "камсаҳамнида чигым каё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어느 나라에서 왔어요?",
+          "cueTranslation": "Аз кадом кишвар омадед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "타지키스탄에서 왔어요.",
+          "accepts": [],
+          "translation": "Аз Тоҷикистон омадам.",
+          "literal": "тхаҷикхисытханэсо вассоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "가족은 거기 있어요?",
+          "cueTranslation": "Оилаатон он ҷост?",
+          "intent": "Бигӯ: ҳа, оиламро пазмон шудам",
+          "text": "네, 가족이 보고 싶어요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, оиламро пазмон шудам.",
+          "literal": "нэ каҷоги пого шипхоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "힘내요! 이제 일하러 가요.",
+          "cueTranslation": "Қавӣ бошед! Акнун ба кор равем.",
+          "intent": "Бигӯ: хуб, равем",
+          "text": "네, 가요!",
+          "accepts": [],
+          "translation": "Хуб, равем!",
+          "literal": "нэ каё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

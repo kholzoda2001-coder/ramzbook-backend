@@ -1,0 +1,534 @@
+{
+  "slug": "tools_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "공구와 자재",
+    "titleTranslated": "Асбоб ва мавод",
+    "scenario": "Барои кор асбоб ва мавод лозим: болға, мех, дрел, нардбон, халтаи семент. Шумо мепурсед, ки куҷост, талаб мекунед ва мегӯед, ки чӣ тамом шуд.",
+    "emoji": "🧰",
+    "order": 4,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Асбобҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "망치",
+          "translation": "болға",
+          "literal": "мангчхи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "못",
+          "translation": "мех",
+          "literal": "мот",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "드릴",
+          "translation": "дрел",
+          "literal": "тырил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "사다리",
+          "translation": "нардбон",
+          "literal": "садари",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "양동이",
+          "translation": "сатил",
+          "literal": "янгдонги",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "포대",
+          "translation": "халта (барои семент)",
+          "literal": "пходэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "뭐가 필요해요?",
+          "cueTranslation": "Чӣ лозим?",
+          "intent": "Бигӯ: болға",
+          "text": "망치요.",
+          "accepts": [
+            "망치가 필요해요."
+          ],
+          "translation": "Болға.",
+          "literal": "мангчхиё",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "못 열 개요?",
+          "cueTranslation": "Даҳ мех?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 열 개요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "사다리 여기 있어요?",
+          "cueTranslation": "Нардбон ин ҷост?",
+          "intent": "Бигӯ: не, он ҷо",
+          "text": "아니요, 저기요.",
+          "accepts": [
+            "저기 있어요."
+          ],
+          "translation": "Не, он ҷо.",
+          "literal": "аниё чогиё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Биёр, лутфан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "망치 주세요",
+          "translation": "Болғаро диҳед",
+          "literal": "мангчхи чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "양동이 가져올게요",
+          "translation": "Сатилро меорам",
+          "literal": "янгдонги каҷоолгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "한 포대",
+          "translation": "Як халта",
+          "literal": "ҳан пходэ",
+          "note": "Барои шумора рақамҳои КОРЕЙӢ: 하나 → 한, 둘 → 두.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "두 포대",
+          "translation": "Ду халта",
+          "literal": "ту пходэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "무거워요",
+          "translation": "вазнин аст",
+          "literal": "муговоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "창고",
+          "translation": "анбор",
+          "literal": "чхангго",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дрел ва семент",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "드릴 좀 가져오세요.",
+          "cueTranslation": "Лутфан, дрелро биёред.",
+          "intent": "Бигӯ: ҳозир меорам",
+          "text": "네, 가져올게요.",
+          "accepts": [
+            "네, 지금요."
+          ],
+          "translation": "Ҳозир меорам.",
+          "literal": "нэ каҷоолгэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "시멘트도 두 포대 가져오세요.",
+          "cueTranslation": "Ду халта семент ҳам биёред.",
+          "intent": "Бипурс: аз анбор?",
+          "text": "창고에서요?",
+          "accepts": [],
+          "translation": "Аз анбор?",
+          "literal": "чханггоэсоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네. 조심하세요, 무거워요!",
+          "cueTranslation": "Ҳа. Эҳтиёт шавед, вазнин аст!",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "망치 어디 있어요?",
+          "translation": "Болға куҷост?",
+          "literal": "мангчхи оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "드릴이 고장 났어요.",
+          "translation": "Дрел вайрон шуд.",
+          "literal": "тырири коҷанг нассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "못이 더 필요해요.",
+          "translation": "Боз мех лозим.",
+          "literal": "моши то пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "창고가 어디예요?",
+          "translation": "Анбор куҷост?",
+          "literal": "чханггога одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 너무 무거워요.",
+          "translation": "Ин хеле вазнин аст.",
+          "literal": "иго ному муговоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "좀 도와주세요.",
+          "translation": "Лутфан, ёрӣ диҳед.",
+          "literal": "чом товаҷусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дрел кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "왜 쉬어요?",
+          "cueTranslation": "Чаро истодед?",
+          "intent": "Бигӯ: дрел вайрон шуд",
+          "text": "드릴이 고장 났어요.",
+          "accepts": [
+            "고장 났어요."
+          ],
+          "translation": "Дрел вайрон шуд.",
+          "literal": "тырири коҷанг нассоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "창고에서 다른 거 가져오세요.",
+          "cueTranslation": "Аз анбор дигарашро биёред.",
+          "intent": "Бипурс: анбор куҷост?",
+          "text": "창고가 어디예요?",
+          "accepts": [],
+          "translation": "Анбор куҷост?",
+          "literal": "чханггога одиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "저기, 문 옆이에요.",
+          "cueTranslation": "Он ҷо, назди дар.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мавод тамом шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "시멘트가 다 떨어졌어요.",
+          "translation": "Семент тамом шуд.",
+          "literal": "шимэнтхыга та ттороҷоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "벽돌 있어요?",
+          "translation": "Хишт ҳаст?",
+          "literal": "пёкттол иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "몇 포대요?",
+          "translation": "Чанд халта?",
+          "literal": "мёт пходэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "지금 가져올게요.",
+          "translation": "Ҳозир меорам.",
+          "literal": "чигым каҷоолгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "이거면 돼요.",
+          "translation": "Ҳамин кифоя.",
+          "literal": "игомён твеё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "어디에 놓아요?",
+          "translation": "Куҷо гузорам?",
+          "literal": "одиэ ноаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Анбор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "왜 일 안 해요?",
+          "cueTranslation": "Чаро кор намекунед?",
+          "intent": "Бигӯ: семент тамом шуд",
+          "text": "시멘트가 다 떨어졌어요.",
+          "accepts": [
+            "시멘트가 없어요."
+          ],
+          "translation": "Семент тамом шуд.",
+          "literal": "шимэнтхыга та ттороҷоссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "창고에서 두 포대 가져오세요.",
+          "cueTranslation": "Аз анбор ду халта биёред.",
+          "intent": "Бигӯ: ҳозир меорам",
+          "text": "지금 가져올게요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳозир меорам.",
+          "literal": "чигым каҷоолгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "벽 옆에 놓으세요.",
+          "cueTranslation": "Назди девор гузоред.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: девори нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "오늘 벽을 쌓아요. 뭐가 필요해요?",
+          "cueTranslation": "Имрӯз девор мечинем. Чӣ лозим?",
+          "intent": "Бигӯ: хишт ва семент",
+          "text": "벽돌하고 시멘트요.",
+          "accepts": [
+            "벽돌하고 시멘트가 필요해요."
+          ],
+          "translation": "Хишт ва семент.",
+          "literal": "пёкттолҳаго шимэнтхыё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "시멘트는 창고에 있어요.",
+          "cueTranslation": "Семент дар анбор аст.",
+          "intent": "Бипурс: чанд халта?",
+          "text": "몇 포대요?",
+          "accepts": [],
+          "translation": "Чанд халта?",
+          "literal": "мёт пходэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "다섯 포대요.",
+          "cueTranslation": "Панҷ халта.",
+          "intent": "Бигӯ: вазнин аст, ёрӣ диҳед",
+          "text": "무거워요. 좀 도와주세요.",
+          "accepts": [
+            "도와주세요."
+          ],
+          "translation": "Вазнин аст. Лутфан, ёрӣ диҳед.",
+          "literal": "муговоё чом товаҷусэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "그래요, 같이 해요.",
+          "cueTranslation": "Хуб, якҷоя мекунем.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다, 반장님.",
+          "accepts": [
+            "감사합니다."
+          ],
+          "translation": "Ташаккур, бригадир.",
+          "literal": "камсаҳамнида панҷангним",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

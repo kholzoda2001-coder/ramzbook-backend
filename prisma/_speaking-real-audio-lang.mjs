@@ -34,6 +34,9 @@ const LANGS = {
   // Арабӣ: edge-tts — мардони Саудӣ ва Иморат (ҷойҳои кори муҳоҷирон); видоъ бо овози курс (Zariyah).
   ar: { voices: ['edge:ar-SA-HamedNeural', 'edge:ar-AE-HamdanNeural'], course: 'edge:ar-SA-ZariyahNeural',
         code: 'ar-SA', closing: 'مُمْتَازْ، شُكْرًا! إِلَى اللِّقَاءْ!' },
+  // Кореягӣ: мардони Chirp3; видоъ бо овози курс (Despina).
+  ko: { voices: ['ko-KR-Chirp3-HD-Orus', 'ko-KR-Chirp3-HD-Fenrir'], course: 'ko-KR-Chirp3-HD-Despina',
+        code: 'ko-KR', closing: '좋아요, 감사합니다! 또 만나요!' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);

@@ -47,6 +47,9 @@ const LANGS = {
   // Chirp3-Kore ва Zariyah). Эҳтиётӣ — Google Wavenet-A. `edge:` = edge-tts, на Google.
   // ⚠️ Матн БО ҳаракат фиристода мешавад — TTS маҳз ҳамон ҳаракотро мехонад.
   ar: { voice: 'edge:ar-SA-ZariyahNeural', fallback: 'ar-XA-Wavenet-A', code: 'ar-SA' },
+  // Кореягӣ: овози КУРС (`_ko-tts-google.mjs`) — Despina; эҳтиётӣ Neural2-B (ҳиҷои якка:
+  // Neural2-B 100%, Despina 33% — хотираи ramz-ko-alphabet-voice).
+  ko: { voice: 'ko-KR-Chirp3-HD-Despina', fallback: 'ko-KR-Neural2-B', code: 'ko-KR' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);
@@ -168,6 +171,12 @@ const STAGES = [
   { name: 'wavenet', make: (t) => synth({ text: t }, FALLBACK_VOICE) },
 ];
 
+// Кореягӣ: ҲИҶОИ ЯККА («네.», «예?») — Despina онро гоҳ хомӯш ва гоҳ бо садоноки ДИГАР
+// мегӯяд (форманта: «ㅏ» → «у/о», хотираи ramz-korean); санҷиши энергия инро намебинад.
+// Пас барои ҳиҷои якка: клипи курс (ислоҳшуда ва санҷидашуда) → Neural2-B (ченак 100%).
+const oneSyllable = (t) => LANG === 'ko' && (t.match(/[가-힣]/g) ?? []).length === 1;
+const stagesFor = (t) => (oneSyllable(t) ? STAGES.slice(4) : STAGES);
+
 // ── 1. Тавлид бо муҳофиз ────────────────────────────────────────────────────
 console.log(`\n== Тавлид (${VOICE}) ==`);
 mkdirSync(WORK, { recursive: true });
@@ -175,21 +184,25 @@ const used = {};
 const reusable = REUSE
   ? measure(items.map((i) => `${WORK}/${i.key}.mp3`).filter((p) => existsSync(p)))
   : {};
+// Ҳадди ТАВЛИД пасттар аз ҳадди ниҳоӣ (0.30): клипи ОҲИСТА, вале бо нутқи солим (кореягии «일»
+// бо Neural2-B — peak 0.287, нутқ 0.28 с) дар қадами баландкунӣ то ~0.8 мерасад ва санҷиши
+// ниҳоӣ онро боз месанҷад. Хомӯш (peak 0.01–0.05) ҳамчунон рад мешавад (28.09.2026).
+const GEN_MIN_PEAK = 0.2;
 for (const it of items) {
   const path = `${WORK}/${it.key}.mp3`;
   const prev = reusable[path];
-  if (prev && !prev.error && prev.peak >= 0.3 && prev.speech >= minSpeech(it.text)) {
+  if (prev && !prev.error && prev.peak >= GEN_MIN_PEAK && prev.speech >= minSpeech(it.text)) {
     it.stage = 'reuse';
     used.reuse = (used.reuse ?? 0) + 1;
     continue;
   }
   let ok = false;
-  for (const [n, st] of STAGES.entries()) {
+  for (const [n, st] of stagesFor(it.text).entries()) {
     const buf = await st.make(it.text);
     if (!buf) continue;
     writeFileSync(path, buf);
     const m = measure([path])[path];
-    ok = !m.error && m.peak >= 0.3 && m.speech >= minSpeech(it.text);
+    ok = !m.error && m.peak >= GEN_MIN_PEAK && m.speech >= minSpeech(it.text);
     if (ok) {
       it.stage = st.name;
       used[st.name] = (used[st.name] ?? 0) + 1;
@@ -212,7 +225,8 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim(
 {
   const raw = measure(items.map((i) => `${WORK}/${i.key}.mp3`));
   const cut = measure(items.map((i) => `${TRIM}/${i.key}.mp3`));
-  const passes = (v, t) => v && !v.error && v.peak >= 0.3 && v.speech >= minSpeech(t);
+  // Ҳамон ҳадди тавлид: клипи оҳиста баъд баланд карда мешавад; санҷиши ниҳоӣ — 0.30.
+  const passes = (v, t) => v && !v.error && v.peak >= GEN_MIN_PEAK && v.speech >= minSpeech(t);
   let usedRaw = 0;
   const still = [];
   for (const it of items) {
@@ -237,6 +251,25 @@ console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim(
   }
   if (usedRaw) console.log(`  ${usedRaw} клипи кӯтоҳ бе буриш монд`);
   if (still.length) { console.error('⛔ файли хомӯш баъди буриш:', still.join(', ')); process.exit(1); }
+}
+
+// Хомӯшии САР пас аз буриш ҳанӯз дароз: кореягии Despina 115 клип бо 0.52–0.70 с хомӯшӣ пеш
+// аз садо дошт (ҳадди санҷиши ниҳоӣ 0.5 с) — `_ar-trim.py` ҳамсадои оҳистаи аввалро садо
+// намешуморад (28.09.2026). Ҳамон буриши ЧЕНШУДА, ки дар роҳи эҳтиётӣ: 0.12 с захира мемонад.
+{
+  const pre = measure(items.map((i) => `${TRIM}/${i.key}.mp3`));
+  let cut = 0;
+  for (const it of items) {
+    const p = `${TRIM}/${it.key}.mp3`;
+    const m = pre[p];
+    if (!m || m.error || m.lead <= 0.4) continue;
+    const tmp = `${TRIM}/${it.key}.lead.mp3`;
+    execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-ss', Math.max(0, m.lead - 0.12).toFixed(2), '-i', p,
+      '-ar', '24000', '-ac', '1', '-b:a', '64k', tmp]);
+    writeFileSync(p, readFileSync(tmp));
+    cut++;
+  }
+  if (cut) console.log(`  ✂️ ${cut} клип: хомӯшии сари > 0.4 с бурида шуд (0.12 с мемонад)`);
 }
 
 // Буриш клипро аз нав рамзгузорӣ мекунад ва peak-и Chirp3 (~0.98) баъзан ба 0.99+ мерасад

@@ -1,0 +1,529 @@
+{
+  "slug": "problem_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "일할 때 생긴 문제",
+    "titleTranslated": "Мушкил дар кор",
+    "scenario": "Дар кор мушкил пеш омад: барқ нест, дрел вайрон шуд, аз қубур об мечакад. Шумо мегӯед, ки чӣ шуд, узр мепурсед, агар гуноҳ аз шумо бошад, ва ёрӣ мехоҳед.",
+    "emoji": "⚠️",
+    "order": 11,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мушкилот",
+      "items": [
+        {
+          "kind": "word",
+          "text": "고장",
+          "translation": "вайронӣ",
+          "literal": "коҷанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "전기",
+          "translation": "барқ",
+          "literal": "чонги",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "새요",
+          "translation": "мечакад",
+          "literal": "сэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "급해요",
+          "translation": "фаврӣ аст",
+          "literal": "кыпхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "문제",
+          "translation": "мушкил",
+          "literal": "мунҷэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "엘리베이터",
+          "translation": "лифт",
+          "literal": "эллибэитхо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Мушкил ҳаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "문제 있어요?",
+          "cueTranslation": "Мушкил ҳаст?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 문제가 있어요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "전기예요, 물이에요?",
+          "cueTranslation": "Барқ ё об?",
+          "intent": "Бигӯ: барқ",
+          "text": "전기요.",
+          "accepts": [],
+          "translation": "Барқ.",
+          "literal": "чонгиё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "급해요?",
+          "cueTranslation": "Фаврӣ аст?",
+          "intent": "Бигӯ: ҳа, фаврӣ",
+          "text": "네, 급해요.",
+          "accepts": [],
+          "translation": "Ҳа, фаврӣ.",
+          "literal": "нэ кыпхэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "고장 났어요",
+          "translation": "Вайрон шуд",
+          "literal": "коҷанг нассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "전기가 없어요",
+          "translation": "Барқ нест",
+          "literal": "чонгига опссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "물이 새요",
+          "translation": "Об мечакад",
+          "literal": "мури сэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "제 실수예요",
+          "translation": "Хатои ман аст",
+          "literal": "чэ шилсуэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "지금 고칠게요",
+          "translation": "Ҳозир ислоҳ мекунам",
+          "literal": "чигым кочхилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 한번",
+          "translation": "Боз як бор",
+          "literal": "таши ҳанбон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кор истод",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "왜 일이 멈췄어요?",
+          "cueTranslation": "Чаро кор истод?",
+          "intent": "Бигӯ: барқ нест",
+          "text": "전기가 없어요.",
+          "accepts": [
+            "전기가 나갔어요."
+          ],
+          "translation": "Барқ нест.",
+          "literal": "чонгига опссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "언제부터요?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз саҳар",
+          "text": "아침부터요.",
+          "accepts": [],
+          "translation": "Аз саҳар.",
+          "literal": "ачхимбутхоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "전기 기사를 부를게요.",
+          "cueTranslation": "Барқчиро ҷеғ мезанам.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман хабар медиҳам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "드릴이 고장 났어요.",
+          "translation": "Дрел вайрон шуд.",
+          "literal": "тырири коҷанг нассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "파이프에서 물이 새요.",
+          "translation": "Аз қубур об мечакад.",
+          "literal": "пхаипхыэсо мури сэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "엘리베이터가 안 돼요.",
+          "translation": "Лифт кор намекунад.",
+          "literal": "эллибэитхога ан твеё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 급해요.",
+          "translation": "Ин фаврӣ аст.",
+          "literal": "иго кыпхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "누가 고쳐요?",
+          "translation": "Кӣ ислоҳ мекунад?",
+          "literal": "нуга кочхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "다른 기계가 필요해요.",
+          "translation": "Дастгоҳи дигар лозим.",
+          "literal": "тарын кигэга пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дрел вайрон шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "무슨 문제예요?",
+          "cueTranslation": "Чӣ мушкил?",
+          "intent": "Бигӯ: дрел вайрон шуд",
+          "text": "드릴이 고장 났어요.",
+          "accepts": [],
+          "translation": "Дрел вайрон шуд.",
+          "literal": "тырири коҷанг нассоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "언제 고장 났어요?",
+          "cueTranslation": "Кай вайрон шуд?",
+          "intent": "Бигӯ: ҳамин ҳозир",
+          "text": "방금요.",
+          "accepts": [
+            "지금요."
+          ],
+          "translation": "Ҳамин ҳозир.",
+          "literal": "панггымё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "괜찮아요. 다른 거 쓰세요.",
+          "cueTranslation": "Ҳеҷ гап не. Дигарашро истифода баред.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Узр",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "죄송합니다, 제 실수예요.",
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "чвесонгҳамнида чэ шилсуэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "일부러 안 했어요.",
+          "translation": "Қасдан накардам.",
+          "literal": "илбуро ан ҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "지금 고칠게요.",
+          "translation": "Ҳозир ислоҳ мекунам.",
+          "literal": "чигым кочхилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "열쇠 어디 있어요?",
+          "translation": "Калид куҷост?",
+          "literal": "ёлсве оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "문이 잠겼어요.",
+          "translation": "Дар баста аст.",
+          "literal": "муни чамгёссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "도움이 필요해요.",
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": "тоуми пхирёҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кӣ шикаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "누가 이거 부쉈어요?",
+          "cueTranslation": "Инро кӣ шикаст?",
+          "intent": "Бигӯ: бубахшед, хатои ман",
+          "text": "죄송합니다, 제 실수예요.",
+          "accepts": [
+            "죄송합니다."
+          ],
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "чвесонгҳамнида чэ шилсуэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "고칠 수 있어요?",
+          "cueTranslation": "Ислоҳ карда метавонед?",
+          "intent": "Бигӯ: ҳа, ҳозир ислоҳ мекунам",
+          "text": "네, 지금 고칠게요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, ҳозир ислоҳ мекунам.",
+          "literal": "нэ чигым кочхилгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "좋아요. 다음에는 조심하세요.",
+          "cueTranslation": "Хуб. Дафъаи дигар эҳтиёт шавед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠습니다.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "нэ алгэтссымнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: об мечакад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여보세요?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ, ки мушкил ҳаст",
+          "text": "문제가 있어요.",
+          "accepts": [],
+          "translation": "Мушкил ҳаст.",
+          "literal": "мунҷэга иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "무슨 문제예요?",
+          "cueTranslation": "Чӣ мушкил?",
+          "intent": "Бигӯ: аз қубур об мечакад",
+          "text": "파이프에서 물이 새요.",
+          "accepts": [
+            "물이 새요."
+          ],
+          "translation": "Аз қубур об мечакад.",
+          "literal": "пхаипхыэсо мури сэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "어디요?",
+          "cueTranslation": "Куҷо?",
+          "intent": "Бигӯ: дар ошёнаи дуюм",
+          "text": "이 층이에요.",
+          "accepts": [],
+          "translation": "Дар ошёнаи дуюм.",
+          "literal": "и чхынгиэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "알겠어요, 지금 갈게요.",
+          "cueTranslation": "Хуб, ҳозир меоям.",
+          "intent": "Бигӯ: тез, фаврӣ аст",
+          "text": "빨리요, 급해요.",
+          "accepts": [
+            "빨리 와 주세요."
+          ],
+          "translation": "Тез, фаврӣ аст.",
+          "literal": "ппаллиё кыпхэё",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}
