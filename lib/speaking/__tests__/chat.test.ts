@@ -200,12 +200,24 @@ describe('Рамз — устоди озод, A1, бе такрор (28.09.2026)
     { who: 'me', text: 'Я люблю плов' },
   ];
 
-  it('сатҳ ҳамеша A1; ниша/кор дар промпт нест', () => {
+  it('сатҳ ҳамеша A1; ниша дар промпт нест', () => {
     expect(CHAT_LEVEL).toBe('A1');
     const s = sys(buildChatMessages({ ...base, history: talk }, 'turn'));
     expect(s).not.toMatch(/construction|driving/);
-    expect(s).toMatch(/Do NOT talk about work/);
     expect(A1_TOPICS).not.toContain('work');
+  });
+
+  // Корбар (29.09.2026): «комилан озод… ҳар дафъа tea or coffee мепурсад».
+  it('суҳбати ОЗОД: мавзӯъ аз хонанда, ба саволаш ҷавоб, бе «tea or coffee»', () => {
+    const s = sys(buildChatMessages({ ...base, history: talk }, 'turn'));
+    expect(s).toMatch(/The LEARNER decides what to talk about/);
+    expect(s).toMatch(/ANSWER it first/);
+    expect(s).toMatch(/about the SAME thing the learner is talking about/);
+    expect(s).not.toMatch(/then move to a NEW everyday topic/);
+    for (const mode of ['turn', 'nudge', 'hint'] as const) {
+      expect(sys(buildChatMessages({ ...base, history: talk }, mode))).not.toMatch(/\btea\b|coffee/i);
+    }
+    expect(A1_TOPICS).not.toContain('drinks');
   });
 
   it('саволҳои пешина ба модел мераванд — «такрор накун»', () => {
@@ -223,12 +235,13 @@ describe('Рамз — устоди озод, A1, бе такрор (28.09.2026)
     expect(s).toMatch(/ask ONE easy question about weather/);
   });
 
-  it('nudge: хонанда хомӯш → саволи ОСОНТАР, на такрор', () => {
+  it('nudge: хонанда хомӯш → ҲАМОН савол осонтар, на мавзӯи тасодуфӣ', () => {
     const h: ChatLine[] = [{ who: 'ai', text: 'Что ты делаешь в выходные?' }];
     expect(chatValid(h, 'nudge', FREE_TURNS)).toBe(true);
     const s = sys(buildChatMessages({ ...base, history: h }, 'nudge'));
     expect(s).toMatch(/stayed SILENT/);
-    expect(s).toMatch(/much easier question/);
+    expect(s).toMatch(/ask your LAST question again in a much easier way/);
+    expect(s).toMatch(/never jump to a random new topic/);
     expect(s).toContain('Что ты делаешь в выходные?');
   });
 

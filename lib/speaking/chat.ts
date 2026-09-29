@@ -77,12 +77,14 @@ export type ChatMode = 'turn' | 'hint' | 'nudge';
 export const CHAT_LEVEL = 'A1';
 
 /**
- * Мавзӯъҳои ҳаррӯзаи A1 — Рамз аз инҳо интихоб мекунад. ⚠️ Ниша (сохтмон,
- * ронандагӣ) ҚАСДАН нест: суҳбат озод аст, на дарси касбӣ (корбар, 28.09.2026:
- * «мавзӯъ ва ниша фарқ надорад»).
+ * Мавзӯъҳои ҳаррӯзаи A1 — танҳо барои САВОЛИ АВВАЛ ва вақте хонанда худаш
+ * мавзӯъ надорад. Суҳбат ОЗОД аст: мавзӯъро хонанда интихоб мекунад (корбар,
+ * 29.09.2026: «комилан озод… хонанда дар ҳар мавзӯъе ки хост»).
+ * ⚠️ «drinks» нест: бо он ва мисоли «tea or coffee?» дар промпти хомӯшӣ Рамз ҳар
+ * суҳбат «чой ё қаҳва?» мепурсид (шикояти корбар, 29.09.2026).
  */
 export const A1_TOPICS = [
-  'family', 'food', 'drinks', 'weather', 'home', 'city', 'hobbies',
+  'family', 'food', 'weather', 'home', 'city', 'hobbies',
   'weekend', 'friends', 'shopping', 'daily routine', 'sport', 'music',
   'films', 'holidays', 'animals', 'clothes', 'languages', 'transport',
   'colours', 'time and days', 'the body and health',
@@ -339,6 +341,14 @@ export function scriptRules(language: string): string {
       "The learner's text is speech-to-text: never treat spacing or digits instead of number words as a mistake."
     );
   }
+  if (/german/i.test(language)) {
+    // Олмонӣ (29.09.2026): Azure рақамро бо рақам («3 Säcke», «7 Uhr») ва вақтро «07:30 Uhr»
+    // менависад; ҳарфи калони исм ва ß/ss дар STT — хатои хонанда нест.
+    return (
+      'Write correct German with umlauts and ß, and speak to the learner with "du". ' +
+      "The learner's text is speech-to-text: never treat digits instead of number words, times like 07:30, capital letters or ss instead of ß as a mistake."
+    );
+  }
   if (/turk/i.test(language)) {
     // Туркӣ (28.09.2026): STT рақам («3'te»), ҳарфи калон ва апострофро дигар хел менависад —
     // ин хатои хонанда нест. Бе ҳарфҳои махсус (ı/i, ş/s) калима дигар мешавад: kız ≠ kiz.
@@ -364,10 +374,16 @@ export function scriptRules(language: string): string {
 const TAJIK_NOTE =
   'Tajik is a PERSIAN language (like Farsi/Dari) written in Cyrillic: in every Tajik field use only Tajik words, never Uzbek, Kazakh or other Turkic words.';
 
+/**
+ * Рамз — устоди ЗИНДА, на саволнома (корбар, 29.09.2026): хонанда дар ҳар мавзӯъ
+ * гап мезанад, Рамз ба гапи ӯ ҷавоб медиҳад, ба саволаш ҷавоб медиҳад ва саволи
+ * навбатиро дар бораи ҲАМОН мавзӯъ мепурсад. Пештар рӯйхати мавзӯъҳо дар промпт
+ * буд ва «баъди 2 савол мавзӯи нав» — суҳбат мисли анкета мешуд.
+ */
 const PERSONA = (lang: string) =>
-  `You are Ramz, a warm, patient ${lang} teacher having a FREE everyday conversation with a Tajik beginner in a language app. ` +
-  `You lead the talk like a good teacher: you are never silent, you keep asking simple questions about the learner's everyday life ` +
-  `(${A1_TOPICS.join(', ')}). Do NOT talk about work or jobs unless the learner brings it up.`;
+  `You are Ramz, a warm, patient ${lang} teacher (an AI teacher in the RAMZ app) having a completely FREE conversation with a Tajik beginner. ` +
+  `The LEARNER decides what to talk about — any topic is fine: their family, work, city, plans, hobbies, football, food, travel, you, the language itself. ` +
+  `Talk like a good real teacher: listen to what they say, answer what they ask, follow THEIR topic with interest, and keep the talk going — you are never silent.`;
 
 export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
   const known = i.known.slice(0, MAX_KNOWN).map((k) => `"${clip(k, 60)}"`).join(', ');
@@ -381,7 +397,7 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
       ? 'The learner is B1: normal short sentences are fine.'
       : i.level === 'A2'
         ? 'The learner is A2: short simple sentences, everyday words.'
-        : 'The learner is A1: very short simple sentences (max 8 words), present tense, the most common everyday words only, one question at a time.';
+        : 'The learner is A1: very short simple sentences (at most 2 sentences, max 8 words each), present tense, the most common everyday words only, one question at a time.';
 
   const aboutLearner = [
     name ? `The learner's name is ${name}.` : `You don't know the learner's name yet.`,
@@ -427,8 +443,8 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
       level,
       aboutLearner,
       `Speak ONLY ${i.language}.`,
-      `The learner stayed SILENT after your last line: maybe they did not understand or do not know what to say.`,
-      `Like a kind teacher: say a very short encouragement (max 3 words) and ask a DIFFERENT, much easier question on a new everyday topic — a yes/no question or a choice ("tea or coffee?").`,
+      `The learner stayed SILENT after your last line: maybe they did not understand your question or do not know the words.`,
+      `Like a kind teacher: say a very short encouragement (max 3 words) and ask your LAST question again in a much easier way, with DIFFERENT words — shorter, or a yes/no question, or a choice of two concrete options that fit THAT question and topic. Stay on the same topic; never jump to a random new topic.`,
       noRepeat,
       `Reply with JSON only: {"reply": "<your line in ${i.language}>", "reply_tg": "<Tajik translation, Cyrillic>", "topics": [], "fix": null, "name": "", "remember": [], "goodbye": false}`,
     ]
@@ -447,16 +463,18 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
     : i.closing
       ? `Time is up: react briefly to their last line and say a warm goodbye (use their name), with NO question.`
       : [
-          `React to what the learner just said (show you understood, one short sentence) and ask ONE new, easy question.`,
+          `Answer like a teacher in a real conversation:`,
+          `(1) If the learner ASKED you something (a question to you, "how do you say…", "what does … mean", "is this correct?"), ANSWER it first — briefly, simply and correctly. You are Ramz, an AI teacher; you may say what you like in a friendly way.`,
+          `(2) Otherwise react to what they said like a person who listens (agree, be interested — one short sentence). If they made a mistake, naturally use the correct form in your reaction (learner: "I go yesterday" → "Oh, you went yesterday!") without saying "wrong".`,
+          `(3) Then ask ONE easy follow-up question about the SAME thing the learner is talking about — their words, their life, their topic. Stay on their topic as long as they have something to say; change the topic only if the learner changes it, asks for it, or has clearly nothing more to say (then ask what they want to talk about).`,
           `EVERY line you say must END with exactly one question — never leave the learner without a question.`,
-          `Ask at most 2 questions about the same topic, then move to a NEW everyday topic the learner has not talked about yet.`,
           noRepeat,
           noKnown,
           name
             ? ''
             : `If they just told you their name, use it.`,
           learnerTurns(i.history) === TOPICS_AT_TURN
-            ? `Now ALSO offer 2-3 conversation topics that fit their life in "topics" (ask "What shall we talk about?").`
+            ? `Now ALSO offer 2-3 conversation topics that fit their life in "topics" (ask "What shall we talk about?" — they may also choose any other topic).`
             : `"topics" must be [].`,
           `If the learner says goodbye or wants to stop ("пока", "до свидания", "хватит", "bye", "stop"...), say a warm goodbye and set "goodbye": true.`,
           `If their answer does not fit your question or is unclear, do NOT repeat the question: turn the SAME question into a choice of two concrete options (for "What animal do you like?" → "Cats or dogs?"), or move on to a new topic.`,
@@ -470,7 +488,7 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
     TAJIK_NOTE,
     level,
     aboutLearner,
-    `Speak ONLY ${i.language}. Never correct the learner inside your line.`,
+    `Speak ONLY ${i.language}. Never lecture about mistakes inside your line — the app shows your "fix" separately.`,
     plan,
     `Check the learner's LAST line like a careful teacher (it is speech-to-text: ignore spelling, punctuation, capitals): if it has a real grammar or word mistake, give "fix"; else null. Never fix names. A fix keeps the learner's OWN meaning — an answer that does not fit your question is not a mistake.`,
     `Reply with JSON only:`,
