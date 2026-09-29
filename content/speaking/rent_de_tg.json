@@ -1,0 +1,535 @@
+{
+  "slug": "rent_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Eine Wohnung mieten",
+    "titleTranslated": "Иҷораи хона",
+    "scenario": "Хона ё ҳуҷра иҷора мегиред: нарх, гарав (Kaution), пули барқу об. Баъд — агар чизе вайрон шавад, ба соҳибхона занг мезанед.",
+    "emoji": "🏠",
+    "order": 14,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Wohnung",
+          "translation": "хона (квартира)",
+          "literal": "во́:нунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Zimmer",
+          "translation": "ҳуҷра",
+          "literal": "ци́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Miete",
+          "translation": "иҷорапулӣ",
+          "literal": "ми́:тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Kaution",
+          "translation": "гарав",
+          "literal": "кауцйо́:н",
+          "note": "Пуле, ки пеш аз даромадан медиҳед ва баъд бармегардад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Vermieter",
+          "translation": "соҳибхона",
+          "literal": "фэами́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Küche",
+          "translation": "ошхона",
+          "literal": "кю́хьэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Хона меҷӯед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Suchen Sie eine Wohnung?",
+          "cueTranslation": "Хона меҷӯед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich suche eine Wohnung."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viele Personen sind Sie?",
+          "cueTranslation": "Чанд нафаред?",
+          "intent": "Бигӯ: се нафар",
+          "text": "Drei Personen.",
+          "accepts": [
+            "Wir sind drei."
+          ],
+          "translation": "Се нафар.",
+          "literal": "драй пэрзо́:нэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Möbliert?",
+          "cueTranslation": "Бо мебел?",
+          "intent": "Бигӯ: ҳа, бо мебел",
+          "text": "Ja, möbliert.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, бо мебел.",
+          "literal": "йа: мёбли́:ат",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zwei Zimmer",
+          "translation": "ду ҳуҷра",
+          "literal": "цвай ци́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Miete",
+          "translation": "иҷорапулӣ",
+          "literal": "ди: ми́:тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Nebenkosten",
+          "translation": "бо пули барқу об",
+          "literal": "мит нэ́:бэнкостэн",
+          "note": "«Nebenkosten» — пули барқ, об ва гармӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Möbliert",
+          "translation": "бо мебел",
+          "literal": "мёбли́:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zentral gelegen",
+          "translation": "Дар марказ",
+          "literal": "цэнтра́:л гэлэ́:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Warmes Wasser",
+          "translation": "оби гарм",
+          "literal": "ва́рмэс ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нарх",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Die Miete ist fünfhundert Euro.",
+          "cueTranslation": "Иҷора панҷсад евро.",
+          "intent": "Бипурс: бо пули барқу об?",
+          "text": "Mit Nebenkosten?",
+          "accepts": [
+            "Sind die Nebenkosten dabei?"
+          ],
+          "translation": "Бо пули барқу об?",
+          "literal": "мит нэ́:бэнкостэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, ohne Nebenkosten.",
+          "cueTranslation": "Не, бе пули барқу об.",
+          "intent": "Бигӯ: хеле қимат",
+          "text": "Das ist zu teuer.",
+          "accepts": [
+            "Zu teuer."
+          ],
+          "translation": "Хеле қимат.",
+          "literal": "дас ист цу: то́йа",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Aber nah am Bahnhof.",
+          "cueTranslation": "Вале наздики вокзал.",
+          "intent": "Бигӯ: хуб, фикр мекунам",
+          "text": "Okay, ich überlege.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, фикр мекунам.",
+          "literal": "окэ́: ихь ю:балэ́:гэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо дар бораи хона",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Was kostet die Miete?",
+          "translation": "Иҷора чанд аст?",
+          "literal": "вас ко́стэт ди: ми́:тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es eine Kaution?",
+          "translation": "Гарав ҳаст?",
+          "literal": "ги:пт эс а́йнэ кауцйо́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kann ich sie sehen?",
+          "translation": "Онро дида метавонам?",
+          "literal": "кан ихь зи: зэ́:эн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie viele Zimmer?",
+          "translation": "Чанд ҳуҷра?",
+          "literal": "ви: фи́:лэ ци́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es warmes Wasser?",
+          "translation": "Оби гарм ҳаст?",
+          "literal": "ги:пт эс ва́рмэс ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann kann ich einziehen?",
+          "translation": "Кай кӯчида метавонам?",
+          "literal": "ван кан ихь а́йнци:эн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: хонаро мебинем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Möchten Sie die Wohnung sehen?",
+          "cueTranslation": "Хонаро дидан мехоҳед?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Ja, bitte.",
+          "accepts": [],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist die Küche und hier das Zimmer.",
+          "cueTranslation": "Ин ошхона ва ин ҳуҷра.",
+          "intent": "Бипурс: оби гарм ҳаст?",
+          "text": "Gibt es warmes Wasser?",
+          "accepts": [],
+          "translation": "Оби гарм ҳаст?",
+          "literal": "ги:пт эс ва́рмэс ва́са",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, natürlich.",
+          "cueTranslation": "Ҳа, албатта.",
+          "intent": "Бипурс: гарав ҳаст?",
+          "text": "Gibt es eine Kaution?",
+          "accepts": [],
+          "translation": "Гарав ҳаст?",
+          "literal": "ги:пт эс а́йнэ кауцйо́:н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар хона мушкил",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Der Wasserhahn tropft.",
+          "translation": "Ҷӯмак мечакад.",
+          "literal": "дэ:а ва́саҳа:н тропфт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Heizung geht nicht.",
+          "translation": "Гармкунак кор намекунад.",
+          "literal": "ди: ҳа́йцунг гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Miete ist bezahlt.",
+          "translation": "Иҷора пардохт шуд.",
+          "literal": "ди: ми́:тэ ист бэца́:лт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche einen Vertrag.",
+          "translation": "Ба ман шартнома лозим.",
+          "literal": "ихь бра́ухэ а́йнэн фэатра́:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wer hat den Schlüssel?",
+          "translation": "Калид дар дасти кист?",
+          "literal": "вэ:а ҳат дэ:н шлю́сэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte den Vermieter anrufen.",
+          "translation": "Лутфан, ба соҳибхона занг занед.",
+          "literal": "би́тэ дэ:н фэами́:та а́нру:фэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: гармкунак",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo, bitte?",
+          "cueTranslation": "Алло, марҳамат?",
+          "intent": "Бигӯ: гармкунак кор намекунад",
+          "text": "Die Heizung geht nicht.",
+          "accepts": [
+            "Die Heizung ist kaputt."
+          ],
+          "translation": "Гармкунак кор намекунад.",
+          "literal": "ди: ҳа́йцунг гэ:т нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Seit wann?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "Seit gestern.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "зайт гэ́стан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, morgen kommt ein Handwerker.",
+          "cueTranslation": "Хуб, фардо усто меояд.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Vielen Dank."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг барои хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Ja, bitte?",
+          "cueTranslation": "Алло? Ҳа, марҳамат?",
+          "intent": "Бигӯ: салом, хона меҷӯям",
+          "text": "Hallo, ich suche eine Wohnung.",
+          "accepts": [
+            "Ich suche eine Wohnung."
+          ],
+          "translation": "Салом, ман хона меҷӯям.",
+          "literal": "ҳа́ло ихь зу́:хэ а́йнэ во́:нунг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir haben eine Zweizimmerwohnung.",
+          "cueTranslation": "Хонаи дуҳуҷрагӣ дорем.",
+          "intent": "Бипурс: иҷора чанд аст?",
+          "text": "Wie hoch ist die Miete?",
+          "accepts": [
+            "Was kostet die Miete?"
+          ],
+          "translation": "Иҷора чанд аст?",
+          "literal": "ви: ҳо:х ист ди: ми́:тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sechshundert Euro.",
+          "cueTranslation": "Шашсад евро.",
+          "intent": "Бипурс: хонаро дида метавонам?",
+          "text": "Kann ich die Wohnung sehen?",
+          "accepts": [],
+          "translation": "Хонаро дида метавонам?",
+          "literal": "кан ихь ди: во́:нунг зэ́:эн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, kommen Sie morgen Abend.",
+          "cueTranslation": "Ҳа, фардо бегоҳ биёед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, danke.",
+          "accepts": [
+            "Vielen Dank."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "окэ́: да́нкэ",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

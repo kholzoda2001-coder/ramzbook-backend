@@ -1,0 +1,545 @@
+{
+  "slug": "problem_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Probleme bei der Arbeit",
+    "titleTranslated": "Мушкил дар кор",
+    "scenario": "Чизе вайрон шуд, гум шуд ё шумо дер мондед. Мегӯед, ки чӣ шуд, узр мепурсед ва ба сардор занг мезанед, ки имрӯз омада наметавонед.",
+    "emoji": "⚠️",
+    "order": 11,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мушкил",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Problem",
+          "translation": "мушкил",
+          "literal": "проблэ́:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Kaputt",
+          "translation": "вайрон",
+          "literal": "капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Strom",
+          "translation": "барқ",
+          "literal": "штро:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Spät",
+          "translation": "дер",
+          "literal": "шпэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schlüssel",
+          "translation": "калид",
+          "literal": "шлю́сэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Krank",
+          "translation": "бемор",
+          "literal": "кранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist los?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: барқ нест",
+          "text": "Kein Strom.",
+          "accepts": [
+            "Der Strom ist weg."
+          ],
+          "translation": "Барқ нест.",
+          "literal": "кайн штро:м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist der Bohrer kaputt?",
+          "cueTranslation": "Парма вайрон аст?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, er ist kaputt."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Warum bist du zu spät?",
+          "cueTranslation": "Чаро дер мондӣ?",
+          "intent": "Бигӯ: автобус дер монд",
+          "text": "Der Bus war spät.",
+          "accepts": [
+            "Der Bus ist nicht gekommen."
+          ],
+          "translation": "Автобус дер монд.",
+          "literal": "дэ:а бус ва:а шпэ:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Entschuldigung",
+          "translation": "Бубахшед",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu spät",
+          "translation": "Дер",
+          "literal": "цу: шпэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Verloren",
+          "translation": "гум кардам",
+          "literal": "фэало́:рэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist kaputt",
+          "translation": "вайрон шуд",
+          "literal": "ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein Wasser",
+          "translation": "Об нест",
+          "literal": "кайн ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Weiß nicht",
+          "translation": "Намедонам",
+          "literal": "вайс нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кулоҳ гум шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist dein Helm?",
+          "cueTranslation": "Кулоҳат куҷост?",
+          "intent": "Бигӯ: гум кардам",
+          "text": "Ich habe ihn verloren.",
+          "accepts": [
+            "Verloren."
+          ],
+          "translation": "Гум кардам.",
+          "literal": "ихь ҳа́:бэ и:н фэало́:рэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie denn?",
+          "cueTranslation": "Чӣ хел?",
+          "intent": "Бигӯ: намедонам",
+          "text": "Ich weiß nicht.",
+          "accepts": [
+            "Weiß nicht."
+          ],
+          "translation": "Намедонам.",
+          "literal": "ихь вайс нихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hol einen neuen aus dem Lager.",
+          "cueTranslation": "Навашро аз анбор гир.",
+          "intent": "Бигӯ: ташаккур, сардор",
+          "text": "Danke, Chef.",
+          "accepts": [
+            "Okay, Chef."
+          ],
+          "translation": "Ташаккур, сардор.",
+          "literal": "да́нкэ шэф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Чӣ вайрон шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Entschuldigung, ich bin spät.",
+          "translation": "Бубахшед, дер мондам.",
+          "literal": "энтшу́лдигунг ихь бин шпэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Bohrer ist kaputt.",
+          "translation": "Парма вайрон шуд.",
+          "literal": "дэ:а бо́:ра ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Strom ist weg.",
+          "translation": "Барқ рафт.",
+          "literal": "дэ:а штро:м ист вэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Kabel ist gerissen.",
+          "translation": "Сим канда шуд.",
+          "literal": "дас ка́:бэл ист гэри́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Schlüssel ist weg.",
+          "translation": "Калид гум шуд.",
+          "literal": "шлю́сэл ист вэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Was mache ich jetzt?",
+          "translation": "Ҳоло чӣ кор кунам?",
+          "literal": "вас ма́хэ ихь йэцт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: парма",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Warum arbeitest du nicht?",
+          "cueTranslation": "Чаро кор намекунӣ?",
+          "intent": "Бигӯ: парма вайрон шуд",
+          "text": "Der Bohrer ist kaputt.",
+          "accepts": [
+            "Der Bohrer geht nicht."
+          ],
+          "translation": "Парма вайрон шуд.",
+          "literal": "дэ:а бо́:ра ист капу́т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das Kabel?",
+          "cueTranslation": "Сим?",
+          "intent": "Бигӯ: ҳа, сим канда шуд",
+          "text": "Ja, das Kabel ist gerissen.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, сим канда шуд.",
+          "literal": "йа: дас ка́:бэл ист гэри́сэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, ich rufe den Elektriker.",
+          "cueTranslation": "Хуб, барқчиро ҷеғ мезанам.",
+          "intent": "Бипурс: ҳоло чӣ кор кунам?",
+          "text": "Was soll ich jetzt machen?",
+          "accepts": [
+            "Was mache ich jetzt?"
+          ],
+          "translation": "Ҳоло чӣ кор кунам?",
+          "literal": "вас зол ихь йэцт ма́хэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дер мемонам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin heute krank.",
+          "translation": "Ман имрӯз беморам.",
+          "literal": "ихь бин ҳо́йтэ кранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich kann nicht kommen.",
+          "translation": "Омада наметавонам.",
+          "literal": "ихь кан нихьт ко́мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich komme morgen.",
+          "translation": "Фардо меоям.",
+          "literal": "ихь ко́мэ мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Bus kam nicht.",
+          "translation": "Автобус наомад.",
+          "literal": "дэ:а бус ка:м нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwanzig Minuten später.",
+          "translation": "Бист дақиқа дертар.",
+          "literal": "цва́нцихь мину́:тэн шпэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Tut mir leid.",
+          "translation": "Бубахшед.",
+          "literal": "ту:т ми:а лайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дар роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Wo bist du?",
+          "cueTranslation": "Алло? Куҷоӣ?",
+          "intent": "Бигӯ: автобус наомад",
+          "text": "Der Bus ist nicht gekommen.",
+          "accepts": [],
+          "translation": "Автобус наомад.",
+          "literal": "дэ:а бус ист нихьт гэко́мэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann kommst du?",
+          "cueTranslation": "Кай меоӣ?",
+          "intent": "Бигӯ: бист дақиқа дертар меоям",
+          "text": "Ich komme zwanzig Minuten später.",
+          "accepts": [
+            "In zwanzig Minuten."
+          ],
+          "translation": "Бист дақиқа дертар меоям.",
+          "literal": "ихь ко́мэ цва́нцихь мину́:тэн шпэ́:та",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, beeil dich.",
+          "cueTranslation": "Хуб, шитоб кун.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Tut mir leid.",
+          "accepts": [
+            "Entschuldigung."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "ту:т ми:а лайт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг — беморам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Ja, bitte?",
+          "cueTranslation": "Алло? Ҳа, марҳамат?",
+          "intent": "Салом гӯй ва бигӯ, ки беморӣ",
+          "text": "Hallo Chef, ich bin krank.",
+          "accepts": [
+            "Chef, ich bin heute krank."
+          ],
+          "translation": "Салом сардор, ман беморам.",
+          "literal": "ҳа́ло шэф ихь бин кранк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gute Besserung. Was hast du?",
+          "cueTranslation": "Шифо ёбӣ. Чӣ шудааст?",
+          "intent": "Бигӯ: таб дорам",
+          "text": "Ich habe Fieber.",
+          "accepts": [
+            "Hohes Fieber."
+          ],
+          "translation": "Таб дорам.",
+          "literal": "ихь ҳа́:бэ фи́:ба",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kannst du heute nicht kommen?",
+          "cueTranslation": "Имрӯз омада наметавонӣ?",
+          "intent": "Бигӯ: не, омада наметавонам",
+          "text": "Nein, ich kann nicht kommen.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, омада наметавонам.",
+          "literal": "найн ихь кан нихьт ко́мэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, ruh dich aus. Komm morgen.",
+          "cueTranslation": "Хуб, дам гир. Фардо биё.",
+          "intent": "Бигӯ: хуб, фардо меоям",
+          "text": "Okay, ich komme morgen.",
+          "accepts": [
+            "Danke, Chef."
+          ],
+          "translation": "Хуб, фардо меоям.",
+          "literal": "окэ́: ихь ко́мэ мо́ргэн",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

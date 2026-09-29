@@ -1,0 +1,540 @@
+{
+  "slug": "foreman_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Was sagt der Chef?",
+    "titleTranslated": "Бригадир мегӯяд",
+    "scenario": "Бригадир фармон медиҳад — зуд ва кӯтоҳ. Мефаҳмед, ки чӣ кор кунед, ва агар нафаҳмидед, хоҳиш мекунед, ки такрор ё оҳиста гӯяд.",
+    "emoji": "👷",
+    "order": 5,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фармонҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Komm",
+          "translation": "биё",
+          "literal": "ком",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Warte",
+          "translation": "интизор шав",
+          "literal": "ва́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Stopp",
+          "translation": "ист",
+          "literal": "штоп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Bring",
+          "translation": "биёр",
+          "literal": "бринг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Langsam",
+          "translation": "оҳиста",
+          "literal": "ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Schnell",
+          "translation": "зуд",
+          "literal": "шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бригадир ҷеғ мезанад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Komm her!",
+          "cueTranslation": "Ба ин ҷо биё!",
+          "intent": "Бигӯ: омадам",
+          "text": "Ich komme!",
+          "accepts": [
+            "Komme sofort!"
+          ],
+          "translation": "Омадам!",
+          "literal": "ихь ко́мэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Warte kurz.",
+          "cueTranslation": "Каме интизор шав.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du verstanden?",
+          "cueTranslation": "Фаҳмидӣ?",
+          "intent": "Бигӯ: ҳа, фаҳмидам",
+          "text": "Ja, verstanden.",
+          "accepts": [
+            "Verstanden."
+          ],
+          "translation": "Ҳа, фаҳмидам.",
+          "literal": "йа: фэашта́ндэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Агар нафаҳмидед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Nochmal, bitte",
+          "translation": "Лутфан, боз як бор",
+          "literal": "но́хма:л би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht verstanden",
+          "translation": "Нафаҳмидам",
+          "literal": "нихьт фэашта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Langsam, bitte",
+          "translation": "Лутфан, оҳиста",
+          "literal": "ла́нгза:м би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Komme sofort",
+          "translation": "Ҳозир меоям",
+          "literal": "ко́мэ зофо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Fertig",
+          "translation": "тамом",
+          "literal": "фэ́ртихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Jetzt gleich?",
+          "translation": "Ҳамин ҳозир?",
+          "literal": "йэцт глайхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нафаҳмидам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Trag den Sand dorthin!",
+          "cueTranslation": "Регро ба он ҷо бикаш!",
+          "intent": "Бигӯ: нафаҳмидам",
+          "text": "Nicht verstanden.",
+          "accepts": [
+            "Ich verstehe nicht."
+          ],
+          "translation": "Нафаҳмидам.",
+          "literal": "нихьт фэашта́ндэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Den Sand dorthin. Verstanden?",
+          "cueTranslation": "Регро он ҷо. Фаҳмидӣ?",
+          "intent": "Бигӯ: ҳа, фаҳмидам",
+          "text": "Ja, verstanden.",
+          "accepts": [
+            "Verstanden."
+          ],
+          "translation": "Ҳа, фаҳмидам.",
+          "literal": "йа: фэашта́ндэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Schnell!",
+          "cueTranslation": "Зуд!",
+          "intent": "Бигӯ: ҳозир",
+          "text": "Sofort.",
+          "accepts": [
+            "Ich komme sofort."
+          ],
+          "translation": "Ҳозир.",
+          "literal": "зофо́рт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Хоҳиш аз бригадир",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bitte sprechen Sie langsam.",
+          "translation": "Лутфан, оҳиста гап занед.",
+          "literal": "би́тэ шпрэ́хэн зи: ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Können Sie das wiederholen?",
+          "translation": "Инро такрор карда метавонед?",
+          "literal": "кё́нэн зи: дас ви:даҳо́:лэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Deutsch ist schlecht.",
+          "translation": "Олмониам бад аст.",
+          "literal": "майн дойч ист шлэхьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Jetzt gleich machen?",
+          "translation": "Ҳамин ҳозир кунам?",
+          "literal": "йэцт глайхь ма́хэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bin fertig, Chef.",
+          "translation": "Тамом кардам, сардор.",
+          "literal": "ихь бин фэ́ртихь шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Was noch?",
+          "translation": "Боз чӣ?",
+          "literal": "вас нох",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: девор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Mach die Wand sauber.",
+          "cueTranslation": "Деворро тоза кун.",
+          "intent": "Бигӯ: лутфан, оҳиста гап занед",
+          "text": "Bitte sprechen Sie langsam.",
+          "accepts": [
+            "Langsam, bitte."
+          ],
+          "translation": "Лутфан, оҳиста гап занед.",
+          "literal": "би́тэ шпрэ́хэн зи: ла́нгза:м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Die Wand... sauber machen.",
+          "cueTranslation": "Деворро... тоза кардан.",
+          "intent": "Бипурс: ҳамин ҳозир кунам?",
+          "text": "Jetzt gleich machen?",
+          "accepts": [
+            "Jetzt?"
+          ],
+          "translation": "Ҳамин ҳозир кунам?",
+          "literal": "йэцт глайхь ма́хэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, jetzt.",
+          "cueTranslation": "Ҳа, ҳозир.",
+          "intent": "Бигӯ: хуб, сардор",
+          "text": "Okay, Chef.",
+          "accepts": [],
+          "translation": "Хуб, сардор.",
+          "literal": "окэ́: шэф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Аввал ва баъд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Was mache ich zuerst?",
+          "translation": "Аввал чӣ кор кунам?",
+          "literal": "вас ма́хэ ихь цуэ́:аст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Und dann?",
+          "translation": "Ва баъд?",
+          "literal": "унт дан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wohin bringe ich das?",
+          "translation": "Инро ба куҷо барам?",
+          "literal": "воҳи́н бри́нгэ ихь дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Okay, ich mache das.",
+          "translation": "Хуб, ман мекунам.",
+          "literal": "окэ́: ихь ма́хэ дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Brauchst du Hilfe?",
+          "translation": "Ёрӣ лозим?",
+          "literal": "браухст ду: ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich warte.",
+          "translation": "Интизорам.",
+          "literal": "ихь ва́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: кор тамом",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bist du fertig?",
+          "cueTranslation": "Тамом кардӣ?",
+          "intent": "Бигӯ: ҳа, тамом кардам, сардор",
+          "text": "Ich bin fertig, Chef.",
+          "accepts": [
+            "Ja, fertig."
+          ],
+          "translation": "Тамом кардам, сардор.",
+          "literal": "ихь бин фэ́ртихь шэф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Super! Mach jetzt Pause.",
+          "cueTranslation": "Офарин! Ҳоло дам гир.",
+          "intent": "Бигӯ: ташаккур, сардор",
+          "text": "Danke, Chef.",
+          "accepts": [
+            "Danke."
+          ],
+          "translation": "Ташаккур, сардор.",
+          "literal": "да́нкэ шэф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danach trägst du die Ziegel.",
+          "cueTranslation": "Баъд хиштҳоро мекашӣ.",
+          "intent": "Бипурс: ба куҷо барам?",
+          "text": "Wohin bringe ich das?",
+          "accepts": [
+            "Wohin?"
+          ],
+          "translation": "Инро ба куҷо барам?",
+          "literal": "воҳи́н бри́нгэ ихь дас",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фармони бригадир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Komm her!",
+          "cueTranslation": "Ба ин ҷо биё!",
+          "intent": "Бигӯ: ҳозир меоям",
+          "text": "Ich komme sofort.",
+          "accepts": [
+            "Ich komme!"
+          ],
+          "translation": "Ҳозир меоям.",
+          "literal": "ихь ко́мэ зофо́рт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Trag den Sand in den zweiten Stock.",
+          "cueTranslation": "Регро ба ошёнаи дуюм бардор.",
+          "intent": "Бигӯ: нафаҳмидам, лутфан оҳиста",
+          "text": "Nicht verstanden. Langsam, bitte.",
+          "accepts": [
+            "Langsam, bitte."
+          ],
+          "translation": "Нафаҳмидам. Лутфан, оҳиста.",
+          "literal": "нихьт фэашта́ндэн ла́нгза:м би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Den Sand... in den zweiten Stock.",
+          "cueTranslation": "Регро... ба ошёнаи дуюм.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Verstanden.",
+          "accepts": [
+            "Okay, verstanden."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "фэашта́ндэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Sag mir, wenn du fertig bist.",
+          "cueTranslation": "Вақте тамом кардӣ, ба ман гӯй.",
+          "intent": "Бигӯ: хуб, сардор",
+          "text": "Okay, Chef.",
+          "accepts": [],
+          "translation": "Хуб, сардор.",
+          "literal": "окэ́: шэф",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

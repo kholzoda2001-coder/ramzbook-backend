@@ -1,0 +1,544 @@
+{
+  "slug": "safety_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Sicherheit und Hilfe",
+    "titleTranslated": "Бехатарӣ ва ёрӣ",
+    "scenario": "Дар объект хатар ҳаст. Огоҳ мекунед, ёрӣ мехоҳед, ёрии таъҷилӣ ҷеғ мезанед (112) ва мегӯед, ки чӣ шуд.",
+    "emoji": "⛑️",
+    "order": 8,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хатар",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Vorsicht",
+          "translation": "эҳтиёт",
+          "literal": "фо́:азихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Gefahr",
+          "translation": "хатар",
+          "literal": "гэфа́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Hilfe",
+          "translation": "ёрӣ",
+          "literal": "ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Feuer",
+          "translation": "оташ, сӯхтор",
+          "literal": "фо́йа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Krankenwagen",
+          "translation": "мошини ёрии таъҷилӣ",
+          "literal": "кра́нкэнва:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Verboten",
+          "translation": "манъ",
+          "literal": "фэабо́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Хубӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Vorsicht! Schau nach oben!",
+          "cueTranslation": "Эҳтиёт! Ба боло нигоҳ кун!",
+          "intent": "Бигӯ: дидам",
+          "text": "Ich sehe es!",
+          "accepts": [
+            "Okay, gesehen."
+          ],
+          "translation": "Дидам!",
+          "literal": "ихь зэ́:э эс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Alles okay?",
+          "cueTranslation": "Хубӣ?",
+          "intent": "Бигӯ: ҳа, хубам",
+          "text": "Ja, alles okay.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, хубам.",
+          "literal": "йа: а́лэс окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Brauchst du Hilfe?",
+          "cueTranslation": "Ёрӣ лозим?",
+          "intent": "Бигӯ: ҳа, ёрӣ лозим",
+          "text": "Ja, ich brauche Hilfe.",
+          "accepts": [
+            "Ja, bitte."
+          ],
+          "translation": "Ҳа, ёрӣ лозим.",
+          "literal": "йа: ихь бра́ухэ ҳи́лфэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои фаврӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hilfe",
+          "translation": "ёрӣ диҳед!",
+          "literal": "ҳи́лфэ",
+          "note": "Фарёди ёрӣ — баланд гӯед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Krankenwagen!",
+          "translation": "Ёрии таъҷилӣ!",
+          "literal": "а́йнэн кра́нкэнва:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Hingefallen",
+          "translation": "Афтод",
+          "literal": "ҳи́нгэфалэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Es blutet",
+          "translation": "Хун меравад",
+          "literal": "эс блу́:тэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Pass auf",
+          "translation": "Эҳтиёт шав",
+          "literal": "пас ауф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Alle raus",
+          "translation": "Ҳама берун",
+          "literal": "а́лэ раус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist passiert?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: ӯ афтод",
+          "text": "Er ist gefallen.",
+          "accepts": [
+            "Mein Kollege ist gefallen."
+          ],
+          "translation": "Ӯ афтод.",
+          "literal": "э:а ист гэфа́лэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Blutet es?",
+          "cueTranslation": "Хун меравад?",
+          "intent": "Бигӯ: ҳа, хун меравад",
+          "text": "Ja, es blutet.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, хун меравад.",
+          "literal": "йа: эс блу́:тэт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Soll ich den Krankenwagen rufen?",
+          "cueTranslation": "Ёрии таъҷилӣ ҷеғ занам?",
+          "intent": "Бигӯ: ҳа, зуд!",
+          "text": "Ja, schnell!",
+          "accepts": [
+            "Ja, bitte."
+          ],
+          "translation": "Ҳа, зуд!",
+          "literal": "йа: шнэл",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Огоҳӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Notruf eins eins zwei!",
+          "translation": "Рақами ёрӣ — 112!",
+          "literal": "но́:тру:ф айнс айнс цвай",
+          "note": "112 — рақами ёрии таъҷилӣ дар Олмон.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Kollege ist verletzt.",
+          "translation": "Ҳамкорам захмӣ шуд.",
+          "literal": "майн коле́:гэ ист фэалэ́цт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist gefährlich.",
+          "translation": "Ин хатарнок аст.",
+          "literal": "дас ист гэфэ́:алихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mach den Gurt fest.",
+          "translation": "Камарбандро бибанд.",
+          "literal": "мах дэ:н гурт фэст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Es brennt!",
+          "translation": "Оташ гирифт!",
+          "literal": "эс брэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist es verboten.",
+          "translation": "Ин ҷо манъ аст.",
+          "literal": "ҳи:а ист эс фэабо́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: ҳавоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Warum gehst du nicht aufs Gerüst?",
+          "cueTranslation": "Чаро ба ҳавоза намебароӣ?",
+          "intent": "Бигӯ: ин хатарнок аст",
+          "text": "Das ist gefährlich.",
+          "accepts": [
+            "Zu gefährlich."
+          ],
+          "translation": "Ин хатарнок аст.",
+          "literal": "дас ист гэфэ́:алихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du einen Gurt?",
+          "cueTranslation": "Камарбанд дорӣ?",
+          "intent": "Бигӯ: не, надорам",
+          "text": "Nein, ich habe keinen.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, надорам.",
+          "literal": "найн ихь ҳа́:бэ ка́йнэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, hol einen aus dem Lager.",
+          "cueTranslation": "Хуб, аз анбор гир.",
+          "intent": "Бигӯ: ташаккур, сардор",
+          "text": "Danke, Chef.",
+          "accepts": [
+            "Okay, Chef."
+          ],
+          "translation": "Ташаккур, сардор.",
+          "literal": "да́нкэ шэф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Захм ва ёрии аввал",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich habe mich geschnitten.",
+          "translation": "Дастамро буридам.",
+          "literal": "ихь ҳа́:бэ михь гэшни́тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist der Verbandskasten?",
+          "translation": "Қуттии ёрии аввал куҷост?",
+          "literal": "во: ист дэ:а фэаба́нцкастэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mir ist schwindelig.",
+          "translation": "Сарам чарх мезанад.",
+          "literal": "ми:а ист шви́ндэлихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich muss mich setzen.",
+          "translation": "Бояд нишинам.",
+          "literal": "ихь мус михь зэ́цэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibst du mir Wasser?",
+          "translation": "Ба ман об медиҳӣ?",
+          "literal": "ги:пст ду: ми:а ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Jetzt geht es besser.",
+          "translation": "Ҳоло беҳтар.",
+          "literal": "йэцт гэ:т эс бэ́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дастам бурид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist los? Da ist Blut!",
+          "cueTranslation": "Чӣ шуд? Хун ҳаст!",
+          "intent": "Бигӯ: дастамро буридам",
+          "text": "Ich habe mich geschnitten.",
+          "accepts": [
+            "Mein Finger blutet."
+          ],
+          "translation": "Дастамро буридам.",
+          "literal": "ихь ҳа́:бэ михь гэшни́тэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Komm, setz dich.",
+          "cueTranslation": "Биё, нишин.",
+          "intent": "Бипурс: қуттии ёрии аввал куҷост?",
+          "text": "Wo ist der Verbandskasten?",
+          "accepts": [],
+          "translation": "Қуттии ёрии аввал куҷост?",
+          "literal": "во: ист дэ:а фэаба́нцкастэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Im Container. Ich hole ihn.",
+          "cueTranslation": "Дар вагонча. Меорам.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳамкор афтод",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Vorsicht! Dein Kollege ist gefallen!",
+          "cueTranslation": "Эҳтиёт! Ҳамкорат афтод!",
+          "intent": "Бигӯ: ёрӣ! Ёрии таъҷилӣ!",
+          "text": "Hilfe! Einen Krankenwagen!",
+          "accepts": [
+            "Einen Krankenwagen, bitte!"
+          ],
+          "translation": "Ёрӣ! Ёрии таъҷилӣ!",
+          "literal": "ҳи́лфэ а́йнэн кра́нкэнва:гэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich rufe an. Kann er sprechen?",
+          "cueTranslation": "Занг мезанам. Гап зада метавонад?",
+          "intent": "Бигӯ: ҳа, вале хун меравад",
+          "text": "Ja, aber es blutet.",
+          "accepts": [
+            "Ja, es blutet."
+          ],
+          "translation": "Ҳа, вале хун меравад.",
+          "literal": "йа: а́:ба эс блу́:тэт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Beweg ihn nicht!",
+          "cueTranslation": "Ӯро наҷунбон!",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Okay, verstanden.",
+          "accepts": [
+            "Verstanden."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "окэ́: фэашта́ндэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Der Krankenwagen kommt.",
+          "cueTranslation": "Ёрии таъҷилӣ омада истодааст.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

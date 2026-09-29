@@ -1,0 +1,540 @@
+{
+  "slug": "market_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Im Supermarkt",
+    "titleTranslated": "Бозор",
+    "scenario": "Дар мағоза хӯрок мехаред: нон, гӯшт, тухм. Нархро мепурсед, гӯшти ҳалолро мепурсед ва пардохт мекунед.",
+    "emoji": "🛒",
+    "order": 10,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хӯрок",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Brot",
+          "translation": "нон",
+          "literal": "бро:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Wasser",
+          "translation": "об",
+          "literal": "ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Milch",
+          "translation": "шир",
+          "literal": "милхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Eier",
+          "translation": "тухм",
+          "literal": "а́йа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Fleisch",
+          "translation": "гӯшт",
+          "literal": "флайш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Hähnchen",
+          "translation": "мурғ",
+          "literal": "ҳэ́:нхьэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ мехоҳед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo, was darf es sein?",
+          "cueTranslation": "Салом, чӣ мехоҳед?",
+          "intent": "Бигӯ: нон",
+          "text": "Brot.",
+          "accepts": [
+            "Brot, bitte."
+          ],
+          "translation": "Нон.",
+          "literal": "бро:т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viele?",
+          "cueTranslation": "Чанд дона?",
+          "intent": "Бигӯ: ду",
+          "text": "Zwei.",
+          "accepts": [
+            "Zwei Stück."
+          ],
+          "translation": "Ду.",
+          "literal": "цвай",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sonst noch etwas?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бигӯ: не, ташаккур",
+          "text": "Nein, danke.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, ташаккур.",
+          "literal": "найн да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Нарх",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie teuer?",
+          "translation": "Чанд пул?",
+          "literal": "ви: то́йа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu teuer",
+          "translation": "Хеле қимат",
+          "literal": "цу: то́йа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Tüte, bitte",
+          "translation": "Лутфан, халта",
+          "literal": "тю́:тэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Karte",
+          "translation": "бо корт",
+          "literal": "мит ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Bar",
+          "translation": "нақд",
+          "literal": "ба:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Kilo",
+          "translation": "як кило",
+          "literal": "айн ки́:ло",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пардохт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Das macht dreißig Euro.",
+          "cueTranslation": "Сӣ евро мешавад.",
+          "intent": "Бигӯ: хеле қимат",
+          "text": "Zu teuer.",
+          "accepts": [
+            "Das ist teuer."
+          ],
+          "translation": "Хеле қимат.",
+          "literal": "цу: то́йа",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mit Karte oder bar?",
+          "cueTranslation": "Бо корт ё нақд?",
+          "intent": "Бигӯ: нақд",
+          "text": "Bar.",
+          "accepts": [
+            "Ich zahle bar."
+          ],
+          "translation": "Нақд.",
+          "literal": "ба:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Brauchen Sie eine Tüte?",
+          "cueTranslation": "Халта лозим?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Ja, bitte.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Харид",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Was kostet das?",
+          "translation": "Ин чанд?",
+          "literal": "вас ко́стэт дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Kilo Fleisch.",
+          "translation": "Як кило гӯшт.",
+          "literal": "айн ки́:ло флайш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist das halal?",
+          "translation": "Ин ҳалол аст?",
+          "literal": "ист дас ҳала́:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist das Wasser?",
+          "translation": "Об куҷост?",
+          "literal": "во: ист дас ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Brote, bitte.",
+          "translation": "Лутфан, ду нон.",
+          "literal": "цвай бро́:тэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es etwas Billigeres?",
+          "translation": "Арзонтар ҳаст?",
+          "literal": "ги:пт эс э́твас би́лигэрэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: қассоб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bitte schön?",
+          "cueTranslation": "Марҳамат?",
+          "intent": "Бигӯ: як кило гӯшт",
+          "text": "Ein Kilo Fleisch.",
+          "accepts": [
+            "Ein Kilo Fleisch, bitte."
+          ],
+          "translation": "Як кило гӯшт.",
+          "literal": "айн ки́:ло флайш",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Rind oder Hähnchen?",
+          "cueTranslation": "Гӯшти гов ё мурғ?",
+          "intent": "Бигӯ: мурғ",
+          "text": "Hähnchen.",
+          "accepts": [],
+          "translation": "Мурғ.",
+          "literal": "ҳэ́:нхьэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Noch etwas?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бипурс: ин ҳалол аст?",
+          "text": "Ist das halal?",
+          "accepts": [
+            "Halal?"
+          ],
+          "translation": "Ин ҳалол аст?",
+          "literal": "ист дас ҳала́:л",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар касса",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie viel macht das?",
+          "translation": "Ҳамагӣ чанд?",
+          "literal": "ви: фи:л махт дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe kein Kleingeld.",
+          "translation": "Пули майда надорам.",
+          "literal": "ихь ҳа́:бэ кайн кла́йнгэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Karte zahlen?",
+          "translation": "Бо корт пардохт?",
+          "literal": "мит ка́ртэ ца́:лэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Den Kassenbon, bitte.",
+          "translation": "Лутфан, чек.",
+          "literal": "дэ:н ка́сэнбонг би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es Tee?",
+          "translation": "Чой ҳаст?",
+          "literal": "ги:пт эс тэ:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist alles.",
+          "translation": "Ҳамааш ҳамин.",
+          "literal": "дас ист а́лэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: касса",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ist das alles?",
+          "cueTranslation": "Ҳамааш ҳамин?",
+          "intent": "Бигӯ: ҳа, ҳамааш ҳамин",
+          "text": "Ja, das ist alles.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, ҳамааш ҳамин.",
+          "literal": "йа: дас ист а́лэс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das macht zwölf Euro.",
+          "cueTranslation": "Дувоздаҳ евро мешавад.",
+          "intent": "Бипурс: бо корт пардохта метавонам?",
+          "text": "Kann ich mit Karte zahlen?",
+          "accepts": [
+            "Mit Karte?"
+          ],
+          "translation": "Бо корт пардохта метавонам?",
+          "literal": "кан ихь мит ка́ртэ ца́:лэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, natürlich.",
+          "cueTranslation": "Ҳа, албатта.",
+          "intent": "Бигӯ: лутфан, чек",
+          "text": "Den Kassenbon, bitte.",
+          "accepts": [],
+          "translation": "Лутфан, чек.",
+          "literal": "дэ:н ка́сэнбонг би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мағоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was darf es sein?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: ду нон ва шир",
+          "text": "Zwei Brote und Milch.",
+          "accepts": [
+            "Zwei Brote und eine Milch."
+          ],
+          "translation": "Ду нон ва шир.",
+          "literal": "цвай бро́:тэ унт милхь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sonst noch etwas?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бипурс: тухм ҳаст?",
+          "text": "Haben Sie Eier?",
+          "accepts": [
+            "Gibt es Eier?"
+          ],
+          "translation": "Тухм доред?",
+          "literal": "ҳа́:бэн зи: а́йа",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja. Wie viele?",
+          "cueTranslation": "Ҳа. Чанд дона?",
+          "intent": "Бигӯ: даҳ дона",
+          "text": "Zehn Stück.",
+          "accepts": [
+            "Zehn."
+          ],
+          "translation": "Даҳ дона.",
+          "literal": "цэ:н штюк",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Das macht acht Euro.",
+          "cueTranslation": "Ҳашт евро мешавад.",
+          "intent": "Бигӯ: бо корт",
+          "text": "Mit Karte.",
+          "accepts": [
+            "Ich zahle mit Karte."
+          ],
+          "translation": "Бо корт.",
+          "literal": "мит ка́ртэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,543 @@
+{
+  "slug": "site_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Erster Tag auf der Baustelle",
+    "titleTranslated": "Рӯзи аввал дар объект",
+    "scenario": "Рӯзи аввали шумо дар Baustelle. Бригадир (Chef) кулоҳ ва дастпӯшак медиҳад, нишон медиҳад, ки вагонча ва ҳоҷатхона куҷост, ва кори аввалро мегӯяд.",
+    "emoji": "🏗️",
+    "order": 3,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Объект",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Baustelle",
+          "translation": "объект (сохтмон)",
+          "literal": "ба́уштэлэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Chef",
+          "translation": "бригадир, сардор",
+          "literal": "шэф",
+          "note": "Дар объекти олмонӣ бригадирро «Chef» ё «Polier» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Helm",
+          "translation": "кулоҳи муҳофизатӣ",
+          "literal": "ҳэлм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Handschuhe",
+          "translation": "дастпӯшак",
+          "literal": "ҳа́нтшу:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Pause",
+          "translation": "танаффус",
+          "literal": "па́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Container",
+          "translation": "вагонча",
+          "literal": "контэ́:на",
+          "note": "Вагончаи коргарон дар объект.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бригадир мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bist du neu?",
+          "cueTranslation": "Навӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich bin neu."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": "Дар объект бригадир ба коргар «du» мегӯяд — ин муқаррарӣ аст.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du einen Helm?",
+          "cueTranslation": "Кулоҳ дорӣ?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, habe ich nicht."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier, der ist für dich.",
+          "cueTranslation": "Гир, ин барои ту.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Morgen, Chef",
+          "translation": "Субҳ ба хайр, сардор",
+          "literal": "мо́ргэн шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wohin jetzt?",
+          "translation": "Ҳоло ба куҷо?",
+          "literal": "воҳи́н йэцт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe",
+          "translation": "Мефаҳмам",
+          "literal": "ихь фэаштэ́:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bin bereit",
+          "translation": "Тайёрам",
+          "literal": "бин бэра́йт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann Pause?",
+          "translation": "Танаффус кай?",
+          "literal": "ван па́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Container",
+          "translation": "вагонча",
+          "literal": "дэ:а контэ́:на",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Аввал чӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Morgen! Bist du bereit?",
+          "cueTranslation": "Субҳ ба хайр! Тайёрӣ?",
+          "intent": "Бигӯ: ҳа, тайёрам",
+          "text": "Ja, ich bin bereit.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, тайёрам.",
+          "literal": "йа: ихь бин бэра́йт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Geh zuerst in den Container.",
+          "cueTranslation": "Аввал ба вагонча рав.",
+          "intent": "Бипурс: ба куҷо равам?",
+          "text": "Wohin gehe ich?",
+          "accepts": [
+            "Wohin?"
+          ],
+          "translation": "Ба куҷо равам?",
+          "literal": "воҳи́н гэ́:э ихь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dort, rechts.",
+          "cueTranslation": "Он ҷо, тарафи рост.",
+          "intent": "Бигӯ: мефаҳмам",
+          "text": "Ich verstehe.",
+          "accepts": [
+            "Okay, verstanden."
+          ],
+          "translation": "Мефаҳмам.",
+          "literal": "ихь фэаштэ́:э",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Рӯзи аввали ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Mein erster Tag.",
+          "translation": "Рӯзи аввали ман.",
+          "literal": "майн э́:аста та:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Was soll ich machen?",
+          "translation": "Чӣ кор кунам?",
+          "literal": "вас зол ихь ма́хэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe keinen Helm.",
+          "translation": "Ман кулоҳ надорам.",
+          "literal": "ихь ҳа́:бэ ка́йнэн ҳэлм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche Handschuhe.",
+          "translation": "Ба ман дастпӯшак лозим.",
+          "literal": "ихь бра́ухэ ҳа́нтшу:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es Wasser?",
+          "translation": "Об ҳаст?",
+          "literal": "ги:пт эс ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "Ich heiße ___.",
+          "translation": "Номи ман ___.",
+          "literal": "ихь ҳа́йсэ ___",
+          "note": "Номи худро гӯед: «Ich heiße Ali».",
+          "cue": "Wie heißt du?",
+          "cueTranslation": "Номат чист?",
+          "intent": "Номи худатонро гӯед",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: дастпӯшак",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dein erster Tag?",
+          "cueTranslation": "Рӯзи аввалат?",
+          "intent": "Бигӯ: ҳа, рӯзи аввали ман",
+          "text": "Ja, mein erster Tag.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, рӯзи аввали ман.",
+          "literal": "йа: майн э́:аста та:к",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du Handschuhe?",
+          "cueTranslation": "Дастпӯшак дорӣ?",
+          "intent": "Бигӯ: не, ба ман дастпӯшак лозим",
+          "text": "Nein, ich brauche Handschuhe.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, ба ман дастпӯшак лозим.",
+          "literal": "найн ихь бра́ухэ ҳа́нтшу:э",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, hier. Noch etwas?",
+          "cueTranslation": "Хуб, ана. Боз чизе?",
+          "intent": "Бипурс: чӣ кор кунам?",
+          "text": "Was soll ich machen?",
+          "accepts": [
+            "Was mache ich jetzt?"
+          ],
+          "translation": "Чӣ кор кунам?",
+          "literal": "вас зол ихь ма́хэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хӯрок ва вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Toilette?",
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "во: ист ди: тоалэ́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo essen wir?",
+          "translation": "Мо дар куҷо хӯрок мехӯрем?",
+          "literal": "во: э́сэн ви:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann ist Mittagspause?",
+          "translation": "Танаффуси нисфирӯзӣ кай?",
+          "literal": "ван ист ми́та:кспаузэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann ist Feierabend?",
+          "translation": "Кор кай тамом мешавад?",
+          "literal": "ван ист фа́йаа:бэнт",
+          "note": "«Feierabend» — охири рӯзи корӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Okay, Chef.",
+          "translation": "Хуб, сардор.",
+          "literal": "окэ́: шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist der Container?",
+          "translation": "Вагонча куҷост?",
+          "literal": "во: ист дэ:а контэ́:на",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pause ist um zehn Uhr.",
+          "cueTranslation": "Танаффус соати даҳ.",
+          "intent": "Бипурс: танаффуси нисфирӯзӣ кай?",
+          "text": "Wann ist Mittagspause?",
+          "accepts": [],
+          "translation": "Танаффуси нисфирӯзӣ кай?",
+          "literal": "ван ист ми́та:кспаузэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Um zwölf Uhr. Im Container.",
+          "cueTranslation": "Соати дувоздаҳ. Дар вагонча.",
+          "intent": "Бипурс: вагонча куҷост?",
+          "text": "Wo ist der Container?",
+          "accepts": [],
+          "translation": "Вагонча куҷост?",
+          "literal": "во: ист дэ:а контэ́:на",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Da drüben, neben dem Kran.",
+          "cueTranslation": "Он ҷо, дар паҳлӯи кран.",
+          "intent": "Бигӯ: хуб, сардор",
+          "text": "Okay, Chef.",
+          "accepts": [
+            "Verstanden."
+          ],
+          "translation": "Хуб, сардор.",
+          "literal": "окэ́: шэф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: коргари нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Morgen! Bist du der neue Arbeiter?",
+          "cueTranslation": "Субҳ ба хайр! Коргари нав туӣ?",
+          "intent": "Салом гӯй ва бигӯ, ки ҳа",
+          "text": "Guten Morgen! Ja.",
+          "accepts": [
+            "Ja, das bin ich."
+          ],
+          "translation": "Субҳ ба хайр! Ҳа.",
+          "literal": "гу́:тэн мо́ргэн йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du einen Helm?",
+          "cueTranslation": "Кулоҳ дорӣ?",
+          "intent": "Бигӯ: не, надорам",
+          "text": "Nein, ich habe keinen Helm.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, кулоҳ надорам.",
+          "literal": "найн ихь ҳа́:бэ ка́йнэн ҳэлм",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier. Brauchst du auch Handschuhe?",
+          "cueTranslation": "Гир. Дастпӯшак ҳам лозим?",
+          "intent": "Бигӯ: ҳа, лозим",
+          "text": "Ja, bitte.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Zuerst trägst du Zement.",
+          "cueTranslation": "Хуб. Аввал семент мекашӣ.",
+          "intent": "Бигӯ: фаҳмидам, сардор",
+          "text": "Verstanden, Chef.",
+          "accepts": [
+            "Okay, Chef."
+          ],
+          "translation": "Фаҳмидам, сардор.",
+          "literal": "фэашта́ндэн шэф",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

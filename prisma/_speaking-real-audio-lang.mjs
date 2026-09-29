@@ -40,6 +40,9 @@ const LANGS = {
   // Туркӣ: мардон — edge Ahmet ва Google Wavenet-E; видоъ бо овози курс (Emel).
   tr: { voices: ['edge:tr-TR-AhmetNeural', 'tr-TR-Wavenet-E'], course: 'edge:tr-TR-EmelNeural',
         code: 'tr-TR', closing: 'Harika, teşekkürler! Görüşürüz!' },
+  // Олмонӣ: мардони edge — Conrad ва Killian; видоъ бо овози курс (Katja).
+  de: { voices: ['edge:de-DE-ConradNeural', 'edge:de-DE-KillianNeural'], course: 'edge:de-DE-KatjaNeural',
+        code: 'de-DE', closing: 'Super, danke! Bis später!' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);

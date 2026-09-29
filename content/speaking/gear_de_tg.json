@@ -1,0 +1,536 @@
+{
+  "slug": "gear_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Arbeitskleidung",
+    "titleTranslated": "Либоси корӣ",
+    "scenario": "Либос ва таҷҳизоти муҳофизатӣ: камзӯл, мӯза, айнак, ниқоб. Андозаро мегӯед, нав мехоҳед ва мефаҳмед, ки бе кулоҳ даромадан манъ аст.",
+    "emoji": "🦺",
+    "order": 18,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Либос",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Warnweste",
+          "translation": "камзӯли инъикоскунанда",
+          "literal": "ва́рнвэстэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Arbeitsschuhe",
+          "translation": "мӯзаи корӣ",
+          "literal": "а́рбайцшу:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Schutzbrille",
+          "translation": "айнаки муҳофизатӣ",
+          "literal": "шу́цбрилэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Maske",
+          "translation": "ниқоб",
+          "literal": "ма́скэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Arbeitshose",
+          "translation": "шими корӣ",
+          "literal": "а́рбайцҳо:зэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Gehörschutz",
+          "translation": "гӯшпӯшак",
+          "literal": "гэҳё́:ашуц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Камзӯлат куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist deine Warnweste?",
+          "cueTranslation": "Камзӯлат куҷост?",
+          "intent": "Бигӯ: дар вагонча",
+          "text": "Im Container.",
+          "accepts": [
+            "Sie ist im Container."
+          ],
+          "translation": "Дар вагонча.",
+          "literal": "им контэ́:на",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Setz die Schutzbrille auf!",
+          "cueTranslation": "Айнак пӯш!",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Mache ich."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Passen die Schuhe?",
+          "cueTranslation": "Мӯзаҳо мувофиқанд?",
+          "intent": "Бигӯ: не, калон",
+          "text": "Nein, zu groß.",
+          "accepts": [
+            "Zu groß."
+          ],
+          "translation": "Не, калон.",
+          "literal": "найн цу: гро:с",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Neue Handschuhe",
+          "translation": "дастпӯшаки нав",
+          "literal": "но́йэ ҳа́нтшу:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Eine Staubmaske",
+          "translation": "ниқоби чанг",
+          "literal": "а́йнэ шта́упмаскэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist kaputt",
+          "translation": "дарида, вайрон",
+          "literal": "ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu klein",
+          "translation": "хеле хурд",
+          "literal": "цу: клайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gehörschutz aufsetzen",
+          "translation": "гӯшпӯшак пӯшидан",
+          "literal": "гэҳё́:ашуц а́уфзэцэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Arbeitsschuhe",
+          "translation": "мӯзаҳои корӣ",
+          "literal": "ди: а́рбайцшу:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нав лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was brauchst du?",
+          "cueTranslation": "Чӣ лозим?",
+          "intent": "Бигӯ: дастпӯшаки нав",
+          "text": "Neue Handschuhe.",
+          "accepts": [
+            "Ich brauche neue Handschuhe."
+          ],
+          "translation": "Дастпӯшаки нав.",
+          "literal": "но́йэ ҳа́нтшу:э",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Was ist mit den alten?",
+          "cueTranslation": "Кӯҳнаҳо чӣ шуданд?",
+          "intent": "Бигӯ: дарида шуданд",
+          "text": "Sie sind kaputt.",
+          "accepts": [
+            "Kaputt."
+          ],
+          "translation": "Дарида шуданд.",
+          "literal": "зи: зинт капу́т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier, die sind neu.",
+          "cueTranslation": "Гир, инҳо нав.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Андоза ва вайронӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich habe Größe zweiundvierzig.",
+          "translation": "Андозаи ман чилу ду.",
+          "literal": "ихь ҳа́:бэ грё́:сэ цва́йунтфирцихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Schuhe sind klein.",
+          "translation": "Мӯза хурд аст.",
+          "literal": "ди: шу́:э зинт клайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche eine Staubmaske.",
+          "translation": "Ба ман ниқоби чанг лозим.",
+          "literal": "ихь бра́ухэ а́йнэ шта́упмаскэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Weste ist kaputt.",
+          "translation": "Камзӯлам дарида шуд.",
+          "literal": "ма́йнэ вэ́стэ ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Brille ist kaputt.",
+          "translation": "Айнакам шикаст.",
+          "literal": "ма́йнэ бри́лэ ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kann ich neue bekommen?",
+          "translation": "Нав гирифта метавонам?",
+          "literal": "кан ихь но́йэ бэко́мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: мӯза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Welche Größe hast du?",
+          "cueTranslation": "Андозаат чанд?",
+          "intent": "Бигӯ: чилу ду",
+          "text": "Zweiundvierzig.",
+          "accepts": [
+            "Größe zweiundvierzig."
+          ],
+          "translation": "Чилу ду.",
+          "literal": "цва́йунтфирцихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Passen diese Schuhe?",
+          "cueTranslation": "Ин мӯза мувофиқ аст?",
+          "intent": "Бигӯ: не, хурд",
+          "text": "Nein, zu klein.",
+          "accepts": [
+            "Zu klein."
+          ],
+          "translation": "Не, хурд.",
+          "literal": "найн цу: клайн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, hier ist dreiundvierzig.",
+          "cueTranslation": "Хуб, ана чилу се.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қоидаҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hier ist es laut.",
+          "translation": "Ин ҷо садо зиёд.",
+          "literal": "ҳи:а ист эс лаут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche Gehörschutz.",
+          "translation": "Ба ман гӯшпӯшак лозим.",
+          "literal": "ихь бра́ухэ гэҳё́:ашуц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ohne Helm verboten.",
+          "translation": "Бе кулоҳ манъ.",
+          "literal": "о́:нэ ҳэлм фэабо́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Kleidung ist nass.",
+          "translation": "Либосам тар шуд.",
+          "literal": "ма́йнэ кла́йдунг ист нас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es eine Ersatzhose?",
+          "translation": "Шими эҳтиётӣ ҳаст?",
+          "literal": "ги:пт эс а́йнэ эаза́цҳо:зэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Zieh die Weste an.",
+          "translation": "Камзӯлро пӯш.",
+          "literal": "ци: ди: вэ́стэ ан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: гӯшпӯшак",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Warum hast du keinen Gehörschutz?",
+          "cueTranslation": "Чаро гӯшпӯшак надорӣ?",
+          "intent": "Бигӯ: ба ман гӯшпӯшак лозим",
+          "text": "Ich brauche Gehörschutz.",
+          "accepts": [
+            "Ich habe keinen."
+          ],
+          "translation": "Ба ман гӯшпӯшак лозим.",
+          "literal": "ихь бра́ухэ гэҳё́:ашуц",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Im Lager gibt es welchen. Hol ihn.",
+          "cueTranslation": "Дар анбор ҳаст. Гир.",
+          "intent": "Бипурс: шими эҳтиётӣ ҳаст?",
+          "text": "Gibt es eine Ersatzhose?",
+          "accepts": [],
+          "translation": "Шими эҳтиётӣ ҳаст?",
+          "literal": "ги:пт эс а́йнэ эаза́цҳо:зэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Warum?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: либосам тар шуд",
+          "text": "Meine Kleidung ist nass.",
+          "accepts": [],
+          "translation": "Либосам тар шуд.",
+          "literal": "ма́йнэ кла́йдунг ист нас",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дар дарвоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Stopp! Wo ist dein Helm?",
+          "cueTranslation": "Ист! Кулоҳат куҷост?",
+          "intent": "Бигӯ: бубахшед, дар вагонча",
+          "text": "Entschuldigung, im Container.",
+          "accepts": [
+            "Im Container."
+          ],
+          "translation": "Бубахшед, дар вагонча.",
+          "literal": "энтшу́лдигунг им контэ́:на",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ohne Helm ist es verboten!",
+          "cueTranslation": "Бе кулоҳ манъ аст!",
+          "intent": "Бигӯ: фаҳмидам, ҳозир меорам",
+          "text": "Verstanden, ich hole ihn sofort.",
+          "accepts": [
+            "Ich hole ihn sofort."
+          ],
+          "translation": "Фаҳмидам, ҳозир меорам.",
+          "literal": "фэашта́ндэн ихь ҳо́:лэ и:н зофо́рт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und die Weste fehlt auch.",
+          "cueTranslation": "Камзӯл ҳам нест.",
+          "intent": "Бигӯ: камзӯлам дарида шуд",
+          "text": "Meine Weste ist kaputt.",
+          "accepts": [],
+          "translation": "Камзӯлам дарида шуд.",
+          "literal": "ма́йнэ вэ́стэ ист капу́т",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Hol eine neue aus dem Lager.",
+          "cueTranslation": "Навашро аз анбор гир.",
+          "intent": "Бигӯ: хуб, сардор",
+          "text": "Okay, Chef.",
+          "accepts": [
+            "Danke, Chef."
+          ],
+          "translation": "Хуб, сардор.",
+          "literal": "окэ́: шэф",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,538 @@
+{
+  "slug": "doctor_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Beim Arzt",
+    "titleTranslated": "Назди духтур",
+    "scenario": "Бемор шудед. Дар қабулгоҳи духтур (Praxis) навбат мегиред, мегӯед, ки куҷоятон дард мекунад, ва мепурсед, ки доруро чӣ хел гиред.",
+    "emoji": "🩺",
+    "order": 6,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Беморхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Arzt",
+          "translation": "духтур",
+          "literal": "а:ацт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Praxis",
+          "translation": "қабулгоҳи духтур",
+          "literal": "пра́ксис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Schmerzen",
+          "translation": "дард",
+          "literal": "шмэ́рцэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Fieber",
+          "translation": "таб",
+          "literal": "фи́:ба",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Tabletten",
+          "translation": "ҳаб, дору",
+          "literal": "таблэ́тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Apotheke",
+          "translation": "дорухона",
+          "literal": "апотэ́:кэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Беморед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Gute Besserung! Sind Sie krank?",
+          "cueTranslation": "Шифо ёбед! Беморед?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich bin krank."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": "«Gute Besserung» — ба бемор ҳамеша мегӯянд.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fieber?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: ҳа, таб дорам",
+          "text": "Ja, ich habe Fieber.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, таб дорам.",
+          "literal": "йа: ихь ҳа́:бэ фи́:ба",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier, Ihre Tabletten.",
+          "cueTranslation": "Марҳамат, ҳабҳоятон.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Куҷо дард мекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Kopfschmerzen",
+          "translation": "Сардард",
+          "literal": "ко́пфшмэрцэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bauchschmerzen",
+          "translation": "Дарди шикам",
+          "literal": "ба́ухшмэрцэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Rückenschmerzen",
+          "translation": "Дарди пушт",
+          "literal": "рю́кэншмэрцэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hohes Fieber",
+          "translation": "Таби баланд",
+          "literal": "ҳо́:эс фи́:ба",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sehr schlecht",
+          "translation": "Хеле бад",
+          "literal": "зэ:а шлэхьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Seit gestern",
+          "translation": "Аз дирӯз",
+          "literal": "зайт гэ́стан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ шикоят доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was fehlt Ihnen?",
+          "cueTranslation": "Чӣ шикоят доред?",
+          "intent": "Бигӯ: сарам дард мекунад",
+          "text": "Ich habe Kopfschmerzen.",
+          "accepts": [
+            "Kopfschmerzen."
+          ],
+          "translation": "Сарам дард мекунад.",
+          "literal": "ихь ҳа́:бэ ко́пфшмэрцэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Seit wann?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "Seit gestern.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "зайт гэ́стан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fieber?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: ҳа, таб дорам",
+          "text": "Ja, ich habe Fieber.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, таб дорам.",
+          "literal": "йа: ихь ҳа́:бэ фи́:ба",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар қабулгоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich brauche einen Arzt.",
+          "translation": "Ба ман духтур лозим.",
+          "literal": "ихь бра́ухэ а́йнэн а:ацт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe mich geschnitten.",
+          "translation": "Дастамро буридам.",
+          "literal": "ихь ҳа́:бэ михь гэшни́тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Fuß tut weh.",
+          "translation": "Поям дард мекунад.",
+          "literal": "майн фу:с ту:т вэ:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich möchte einen Termin.",
+          "translation": "Навбат мехоҳам.",
+          "literal": "ихь мё́хьтэ а́йнэн тэами́:н",
+          "note": "«Termin» — вақти қабул, навбат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist meine Versichertenkarte.",
+          "translation": "Ана корти суғуртаи ман.",
+          "literal": "ҳи:а ист ма́йнэ фэази́хьатэнкартэ",
+          "note": "Корти Krankenkasse.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Apotheke?",
+          "translation": "Дорухона куҷост?",
+          "literal": "во: ист ди: апотэ́:кэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: қабулгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag, bitte?",
+          "cueTranslation": "Рӯз ба хайр, марҳамат?",
+          "intent": "Бигӯ: навбат мехоҳам",
+          "text": "Ich möchte einen Termin.",
+          "accepts": [
+            "Ich brauche einen Arzt."
+          ],
+          "translation": "Навбат мехоҳам.",
+          "literal": "ихь мё́хьтэ а́йнэн тэами́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Ihre Versichertenkarte?",
+          "cueTranslation": "Корти суғурта доред?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Ja, hier bitte.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "йа: ҳи:а би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Was fehlt Ihnen?",
+          "cueTranslation": "Хуб. Чӣ шикоят доред?",
+          "intent": "Бигӯ: поям дард мекунад",
+          "text": "Mein Fuß tut weh.",
+          "accepts": [
+            "Der Fuß tut weh."
+          ],
+          "translation": "Поям дард мекунад.",
+          "literal": "майн фу:с ту:т вэ:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дору",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie nehme ich das?",
+          "translation": "Инро чӣ хел гирам?",
+          "literal": "ви: нэ́:мэ ихь дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie oft am Tag?",
+          "translation": "Дар як рӯз чанд бор?",
+          "literal": "ви: офт ам та:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Nach dem Essen?",
+          "translation": "Баъд аз хӯрок?",
+          "literal": "на:х дэ:м э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kann ich morgen arbeiten?",
+          "translation": "Фардо кор карда метавонам?",
+          "literal": "кан ихь мо́ргэн а́рбайтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche eine Krankmeldung.",
+          "translation": "Ба ман варақаи беморӣ лозим.",
+          "literal": "ихь бра́ухэ а́йнэ кра́нкмэлдунг",
+          "note": "«Krankmeldung» — варақаи беморӣ барои кор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Besserung.",
+          "translation": "Шифо ёбед.",
+          "literal": "гу́:тэ бэ́сэрунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: дору",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nehmen Sie diese Tabletten.",
+          "cueTranslation": "Ин ҳабҳоро гиред.",
+          "intent": "Бипурс: дар як рӯз чанд бор?",
+          "text": "Wie oft am Tag?",
+          "accepts": [
+            "Wie oft?"
+          ],
+          "translation": "Дар як рӯз чанд бор?",
+          "literal": "ви: офт ам та:к",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dreimal am Tag, nach dem Essen.",
+          "cueTranslation": "Се бор дар як рӯз, баъд аз хӯрок.",
+          "intent": "Бипурс: фардо кор карда метавонам?",
+          "text": "Kann ich morgen arbeiten?",
+          "accepts": [],
+          "translation": "Фардо кор карда метавонам?",
+          "literal": "кан ихь мо́ргэн а́рбайтэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, zwei Tage Pause.",
+          "cueTranslation": "Не, ду рӯз дам гиред.",
+          "intent": "Бигӯ: ба ман варақаи беморӣ лозим",
+          "text": "Ich brauche eine Krankmeldung.",
+          "accepts": [
+            "Eine Krankmeldung, bitte."
+          ],
+          "translation": "Ба ман варақаи беморӣ лозим.",
+          "literal": "ихь бра́ухэ а́йнэ кра́нкмэлдунг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: назди духтур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Gute Besserung. Was fehlt Ihnen?",
+          "cueTranslation": "Шифо ёбед. Чӣ шикоят доред?",
+          "intent": "Бигӯ: шикамам дард мекунад",
+          "text": "Ich habe Bauchschmerzen.",
+          "accepts": [
+            "Bauchschmerzen."
+          ],
+          "translation": "Шикамам дард мекунад.",
+          "literal": "ихь ҳа́:бэ ба́ухшмэрцэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Seit wann?",
+          "cueTranslation": "Аз кай?",
+          "intent": "Бигӯ: аз дирӯз",
+          "text": "Seit gestern.",
+          "accepts": [],
+          "translation": "Аз дирӯз.",
+          "literal": "зайт гэ́стан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fieber?",
+          "cueTranslation": "Таб доред?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, kein Fieber."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Nehmen Sie das. Zweimal am Tag.",
+          "cueTranslation": "Инро гиред. Ду бор дар як рӯз.",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank.",
+          "accepts": [
+            "Danke."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

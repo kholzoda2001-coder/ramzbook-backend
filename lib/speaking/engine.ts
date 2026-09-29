@@ -808,7 +808,8 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
     if (isBlockedStart(bare(w[start]), cfg)) continue; // қоидаи 1
     if (start > 0 && isWhWord(bare(w[start - 1]), cfg)) continue; // қоидаи 2
     // Туркӣ низ: порча аз калимаи охири ибора («Tamam, …») сар намешавад ва ду ҷумларо намепайвандад.
-    const arKo = cfg.lang === 'ar' || cfg.lang === 'ko' || cfg.lang === 'tr';
+    // Олмонӣ (29.09.2026) низ: артикл/пешоянд/рақам бе исм — «in der Halle» → «der Halle» ✗.
+    const arKo = cfg.lang === 'ar' || cfg.lang === 'ko' || cfg.lang === 'tr' || cfg.lang === 'de';
     if (arKo && AR_ENDS_CLAUSE.test(w[start])) continue;
     if (cfg.lang === 'ko' && koDependentStart(w[start])) continue;
     // Порча ду ҷумларо намепайвандад: «빨리 가 주세요. 늦었어요.» → «가 주세요. 늦었어요.» ✗.
@@ -824,6 +825,9 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
 
     // Агар часпондан тамоми ҷумларо диҳад, шакли бечаспро мегирем:
     // «The bill, please.» набояд ба худи ҷумла табдил ёбад.
+    // Қоидаи 2 баъди часпондан ҳам: «Wie viele Säcke Zement?» → часпонда «viele Säcke
+    // Zement?» — калимаи саволии «Wie» дар қафо мемонд (29.09.2026).
+    if (glued < start && glued > 0 && isWhWord(bare(w[glued - 1]), cfg)) continue;
     let seg = w.slice(glued).join(' ');
     // Арабӣ: бе калимаи часпанда порча маъно надорад («شَيْءٍ تَمَام» бе «كُلُّ») —
     // пас агар часпондан тамоми ҷумларо диҳад, порча НЕСТ, на шакли бечасп.

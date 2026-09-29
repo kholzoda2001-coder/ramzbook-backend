@@ -12,8 +12,8 @@ import { validateLesson } from '../lib/speaking/validate';
 // русӣ: лозим нест (қарори корбар, 12.09.2026). Арабӣ ва кореягӣ: ҲАТМӢ — алифбо
 // ношинос (кореягӣ аз `_ko-tajik.mjs` — ҳамон хониши курс ва алифбо). Туркӣ: ҲАТМӢ, аз
 // `_tr-tajik.mjs` (ҳамон хониши корти калимаи курс).
-const SCRIPT: Record<string, RegExp> = { ru: /[а-яё]/i, en: /[a-z]/i, ar: /[\u0621-\u064A]/, ko: /[\uAC00-\uD7A3]/, tr: /[a-zçğıöşü]/i };
-const NEEDS_LITERAL: Record<string, boolean> = { ru: false, en: true, ar: true, ko: true, tr: true };
+const SCRIPT: Record<string, RegExp> = { ru: /[а-яё]/i, en: /[a-z]/i, ar: /[\u0621-\u064A]/, ko: /[\uAC00-\uD7A3]/, tr: /[a-zçğıöşü]/i, de: /[a-zäöüß]/i };
+const NEEDS_LITERAL: Record<string, boolean> = { ru: false, en: true, ar: true, ko: true, tr: true, de: true };
 
 // ── Арабӣ (28.09.2026) ────────────────────────────────────────────────────
 // Хонандаи A1-и тоҷик арабии БЕ ҳаракатро хонда наметавонад → ҳар калимаи
@@ -49,7 +49,7 @@ for (const slug of process.argv.slice(2)) {
         // «{job}» — транскрипсия қасдан нест (барнома `translit`-ро иваз намекунад).
         if (!it.literal?.trim()) { if (!String(it.text).includes('{')) { errs++; console.log(`   ❌ NO_LITERAL «${it.text}»`); } }
         // Транскрипсия ҳарфи тоҷикӣ бошад, на лотинӣ.
-        else if (/[a-zçğıöşüâîû]/i.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_LATIN «${it.text}» → «${it.literal}»`); }
+        else if (/[a-zçğıöşüâîûäß]/i.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_LATIN «${it.text}» → «${it.literal}»`); }
         else if (/[\u0600-\u06FF\uAC00-\uD7A3\u3130-\u318F]/.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_SCRIPT «${it.text}» → «${it.literal}»`); }
       }
     }

@@ -53,6 +53,8 @@ const LANGS = {
   // Туркӣ (28.09.2026): ОВОЗИ КУРС — edge-tts Emel (`_tr-audio.mjs`), то хонанда як овозро
   // дар дарс ва гуфтор шунавад. Эҳтиётӣ — Google Wavenet-A (зан).
   tr: { voice: 'edge:tr-TR-EmelNeural', fallback: 'tr-TR-Wavenet-A', code: 'tr-TR' },
+  // Олмонӣ (29.09.2026): ОВОЗИ КУРС — edge-tts Katja (`_de-tts.py`, тамоми курси олмонӣ).
+  de: { voice: 'edge:de-DE-KatjaNeural', fallback: 'de-DE-Wavenet-F', code: 'de-DE' },
 };
 const LANG = (process.argv.find((a) => a.startsWith('--lang=')) ?? '').slice(7);
 if (!LANGS[LANG]) throw new Error(`--lang=${Object.keys(LANGS).join('|')} лозим`);
@@ -92,7 +94,7 @@ const letters = (t) => (t.match(/\p{L}/gu) ?? []).length;
 // шаш муҳаррик (Chirp3/markup/Wavenet) ҳамеша 0.14 с — хосияти калима (t-s-t), на вайронӣ → 25%.
 // Арабӣ (28.09.2026): «قِفْ» 0.10 с ва «افْحَصْه» 0.16 с дар ҳар 4 кӯшиш айнан ҳамон —
 // ҳамсадоҳои беҷаранг (қ-ф, ҳ-с), ҳамон ҳолати «Test»-и англисӣ → ҳамон 25%.
-const SPEECH_K = { ru: 1, en: 0.75, ar: 0.75, tr: 0.75 }[LANG] ?? 1; // tr: «Çekiç» 0.16 с
+const SPEECH_K = { ru: 1, en: 0.75, ar: 0.75, tr: 0.75, de: 0.5 }[LANG] ?? 1; // tr: «Çekiç» 0.16 с; de: «Stock» 0.12, «Dach» 0.10 с (Katja, peak ~0.58 — солим)
 const minSpeech = (t) => (letters(t) <= 3 ? 0.12 : letters(t) <= 6 ? 0.18 : 0.25) * SPEECH_K;
 const normKey = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
 

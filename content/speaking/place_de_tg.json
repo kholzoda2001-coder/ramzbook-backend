@@ -1,0 +1,544 @@
+{
+  "slug": "place_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Wo auf der Baustelle?",
+    "titleTranslated": "Ҷой дар объект",
+    "scenario": "Объект калон аст: ошёнаҳо, бом, таҳхона, анбор. Мепурсед ва мегӯед, ки кӣ ва чӣ куҷост, ва чӣ хел то он ҷо равед.",
+    "emoji": "📍",
+    "order": 7,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҷойҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Stock",
+          "translation": "ошёна",
+          "literal": "шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Dach",
+          "translation": "бом",
+          "literal": "дах",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Keller",
+          "translation": "таҳхона",
+          "literal": "кэ́ла",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Rechts",
+          "translation": "рост, тарафи рост",
+          "literal": "рэхьц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Links",
+          "translation": "чап, тарафи чап",
+          "literal": "линкс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Oben",
+          "translation": "боло",
+          "literal": "о́:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist der Chef?",
+          "cueTranslation": "Сардор куҷост?",
+          "intent": "Бигӯ: дар боло",
+          "text": "Oben.",
+          "accepts": [
+            "Oben auf dem Dach."
+          ],
+          "translation": "Дар боло.",
+          "literal": "о́:бэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist die Treppe links?",
+          "cueTranslation": "Зина дар тарафи чап аст?",
+          "intent": "Бигӯ: не, дар тарафи рост",
+          "text": "Nein, rechts.",
+          "accepts": [
+            "Rechts."
+          ],
+          "translation": "Не, дар тарафи рост.",
+          "literal": "найн рэхьц",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wer ist im Keller?",
+          "cueTranslation": "Дар таҳхона кист?",
+          "intent": "Бигӯ: ҳеҷ кас",
+          "text": "Niemand.",
+          "accepts": [
+            "Keiner."
+          ],
+          "translation": "Ҳеҷ кас.",
+          "literal": "ни́:мант",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zweiter Stock",
+          "translation": "ошёнаи дуюм",
+          "literal": "цва́йта шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Dritter Stock",
+          "translation": "ошёнаи сеюм",
+          "literal": "дри́та шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Unten",
+          "translation": "поён",
+          "literal": "у́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Treppe",
+          "translation": "зина",
+          "literal": "трэ́пэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Lager",
+          "translation": "анбор",
+          "literal": "ла́:га",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Aufzug",
+          "translation": "лифт",
+          "literal": "а́уфцу:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Рег куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist der Sand?",
+          "cueTranslation": "Рег куҷост?",
+          "intent": "Бигӯ: дар ошёнаи дуюм",
+          "text": "Im zweiten Stock.",
+          "accepts": [
+            "Zweiter Stock."
+          ],
+          "translation": "Дар ошёнаи дуюм.",
+          "literal": "им цва́йтэн шток",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo ist die Treppe?",
+          "cueTranslation": "Зина куҷост?",
+          "intent": "Бигӯ: дар тарафи чап",
+          "text": "Links.",
+          "accepts": [
+            "Die Treppe ist links."
+          ],
+          "translation": "Дар тарафи чап.",
+          "literal": "линкс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Geht der Aufzug?",
+          "cueTranslation": "Лифт кор мекунад?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, der ist kaputt."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Боло ва поён",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Welcher Stock?",
+          "translation": "Ошёнаи чандум?",
+          "literal": "вэ́лхьа шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Geh nach oben.",
+          "translation": "Ба боло рав.",
+          "literal": "гэ: на:х о́:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich gehe nach unten.",
+          "translation": "Ман поён меравам.",
+          "literal": "ихь гэ́:э на:х у́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist das Lager?",
+          "translation": "Анбор куҷост?",
+          "literal": "во: ист дас ла́:га",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Neben der Tür.",
+          "translation": "Дар паҳлӯи дар.",
+          "literal": "нэ́:бэн дэ:а тю:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Aufzug ist kaputt.",
+          "translation": "Лифт вайрон аст.",
+          "literal": "дэ:а а́уфцу:к ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: анбор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wohin gehst du?",
+          "cueTranslation": "Ба куҷо меравӣ?",
+          "intent": "Бигӯ: ба анбор",
+          "text": "Ins Lager.",
+          "accepts": [
+            "Ich gehe ins Lager."
+          ],
+          "translation": "Ба анбор.",
+          "literal": "инс ла́:га",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das Lager ist unten, im Keller.",
+          "cueTranslation": "Анбор поён, дар таҳхона.",
+          "intent": "Бипурс: лифт кор мекунад?",
+          "text": "Geht der Aufzug?",
+          "accepts": [],
+          "translation": "Лифт кор мекунад?",
+          "literal": "гэ:т дэ:а а́уфцу:к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, nimm die Treppe.",
+          "cueTranslation": "Не, аз зина рав.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Verstanden."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ман дар куҷо кор мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Warte, ich komme.",
+          "translation": "Интизор шав, меоям.",
+          "literal": "ва́ртэ ихь ко́мэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist der Chef oben?",
+          "translation": "Сардор дар боло аст?",
+          "literal": "ист дэ:а шэф о́:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite oben.",
+          "translation": "Ман дар боло кор мекунам.",
+          "literal": "ихь а́рбайтэ о́:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Dach ist verboten.",
+          "translation": "Ба бом рафтан манъ аст.",
+          "literal": "дас дах ист фэабо́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Vor dem Tor.",
+          "translation": "Дар пеши дарвоза.",
+          "literal": "фо:а дэ:м то:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Zeigst du den Weg?",
+          "translation": "Роҳро нишон медиҳӣ?",
+          "literal": "цайкст ду: дэ:н вэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: сардор куҷост",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "In welchem Stock arbeitest du?",
+          "cueTranslation": "Дар ошёнаи чандум кор мекунӣ?",
+          "intent": "Бигӯ: дар ошёнаи чорум",
+          "text": "Im vierten Stock.",
+          "accepts": [
+            "Ich arbeite im vierten Stock."
+          ],
+          "translation": "Дар ошёнаи чорум.",
+          "literal": "им фи́:атэн шток",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Der Chef sucht dich.",
+          "cueTranslation": "Сардор туро мекобад.",
+          "intent": "Бипурс: сардор дар боло аст?",
+          "text": "Ist der Chef oben?",
+          "accepts": [
+            "Wo ist er?"
+          ],
+          "translation": "Сардор дар боло аст?",
+          "literal": "ист дэ:а шэф о́:бэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, auf dem Dach.",
+          "cueTranslation": "Ҳа, дар бом.",
+          "intent": "Бигӯ: ҳозир меравам",
+          "text": "Ich gehe sofort.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Ҳозир меравам.",
+          "literal": "ихь гэ́:э зофо́рт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: болға лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich brauche einen Hammer. Wo ist er?",
+          "cueTranslation": "Ба ман болға лозим. Куҷост?",
+          "intent": "Бигӯ: дар анбор",
+          "text": "Im Lager.",
+          "accepts": [
+            "Der Hammer ist im Lager."
+          ],
+          "translation": "Дар анбор.",
+          "literal": "им ла́:га",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo ist das Lager?",
+          "cueTranslation": "Анбор куҷост?",
+          "intent": "Бигӯ: поён, дар таҳхона",
+          "text": "Unten, im Keller.",
+          "accepts": [
+            "Im Keller."
+          ],
+          "translation": "Поён, дар таҳхона.",
+          "literal": "у́нтэн им кэ́ла",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Soll ich den Aufzug nehmen?",
+          "cueTranslation": "Бо лифт равам?",
+          "intent": "Бигӯ: не, лифт вайрон аст",
+          "text": "Nein, der Aufzug ist kaputt.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, лифт вайрон аст.",
+          "literal": "найн дэ:а а́уфцу:к ист капу́т",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, ich nehme die Treppe.",
+          "cueTranslation": "Хуб, аз зина меравам.",
+          "intent": "Бигӯ: зина дар тарафи чап аст",
+          "text": "Die Treppe ist links.",
+          "accepts": [
+            "Links."
+          ],
+          "translation": "Зина дар тарафи чап аст.",
+          "literal": "ди: трэ́пэ ист линкс",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "slug": "crew_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Pause im Container",
+    "titleTranslated": "Вагонча ва ҳамкорон",
+    "scenario": "Танаффус дар вагонча: чой, хӯрок ва гапи оддӣ бо ҳамкорон — оила, ватан, охири ҳафта.",
+    "emoji": "☕",
+    "order": 17,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Танаффус",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Tee",
+          "translation": "чой",
+          "literal": "тэ:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Essen",
+          "translation": "хӯрок",
+          "literal": "э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kollege",
+          "translation": "ҳамкор",
+          "literal": "коле́:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Familie",
+          "translation": "оила",
+          "literal": "фами́:лиэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Heimat",
+          "translation": "ватан",
+          "literal": "ҳа́йма:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Urlaub",
+          "translation": "таътил",
+          "literal": "у́:алауп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чой мехоҳӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Möchtest du Tee?",
+          "cueTranslation": "Чой мехоҳӣ?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Ja, bitte.",
+          "accepts": [
+            "Gerne."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mit Zucker?",
+          "cueTranslation": "Бо қанд?",
+          "intent": "Бигӯ: не, ташаккур",
+          "text": "Nein, danke.",
+          "accepts": [
+            "Ohne Zucker."
+          ],
+          "translation": "Не, ташаккур.",
+          "literal": "найн да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du Hunger?",
+          "cueTranslation": "Гуруснаӣ?",
+          "intent": "Бигӯ: ҳа, хеле",
+          "text": "Ja, sehr.",
+          "accepts": [
+            "Ja, großen Hunger."
+          ],
+          "translation": "Ҳа, хеле.",
+          "literal": "йа: зэ:а",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Guten Appetit",
+          "translation": "Ош шавад",
+          "literal": "гу́:тэн апэти́:т",
+          "note": "Пеш аз хӯрок мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sehr lecker",
+          "translation": "Хеле болаззат",
+          "literal": "зэ:а лэ́ка",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Familie",
+          "translation": "оилаи ман",
+          "literal": "ма́йнэ фами́:лиэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Verheiratet?",
+          "translation": "Оиладорӣ?",
+          "literal": "фэаҳа́йра:тэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gehen wir",
+          "translation": "Равем",
+          "literal": "гэ́:эн ви:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sehr müde",
+          "translation": "Хеле хаста",
+          "literal": "зэ:а мю́:дэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Оила",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Appetit!",
+          "cueTranslation": "Ош шавад!",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Danke, dir auch."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bist du verheiratet?",
+          "cueTranslation": "Оиладорӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich bin verheiratet."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo ist deine Familie?",
+          "cueTranslation": "Оилаат куҷост?",
+          "intent": "Бигӯ: оилаам дар Тоҷикистон",
+          "text": "Meine Familie ist in Tadschikistan.",
+          "accepts": [
+            "In Tadschikistan."
+          ],
+          "translation": "Оилаам дар Тоҷикистон.",
+          "literal": "ма́йнэ фами́:лиэ ист ин таджикиста́:н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи худам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich habe zwei Kinder.",
+          "translation": "Ман ду фарзанд дорам.",
+          "literal": "ихь ҳа́:бэ цвай ки́нда",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich vermisse meine Heimat.",
+          "translation": "Ватанамро соғиндам.",
+          "literal": "ихь фэами́сэ ма́йнэ ҳа́йма:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Essen ist lecker.",
+          "translation": "Хӯрок болаззат аст.",
+          "literal": "дас э́сэн ист лэ́ка",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Im Urlaub nach Hause.",
+          "translation": "Дар таътил — ба хона.",
+          "literal": "им у́:алауп на:х ҳа́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Was machst du Samstag?",
+          "translation": "Шанбе чӣ кор мекунӣ?",
+          "literal": "вас махст ду: за́мста:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Spielst du Fußball?",
+          "translation": "Футбол бозӣ мекунӣ?",
+          "literal": "шпи:лст ду: фу́:сбал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: фарзандон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie viele Kinder hast du?",
+          "cueTranslation": "Чанд фарзанд дорӣ?",
+          "intent": "Бигӯ: ду фарзанд дорам",
+          "text": "Ich habe zwei Kinder.",
+          "accepts": [
+            "Zwei."
+          ],
+          "translation": "Ду фарзанд дорам.",
+          "literal": "ихь ҳа́:бэ цвай ки́нда",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Vermisst du sie?",
+          "cueTranslation": "Онҳоро соғинӣ?",
+          "intent": "Бигӯ: ҳа, хеле",
+          "text": "Ja, sehr.",
+          "accepts": [
+            "Sehr."
+          ],
+          "translation": "Ҳа, хеле.",
+          "literal": "йа: зэ:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann fährst du nach Hause?",
+          "cueTranslation": "Кай ба хона меравӣ?",
+          "intent": "Бигӯ: дар таътил",
+          "text": "Im Urlaub.",
+          "accepts": [
+            "Im Urlaub fahre ich heim."
+          ],
+          "translation": "Дар таътил.",
+          "literal": "им у́:алауп",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Гапи оддӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Heute bin ich müde.",
+          "translation": "Имрӯз хастаам.",
+          "literal": "ҳо́йтэ бин ихь мю́:дэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Machen wir Pause.",
+          "translation": "Каме дам гирем.",
+          "literal": "ма́хэн ви:а па́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Tee gemacht.",
+          "translation": "Чой дам кардам.",
+          "literal": "ихь ҳа́:бэ тэ: гэма́хт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wer arbeitet morgen?",
+          "translation": "Фардо кӣ кор мекунад?",
+          "literal": "вэ:а а́рбайтэт мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Woher kommst du?",
+          "translation": "Аз куҷоӣ?",
+          "literal": "во́:ҳэа комст ду:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Dein Deutsch ist gut.",
+          "translation": "Олмониат хуб аст.",
+          "literal": "дайн дойч ист гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: шиносоӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Woher kommst du?",
+          "cueTranslation": "Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистонам",
+          "text": "Aus Tadschikistan.",
+          "accepts": [
+            "Ich komme aus Tadschikistan."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": "аус таджикиста́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dein Deutsch ist gut!",
+          "cueTranslation": "Олмониат хуб аст!",
+          "intent": "Бигӯ: ташаккур, каме медонам",
+          "text": "Danke, ein bisschen.",
+          "accepts": [
+            "Danke."
+          ],
+          "translation": "Ташаккур, каме.",
+          "literal": "да́нкэ айн би́схэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Was machst du am Wochenende?",
+          "cueTranslation": "Охири ҳафта чӣ кор мекунӣ?",
+          "intent": "Бигӯ: дам мегирам",
+          "text": "Ich ruhe mich aus.",
+          "accepts": [
+            "Ich bleibe zu Hause."
+          ],
+          "translation": "Дам мегирам.",
+          "literal": "ихь ру́:э михь аус",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Komm, trinken wir Tee!",
+          "cueTranslation": "Биё, чой нӯшем!",
+          "intent": "Бигӯ: хуб, раҳмат",
+          "text": "Gerne, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Бо хурсандӣ, раҳмат.",
+          "literal": "гэ́рнэ да́нкэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie geht es dir? Bist du müde?",
+          "cueTranslation": "Чӣ хелӣ? Хастаӣ?",
+          "intent": "Бигӯ: ҳа, хеле хастаам",
+          "text": "Ja, sehr müde.",
+          "accepts": [
+            "Ja, ich bin müde."
+          ],
+          "translation": "Ҳа, хеле хастаам.",
+          "literal": "йа: зэ:а мю́:дэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie geht es deiner Familie?",
+          "cueTranslation": "Оилаат чӣ хел?",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Allen geht es gut."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "So, die Pause ist vorbei.",
+          "cueTranslation": "Хуб, танаффус тамом шуд.",
+          "intent": "Бигӯ: равем",
+          "text": "Gehen wir.",
+          "accepts": [
+            "Okay, gehen wir."
+          ],
+          "translation": "Равем.",
+          "literal": "гэ́:эн ви:а",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

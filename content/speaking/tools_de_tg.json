@@ -1,0 +1,544 @@
+{
+  "slug": "tools_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Werkzeug und Material",
+    "titleTranslated": "Асбоб ва мавод",
+    "scenario": "Дар объект асбоб ва мавод лозим мешавад: болға, парма, семент, хишт. Мепурсед, ки куҷост, чанд лозим ва куҷо монед.",
+    "emoji": "🧰",
+    "order": 4,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Асбоб",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hammer",
+          "translation": "болға",
+          "literal": "ҳа́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Bohrer",
+          "translation": "парма",
+          "literal": "бо́:ра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Leiter",
+          "translation": "нардбон",
+          "literal": "ла́йта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Zement",
+          "translation": "семент",
+          "literal": "цэмэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Sand",
+          "translation": "рег",
+          "literal": "зант",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Ziegel",
+          "translation": "хишт",
+          "literal": "ци́:гэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist der Hammer?",
+          "cueTranslation": "Болға куҷост?",
+          "intent": "Бигӯ: ин ҷо",
+          "text": "Hier.",
+          "accepts": [
+            "Hier ist er."
+          ],
+          "translation": "Ин ҷо.",
+          "literal": "ҳи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bring mir Ziegel.",
+          "cueTranslation": "Ба ман хишт биёр.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Mache ich."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist der Sand alle?",
+          "cueTranslation": "Рег тамом шуд?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, alle."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ein Hammer",
+          "translation": "як болға",
+          "literal": "айн ҳа́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Schubkarre",
+          "translation": "аробачаи дастӣ",
+          "literal": "шу́:пкарэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kabel",
+          "translation": "сим",
+          "literal": "ка́:бэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wohin damit?",
+          "translation": "Инро куҷо монам?",
+          "literal": "воҳи́н дами́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schaufel",
+          "translation": "бел",
+          "literal": "ша́уфэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Säcke",
+          "translation": "ду халта",
+          "literal": "цвай зэ́кэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was brauchst du?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бигӯ: болға",
+          "text": "Einen Hammer.",
+          "accepts": [
+            "Ich brauche einen Hammer."
+          ],
+          "translation": "Як болға.",
+          "literal": "а́йнэн ҳа́ма",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bring die Ziegel.",
+          "cueTranslation": "Хиштҳоро биёр.",
+          "intent": "Бипурс: куҷо монам?",
+          "text": "Wohin damit?",
+          "accepts": [
+            "Wohin?"
+          ],
+          "translation": "Куҷо монам?",
+          "literal": "воҳи́н дами́т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Neben die Wand.",
+          "cueTranslation": "Дар паҳлӯи девор.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, Chef."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Асбоб вайрон аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Der Bohrer geht nicht.",
+          "translation": "Парма кор намекунад.",
+          "literal": "дэ:а бо́:ра гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Zement ist alle.",
+          "translation": "Семент тамом шуд.",
+          "literal": "дэ:а цэмэ́нт ист а́лэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Schubkarre?",
+          "translation": "Аробача куҷост?",
+          "literal": "во: ист ди: шу́:пкарэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Schaufel, bitte.",
+          "translation": "Лутфан, бел.",
+          "literal": "ди: ша́уфэл би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche eine Leiter.",
+          "translation": "Ба ман нардбон лозим.",
+          "literal": "ихь бра́ухэ а́йнэ ла́йта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wohin mit den Ziegeln?",
+          "translation": "Хиштҳоро куҷо монам?",
+          "literal": "воҳи́н мит дэ:н ци́:гэлн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: парма",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist los?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: парма кор намекунад",
+          "text": "Der Bohrer geht nicht.",
+          "accepts": [
+            "Der Bohrer ist kaputt."
+          ],
+          "translation": "Парма кор намекунад.",
+          "literal": "дэ:а бо́:ра гэ:т нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nimm einen anderen Bohrer.",
+          "cueTranslation": "Пармаи дигар гир.",
+          "intent": "Бипурс: дар куҷо?",
+          "text": "Wo?",
+          "accepts": [
+            "Wo gibt es einen?"
+          ],
+          "translation": "Дар куҷо?",
+          "literal": "во:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Im Lager. Im Container.",
+          "cueTranslation": "Дар анбор. Дар вагонча.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Verstanden.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "фэашта́ндэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чанд ва чӣ хел",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie viele Säcke Zement?",
+          "translation": "Чанд халта семент?",
+          "literal": "ви: фи́:лэ зэ́кэ цэмэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Säcke reichen.",
+          "translation": "Ду халта басанда.",
+          "literal": "цвай зэ́кэ ра́йхьэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist sehr schwer.",
+          "translation": "Ин хеле вазнин.",
+          "literal": "дас ист зэ:а швэ:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kannst du helfen?",
+          "translation": "Ёрӣ дода метавонӣ?",
+          "literal": "канст ду: ҳэ́лфэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Kabel ist kurz.",
+          "translation": "Сим кӯтоҳ аст.",
+          "literal": "дас ка́:бэл ист курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche ein längeres.",
+          "translation": "Ба ман дарозтараш лозим.",
+          "literal": "ихь бра́ухэ айн лэ́нгэрэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: семент",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie viele Säcke Zement brauchst du?",
+          "cueTranslation": "Чанд халта семент лозим?",
+          "intent": "Бигӯ: ду халта",
+          "text": "Zwei Säcke.",
+          "accepts": [
+            "Ich brauche zwei Säcke."
+          ],
+          "translation": "Ду халта.",
+          "literal": "цвай зэ́кэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dann hol sie.",
+          "cueTranslation": "Пас биёр.",
+          "intent": "Бигӯ: ин хеле вазнин",
+          "text": "Das ist sehr schwer.",
+          "accepts": [
+            "Sehr schwer."
+          ],
+          "translation": "Ин хеле вазнин.",
+          "literal": "дас ист зэ:а швэ:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nimm die Schubkarre.",
+          "cueTranslation": "Аробачаро гир.",
+          "intent": "Бигӯ: хуб, сардор",
+          "text": "Okay, Chef.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, сардор.",
+          "literal": "окэ́: шэф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: девор мечинем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Heute mauern wir eine Wand.",
+          "cueTranslation": "Имрӯз девор мечинем.",
+          "intent": "Бипурс: чӣ лозим?",
+          "text": "Was brauchen wir?",
+          "accepts": [
+            "Was soll ich holen?"
+          ],
+          "translation": "Ба мо чӣ лозим?",
+          "literal": "вас бра́ухэн ви:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ziegel und Zement.",
+          "cueTranslation": "Хишт ва семент.",
+          "intent": "Бипурс: чанд халта семент?",
+          "text": "Wie viele Säcke Zement?",
+          "accepts": [
+            "Wie viele Säcke?"
+          ],
+          "translation": "Чанд халта семент?",
+          "literal": "ви: фи́:лэ зэ́кэ цэмэ́нт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Drei Säcke.",
+          "cueTranslation": "Се халта.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, Chef."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Nimm auch die Schaufel.",
+          "cueTranslation": "Белро ҳам гир.",
+          "intent": "Бипурс: бел куҷост?",
+          "text": "Wo ist die Schaufel?",
+          "accepts": [],
+          "translation": "Бел куҷост?",
+          "literal": "во: ист ди: ша́уфэл",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

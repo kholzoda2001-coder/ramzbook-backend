@@ -1,0 +1,542 @@
+{
+  "slug": "measure_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Zahlen und Maße",
+    "titleTranslated": "Шумора ва андоза",
+    "scenario": "Дар кор ҳама чиз бо рақам аст: метр, кило, дона, халта. Мепурсед ва мегӯед, ки чанд лозим ва чанд вақт мекашад.",
+    "emoji": "📏",
+    "order": 9,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Рақам ва андоза",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Eins",
+          "translation": "як",
+          "literal": "айнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Zwei",
+          "translation": "ду",
+          "literal": "цвай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Drei",
+          "translation": "се",
+          "literal": "драй",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Meter",
+          "translation": "метр",
+          "literal": "мэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kilo",
+          "translation": "кило",
+          "literal": "ки́:ло",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Stück",
+          "translation": "дона",
+          "literal": "штюк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie viele Ziegel?",
+          "cueTranslation": "Чанд хишт?",
+          "intent": "Бигӯ: даҳ",
+          "text": "Zehn.",
+          "accepts": [
+            "Zehn Stück."
+          ],
+          "translation": "Даҳ.",
+          "literal": "цэ:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viele Meter?",
+          "cueTranslation": "Чанд метр?",
+          "intent": "Бигӯ: се метр",
+          "text": "Drei Meter.",
+          "accepts": [
+            "Drei."
+          ],
+          "translation": "Се метр.",
+          "literal": "драй мэ́:та",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viel Kilo?",
+          "cueTranslation": "Чанд кило?",
+          "intent": "Бигӯ: панҷоҳ кило",
+          "text": "Fünfzig Kilo.",
+          "accepts": [
+            "Fünfzig."
+          ],
+          "translation": "Панҷоҳ кило.",
+          "literal": "фю́нфцихь ки́:ло",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Fünf Meter",
+          "translation": "панҷ метр",
+          "literal": "фюнф мэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwanzig Stück",
+          "translation": "бист дона",
+          "literal": "цва́нцихь штюк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Halber Meter",
+          "translation": "ним метр",
+          "literal": "ҳа́лба мэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu lang",
+          "translation": "хеле дароз",
+          "literal": "цу: ланг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Etwas kurz",
+          "translation": "каме кӯтоҳ",
+          "literal": "э́твас курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Zehn Zentimeter",
+          "translation": "даҳ сантиметр",
+          "literal": "цэ:н цэ́нтимэ:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Сим чанд метр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie lang ist das Kabel?",
+          "cueTranslation": "Сим чанд метр аст?",
+          "intent": "Бигӯ: панҷ метр",
+          "text": "Fünf Meter.",
+          "accepts": [
+            "Das Kabel ist fünf Meter lang."
+          ],
+          "translation": "Панҷ метр.",
+          "literal": "фюнф мэ́:та",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Reicht das?",
+          "cueTranslation": "Басанда аст?",
+          "intent": "Бигӯ: не, каме кӯтоҳ",
+          "text": "Nein, etwas kurz.",
+          "accepts": [
+            "Zu kurz."
+          ],
+          "translation": "Не, каме кӯтоҳ.",
+          "literal": "найн э́твас курц",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viele Meter brauchst du?",
+          "cueTranslation": "Чанд метр лозим?",
+          "intent": "Бигӯ: шаш метр",
+          "text": "Sechs Meter.",
+          "accepts": [
+            "Ich brauche sechs Meter."
+          ],
+          "translation": "Шаш метр.",
+          "literal": "зэкс мэ́:та",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҳисоб",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zwölf Meter Kabel.",
+          "translation": "Дувоздаҳ метр сим.",
+          "literal": "цвёлф мэ́:та ка́:бэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie viele brauchst du?",
+          "translation": "Чанд дона лозим?",
+          "literal": "ви: фи́:лэ браухст ду:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Fünfzig Ziegel reichen.",
+          "translation": "Панҷоҳ хишт басанда.",
+          "literal": "фю́нфцихь ци́:гэл ра́йхьэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Drei Meter hoch.",
+          "translation": "Се метр баланд.",
+          "literal": "драй мэ́:та ҳо:х",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Fünfzig Kilo pro Sack.",
+          "translation": "Панҷоҳ кило дар як халта.",
+          "literal": "фю́нфцихь ки́:ло про: зак",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Erst messen, dann schneiden.",
+          "translation": "Аввал чен кун, баъд бибур.",
+          "literal": "э:аст мэ́сэн дан шна́йдэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: тиреза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie breit ist das Fenster?",
+          "cueTranslation": "Тиреза чанд васеъ аст?",
+          "intent": "Бигӯ: якуним метр",
+          "text": "Eineinhalb Meter.",
+          "accepts": [
+            "Anderthalb Meter."
+          ],
+          "translation": "Якуним метр.",
+          "literal": "а́йнайнҳалп мэ́:та",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bist du sicher?",
+          "cueTranslation": "Боварӣ дорӣ?",
+          "intent": "Бигӯ: ҳа, чен кардам",
+          "text": "Ja, ich habe gemessen.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, чен кардам.",
+          "literal": "йа: ихь ҳа́:бэ гэмэ́сэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Wie viele Bretter brauchen wir?",
+          "cueTranslation": "Хуб. Чанд тахта лозим?",
+          "intent": "Бигӯ: чор дона",
+          "text": "Vier Stück.",
+          "accepts": [
+            "Vier."
+          ],
+          "translation": "Чор дона.",
+          "literal": "фи:а штюк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Вазн ва вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wo ist das Maßband?",
+          "translation": "Метр (рулетка) куҷост?",
+          "literal": "во: ист дас ма́:сбант",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu schwer für mich.",
+          "translation": "Барои ман хеле вазнин.",
+          "literal": "цу: швэ:а фю:а михь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Schneide dreißig Zentimeter.",
+          "translation": "Сӣ сантиметр бибур.",
+          "literal": "шна́йдэ дра́йсихь цэ́нтимэ:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Drei Stockwerke hoch.",
+          "translation": "Се ошёна боло.",
+          "literal": "драй што́квэркэ ҳо:х",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie lange dauert das?",
+          "translation": "Ин чӣ қадар вақт мегирад?",
+          "literal": "ви: ла́нгэ да́уат дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Stunden.",
+          "translation": "Ду соат.",
+          "literal": "цвай шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: тахта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Schneide dieses Brett.",
+          "cueTranslation": "Ин тахтаро бибур.",
+          "intent": "Бипурс: чанд сантиметр?",
+          "text": "Wie viele Zentimeter?",
+          "accepts": [],
+          "translation": "Чанд сантиметр?",
+          "literal": "ви: фи́:лэ цэ́нтимэ:та",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dreißig Zentimeter.",
+          "cueTranslation": "Сӣ сантиметр.",
+          "intent": "Бигӯ: хуб, сӣ сантиметр",
+          "text": "Okay, dreißig Zentimeter.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, сӣ сантиметр.",
+          "literal": "окэ́: дра́йсихь цэ́нтимэ:та",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange dauert das?",
+          "cueTranslation": "Чӣ қадар вақт мегирад?",
+          "intent": "Бигӯ: ду соат",
+          "text": "Zwei Stunden.",
+          "accepts": [
+            "Etwa zwei Stunden."
+          ],
+          "translation": "Ду соат.",
+          "literal": "цвай шту́ндэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сим ва семент",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich brauche Kabel.",
+          "cueTranslation": "Ба ман сим лозим.",
+          "intent": "Бипурс: чанд метр?",
+          "text": "Wie viele Meter?",
+          "accepts": [
+            "Wie viele Meter brauchst du?"
+          ],
+          "translation": "Чанд метр?",
+          "literal": "ви: фи́:лэ мэ́:та",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Fünfzehn Meter.",
+          "cueTranslation": "Понздаҳ метр.",
+          "intent": "Бигӯ: хуб, понздаҳ метр",
+          "text": "Okay, fünfzehn Meter.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, понздаҳ метр.",
+          "literal": "окэ́: фю́нфцэ:н мэ́:та",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und hol auch Zement.",
+          "cueTranslation": "Семент ҳам биёр.",
+          "intent": "Бипурс: чанд халта?",
+          "text": "Wie viele Säcke?",
+          "accepts": [],
+          "translation": "Чанд халта?",
+          "literal": "ви: фи́:лэ зэ́кэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Drei Säcke.",
+          "cueTranslation": "Се халта.",
+          "intent": "Бигӯ: хуб, се халта",
+          "text": "Okay, drei Säcke.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, се халта.",
+          "literal": "окэ́: драй зэ́кэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

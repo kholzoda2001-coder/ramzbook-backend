@@ -1,0 +1,540 @@
+{
+  "slug": "docs_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Papiere und Polizei",
+    "titleTranslated": "Ҳуҷҷатҳо ва полис",
+    "scenario": "Полис ҳуҷҷат мепурсад ё шумо ба идораи хориҷиён (Ausländerbehörde) меравед. Шиноснома, иҷозати истиқомат ва иҷозати кор нишон медиҳед.",
+    "emoji": "🪪",
+    "order": 16,
+    "goals": [],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Pass",
+          "translation": "шиноснома",
+          "literal": "пас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Ausweis",
+          "translation": "ҳуҷҷати шахсият",
+          "literal": "а́усвайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Aufenthaltstitel",
+          "translation": "иҷозати истиқомат",
+          "literal": "а́уфэнтҳалцтитэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Polizei",
+          "translation": "полис",
+          "literal": "полица́й",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Adresse",
+          "translation": "суроға",
+          "literal": "адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Formular",
+          "translation": "форма (варақа)",
+          "literal": "формула́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷататон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ihren Ausweis, bitte.",
+          "cueTranslation": "Ҳуҷҷататон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Bitte schön.",
+          "accepts": [
+            "Hier, bitte."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "би́тэ шё:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sind Sie Deutscher?",
+          "cueTranslation": "Шумо олмонӣ ҳастед?",
+          "intent": "Бигӯ: не, тоҷикам",
+          "text": "Nein, ich bin Tadschike.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, ман тоҷикам.",
+          "literal": "найн ихь бин таҷи́:кэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie einen Aufenthaltstitel?",
+          "cueTranslation": "Иҷозати истиқомат доред?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, habe ich."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Mein Pass",
+          "translation": "шиносномаи ман",
+          "literal": "майн пас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Arbeitserlaubnis",
+          "translation": "иҷозати кор",
+          "literal": "ди: а́рбайцэалаупнис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Adresse",
+          "translation": "суроғаи ман",
+          "literal": "ма́йнэ адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht verstanden",
+          "translation": "Нафаҳмидам",
+          "literal": "нихьт фэашта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Dolmetscher",
+          "translation": "тарҷумон",
+          "literal": "а́йнэн до́лмэча",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Moment",
+          "translation": "Як лаҳза",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Санҷиши ҳуҷҷат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist Ihr Pass?",
+          "cueTranslation": "Шиносномаатон куҷост?",
+          "intent": "Бигӯ: шиносномаи ман ин ҷо",
+          "text": "Mein Pass ist hier.",
+          "accepts": [
+            "Hier, bitte."
+          ],
+          "translation": "Шиносномаи ман ин ҷо.",
+          "literal": "майн пас ист ҳи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie eine Arbeitserlaubnis?",
+          "cueTranslation": "Иҷозати кор доред?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, habe ich."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie ist Ihre Adresse?",
+          "cueTranslation": "Суроғаатон чист?",
+          "intent": "Бигӯ: як лаҳза",
+          "text": "Einen Moment.",
+          "accepts": [
+            "Moment, bitte."
+          ],
+          "translation": "Як лаҳза.",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман кистам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin aus Tadschikistan.",
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "ихь бин аус таджикиста́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe einen Aufenthaltstitel.",
+          "translation": "Ман иҷозати истиқомат дорам.",
+          "literal": "ихь ҳа́:бэ а́йнэн а́уфэнтҳалцтитэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Pass ist daheim.",
+          "translation": "Шиноснома дар хона.",
+          "literal": "дэ:а пас ист даҳа́йм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Deutsch ist schlecht.",
+          "translation": "Олмониам бад аст.",
+          "literal": "майн дойч ист шлэхьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche einen Dolmetscher.",
+          "translation": "Ба ман тарҷумон лозим.",
+          "literal": "ихь бра́ухэ а́йнэн до́лмэча",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Darf ich telefonieren?",
+          "translation": "Занг зада метавонам?",
+          "literal": "дарф ихь тэлэфони́:рэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Warum haben Sie keinen Ausweis?",
+          "cueTranslation": "Чаро ҳуҷҷат надоред?",
+          "intent": "Бигӯ: шиносномаам дар хона",
+          "text": "Mein Pass ist zu Hause.",
+          "accepts": [
+            "Zu Hause."
+          ],
+          "translation": "Шиносномаам дар хона.",
+          "literal": "майн пас ист цу: ҳа́узэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo wohnen Sie?",
+          "cueTranslation": "Дар куҷо зиндагӣ мекунед?",
+          "intent": "Бигӯ: дар Берлин",
+          "text": "In Berlin.",
+          "accepts": [
+            "Ich wohne in Berlin."
+          ],
+          "translation": "Дар Берлин.",
+          "literal": "ин бэали́:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Verstehen Sie Deutsch?",
+          "cueTranslation": "Олмонӣ мефаҳмед?",
+          "intent": "Бигӯ: каме",
+          "text": "Ein bisschen.",
+          "accepts": [
+            "Ein bisschen Deutsch."
+          ],
+          "translation": "Каме.",
+          "literal": "айн би́схэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Идораи хориҷиён",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich habe einen Termin.",
+          "translation": "Ман навбат дорам.",
+          "literal": "ихь ҳа́:бэ а́йнэн тэами́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Ausländerbehörde?",
+          "translation": "Идораи хориҷиён куҷост?",
+          "literal": "во: ист ди: а́услэндабэҳё:адэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Brauche ich ein Foto?",
+          "translation": "Ба ман акс лозим?",
+          "literal": "бра́ухэ ихь айн фо́:то",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Welche Papiere brauche ich?",
+          "translation": "Кадом ҳуҷҷатҳо лозим?",
+          "literal": "вэ́лхьэ папи́:рэ бра́ухэ ихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Formular ist fertig.",
+          "translation": "Форма тайёр аст.",
+          "literal": "дас формула́:а ист фэ́ртихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie lange dauert das?",
+          "translation": "Чӣ қадар вақт мегирад?",
+          "literal": "ви: ла́нгэ да́уат дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: навбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bitte, haben Sie einen Termin?",
+          "cueTranslation": "Марҳамат, навбат доред?",
+          "intent": "Бигӯ: ҳа, ман навбат дорам",
+          "text": "Ja, ich habe einen Termin.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, ман навбат дорам.",
+          "literal": "йа: ихь ҳа́:бэ а́йнэн тэами́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie das Formular ausgefüllt?",
+          "cueTranslation": "Формаро пур кардед?",
+          "intent": "Бигӯ: ҳа, пур кардам",
+          "text": "Ja, ich habe es ausgefüllt.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, пур кардам.",
+          "literal": "йа: ихь ҳа́:бэ эс а́усгэфюлт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, wir brauchen auch zwei Fotos.",
+          "cueTranslation": "Хуб, ду акс ҳам лозим.",
+          "intent": "Бипурс: чӣ қадар вақт мегирад?",
+          "text": "Wie lange dauert das?",
+          "accepts": [],
+          "translation": "Чӣ қадар вақт мегирад?",
+          "literal": "ви: ла́нгэ да́уат дас",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag. Ausweiskontrolle.",
+          "cueTranslation": "Рӯз ба хайр. Санҷиши ҳуҷҷат.",
+          "intent": "Бигӯ: марҳамат, шиноснома",
+          "text": "Bitte, mein Pass.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Марҳамат, шиносномаи ман.",
+          "literal": "би́тэ майн пас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Woher kommen Sie?",
+          "cueTranslation": "Аз куҷоед?",
+          "intent": "Бигӯ: аз Тоҷикистонам",
+          "text": "Aus Tadschikistan.",
+          "accepts": [
+            "Ich komme aus Tadschikistan."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": "аус таджикиста́:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie einen Aufenthaltstitel?",
+          "cueTranslation": "Иҷозати истиқомат доред?",
+          "intent": "Бигӯ: ҳа, дорам",
+          "text": "Ja, ich habe einen.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, дорам.",
+          "literal": "йа: ихь ҳа́:бэ а́йнэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Was machen Sie hier?",
+          "cueTranslation": "Ин ҷо чӣ кор мекунед?",
+          "intent": "Касби худро гӯед",
+          "text": "Ich bin {job}.",
+          "accepts": [],
+          "translation": "Ман {job_tg} ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

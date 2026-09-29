@@ -1,0 +1,536 @@
+{
+  "slug": "pay_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Lohn und Arbeitszeit",
+    "titleTranslated": "Музд ва вақти кор",
+    "scenario": "Гап дар бораи пул: музд кай дода мешавад, пешпардохт, соатҳои иловагӣ (Überstunden) ва агар пул кам бошад — чӣ гуфтан лозим.",
+    "emoji": "💵",
+    "order": 12,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Lohn",
+          "translation": "музд",
+          "literal": "ло:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Vorschuss",
+          "translation": "пешпардохт",
+          "literal": "фо́:ашус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Überstunden",
+          "translation": "соатҳои иловагӣ",
+          "literal": "ю́:баштундэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Woche",
+          "translation": "ҳафта",
+          "literal": "во́хэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Monat",
+          "translation": "моҳ",
+          "literal": "мо́:нат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Konto",
+          "translation": "ҳисоби бонкӣ",
+          "literal": "ко́нто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пулро гирифтӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hast du deinen Lohn bekommen?",
+          "cueTranslation": "Музди худро гирифтӣ?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, noch nicht."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Brauchst du einen Vorschuss?",
+          "cueTranslation": "Пешпардохт лозим?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Ja, bitte.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du ein Konto?",
+          "cueTranslation": "Ҳисоби бонкӣ дорӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich habe ein Konto."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Der Zahltag",
+          "translation": "рӯзи музд",
+          "literal": "дэ:а ца́:лта:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Pro Stunde",
+          "translation": "дар як соат",
+          "literal": "про: шту́ндэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Jede Woche",
+          "translation": "ҳар ҳафта",
+          "literal": "йэ́:дэ во́хэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Jeden Monat",
+          "translation": "ҳар моҳ",
+          "literal": "йэ́:дэн мо́:нат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu wenig",
+          "translation": "хеле кам",
+          "literal": "цу: вэ́:нихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Geld fehlt",
+          "translation": "Пул кам аст",
+          "literal": "гэлт фэ:лт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пул кам аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist das Problem?",
+          "cueTranslation": "Мушкил чист?",
+          "intent": "Бигӯ: пул кам аст",
+          "text": "Es fehlt Geld.",
+          "accepts": [
+            "Mein Lohn ist zu wenig."
+          ],
+          "translation": "Пул кам аст.",
+          "literal": "эс фэ:лт гэлт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viel fehlt?",
+          "cueTranslation": "Чӣ қадар кам?",
+          "intent": "Бигӯ: дусад евро",
+          "text": "Zweihundert Euro.",
+          "accepts": [],
+          "translation": "Дусад евро.",
+          "literal": "цва́йҳундат о́йро",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, ich schaue nach.",
+          "cueTranslation": "Хуб, месанҷам.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо дар бораи музд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wann gibt es Lohn?",
+          "translation": "Музд кай дода мешавад?",
+          "literal": "ван ги:пт эс ло:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Lohn ist falsch.",
+          "translation": "Музди ман нодуруст аст.",
+          "literal": "майн ло:н ист фалш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Überstunden gemacht.",
+          "translation": "Ман соатҳои иловагӣ кор кардам.",
+          "literal": "ихь ҳа́:бэ ю́:баштундэн гэма́хт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Vorschuss, bitte?",
+          "translation": "Пешпардохт, лутфан?",
+          "literal": "а́йнэн фо́:ашус би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte aufs Konto.",
+          "translation": "Лутфан, ба ҳисоби бонкӣ.",
+          "literal": "би́тэ ауфс ко́нто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich möchte bar.",
+          "translation": "Нақд мехоҳам.",
+          "literal": "ихь мё́хьтэ ба:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: соатҳои иловагӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hast du diesen Monat Überstunden gemacht?",
+          "cueTranslation": "Ин моҳ соатҳои иловагӣ кор кардӣ?",
+          "intent": "Бигӯ: ҳа, даҳ соат",
+          "text": "Ja, zehn Stunden.",
+          "accepts": [
+            "Zehn Stunden."
+          ],
+          "translation": "Ҳа, даҳ соат.",
+          "literal": "йа: цэ:н шту́ндэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, zehn Stunden.",
+          "cueTranslation": "Хуб, даҳ соат.",
+          "intent": "Бипурс: музд кай дода мешавад?",
+          "text": "Wann gibt es Lohn?",
+          "accepts": [
+            "Wann kommt der Lohn?"
+          ],
+          "translation": "Музд кай дода мешавад?",
+          "literal": "ван ги:пт эс ло:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Am fünften.",
+          "cueTranslation": "Панҷуми моҳ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, danke.",
+          "accepts": [],
+          "translation": "Хуб, ташаккур.",
+          "literal": "окэ́: да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Соат ва суғурта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie viel pro Stunde?",
+          "translation": "Дар як соат чанд?",
+          "literal": "ви: фи:л про: шту́ндэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite zehn Stunden.",
+          "translation": "Ман даҳ соат кор мекунам.",
+          "literal": "ихь а́рбайтэ цэ:н шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist Sonntag frei?",
+          "translation": "Якшанбе истироҳат аст?",
+          "literal": "ист зо́нта:к фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bekomme ich eine Lohnabrechnung?",
+          "translation": "Варақаи музд мегирам?",
+          "literal": "бэко́мэ ихь а́йнэ ло́:напрэхьнунг",
+          "note": "«Lohnabrechnung» — варақаи ҳисоби музд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bin ich versichert?",
+          "translation": "Ман суғурта шудаам?",
+          "literal": "бин ихь фэази́хьат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte prüfen Sie das.",
+          "translation": "Лутфан, инро санҷед.",
+          "literal": "би́тэ прю́:фэн зи: дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: соатҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie viele Stunden arbeitest du am Tag?",
+          "cueTranslation": "Дар як рӯз чанд соат кор мекунӣ?",
+          "intent": "Бигӯ: даҳ соат",
+          "text": "Zehn Stunden.",
+          "accepts": [
+            "Ich arbeite zehn Stunden."
+          ],
+          "translation": "Даҳ соат.",
+          "literal": "цэ:н шту́ндэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sonntag ist frei.",
+          "cueTranslation": "Якшанбе истироҳат.",
+          "intent": "Бипурс: ман суғурта шудаам?",
+          "text": "Bin ich versichert?",
+          "accepts": [],
+          "translation": "Ман суғурта шудаам?",
+          "literal": "бин ихь фэази́хьат",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, natürlich.",
+          "cueTranslation": "Ҳа, албатта.",
+          "intent": "Бигӯ: хуб",
+          "text": "Gut.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб.",
+          "literal": "гу:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: музд кам аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte? Was ist das Problem?",
+          "cueTranslation": "Ҳа, марҳамат? Мушкил чист?",
+          "intent": "Бигӯ: музди ман нодуруст аст",
+          "text": "Mein Lohn ist falsch.",
+          "accepts": [
+            "Es fehlt Geld."
+          ],
+          "translation": "Музди ман нодуруст аст.",
+          "literal": "майн ло:н ист фалш",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viel fehlt?",
+          "cueTranslation": "Чӣ қадар кам?",
+          "intent": "Бигӯ: сесад евро",
+          "text": "Dreihundert Euro.",
+          "accepts": [],
+          "translation": "Сесад евро.",
+          "literal": "дра́йҳундат о́йро",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du Überstunden gemacht?",
+          "cueTranslation": "Соатҳои иловагӣ кор кардӣ?",
+          "intent": "Бигӯ: ҳа, понздаҳ соат",
+          "text": "Ja, fünfzehn Stunden.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, понздаҳ соат.",
+          "literal": "йа: фю́нфцэ:н шту́ндэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, ich prüfe das.",
+          "cueTranslation": "Хуб, инро месанҷам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank.",
+          "accepts": [
+            "Danke."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,795 @@
+"""ОЛМОНӢ → тоҷикӣ, «Гуфтор» A1: роҳи «Сохтмон» — вазъиятҳои 1–10 (29.09.2026).
+
+Ҳамон 20 вазъияти англисӣ/арабӣ/кореягӣ/туркӣ/русӣ, барои коргари тоҷик дар Олмон:
+Baustelle (объект), Chef/Polier (бригадир), Aufenthaltstitel (иҷозати истиқомат),
+Krankenkasse, Stundenzettel (табел), Euro. Қоидаҳо — `_de_packs_lib.py`. Транскрипсия
+баъд: `node prisma/_de-fill-literal.mjs <slugs>`. Вазъиятҳои 11–20: `_de-build-a1-packs-2.py`.
+
+Аз ҷузвдони backend: python prisma/_de-build-a1-packs.py
+"""
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _de_packs_lib import *  # noqa: F401,F403
+
+made = []
+B = ["build"]
+JOB_GOALS = ["build", "service", "drive", "life"]
+JOB_NOTE = "Касби худро гӯед — барнома онро аз ҳадафи шумо медонад."
+
+# ═════════════════════ 1. Салом ва шиносоӣ (умумӣ) ═════════════════════
+made.append(pack("meet_de_tg", "Begrüßung und Vorstellung", "Салом ва шиносоӣ", "👋", 1, [],
+    "Бо олмониҳо вомехӯред — дар кор, дар кӯча ё дар хона. Салом медиҳед, мегӯед, ки аз "
+    "куҷоед ва дар куҷо зиндагӣ мекунед, ва хайрухуш мекунед.",
+    [
+        ("Калимаҳои аввал", [
+            w("Hallo", "салом", "Бо ҳар кас ва дар ҳар вақти рӯз."),
+            w("Ja", "ҳа", None),
+            w("Nein", "не", None),
+            w("Danke", "ташаккур", None),
+            w("Tschüss", "хайр", "Хайрухуши оддӣ — бо ҳамкор ва ҳамсоя."),
+            w("Freut mich", "шодам (аз шиносоӣ)", None),
+        ]),
+        ("Салом!", [
+            t("Hallo!", "Салом!", "Салом гӯй", "Hallo!", "Салом!", ["Guten Tag!"], "Як калима кофист."),
+            t("Kommst du aus Tadschikistan?", "Аз Тоҷикистонӣ?", "Бигӯ, ки ҳа", "Ja.", "Ҳа.", ["Ja, genau."]),
+            t("Hier, ein Tee.", "Ана, чой.", "Бигӯ: ташаккур", "Danke.", "Ташаккур.", ["Danke schön."]),
+            t("Also, tschüss!", "Хуб, хайр!", "Хайр гӯй", "Tschüss!", "Хайр!", ["Bis bald!"]),
+        ]),
+        ("Аҳвол чӣ хел?", [
+            s("Sehr gut", "Хеле хуб", "Ҷавоби доимӣ ба «Wie geht es dir?»."),
+            w("Auch", "ҳам", None),
+            s("Guten Morgen", "Субҳ ба хайр", None),
+            s("Guten Abend", "Шом ба хайр", None),
+            s("Bis morgen", "То фардо", None),
+            s("Danke schön", "Ташаккури зиёд", None),
+        ]),
+        ("Шиносоӣ дар кор", [
+            t("Hallo! Wie geht es dir?", "Салом! Аҳволат чӣ хел?", "Бигӯ: хуб", "Gut, danke.", "Хуб, ташаккур.",
+              ["Mir geht es gut.", "Gut."]),
+            t("Ich bin Thomas. Freut mich!", "Ман Томас. Шодам!", "Бигӯ: ман ҳам шодам", "Freut mich auch.",
+              "Ман ҳам шодам.", ["Mich auch."]),
+            t("Bis morgen!", "То фардо!", "Бигӯ: то фардо", "Bis morgen!", "То фардо!", ["Tschüss, bis morgen!"]),
+        ]),
+        ("Ман аз куҷоям", [
+            s("Wie heißt du?", "Номат чист?", None),
+            own("Ich heiße ___.", "Номи ман ___.", "Номи ХУДАТОНРО гӯед: «Ich heiße Ali».",
+                "Wie heißt du?", "Номат чист?", "Номи худатонро гӯед"),
+            s("Ich komme aus Tadschikistan.", "Ман аз Тоҷикистонам.", None),
+            s("Woher kommst du?", "Аз куҷоӣ?", None),
+            s("Ich wohne hier.", "Ман ин ҷо зиндагӣ мекунам.", None),
+            s("Freut mich sehr.", "Хеле шодам.", None),
+        ]),
+        ("Муколама: ҳамсоя", [
+            t("Hallo! Ich bin Anna. Ich wohne nebenan.", "Салом! Ман Анна. Дар хонаи паҳлӯ зиндагӣ мекунам.",
+              "Бигӯ, ки аз шиносоӣ шодӣ", "Freut mich.", "Аз шиносоӣ шодам.", ["Freut mich sehr.", "Hallo, freut mich."]),
+            t("Woher kommst du?", "Аз куҷоӣ?", "Бигӯ: аз Тоҷикистонам", "Aus Tadschikistan.", "Аз Тоҷикистон.",
+              ["Ich komme aus Tadschikistan."]),
+            t("Wohnst du hier?", "Ин ҷо зиндагӣ мекунӣ?", "Бигӯ: ҳа, ин ҷо зиндагӣ мекунам", "Ja, ich wohne hier.",
+              "Ҳа, ин ҷо зиндагӣ мекунам.", ["Ja."]),
+            t("Schön! Tschüss!", "Хуб! Хайр!", "Хайр гӯй", "Tschüss!", "Хайр!", ["Bis bald!"]),
+        ]),
+        ("Кор ва хайрухуш", [
+            w("Arbeite", "кор мекунам", "«Ich arbeite» — ман кор мекунам."),
+            s("Ich arbeite hier.", "Ман ин ҷо кор мекунам.", None),
+            s("Ich bin {job}.", "Ман {job_tg} ҳастам.", JOB_NOTE,
+              cue="Was machst du beruflich?", cue_tr="Касбат чист?"),
+            w("Morgen", "фардо", "«Morgen» — ҳам «фардо», ҳам «саҳар» («Guten Morgen»)."),
+            s("Bis morgen.", "То фардо.", None),
+            s("Schönen Tag noch.", "Рӯзи хуш.", None),
+        ]),
+        ("Муколама: дар кор", [
+            t("Arbeitest du hier?", "Ин ҷо кор мекунӣ?", "Бигӯ: ҳа, ин ҷо кор мекунам", "Ja, ich arbeite hier.",
+              "Ҳа, ин ҷо кор мекунам.", ["Ja."]),
+            t("Was machst du beruflich?", "Касбат чист?", "Касби худро гӯед", "Ich bin {job}.",
+              "Ман {job_tg} ҳастам.", []),
+            t("Gut, bis morgen!", "Хуб, то фардо!", "Бигӯ: то фардо", "Bis morgen!", "То фардо!", ["Tschüss!"]),
+        ]),
+        ("Миссия: рӯзи аввал", [
+            t("Hallo! Bist du neu?", "Салом! Навӣ?", "Салом гӯй ва бигӯ, ки ҳа", "Hallo! Ja.", "Салом! Ҳа.",
+              ["Ja, ich bin neu."]),
+            t("Ich bin Thomas. Freut mich!", "Ман Томас. Шодам!", "Бигӯ: ман ҳам шодам", "Freut mich auch.",
+              "Ман ҳам шодам.", ["Mich auch."]),
+            t("Woher kommst du?", "Аз куҷоӣ?", "Бигӯ: аз Тоҷикистонам", "Aus Tadschikistan.", "Аз Тоҷикистон.",
+              ["Ich komme aus Tadschikistan."]),
+            t("Ah, schön! Was machst du beruflich?", "А, хуб! Касбат чист?", "Касби худро гӯед", "Ich bin {job}.",
+              "Ман {job_tg} ҳастам.", []),
+        ]),
+    ]))
+
+# ═════════════════════ 2. Кор ёфтан ═════════════════════
+made.append(pack("job_de_tg", "Arbeit suchen", "Кор ёфтан", "💼", 2, JOB_GOALS,
+    "Шумо кор меҷӯед. Бо корфармо гап мезанед: таҷриба, иҷозати истиқомат, музд ва кай "
+    "сар кардан. Миссия — бо телефон.",
+    [
+        ("Кор", [
+            w("Arbeit", "кор", None),
+            w("Heute", "имрӯз", None),
+            w("Morgen", "фардо", None),
+            w("Früh", "барвақт, саҳар", None),
+            w("Lohn", "музд", None),
+            w("Wann", "кай", None),
+        ]),
+        ("Корфармо мепурсад", [
+            t("Hallo! Suchen Sie Arbeit?", "Салом! Кор меҷӯед?", "Бигӯ, ки ҳа", "Ja.", "Ҳа.",
+              ["Ja, ich suche Arbeit."], "Як калима кофист."),
+            t("Können Sie heute anfangen?", "Имрӯз сар карда метавонед?", "Бигӯ: фардо", "Morgen.", "Фардо.",
+              ["Nein, morgen."]),
+            t("Früh oder spät?", "Барвақт ё дер?", "Бигӯ: барвақт", "Früh.", "Барвақт.", []),
+        ]),
+        ("Музд ва таҷриба", [
+            w("Anfangen", "сар кардан", None),
+            s("Morgen früh", "Фардо саҳар", None),
+            w("Erfahrung", "таҷриба", None),
+            s("Kein Problem", "Мушкил нест", None),
+            w("Aufenthaltstitel", "иҷозати истиқомат", "Корти хориҷӣ дар Олмон."),
+            s("Mein Pass", "Шиносномаи ман", None),
+        ]),
+        ("Кай сар мекунед?", [
+            t("Wann können Sie anfangen?", "Кай сар карда метавонед?", "Бигӯ: фардо саҳар", "Morgen früh.",
+              "Фардо саҳар.", ["Morgen."]),
+            t("Die Arbeit ist schwer.", "Кор вазнин аст.", "Бигӯ: мушкил нест", "Kein Problem.", "Мушкил нест.",
+              ["Das ist kein Problem."]),
+            t("Haben Sie Fragen?", "Савол доред?", "Бипурс: музд чанд аст?", "Wie hoch ist der Lohn?",
+              "Музд чанд аст?", ["Was ist der Lohn?"]),
+        ]),
+        ("Ман кор меҷӯям", [
+            s("Ich suche Arbeit.", "Ман кор меҷӯям.", None),
+            s("Ich habe Erfahrung.", "Ман таҷриба дорам.", None),
+            s("Ich bin {job}.", "Ман {job_tg} ҳастам.", JOB_NOTE,
+              cue="Was machen Sie beruflich?", cue_tr="Касбатон чист?"),
+            s("Wann fange ich an?", "Кай сар мекунам?", None),
+            s("Wie viel pro Monat?", "Дар як моҳ чанд?", None),
+            own("Ich komme aus ___.", "Ман аз ___ ҳастам.", "Шаҳр ё кишвари худро гӯед: «Ich komme aus Duschanbe».",
+                "Woher kommen Sie?", "Аз куҷоед?", "Ватани худро гӯед"),
+        ]),
+        ("Суҳбат бо корфармо", [
+            t("Guten Tag! Was kann ich für Sie tun?", "Рӯз ба хайр! Чӣ хизмат?", "Бигӯ: кор меҷӯям",
+              "Ich suche Arbeit.", "Ман кор меҷӯям.", ["Ich möchte arbeiten."]),
+            t("Haben Sie Erfahrung?", "Таҷриба доред?", "Бигӯ: ҳа, таҷриба дорам", "Ja, ich habe Erfahrung.",
+              "Ҳа, таҷриба дорам.", ["Ja."]),
+            t("Gut. Was machen Sie beruflich?", "Хуб. Касбатон чист?", "Касби худро гӯед", "Ich bin {job}.",
+              "Ман {job_tg} ҳастам.", []),
+        ]),
+        ("Ҳуҷҷат ва вақт", [
+            s("Soll ich morgen anfangen?", "Фардо сар кунам?", None),
+            s("Ich habe einen Aufenthaltstitel.", "Ман иҷозати истиқомат дорам.", None),
+            s("Hier ist mein Pass.", "Ана шиносномаи ман.", None),
+            s("Wann soll ich kommen?", "Кай биёям?", None),
+            s("Jeden Tag arbeiten?", "Ҳар рӯз кор?", None),
+            s("Vielen Dank.", "Ташаккури зиёд.", None),
+        ]),
+        ("Музд ва вақт", [
+            t("Der Lohn ist vierzehn Euro pro Stunde.", "Музд чордаҳ евро дар як соат.", "Бипурс: кай сар мекунам?",
+              "Wann fange ich an?", "Кай сар мекунам?", ["Wann soll ich anfangen?"]),
+            t("Morgen um sieben Uhr.", "Фардо соати ҳафт.", "Бипурс: ҳар рӯз кор?", "Jeden Tag arbeiten?",
+              "Ҳар рӯз кор?", ["Jeden Tag?"]),
+            t("Von Montag bis Freitag.", "Аз душанбе то ҷумъа.", "Бигӯ: ташаккури зиёд", "Vielen Dank.",
+              "Ташаккури зиёд.", ["Danke schön."]),
+        ]),
+        ("Миссия: занг ба корфармо", [
+            t("Hallo? Firma Weber.", "Алло? Ширкати Вебер.", "Салом гӯй ва бигӯ, ки кор меҷӯӣ",
+              "Hallo, ich suche Arbeit.", "Салом, ман кор меҷӯям.", ["Ich suche Arbeit."]),
+            t("Haben Sie Erfahrung?", "Таҷриба доред?", "Бигӯ: ҳа, таҷриба дорам", "Ja, ich habe Erfahrung.",
+              "Ҳа, таҷриба дорам.", ["Ja."]),
+            t("Wann können Sie anfangen?", "Кай сар карда метавонед?", "Бигӯ: фардо", "Morgen.", "Фардо.",
+              ["Morgen früh."]),
+            t("Gut, kommen Sie morgen früh.", "Хуб, фардо саҳар биёед.", "Ташаккур гӯй", "Vielen Dank.",
+              "Ташаккури зиёд.", ["Danke schön.", "Danke."]),
+        ]),
+    ], mission_mode="call"))
+
+# ═════════════════════ 3. Рӯзи аввал дар объект ═════════════════════
+made.append(pack("site_de_tg", "Erster Tag auf der Baustelle", "Рӯзи аввал дар объект", "🏗️", 3, B,
+    "Рӯзи аввали шумо дар Baustelle. Бригадир (Chef) кулоҳ ва дастпӯшак медиҳад, нишон медиҳад, "
+    "ки вагонча ва ҳоҷатхона куҷост, ва кори аввалро мегӯяд.",
+    [
+        ("Объект", [
+            w("Baustelle", "объект (сохтмон)", None),
+            w("Chef", "бригадир, сардор", "Дар объекти олмонӣ бригадирро «Chef» ё «Polier» мегӯянд."),
+            w("Helm", "кулоҳи муҳофизатӣ", None),
+            w("Handschuhe", "дастпӯшак", None),
+            w("Pause", "танаффус", None),
+            w("Container", "вагонча", "Вагончаи коргарон дар объект."),
+        ]),
+        ("Бригадир мепурсад", [
+            t("Bist du neu?", "Навӣ?", "Бигӯ, ки ҳа", "Ja.", "Ҳа.", ["Ja, ich bin neu."],
+              "Дар объект бригадир ба коргар «du» мегӯяд — ин муқаррарӣ аст."),
+            t("Hast du einen Helm?", "Кулоҳ дорӣ?", "Бигӯ: не", "Nein.", "Не.", ["Nein, habe ich nicht."]),
+            t("Hier, der ist für dich.", "Гир, ин барои ту.", "Бигӯ: ташаккур", "Danke.", "Ташаккур.", ["Danke schön."]),
+        ]),
+        ("Суханҳои кӯтоҳ", [
+            s("Morgen, Chef", "Субҳ ба хайр, сардор", None),
+            s("Wohin jetzt?", "Ҳоло ба куҷо?", None),
+            s("Ich verstehe", "Мефаҳмам", None),
+            s("Bin bereit", "Тайёрам", None),
+            s("Wann Pause?", "Танаффус кай?", None),
+            s("Der Container", "вагонча", None),
+        ]),
+        ("Аввал чӣ?", [
+            t("Guten Morgen! Bist du bereit?", "Субҳ ба хайр! Тайёрӣ?", "Бигӯ: ҳа, тайёрам", "Ja, ich bin bereit.",
+              "Ҳа, тайёрам.", ["Ja."]),
+            t("Geh zuerst in den Container.", "Аввал ба вагонча рав.", "Бипурс: ба куҷо равам?", "Wohin gehe ich?",
+              "Ба куҷо равам?", ["Wohin?"]),
+            t("Dort, rechts.", "Он ҷо, тарафи рост.", "Бигӯ: мефаҳмам", "Ich verstehe.", "Мефаҳмам.",
+              ["Okay, verstanden."]),
+        ]),
+        ("Рӯзи аввали ман", [
+            s("Mein erster Tag.", "Рӯзи аввали ман.", None),
+            s("Was soll ich machen?", "Чӣ кор кунам?", None),
+            s("Ich habe keinen Helm.", "Ман кулоҳ надорам.", None),
+            s("Ich brauche Handschuhe.", "Ба ман дастпӯшак лозим.", None),
+            s("Gibt es Wasser?", "Об ҳаст?", None),
+            own("Ich heiße ___.", "Номи ман ___.", "Номи худро гӯед: «Ich heiße Ali».",
+                "Wie heißt du?", "Номат чист?", "Номи худатонро гӯед"),
+        ]),
+        ("Муколама: дастпӯшак", [
+            t("Dein erster Tag?", "Рӯзи аввалат?", "Бигӯ: ҳа, рӯзи аввали ман", "Ja, mein erster Tag.",
+              "Ҳа, рӯзи аввали ман.", ["Ja."]),
+            t("Hast du Handschuhe?", "Дастпӯшак дорӣ?", "Бигӯ: не, ба ман дастпӯшак лозим",
+              "Nein, ich brauche Handschuhe.", "Не, ба ман дастпӯшак лозим.", ["Nein."]),
+            t("Okay, hier. Noch etwas?", "Хуб, ана. Боз чизе?", "Бипурс: чӣ кор кунам?", "Was soll ich machen?",
+              "Чӣ кор кунам?", ["Was mache ich jetzt?"]),
+        ]),
+        ("Хӯрок ва вақт", [
+            s("Wo ist die Toilette?", "Ҳоҷатхона куҷост?", None),
+            s("Wo essen wir?", "Мо дар куҷо хӯрок мехӯрем?", None),
+            s("Wann ist Mittagspause?", "Танаффуси нисфирӯзӣ кай?", None),
+            s("Wann ist Feierabend?", "Кор кай тамом мешавад?", "«Feierabend» — охири рӯзи корӣ."),
+            s("Okay, Chef.", "Хуб, сардор.", None),
+            s("Wo ist der Container?", "Вагонча куҷост?", None),
+        ]),
+        ("Муколама: танаффус", [
+            t("Pause ist um zehn Uhr.", "Танаффус соати даҳ.", "Бипурс: танаффуси нисфирӯзӣ кай?",
+              "Wann ist Mittagspause?", "Танаффуси нисфирӯзӣ кай?", []),
+            t("Um zwölf Uhr. Im Container.", "Соати дувоздаҳ. Дар вагонча.", "Бипурс: вагонча куҷост?",
+              "Wo ist der Container?", "Вагонча куҷост?", []),
+            t("Da drüben, neben dem Kran.", "Он ҷо, дар паҳлӯи кран.", "Бигӯ: хуб, сардор", "Okay, Chef.",
+              "Хуб, сардор.", ["Verstanden."]),
+        ]),
+        ("Миссия: коргари нав", [
+            t("Guten Morgen! Bist du der neue Arbeiter?", "Субҳ ба хайр! Коргари нав туӣ?",
+              "Салом гӯй ва бигӯ, ки ҳа", "Guten Morgen! Ja.", "Субҳ ба хайр! Ҳа.", ["Ja, das bin ich."]),
+            t("Hast du einen Helm?", "Кулоҳ дорӣ?", "Бигӯ: не, надорам", "Nein, ich habe keinen Helm.",
+              "Не, кулоҳ надорам.", ["Nein."]),
+            t("Hier. Brauchst du auch Handschuhe?", "Гир. Дастпӯшак ҳам лозим?", "Бигӯ: ҳа, лозим",
+              "Ja, bitte.", "Ҳа, лутфан.", ["Ja."]),
+            t("Gut. Zuerst trägst du Zement.", "Хуб. Аввал семент мекашӣ.", "Бигӯ: фаҳмидам, сардор",
+              "Verstanden, Chef.", "Фаҳмидам, сардор.", ["Okay, Chef."]),
+        ]),
+    ]))
+
+# ═════════════════════ 4. Асбоб ва мавод ═════════════════════
+made.append(pack("tools_de_tg", "Werkzeug und Material", "Асбоб ва мавод", "🧰", 4, B,
+    "Дар объект асбоб ва мавод лозим мешавад: болға, парма, семент, хишт. Мепурсед, ки "
+    "куҷост, чанд лозим ва куҷо монед.",
+    [
+        ("Асбоб", [
+            w("Hammer", "болға", None),
+            w("Bohrer", "парма", None),
+            w("Leiter", "нардбон", None),
+            w("Zement", "семент", None),
+            w("Sand", "рег", None),
+            w("Ziegel", "хишт", None),
+        ]),
+        ("Куҷост?", [
+            t("Wo ist der Hammer?", "Болға куҷост?", "Бигӯ: ин ҷо", "Hier.", "Ин ҷо.", ["Hier ist er."]),
+            t("Bring mir Ziegel.", "Ба ман хишт биёр.", "Бигӯ: хуб", "Okay.", "Хуб.", ["Mache ich."]),
+            t("Ist der Sand alle?", "Рег тамом шуд?", "Бигӯ: ҳа", "Ja.", "Ҳа.", ["Ja, alle."]),
+        ]),
+        ("Суханҳои кӯтоҳ", [
+            s("Ein Hammer", "як болға", None),
+            w("Schubkarre", "аробачаи дастӣ", None),
+            w("Kabel", "сим", None),
+            s("Wohin damit?", "Инро куҷо монам?", None),
+            w("Schaufel", "бел", None),
+            s("Zwei Säcke", "ду халта", None),
+        ]),
+        ("Чӣ лозим?", [
+            t("Was brauchst du?", "Ба ту чӣ лозим?", "Бигӯ: болға", "Einen Hammer.", "Як болға.",
+              ["Ich brauche einen Hammer."]),
+            t("Bring die Ziegel.", "Хиштҳоро биёр.", "Бипурс: куҷо монам?", "Wohin damit?", "Куҷо монам?",
+              ["Wohin?"]),
+            t("Neben die Wand.", "Дар паҳлӯи девор.", "Бигӯ: хуб", "Okay.", "Хуб.", ["Okay, Chef."]),
+        ]),
+        ("Асбоб вайрон аст", [
+            s("Der Bohrer geht nicht.", "Парма кор намекунад.", None),
+            s("Der Zement ist alle.", "Семент тамом шуд.", None),
+            s("Wo ist die Schubkarre?", "Аробача куҷост?", None),
+            s("Die Schaufel, bitte.", "Лутфан, бел.", None),
+            s("Ich brauche eine Leiter.", "Ба ман нардбон лозим.", None),
+            s("Wohin mit den Ziegeln?", "Хиштҳоро куҷо монам?", None),
+        ]),
+        ("Муколама: парма", [
+            t("Was ist los?", "Чӣ шуд?", "Бигӯ: парма кор намекунад", "Der Bohrer geht nicht.",
+              "Парма кор намекунад.", ["Der Bohrer ist kaputt."]),
+            t("Nimm einen anderen Bohrer.", "Пармаи дигар гир.", "Бипурс: дар куҷо?", "Wo?", "Дар куҷо?",
+              ["Wo gibt es einen?"]),
+            t("Im Lager. Im Container.", "Дар анбор. Дар вагонча.", "Бигӯ: фаҳмидам", "Verstanden.", "Фаҳмидам.",
+              ["Okay."]),
+        ]),
+        ("Чанд ва чӣ хел", [
+            s("Wie viele Säcke Zement?", "Чанд халта семент?", None),
+            s("Zwei Säcke reichen.", "Ду халта басанда.", None),
+            s("Das ist sehr schwer.", "Ин хеле вазнин.", None),
+            s("Kannst du helfen?", "Ёрӣ дода метавонӣ?", None),
+            s("Das Kabel ist kurz.", "Сим кӯтоҳ аст.", None),
+            s("Ich brauche ein längeres.", "Ба ман дарозтараш лозим.", None),
+        ]),
+        ("Муколама: семент", [
+            t("Wie viele Säcke Zement brauchst du?", "Чанд халта семент лозим?", "Бигӯ: ду халта",
+              "Zwei Säcke.", "Ду халта.", ["Ich brauche zwei Säcke."]),
+            t("Dann hol sie.", "Пас биёр.", "Бигӯ: ин хеле вазнин", "Das ist sehr schwer.", "Ин хеле вазнин.",
+              ["Sehr schwer."]),
+            t("Nimm die Schubkarre.", "Аробачаро гир.", "Бигӯ: хуб, сардор", "Okay, Chef.", "Хуб, сардор.",
+              ["Okay."]),
+        ]),
+        ("Миссия: девор мечинем", [
+            t("Heute mauern wir eine Wand.", "Имрӯз девор мечинем.", "Бипурс: чӣ лозим?", "Was brauchen wir?",
+              "Ба мо чӣ лозим?", ["Was soll ich holen?"]),
+            t("Ziegel und Zement.", "Хишт ва семент.", "Бипурс: чанд халта семент?", "Wie viele Säcke Zement?",
+              "Чанд халта семент?", ["Wie viele Säcke?"]),
+            t("Drei Säcke.", "Се халта.", "Бигӯ: хуб", "Okay.", "Хуб.", ["Okay, Chef."]),
+            t("Nimm auch die Schaufel.", "Белро ҳам гир.", "Бипурс: бел куҷост?", "Wo ist die Schaufel?",
+              "Бел куҷост?", []),
+        ]),
+    ]))
+
+# ═════════════════════ 5. Бригадир мегӯяд ═════════════════════
+made.append(pack("foreman_de_tg", "Was sagt der Chef?", "Бригадир мегӯяд", "👷", 5, B,
+    "Бригадир фармон медиҳад — зуд ва кӯтоҳ. Мефаҳмед, ки чӣ кор кунед, ва агар нафаҳмидед, "
+    "хоҳиш мекунед, ки такрор ё оҳиста гӯяд.",
+    [
+        ("Фармонҳо", [
+            w("Komm", "биё", None),
+            w("Warte", "интизор шав", None),
+            w("Stopp", "ист", None),
+            w("Bring", "биёр", None),
+            w("Langsam", "оҳиста", None),
+            w("Schnell", "зуд", None),
+        ]),
+        ("Бригадир ҷеғ мезанад", [
+            t("Komm her!", "Ба ин ҷо биё!", "Бигӯ: омадам", "Ich komme!", "Омадам!", ["Komme sofort!"]),
+            t("Warte kurz.", "Каме интизор шав.", "Бигӯ: хуб", "Okay.", "Хуб.", []),
+            t("Hast du verstanden?", "Фаҳмидӣ?", "Бигӯ: ҳа, фаҳмидам", "Ja, verstanden.", "Ҳа, фаҳмидам.",
+              ["Verstanden."]),
+        ]),
+        ("Агар нафаҳмидед", [
+            s("Nochmal, bitte", "Лутфан, боз як бор", None),
+            s("Nicht verstanden", "Нафаҳмидам", None),
+            s("Langsam, bitte", "Лутфан, оҳиста", None),
+            s("Komme sofort", "Ҳозир меоям", None),
+            s("Fertig", "тамом", None),
+            s("Jetzt gleich?", "Ҳамин ҳозир?", None),
+        ]),
+        ("Нафаҳмидам", [
+            t("Trag den Sand dorthin!", "Регро ба он ҷо бикаш!", "Бигӯ: нафаҳмидам", "Nicht verstanden.",
+              "Нафаҳмидам.", ["Ich verstehe nicht."]),
+            t("Den Sand dorthin. Verstanden?", "Регро он ҷо. Фаҳмидӣ?", "Бигӯ: ҳа, фаҳмидам", "Ja, verstanden.",
+              "Ҳа, фаҳмидам.", ["Verstanden."]),
+            t("Schnell!", "Зуд!", "Бигӯ: ҳозир", "Sofort.", "Ҳозир.", ["Ich komme sofort."]),
+        ]),
+        ("Хоҳиш аз бригадир", [
+            s("Bitte sprechen Sie langsam.", "Лутфан, оҳиста гап занед.", None),
+            s("Können Sie das wiederholen?", "Инро такрор карда метавонед?", None),
+            s("Mein Deutsch ist schlecht.", "Олмониам бад аст.", None),
+            s("Jetzt gleich machen?", "Ҳамин ҳозир кунам?", None),
+            s("Ich bin fertig, Chef.", "Тамом кардам, сардор.", None),
+            s("Was noch?", "Боз чӣ?", None),
+        ]),
+        ("Муколама: девор", [
+            t("Mach die Wand sauber.", "Деворро тоза кун.", "Бигӯ: лутфан, оҳиста гап занед",
+              "Bitte sprechen Sie langsam.", "Лутфан, оҳиста гап занед.", ["Langsam, bitte."]),
+            t("Die Wand... sauber machen.", "Деворро... тоза кардан.", "Бипурс: ҳамин ҳозир кунам?",
+              "Jetzt gleich machen?", "Ҳамин ҳозир кунам?", ["Jetzt?"]),
+            t("Ja, jetzt.", "Ҳа, ҳозир.", "Бигӯ: хуб, сардор", "Okay, Chef.", "Хуб, сардор.", []),
+        ]),
+        ("Аввал ва баъд", [
+            s("Was mache ich zuerst?", "Аввал чӣ кор кунам?", None),
+            s("Und dann?", "Ва баъд?", None),
+            s("Wohin bringe ich das?", "Инро ба куҷо барам?", None),
+            s("Okay, ich mache das.", "Хуб, ман мекунам.", None),
+            s("Brauchst du Hilfe?", "Ёрӣ лозим?", None),
+            s("Ich warte.", "Интизорам.", None),
+        ]),
+        ("Муколама: кор тамом", [
+            t("Bist du fertig?", "Тамом кардӣ?", "Бигӯ: ҳа, тамом кардам, сардор", "Ich bin fertig, Chef.",
+              "Тамом кардам, сардор.", ["Ja, fertig."]),
+            t("Super! Mach jetzt Pause.", "Офарин! Ҳоло дам гир.", "Бигӯ: ташаккур, сардор", "Danke, Chef.",
+              "Ташаккур, сардор.", ["Danke."]),
+            t("Danach trägst du die Ziegel.", "Баъд хиштҳоро мекашӣ.", "Бипурс: ба куҷо барам?",
+              "Wohin bringe ich das?", "Инро ба куҷо барам?", ["Wohin?"]),
+        ]),
+        ("Миссия: фармони бригадир", [
+            t("Komm her!", "Ба ин ҷо биё!", "Бигӯ: ҳозир меоям", "Ich komme sofort.", "Ҳозир меоям.",
+              ["Ich komme!"]),
+            t("Trag den Sand in den zweiten Stock.", "Регро ба ошёнаи дуюм бардор.",
+              "Бигӯ: нафаҳмидам, лутфан оҳиста", "Nicht verstanden. Langsam, bitte.",
+              "Нафаҳмидам. Лутфан, оҳиста.", ["Langsam, bitte."]),
+            t("Den Sand... in den zweiten Stock.", "Регро... ба ошёнаи дуюм.", "Бигӯ: фаҳмидам",
+              "Verstanden.", "Фаҳмидам.", ["Okay, verstanden."]),
+            t("Sag mir, wenn du fertig bist.", "Вақте тамом кардӣ, ба ман гӯй.", "Бигӯ: хуб, сардор",
+              "Okay, Chef.", "Хуб, сардор.", []),
+        ]),
+    ]))
+
+# ═════════════════════ 6. Назди духтур (умумӣ) ═════════════════════
+made.append(pack("doctor_de_tg", "Beim Arzt", "Назди духтур", "🩺", 6, [],
+    "Бемор шудед. Дар қабулгоҳи духтур (Praxis) навбат мегиред, мегӯед, ки куҷоятон дард "
+    "мекунад, ва мепурсед, ки доруро чӣ хел гиред.",
+    [
+        ("Беморхона", [
+            w("Arzt", "духтур", None),
+            w("Praxis", "қабулгоҳи духтур", None),
+            w("Schmerzen", "дард", None),
+            w("Fieber", "таб", None),
+            w("Tabletten", "ҳаб, дору", None),
+            w("Apotheke", "дорухона", None),
+        ]),
+        ("Беморед?", [
+            t("Gute Besserung! Sind Sie krank?", "Шифо ёбед! Беморед?", "Бигӯ, ки ҳа", "Ja.", "Ҳа.",
+              ["Ja, ich bin krank."], "«Gute Besserung» — ба бемор ҳамеша мегӯянд."),
+            t("Haben Sie Fieber?", "Таб доред?", "Бигӯ: ҳа, таб дорам", "Ja, ich habe Fieber.", "Ҳа, таб дорам.", ["Ja."]),
+            t("Hier, Ihre Tabletten.", "Марҳамат, ҳабҳоятон.", "Бигӯ: ташаккур", "Danke.", "Ташаккур.", ["Danke schön."]),
+        ]),
+        ("Куҷо дард мекунад", [
+            s("Kopfschmerzen", "Сардард", None),
+            s("Bauchschmerzen", "Дарди шикам", None),
+            s("Rückenschmerzen", "Дарди пушт", None),
+            s("Hohes Fieber", "Таби баланд", None),
+            s("Sehr schlecht", "Хеле бад", None),
+            s("Seit gestern", "Аз дирӯз", None),
+        ]),
+        ("Чӣ шикоят доред?", [
+            t("Was fehlt Ihnen?", "Чӣ шикоят доред?", "Бигӯ: сарам дард мекунад", "Ich habe Kopfschmerzen.",
+              "Сарам дард мекунад.", ["Kopfschmerzen."]),
+            t("Seit wann?", "Аз кай?", "Бигӯ: аз дирӯз", "Seit gestern.", "Аз дирӯз.", []),
+            t("Haben Sie Fieber?", "Таб доред?", "Бигӯ: ҳа, таб дорам", "Ja, ich habe Fieber.", "Ҳа, таб дорам.",
+              ["Ja."]),
+        ]),
+        ("Дар қабулгоҳ", [
+            s("Ich brauche einen Arzt.", "Ба ман духтур лозим.", None),
+            s("Ich habe mich geschnitten.", "Дастамро буридам.", None),
+            s("Mein Fuß tut weh.", "Поям дард мекунад.", None),
+            s("Ich möchte einen Termin.", "Навбат мехоҳам.", "«Termin» — вақти қабул, навбат."),
+            s("Hier ist meine Versichertenkarte.", "Ана корти суғуртаи ман.", "Корти Krankenkasse."),
+            s("Wo ist die Apotheke?", "Дорухона куҷост?", None),
+        ]),
+        ("Муколама: қабулгоҳ", [
+            t("Guten Tag, bitte?", "Рӯз ба хайр, марҳамат?", "Бигӯ: навбат мехоҳам", "Ich möchte einen Termin.",
+              "Навбат мехоҳам.", ["Ich brauche einen Arzt."]),
+            t("Haben Sie Ihre Versichertenkarte?", "Корти суғурта доред?", "Бигӯ: ҳа, марҳамат", "Ja, hier bitte.",
+              "Ҳа, марҳамат.", ["Ja."]),
+            t("Gut. Was fehlt Ihnen?", "Хуб. Чӣ шикоят доред?", "Бигӯ: поям дард мекунад", "Mein Fuß tut weh.",
+              "Поям дард мекунад.", ["Der Fuß tut weh."]),
+        ]),
+        ("Дору", [
+            s("Wie nehme ich das?", "Инро чӣ хел гирам?", None),
+            s("Wie oft am Tag?", "Дар як рӯз чанд бор?", None),
+            s("Nach dem Essen?", "Баъд аз хӯрок?", None),
+            s("Kann ich morgen arbeiten?", "Фардо кор карда метавонам?", None),
+            s("Ich brauche eine Krankmeldung.", "Ба ман варақаи беморӣ лозим.", "«Krankmeldung» — варақаи беморӣ барои кор."),
+            s("Gute Besserung.", "Шифо ёбед.", None),
+        ]),
+        ("Муколама: дору", [
+            t("Nehmen Sie diese Tabletten.", "Ин ҳабҳоро гиред.", "Бипурс: дар як рӯз чанд бор?", "Wie oft am Tag?",
+              "Дар як рӯз чанд бор?", ["Wie oft?"]),
+            t("Dreimal am Tag, nach dem Essen.", "Се бор дар як рӯз, баъд аз хӯрок.",
+              "Бипурс: фардо кор карда метавонам?", "Kann ich morgen arbeiten?", "Фардо кор карда метавонам?", []),
+            t("Nein, zwei Tage Pause.", "Не, ду рӯз дам гиред.", "Бигӯ: ба ман варақаи беморӣ лозим",
+              "Ich brauche eine Krankmeldung.", "Ба ман варақаи беморӣ лозим.", ["Eine Krankmeldung, bitte."]),
+        ]),
+        ("Миссия: назди духтур", [
+            t("Gute Besserung. Was fehlt Ihnen?", "Шифо ёбед. Чӣ шикоят доред?", "Бигӯ: шикамам дард мекунад",
+              "Ich habe Bauchschmerzen.", "Шикамам дард мекунад.", ["Bauchschmerzen."]),
+            t("Seit wann?", "Аз кай?", "Бигӯ: аз дирӯз", "Seit gestern.", "Аз дирӯз.", []),
+            t("Haben Sie Fieber?", "Таб доред?", "Бигӯ: не", "Nein.", "Не.", ["Nein, kein Fieber."]),
+            t("Nehmen Sie das. Zweimal am Tag.", "Инро гиред. Ду бор дар як рӯз.", "Ташаккур гӯй", "Vielen Dank.",
+              "Ташаккури зиёд.", ["Danke."]),
+        ]),
+    ]))
+
+# ═════════════════════ 7. Ҷой дар объект ═════════════════════
+made.append(pack("place_de_tg", "Wo auf der Baustelle?", "Ҷой дар объект", "📍", 7, B,
+    "Объект калон аст: ошёнаҳо, бом, таҳхона, анбор. Мепурсед ва мегӯед, ки кӣ ва чӣ куҷост, "
+    "ва чӣ хел то он ҷо равед.",
+    [
+        ("Ҷойҳо", [
+            w("Stock", "ошёна", None),
+            w("Dach", "бом", None),
+            w("Keller", "таҳхона", None),
+            w("Rechts", "рост, тарафи рост", None),
+            w("Links", "чап, тарафи чап", None),
+            w("Oben", "боло", None),
+        ]),
+        ("Куҷост?", [
+            t("Wo ist der Chef?", "Сардор куҷост?", "Бигӯ: дар боло", "Oben.", "Дар боло.", ["Oben auf dem Dach."]),
+            t("Ist die Treppe links?", "Зина дар тарафи чап аст?", "Бигӯ: не, дар тарафи рост", "Nein, rechts.",
+              "Не, дар тарафи рост.", ["Rechts."]),
+            t("Wer ist im Keller?", "Дар таҳхона кист?", "Бигӯ: ҳеҷ кас", "Niemand.", "Ҳеҷ кас.", ["Keiner."]),
+        ]),
+        ("Суханҳои кӯтоҳ", [
+            s("Zweiter Stock", "ошёнаи дуюм", None),
+            s("Dritter Stock", "ошёнаи сеюм", None),
+            w("Unten", "поён", None),
+            w("Treppe", "зина", None),
+            w("Lager", "анбор", None),
+            w("Aufzug", "лифт", None),
+        ]),
+        ("Рег куҷост?", [
+            t("Wo ist der Sand?", "Рег куҷост?", "Бигӯ: дар ошёнаи дуюм", "Im zweiten Stock.",
+              "Дар ошёнаи дуюм.", ["Zweiter Stock."]),
+            t("Wo ist die Treppe?", "Зина куҷост?", "Бигӯ: дар тарафи чап", "Links.", "Дар тарафи чап.",
+              ["Die Treppe ist links."]),
+            t("Geht der Aufzug?", "Лифт кор мекунад?", "Бигӯ: не", "Nein.", "Не.", ["Nein, der ist kaputt."]),
+        ]),
+        ("Боло ва поён", [
+            s("Welcher Stock?", "Ошёнаи чандум?", None),
+            s("Geh nach oben.", "Ба боло рав.", None),
+            s("Ich gehe nach unten.", "Ман поён меравам.", None),
+            s("Wo ist das Lager?", "Анбор куҷост?", None),
+            s("Neben der Tür.", "Дар паҳлӯи дар.", None),
+            s("Der Aufzug ist kaputt.", "Лифт вайрон аст.", None),
+        ]),
+        ("Муколама: анбор", [
+            t("Wohin gehst du?", "Ба куҷо меравӣ?", "Бигӯ: ба анбор", "Ins Lager.", "Ба анбор.",
+              ["Ich gehe ins Lager."]),
+            t("Das Lager ist unten, im Keller.", "Анбор поён, дар таҳхона.", "Бипурс: лифт кор мекунад?",
+              "Geht der Aufzug?", "Лифт кор мекунад?", []),
+            t("Nein, nimm die Treppe.", "Не, аз зина рав.", "Бигӯ: хуб", "Okay.", "Хуб.", ["Verstanden."]),
+        ]),
+        ("Ман дар куҷо кор мекунам", [
+            s("Warte, ich komme.", "Интизор шав, меоям.", None),
+            s("Ist der Chef oben?", "Сардор дар боло аст?", None),
+            s("Ich arbeite oben.", "Ман дар боло кор мекунам.", None),
+            s("Das Dach ist verboten.", "Ба бом рафтан манъ аст.", None),
+            s("Vor dem Tor.", "Дар пеши дарвоза.", None),
+            s("Zeigst du den Weg?", "Роҳро нишон медиҳӣ?", None),
+        ]),
+        ("Муколама: сардор куҷост", [
+            t("In welchem Stock arbeitest du?", "Дар ошёнаи чандум кор мекунӣ?", "Бигӯ: дар ошёнаи чорум",
+              "Im vierten Stock.", "Дар ошёнаи чорум.", ["Ich arbeite im vierten Stock."]),
+            t("Der Chef sucht dich.", "Сардор туро мекобад.", "Бипурс: сардор дар боло аст?", "Ist der Chef oben?",
+              "Сардор дар боло аст?", ["Wo ist er?"]),
+            t("Ja, auf dem Dach.", "Ҳа, дар бом.", "Бигӯ: ҳозир меравам", "Ich gehe sofort.", "Ҳозир меравам.",
+              ["Okay."]),
+        ]),
+        ("Миссия: болға лозим", [
+            t("Ich brauche einen Hammer. Wo ist er?", "Ба ман болға лозим. Куҷост?", "Бигӯ: дар анбор",
+              "Im Lager.", "Дар анбор.", ["Der Hammer ist im Lager."]),
+            t("Wo ist das Lager?", "Анбор куҷост?", "Бигӯ: поён, дар таҳхона", "Unten, im Keller.",
+              "Поён, дар таҳхона.", ["Im Keller."]),
+            t("Soll ich den Aufzug nehmen?", "Бо лифт равам?", "Бигӯ: не, лифт вайрон аст",
+              "Nein, der Aufzug ist kaputt.", "Не, лифт вайрон аст.", ["Nein."]),
+            t("Okay, ich nehme die Treppe.", "Хуб, аз зина меравам.", "Бигӯ: зина дар тарафи чап аст",
+              "Die Treppe ist links.", "Зина дар тарафи чап аст.", ["Links."]),
+        ]),
+    ]))
+
+# ═════════════════════ 8. Бехатарӣ ва ёрӣ ═════════════════════
+made.append(pack("safety_de_tg", "Sicherheit und Hilfe", "Бехатарӣ ва ёрӣ", "⛑️", 8, B,
+    "Дар объект хатар ҳаст. Огоҳ мекунед, ёрӣ мехоҳед, ёрии таъҷилӣ ҷеғ мезанед (112) ва "
+    "мегӯед, ки чӣ шуд.",
+    [
+        ("Хатар", [
+            w("Vorsicht", "эҳтиёт", None),
+            w("Gefahr", "хатар", None),
+            w("Hilfe", "ёрӣ", None),
+            w("Feuer", "оташ, сӯхтор", None),
+            w("Krankenwagen", "мошини ёрии таъҷилӣ", None),
+            w("Verboten", "манъ", None),
+        ]),
+        ("Хубӣ?", [
+            t("Vorsicht! Schau nach oben!", "Эҳтиёт! Ба боло нигоҳ кун!", "Бигӯ: дидам", "Ich sehe es!", "Дидам!",
+              ["Okay, gesehen."]),
+            t("Alles okay?", "Хубӣ?", "Бигӯ: ҳа, хубам", "Ja, alles okay.", "Ҳа, хубам.", ["Ja."]),
+            t("Brauchst du Hilfe?", "Ёрӣ лозим?", "Бигӯ: ҳа, ёрӣ лозим", "Ja, ich brauche Hilfe.",
+              "Ҳа, ёрӣ лозим.", ["Ja, bitte."]),
+        ]),
+        ("Суханҳои фаврӣ", [
+            w("Hilfe", "ёрӣ диҳед!", "Фарёди ёрӣ — баланд гӯед."),
+            s("Einen Krankenwagen!", "Ёрии таъҷилӣ!", None),
+            s("Hingefallen", "Афтод", None),
+            s("Es blutet", "Хун меравад", None),
+            s("Pass auf", "Эҳтиёт шав", None),
+            s("Alle raus", "Ҳама берун", None),
+        ]),
+        ("Чӣ шуд?", [
+            t("Was ist passiert?", "Чӣ шуд?", "Бигӯ: ӯ афтод", "Er ist gefallen.", "Ӯ афтод.",
+              ["Mein Kollege ist gefallen."]),
+            t("Blutet es?", "Хун меравад?", "Бигӯ: ҳа, хун меравад", "Ja, es blutet.", "Ҳа, хун меравад.", ["Ja."]),
+            t("Soll ich den Krankenwagen rufen?", "Ёрии таъҷилӣ ҷеғ занам?", "Бигӯ: ҳа, зуд!", "Ja, schnell!",
+              "Ҳа, зуд!", ["Ja, bitte."]),
+        ]),
+        ("Огоҳӣ", [
+            s("Notruf eins eins zwei!", "Рақами ёрӣ — 112!", "112 — рақами ёрии таъҷилӣ дар Олмон."),
+            s("Mein Kollege ist verletzt.", "Ҳамкорам захмӣ шуд.", None),
+            s("Das ist gefährlich.", "Ин хатарнок аст.", None),
+            s("Mach den Gurt fest.", "Камарбандро бибанд.", None),
+            s("Es brennt!", "Оташ гирифт!", None),
+            s("Hier ist es verboten.", "Ин ҷо манъ аст.", None),
+        ]),
+        ("Муколама: ҳавоза", [
+            t("Warum gehst du nicht aufs Gerüst?", "Чаро ба ҳавоза намебароӣ?", "Бигӯ: ин хатарнок аст",
+              "Das ist gefährlich.", "Ин хатарнок аст.", ["Zu gefährlich."]),
+            t("Hast du einen Gurt?", "Камарбанд дорӣ?", "Бигӯ: не, надорам", "Nein, ich habe keinen.",
+              "Не, надорам.", ["Nein."]),
+            t("Okay, hol einen aus dem Lager.", "Хуб, аз анбор гир.", "Бигӯ: ташаккур, сардор", "Danke, Chef.",
+              "Ташаккур, сардор.", ["Okay, Chef."]),
+        ]),
+        ("Захм ва ёрии аввал", [
+            s("Ich habe mich geschnitten.", "Дастамро буридам.", None),
+            s("Wo ist der Verbandskasten?", "Қуттии ёрии аввал куҷост?", None),
+            s("Mir ist schwindelig.", "Сарам чарх мезанад.", None),
+            s("Ich muss mich setzen.", "Бояд нишинам.", None),
+            s("Gibst du mir Wasser?", "Ба ман об медиҳӣ?", None),
+            s("Jetzt geht es besser.", "Ҳоло беҳтар.", None),
+        ]),
+        ("Муколама: дастам бурид", [
+            t("Was ist los? Da ist Blut!", "Чӣ шуд? Хун ҳаст!", "Бигӯ: дастамро буридам", "Ich habe mich geschnitten.",
+              "Дастамро буридам.", ["Mein Finger blutet."]),
+            t("Komm, setz dich.", "Биё, нишин.", "Бипурс: қуттии ёрии аввал куҷост?", "Wo ist der Verbandskasten?",
+              "Қуттии ёрии аввал куҷост?", []),
+            t("Im Container. Ich hole ihn.", "Дар вагонча. Меорам.", "Бигӯ: ташаккур", "Danke.", "Ташаккур.",
+              ["Danke schön."]),
+        ]),
+        ("Миссия: ҳамкор афтод", [
+            t("Vorsicht! Dein Kollege ist gefallen!", "Эҳтиёт! Ҳамкорат афтод!", "Бигӯ: ёрӣ! Ёрии таъҷилӣ!",
+              "Hilfe! Einen Krankenwagen!", "Ёрӣ! Ёрии таъҷилӣ!", ["Einen Krankenwagen, bitte!"]),
+            t("Ich rufe an. Kann er sprechen?", "Занг мезанам. Гап зада метавонад?", "Бигӯ: ҳа, вале хун меравад",
+              "Ja, aber es blutet.", "Ҳа, вале хун меравад.", ["Ja, es blutet."]),
+            t("Beweg ihn nicht!", "Ӯро наҷунбон!", "Бигӯ: хуб, фаҳмидам", "Okay, verstanden.", "Хуб, фаҳмидам.",
+              ["Verstanden."]),
+            t("Der Krankenwagen kommt.", "Ёрии таъҷилӣ омада истодааст.", "Ташаккур гӯй", "Danke.", "Ташаккур.",
+              ["Danke schön."]),
+        ]),
+    ]))
+
+# ═════════════════════ 9. Шумора ва андоза ═════════════════════
+made.append(pack("measure_de_tg", "Zahlen und Maße", "Шумора ва андоза", "📏", 9, B,
+    "Дар кор ҳама чиз бо рақам аст: метр, кило, дона, халта. Мепурсед ва мегӯед, ки "
+    "чанд лозим ва чанд вақт мекашад.",
+    [
+        ("Рақам ва андоза", [
+            w("Eins", "як", None),
+            w("Zwei", "ду", None),
+            w("Drei", "се", None),
+            w("Meter", "метр", None),
+            w("Kilo", "кило", None),
+            w("Stück", "дона", None),
+        ]),
+        ("Чанд?", [
+            t("Wie viele Ziegel?", "Чанд хишт?", "Бигӯ: даҳ", "Zehn.", "Даҳ.", ["Zehn Stück."]),
+            t("Wie viele Meter?", "Чанд метр?", "Бигӯ: се метр", "Drei Meter.", "Се метр.", ["Drei."]),
+            t("Wie viel Kilo?", "Чанд кило?", "Бигӯ: панҷоҳ кило", "Fünfzig Kilo.", "Панҷоҳ кило.", ["Fünfzig."]),
+        ]),
+        ("Суханҳои кӯтоҳ", [
+            s("Fünf Meter", "панҷ метр", None),
+            s("Zwanzig Stück", "бист дона", None),
+            s("Halber Meter", "ним метр", None),
+            s("Zu lang", "хеле дароз", None),
+            s("Etwas kurz", "каме кӯтоҳ", None),
+            s("Zehn Zentimeter", "даҳ сантиметр", None),
+        ]),
+        ("Сим чанд метр?", [
+            t("Wie lang ist das Kabel?", "Сим чанд метр аст?", "Бигӯ: панҷ метр", "Fünf Meter.", "Панҷ метр.",
+              ["Das Kabel ist fünf Meter lang."]),
+            t("Reicht das?", "Басанда аст?", "Бигӯ: не, каме кӯтоҳ", "Nein, etwas kurz.", "Не, каме кӯтоҳ.",
+              ["Zu kurz."]),
+            t("Wie viele Meter brauchst du?", "Чанд метр лозим?", "Бигӯ: шаш метр", "Sechs Meter.", "Шаш метр.",
+              ["Ich brauche sechs Meter."]),
+        ]),
+        ("Ҳисоб", [
+            s("Zwölf Meter Kabel.", "Дувоздаҳ метр сим.", None),
+            s("Wie viele brauchst du?", "Чанд дона лозим?", None),
+            s("Fünfzig Ziegel reichen.", "Панҷоҳ хишт басанда.", None),
+            s("Drei Meter hoch.", "Се метр баланд.", None),
+            s("Fünfzig Kilo pro Sack.", "Панҷоҳ кило дар як халта.", None),
+            s("Erst messen, dann schneiden.", "Аввал чен кун, баъд бибур.", None),
+        ]),
+        ("Муколама: тиреза", [
+            t("Wie breit ist das Fenster?", "Тиреза чанд васеъ аст?", "Бигӯ: якуним метр", "Eineinhalb Meter.",
+              "Якуним метр.", ["Anderthalb Meter."]),
+            t("Bist du sicher?", "Боварӣ дорӣ?", "Бигӯ: ҳа, чен кардам", "Ja, ich habe gemessen.",
+              "Ҳа, чен кардам.", ["Ja."]),
+            t("Okay. Wie viele Bretter brauchen wir?", "Хуб. Чанд тахта лозим?", "Бигӯ: чор дона", "Vier Stück.",
+              "Чор дона.", ["Vier."]),
+        ]),
+        ("Вазн ва вақт", [
+            s("Wo ist das Maßband?", "Метр (рулетка) куҷост?", None),
+            s("Zu schwer für mich.", "Барои ман хеле вазнин.", None),
+            s("Schneide dreißig Zentimeter.", "Сӣ сантиметр бибур.", None),
+            s("Drei Stockwerke hoch.", "Се ошёна боло.", None),
+            s("Wie lange dauert das?", "Ин чӣ қадар вақт мегирад?", None),
+            s("Zwei Stunden.", "Ду соат.", None),
+        ]),
+        ("Муколама: тахта", [
+            t("Schneide dieses Brett.", "Ин тахтаро бибур.", "Бипурс: чанд сантиметр?", "Wie viele Zentimeter?",
+              "Чанд сантиметр?", []),
+            t("Dreißig Zentimeter.", "Сӣ сантиметр.", "Бигӯ: хуб, сӣ сантиметр", "Okay, dreißig Zentimeter.",
+              "Хуб, сӣ сантиметр.", ["Okay."]),
+            t("Wie lange dauert das?", "Чӣ қадар вақт мегирад?", "Бигӯ: ду соат", "Zwei Stunden.", "Ду соат.",
+              ["Etwa zwei Stunden."]),
+        ]),
+        ("Миссия: сим ва семент", [
+            t("Ich brauche Kabel.", "Ба ман сим лозим.", "Бипурс: чанд метр?", "Wie viele Meter?", "Чанд метр?",
+              ["Wie viele Meter brauchst du?"]),
+            t("Fünfzehn Meter.", "Понздаҳ метр.", "Бигӯ: хуб, понздаҳ метр", "Okay, fünfzehn Meter.",
+              "Хуб, понздаҳ метр.", ["Okay."]),
+            t("Und hol auch Zement.", "Семент ҳам биёр.", "Бипурс: чанд халта?", "Wie viele Säcke?", "Чанд халта?", []),
+            t("Drei Säcke.", "Се халта.", "Бигӯ: хуб, се халта", "Okay, drei Säcke.", "Хуб, се халта.", ["Okay."]),
+        ]),
+    ]))
+
+# ═════════════════════ 10. Бозор (умумӣ) ═════════════════════
+made.append(pack("market_de_tg", "Im Supermarkt", "Бозор", "🛒", 10, [],
+    "Дар мағоза хӯрок мехаред: нон, гӯшт, тухм. Нархро мепурсед, гӯшти ҳалолро мепурсед ва "
+    "пардохт мекунед.",
+    [
+        ("Хӯрок", [
+            w("Brot", "нон", None),
+            w("Wasser", "об", None),
+            w("Milch", "шир", None),
+            w("Eier", "тухм", None),
+            w("Fleisch", "гӯшт", None),
+            w("Hähnchen", "мурғ", None),
+        ]),
+        ("Чӣ мехоҳед?", [
+            t("Hallo, was darf es sein?", "Салом, чӣ мехоҳед?", "Бигӯ: нон", "Brot.", "Нон.", ["Brot, bitte."]),
+            t("Wie viele?", "Чанд дона?", "Бигӯ: ду", "Zwei.", "Ду.", ["Zwei Stück."]),
+            t("Sonst noch etwas?", "Боз чизе?", "Бигӯ: не, ташаккур", "Nein, danke.", "Не, ташаккур.", ["Nein."]),
+        ]),
+        ("Нарх", [
+            s("Wie teuer?", "Чанд пул?", None),
+            s("Zu teuer", "Хеле қимат", None),
+            s("Tüte, bitte", "Лутфан, халта", None),
+            s("Mit Karte", "бо корт", None),
+            w("Bar", "нақд", None),
+            s("Ein Kilo", "як кило", None),
+        ]),
+        ("Пардохт", [
+            t("Das macht dreißig Euro.", "Сӣ евро мешавад.", "Бигӯ: хеле қимат", "Zu teuer.", "Хеле қимат.",
+              ["Das ist teuer."]),
+            t("Mit Karte oder bar?", "Бо корт ё нақд?", "Бигӯ: нақд", "Bar.", "Нақд.", ["Ich zahle bar."]),
+            t("Brauchen Sie eine Tüte?", "Халта лозим?", "Бигӯ: ҳа, лутфан", "Ja, bitte.", "Ҳа, лутфан.", ["Ja."]),
+        ]),
+        ("Харид", [
+            s("Was kostet das?", "Ин чанд?", None),
+            s("Ein Kilo Fleisch.", "Як кило гӯшт.", None),
+            s("Ist das halal?", "Ин ҳалол аст?", None),
+            s("Wo ist das Wasser?", "Об куҷост?", None),
+            s("Zwei Brote, bitte.", "Лутфан, ду нон.", None),
+            s("Gibt es etwas Billigeres?", "Арзонтар ҳаст?", None),
+        ]),
+        ("Муколама: қассоб", [
+            t("Bitte schön?", "Марҳамат?", "Бигӯ: як кило гӯшт", "Ein Kilo Fleisch.", "Як кило гӯшт.",
+              ["Ein Kilo Fleisch, bitte."]),
+            t("Rind oder Hähnchen?", "Гӯшти гов ё мурғ?", "Бигӯ: мурғ", "Hähnchen.", "Мурғ.", []),
+            t("Noch etwas?", "Боз чизе?", "Бипурс: ин ҳалол аст?", "Ist das halal?", "Ин ҳалол аст?", ["Halal?"]),
+        ]),
+        ("Дар касса", [
+            s("Wie viel macht das?", "Ҳамагӣ чанд?", None),
+            s("Ich habe kein Kleingeld.", "Пули майда надорам.", None),
+            s("Mit Karte zahlen?", "Бо корт пардохт?", None),
+            s("Den Kassenbon, bitte.", "Лутфан, чек.", None),
+            s("Gibt es Tee?", "Чой ҳаст?", None),
+            s("Das ist alles.", "Ҳамааш ҳамин.", None),
+        ]),
+        ("Муколама: касса", [
+            t("Ist das alles?", "Ҳамааш ҳамин?", "Бигӯ: ҳа, ҳамааш ҳамин", "Ja, das ist alles.",
+              "Ҳа, ҳамааш ҳамин.", ["Ja."]),
+            t("Das macht zwölf Euro.", "Дувоздаҳ евро мешавад.", "Бипурс: бо корт пардохта метавонам?",
+              "Kann ich mit Karte zahlen?", "Бо корт пардохта метавонам?", ["Mit Karte?"]),
+            t("Ja, natürlich.", "Ҳа, албатта.", "Бигӯ: лутфан, чек", "Den Kassenbon, bitte.", "Лутфан, чек.", []),
+        ]),
+        ("Миссия: мағоза", [
+            t("Hallo! Was darf es sein?", "Салом! Чӣ мехоҳед?", "Бигӯ: ду нон ва шир", "Zwei Brote und Milch.",
+              "Ду нон ва шир.", ["Zwei Brote und eine Milch."]),
+            t("Sonst noch etwas?", "Боз чизе?", "Бипурс: тухм ҳаст?", "Haben Sie Eier?", "Тухм доред?",
+              ["Gibt es Eier?"]),
+            t("Ja. Wie viele?", "Ҳа. Чанд дона?", "Бигӯ: даҳ дона", "Zehn Stück.", "Даҳ дона.", ["Zehn."]),
+            t("Das macht acht Euro.", "Ҳашт евро мешавад.", "Бигӯ: бо корт", "Mit Karte.", "Бо корт.",
+              ["Ich zahle mit Karte."]),
+        ]),
+    ]))
+
+finish(made)
