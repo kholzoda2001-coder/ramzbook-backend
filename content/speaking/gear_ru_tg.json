@@ -1,0 +1,555 @@
+{
+  "slug": "gear_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Спецодежда",
+    "titleTranslated": "Либоси корӣ",
+    "scenario": "Либос ва таҷҳизоти муҳофизатӣ: каска, жилет, айнак, ниқоб, мӯза. Андозаи худро мегӯед, нав мехоҳед ва мефаҳмед, ки бе каска ба объект даромадан мумкин нест.",
+    "emoji": "🦺",
+    "order": 18,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Либоси корӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Каска",
+          "translation": "кулоҳи муҳофизатӣ",
+          "literal": null,
+          "note": "Зарба: КАС-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Жилет",
+          "translation": "камзӯли инъикоскунанда",
+          "literal": null,
+          "note": "Зарба дар охир: жи-ЛЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Перчатки",
+          "translation": "дастпӯшак",
+          "literal": null,
+          "note": "Зарба: пер-ЧАТ-ки.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ботинки",
+          "translation": "мӯзаи корӣ",
+          "literal": null,
+          "note": "Зарба: бо-ТИН-ки.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Очки",
+          "translation": "айнак",
+          "literal": null,
+          "note": "Зарба дар охир: оч-КИ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Маска",
+          "translation": "ниқоб",
+          "literal": null,
+          "note": "Зарба: МАС-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Каскаат куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Где твоя каска?",
+          "cueTranslation": "Каскаат куҷост?",
+          "intent": "Бигӯ: дар вагонча",
+          "text": "В бытовке.",
+          "accepts": [
+            "Каска в бытовке."
+          ],
+          "translation": "Дар вагонча.",
+          "literal": null,
+          "note": "«Бытовка» — вагончаи коргарон дар объект.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Надень очки!",
+          "cueTranslation": "Айнак пӯш!",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Хорошо, надеваю.",
+            "Ладно."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ботинки нормальные?",
+          "cueTranslation": "Мӯзаҳо хубанд?",
+          "intent": "Бигӯ: не, калон",
+          "text": "Нет, большие.",
+          "accepts": [
+            "Большие."
+          ],
+          "translation": "Не, калон.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Новые перчатки",
+          "translation": "Дастпӯшаки нав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой размер",
+          "translation": "Андозаи ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Порвались",
+          "translation": "дарида шуданд",
+          "literal": null,
+          "note": "Зарба: пор-ВА-лись.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень маленькие",
+          "translation": "Хеле хурд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Надень наушники",
+          "translation": "Гӯшпӯшак пӯш",
+          "literal": null,
+          "note": "«Наушники» — гӯшпӯшак. Зарба: на-УШ-ни-ки.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Рабочая одежда",
+          "translation": "Либоси корӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нав лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что тебе нужно?",
+          "cueTranslation": "Ба ту чӣ лозим?",
+          "intent": "Бигӯ: дастпӯшаки нав",
+          "text": "Новые перчатки.",
+          "accepts": [
+            "Нужны новые перчатки.",
+            "Перчатки."
+          ],
+          "translation": "Дастпӯшаки нав.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А старые где?",
+          "cueTranslation": "Кӯҳнаҳо куҷоянд?",
+          "intent": "Бигӯ: дарида шуданд",
+          "text": "Порвались.",
+          "accepts": [
+            "Старые порвались."
+          ],
+          "translation": "Дарида шуданд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "На, держи. Новые.",
+          "cueTranslation": "Гир, инҳо нав.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Андоза ва вайронӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Размер сорок два.",
+          "translation": "Андоза чилу ду.",
+          "literal": null,
+          "note": "Андозаи пойафзол — бо рақам.",
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "сорок два|чилу ду",
+            "сорок три|чилу се",
+            "сорок один|чилу як"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ботинки мне малы.",
+          "translation": "Мӯза ба ман хурд аст.",
+          "literal": null,
+          "note": "«Малы» — хурд (барои либос ва пойафзол).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужна маска от пыли.",
+          "translation": "Ниқоби чанг лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Жилет порвался.",
+          "translation": "Камзӯл дарида шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Очки сломались.",
+          "translation": "Айнак шикаст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно новые?",
+          "translation": "Навашро гирам мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: мӯза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Какой у тебя размер?",
+          "cueTranslation": "Андозаат чанд?",
+          "intent": "Бигӯ: чилу ду",
+          "text": "Сорок два.",
+          "accepts": [
+            "Размер сорок два.",
+            "42."
+          ],
+          "translation": "Чилу ду.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Эти ботинки подойдут?",
+          "cueTranslation": "Ин мӯза мешавад?",
+          "intent": "Бигӯ: не, хурд",
+          "text": "Нет, маленькие.",
+          "accepts": [
+            "Маленькие.",
+            "Нет, малы."
+          ],
+          "translation": "Не, хурд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, вот сорок третий.",
+          "cueTranslation": "Хуб, ана чилу се.",
+          "intent": "Бигӯ: ташаккур, хуб",
+          "text": "Спасибо, хорошо.",
+          "accepts": [
+            "Спасибо."
+          ],
+          "translation": "Ташаккур, хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қоидаҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Здесь очень шумно.",
+          "translation": "Ин ҷо хеле садо.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужны наушники.",
+          "translation": "Гӯшпӯшак лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Без каски нельзя.",
+          "translation": "Бе каска мумкин нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Одежда промокла.",
+          "translation": "Либос тар шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Есть запасная роба?",
+          "translation": "Либоси эҳтиётӣ ҳаст?",
+          "literal": null,
+          "note": "«Роба» — либоси корӣ (комбинезон).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Надень жилет.",
+          "translation": "Камзӯлро пӯш.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: гӯшпӯшак",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Почему ты без наушников?",
+          "cueTranslation": "Чаро бе гӯшпӯшак?",
+          "intent": "Бигӯ: гӯшпӯшак лозим",
+          "text": "Нужны наушники.",
+          "accepts": [
+            "У меня нет наушников."
+          ],
+          "translation": "Гӯшпӯшак лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На складе есть. Возьми.",
+          "cueTranslation": "Дар анбор ҳаст. Гир.",
+          "intent": "Бипурс: либоси эҳтиётӣ ҳаст?",
+          "text": "Есть запасная роба?",
+          "accepts": [
+            "А запасная роба есть?"
+          ],
+          "translation": "Либоси эҳтиётӣ ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Зачем?",
+          "cueTranslation": "Барои чӣ?",
+          "intent": "Бигӯ: либос тар шуд",
+          "text": "Одежда промокла.",
+          "accepts": [
+            "Роба промокла."
+          ],
+          "translation": "Либос тар шуд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дар дарвоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Стой! Где твоя каска?",
+          "cueTranslation": "Ист! Каскаат куҷост?",
+          "intent": "Бигӯ: бубахшед, дар вагонча",
+          "text": "Извините, в бытовке.",
+          "accepts": [
+            "В бытовке."
+          ],
+          "translation": "Бубахшед, дар вагонча.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Без каски нельзя!",
+          "cueTranslation": "Бе каска мумкин нест!",
+          "intent": "Бигӯ: фаҳмидам, ҳозир меорам",
+          "text": "Понял, сейчас принесу.",
+          "accepts": [
+            "Сейчас принесу."
+          ],
+          "translation": "Фаҳмидам, ҳозир меорам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "И жилета нет.",
+          "cueTranslation": "Камзӯл ҳам нест.",
+          "intent": "Бигӯ: камзӯл дарида шуд",
+          "text": "Жилет порвался.",
+          "accepts": [
+            "Он порвался."
+          ],
+          "translation": "Камзӯл дарида шуд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Возьми новый на складе.",
+          "cueTranslation": "Навашро аз анбор гир.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "slug": "hours_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Рабочее время и табель",
+    "titleTranslated": "Соатҳо ва табел",
+    "scenario": "Кай сар мекунед ва кай тамом, чанд соат кор кардед ва оё номатон дар табел ҳаст. Инчунин рӯзи истироҳат, навбати шабона ва барвақт рафтан.",
+    "emoji": "🕗",
+    "order": 20,
+    "goals": [
+      "build"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Вақт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Смена",
+          "translation": "навбати кор",
+          "literal": null,
+          "note": "Зарба: СМЕ-на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Табель",
+          "translation": "табел",
+          "literal": null,
+          "note": "Зарба: ТА-бель. Дафтари рӯзҳо ва соатҳои кор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Выходной",
+          "translation": "рӯзи истироҳат",
+          "literal": null,
+          "note": "Зарба дар охир: вы-ход-НОЙ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Суббота",
+          "translation": "шанбе",
+          "literal": null,
+          "note": "Зарба: суб-БО-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Обед",
+          "translation": "танаффуси нисфирӯзӣ",
+          "literal": null,
+          "note": "Зарба: о-БЕД.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Отпуск",
+          "translation": "рухсатӣ",
+          "literal": null,
+          "note": "Зарба: ОТ-пуск.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Соати чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Во сколько пришёл?",
+          "cueTranslation": "Соати чанд омадӣ?",
+          "intent": "Бигӯ: соати ҳафт",
+          "text": "В семь.",
+          "accepts": [
+            "В семь часов.",
+            "В 7."
+          ],
+          "translation": "Соати ҳафт.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Во сколько уходишь?",
+          "cueTranslation": "Соати чанд меравӣ?",
+          "intent": "Бигӯ: соати шаш",
+          "text": "В шесть.",
+          "accepts": [
+            "В шесть часов.",
+            "В 6."
+          ],
+          "translation": "Соати шаш.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В субботу работаешь?",
+          "cueTranslation": "Шанбе кор мекунӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Да.",
+          "accepts": [
+            "Да, работаю."
+          ],
+          "translation": "Ҳа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суханҳои кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "С семи",
+          "translation": "Аз соати ҳафт",
+          "literal": null,
+          "note": "«С» — аз: с семи до шести.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "До шести",
+          "translation": "То соати шаш",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Полдня",
+          "translation": "ним рӯз",
+          "literal": null,
+          "note": "Зарба: пол-ДНЯ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Целый день",
+          "translation": "Рӯзи пурра",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Распишись здесь",
+          "translation": "Ин ҷо имзо кун",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ночная смена",
+          "translation": "Навбати шабона",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Табел",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Распишись в табеле.",
+          "cueTranslation": "Дар табел имзо кун.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько вчера работал?",
+          "cueTranslation": "Дирӯз чанд соат кор кардӣ?",
+          "intent": "Бигӯ: даҳ соат",
+          "text": "Десять часов.",
+          "accepts": [
+            "10 часов.",
+            "Десять."
+          ],
+          "translation": "Даҳ соат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Полдня?",
+          "cueTranslation": "Ним рӯз?",
+          "intent": "Бигӯ: не, рӯзи пурра",
+          "text": "Нет, целый день.",
+          "accepts": [
+            "Целый день."
+          ],
+          "translation": "Не, рӯзи пурра.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Рӯзи кор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Работаем с семи.",
+          "translation": "Аз соати ҳафт кор мекунем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "с семи|аз соати ҳафт",
+            "с восьми|аз соати ҳашт"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Смена до шести.",
+          "translation": "Навбат то соати шаш.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Вчера работал десять часов.",
+          "translation": "Дирӯз даҳ соат кор кардам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Меня нет в табеле.",
+          "translation": "Номам дар табел нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "В воскресенье выходной?",
+          "translation": "Якшанбе истироҳат аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Обед один час.",
+          "translation": "Танаффуси нисфирӯзӣ як соат.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Муколама: номам нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Проверь табель.",
+          "cueTranslation": "Табелро сан.",
+          "intent": "Бигӯ: номам дар табел нест",
+          "text": "Меня нет в табеле.",
+          "accepts": [
+            "Меня нет."
+          ],
+          "translation": "Номам дар табел нест.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой день?",
+          "cueTranslation": "Кадом рӯз?",
+          "intent": "Бигӯ: сешанбе",
+          "text": "Вторник.",
+          "accepts": [
+            "Во вторник."
+          ],
+          "translation": "Сешанбе.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, добавлю.",
+          "cueTranslation": "Хуб, илова мекунам.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Спасибо.",
+          "accepts": [],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳафта ва ид",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Шесть дней работал.",
+          "translation": "Шаш рӯз кор кардам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "В субботу полдня.",
+          "translation": "Шанбе ним рӯз.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "В праздник выходной?",
+          "translation": "Дар ид истироҳат?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ночная смена есть?",
+          "translation": "Навбати шабона ҳаст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно уйти пораньше?",
+          "translation": "Барвақттар рафтан мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне к врачу.",
+          "translation": "Ман бояд ба духтур равам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Муколама: ҳафта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сколько дней на этой неделе?",
+          "cueTranslation": "Ин ҳафта чанд рӯз?",
+          "intent": "Бигӯ: шаш рӯз",
+          "text": "Шесть дней.",
+          "accepts": [
+            "Шесть.",
+            "6 дней."
+          ],
+          "translation": "Шаш рӯз.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "И суббота тоже?",
+          "cueTranslation": "Шанбе ҳам?",
+          "intent": "Бигӯ: ҳа, шанбе ним рӯз",
+          "text": "Да, в субботу полдня.",
+          "accepts": [
+            "Полдня."
+          ],
+          "translation": "Ҳа, шанбе ним рӯз.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Правильно.",
+          "cueTranslation": "Дуруст.",
+          "intent": "Бипурс: барвақттар рафтан мумкин?",
+          "text": "Можно уйти пораньше?",
+          "accepts": [
+            "Можно пораньше?"
+          ],
+          "translation": "Барвақттар рафтан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: навбати шабона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Доброе утро! Во сколько пришёл?",
+          "cueTranslation": "Субҳ ба хайр! Соати чанд омадӣ?",
+          "intent": "Бигӯ: соати ҳафт",
+          "text": "В семь.",
+          "accepts": [
+            "В семь часов.",
+            "В 7."
+          ],
+          "translation": "Соати ҳафт.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сегодня ночная смена.",
+          "cueTranslation": "Имрӯз навбати шабона.",
+          "intent": "Бипурс: то соати чанд?",
+          "text": "До скольки?",
+          "accepts": [
+            "До скольки работаем?"
+          ],
+          "translation": "То соати чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "До одиннадцати.",
+          "cueTranslation": "То соати ёздаҳ.",
+          "intent": "Бипурс: фардо барвақттар рафтан мумкин?",
+          "text": "А завтра можно уйти пораньше?",
+          "accepts": [
+            "Можно завтра пораньше?"
+          ],
+          "translation": "Фардо барвақттар рафтан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Можно, после обеда.",
+          "cueTranslation": "Мумкин, баъди нисфирӯзӣ.",
+          "intent": "Бигӯ: ташаккур, бригадир",
+          "text": "Спасибо, бригадир.",
+          "accepts": [
+            "Спасибо."
+          ],
+          "translation": "Ташаккур, бригадир.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

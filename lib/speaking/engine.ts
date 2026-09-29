@@ -530,6 +530,9 @@ const CHAIN_GLUED_BEFORE = new Set<string>([
   'хорошее', 'хорошего', 'новый', 'новая', 'новое', 'новые', 'большой',
   'большая', 'маленький', 'молодой', 'красивый', 'первый', 'последний',
   'русский', 'таджикский', 'рабочий', 'главный', 'следующий', 'прошлый',
+  // тартибӣ (29.09.2026): «Второй этаж готов» → «этаж готов» ✗
+  'второй', 'вторая', 'второе', 'третий', 'третья', 'третье', 'четвёртый', 'четвертый',
+  'пятый', 'пятая',
 ]);
 
 /**
@@ -762,6 +765,16 @@ function koDependentStart(word: string): boolean {
   const b = bare(word);
   return KO_DEPENDENT.has(b) || KO_DEPENDENT.has(koHead(word));
 }
+/**
+ * Русӣ (29.09.2026): СИФАТ пеш аз исм аз рӯи пасванд — «Ночная | смена есть?» → «смена
+ * есть?» ✗, «Есть запасная | роба?». Рӯйхати собит ҳамаи сифатҳоро дар бар намегирад.
+ */
+const ruAdjectiveBefore = (word: string, cfg: EngineConfig) => {
+  if (cfg.lang !== 'ru') return false;
+  const b = bare(word);
+  return b.length > 3 && /(ый|ий|ая|яя|ое|ее|ые|ие|ую|юю|ого|его|ому|ему)$/.test(b);
+};
+
 /** Пайвасткунаки «-하고» (빵하고 우유 — «нон ВА шир»): исми баъдӣ бе он канда мешавад. */
 const koGluedBefore = (word: string, cfg: EngineConfig) =>
   cfg.lang === 'ko' && bare(word).length > 2 && bare(word).endsWith('하고');
@@ -806,7 +819,8 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
     // қоидаи 3 — муайянкунанда/адади пешомадаро ба чунк мечаспонем
     const plain = w.slice(start).join(' ');
     let glued = start;
-    while (glued > 0 && (isGluedBefore(bare(w[glued - 1]), cfg) || koGluedBefore(w[glued - 1], cfg))) glued--;
+    while (glued > 0 && (isGluedBefore(bare(w[glued - 1]), cfg) || koGluedBefore(w[glued - 1], cfg)
+      || ruAdjectiveBefore(w[glued - 1], cfg))) glued--;
 
     // Агар часпондан тамоми ҷумларо диҳад, шакли бечаспро мегирем:
     // «The bill, please.» набояд ба худи ҷумла табдил ёбад.
@@ -814,7 +828,9 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
     // Арабӣ: бе калимаи часпанда порча маъно надорад («شَيْءٍ تَمَام» бе «كُلُّ») —
     // пас агар часпондан тамоми ҷумларо диҳад, порча НЕСТ, на шакли бечасп.
     // Туркӣ низ: «Kırk iki numara» → «iki numara» (42 → 2), «Dördüncü katta» → «katta».
-    if (seg === full && arKo && glued < start) continue;
+    // Русӣ низ (29.09.2026): «Через час закончу» → «час закончу», «До скольки работаем?»
+    // → «скольки работаем?», «Шесть дней работал» → «дней работал» — маъно дигар мешуд.
+    if (seg === full && (arKo || cfg.lang === 'ru') && glued < start) continue;
     if (seg === full) seg = plain;
     if (seg === full) continue; // чунк набояд тамоми ҷумла бошад
     if (!out.includes(seg)) out.push(seg);
