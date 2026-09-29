@@ -117,7 +117,8 @@ function edgeSynth(text, voice, rate) {
   const out = `${WORK}/_edge.mp3`;
   const pct = `${rate >= 1 ? '+' : '-'}${Math.round(Math.abs(rate - 1) * 100)}%`;
   for (let a = 0; a < 3; a++) {
-    const r = spawnSync(PYTHON, ['-m', 'edge_tts', '--voice', voice, `--rate=${pct}`, '--text', text, '--write-media', out], PY);
+    // ⏱ 30 с — ниг. `_speaking-audio-lang.mjs` (edge-tts 8 соат овезон монд, 29.09.2026).
+    const r = spawnSync(PYTHON, ['-m', 'edge_tts', '--voice', voice, `--rate=${pct}`, '--text', text, '--write-media', out], { ...PY, timeout: 30000 });
     if (r.status === 0 && existsSync(out)) return readFileSync(out);
   }
   return null;
@@ -224,7 +225,13 @@ execSync(
   'git -c user.email="255218020+kholzoda2001-coder@users.noreply.github.com" '
   + '-c user.name="kholzoda2001-coder" commit -m "Speaking ' + LANG.toUpperCase() + ': real-speech partner lines and free-talk closing"',
   { cwd: REPO, stdio: 'inherit' });
-execSync('git push origin HEAD', { cwd: REPO, stdio: 'inherit' });
+// Скрипти дигар ҳамзамон push карда бошад (29.09.2026: кӯчонидани Blob) — rebase ва такрор.
+for (let a = 0; ; a++) {
+  try { execSync('git push origin HEAD', { cwd: REPO, stdio: 'inherit' }); break; } catch (e) {
+    if (a >= 3) throw e;
+    execSync('git pull --rebase origin main', { cwd: REPO, stdio: 'inherit' });
+  }
+}
 const sha = execSync('git rev-parse HEAD', { cwd: REPO }).toString().trim();
 const cdn = (k) => `https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@${sha}/audio/${LANG}/${k}.mp3`;
 console.log('SHA:', sha);

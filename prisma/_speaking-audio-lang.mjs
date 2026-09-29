@@ -135,7 +135,9 @@ const PYTHON = existsSync('C:/Users/ASUS1/AppData/Local/Python/pythoncore-3.14-6
 function edgeSynth(text, voice) {
   const out = `${WORK}/_edge.mp3`;
   for (let a = 0; a < 3; a++) {
-    const r = spawnSync(PYTHON, ['-m', 'edge_tts', '--voice', voice, '--text', text, '--write-media', out], PY);
+    // ⏱ 30 с: 29.09.2026 як дархости edge-tts дар шабака овезон монд ва тамоми
+    // тавлиди туркиро 8 соат дар 1101/1120 нигоҳ дошт (spawnSync бе ҳад интизор буд).
+    const r = spawnSync(PYTHON, ['-m', 'edge_tts', '--voice', voice, '--text', text, '--write-media', out], { ...PY, timeout: 30000 });
     if (r.status === 0 && existsSync(out)) return readFileSync(out);
   }
   throw new Error(`edge-tts ${voice}: «${text}» нашуд`);

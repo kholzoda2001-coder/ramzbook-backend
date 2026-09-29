@@ -196,11 +196,26 @@ export function askedQuestions(h: ChatLine[]): string[] {
 
 // Арабӣ: артикли «ال» ҷузъи калима навишта мешавад («الشاي» = «шай»), вале маъно
 // ҳамон аст — барои муқоисаи калимаҳо ҷудо мешавад.
+/**
+ * Ҳаммаъноҳои маъмули мавзӯъҳои A1 → як калид. Санҷиши зинда (29.09.2026): Рамз
+ * аввал «Do you have siblings?» ва баъдтар «Do you have a brother or a sister?»
+ * пурсид — калимаҳо гуногун, савол ҳамон; муҳофиз онро намедид.
+ */
+const SYNONYM: Record<string, string> = {
+  siblings: 'sibling', sibling: 'sibling', brother: 'sibling', brothers: 'sibling', sister: 'sibling', sisters: 'sibling',
+  kids: 'child', kid: 'child', children: 'child', child: 'child',
+  mom: 'mother', mum: 'mother', mother: 'mother', dad: 'father', father: 'father',
+  job: 'work', work: 'work',
+  брат: 'sibling', братья: 'sibling', сестра: 'sibling', сёстры: 'sibling', сестры: 'sibling',
+  дети: 'child', ребёнок: 'child', ребенок: 'child', мама: 'mother', мать: 'mother', папа: 'father', отец: 'father',
+  работа: 'work', работаешь: 'work',
+};
 const words = (s: string) =>
   bare(s)
     .split(' ')
     .filter((w) => w.length > 1)
-    .map((w) => (w.length > 3 && w.indexOf('ال') === 0 ? w.slice(2) : w));
+    .map((w) => (w.length > 3 && w.indexOf('ال') === 0 ? w.slice(2) : w))
+    .map((w) => SYNONYM[w] ?? w);
 
 /** Ду ҷумла ҳамон як саволанд? (калимаҳои умумӣ ≥ 70% — Jaccard). СОФ. */
 export function sameQuestion(a: string, b: string): boolean {

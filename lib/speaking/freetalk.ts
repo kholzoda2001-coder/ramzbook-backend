@@ -80,7 +80,13 @@ export const CLOSING_LINES: Record<string, PoolLine> = {
       'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@985268fa7faeb8963af134a540e6233c5bd5d083/audio/ko/freetalk_close_ko.mp3',
   },
   de: { text: 'Super, danke! Bis später!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
-  tr: { text: 'Harika, teşekkürler! Görüşürüz!', tg: 'Олӣ, ташаккур! То дидор!', audioUrl: '' },
+  // Туркӣ: овози курс (edge Emel), `prisma/_speaking-real-audio-lang.mjs --lang=tr` (29.09.2026).
+  tr: {
+    text: 'Harika, teşekkürler! Görüşürüz!',
+    tg: 'Олӣ, ташаккур! То дидор!',
+    audioUrl:
+      'https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@c203a2f77890fc01f100e8f5666e2e8a2721c99b/audio/tr/freetalk_close_tr.mp3',
+  },
 };
 
 export type FreeTalkInput = {

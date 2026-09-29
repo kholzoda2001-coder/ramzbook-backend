@@ -39,3 +39,14 @@ describe('ҷавоб бо хати забони омӯзиш', () => {
     expect(retryNote('wrong_language')).toMatch(/ONLY in the language of this lesson/);
   });
 });
+
+describe('такрори савол бо калимаҳои дигар (санҷиши зинда 29.09.2026)', () => {
+  it('siblings ≈ brother or sister', async () => {
+    const { sameQuestion } = await import('@/lib/speaking/chat');
+    expect(sameQuestion('Nice choice! Do you have siblings?', "Sure, let's talk about family. Do you have a brother or a sister?")).toBe(true);
+    expect(sameQuestion('У тебя есть брат?', 'У тебя есть сестра?')).toBe(true);
+    // саволи дигар — такрор нест
+    expect(sameQuestion('Do you have siblings?', 'Do you like fruit?')).toBe(false);
+    expect(sameQuestion('Tea or coffee?', 'Do you like sweet or plain coffee?')).toBe(false);
+  });
+});
