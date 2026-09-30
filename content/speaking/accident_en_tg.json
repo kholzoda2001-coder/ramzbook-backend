@@ -1,0 +1,562 @@
+{
+  "slug": "accident_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "A small accident",
+    "titleTranslated": "Садамаи хурд",
+    "scenario": "Мошини дигар ба мошини шумо зад. Шумо мепурсед, ки ҳама солим аст, акс мегиред, суғуртаро иваз мекунед ва ба полис занг мезанед.",
+    "emoji": "💥",
+    "order": 19,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Садама",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Accident",
+          "translation": "садама",
+          "literal": "эксидэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Hurt",
+          "translation": "захмӣ",
+          "literal": "ҳёрт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Photo",
+          "translation": "акс",
+          "literal": "фоутоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Damage",
+          "translation": "зарар",
+          "literal": "дэмидж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Bumper",
+          "translation": "бампер",
+          "literal": "бампэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Fault",
+          "translation": "гуноҳ",
+          "literal": "фолт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо хубед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Oh no! Are you okay?",
+          "cueTranslation": "Вой! Шумо хубед?",
+          "intent": "Бигӯ: ҳа, ман хубам. Шумо?",
+          "text": "Yes, I'm okay. You?",
+          "accepts": [
+            "I'm fine. And you?",
+            "Yes. Are you okay?"
+          ],
+          "translation": "Ҳа, ман хубам. Шумо?",
+          "literal": "йес айм оукей ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I'm fine. I'm so sorry!",
+          "cueTranslation": "Ман хубам. Хеле бубахшед!",
+          "intent": "Бигӯ: ҳеҷ гап не. Касе захмӣ нест",
+          "text": "It's okay. Nobody is hurt.",
+          "accepts": [
+            "It's okay.",
+            "Nobody is hurt."
+          ],
+          "translation": "Ҳеҷ гап не. Касе захмӣ нест.",
+          "literal": "итс оукей ноубадӣ из ҳёрт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Look at your bumper.",
+          "cueTranslation": "Бамперро бинед.",
+          "intent": "Бигӯ: зарари хурд",
+          "text": "Small damage.",
+          "accepts": [
+            "Just small damage.",
+            "It's small."
+          ],
+          "translation": "Зарари хурд.",
+          "literal": "смол дэмидж",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гуноҳи кӣ?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Small damage",
+          "translation": "Зарари хурд",
+          "literal": "смол дэмидж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "My fault",
+          "translation": "Гуноҳи ман",
+          "literal": "май фолт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Your fault",
+          "translation": "Гуноҳи шумо",
+          "literal": "ёр фолт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Take photos",
+          "translation": "Акс гиред",
+          "literal": "тейк фоутоуз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Insurance card",
+          "translation": "Корти суғурта",
+          "literal": "иншуэрэнс кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Stay here",
+          "translation": "Ин ҷо монед",
+          "literal": "стей ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чароғ сурх буд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "It's your fault!",
+          "cueTranslation": "Гуноҳи шумо!",
+          "intent": "Бигӯ: не, гуноҳи ман нест",
+          "text": "No, it's not my fault.",
+          "accepts": [
+            "Not my fault.",
+            "No. It's not my fault."
+          ],
+          "translation": "Не, гуноҳи ман нест.",
+          "literal": "ноу итс нот май фолт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "You stopped too fast!",
+          "cueTranslation": "Шумо хеле тез истодед!",
+          "intent": "Бигӯ: чароғ сурх буд",
+          "text": "The light was red.",
+          "accepts": [
+            "It was a red light.",
+            "Red light!"
+          ],
+          "translation": "Чароғ сурх буд.",
+          "literal": "ҙэ лайт воз ред",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, okay. Let's call the police.",
+          "cueTranslation": "Хуб, хуб. Ба полис занг занем.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, let's call.",
+            "Yes, let's call."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Акс мегирам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I'll take photos.",
+          "translation": "Ман акс мегирам.",
+          "literal": "айл тейк фоутоуз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Nobody is hurt.",
+          "translation": "Касе захмӣ нест.",
+          "literal": "ноубадӣ из ҳёрт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Call the police.",
+          "translation": "Ба полис занг занед.",
+          "literal": "кол ҙэ пэлис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Here is my insurance.",
+          "translation": "Ана суғуртаи ман.",
+          "literal": "ҳир из май иншуэрэнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Your phone number?",
+          "translation": "Рақами телефонатон?",
+          "literal": "ёр фоун намбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Please wait here.",
+          "translation": "Лутфан, ин ҷо истед.",
+          "literal": "плиз вейт ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суғурта доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you have insurance?",
+          "cueTranslation": "Суғурта доред?",
+          "intent": "Бигӯ: ҳа, ана суғуртаи ман",
+          "text": "Yes, here is my insurance.",
+          "accepts": [
+            "Yes. Here it is.",
+            "Yes, here."
+          ],
+          "translation": "Ҳа, ана суғуртаи ман.",
+          "literal": "йес ҳир из май иншуэрэнс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks. Here is mine.",
+          "cueTranslation": "Ташаккур. Ана аз ман.",
+          "intent": "Бипурс: рақами телефонатон?",
+          "text": "Your phone number?",
+          "accepts": [
+            "What's your phone number?",
+            "Phone number, please?"
+          ],
+          "translation": "Рақами телефонатон?",
+          "literal": "ёр фоун намбэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "It's on the card.",
+          "cueTranslation": "Дар корт ҳаст.",
+          "intent": "Бигӯ: хуб. Ман акс мегирам",
+          "text": "Okay. I'll take photos.",
+          "accepts": [
+            "I'll take photos.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб. Ман акс мегирам.",
+          "literal": "оукей айл тейк фоутоуз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Занг ба полис",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "A car hit me.",
+          "translation": "Мошин ба ман зад.",
+          "literal": "э кар ҳит мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm on Main Street.",
+          "translation": "Ман дар кӯчаи Мейн ҳастам.",
+          "literal": "айм он мейн стрит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "We need a report.",
+          "translation": "Ба мо протокол лозим.",
+          "literal": "вӣ нид э рипорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I have a passenger.",
+          "translation": "Ман мусофир дорам.",
+          "literal": "ай ҳэв э пэсинджэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "My neck hurts.",
+          "translation": "Гарданам дард мекунад.",
+          "literal": "май нек ҳёртс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Please come quickly.",
+          "translation": "Лутфан, зуд биёед.",
+          "literal": "плиз кам квиклӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Полис, чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Police. What happened?",
+          "cueTranslation": "Полис. Чӣ шуд?",
+          "intent": "Бигӯ: мошин ба ман зад",
+          "text": "A car hit me.",
+          "accepts": [
+            "A car hit my car.",
+            "An accident. A car hit me."
+          ],
+          "translation": "Мошин ба ман зад.",
+          "literal": "э кар ҳит мӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you?",
+          "cueTranslation": "Шумо куҷоед?",
+          "intent": "Бигӯ: ман дар кӯчаи Мейн",
+          "text": "I'm on Main Street.",
+          "accepts": [
+            "Main Street.",
+            "On Main Street."
+          ],
+          "translation": "Ман дар кӯчаи Мейн ҳастам.",
+          "literal": "айм он мейн стрит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is anyone hurt?",
+          "cueTranslation": "Касе захмӣ аст?",
+          "intent": "Бигӯ: не, касе захмӣ нест",
+          "text": "No, nobody is hurt.",
+          "accepts": [
+            "Nobody is hurt.",
+            "No, we're okay."
+          ],
+          "translation": "Не, касе захмӣ нест.",
+          "literal": "ноу ноубадӣ из ҳёрт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: садама",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you okay?",
+          "cueTranslation": "Шумо хубед?",
+          "intent": "Бигӯ: ҳа, ман хубам. Шумо?",
+          "text": "Yes, I'm okay. You?",
+          "accepts": [
+            "I'm fine. And you?",
+            "Yes. Are you okay?"
+          ],
+          "translation": "Ҳа, ман хубам. Шумо?",
+          "literal": "йес айм оукей ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I'm fine. Sorry, it's my fault.",
+          "cueTranslation": "Ман хубам. Бубахшед, гуноҳи ман.",
+          "intent": "Бигӯ: хуб. Суғурта доред?",
+          "text": "Okay. Do you have insurance?",
+          "accepts": [
+            "Your insurance, please.",
+            "Do you have insurance?"
+          ],
+          "translation": "Хуб. Суғурта доред?",
+          "literal": "оукей ду ю ҳэв иншуэрэнс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Here is my card.",
+          "cueTranslation": "Ҳа. Ана корти ман.",
+          "intent": "Бигӯ: ташаккур. Ман акс мегирам",
+          "text": "Thanks. I'll take photos.",
+          "accepts": [
+            "I'll take photos.",
+            "Thank you. Photos, okay?"
+          ],
+          "translation": "Ташаккур. Ман акс мегирам.",
+          "literal": "ҫенкс айл тейк фоутоуз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Sure. Should we call the police?",
+          "cueTranslation": "Албатта. Ба полис занг занем?",
+          "intent": "Бигӯ: ҳа, ба мо протокол лозим",
+          "text": "Yes, we need a report.",
+          "accepts": [
+            "Yes, let's call.",
+            "Yes. We need a report."
+          ],
+          "translation": "Ҳа, ба мо протокол лозим.",
+          "literal": "йес вӣ нид э рипорт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
