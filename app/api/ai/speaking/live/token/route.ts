@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { languageName } from '@/lib/speaking/judge';
-import { A1_TOPICS, FREE_TURNS, PREMIUM_TURNS } from '@/lib/speaking/chat';
+import { CHAT_LEVEL, FREE_TURNS, PREMIUM_TURNS } from '@/lib/speaking/chat';
 import {
   AUTH_TOKENS_URL,
   CLOSING_SIGNAL,
@@ -73,26 +73,10 @@ export async function POST(req: NextRequest) {
     // Cheap exit before any DB work: the flag is off → old pipeline.
     if (!cfg.enabled) return NextResponse.json({ enabled: false });
 
-    const [user, language, memRow, userLang, knownRows] = await Promise.all([
+    const [user, language, memRow] = await Promise.all([
       prisma.user.findUnique({ where: { id: userId }, select: { isPremium: true, name: true } }),
       prisma.language.findUnique({ where: { id: langId }, select: { code: true } }),
       prisma.speakingChatMemory.findUnique({ where: { userId } }),
-      // Сатҳи ИН хонанда дар ИН забон (пешфарз A1) — Рамз ҳамон сатҳ гап мезанад.
-      prisma.userLanguage.findUnique({
-        where: { userId_languageId: { userId, languageId: langId } },
-        select: { currentLevel: true },
-      }),
-      // Ибораҳое, ки хонанда дар «Гуфтор» омӯхт — Рамз калимаҳои ҳамонро афзалтар мегирад
-      // (як бор барои тамоми суҳбат, на барои ҳар навбат).
-      prisma.speakingItem.findMany({
-        where: {
-          kind: { in: ['word', 'sentence'] },
-          lesson: { progress: { some: { userId } }, category: { targetLanguageId: langId } },
-        },
-        select: { text: true },
-        orderBy: { id: 'desc' },
-        take: 60,
-      }),
     ]);
     if (!user || !language) {
       return NextResponse.json({ error: 'Not found.', reason: 'invalid' }, { status: 404 });
@@ -155,15 +139,9 @@ export async function POST(req: NextRequest) {
 
     // ── Locked Live setup → single-use ephemeral token ────────────────────
     const name = (memRow?.name || user.name || '').trim().split(/\s+/)[0] ?? '';
+    // Суҳбат КОМИЛАН озод аст: на роҳ, на ниша, на мавзӯи таъиншуда — ва ҳамеша сатҳи A1.
     const prompt = buildLivePrompt(
-      {
-        language: languageName(language.code),
-        level: userLang?.currentLevel,
-        name,
-        facts: memRow?.facts ?? [],
-        known: knownRows.map((r) => r.text),
-        openTopic: A1_TOPICS[Math.floor(Math.random() * A1_TOPICS.length)],
-      },
+      { language: languageName(language.code), level: CHAT_LEVEL, name, facts: memRow?.facts ?? [] },
       cfg.promptOverride,
     );
     const resumeHandle = cleanResumeHandle(body.resumeHandle);

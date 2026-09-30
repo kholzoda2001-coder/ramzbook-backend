@@ -94,29 +94,39 @@ describe('buildLivePrompt', () => {
     expect(p).toContain('Cats or dogs?');
     expect(p).toContain('Oh, you went yesterday!');
   });
-  it('ном ва хотира: бо ном салом медиҳад; бе ном — ном мепурсад', () => {
-    const withName = buildLivePrompt({ language: 'English', name: 'Karim', facts: ['works as a builder'], openTopic: 'food' });
-    expect(withName).toContain('greet Karim by name and ask ONE easy question about food');
-    expect(withName).toContain('- works as a builder');
+  it('суҳбат КОМИЛАН озод: мавзӯъ, роҳ ва ниша таҳмил намешавад', () => {
+    const p = buildLivePrompt({ language: 'English' });
+    expect(p).toContain('completely FREE conversation');
+    expect(p).toContain('ANY topic is welcome');
+    expect(p).toContain('never steer them to a topic, a job, a course or a situation');
+    expect(p).toContain('Stay on THEIR topic');
+    // Ҳеҷ рӯйхати мавзӯъ (оилa, кор, футбол…) ва ҳеҷ ибораи курс дар промпт нест.
+    for (const w of ['construction', 'cement', 'football', 'family', 'hobbies', 'daily routine']) {
+      expect(p.toLowerCase()).not.toContain(w);
+    }
+    expect(p).not.toContain('already practised');
+  });
+  it('оғоз: бе ном — ном мепурсад, баъд ХОНАНДА мавзӯъро интихоб мекунад; бо ном — «чӣ гап занем?»', () => {
     const noName = buildLivePrompt({ language: 'English' });
     expect(noName).toContain("introduce yourself as Ramz and ask the learner's name");
+    expect(noName).toContain('what they would like to talk about');
+    expect(noName).toContain('Do NOT suggest a topic');
+    const withName = buildLivePrompt({ language: 'English', name: 'Karim', facts: ['works as a builder'] });
+    expect(withName).toContain('greet Karim by name and ask');
+    expect(withName).toContain('What do you want to talk about?');
+    expect(withName).toContain('- works as a builder');
+    expect(withName).toContain('never steer the talk to it');
     expect(noName).not.toContain('WHAT YOU REMEMBER');
   });
-  it('калимаҳои омӯхта: то 30, бе шаблон; бе онҳо сатр нест', () => {
-    const many = Array.from({ length: 50 }, (_, k) => `word${k}`);
-    const p = buildLivePrompt({ language: 'English', known: ['Where is the cement?', 'I am a {job}', 'fill ___', ...many] });
-    expect(p).toContain('"Where is the cement?"');
-    // Ду шаблон («{job}», «___») аввал партофта мешавад, баъд 30-то мемонад:
-    // «Where is the cement?» + word0…word28.
-    expect(p).toContain('"word28"');
-    expect(p).not.toContain('"word29"');
-    expect(p).not.toContain('{job}');
-    expect(buildLivePrompt({ language: 'English' })).not.toContain('already practised');
+  it('мавзӯъи нав танҳо аз хонанда меояд; хонанда гум шавад — осонтар, на мавзӯи нав', () => {
+    const p = buildLivePrompt({ language: 'English' });
+    expect(p).toContain('Change the topic only if THEY change it');
+    expect(p).toContain('do not jump to a new topic');
   });
   it('ҳамаи сигналҳои идоракунӣ шарҳ дода шудаанд ва шаблон боқӣ намемонад', () => {
-    const p = buildLivePrompt({ language: 'English', level: 'A2', name: 'Ali', known: ['hello'], facts: ['x'] });
+    const p = buildLivePrompt({ language: 'English', level: 'A2', name: 'Ali', facts: ['x'] });
     for (const s of [START_SIGNAL, RESUME_SIGNAL, CLOSING_SIGNAL]) expect(p).toContain(s);
-    expect(p).not.toMatch(/\{(language|level|levelRule|known|startPlan|greetName|memory)\}/);
+    expect(p).not.toMatch(/\{(language|level|levelRule|startPlan|greetName|memory)\}/);
   });
   it('override шаблонҳоро пур мекунад', () => {
     expect(buildLivePrompt({ language: 'English', level: 'A2' }, 'Teach {language} at {level}.')).toBe('Teach English at A2.');
