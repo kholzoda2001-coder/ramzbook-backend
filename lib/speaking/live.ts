@@ -42,17 +42,31 @@ export const DEFAULT_LIVE_VOICE = 'Puck';
 export const INPUT_SAMPLE_RATE = 16000;
 export const OUTPUT_SAMPLE_RATE = 24000;
 
-/** Longest conversation, in minutes, per plan. The token expires with it → hard cost cap. */
-export const LIVE_FREE_MINUTES = 5;
-export const LIVE_PREMIUM_MINUTES = 15;
+/**
+ * Минутные лимиты «Сӯҳбат бо AI» (Gemini Live) — қарори соҳиби маҳсулот 30.09.2026.
+ * Танҳо ба ҳамин бахш дахл дорад; суҳбати кӯҳна ва дигар бахшҳо тағйир наёфтанд.
+ *
+ *   Ройгон:  5 дақиқа дар ТАМОМИ умр (як бор).
+ *   Premium: 60 дақиқа дар 30 рӯзи охир ва 10 дақиқа дар 24 соати охир.
+ *
+ * Ҳадди ҳар суҳбат = боқимондаи ҳадҳо; Google худаш суҳбатро дар ҳамон лаҳза
+ * мебандад (токен мемирад — санҷида шуд), пас клиент онро гузашта наметавонад.
+ */
+export const LIVE_FREE_LIFETIME_SECONDS = 5 * 60;
+export const LIVE_PREMIUM_MONTH_SECONDS = 60 * 60;
+export const LIVE_PREMIUM_DAY_SECONDS = 10 * 60;
+export const MONTH_MS = 30 * 24 * 60 * 60 * 1000;
+export const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Аз ин кӯтоҳтар суҳбат кушода намешавад (салом + як ҷавоб ҳам намеғунҷад). */
+export const MIN_GRANT_SECONDS = 60;
 
 /**
- * NEW conversations (token for a new session id) per rolling 24 h — a cost
- * brake against a client that opens sessions but never reports turns, which
- * the lifetime free-talk gate (`freeTalkAllowed`) alone cannot catch.
+ * Суҳбатҳои НАВ (токен барои сессияи нав) дар 24 соат — тормоз барои клиенте, ки
+ * сессия мекушояд ва натиҷа намедиҳад.
  */
 export const LIVE_FREE_STARTS_PER_DAY = 5;
-export const LIVE_PREMIUM_STARTS_PER_DAY = 40;
+export const LIVE_PREMIUM_STARTS_PER_DAY = 10;
 
 /** How long the app has to OPEN the WebSocket with a fresh token. */
 export const NEW_SESSION_WINDOW_MS = 60_000;
@@ -196,11 +210,11 @@ export function buildLiveSetup(o: {
 export function buildTokenRequest(o: {
   setup: Record<string, unknown>;
   now: number;
-  sessionMinutes: number;
+  sessionSeconds: number;
 }): Record<string, unknown> {
   return {
     uses: 1,
-    expireTime: new Date(o.now + o.sessionMinutes * 60_000).toISOString(),
+    expireTime: new Date(o.now + o.sessionSeconds * 1000).toISOString(),
     newSessionExpireTime: new Date(o.now + NEW_SESSION_WINDOW_MS).toISOString(),
     bidiGenerateContentSetup: o.setup,
   };
@@ -213,12 +227,79 @@ export function cleanResumeHandle(v: unknown): string {
   return h.length > 0 && h.length <= 2048 && /^[\w\-.:/+=]+$/.test(h) ? h : '';
 }
 
+/** Сессияи Live ҳисобкунӣ барои лимитҳо. */
+export type LiveUsageRow = {
+  /** Сонияҳои ба ин суҳбат дода шуда (0 = суҳбати кӯҳна — ба Live дахл надорад). */
+  liveGrantSeconds: number;
+  turns: number;
+  startedAt: Date;
+  /** Кай суҳбат тамом шуд (`/chat/complete`); `null` = ҳанӯз не. */
+  completedAt: Date | null;
+};
+
 /**
- * Token for an EXISTING session (reconnect) is only issued while the session
- * is still inside its time budget — one conversation can't be stretched forever.
+ * Чанд сония аз ҳадд ин суҳбат сарф кард. СОФ.
+ *
+ *   • суҳбати кӯҳна (grant 0) ё хонанда ҳеҷ гап назад (`turns = 0`) → 0;
+ *   • тамомшуда → фосилаи воқеӣ (то ҳадди grant);
+ *   • нотамом (барнома кушта шуд) → grant-и пурра — эҳтиёткорона.
+ *
+ * ⚠️ Овоз мустақим ба Google меравад, сервер онро намебинад. Ин ҳисоб бо соати
+ * сервер аст (таваққуфи пасманзар ҳам ҳисоб мешавад — ба фоидаи ҳадди арзиш).
  */
-export function reconnectAllowed(startedAt: Date, now: number, sessionMinutes: number): boolean {
-  return now - startedAt.getTime() <= (sessionMinutes + 1) * 60_000;
+export function usedSeconds(r: LiveUsageRow): number {
+  if (r.liveGrantSeconds <= 0 || r.turns <= 0) return 0;
+  if (!r.completedAt) return r.liveGrantSeconds;
+  const elapsed = Math.round((r.completedAt.getTime() - r.startedAt.getTime()) / 1000);
+  return Math.max(0, Math.min(r.liveGrantSeconds, elapsed));
+}
+
+export type LiveLimits =
+  | { kind: 'free'; lifetimeSeconds: number }
+  | { kind: 'premium'; monthSeconds: number; daySeconds: number };
+
+export const freeLimits: LiveLimits = { kind: 'free', lifetimeSeconds: LIVE_FREE_LIFETIME_SECONDS };
+export const premiumLimits: LiveLimits = {
+  kind: 'premium',
+  monthSeconds: LIVE_PREMIUM_MONTH_SECONDS,
+  daySeconds: LIVE_PREMIUM_DAY_SECONDS,
+};
+
+export type LiveGrant =
+  | { ok: true; seconds: number }
+  | { ok: false; reason: 'free_used' | 'day' | 'month' };
+
+/**
+ * Суҳбати НАВ: чанд сония иҷозат аст? СОФ.
+ * [rows] — ҳамаи суҳбатҳои Live-и ин корбар (барои ройгон — аз ҳама вақт,
+ * барои Premium — 30 рӯзи охир кифоя аст).
+ */
+export function grantFor(limits: LiveLimits, rows: LiveUsageRow[], now: number): LiveGrant {
+  const used = (since: number) =>
+    rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r) : n), 0);
+
+  if (limits.kind === 'free') {
+    const left = limits.lifetimeSeconds - used(0);
+    return left >= MIN_GRANT_SECONDS
+      ? { ok: true, seconds: Math.min(left, limits.lifetimeSeconds) }
+      : { ok: false, reason: 'free_used' };
+  }
+  const monthLeft = limits.monthSeconds - used(now - MONTH_MS);
+  const dayLeft = limits.daySeconds - used(now - DAY_MS);
+  // Аввал рӯз: «фардо биёед» аз «моҳи оянда» дақиқтар аст.
+  if (dayLeft < MIN_GRANT_SECONDS && dayLeft <= monthLeft) return { ok: false, reason: 'day' };
+  if (monthLeft < MIN_GRANT_SECONDS) return { ok: false, reason: 'month' };
+  if (dayLeft < MIN_GRANT_SECONDS) return { ok: false, reason: 'day' };
+  return { ok: true, seconds: Math.min(monthLeft, dayLeft) };
+}
+
+/**
+ * Токен барои сессияи МАВҶУД (пайвасти дубора): то охири ҳамон суҳбат.
+ * Қимати бозгардонидашуда — сонияҳои боқимонда (0 = гузашт).
+ */
+export function reconnectSeconds(startedAt: Date, grantSeconds: number, now: number): number {
+  const left = Math.floor((startedAt.getTime() + grantSeconds * 1000 - now) / 1000);
+  return left >= 20 ? left : 0;
 }
 
 /**

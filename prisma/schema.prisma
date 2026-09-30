@@ -1783,6 +1783,9 @@ model SpeakingChatSession {
   lastAt     DateTime  @default(now())
   /// Кай XP дода шуд (`null` = ҳанӯз) — такрори «анҷом» XP-и дуюм намедиҳад.
   completedAt DateTime?
+  /// Gemini Live: чанд сония ба ин суҳбат дода шуд (ҳисоби дақиқаҳои ройгон/Premium).
+  /// 0 = суҳбати кӯҳна (Groq) — ба лимити Live дахл надорад.
+  liveGrantSeconds Int @default(0)
 
   @@index([userId, startedAt])
 }
