@@ -4,6 +4,14 @@ import { requireUserId, unauthorized } from '@/lib/auth';
 import { loadAiSettingsConfig, resolveApiKey } from '@/lib/ai/ai-settings';
 import { openAiChat } from '@/lib/ai/openai';
 import {
+  GEMINI_JUDGE_TIMEOUT_MS,
+  GEMINI_OPENAI_BASE,
+  geminiJudgeConfig,
+  geminiSkipped,
+  noteGeminiFailure,
+  usableJudgeReply,
+} from '@/lib/speaking/judge-gemini';
+import {
   buildJudgeMessages,
   isReasoningModel,
   judgeable,
@@ -64,35 +72,68 @@ export async function POST(req: NextRequest) {
 
     const cfg = await loadAiSettingsConfig(prisma);
     const apiKey = resolveApiKey(cfg);
-    if (!cfg.enabled || !apiKey) {
+    const gem = geminiJudgeConfig(process.env);
+    // Тугмаи админ (`cfg.enabled`) ҳамеша ҳал мекунад; калиди Groq ё Gemini — яке кофӣ аст.
+    if (!cfg.enabled || (!apiKey && !gem.enabled)) {
       return NextResponse.json({ ok: false, fix: '', reason: 'off' }, { status: 503 });
     }
     if (!spend(userId)) {
       return NextResponse.json({ ok: false, fix: '', reason: 'limit' }, { status: 429 });
     }
 
-    const reasoning = isReasoningModel(cfg.model);
-    const ask = (extra?: Record<string, unknown>) =>
-      openAiChat({
-        apiKey,
-        model: cfg.model,
-        baseUrl: cfg.baseUrl,
-        messages: buildJudgeMessages(input),
-        // Модели фикркунанда токенро ба фикр ҳам сарф мекунад (~30–130).
-        maxTokens: reasoning ? 400 : 100,
+    const messages = buildJudgeMessages(input);
+    let res: Awaited<ReturnType<typeof openAiChat>> | null = null;
+    let via = 'primary';
+
+    // 1) Gemini Flash-Lite — зуд (~0.7 с) ва ҳадди ҶУДО аз Groq. Ноком → 2).
+    if (gem.enabled && !geminiSkipped(Date.now())) {
+      const g = await openAiChat({
+        apiKey: gem.apiKey,
+        model: gem.model,
+        baseUrl: GEMINI_OPENAI_BASE,
+        messages,
+        maxTokens: 300,
         temperature: 0,
-        timeoutMs: 4000,
-        extra,
+        timeoutMs: GEMINI_JUDGE_TIMEOUT_MS,
       });
-    let res = await ask(reasoning ? { reasoning_effort: 'low' } : undefined);
-    // Провайдере, ки `reasoning_effort`-ро намешиносад → бори дигар бе он.
-    if (!res.ok && reasoning && res.status === 400) res = await ask();
-    if (!res.ok || !res.reply) {
-      console.error(`[speaking/judge] AI: ${res.status ?? '-'} ${res.error ?? 'empty'}`);
-      return NextResponse.json({ ok: false, fix: '', reason: 'ai' }, { status: 502 });
+      if (g.ok && usableJudgeReply(g.reply)) {
+        res = g;
+        via = 'gemini';
+      } else {
+        noteGeminiFailure(g.status, Date.now());
+        console.error(`[speaking/judge] gemini: ${g.status ?? '-'} ${g.ok ? 'unusable reply' : 'failed'} → захира`);
+      }
     }
-    const verdict = parseJudgeReply(res.reply);
-    console.log(`[speaking/judge] ${verdict.ok ? 'ҚАБУЛ' : 'рад'} · ${input.language} · калима ${input.heard.trim().split(/\s+/).length}`);
+
+    // 2) Захира: провайдери танзимкардаи админ (Groq ва ғ.) — рафтори пештара.
+    if (!res) {
+      if (!apiKey) {
+        return NextResponse.json({ ok: false, fix: '', reason: 'ai' }, { status: 502 });
+      }
+      const reasoning = isReasoningModel(cfg.model);
+      const ask = (extra?: Record<string, unknown>) =>
+        openAiChat({
+          apiKey,
+          model: cfg.model,
+          baseUrl: cfg.baseUrl,
+          messages,
+          // Модели фикркунанда токенро ба фикр ҳам сарф мекунад (~30–130).
+          maxTokens: reasoning ? 400 : 100,
+          temperature: 0,
+          timeoutMs: 4000,
+          extra,
+        });
+      let r = await ask(reasoning ? { reasoning_effort: 'low' } : undefined);
+      // Провайдере, ки `reasoning_effort`-ро намешиносад → бори дигар бе он.
+      if (!r.ok && reasoning && r.status === 400) r = await ask();
+      if (!r.ok || !r.reply) {
+        console.error(`[speaking/judge] AI: ${r.status ?? '-'} ${r.error ?? 'empty'}`);
+        return NextResponse.json({ ok: false, fix: '', reason: 'ai' }, { status: 502 });
+      }
+      res = r;
+    }
+    const verdict = parseJudgeReply(res.reply ?? '');
+    console.log(`[speaking/judge] ${via} · ${verdict.ok ? 'ҚАБУЛ' : 'рад'} · ${input.language} · калима ${input.heard.trim().split(/\s+/).length}`);
     return NextResponse.json(verdict);
   } catch (e) {
     console.error('[speaking/judge] failed:', e);
