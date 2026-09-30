@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     if (!cfg.enabled) return NextResponse.json({ enabled: false });
 
     const [user, language, memRow] = await Promise.all([
-      prisma.user.findUnique({ where: { id: userId }, select: { isPremium: true, name: true } }),
+      prisma.user.findUnique({ where: { id: userId }, select: { isPremium: true, name: true, nativeLang: true } }),
       prisma.language.findUnique({ where: { id: langId }, select: { code: true } }),
       prisma.speakingChatMemory.findUnique({ where: { userId } }),
     ]);
@@ -141,7 +141,14 @@ export async function POST(req: NextRequest) {
     const name = (memRow?.name || user.name || '').trim().split(/\s+/)[0] ?? '';
     // Суҳбат КОМИЛАН озод аст: на роҳ, на ниша, на мавзӯи таъиншуда — ва ҳамеша сатҳи A1.
     const prompt = buildLivePrompt(
-      { language: languageName(language.code), level: CHAT_LEVEL, name, facts: memRow?.facts ?? [] },
+      {
+        language: languageName(language.code),
+        // Забони модарии ХОНАНДА (тоҷикӣ, русӣ, англисӣ) — барои кӯмаки кӯтоҳ, агар гум шавад.
+        native: languageName((user.nativeLang || 'tg').split('-')[0]),
+        level: CHAT_LEVEL,
+        name,
+        facts: memRow?.facts ?? [],
+      },
       cfg.promptOverride,
     );
     const resumeHandle = cleanResumeHandle(body.resumeHandle);

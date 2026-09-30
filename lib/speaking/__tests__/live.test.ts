@@ -16,6 +16,7 @@ import {
   dayStart,
   freeLimits,
   grantFor,
+  languageNote,
   levelRule,
   liveConfig,
   liveEnabledFor,
@@ -35,14 +36,14 @@ describe('liveConfig — feature flag', () => {
   it('is OFF when the flag is on but the key is missing', () => {
     expect(liveConfig({ GEMINI_LIVE_CONVERSATION_ENABLED: 'true' }).enabled).toBe(false);
   });
-  it('is ON with flag + key; defaults model and English only', () => {
+  it('is ON with flag + key; defaults to the model and all six Speaking languages', () => {
     const c = liveConfig({ GEMINI_LIVE_CONVERSATION_ENABLED: 'true', GEMINI_API_KEY: ' k ' });
     expect(c.enabled).toBe(true);
     expect(c.apiKey).toBe('k');
     expect(c.model).toBe(DEFAULT_LIVE_MODEL);
-    expect(liveEnabledFor(c, 'en')).toBe(true);
-    expect(liveEnabledFor(c, 'en-US')).toBe(true);
-    expect(liveEnabledFor(c, 'ru')).toBe(false);
+    for (const code of ['en', 'en-US', 'ru', 'ar', 'ko', 'tr', 'de']) expect(liveEnabledFor(c, code)).toBe(true);
+    // Забони курси дигар (барои ҳоло) — суҳбати кӯҳна.
+    expect(liveEnabledFor(c, 'fr')).toBe(false);
   });
   it('language list and model are configurable', () => {
     const c = liveConfig({
@@ -72,6 +73,25 @@ describe('normalizeLevel / levelRule', () => {
     expect(levelRule('A2')).toContain('A2');
     expect(levelRule('B1')).toContain('B1');
     expect(levelRule('A1')).not.toEqual(levelRule('A2'));
+  });
+});
+
+describe('languageNote / забони модарӣ', () => {
+  it('услуби гуфтор: кореягӣ 해요체, олмонӣ «du», туркӣ «sen», арабӣ MSA; дигарон — ҳеҷ', () => {
+    expect(languageNote('Korean')).toContain('해요체');
+    expect(languageNote('German')).toContain('"du"');
+    expect(languageNote('Turkish')).toContain('"sen"');
+    expect(languageNote('Arabic')).toContain('Modern Standard Arabic');
+    expect(languageNote('English')).toBe('');
+    expect(languageNote('Russian')).toBe('');
+  });
+  it('қоида ба промпт меравад; бо забони модарии хонанда (на ҳамеша тоҷикӣ)', () => {
+    expect(buildLivePrompt({ language: 'Korean' })).toContain('해요체');
+    expect(buildLivePrompt({ language: 'English' })).toContain('simple Tajik');
+    const ru = buildLivePrompt({ language: 'English', native: 'Russian' });
+    expect(ru).toContain('native language is Russian');
+    expect(ru).toContain('simple Russian');
+    expect(ru).not.toContain('Tajik');
   });
 });
 

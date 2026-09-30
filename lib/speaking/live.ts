@@ -35,6 +35,12 @@ export const LIVE_WS_URL =
 export const AUTH_TOKENS_URL = 'https://generativelanguage.googleapis.com/v1alpha/auth_tokens';
 
 export const DEFAULT_LIVE_MODEL = 'gemini-3.8-live';
+
+/**
+ * Забонҳои курс, ки Live онҳоро мегирад: ҳамаи забонҳои «Гуфтор». Забони дигар —
+ * суҳбати кӯҳна. `GEMINI_LIVE_LANGS` (мас. `en,ru` ё `*`) онро иваз мекунад.
+ */
+export const DEFAULT_LIVE_LANGS = 'en,ru,ar,ko,tr,de';
 export const DEFAULT_LIVE_VOICE = 'Puck';
 
 /** Audio formats fixed by the Live API (see header). The app reads them from the token response. */
@@ -101,7 +107,7 @@ export type LiveConfig = {
 export function liveConfig(env: LiveEnv): LiveConfig {
   const apiKey = (env.GEMINI_API_KEY ?? '').trim();
   const flag = (env.GEMINI_LIVE_CONVERSATION_ENABLED ?? '').trim().toLowerCase();
-  const langs = (env.GEMINI_LIVE_LANGS ?? 'en')
+  const langs = (env.GEMINI_LIVE_LANGS ?? DEFAULT_LIVE_LANGS)
     .split(',')
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
@@ -126,11 +132,25 @@ export type LivePromptInput = {
   language: string;
   /** CEFR level; the chat is always A1 (owner's decision), see `CHAT_LEVEL`. */
   level?: string;
+  /** Learner's native language in English («Tajik»); default Tajik. */
+  native?: string;
   /** Learner's first name, if known. */
   name?: string;
   /** Short facts Ramz remembered in earlier chats (English). */
   facts?: string[];
 };
+
+/**
+ * Услуби гуфтор барои баъзе забонҳо — ҳамон қоидаҳои суҳбати кӯҳна (`scriptRules`
+ * дар chat.ts), вале барои ОВОЗ: имло/ҳаракот лозим нест, услуби муомила лозим аст.
+ */
+export function languageNote(language: string): string {
+  if (/korean/i.test(language)) return ' Always use the polite 해요체 style (endings with -요); never 반말 or 합니다체.';
+  if (/german/i.test(language)) return ' Address the learner with "du".';
+  if (/turk/i.test(language)) return ' Address the learner with "sen".';
+  if (/arab/i.test(language)) return ' Use simple Modern Standard Arabic, spoken clearly and slowly — not a regional dialect.';
+  return '';
+}
 
 /** A1 / A2 / B1 — everything above B1 speaks like B1. Unknown → A1 (the app's audience). */
 export function normalizeLevel(raw: unknown): 'A1' | 'A2' | 'B1' {
@@ -158,7 +178,7 @@ export function levelRule(level: 'A1' | 'A2' | 'B1'): string {
   );
 }
 
-export const DEFAULT_LIVE_PROMPT = `You are Ramz, a warm, patient {language} teacher (an AI teacher inside the RAMZ app) talking BY VOICE with a Tajik learner. This is a completely FREE conversation, not a lesson and not a course: the LEARNER chooses what to talk about, and ANY topic is welcome — whatever they are interested in. You have no topic list, no plan and no lesson: never steer them to a topic, a job, a course or a situation. Listen, answer what they ask, follow THEIR topic with interest for as long as they like, and keep the talk going.
+export const DEFAULT_LIVE_PROMPT = `You are Ramz, a warm, patient {language} teacher (an AI teacher inside the RAMZ app) talking BY VOICE with a learner whose native language is {native}. This is a completely FREE conversation, not a lesson and not a course: the LEARNER chooses what to talk about, and ANY topic is welcome — whatever they are interested in. You have no topic list, no plan and no lesson: never steer them to a topic, a job, a course or a situation. Listen, answer what they ask, follow THEIR topic with interest for as long as they like, and keep the talk going.
 
 LEVEL — very important
 - {levelRule}
@@ -173,8 +193,8 @@ HOW YOU ANSWER EVERY TIME
 - If they ask for something harmful or inappropriate, politely say you cannot help with that and ask what else they would like to talk about.
 
 LANGUAGE
-- Speak {language} only.
-- Only if the learner is clearly lost or explicitly asks for Tajik help, explain briefly in simple Tajik, then return to {language}.
+- Speak {language} only.{languageNote}
+- Only if the learner is clearly lost or explicitly asks for help in {native}, explain briefly in simple {native}, then return to {language}.
 - Do not translate your sentences unless asked.
 
 TURN TAKING
@@ -205,6 +225,8 @@ export function buildLivePrompt(i: LivePromptInput, override = ''): string {
     ? `greet ${name} by name and ask, in very simple words, what they would like to talk about today (for example: "What do you want to talk about?"). Do NOT suggest a topic.`
     : `say hi, introduce yourself as Ramz and ask the learner's name. After they answer, ask in very simple words what they would like to talk about. Do NOT suggest a topic.`;
   return (override || DEFAULT_LIVE_PROMPT)
+    .split('{languageNote}').join(languageNote(i.language))
+    .split('{native}').join(clip(i.native || 'Tajik', 30))
     .split('{language}').join(i.language)
     .split('{levelRule}').join(levelRule(level))
     .split('{level}').join(level)
