@@ -27,6 +27,8 @@
  * PURE: no network, no Prisma — the routes do I/O, tests cover this file.
  */
 
+import { languageName } from './judge';
+
 /** Official constrained (ephemeral-token) WebSocket endpoint — v1alpha only. */
 export const LIVE_WS_URL =
   'wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContentConstrained';
@@ -37,10 +39,30 @@ export const AUTH_TOKENS_URL = 'https://generativelanguage.googleapis.com/v1alph
 export const DEFAULT_LIVE_MODEL = 'gemini-3.8-live';
 
 /**
- * Забонҳои курс, ки Live онҳоро мегирад: ҳамаи забонҳои «Гуфтор». Забони дигар —
- * суҳбати кӯҳна. `GEMINI_LIVE_LANGS` (мас. `en,ru` ё `*`) онро иваз мекунад.
+ * Live ба ҲАР забони омӯзиш кор мекунад (`*`): Рамз бо ҳамон забоне гап мезанад, ки
+ * хонанда интихоб кардааст. `GEMINI_LIVE_LANGS` (мас. `en,ru`) метавонад онро маҳдуд кунад;
+ * забони берун аз рӯйхат — суҳбати кӯҳна.
  */
-export const DEFAULT_LIVE_LANGS = 'en,ru,ar,ko,tr,de';
+export const DEFAULT_LIVE_LANGS = '*';
+
+/**
+ * Номи забон бо англисӣ барои промпт. Ҳамон рӯйхати `languageName` (judge.ts, ки
+ * тағйир намеёбад) + `Intl.DisplayNames` барои ҳар код (uz → Uzbek, kk → Kazakh…);
+ * агар ҳеҷ кадом набошад — худи код.
+ */
+export function liveLanguageName(code: string): string {
+  const base = code.trim().split(/[-_]/)[0].toLowerCase();
+  if (!base) return 'English';
+  const known = languageName(base);
+  if (known !== base) return known;
+  try {
+    const n = new Intl.DisplayNames(['en'], { type: 'language' }).of(base);
+    if (n && n.toLowerCase() !== base) return n;
+  } catch {
+    /* код нодуруст */
+  }
+  return base;
+}
 export const DEFAULT_LIVE_VOICE = 'Puck';
 
 /** Audio formats fixed by the Live API (see header). The app reads them from the token response. */
@@ -194,7 +216,7 @@ HOW YOU ANSWER EVERY TIME
 
 LANGUAGE
 - Speak {language} only.{languageNote}
-- Only if the learner is clearly lost or explicitly asks for help in {native}, explain briefly in simple {native}, then return to {language}.
+- The learner's native language is {native} and you understand it perfectly. If they speak {native} to you, ask for help, or are clearly lost, answer in ONE short, simple sentence in {native}, then go straight back to {language} with an easy question.
 - Do not translate your sentences unless asked.
 
 TURN TAKING

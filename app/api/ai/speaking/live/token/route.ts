@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
-import { languageName } from '@/lib/speaking/judge';
 import { CHAT_LEVEL, FREE_TURNS, PREMIUM_TURNS } from '@/lib/speaking/chat';
 import {
   AUTH_TOKENS_URL,
@@ -23,6 +22,7 @@ import {
   grantFor,
   liveConfig,
   liveEnabledFor,
+  liveLanguageName,
   premiumLimits,
   reconnectSeconds,
 } from '@/lib/speaking/live';
@@ -142,9 +142,9 @@ export async function POST(req: NextRequest) {
     // Суҳбат КОМИЛАН озод аст: на роҳ, на ниша, на мавзӯи таъиншуда — ва ҳамеша сатҳи A1.
     const prompt = buildLivePrompt(
       {
-        language: languageName(language.code),
+        language: liveLanguageName(language.code),
         // Забони модарии ХОНАНДА (тоҷикӣ, русӣ, англисӣ) — барои кӯмаки кӯтоҳ, агар гум шавад.
-        native: languageName((user.nativeLang || 'tg').split('-')[0]),
+        native: liveLanguageName(user.nativeLang || 'tg'),
         level: CHAT_LEVEL,
         name,
         facts: memRow?.facts ?? [],
