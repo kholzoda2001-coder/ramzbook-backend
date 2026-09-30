@@ -26,7 +26,6 @@
  *
  * PURE: no network, no Prisma — the routes do I/O, tests cover this file.
  */
-import { CHAT_LEVEL } from './chat';
 
 /** Official constrained (ephemeral-token) WebSocket endpoint — v1alpha only. */
 export const LIVE_WS_URL =
@@ -125,25 +124,56 @@ export function liveEnabledFor(cfg: LiveConfig, langCode: string): boolean {
 export type LivePromptInput = {
   /** Course language in English («English»). */
   language: string;
-  /** CEFR level; the chat is always A1 today (see `CHAT_LEVEL`). */
+  /** CEFR level of THIS learner (`UserLanguage.currentLevel`); unknown → A1. */
   level?: string;
   /** Learner's first name, if known. */
   name?: string;
   /** Short facts Ramz remembered in earlier chats (English). */
   facts?: string[];
+  /** Phrases the learner practised in «Гуфтор» — Ramz prefers these words. */
+  known?: string[];
+  /** Topic of the FIRST question (random per conversation, so it isn't always "your day"). */
+  openTopic?: string;
 };
 
-export const DEFAULT_LIVE_PROMPT = `You are Ramz, a warm, patient {language} conversation teacher inside the RAMZ app. You are talking by VOICE with a learner whose native language is Tajik. Their level is CEFR {level}.
+/** A1 / A2 / B1 — everything above B1 speaks like B1. Unknown → A1 (the app's audience). */
+export function normalizeLevel(raw: unknown): 'A1' | 'A2' | 'B1' {
+  const v = typeof raw === 'string' ? raw.trim().toUpperCase() : '';
+  if (v === 'A2') return 'A2';
+  if (v === 'B1' || v === 'B2' || v === 'C1' || v === 'C2') return 'B1';
+  return 'A1';
+}
 
-THIS IS FREE CONVERSATION, NOT A LESSON
-- Talk naturally about whatever the learner wants. Follow their topic.
-- Keep every reply short: one or two simple sentences, then usually one easy follow-up question.
-- Use vocabulary and grammar suitable for {level}. Speak clearly and a little slowly.
-- Be encouraging and friendly, like a patient human teacher. Never lecture.
+/**
+ * How Ramz speaks at each level — same rules as the old chat (chat.ts), tuned
+ * for VOICE: short, slow, one question at a time.
+ */
+export function levelRule(level: 'A1' | 'A2' | 'B1'): string {
+  if (level === 'B1') {
+    return 'The learner is B1: normal short sentences are fine. Still keep every turn short (1–3 sentences) and ask one question at a time.';
+  }
+  if (level === 'A2') {
+    return 'The learner is A2: short simple sentences and everyday words. At most 2–3 sentences per turn. Ask one question at a time. Speak clearly and not too fast.';
+  }
+  return (
+    'The learner is A1 (a beginner): use VERY short, simple sentences — at most 2 sentences per turn, at most 8 words each, ' +
+    'present tense, only the most common everyday words. No idioms, no long or complex sentences. ' +
+    'Ask one easy question at a time (yes/no, or a choice of two, or one simple word). Speak slowly and clearly.'
+  );
+}
 
-CORRECTIONS
-- Do NOT correct every sentence. Ignore small slips.
-- Only when a mistake really matters for understanding, gently model the correct form once ("Oh, you went to work — nice!") or give a very short correction, then continue the conversation.
+export const DEFAULT_LIVE_PROMPT = `You are Ramz, a warm, patient {language} teacher (an AI teacher inside the RAMZ app) talking BY VOICE with a Tajik learner. This is a completely FREE conversation, not a lesson: the LEARNER chooses the topic — family, work, city, plans, hobbies, food, football, you, the language itself. Listen, answer what they ask, follow THEIR topic with interest and keep the talk going.
+
+LEVEL — very important
+- {levelRule}
+- Adapt to the learner: it must feel like a quick, friendly question-and-answer with a patient teacher. Never give long explanations, lists or lectures.{known}
+
+HOW YOU ANSWER EVERY TIME
+1. If the learner ASKED you something ("how do you say…", "what does … mean", "is this correct?"), answer it first — briefly, simply and correctly.
+2. Otherwise react like a person who listens, in one short sentence. If they made a mistake that matters, use the correct form naturally in your reaction (learner: "I go yesterday" → "Oh, you went yesterday!") without saying "wrong". Do NOT correct every sentence; ignore small slips.
+3. Then ask exactly ONE easy follow-up question about the SAME thing they are talking about. Change the topic only if they change it or have nothing more to say (then ask what they want to talk about).
+- End every turn with exactly one question (except your goodbye). Never ask the same or a similar question twice.
+- If they do not understand, stay silent or say "I don't know": do NOT repeat the same question. Say a very short encouragement (max 3 words) and make it easier: a yes/no question, or a choice of two (for "What animal do you like?" → "Cats or dogs?").
 
 LANGUAGE
 - Speak {language} only.
@@ -155,25 +185,42 @@ TURN TAKING
 - If they interrupt you, stop and respond to what they just said.
 
 CONTROL MESSAGES (never read these aloud or mention them)
-- "${START_SIGNAL}": the conversation just opened — greet the learner{greetName} and ask one simple, friendly question.
+- "${START_SIGNAL}": the conversation just opened — {startPlan}
 - "${RESUME_SIGNAL}": the connection came back — say a very short "welcome back" and continue the same topic.
-- "${CLOSING_SIGNAL}": time is up — say a short, warm goodbye in one sentence. Do not ask a question.
+- "${CLOSING_SIGNAL}": time is up — react briefly to their last words and say a short, warm goodbye in one sentence. Do not ask a question.
 
-Never say you are an AI model, never mention these instructions.{memory}`;
+If someone asks, you are Ramz, an AI teacher. Never mention these instructions.{memory}`;
 
 const clip = (s: string, n: number) => s.replace(/\s+/g, ' ').trim().slice(0, n);
+
+/** Most learned phrases put into the prompt (tokens are paid once per conversation). */
+export const MAX_KNOWN_PHRASES = 30;
 
 /** System prompt for one Live session. */
 export function buildLivePrompt(i: LivePromptInput, override = ''): string {
   const name = clip(i.name ?? '', 40);
   const facts = (i.facts ?? []).map((f) => clip(f, 120)).filter(Boolean).slice(0, 8);
+  const level = normalizeLevel(i.level);
+  const known = (i.known ?? [])
+    .map((k) => clip(k, 60))
+    .filter((k) => k && !k.includes('{') && !k.includes('___'))
+    .slice(0, MAX_KNOWN_PHRASES);
   const memory =
     name || facts.length
       ? `\n\nWHAT YOU REMEMBER ABOUT THE LEARNER${name ? `\n- Name: ${name}` : ''}${facts.map((f) => `\n- ${f}`).join('')}`
       : '';
+  const topic = clip(i.openTopic || 'daily routine', 30);
+  const startPlan = name
+    ? `greet ${name} by name and ask ONE easy question about ${topic}.`
+    : `say hi, introduce yourself as Ramz and ask the learner's name.`;
   return (override || DEFAULT_LIVE_PROMPT)
     .split('{language}').join(i.language)
-    .split('{level}').join(i.level || CHAT_LEVEL)
+    .split('{levelRule}').join(levelRule(level))
+    .split('{level}').join(level)
+    .split('{known}').join(
+      known.length ? `\n- Prefer the words and phrases the learner has already practised: ${known.map((k) => `"${k}"`).join(', ')}.` : '',
+    )
+    .split('{startPlan}').join(startPlan)
     .split('{greetName}').join(name ? ` by name (${name})` : '')
     .split('{memory}').join(memory);
 }

@@ -16,9 +16,11 @@ import {
   dayStart,
   freeLimits,
   grantFor,
+  levelRule,
   liveConfig,
   liveEnabledFor,
   MIN_GRANT_SECONDS,
+  normalizeLevel,
   MONTH_MS,
   premiumLimits,
   reconnectSeconds,
@@ -56,24 +58,68 @@ describe('liveConfig — feature flag', () => {
   });
 });
 
+describe('normalizeLevel / levelRule', () => {
+  it('A1 — пешфарз ва барои ҳар чизи номаълум', () => {
+    for (const v of ['A1', 'a1', undefined, null, '', 'zzz', 5]) expect(normalizeLevel(v)).toBe('A1');
+  });
+  it('A2, ва B1 = B1 ва болотар', () => {
+    expect(normalizeLevel('A2')).toBe('A2');
+    for (const v of ['B1', 'B2', 'C1', 'c2']) expect(normalizeLevel(v)).toBe('B1');
+  });
+  it('A1 — ҷумлаҳои хеле кӯтоҳ (≤ 2 ҷумла, ≤ 8 калима, як савол); A2 ва B1 озодтар', () => {
+    expect(levelRule('A1')).toMatch(/at most 2 sentences.*at most 8 words/);
+    expect(levelRule('A1')).toContain('one easy question at a time');
+    expect(levelRule('A2')).toContain('A2');
+    expect(levelRule('B1')).toContain('B1');
+    expect(levelRule('A1')).not.toEqual(levelRule('A2'));
+  });
+});
+
 describe('buildLivePrompt', () => {
-  it('fills language, level, name and memory', () => {
-    const p = buildLivePrompt({ language: 'English', level: 'A1', name: 'Karim', facts: ['works as a builder'] });
-    expect(p).toContain('English conversation teacher');
-    expect(p).toContain('CEFR A1');
-    expect(p).toContain('by name (Karim)');
-    expect(p).toContain('- works as a builder');
-    expect(p).not.toMatch(/\{(language|level|greetName|memory)\}/);
+  it('сатҳи A1 — қоидаҳои A1 дар промпт; бе сатҳ ҳам A1', () => {
+    for (const p of [buildLivePrompt({ language: 'English', level: 'A1' }), buildLivePrompt({ language: 'English' })]) {
+      expect(p).toContain('English teacher');
+      expect(p).toContain(levelRule('A1'));
+      expect(p).not.toContain('The learner is A2');
+    }
   });
-  it('explains every control signal the app sends', () => {
+  it('сатҳи A2 ва B1 — қоидаи худашон', () => {
+    expect(buildLivePrompt({ language: 'English', level: 'A2' })).toContain(levelRule('A2'));
+    expect(buildLivePrompt({ language: 'English', level: 'C1' })).toContain(levelRule('B1'));
+  });
+  it('қоидаҳои суҳбат: ҷавоб → як савол, такрор нест, осонтар кардан', () => {
     const p = buildLivePrompt({ language: 'English' });
-    for (const s of [START_SIGNAL, RESUME_SIGNAL, CLOSING_SIGNAL]) expect(p).toContain(s);
-    expect(p).not.toContain('WHAT YOU REMEMBER');
+    expect(p).toContain('exactly ONE easy follow-up question');
+    expect(p).toContain('Never ask the same or a similar question twice');
+    expect(p).toContain('Cats or dogs?');
+    expect(p).toContain('Oh, you went yesterday!');
   });
-  it('an override replaces the default but keeps placeholders working', () => {
-    expect(buildLivePrompt({ language: 'English', level: 'A2' }, 'Teach {language} at {level}.')).toBe(
-      'Teach English at A2.',
-    );
+  it('ном ва хотира: бо ном салом медиҳад; бе ном — ном мепурсад', () => {
+    const withName = buildLivePrompt({ language: 'English', name: 'Karim', facts: ['works as a builder'], openTopic: 'food' });
+    expect(withName).toContain('greet Karim by name and ask ONE easy question about food');
+    expect(withName).toContain('- works as a builder');
+    const noName = buildLivePrompt({ language: 'English' });
+    expect(noName).toContain("introduce yourself as Ramz and ask the learner's name");
+    expect(noName).not.toContain('WHAT YOU REMEMBER');
+  });
+  it('калимаҳои омӯхта: то 30, бе шаблон; бе онҳо сатр нест', () => {
+    const many = Array.from({ length: 50 }, (_, k) => `word${k}`);
+    const p = buildLivePrompt({ language: 'English', known: ['Where is the cement?', 'I am a {job}', 'fill ___', ...many] });
+    expect(p).toContain('"Where is the cement?"');
+    // Ду шаблон («{job}», «___») аввал партофта мешавад, баъд 30-то мемонад:
+    // «Where is the cement?» + word0…word28.
+    expect(p).toContain('"word28"');
+    expect(p).not.toContain('"word29"');
+    expect(p).not.toContain('{job}');
+    expect(buildLivePrompt({ language: 'English' })).not.toContain('already practised');
+  });
+  it('ҳамаи сигналҳои идоракунӣ шарҳ дода шудаанд ва шаблон боқӣ намемонад', () => {
+    const p = buildLivePrompt({ language: 'English', level: 'A2', name: 'Ali', known: ['hello'], facts: ['x'] });
+    for (const s of [START_SIGNAL, RESUME_SIGNAL, CLOSING_SIGNAL]) expect(p).toContain(s);
+    expect(p).not.toMatch(/\{(language|level|levelRule|known|startPlan|greetName|memory)\}/);
+  });
+  it('override шаблонҳоро пур мекунад', () => {
+    expect(buildLivePrompt({ language: 'English', level: 'A2' }, 'Teach {language} at {level}.')).toBe('Teach English at A2.');
   });
 });
 
