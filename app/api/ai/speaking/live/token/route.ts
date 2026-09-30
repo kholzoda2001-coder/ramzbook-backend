@@ -6,7 +6,7 @@ import { CHAT_LEVEL, FREE_TURNS, PREMIUM_TURNS } from '@/lib/speaking/chat';
 import {
   AUTH_TOKENS_URL,
   CLOSING_SIGNAL,
-  DAY_MS,
+  dayStart,
   INPUT_SAMPLE_RATE,
   LIVE_FREE_STARTS_PER_DAY,
   LIVE_PREMIUM_STARTS_PER_DAY,
@@ -39,7 +39,7 @@ export const dynamic = 'force-dynamic';
  *   Live ON → 200 { enabled: true, token, url, model, inputSampleRate,
  *       outputSampleRate, expiresAt, maxTurns, sessionSeconds, signals }
  *   403 { code: 'live_free_used' } — 5 free minutes (whole lifetime) used.
- *   429 { code: 'live_day' | 'live_month' } — Premium: 10 min/24 h or 60 min/30 d used
+ *   429 { code: 'live_day' | 'live_month' } — Premium: 10 min/day or 60 min/30 d used
  *       (or too many conversations started today).
  *   410 { reason: 'expired' } — this conversation's time is over.
  *   502 { reason: 'ai' }    — Google refused to mint a token.
@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
     const now = Date.now();
 
     // ── Сессия ва лимитҳои дақиқа ─────────────────────────────────────────
-    // Лимитҳо (ройгон 5 дақиқа дар умр; Premium 60/30 рӯз ва 10/24 соат) танҳо
+    // Лимитҳо (ройгон 5 дақиқа дар умр; Premium 60/30 рӯз ва 10/рӯз) танҳо
     // ба суҳбатҳои LIVE дахл доранд (`liveGrantSeconds > 0`); чати кӯҳна — не.
     let session = await prisma.speakingChatSession.findUnique({ where: { id: sessionId } });
     if (session && session.userId !== userId) {
@@ -123,7 +123,7 @@ export async function POST(req: NextRequest) {
           { status: verdict.reason === 'free_used' ? 403 : 429 },
         );
       }
-      const startedToday = rows.filter((r) => r.startedAt.getTime() >= now - DAY_MS).length;
+      const startedToday = rows.filter((r) => r.startedAt.getTime() >= dayStart(now)).length;
       const perDay = user.isPremium ? LIVE_PREMIUM_STARTS_PER_DAY : LIVE_FREE_STARTS_PER_DAY;
       if (startedToday >= perDay) {
         return NextResponse.json(

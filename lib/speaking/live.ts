@@ -47,7 +47,7 @@ export const OUTPUT_SAMPLE_RATE = 24000;
  * Танҳо ба ҳамин бахш дахл дорад; суҳбати кӯҳна ва дигар бахшҳо тағйир наёфтанд.
  *
  *   Ройгон:  5 дақиқа дар ТАМОМИ умр (як бор).
- *   Premium: 60 дақиқа дар 30 рӯзи охир ва 10 дақиқа дар 24 соати охир.
+ *   Premium: 60 дақиқа дар 30 рӯзи охир ва 10 дақиқа дар як рӯз (аз 00:00 бо вақти Душанбе).
  *
  * Ҳадди ҳар суҳбат = боқимондаи ҳадҳо; Google худаш суҳбатро дар ҳамон лаҳза
  * мебандад (токен мемирад — санҷида шуд), пас клиент онро гузашта наметавонад.
@@ -58,11 +58,17 @@ export const LIVE_PREMIUM_DAY_SECONDS = 10 * 60;
 export const MONTH_MS = 30 * 24 * 60 * 60 * 1000;
 export const DAY_MS = 24 * 60 * 60 * 1000;
 
+/** «Рӯз» барои ҳамаи корбарон аз 00:00 бо вақти Душанбе (UTC+5) сар мешавад. */
+export const DAY_OFFSET_MS = 5 * 60 * 60 * 1000;
+export function dayStart(now: number): number {
+  return Math.floor((now + DAY_OFFSET_MS) / DAY_MS) * DAY_MS - DAY_OFFSET_MS;
+}
+
 /** Аз ин кӯтоҳтар суҳбат кушода намешавад (салом + як ҷавоб ҳам намеғунҷад). */
 export const MIN_GRANT_SECONDS = 60;
 
 /**
- * Суҳбатҳои НАВ (токен барои сессияи нав) дар 24 соат — тормоз барои клиенте, ки
+ * Суҳбатҳои НАВ (токен барои сессияи нав) дар як рӯз — тормоз барои клиенте, ки
  * сессия мекушояд ва натиҷа намедиҳад.
  */
 export const LIVE_FREE_STARTS_PER_DAY = 5;
@@ -285,7 +291,7 @@ export function grantFor(limits: LiveLimits, rows: LiveUsageRow[], now: number):
       : { ok: false, reason: 'free_used' };
   }
   const monthLeft = limits.monthSeconds - used(now - MONTH_MS);
-  const dayLeft = limits.daySeconds - used(now - DAY_MS);
+  const dayLeft = limits.daySeconds - used(dayStart(now));
   // Аввал рӯз: «фардо биёед» аз «моҳи оянда» дақиқтар аст.
   if (dayLeft < MIN_GRANT_SECONDS && dayLeft <= monthLeft) return { ok: false, reason: 'day' };
   if (monthLeft < MIN_GRANT_SECONDS) return { ok: false, reason: 'month' };

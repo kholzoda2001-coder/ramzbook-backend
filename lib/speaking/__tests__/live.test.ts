@@ -13,6 +13,7 @@ import {
   clampReportedTurns,
   cleanResumeHandle,
   DAY_MS,
+  dayStart,
   freeLimits,
   grantFor,
   liveConfig,
@@ -178,16 +179,25 @@ describe('grantFor — ройгон: 5 дақиқа дар ТАМОМИ умр',
   });
 });
 
-describe('grantFor — Premium: 60 дақиқа/30 рӯз ва 10 дақиқа/24 соат', () => {
+describe('grantFor — Premium: 60 дақиқа/30 рӯз ва 10 дақиқа/рӯз (аз 00:00 Душанбе)', () => {
   it('корбари нав — 10 дақиқа (ҳадди рӯз)', () => {
     expect(grantFor(premiumLimits, [], T0)).toEqual({ ok: true, seconds: 600 });
   });
   it('ҳадди рӯз: имрӯз 7 дақиқа сарф шуд → 3 дақиқа мондааст', () => {
     expect(grantFor(premiumLimits, [done(420, 2 * 3600_000)], T0)).toEqual({ ok: true, seconds: 180 });
   });
-  it('10 дақиқаи имрӯз тамом → day; фардо (24 соат баъд) боз кушода', () => {
+  it('10 дақиқаи имрӯз тамом → day; рӯзи оянда боз кушода', () => {
     expect(grantFor(premiumLimits, [done(600, 3600_000)], T0)).toEqual({ ok: false, reason: 'day' });
     expect(grantFor(premiumLimits, [done(600, DAY_MS + 60_000)], T0)).toEqual({ ok: true, seconds: 600 });
+  });
+  it('рӯз — тақвимӣ: 23:50-и дирӯз ҳисоб намешавад, 00:05–00:15-и имрӯз (10 дақиқа) ҳисоб мешавад', () => {
+    const midnight = dayStart(T0); // 00:00 Душанбе имрӯз
+    const now = midnight + 20 * 60_000; // 00:20
+    const late = { liveGrantSeconds: 600, turns: 3, startedAt: new Date(midnight - 10 * 60_000), completedAt: new Date(midnight) };
+    const early = { liveGrantSeconds: 600, turns: 3, startedAt: new Date(midnight + 5 * 60_000), completedAt: new Date(midnight + 15 * 60_000) };
+    expect(grantFor(premiumLimits, [late], now)).toEqual({ ok: true, seconds: 600 });
+    expect(grantFor(premiumLimits, [early], now)).toEqual({ ok: false, reason: 'day' });
+    expect(dayStart(T0 + 1)).toBe(midnight);
   });
   it('ҳадди моҳ: 55 дақиқа дар 30 рӯз → 5 дақиқа мондааст (на 10)', () => {
     // 5 × 10 дақиқа + 5 дақиқа = 55 дақиқа → аз 60 ҳамагӣ 5 дақиқа мондааст.
