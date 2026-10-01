@@ -1,0 +1,562 @@
+{
+  "slug": "route_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Адрес и дорога",
+    "titleTranslated": "Суроға ва роҳ",
+    "scenario": "Мусофир мегӯяд, ки ба куҷо меравад. Шумо суроғаро такрор мекунед, мепурсед «ба чап ё ба рост?», мегӯед, ки навигатор доред ва даромадгоҳи дурустро меёбед.",
+    "emoji": "🗺️",
+    "order": 5,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Чап ва рост",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Адрес",
+          "translation": "суроға",
+          "literal": null,
+          "note": "Зарба: ад-РЕС.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Налево",
+          "translation": "ба чап",
+          "literal": null,
+          "note": "Зарба: на-ЛЕ-во.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Направо",
+          "translation": "ба рост",
+          "literal": null,
+          "note": "Зарба: на-ПРА-во.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Прямо",
+          "translation": "рост ба пеш",
+          "literal": null,
+          "note": "Зарба: ПРЯ-мо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Угол",
+          "translation": "кунҷ",
+          "literal": null,
+          "note": "Зарба: У-гол.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Аэропорт",
+          "translation": "фурудгоҳ",
+          "literal": null,
+          "note": "Зарба: а-э-ро-ПОРТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ба фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "В аэропорт, пожалуйста.",
+          "cueTranslation": "Ба фурудгоҳ, лутфан.",
+          "intent": "Бипурс: ба фурудгоҳ?",
+          "text": "В аэропорт?",
+          "accepts": [
+            "Аэропорт?",
+            "В аэропорт, да?"
+          ],
+          "translation": "Ба фурудгоҳ?",
+          "literal": null,
+          "note": "Суроғаро такрор кунед — хато намешавад.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да. Терминал Б.",
+          "cueTranslation": "Ҳа. Терминали Б.",
+          "intent": "Бигӯ: хуб, терминали Б",
+          "text": "Хорошо, терминал Б.",
+          "accepts": [
+            "Терминал Б. Хорошо.",
+            "Понятно."
+          ],
+          "translation": "Хуб, терминали Б.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Долго ехать?",
+          "cueTranslation": "Роҳ дароз аст?",
+          "intent": "Бигӯ: бист дақиқа",
+          "text": "Двадцать минут.",
+          "accepts": [
+            "Минут двадцать.",
+            "Примерно двадцать минут."
+          ],
+          "translation": "Бист дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гардед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Поверните налево",
+          "translation": "Ба чап гардед",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Поверните направо",
+          "translation": "Ба рост гардед",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Прямо, пожалуйста",
+          "translation": "Рост, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Эта улица?",
+          "translation": "Ҳамин кӯча?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Следующий поворот",
+          "translation": "Гардиши навбатӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот здесь",
+          "translation": "Ҳамин ҷо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чап ё рост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здесь поверните.",
+          "cueTranslation": "Ин ҷо гардед.",
+          "intent": "Бипурс: ба чап ё ба рост?",
+          "text": "Налево или направо?",
+          "accepts": [
+            "Налево?",
+            "Направо или налево?"
+          ],
+          "translation": "Ба чап ё ба рост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Налево. Потом прямо.",
+          "cueTranslation": "Ба чап. Баъд рост.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Хорошо, понятно.",
+          "accepts": [
+            "Понятно.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Остановите на углу.",
+          "cueTranslation": "Дар кунҷ истед.",
+          "intent": "Бипурс: ҳамин ҷо?",
+          "text": "Вот здесь?",
+          "accepts": [
+            "Здесь?",
+            "На этом углу?"
+          ],
+          "translation": "Ҳамин ҷо?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Суроға чист?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Какой адрес?",
+          "translation": "Суроға чист?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "У меня навигатор.",
+          "translation": "Ман навигатор дорам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Покажите, пожалуйста.",
+          "translation": "Нишон диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это этот дом?",
+          "translation": "Ин ҳамин хона аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой подъезд?",
+          "translation": "Кадом даромадгоҳ?",
+          "literal": null,
+          "note": "«Подъезд» — даромадгоҳи бинои баланд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Это далеко?",
+          "translation": "Дур аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Кадом даромадгоҳ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Отвезите меня домой.",
+          "cueTranslation": "Салом! Маро ба хона баред.",
+          "intent": "Бипурс: суроға чист?",
+          "text": "Какой адрес?",
+          "accepts": [
+            "Ваш адрес?",
+            "Адрес какой?"
+          ],
+          "translation": "Суроға чист?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот, в телефоне.",
+          "cueTranslation": "Ана, дар телефон.",
+          "intent": "Бигӯ: хуб. Ман навигатор дорам",
+          "text": "Хорошо. У меня навигатор.",
+          "accepts": [
+            "У меня навигатор.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Хуб. Ман навигатор дорам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Большой белый дом.",
+          "cueTranslation": "Бинои калони сафед.",
+          "intent": "Бипурс: кадом даромадгоҳ?",
+          "text": "Какой подъезд?",
+          "accepts": [
+            "Подъезд какой?",
+            "Какой у вас подъезд?"
+          ],
+          "translation": "Кадом даромадгоҳ?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қариб расидем",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Почти приехали.",
+          "translation": "Қариб расидем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно здесь остановиться?",
+          "translation": "Ин ҷо истам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь нельзя стоять.",
+          "translation": "Ин ҷо истодан мумкин нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ещё одна минута.",
+          "translation": "Боз як дақиқа.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, не та улица.",
+          "translation": "Бубахшед, кӯча нодуруст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Парковка",
+          "translation": "ҷои мошин гузоштан",
+          "literal": null,
+          "note": "Зарба: пар-КОВ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Истодан мумкин нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Мы скоро?",
+          "cueTranslation": "Зуд мерасем?",
+          "intent": "Бигӯ: қариб расидем",
+          "text": "Почти приехали.",
+          "accepts": [
+            "Почти.",
+            "Ещё одна минута."
+          ],
+          "translation": "Қариб расидем.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Остановите у ворот.",
+          "cueTranslation": "Назди дарвоза истед.",
+          "intent": "Бигӯ: ин ҷо истодан мумкин нест",
+          "text": "Здесь нельзя стоять.",
+          "accepts": [
+            "Тут нельзя стоять.",
+            "Здесь нельзя, извините."
+          ],
+          "translation": "Ин ҷо истодан мумкин нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно. Тогда на углу.",
+          "cueTranslation": "Хуб. Пас дар кунҷ.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, на углу."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ба фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! В аэропорт, пожалуйста.",
+          "cueTranslation": "Салом! Ба фурудгоҳ, лутфан.",
+          "intent": "Бипурс: ба фурудгоҳ?",
+          "text": "В аэропорт?",
+          "accepts": [
+            "Аэропорт?",
+            "В аэропорт, да?"
+          ],
+          "translation": "Ба фурудгоҳ?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да. Это далеко?",
+          "cueTranslation": "Ҳа. Дур аст?",
+          "intent": "Бигӯ: бист дақиқа",
+          "text": "Двадцать минут.",
+          "accepts": [
+            "Минут двадцать.",
+            "Нет, двадцать минут."
+          ],
+          "translation": "Бист дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Здесь налево, так быстрее.",
+          "cueTranslation": "Ин ҷо ба чап, ҳамин тавр тезтар.",
+          "intent": "Бипурс: ба чап? Хуб",
+          "text": "Налево? Хорошо.",
+          "accepts": [
+            "Налево?",
+            "Хорошо, налево."
+          ],
+          "translation": "Ба чап? Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Терминал Б, пожалуйста.",
+          "cueTranslation": "Терминали Б, лутфан.",
+          "intent": "Бигӯ: хуб, терминали Б",
+          "text": "Хорошо, терминал Б.",
+          "accepts": [
+            "Терминал Б. Хорошо.",
+            "Понятно."
+          ],
+          "translation": "Хуб, терминали Б.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "fuel_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "На заправке",
+    "titleTranslated": "Нуқтаи сӯзишворӣ",
+    "scenario": "Бензин кам аст. Шумо ба заправка меравед, рақами колонка ва навъи бензинро мегӯед, пул медиҳед, чархро бод мекунед ва мошинро мешӯед.",
+    "emoji": "⛽",
+    "order": 11,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Заправка",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Заправка",
+          "translation": "нуқтаи сӯзишворӣ",
+          "literal": null,
+          "note": "Зарба: за-ПРАВ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Колонка",
+          "translation": "колонка",
+          "literal": null,
+          "note": "Зарба: ко-ЛОН-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Дизель",
+          "translation": "дизел",
+          "literal": null,
+          "note": "Зарба: ДИ-зель.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Масло",
+          "translation": "равған",
+          "literal": null,
+          "note": "Зарба: МАС-ло.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Мойка",
+          "translation": "мошиншӯӣ",
+          "literal": null,
+          "note": "Зарба: МОЙ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Полный",
+          "translation": "пур",
+          "literal": null,
+          "note": "Зарба: ПОЛ-ный.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Колонкаи чорум",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Какая колонка?",
+          "cueTranslation": "Салом! Кадом колонка?",
+          "intent": "Бигӯ: чорум",
+          "text": "Четвёртая.",
+          "accepts": [
+            "Колонка четыре.",
+            "Четвёртая колонка."
+          ],
+          "translation": "Чорум.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько литров?",
+          "cueTranslation": "Чанд литр?",
+          "intent": "Бигӯ: баки пур, лутфан",
+          "text": "Полный бак, пожалуйста.",
+          "accepts": [
+            "Полный.",
+            "До полного."
+          ],
+          "translation": "Баки пур, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Наличными или картой?",
+          "cueTranslation": "Нақд ё бо корт?",
+          "intent": "Бигӯ: бо корт",
+          "text": "Картой.",
+          "accepts": [
+            "Картой, пожалуйста.",
+            "Карта."
+          ],
+          "translation": "Бо корт.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бензин",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Четвёртая колонка",
+          "translation": "Колонкаи чорум",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Полный бак",
+          "translation": "Баки пур",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Тысяча рублей",
+          "translation": "Ҳазор рубл",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Девяносто второй",
+          "translation": "Наваду дуюм",
+          "literal": null,
+          "note": "Бензини 92.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Девяносто пятый",
+          "translation": "Наваду панҷум",
+          "literal": null,
+          "note": "Бензини 95.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Замена масла",
+          "translation": "Иваз кардани равған",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом бензин?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Какой бензин?",
+          "cueTranslation": "Кадом бензин?",
+          "intent": "Бигӯ: наваду панҷум",
+          "text": "Девяносто пятый.",
+          "accepts": [
+            "Девяносто пятый, пожалуйста.",
+            "95-й."
+          ],
+          "translation": "Наваду панҷум.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На сколько?",
+          "cueTranslation": "Ба чанд пул?",
+          "intent": "Бигӯ: ба ҳазор рубл",
+          "text": "На тысячу рублей.",
+          "accepts": [
+            "Тысяча рублей.",
+            "На тысячу."
+          ],
+          "translation": "Ба ҳазор рубл.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, четвёртая готова.",
+          "cueTranslation": "Хуб, колонкаи чорум тайёр.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Бод ва равған",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где подкачать колесо?",
+          "translation": "Чархро куҷо бод кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Колесо спущено.",
+          "translation": "Чарх бодаш кам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужно масло.",
+          "translation": "Ба ман равған лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Колонка не работает.",
+          "translation": "Колонка кор намекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где туалет?",
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Кофе, пожалуйста.",
+          "translation": "Қаҳва, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Колонка кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте. Вам помочь?",
+          "cueTranslation": "Салом. Ёрӣ диҳам?",
+          "intent": "Бигӯ: колонка кор намекунад",
+          "text": "Колонка не работает.",
+          "accepts": [
+            "Четвёртая не работает.",
+            "Колонка сломалась."
+          ],
+          "translation": "Колонка кор намекунад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Попробуйте пятую.",
+          "cueTranslation": "Колонкаи панҷумро санҷед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Ладно.",
+            "Спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Что-нибудь ещё?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бигӯ: қаҳва, лутфан",
+          "text": "Кофе, пожалуйста.",
+          "accepts": [
+            "Один кофе.",
+            "Кофе, пожалуйста, один."
+          ],
+          "translation": "Қаҳва, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мошиншӯӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Помойте машину, пожалуйста.",
+          "translation": "Мошинро шӯед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько стоит мойка?",
+          "translation": "Мошиншӯӣ чанд пул?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сегодня бесплатно.",
+          "translation": "Имрӯз ройгон.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Подождите десять минут.",
+          "translation": "Даҳ дақиқа сабр кунед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Сейчас открыто?",
+          "translation": "Ҳозир кушода аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Машина чистая!",
+          "translation": "Мошин тоза шуд!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мошин тоза шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Мойка нужна?",
+          "cueTranslation": "Мошиншӯӣ лозим?",
+          "intent": "Бигӯ: ҳа. Чанд пул?",
+          "text": "Да. Сколько стоит?",
+          "accepts": [
+            "Да. Сколько?",
+            "Сколько стоит мойка?"
+          ],
+          "translation": "Ҳа. Чанд пул?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сегодня с бензином бесплатно.",
+          "cueTranslation": "Имрӯз бо бензин ройгон.",
+          "intent": "Бигӯ: олӣ! Ташаккур",
+          "text": "Отлично! Спасибо.",
+          "accepts": [
+            "Отлично!",
+            "Здорово, спасибо!"
+          ],
+          "translation": "Олӣ! Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Подождите десять минут.",
+          "cueTranslation": "Даҳ дақиқа сабр кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, подожду."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: баки пур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Какая колонка?",
+          "cueTranslation": "Салом! Кадом колонка?",
+          "intent": "Бигӯ: чорум",
+          "text": "Четвёртая.",
+          "accepts": [
+            "Колонка четыре.",
+            "Четвёртая колонка."
+          ],
+          "translation": "Чорум.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой бензин?",
+          "cueTranslation": "Кадом бензин?",
+          "intent": "Бигӯ: наваду панҷум, баки пур",
+          "text": "Девяносто пятый, полный бак.",
+          "accepts": [
+            "Девяносто пятый. Полный.",
+            "Полный бак, девяносто пятый."
+          ],
+          "translation": "Наваду панҷум, баки пур.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "С вас три тысячи.",
+          "cueTranslation": "Аз шумо се ҳазор.",
+          "intent": "Бигӯ: бо корт, лутфан",
+          "text": "Картой, пожалуйста.",
+          "accepts": [
+            "Картой.",
+            "Вот карта."
+          ],
+          "translation": "Бо корт, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Готово. Что-нибудь ещё?",
+          "cueTranslation": "Тайёр. Боз чизе?",
+          "intent": "Бипурс: чархро куҷо бод кунам?",
+          "text": "Где подкачать колесо?",
+          "accepts": [
+            "Где накачать колесо?",
+            "Колесо где подкачать?"
+          ],
+          "translation": "Чархро куҷо бод кунам?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
