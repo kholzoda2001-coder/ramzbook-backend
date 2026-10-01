@@ -1,0 +1,562 @@
+{
+  "slug": "lost_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Я заблудился",
+    "titleTranslated": "Гум шудам",
+    "scenario": "Шумо дар шаҳр роҳро гум кардед ва телефонатон хомӯш шуд. Бо хушмуомилагӣ аз одамон мепурсед, ки куҷо ҳастед, роҳро мефаҳмед ва хоҳиш мекунед, ки нависанд.",
+    "emoji": "🧭",
+    "order": 17,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Шаҳр",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Карта",
+          "translation": "харита",
+          "literal": null,
+          "note": "Зарба: КАР-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Улица",
+          "translation": "кӯча",
+          "literal": null,
+          "note": "Зарба: У-ли-ца.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Вокзал",
+          "translation": "вокзал",
+          "literal": null,
+          "note": "Зарба: вок-ЗАЛ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Парк",
+          "translation": "боғ",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Близко",
+          "translation": "наздик",
+          "literal": null,
+          "note": "Зарба: БЛИЗ-ко.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Далеко",
+          "translation": "дур",
+          "literal": null,
+          "note": "Зарба дар охир: да-ле-КО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ман гум шудам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вам помочь?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бигӯ: ман гум шудам",
+          "text": "Я заблудился.",
+          "accepts": [
+            "Я заблудилась.",
+            "Я потерялся."
+          ],
+          "translation": "Ман гум шудам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Куда вам нужно?",
+          "cueTranslation": "Ба куҷо лозим?",
+          "intent": "Бигӯ: ба вокзал",
+          "text": "На вокзал.",
+          "accepts": [
+            "Мне на вокзал.",
+            "Вокзал."
+          ],
+          "translation": "Ба вокзал.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Это близко. Идите прямо.",
+          "cueTranslation": "Наздик аст. Рост равед.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кадом тараф?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Очень близко",
+          "translation": "Хеле наздик",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень далеко",
+          "translation": "Хеле дур",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Эта улица",
+          "translation": "Ҳамин кӯча",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Куда идти?",
+          "translation": "Ба куҷо равам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Пешком можно",
+          "translation": "Пиёда мешавад",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где метро?",
+          "translation": "Метро куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пиёда?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Добрый день! Вам помочь?",
+          "cueTranslation": "Рӯз ба хайр! Ёрӣ диҳам?",
+          "intent": "Бипурс: вокзал куҷост?",
+          "text": "Где вокзал?",
+          "accepts": [
+            "Как пройти на вокзал?",
+            "Вокзал в какую сторону?"
+          ],
+          "translation": "Вокзал куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Туда. Десять минут.",
+          "cueTranslation": "Он тараф. Даҳ дақиқа.",
+          "intent": "Бипурс: пиёда мешавад?",
+          "text": "Пешком можно?",
+          "accepts": [
+            "Можно пешком?",
+            "Пешком дойду?"
+          ],
+          "translation": "Пиёда мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, недалеко.",
+          "cueTranslation": "Ҳа, дур нест.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Отлично, спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман куҷоям?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Извините, пожалуйста.",
+          "translation": "Бубахшед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я ищу этот адрес.",
+          "translation": "Ин суроғаро меҷӯям.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Это далеко?",
+          "translation": "Дур аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Покажите, пожалуйста.",
+          "translation": "Нишон диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где я?",
+          "translation": "Ман куҷоям?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я здесь новый.",
+          "translation": "Ман ин ҷо навам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я здесь новая».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Кӯчаи Мира",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Да? Вам помочь?",
+          "cueTranslation": "Ҳа? Ёрӣ диҳам?",
+          "intent": "Бигӯ: бубахшед. Ман куҷоям?",
+          "text": "Извините. Где я?",
+          "accepts": [
+            "Скажите, где я?",
+            "Извините, где мы?"
+          ],
+          "translation": "Бубахшед. Ман куҷоям?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Это улица Мира.",
+          "cueTranslation": "Ин кӯчаи Мира.",
+          "intent": "Бигӯ: ин суроғаро меҷӯям",
+          "text": "Я ищу этот адрес.",
+          "accepts": [
+            "Мне нужен этот адрес.",
+            "Вот этот адрес."
+          ],
+          "translation": "Ин суроғаро меҷӯям.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "А, это рядом. Следующая улица.",
+          "cueTranslation": "А, наздик. Кӯчаи навбатӣ.",
+          "intent": "Бипурс: нишон медиҳед?",
+          "text": "Покажите, пожалуйста.",
+          "accepts": [
+            "Можете показать?",
+            "Покажете?"
+          ],
+          "translation": "Нишон диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Телефонам хомӯш",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Телефон сел.",
+          "translation": "Телефонам хомӯш шуд.",
+          "literal": null,
+          "note": "Яъне заряд тамом шуд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно позвонить?",
+          "translation": "Занг занам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужно такси.",
+          "translation": "Ба ман такси лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь безопасно?",
+          "translation": "Ин ҷо бехатар?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой автобус туда?",
+          "translation": "Кадом автобус он ҷо меравад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Напишите, пожалуйста.",
+          "translation": "Нависед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Автобуси даҳум",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы заблудились?",
+          "cueTranslation": "Гум шудед?",
+          "intent": "Бигӯ: ҳа. Телефонам хомӯш шуд",
+          "text": "Да. Телефон сел.",
+          "accepts": [
+            "Да, телефон сел.",
+            "Да. Батарея села."
+          ],
+          "translation": "Ҳа. Телефонам хомӯш шуд.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Куда вам?",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бигӯ: ба кӯчаи Ленин",
+          "text": "На улицу Ленина.",
+          "accepts": [
+            "Улица Ленина.",
+            "Мне на улицу Ленина."
+          ],
+          "translation": "Ба кӯчаи Ленин.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Садитесь на десятый автобус. Остановка там.",
+          "cueTranslation": "Ба автобуси даҳум савор шавед. Истгоҳ он ҷо.",
+          "intent": "Бигӯ: нависед, лутфан",
+          "text": "Напишите, пожалуйста.",
+          "accepts": [
+            "Можете написать?",
+            "Напишите мне, пожалуйста."
+          ],
+          "translation": "Нависед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: роҳ ба вокзал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Извините, вам помочь?",
+          "cueTranslation": "Бубахшед, ёрӣ диҳам?",
+          "intent": "Бигӯ: ман гум шудам. Телефонам хомӯш шуд",
+          "text": "Я заблудился. Телефон сел.",
+          "accepts": [
+            "Я заблудилась. Телефон сел.",
+            "Я заблудился."
+          ],
+          "translation": "Ман гум шудам. Телефонам хомӯш шуд.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Куда вам нужно?",
+          "cueTranslation": "Ба куҷо лозим?",
+          "intent": "Бигӯ: ба вокзал",
+          "text": "На вокзал.",
+          "accepts": [
+            "Мне на вокзал.",
+            "Вокзал."
+          ],
+          "translation": "Ба вокзал.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Прямо, потом направо.",
+          "cueTranslation": "Рост, баъд ба рост.",
+          "intent": "Бипурс: дур аст?",
+          "text": "Это далеко?",
+          "accepts": [
+            "Далеко?",
+            "Близко?"
+          ],
+          "translation": "Дур аст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, пять минут.",
+          "cueTranslation": "Не, панҷ дақиқа.",
+          "intent": "Бигӯ: олӣ, ташаккури зиёд",
+          "text": "Отлично, большое спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо большое!"
+          ],
+          "translation": "Олӣ, ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
