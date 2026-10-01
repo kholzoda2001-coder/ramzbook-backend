@@ -1,0 +1,565 @@
+{
+  "slug": "kitchen_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Первый день на кухне",
+    "titleTranslated": "Рӯзи аввал дар ошхона",
+    "scenario": "Шумо дар ошхонаи кафе кор сар мекунед. Ошпаз кӯтоҳ фармон медиҳад: шӯй, бур, биёр. Шумо мефаҳмед, мепурсед ва мегӯед, ки кор тайёр аст.",
+    "emoji": "👨‍🍳",
+    "order": 3,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ошхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Кухня",
+          "translation": "ошхона",
+          "literal": null,
+          "note": "Зарба: КУ-хня.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Повар",
+          "translation": "ошпаз",
+          "literal": null,
+          "note": "Зарба: ПО-вар.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Нож",
+          "translation": "корд",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Тарелка",
+          "translation": "табақ",
+          "literal": null,
+          "note": "Зарба: та-РЕЛ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Мыть",
+          "translation": "шустан",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Резать",
+          "translation": "буридан",
+          "literal": null,
+          "note": "Зарба: РЕ-зать.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ошпаз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты новенький?",
+          "cueTranslation": "Салом! Ту навӣ?",
+          "intent": "Бигӯ: ҳа, ман навам",
+          "text": "Да, я новый.",
+          "accepts": [
+            "Да.",
+            "Да, новенький.",
+            "Да, я новая."
+          ],
+          "translation": "Ҳа, ман навам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Сначала помой тарелки.",
+          "cueTranslation": "Хуб. Аввал табақҳоро шӯй.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, сейчас."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Потом порежь лук.",
+          "cueTranslation": "Баъд пиёзро бур.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Понятно.",
+          "accepts": [
+            "Понял.",
+            "Поняла.",
+            "Хорошо."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Табақ ва корд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Помыть тарелки",
+          "translation": "Табақ шустан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Порезать лук",
+          "translation": "Пиёз буридан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Чистый нож",
+          "translation": "Корди тоза",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Горячее масло",
+          "translation": "Равғани гарм",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Большая кастрюля",
+          "translation": "Деги калон",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Сейчас сделаю",
+          "translation": "Ҳозир мекунам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пиёз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Порежь лук, пожалуйста.",
+          "cueTranslation": "Пиёзро бур, лутфан.",
+          "intent": "Бипурс: чандто?",
+          "text": "Сколько?",
+          "accepts": [
+            "Сколько луковиц?",
+            "Сколько штук?"
+          ],
+          "translation": "Чандто?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Десять штук. Мелко.",
+          "cueTranslation": "Даҳто. Майда.",
+          "intent": "Бигӯ: хуб, ҳозир мекунам",
+          "text": "Хорошо, сейчас сделаю.",
+          "accepts": [
+            "Сейчас.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, ҳозир мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Осторожно, нож острый.",
+          "cueTranslation": "Эҳтиёт, корд тез аст.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понял, спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Баъд чӣ?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где тарелки?",
+          "translation": "Табақҳо куҷоянд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Так нормально?",
+          "translation": "Ҳамин хел хуб?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Лук готов.",
+          "translation": "Пиёз тайёр.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Что дальше?",
+          "translation": "Баъд чӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужен нож.",
+          "translation": "Ба ман корд лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Куда это поставить?",
+          "translation": "Инро куҷо гузорам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Тайёр",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Лук готов?",
+          "cueTranslation": "Пиёз тайёр?",
+          "intent": "Бигӯ: ҳа, пиёз тайёр",
+          "text": "Да, лук готов.",
+          "accepts": [
+            "Готов.",
+            "Да, готов."
+          ],
+          "translation": "Ҳа, пиёз тайёр.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Положи в большую кастрюлю.",
+          "cueTranslation": "Хуб. Ба деги калон андоз.",
+          "intent": "Бигӯ: хуб. Баъд чӣ?",
+          "text": "Хорошо. Что дальше?",
+          "accepts": [
+            "Что дальше?",
+            "Хорошо. А дальше?"
+          ],
+          "translation": "Хуб. Баъд чӣ?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Теперь помой ножи.",
+          "cueTranslation": "Акнун кордҳоро шӯй.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Хорошо, сейчас.",
+          "accepts": [
+            "Сейчас.",
+            "Ладно."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тамом кардам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я помыл тарелки.",
+          "translation": "Ман табақҳоро шустам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я помыла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я закончил.",
+          "translation": "Ман тамом кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я закончила».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно отдохнуть?",
+          "translation": "Дам гирам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь очень жарко.",
+          "translation": "Ин ҷо хеле гарм.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где мусор?",
+          "translation": "Партов куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не понимаю.",
+          "translation": "Ман намефаҳмам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Партов",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Тарелки готовы?",
+          "cueTranslation": "Табақҳо тайёр?",
+          "intent": "Бигӯ: ҳа, ман тамом кардам",
+          "text": "Да, я закончил.",
+          "accepts": [
+            "Да, готово.",
+            "Да, я закончила.",
+            "Да, всё."
+          ],
+          "translation": "Ҳа, ман тамом кардам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично. Вынеси мусор.",
+          "cueTranslation": "Олӣ. Партовро барор.",
+          "intent": "Бипурс: партов куҷост?",
+          "text": "Где мусор?",
+          "accepts": [
+            "А мусор где?",
+            "Куда мусор?"
+          ],
+          "translation": "Партов куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "У двери. Потом отдохни десять минут.",
+          "cueTranslation": "Назди дар. Баъд даҳ дақиқа дам гир.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ошхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты новенький, да?",
+          "cueTranslation": "Салом! Ту навӣ, ҳа?",
+          "intent": "Бигӯ: ҳа, ман навам",
+          "text": "Да, я новый.",
+          "accepts": [
+            "Да.",
+            "Да, я новая."
+          ],
+          "translation": "Ҳа, ман навам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Помой тарелки, потом порежь лук.",
+          "cueTranslation": "Табақҳоро шӯй, баъд пиёзро бур.",
+          "intent": "Бигӯ: фаҳмидам. Корд куҷост?",
+          "text": "Понятно. Где нож?",
+          "accepts": [
+            "Хорошо. А нож где?",
+            "Где нож?"
+          ],
+          "translation": "Фаҳмидам. Корд куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот. Осторожно, острый.",
+          "cueTranslation": "Ана. Эҳтиёт, тез аст.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понял, спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Лук готов?",
+          "cueTranslation": "Пиёз тайёр?",
+          "intent": "Бигӯ: ҳа. Баъд чӣ?",
+          "text": "Да. Что дальше?",
+          "accepts": [
+            "Готов. Что дальше?",
+            "Да, готов. Дальше?"
+          ],
+          "translation": "Ҳа. Баъд чӣ?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

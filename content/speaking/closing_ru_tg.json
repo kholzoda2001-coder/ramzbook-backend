@@ -1,0 +1,563 @@
+{
+  "slug": "closing_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Уборка и закрытие",
+    "titleTranslated": "Тозакунӣ ва бастан",
+    "scenario": "Охири рӯз: мизҳоро пок мекунед, фаршро мешӯед, партовро мебароред ва ҷойро мебандед. Шумо мепурсед, ки чӣ кор кунед, ва мегӯед, ки ҳама тайёр аст.",
+    "emoji": "🧹",
+    "order": 17,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Тозакунӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Швабра",
+          "translation": "швабра",
+          "literal": null,
+          "note": "Зарба: ШВАБ-ра.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Веник",
+          "translation": "ҷорӯб",
+          "literal": null,
+          "note": "Зарба: ВЕ-ник.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Мусор",
+          "translation": "партов",
+          "literal": null,
+          "note": "Зарба: МУ-сор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Пол",
+          "translation": "фарш",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Протереть",
+          "translation": "пок кардан",
+          "literal": null,
+          "note": "Зарба: про-те-РЕТЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Закрыть",
+          "translation": "бастан",
+          "literal": null,
+          "note": "Зарба: за-КРЫТЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ кор кунам?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Закрываемся через десять минут.",
+          "cueTranslation": "Пас аз даҳ дақиқа мебандем.",
+          "intent": "Бипурс: чӣ кор кунам?",
+          "text": "Что мне делать?",
+          "accepts": [
+            "Что делать?",
+            "Что я могу сделать?"
+          ],
+          "translation": "Чӣ кор кунам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Протри столы, пожалуйста.",
+          "cueTranslation": "Мизҳоро пок кун, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, сейчас."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Потом помой пол.",
+          "cueTranslation": "Баъд фаршро шӯй.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Понятно.",
+          "accepts": [
+            "Понял.",
+            "Поняла.",
+            "Хорошо."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Фарши тар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Протереть столы",
+          "translation": "Мизҳоро пок кардан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мокрый пол",
+          "translation": "Фарши тар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мусорный пакет",
+          "translation": "Халтаи партов",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Закрыть дверь",
+          "translation": "Дарро бастан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Всё чисто",
+          "translation": "Ҳама тоза",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Десять минут",
+          "translation": "Даҳ дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Эҳтиёт, тар аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Можно здесь пройти?",
+          "cueTranslation": "Аз ин ҷо гузарам?",
+          "intent": "Бигӯ: эҳтиёт, фарш тар",
+          "text": "Осторожно, мокрый пол.",
+          "accepts": [
+            "Осторожно, пол мокрый.",
+            "Пол мокрый."
+          ],
+          "translation": "Эҳтиёт, фарш тар.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой, спасибо!",
+          "cueTranslation": "Вой, ташаккур!",
+          "intent": "Бигӯ: пас аз даҳ дақиқа мебандем",
+          "text": "Мы закрываемся через десять минут.",
+          "accepts": [
+            "Скоро закрываемся.",
+            "Через десять минут закрываемся."
+          ],
+          "translation": "Пас аз даҳ дақиқа мебандем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, я ухожу.",
+          "cueTranslation": "Хуб, ман меравам.",
+          "intent": "Бигӯ: ташаккур. Шоми хуш",
+          "text": "Спасибо. Хорошего вечера!",
+          "accepts": [
+            "До свидания!",
+            "Спасибо, до свидания!"
+          ],
+          "translation": "Ташаккур. Шоми хуш!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Швабра куҷост?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Столы чистые.",
+          "translation": "Мизҳо тоза.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Где швабра?",
+          "translation": "Швабра куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мусор вынес.",
+          "translation": "Партовро баровардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Мусор вынесла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Пол мокрый.",
+          "translation": "Фарш тар.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Дверь закрыта?",
+          "translation": "Дар баста аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Свет выключить?",
+          "translation": "Чароғро хомӯш кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мизҳо тоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты протёр столы?",
+          "cueTranslation": "Мизҳоро пок кардӣ?",
+          "intent": "Бигӯ: ҳа, мизҳо тоза",
+          "text": "Да, столы чистые.",
+          "accepts": [
+            "Да, всё чисто.",
+            "Да, готово."
+          ],
+          "translation": "Ҳа, мизҳо тоза.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Теперь пол.",
+          "cueTranslation": "Хуб. Акнун фарш.",
+          "intent": "Бипурс: швабра куҷост?",
+          "text": "Где швабра?",
+          "accepts": [
+            "Швабра где?",
+            "А где швабра?"
+          ],
+          "translation": "Швабра куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сзади, у раковины.",
+          "cueTranslation": "Дар қафо, назди раковина.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понятно."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "То фардо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Всё чисто.",
+          "translation": "Ҳама тоза.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я иду домой.",
+          "translation": "Ман ба хона меравам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "До завтра!",
+          "translation": "То фардо!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Дверь закрыта.",
+          "translation": "Дар баста.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Свет выключен.",
+          "translation": "Чароғ хомӯш.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно идти?",
+          "translation": "Равам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҳама тоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Всё чисто?",
+          "cueTranslation": "Ҳама тоза?",
+          "intent": "Бигӯ: ҳа, ҳама тоза",
+          "text": "Да, всё чисто.",
+          "accepts": [
+            "Да.",
+            "Да, всё."
+          ],
+          "translation": "Ҳа, ҳама тоза.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А дверь?",
+          "cueTranslation": "Ва дар?",
+          "intent": "Бигӯ: дар баста",
+          "text": "Дверь закрыта.",
+          "accepts": [
+            "Закрыта.",
+            "Да, закрыта."
+          ],
+          "translation": "Дар баста.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Молодец. Можешь идти.",
+          "cueTranslation": "Офарин. Рафта метавонӣ.",
+          "intent": "Бигӯ: ташаккур. То фардо",
+          "text": "Спасибо. До завтра!",
+          "accepts": [
+            "До завтра!",
+            "Спасибо, пока!"
+          ],
+          "translation": "Ташаккур. То фардо!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бастан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Закрываемся через десять минут.",
+          "cueTranslation": "Пас аз даҳ дақиқа мебандем.",
+          "intent": "Бипурс: чӣ кор кунам?",
+          "text": "Что мне делать?",
+          "accepts": [
+            "Что делать?",
+            "Что я могу сделать?"
+          ],
+          "translation": "Чӣ кор кунам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Протри столы и помой пол.",
+          "cueTranslation": "Мизҳоро пок кун ва фаршро шӯй.",
+          "intent": "Бигӯ: фаҳмидам. Швабра куҷост?",
+          "text": "Понятно. Где швабра?",
+          "accepts": [
+            "Хорошо. А швабра?",
+            "Где швабра?"
+          ],
+          "translation": "Фаҳмидам. Швабра куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сзади. Потом вынеси мусор.",
+          "cueTranslation": "Дар қафо. Баъд партовро барор.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, сейчас."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Всё? Дверь закрыта?",
+          "cueTranslation": "Тамом? Дар баста?",
+          "intent": "Бигӯ: ҳа, дар баста. То фардо",
+          "text": "Да, дверь закрыта. До завтра!",
+          "accepts": [
+            "Да, закрыта.",
+            "Да. До завтра!"
+          ],
+          "translation": "Ҳа, дар баста. То фардо!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

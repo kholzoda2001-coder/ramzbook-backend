@@ -1,0 +1,562 @@
+{
+  "slug": "take_order_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Приём заказа",
+    "titleTranslated": "Қабули фармоиш",
+    "scenario": "Шумо пешхизмат ҳастед: мепурсед, ки меҳмон чӣ мехоҳад, хӯрок ва нӯшокиро менависед, фармоишро такрор мекунед ва мепурсед, ки боз чизе лозим аст ё не.",
+    "emoji": "📝",
+    "order": 5,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хӯрок ва нӯшокӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Напиток",
+          "translation": "нӯшокӣ",
+          "literal": null,
+          "note": "Зарба: на-ПИ-ток.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Вода",
+          "translation": "об",
+          "literal": null,
+          "note": "Зарба дар охир: во-ДА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Суп",
+          "translation": "шӯрбо",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Салат",
+          "translation": "салат",
+          "literal": null,
+          "note": "Зарба: са-ЛАТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Десерт",
+          "translation": "ширинӣ",
+          "literal": null,
+          "note": "Зарба: де-СЕРТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Заказ",
+          "translation": "фармоиш",
+          "literal": null,
+          "note": "Зарба: за-КАЗ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ мехоҳед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Мы готовы.",
+          "cueTranslation": "Салом! Мо тайёрем.",
+          "intent": "Бипурс: чӣ фармоиш медиҳед?",
+          "text": "Что будете заказывать?",
+          "accepts": [
+            "Что будете?",
+            "Что вам?"
+          ],
+          "translation": "Чӣ фармоиш медиҳед?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Куриный суп, пожалуйста.",
+          "cueTranslation": "Шӯрбои мурғ, лутфан.",
+          "intent": "Бигӯ: хуб. Ва нӯшокӣ?",
+          "text": "Хорошо. А пить?",
+          "accepts": [
+            "Что будете пить?",
+            "А напиток?"
+          ],
+          "translation": "Хуб. Ва нӯшокӣ?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Просто воду.",
+          "cueTranslation": "Танҳо об.",
+          "intent": "Бигӯ: хуб, як дақиқа",
+          "text": "Хорошо, одну минуту.",
+          "accepts": [
+            "Хорошо.",
+            "Сейчас."
+          ],
+          "translation": "Хуб, як дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Шӯрбои мурғ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Куриный суп",
+          "translation": "Шӯрбои мурғ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Зелёный салат",
+          "translation": "Салати сабз",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Просто вода",
+          "translation": "Танҳо об",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Что-нибудь ещё?",
+          "translation": "Боз чизе?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Без льда",
+          "translation": "Бе ях",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Скоро будет",
+          "translation": "Зуд меояд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Боз чизе?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "И зелёный салат.",
+          "cueTranslation": "Ва салати сабз.",
+          "intent": "Бипурс: боз чизе?",
+          "text": "Что-нибудь ещё?",
+          "accepts": [
+            "Ещё что-нибудь?",
+            "Это всё?"
+          ],
+          "translation": "Боз чизе?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, это всё.",
+          "cueTranslation": "Не, ҳамин.",
+          "intent": "Бигӯ: хуб. Зуд меояд",
+          "text": "Хорошо. Скоро будет.",
+          "accepts": [
+            "Хорошо.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Хуб. Зуд меояд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Воду без льда, пожалуйста.",
+          "cueTranslation": "Обро бе ях, лутфан.",
+          "intent": "Бигӯ: бе ях, хуб",
+          "text": "Без льда. Хорошо.",
+          "accepts": [
+            "Хорошо, без льда.",
+            "Понятно."
+          ],
+          "translation": "Бе ях. Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Такрор мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Вы готовы?",
+          "translation": "Тайёред?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Что будете заказывать?",
+          "translation": "Чӣ фармоиш медиҳед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Что будете пить?",
+          "translation": "Чӣ менӯшед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это всё?",
+          "translation": "Ҳамин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Суп очень вкусный.",
+          "translation": "Шӯрбо хеле болаззат.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Повторю заказ.",
+          "translation": "Фармоишро такрор мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ду пицца",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Две пиццы и колу.",
+          "cueTranslation": "Ду пицца ва кола.",
+          "intent": "Бигӯ: фармоишро такрор мекунам: ду пицца, як кола",
+          "text": "Повторю заказ. Две пиццы, одна кола.",
+          "accepts": [
+            "Две пиццы и кола?",
+            "Две пиццы, одна кола. Да?"
+          ],
+          "translation": "Фармоишро такрор мекунам. Ду пицца, як кола.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, правильно.",
+          "cueTranslation": "Ҳа, дуруст.",
+          "intent": "Бипурс: ҳамин?",
+          "text": "Это всё?",
+          "accepts": [
+            "Что-нибудь ещё?",
+            "Всё?"
+          ],
+          "translation": "Ҳамин?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, спасибо.",
+          "cueTranslation": "Ҳа, ташаккур.",
+          "intent": "Бигӯ: зуд меояд",
+          "text": "Скоро будет.",
+          "accepts": [
+            "Скоро принесу.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Зуд меояд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чӣ маслиҳат медиҳед?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Рыба свежая.",
+          "translation": "Моҳӣ тоза.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Это все берут.",
+          "translation": "Инро ҳама мегиранд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Немного острое.",
+          "translation": "Каме тунд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Десерт будете?",
+          "translation": "Ширинӣ мехоҳед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Есть торт.",
+          "translation": "Торт ҳаст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Рыба закончилась.",
+          "translation": "Моҳӣ тамом шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тунд аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что вы посоветуете?",
+          "cueTranslation": "Чӣ маслиҳат медиҳед?",
+          "intent": "Бигӯ: инро ҳама мегиранд",
+          "text": "Это все берут.",
+          "accepts": [
+            "Это очень популярно.",
+            "Рыба очень хорошая."
+          ],
+          "translation": "Инро ҳама мегиранд.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Это острое?",
+          "cueTranslation": "Ин тунд аст?",
+          "intent": "Бигӯ: каме тунд",
+          "text": "Немного острое.",
+          "accepts": [
+            "Да, немного.",
+            "Чуть-чуть."
+          ],
+          "translation": "Каме тунд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, беру.",
+          "cueTranslation": "Хуб, мегирам.",
+          "intent": "Бипурс: ширинӣ мехоҳед?",
+          "text": "Десерт будете?",
+          "accepts": [
+            "А десерт?",
+            "Десерт тоже?"
+          ],
+          "translation": "Ширинӣ мехоҳед?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фармоиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Мы готовы заказать.",
+          "cueTranslation": "Салом! Фармоиш медиҳем.",
+          "intent": "Бигӯ: хуб. Чӣ фармоиш медиҳед?",
+          "text": "Хорошо. Что будете заказывать?",
+          "accepts": [
+            "Что будете?",
+            "Слушаю вас."
+          ],
+          "translation": "Хуб. Чӣ фармоиш медиҳед?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Один куриный суп и салат.",
+          "cueTranslation": "Як шӯрбои мурғ ва салат.",
+          "intent": "Бипурс: ва нӯшокӣ?",
+          "text": "А пить?",
+          "accepts": [
+            "Что будете пить?",
+            "А напиток?"
+          ],
+          "translation": "Ва нӯшокӣ?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Воду без льда.",
+          "cueTranslation": "Об бе ях.",
+          "intent": "Бигӯ: такрор мекунам: шӯрбо, салат, об",
+          "text": "Повторю. Суп, салат, вода.",
+          "accepts": [
+            "Суп, салат и вода?",
+            "Суп, салат, вода. Да?"
+          ],
+          "translation": "Такрор мекунам. Шӯрбо, салат, об.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, правильно.",
+          "cueTranslation": "Ҳа, дуруст.",
+          "intent": "Бигӯ: хуб. Зуд меояд",
+          "text": "Хорошо. Скоро будет.",
+          "accepts": [
+            "Скоро принесу.",
+            "Спасибо!"
+          ],
+          "translation": "Хуб. Зуд меояд.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
