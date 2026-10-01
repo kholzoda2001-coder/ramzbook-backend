@@ -1,0 +1,562 @@
+{
+  "slug": "airport_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the airport",
+    "titleTranslated": "Дар фурудгоҳ",
+    "scenario": "Шумо ба хона ё ба сафар парвоз мекунед: шиносномаро нишон медиҳед, бағоҷро месупоред, ҷои назди тирезаро мепурсед, дарвозаро меёбед ва агар сумка гум шавад — хабар медиҳед.",
+    "emoji": "🛫",
+    "order": 3,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Парвоз",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Flight",
+          "translation": "парвоз",
+          "literal": "флайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Ticket",
+          "translation": "чипта",
+          "literal": "тикит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Gate",
+          "translation": "дарвоза",
+          "literal": "гейт",
+          "note": "Дарвозае, ки аз он ба ҳавопаймо мебароед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Passport",
+          "translation": "шиноснома",
+          "literal": "паспорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Seat",
+          "translation": "ҷой",
+          "literal": "сит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Bag",
+          "translation": "сумка",
+          "literal": "бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бақайдгирӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Where are you flying?",
+          "cueTranslation": "Салом! Ба куҷо парвоз мекунед?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "To Dushanbe.",
+          "accepts": [
+            "Dushanbe.",
+            "I'm flying to Dushanbe."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": "ту душанбе",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Passport, please.",
+          "cueTranslation": "Шиноснома, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Here you go.",
+          "accepts": [
+            "Here it is.",
+            "Here is my passport."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "ҳир ю гоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Any bags?",
+          "cueTranslation": "Бағоҷ доред?",
+          "intent": "Бигӯ: ҳа, як сумка",
+          "text": "Yes, one bag.",
+          "accepts": [
+            "One bag.",
+            "Yes, just one."
+          ],
+          "translation": "Ҳа, як сумка.",
+          "literal": "йес ван бэг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҷои назди тиреза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Window seat",
+          "translation": "Ҷои назди тиреза",
+          "literal": "виндоу сит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Aisle seat",
+          "translation": "Ҷои назди роҳрав",
+          "literal": "айл сит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Gate ten",
+          "translation": "Дарвозаи даҳ",
+          "literal": "гейт тен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "One bag",
+          "translation": "Як сумка",
+          "literal": "ван бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Boarding pass",
+          "translation": "Талони нишаст",
+          "literal": "бординг пэс",
+          "note": "Коғазе, ки бо он ба ҳавопаймо медароед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "On time",
+          "translation": "Сари вақт",
+          "literal": "он тайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом дарвоза?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Window or aisle?",
+          "cueTranslation": "Назди тиреза ё роҳрав?",
+          "intent": "Бигӯ: тиреза, лутфан",
+          "text": "Window, please.",
+          "accepts": [
+            "A window seat, please.",
+            "Window."
+          ],
+          "translation": "Тиреза, лутфан.",
+          "literal": "виндоу плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Here is your boarding pass.",
+          "cueTranslation": "Хуб. Ана талони нишастатон.",
+          "intent": "Бипурс: кадом дарвоза?",
+          "text": "Which gate?",
+          "accepts": [
+            "What gate?",
+            "Which gate, please?"
+          ],
+          "translation": "Кадом дарвоза?",
+          "literal": "вич гейт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gate ten.",
+          "cueTranslation": "Дарвозаи даҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you very much."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Сари вақт аст?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where is gate ten?",
+          "translation": "Дарвозаи даҳ куҷост?",
+          "literal": "вэр из гейт тен",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is the flight late?",
+          "translation": "Парвоз дер мешавад?",
+          "literal": "из ҙэ флайт лейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "My bag is heavy.",
+          "translation": "Сумкаам вазнин аст.",
+          "literal": "май бэг из ҳевӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I have one bag.",
+          "translation": "Ман як сумка дорам.",
+          "literal": "ай ҳэв ван бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "When is boarding?",
+          "translation": "Нишаст кай?",
+          "literal": "вен из бординг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it on time?",
+          "translation": "Сари вақт аст?",
+          "literal": "из ит он тайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дарвозаи даҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can I help you?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: дарвозаи даҳ куҷост?",
+          "text": "Where is gate ten?",
+          "accepts": [
+            "Gate ten, please?",
+            "Where's gate ten?"
+          ],
+          "translation": "Дарвозаи даҳ куҷост?",
+          "literal": "вэр из гейт тен",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Go straight, then left.",
+          "cueTranslation": "Рост равед, баъд ба чап.",
+          "intent": "Бипурс: сари вақт аст?",
+          "text": "Is it on time?",
+          "accepts": [
+            "Is the flight on time?",
+            "On time?"
+          ],
+          "translation": "Сари вақт аст?",
+          "literal": "из ит он тайм",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, boarding is at five.",
+          "cueTranslation": "Ҳа, нишаст соати панҷ.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Great, thank you.",
+          "accepts": [
+            "Thanks!",
+            "Okay, thank you."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": "грейт ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Сумка гум шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I lost my bag.",
+          "translation": "Сумкаамро гум кардам.",
+          "literal": "ай лост май бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "This is my bag.",
+          "translation": "Ин сумкаи ман аст.",
+          "literal": "ҙис из май бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's black and big.",
+          "translation": "Сиёҳ ва калон аст.",
+          "literal": "итс блэк энд биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Here is my ticket.",
+          "translation": "Ана чиптаи ман.",
+          "literal": "ҳир из май тикит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "My flight is delayed.",
+          "translation": "Парвозам дер шуд.",
+          "literal": "май флайт из дилейд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are the bags?",
+          "translation": "Сумкаҳо куҷоянд?",
+          "literal": "вэр ар ҙэ бэгз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чӣ ранг?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Next, please. What's the problem?",
+          "cueTranslation": "Навбатӣ. Мушкил чист?",
+          "intent": "Бигӯ: сумкаамро гум кардам",
+          "text": "I lost my bag.",
+          "accepts": [
+            "My bag is lost.",
+            "I can't find my bag."
+          ],
+          "translation": "Сумкаамро гум кардам.",
+          "literal": "ай лост май бэг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What color is it?",
+          "cueTranslation": "Чӣ ранг аст?",
+          "intent": "Бигӯ: сиёҳ ва калон",
+          "text": "It's black and big.",
+          "accepts": [
+            "Black and big.",
+            "A big black bag."
+          ],
+          "translation": "Сиёҳ ва калон аст.",
+          "literal": "итс блэк энд биг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. We'll call you.",
+          "cueTranslation": "Хуб. Ба шумо занг мезанем.",
+          "intent": "Бигӯ: ташаккур. Ана рақами ман",
+          "text": "Thank you. Here is my number.",
+          "accepts": [
+            "Thanks.",
+            "Thank you. My number is here."
+          ],
+          "translation": "Ташаккур. Ана рақами ман.",
+          "literal": "ҫенк ю ҳир из май намбэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Where are you flying?",
+          "cueTranslation": "Салом! Ба куҷо парвоз мекунед?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "To Dushanbe.",
+          "accepts": [
+            "Dushanbe.",
+            "I'm flying to Dushanbe."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": "ту душанбе",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Passport, please. Any bags?",
+          "cueTranslation": "Шиноснома, лутфан. Бағоҷ доред?",
+          "intent": "Бигӯ: марҳамат. Як сумка",
+          "text": "Here you go. One bag.",
+          "accepts": [
+            "Here. One bag.",
+            "Yes, one bag."
+          ],
+          "translation": "Марҳамат. Як сумка.",
+          "literal": "ҳир ю гоу ван бэг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Window or aisle?",
+          "cueTranslation": "Назди тиреза ё роҳрав?",
+          "intent": "Бигӯ: тиреза, лутфан",
+          "text": "Window, please.",
+          "accepts": [
+            "A window seat, please.",
+            "Window."
+          ],
+          "translation": "Тиреза, лутфан.",
+          "literal": "виндоу плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Here is your boarding pass.",
+          "cueTranslation": "Ана талони нишастатон.",
+          "intent": "Бипурс: кадом дарвоза?",
+          "text": "Which gate?",
+          "accepts": [
+            "What gate?",
+            "Which gate, please?"
+          ],
+          "translation": "Кадом дарвоза?",
+          "literal": "вич гейт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
