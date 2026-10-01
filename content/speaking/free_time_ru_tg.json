@@ -1,0 +1,562 @@
+{
+  "slug": "free_time_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Выходные",
+    "titleTranslated": "Вақти холӣ",
+    "scenario": "Рӯзҳои истироҳат: бо дӯстон вохӯрӣ мегузоред, ба футбол ё кино меравед, вақт ва ҷойро мепурсед, даъватро қабул ё рад мекунед ва мегӯед, ки истироҳат чӣ хел гузашт.",
+    "emoji": "🎉",
+    "order": 18,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Истироҳат",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Выходные",
+          "translation": "рӯзҳои истироҳат",
+          "literal": null,
+          "note": "Зарба: вы-ход-НЫ-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Кино",
+          "translation": "кино",
+          "literal": null,
+          "note": "Зарба дар охир: ки-НО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Парк",
+          "translation": "боғ",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Футбол",
+          "translation": "футбол",
+          "literal": null,
+          "note": "Зарба: фут-БОЛ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Друзья",
+          "translation": "дӯстон",
+          "literal": null,
+          "note": "Зарба дар охир: дру-ЗЬЯ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Свободен",
+          "translation": "холӣ (вақт дорад)",
+          "literal": null,
+          "note": "Зарба: сво-БО-ден. Зан: «свободна».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Якшанбе холӣ ҳастӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты свободен в воскресенье?",
+          "cueTranslation": "Якшанбе холӣ ҳастӣ?",
+          "intent": "Бигӯ: ҳа, холӣ",
+          "text": "Да, свободен.",
+          "accepts": [
+            "Да.",
+            "Да, свободна."
+          ],
+          "translation": "Ҳа, холӣ.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Давай поиграем в футбол!",
+          "cueTranslation": "Биё футбол бозӣ кунем!",
+          "intent": "Бигӯ: олӣ! Соати чанд?",
+          "text": "Отлично! Во сколько?",
+          "accepts": [
+            "Давай! Когда?",
+            "Здорово! Во сколько?"
+          ],
+          "translation": "Олӣ! Соати чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В десять, в парке.",
+          "cueTranslation": "Соати даҳ, дар боғ.",
+          "intent": "Бигӯ: хуб, то якшанбе",
+          "text": "Хорошо, до воскресенья.",
+          "accepts": [
+            "До воскресенья!",
+            "Хорошо, увидимся."
+          ],
+          "translation": "Хуб, то якшанбе.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Фикри хуб",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Хорошая идея",
+          "translation": "Фикри хуб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Может, потом",
+          "translation": "Шояд баъдтар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "До встречи",
+          "translation": "То дидор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "В кино",
+          "translation": "Ба кино",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "В парк",
+          "translation": "Ба боғ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я свободен",
+          "translation": "Ман холӣ ҳастам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кино",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Хочешь в кино?",
+          "cueTranslation": "Ба кино меравӣ?",
+          "intent": "Бигӯ: фикри хуб! Кай?",
+          "text": "Хорошая идея! Когда?",
+          "accepts": [
+            "Давай! Когда?",
+            "Да! Во сколько?"
+          ],
+          "translation": "Фикри хуб! Кай?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "В субботу вечером.",
+          "cueTranslation": "Шанбе бегоҳ.",
+          "intent": "Бигӯ: бубахш, кор мекунам. Шояд якшанбе?",
+          "text": "Извини, я работаю. Может, в воскресенье?",
+          "accepts": [
+            "В субботу не могу. В воскресенье?",
+            "Извини, работаю."
+          ],
+          "translation": "Бубахш, кор мекунам. Шояд якшанбе?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Воскресенье подходит!",
+          "cueTranslation": "Якшанбе мешавад!",
+          "intent": "Бигӯ: олӣ",
+          "text": "Отлично!",
+          "accepts": [
+            "Супер!",
+            "Отлично, договорились!"
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Куҷо вомехӯрем?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я люблю футбол.",
+          "translation": "Ман футболро дӯст медорам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я свободен в воскресенье.",
+          "translation": "Якшанбе холӣ ҳастам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я свободна».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Где встретимся?",
+          "translation": "Куҷо вомехӯрем?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Пойдём вместе.",
+          "translation": "Якҷоя меравем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Сегодня не могу.",
+          "translation": "Имрӯз наметавонам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Может, в другой раз.",
+          "translation": "Шояд дафъаи дигар.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дар истгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Пойдём в парк!",
+          "cueTranslation": "Биё ба боғ равем!",
+          "intent": "Бигӯ: хуб. Куҷо вомехӯрем?",
+          "text": "Хорошо. Где встретимся?",
+          "accepts": [
+            "Где встретимся?",
+            "Давай! Где?"
+          ],
+          "translation": "Хуб. Куҷо вомехӯрем?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На остановке.",
+          "cueTranslation": "Дар истгоҳ.",
+          "intent": "Бипурс: соати чанд?",
+          "text": "Во сколько?",
+          "accepts": [
+            "Когда?",
+            "Во сколько встречаемся?"
+          ],
+          "translation": "Соати чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В два часа.",
+          "cueTranslation": "Соати ду.",
+          "intent": "Бигӯ: хуб. То дидор!",
+          "text": "Хорошо. До встречи!",
+          "accepts": [
+            "До встречи в два!",
+            "Хорошо, пока."
+          ],
+          "translation": "Хуб. То дидор!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Истироҳат чӣ хел гузашт?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Как выходные?",
+          "translation": "Истироҳат чӣ хел гузашт?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Было весело.",
+          "translation": "Хурсандиовар буд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я был дома.",
+          "translation": "Ман дар хона будам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я была дома».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я устал.",
+          "translation": "Монда шудам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я устала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "А у тебя?",
+          "translation": "Ту чӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Давай ещё раз!",
+          "translation": "Боз мекунем!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҳафтаи оянда",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Как выходные?",
+          "cueTranslation": "Салом! Истироҳат чӣ хел гузашт?",
+          "intent": "Бигӯ: хурсандиовар буд. Ту чӣ?",
+          "text": "Было весело. А у тебя?",
+          "accepts": [
+            "Хорошо! А у тебя?",
+            "Весело было."
+          ],
+          "translation": "Хурсандиовар буд. Ту чӣ?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я был дома. Устал.",
+          "cueTranslation": "Дар хона будам. Монда будам.",
+          "intent": "Бигӯ: ҳафтаи оянда футбол бозӣ кунем",
+          "text": "Давай в футбол на следующей неделе.",
+          "accepts": [
+            "Футбол на следующей неделе?",
+            "В футбол на неделе?"
+          ],
+          "translation": "Ҳафтаи оянда футбол бозӣ кунем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Давай, хорошая идея!",
+          "cueTranslation": "Биё, фикри хуб!",
+          "intent": "Бигӯ: олӣ",
+          "text": "Отлично!",
+          "accepts": [
+            "Супер!",
+            "Отлично, договорились!"
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: истироҳат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты свободен на выходных?",
+          "cueTranslation": "Салом! Рӯзҳои истироҳат холӣ ҳастӣ?",
+          "intent": "Бигӯ: ҳа, якшанбе холӣ ҳастам",
+          "text": "Да, я свободен в воскресенье.",
+          "accepts": [
+            "Да, в воскресенье.",
+            "Да, я свободна в воскресенье."
+          ],
+          "translation": "Ҳа, якшанбе холӣ ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Пойдём в кино!",
+          "cueTranslation": "Биё ба кино равем!",
+          "intent": "Бигӯ: фикри хуб! Соати чанд?",
+          "text": "Хорошая идея! Во сколько?",
+          "accepts": [
+            "Давай! Когда?",
+            "Отлично! Во сколько?"
+          ],
+          "translation": "Фикри хуб! Соати чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В шесть. Где встретимся?",
+          "cueTranslation": "Соати шаш. Куҷо вомехӯрем?",
+          "intent": "Бигӯ: дар истгоҳ",
+          "text": "На остановке.",
+          "accepts": [
+            "Давай на остановке.",
+            "На остановке, хорошо?"
+          ],
+          "translation": "Дар истгоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично. До воскресенья!",
+          "cueTranslation": "Олӣ. То якшанбе!",
+          "intent": "Бигӯ: то якшанбе",
+          "text": "До воскресенья!",
+          "accepts": [
+            "Пока!",
+            "До встречи в воскресенье!"
+          ],
+          "translation": "То якшанбе!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "host_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Встреча гостей",
+    "titleTranslated": "Пешвоз гирифтани меҳмон",
+    "scenario": "Шумо дар дари кафе меҳмононро пешвоз мегиред: салом медиҳед, мепурсед чанд нафаранд, ҷой банд кардаанд ё не, ба миз мебаред ва менюро медиҳед.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Меҳмон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Столик",
+          "translation": "миз",
+          "literal": null,
+          "note": "Зарба: СТО-лик.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Гость",
+          "translation": "меҳмон",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Меню",
+          "translation": "меню",
+          "literal": null,
+          "note": "Зарба дар охир: ме-НЮ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Окно",
+          "translation": "тиреза",
+          "literal": null,
+          "note": "Зарба дар охир: ок-НО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Свободно",
+          "translation": "холӣ",
+          "literal": null,
+          "note": "Зарба: сво-БОД-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Добро пожаловать",
+          "translation": "хуш омадед",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд нафар?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Столик, пожалуйста.",
+          "cueTranslation": "Салом! Миз, лутфан.",
+          "intent": "Бипурс: барои чанд нафар?",
+          "text": "На сколько человек?",
+          "accepts": [
+            "Сколько человек?",
+            "Сколько вас?"
+          ],
+          "translation": "Барои чанд нафар?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На двоих.",
+          "cueTranslation": "Барои ду нафар.",
+          "intent": "Бигӯ: хуш омадед. Дароед, лутфан",
+          "text": "Добро пожаловать. Проходите, пожалуйста.",
+          "accepts": [
+            "Проходите, пожалуйста.",
+            "Сюда, пожалуйста."
+          ],
+          "translation": "Хуш омадед. Дароед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: ана меню",
+          "text": "Вот меню.",
+          "accepts": [
+            "Ваше меню.",
+            "Пожалуйста, меню."
+          ],
+          "translation": "Ана меню.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Дароед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Добрый вечер",
+          "translation": "Шоми хуш",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "На двоих",
+          "translation": "Барои ду нафар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Проходите, пожалуйста",
+          "translation": "Дароед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "У окна",
+          "translation": "Назди тиреза",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Одну минуту",
+          "translation": "Як дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваше меню",
+          "translation": "Менюи шумо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Назди тиреза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Добрый вечер! Столик на четверых?",
+          "cueTranslation": "Шоми хуш! Мизи чор нафара?",
+          "intent": "Бигӯ: як дақиқа, лутфан",
+          "text": "Одну минуту, пожалуйста.",
+          "accepts": [
+            "Минуту.",
+            "Одну минуту."
+          ],
+          "translation": "Як дақиқа, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Можно у окна?",
+          "cueTranslation": "Назди тиреза мешавад?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Да, конечно.",
+          "accepts": [
+            "Конечно.",
+            "Да, можно."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично. Спасибо!",
+          "cueTranslation": "Олӣ. Ташаккур!",
+          "intent": "Бигӯ: менюи шумо",
+          "text": "Ваше меню.",
+          "accepts": [
+            "Вот меню.",
+            "Пожалуйста, меню."
+          ],
+          "translation": "Менюи шумо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Хуш омадед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Добро пожаловать к нам!",
+          "translation": "Ба назди мо хуш омадед!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Вы бронировали?",
+          "translation": "Ҷой банд кардаед?",
+          "literal": null,
+          "note": "«Бронировать» — пешакӣ банд кардан.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Идите за мной.",
+          "translation": "Аз пайи ман биёед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Подождите здесь, пожалуйста.",
+          "translation": "Ин ҷо интизор шавед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Садитесь, где удобно.",
+          "translation": "Дар ҷои дилхоҳ шинед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Официант сейчас подойдёт.",
+          "translation": "Пешхизмат ҳозир меояд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҷой банд аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Нас пятеро.",
+          "cueTranslation": "Салом! Мо панҷ нафарем.",
+          "intent": "Бипурс: ҷой банд кардаед?",
+          "text": "Вы бронировали?",
+          "accepts": [
+            "У вас бронь?",
+            "Есть бронь?"
+          ],
+          "translation": "Ҷой банд кардаед?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, извините.",
+          "cueTranslation": "Не, бубахшед.",
+          "intent": "Бигӯ: ин ҷо интизор шавед, лутфан",
+          "text": "Подождите здесь, пожалуйста.",
+          "accepts": [
+            "Подождите, пожалуйста.",
+            "Одну минуту, пожалуйста."
+          ],
+          "translation": "Ин ҷо интизор шавед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Долго ждать?",
+          "cueTranslation": "Дароз интизор шавем?",
+          "intent": "Бигӯ: панҷ дақиқа",
+          "text": "Пять минут.",
+          "accepts": [
+            "Минут пять.",
+            "Примерно пять минут."
+          ],
+          "translation": "Панҷ дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Миз тайёр",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Зал или терраса?",
+          "translation": "Толор ё айвон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Сейчас всё занято.",
+          "translation": "Ҳозир ҳама банд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Столик готов.",
+          "translation": "Миз тайёр.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Детское меню?",
+          "translation": "Менюи кӯдакона?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Приятного аппетита!",
+          "translation": "Иштиҳои соф!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо за ожидание.",
+          "translation": "Ташаккур барои интизорӣ.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Толор ё айвон?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Наш столик готов?",
+          "cueTranslation": "Мизи мо тайёр?",
+          "intent": "Бигӯ: ҳа, миз тайёр",
+          "text": "Да, столик готов.",
+          "accepts": [
+            "Да, готов.",
+            "Да. Проходите, пожалуйста."
+          ],
+          "translation": "Ҳа, миз тайёр.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично!",
+          "cueTranslation": "Олӣ!",
+          "intent": "Бипурс: толор ё айвон?",
+          "text": "Зал или терраса?",
+          "accepts": [
+            "Терраса или зал?",
+            "Где сядете?"
+          ],
+          "translation": "Толор ё айвон?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Зал, пожалуйста. Холодно.",
+          "cueTranslation": "Толор, лутфан. Хунук аст.",
+          "intent": "Бигӯ: ташаккур барои интизорӣ",
+          "text": "Спасибо за ожидание.",
+          "accepts": [
+            "Спасибо, что подождали.",
+            "Спасибо. Проходите."
+          ],
+          "translation": "Ташаккур барои интизорӣ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: меҳмонон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Есть свободный столик?",
+          "cueTranslation": "Салом! Мизи холӣ ҳаст?",
+          "intent": "Бипурс: барои чанд нафар?",
+          "text": "На сколько человек?",
+          "accepts": [
+            "Сколько человек?",
+            "Сколько вас?"
+          ],
+          "translation": "Барои чанд нафар?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Нас трое.",
+          "cueTranslation": "Мо се нафарем.",
+          "intent": "Бипурс: ҷой банд кардаед?",
+          "text": "Вы бронировали?",
+          "accepts": [
+            "У вас бронь?",
+            "Есть бронь?"
+          ],
+          "translation": "Ҷой банд кардаед?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет. Это проблема?",
+          "cueTranslation": "Не. Мушкил аст?",
+          "intent": "Бигӯ: не. Дароед, лутфан",
+          "text": "Нет. Проходите, пожалуйста.",
+          "accepts": [
+            "Нет, проходите.",
+            "Нет. Идите за мной."
+          ],
+          "translation": "Не. Дароед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо! Красиво у вас.",
+          "cueTranslation": "Ташаккур! Ҷои зебо доред.",
+          "intent": "Бигӯ: ана меню",
+          "text": "Вот меню.",
+          "accepts": [
+            "Ваше меню.",
+            "Пожалуйста, меню."
+          ],
+          "translation": "Ана меню.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

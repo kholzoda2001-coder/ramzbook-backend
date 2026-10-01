@@ -1,0 +1,546 @@
+{
+  "slug": "shift_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "근무와 수입",
+    "titleTranslated": "Навбати корӣ ва даромад",
+    "scenario": "Бо диспетчер ва сардори ширкат дар бораи кор гап мезанед: кай сар мекунед ва кай тамом, рӯзи истироҳат, музд, барнома ва баҳои мусофирон.",
+    "emoji": "💰",
+    "order": 20,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Навбат",
+      "items": [
+        {
+          "kind": "word",
+          "text": "근무",
+          "translation": "кор, навбат",
+          "literal": "кынму",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "야간",
+          "translation": "шабона",
+          "literal": "яган",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "휴무",
+          "translation": "рӯзи истироҳат",
+          "literal": "ҳюму",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "앱",
+          "translation": "барнома",
+          "literal": "эп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "별점",
+          "translation": "баҳо (ситора)",
+          "literal": "пёлҷом",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "수입",
+          "translation": "даромад",
+          "literal": "суип",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Навбати шаб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "내일 주간이에요, 야간이에요?",
+          "cueTranslation": "Фардо рӯзона ё шабона?",
+          "intent": "Бигӯ: шабона",
+          "text": "야간이요.",
+          "accepts": [
+            "야간 근무예요."
+          ],
+          "translation": "Шабона.",
+          "literal": "яганиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "몇 시에 시작해요?",
+          "cueTranslation": "Соати чанд сар мекунед?",
+          "intent": "Бигӯ: соати шаши бегоҳ",
+          "text": "저녁 여섯 시요.",
+          "accepts": [
+            "여섯 시에 시작해요."
+          ],
+          "translation": "Соати шаши бегоҳ.",
+          "literal": "чонёк ёсот шиё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "몇 시에 끝나요?",
+          "cueTranslation": "Соати чанд тамом?",
+          "intent": "Бигӯ: соати шаши саҳар",
+          "text": "아침 여섯 시요.",
+          "accepts": [
+            "아침 여섯 시에 끝나요."
+          ],
+          "translation": "Соати шаши саҳар.",
+          "literal": "ачхим ёсот шиё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Баҳо ва фармоиш",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "별점 좋아요",
+          "translation": "Баҳо хуб",
+          "literal": "пёлҷом чоаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "다섯 개",
+          "translation": "Панҷ дона",
+          "literal": "тасот кэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "앱 켜요",
+          "translation": "Барномаро мегиронам",
+          "literal": "эп кхёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "콜 받았어요",
+          "translation": "Фармоиш гирифтам",
+          "literal": "кхол падассоё",
+          "note": "«콜» — фармоиш аз барнома.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "오늘 수입",
+          "translation": "Даромади имрӯз",
+          "literal": "оныл суип",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "손님 많아요",
+          "translation": "Мусофир бисёр",
+          "literal": "сонним манаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Рӯзи истироҳат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "이번 주 휴무가 언제예요?",
+          "cueTranslation": "Рӯзи истироҳати ин ҳафта кай?",
+          "intent": "Бигӯ: чоршанбе",
+          "text": "수요일이요.",
+          "accepts": [
+            "수요일이에요."
+          ],
+          "translation": "Чоршанбе.",
+          "literal": "суёириё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "목요일로 바꿀 수 있어요?",
+          "cueTranslation": "Ба панҷшанбе иваз карда метавонед?",
+          "intent": "Бигӯ: ҳа, мешавад",
+          "text": "네, 돼요.",
+          "accepts": [
+            "네, 괜찮아요."
+          ],
+          "translation": "Ҳа, мешавад.",
+          "literal": "нэ твеё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "고마워요.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: ҳеҷ гап не",
+          "text": "괜찮아요.",
+          "accepts": [
+            "아니에요."
+          ],
+          "translation": "Ҳеҷ гап не.",
+          "literal": "квенчханаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Соатҳои бештар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "더 일하고 싶어요.",
+          "translation": "Бештар кор кардан мехоҳам.",
+          "literal": "то илҳаго шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "주말에도 일할 수 있어요.",
+          "translation": "Охири ҳафта ҳам кор карда метавонам.",
+          "literal": "чумарэдо илҳал су иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "야간이 좋아요.",
+          "translation": "Шабона маъқул.",
+          "literal": "ягани чоаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "오늘 피곤해요.",
+          "translation": "Имрӯз хастаам.",
+          "literal": "оныл пхигонҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "일찍 끝내도 돼요?",
+          "translation": "Барвақт тамом кунам мешавад?",
+          "literal": "илччик ккыннэдо твеё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "다음 주 근무표 있어요?",
+          "translation": "Ҷадвали ҳафтаи оянда ҳаст?",
+          "literal": "таым чу кынмупхё иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Барнома",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "앱 켰어요?",
+          "cueTranslation": "Барномаро гиронидед?",
+          "intent": "Бигӯ: ҳа, гиронидам",
+          "text": "네, 켰어요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, гиронидам.",
+          "literal": "нэ кхёссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "콜 받았어요?",
+          "cueTranslation": "Фармоиш гирифтед?",
+          "intent": "Бигӯ: ҳа, ҳозир гирифтам",
+          "text": "네, 방금 받았어요.",
+          "accepts": [
+            "네, 받았어요."
+          ],
+          "translation": "Ҳа, ҳозир гирифтам.",
+          "literal": "нэ панггым падассоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "앱이 안 되면 전화하세요.",
+          "cueTranslation": "Агар барнома кор накунад, занг занед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [
+            "알겠습니다."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Музд ва даромад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "월급이 언제 나와요?",
+          "translation": "Музд кай мебарояд?",
+          "literal": "волгыби онҷэ наваё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "오늘 수입이 좋아요.",
+          "translation": "Даромади имрӯз хуб.",
+          "literal": "оныл суиби чоаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "기름값은 회사가 내요?",
+          "translation": "Пули бензинро ширкат медиҳад?",
+          "literal": "кирымгапссын ҳвесага нэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "야간 수당 있어요?",
+          "translation": "Пули шабона ҳаст?",
+          "literal": "яган суданг иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "계좌로 받아요.",
+          "translation": "Ба ҳисоб мегирам.",
+          "literal": "кэҷваро падаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "이번 달 많이 일했어요.",
+          "translation": "Ин моҳ бисёр кор кардам.",
+          "literal": "ибон тал мани илҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Баҳои хуб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "손님 별점이 좋아요.",
+          "cueTranslation": "Баҳои мусофирон хуб аст.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "고맙습니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "이번 달에 많이 일했어요.",
+          "cueTranslation": "Ин моҳ бисёр кор кардед.",
+          "intent": "Бипурс: пули шабона ҳаст?",
+          "text": "야간 수당 있어요?",
+          "accepts": [
+            "야간 수당 나와요?"
+          ],
+          "translation": "Пули шабона ҳаст?",
+          "literal": "яган суданг иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 월급에 같이 나와요.",
+          "cueTranslation": "Ҳа, бо музд якҷоя мебарояд.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "네, 감사합니다.",
+          "accepts": [
+            "알겠어요."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "нэ камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳафтаи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "다음 주 근무표예요.",
+          "cueTranslation": "Ин ҷадвали ҳафтаи оянда.",
+          "intent": "Бипурс: рӯзи истироҳат кай?",
+          "text": "휴무가 언제예요?",
+          "accepts": [
+            "제 휴무는 언제예요?"
+          ],
+          "translation": "Рӯзи истироҳат кай?",
+          "literal": "ҳюмуга онҷээё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "화요일이요.",
+          "cueTranslation": "Сешанбе.",
+          "intent": "Бигӯ: бештар кор кардан мехоҳам",
+          "text": "더 일하고 싶어요.",
+          "accepts": [
+            "더 일할 수 있어요."
+          ],
+          "translation": "Бештар кор кардан мехоҳам.",
+          "literal": "то илҳаго шипхоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "그럼 토요일 야간 어때요?",
+          "cueTranslation": "Пас шаби шанбе чӣ?",
+          "intent": "Бигӯ: хуб, шабона маъқул",
+          "text": "좋아요, 야간이 좋아요.",
+          "accepts": [
+            "네, 좋아요."
+          ],
+          "translation": "Хуб, шабона маъқул.",
+          "literal": "чоаё ягани чоаё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "좋아요. 앱으로 보낼게요.",
+          "cueTranslation": "Хуб. Бо барнома мефиристам.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "네, 감사합니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

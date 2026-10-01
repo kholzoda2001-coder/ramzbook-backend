@@ -1,0 +1,562 @@
+{
+  "slug": "kitchen_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "First day in the kitchen",
+    "titleTranslated": "Рӯзи аввал дар ошхона",
+    "scenario": "Шумо дар ошхонаи тарабхона кор сар мекунед. Ошпаз кӯтоҳ фармон медиҳад: шӯед, буред, биёред. Шумо мефаҳмед, мепурсед ва мегӯед, ки кор тайёр аст.",
+    "emoji": "👨‍🍳",
+    "order": 3,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ошхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kitchen",
+          "translation": "ошхона",
+          "literal": "кичэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Chef",
+          "translation": "ошпаз",
+          "literal": "шеф",
+          "note": "Ба сардори ошхона «chef» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Knife",
+          "translation": "корд",
+          "literal": "найф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Plate",
+          "translation": "табақ",
+          "literal": "плейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Wash",
+          "translation": "шустан",
+          "literal": "вош",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Cut",
+          "translation": "буридан",
+          "literal": "кат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ошпаз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! You're the new guy?",
+          "cueTranslation": "Салом! Шумо навед?",
+          "intent": "Бигӯ: ҳа, ман навам",
+          "text": "Yes, I'm new.",
+          "accepts": [
+            "Yes.",
+            "Yes, I'm new here."
+          ],
+          "translation": "Ҳа, ман навам.",
+          "literal": "йес айм ню",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Wash these plates first.",
+          "cueTranslation": "Хуб. Аввал ин табақҳоро шӯед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, sure.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Then cut the onions.",
+          "cueTranslation": "Баъд пиёзро буред.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Got it.",
+          "accepts": [
+            "Okay.",
+            "Okay, got it."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "гот ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Табақ ва корд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wash plates",
+          "translation": "Табақ шӯед",
+          "literal": "вош плейтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Cut onions",
+          "translation": "Пиёз буред",
+          "literal": "кат анйэнз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Clean knife",
+          "translation": "Корди тоза",
+          "literal": "клин найф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hot oil",
+          "translation": "Равғани гарм",
+          "literal": "ҳот ойл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Big pot",
+          "translation": "Деги калон",
+          "literal": "биг пот",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Right away",
+          "translation": "Ҳозир",
+          "literal": "райт эвей",
+          "note": "Яъне «ҳамин ҳозир мекунам».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пиёз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Cut the onions, please.",
+          "cueTranslation": "Пиёзро буред, лутфан.",
+          "intent": "Бипурс: чандто?",
+          "text": "How many?",
+          "accepts": [
+            "How many onions?",
+            "How many, chef?"
+          ],
+          "translation": "Чандто?",
+          "literal": "ҳау менӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ten onions. Small pieces.",
+          "cueTranslation": "Даҳ пиёз. Майда.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Okay, right away.",
+          "accepts": [
+            "Right away.",
+            "Okay."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": "оукей райт эвей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Be careful. The knife is sharp.",
+          "cueTranslation": "Эҳтиёт шавед. Корд тез аст.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, I'll be careful."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Баъд чӣ?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where are the plates?",
+          "translation": "Табақҳо куҷоянд?",
+          "literal": "вэр ар ҙэ плейтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this okay?",
+          "translation": "Ҳамин хел хуб?",
+          "literal": "из ҙис оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "The onions are ready.",
+          "translation": "Пиёз тайёр аст.",
+          "literal": "ҙэ анйэнз ар редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "What's next, chef?",
+          "translation": "Баъд чӣ, ошпаз?",
+          "literal": "вотс некст шеф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a knife.",
+          "translation": "Ба ман корд лозим.",
+          "literal": "ай нид э найф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Where does it go?",
+          "translation": "Инро куҷо гузорам?",
+          "literal": "вэр даз ит гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Тайёр",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are the onions ready?",
+          "cueTranslation": "Пиёз тайёр аст?",
+          "intent": "Бигӯ: ҳа, пиёз тайёр аст",
+          "text": "Yes, the onions are ready.",
+          "accepts": [
+            "Yes, ready.",
+            "Yes, they're ready."
+          ],
+          "translation": "Ҳа, пиёз тайёр аст.",
+          "literal": "йес ҙэ анйэнз ар редӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Put them in the big pot.",
+          "cueTranslation": "Хуб. Ба деги калон андозед.",
+          "intent": "Бигӯ: хуб. Баъд чӣ?",
+          "text": "Okay. What's next?",
+          "accepts": [
+            "What's next, chef?",
+            "Okay. Next?"
+          ],
+          "translation": "Хуб. Баъд чӣ?",
+          "literal": "оукей вотс некст",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Now wash the knives.",
+          "cueTranslation": "Акнун кордҳоро шӯед.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Okay, right away.",
+          "accepts": [
+            "Right away.",
+            "Sure."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": "оукей райт эвей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тамом кардам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I washed the plates.",
+          "translation": "Ман табақҳоро шустам.",
+          "literal": "ай вошт ҙэ плейтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm done.",
+          "translation": "Ман тамом кардам.",
+          "literal": "айм дан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I rest?",
+          "translation": "Дам гирам?",
+          "literal": "кен ай рест",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's very hot here.",
+          "translation": "Ин ҷо хеле гарм аст.",
+          "literal": "итс верӣ ҳот ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the trash?",
+          "translation": "Партовдон куҷост?",
+          "literal": "вэр из ҙэ трэш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I don't understand.",
+          "translation": "Ман намефаҳмам.",
+          "literal": "ай доунт андэрстэнд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Партов",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Finished with the plates?",
+          "cueTranslation": "Табақҳо тамом шуд?",
+          "intent": "Бигӯ: ҳа, тамом кардам",
+          "text": "Yes, I'm done.",
+          "accepts": [
+            "Yes, done.",
+            "Yes, all done."
+          ],
+          "translation": "Ҳа, тамом кардам.",
+          "literal": "йес айм дан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Great. Take out the trash.",
+          "cueTranslation": "Олӣ. Партовро бароред.",
+          "intent": "Бипурс: партовдон куҷост?",
+          "text": "Where is the trash?",
+          "accepts": [
+            "Where's the trash?",
+            "The trash? Where?"
+          ],
+          "translation": "Партовдон куҷост?",
+          "literal": "вэр из ҙэ трэш",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Next to the door. Then rest ten minutes.",
+          "cueTranslation": "Назди дар. Баъд даҳ дақиқа дам гиред.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you, chef.",
+          "accepts": [
+            "Thanks!",
+            "Thank you."
+          ],
+          "translation": "Ташаккур, ошпаз.",
+          "literal": "ҫенк ю шеф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ошхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! You're new, right?",
+          "cueTranslation": "Салом! Шумо навед, ҳа?",
+          "intent": "Бигӯ: ҳа, ман навам",
+          "text": "Yes, I'm new.",
+          "accepts": [
+            "Yes.",
+            "Yes, I'm new here."
+          ],
+          "translation": "Ҳа, ман навам.",
+          "literal": "йес айм ню",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wash the plates, then cut ten onions.",
+          "cueTranslation": "Табақҳоро шӯед, баъд даҳ пиёз буред.",
+          "intent": "Бигӯ: фаҳмидам. Корд куҷост?",
+          "text": "Got it. Where is the knife?",
+          "accepts": [
+            "Okay. The knife?",
+            "Where is the knife?"
+          ],
+          "translation": "Фаҳмидам. Корд куҷост?",
+          "literal": "гот ит вэр из ҙэ найф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Here. Be careful, it's sharp.",
+          "cueTranslation": "Ана. Эҳтиёт шавед, тез аст.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, I'll be careful."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Are the onions ready?",
+          "cueTranslation": "Пиёз тайёр аст?",
+          "intent": "Бигӯ: ҳа. Баъд чӣ?",
+          "text": "Yes. What's next?",
+          "accepts": [
+            "Yes, ready. Next?",
+            "Yes. What's next, chef?"
+          ],
+          "translation": "Ҳа. Баъд чӣ?",
+          "literal": "йес вотс некст",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

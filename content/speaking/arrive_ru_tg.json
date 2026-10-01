@@ -1,0 +1,564 @@
+{
+  "slug": "arrive_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Приезд на учёбу",
+    "titleTranslated": "Омадан барои таҳсил",
+    "scenario": "Шумо барои таҳсил ба Русия омадед. Дар фурудгоҳ мегӯед, ки донишҷӯед ва дар кадом донишгоҳ мехонед, визаро нишон медиҳед ва бо такси ба ётоқ меравед.",
+    "emoji": "✈️",
+    "order": 2,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фурудгоҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Студент",
+          "translation": "донишҷӯ",
+          "literal": null,
+          "note": "Зарба: сту-ДЕНТ. Зан: «студентка».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Университет",
+          "translation": "донишгоҳ",
+          "literal": null,
+          "note": "Зарба: у-ни-вер-си-ТЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Виза",
+          "translation": "виза",
+          "literal": null,
+          "note": "Зарба: ВИ-за.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Учёба",
+          "translation": "таҳсил",
+          "literal": null,
+          "note": "Зарба: у-ЧЁ-ба.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Чемодан",
+          "translation": "ҷомадон",
+          "literal": null,
+          "note": "Зарба: че-мо-ДАН.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Общежитие",
+          "translation": "ётоқ (хобгоҳи донишҷӯӣ)",
+          "literal": null,
+          "note": "Зарба: об-ще-ЖИ-ти-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Назорати шиноснома",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Цель поездки?",
+          "cueTranslation": "Мақсади сафар?",
+          "intent": "Бигӯ: таҳсил",
+          "text": "Учёба.",
+          "accepts": [
+            "Я приехал учиться.",
+            "Я приехала учиться.",
+            "На учёбу."
+          ],
+          "translation": "Таҳсил.",
+          "literal": null,
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вы студент?",
+          "cueTranslation": "Шумо донишҷӯед?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Да.",
+          "accepts": [
+            "Да, студент.",
+            "Да, студентка."
+          ],
+          "translation": "Ҳа.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Что в чемодане?",
+          "cueTranslation": "Дар ҷомадон чӣ?",
+          "intent": "Бигӯ: либос",
+          "text": "Одежда.",
+          "accepts": [
+            "Моя одежда.",
+            "Только одежда."
+          ],
+          "translation": "Либос.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Виза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Учебная виза",
+          "translation": "Визаи таҳсил",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Один год",
+          "translation": "Як сол",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой университет?",
+          "translation": "Кадом донишгоҳ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Моя виза",
+          "translation": "Визаи ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "В общежитие",
+          "translation": "Ба ётоқ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Такси",
+          "translation": "такси",
+          "literal": null,
+          "note": "Зарба дар охир: так-СИ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Виза, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ваша виза, пожалуйста.",
+          "cueTranslation": "Визаатон, лутфан.",
+          "intent": "Бигӯ: ана визаи ман",
+          "text": "Вот моя виза.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Пожалуйста."
+          ],
+          "translation": "Ана визаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Учебная виза. На сколько?",
+          "cueTranslation": "Визаи таҳсил. Барои чанд вақт?",
+          "intent": "Бигӯ: як сол",
+          "text": "На один год.",
+          "accepts": [
+            "Один год.",
+            "На год."
+          ],
+          "translation": "Барои як сол.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Добро пожаловать!",
+          "cueTranslation": "Хуш омадед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Спасибо!"
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман донишҷӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я студент.",
+          "translation": "Ман донишҷӯ ҳастам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я студентка».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я приехал учиться.",
+          "translation": "Ман барои таҳсил омадам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я приехала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "own",
+          "text": "Я учусь в ___.",
+          "translation": "Ман дар ___ мехонам.",
+          "literal": null,
+          "note": "Номи донишгоҳи худро гӯед.",
+          "cue": "Где вы учитесь?",
+          "cueTranslation": "Шумо дар куҷо мехонед?",
+          "intent": "Номи донишгоҳро гӯед",
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Где выход?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужно такси.",
+          "translation": "Ба ман такси лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Это мой чемодан.",
+          "translation": "Ин ҷомадони ман.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мақсади омадан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте. Цель приезда?",
+          "cueTranslation": "Салом. Мақсади омадан?",
+          "intent": "Бигӯ: ман барои таҳсил омадам",
+          "text": "Я приехал учиться.",
+          "accepts": [
+            "Я приехала учиться.",
+            "Учёба."
+          ],
+          "translation": "Ман барои таҳсил омадам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Где будете учиться?",
+          "cueTranslation": "Дар куҷо мехонед?",
+          "intent": "Бигӯ: дар донишгоҳ",
+          "text": "В университете.",
+          "accepts": [
+            "Университет.",
+            "В государственном университете."
+          ],
+          "translation": "Дар донишгоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Добро пожаловать!",
+          "cueTranslation": "Хуб. Хуш омадед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо!",
+          "accepts": [
+            "Спасибо большое!",
+            "Спасибо."
+          ],
+          "translation": "Ташаккур!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Такси",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где такси?",
+          "translation": "Такси куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "В общежитие, пожалуйста.",
+          "translation": "Ба ётоқ, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько стоит?",
+          "translation": "Чанд пул?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой чемодан потерялся.",
+          "translation": "Ҷомадонам гум шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Помогите, пожалуйста.",
+          "translation": "Ёрӣ диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот адрес.",
+          "translation": "Ана суроға.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ба ётоқ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Такси? Куда?",
+          "cueTranslation": "Такси? Ба куҷо?",
+          "intent": "Бигӯ: ба ётоқ, лутфан",
+          "text": "В общежитие, пожалуйста.",
+          "accepts": [
+            "В общежитие.",
+            "Вот адрес, общежитие."
+          ],
+          "translation": "Ба ётоқ, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Садитесь.",
+          "cueTranslation": "Хуб. Шинед.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Сколько стоит?",
+          "accepts": [
+            "Сколько?",
+            "Сколько будет стоить?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Тысяча рублей.",
+          "cueTranslation": "Ҳазор рубл.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Хорошо.",
+            "Спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Паспорт, пожалуйста. Цель приезда?",
+          "cueTranslation": "Шиноснома, лутфан. Мақсади омадан?",
+          "intent": "Бигӯ: ман барои таҳсил омадам",
+          "text": "Я приехал учиться.",
+          "accepts": [
+            "Я приехала учиться.",
+            "Учёба."
+          ],
+          "translation": "Ман барои таҳсил омадам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой университет?",
+          "cueTranslation": "Кадом донишгоҳ?",
+          "intent": "Бигӯ: донишгоҳи давлатӣ",
+          "text": "Государственный университет.",
+          "accepts": [
+            "Госуниверситет.",
+            "Университет, государственный."
+          ],
+          "translation": "Донишгоҳи давлатӣ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "У вас учебная виза?",
+          "cueTranslation": "Шумо визаи таҳсил доред?",
+          "intent": "Бигӯ: ҳа, ана визаи ман",
+          "text": "Да, вот моя виза.",
+          "accepts": [
+            "Да, вот.",
+            "Да, есть."
+          ],
+          "translation": "Ҳа, ана визаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Всё в порядке. Добро пожаловать!",
+          "cueTranslation": "Ҳама дуруст. Хуш омадед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Большое спасибо!",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо большое."
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

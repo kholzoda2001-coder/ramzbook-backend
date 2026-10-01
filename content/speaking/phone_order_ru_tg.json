@@ -1,0 +1,563 @@
+{
+  "slug": "phone_order_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Заказ по телефону",
+    "titleTranslated": "Фармоиш бо телефон",
+    "scenario": "Мизоҷ ба кафе занг мезанад ва хӯрок фармоиш медиҳад. Шумо фармоишро менависед, мепурсед, ки худаш мегирад ё расонем, суроға ва телефонро мепурсед ва вақтро мегӯед.",
+    "emoji": "📞",
+    "order": 15,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Занг",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Пицца",
+          "translation": "пицца",
+          "literal": null,
+          "note": "Зарба: ПИЦ-ца.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Самовывоз",
+          "translation": "худатон гирифтан",
+          "literal": null,
+          "note": "Зарба: са-мо-ВЫ-воз. Мизоҷ худаш меояд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Доставка",
+          "translation": "расонидан",
+          "literal": null,
+          "note": "Зарба: до-СТАВ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Адрес",
+          "translation": "суроға",
+          "literal": null,
+          "note": "Зарба: ад-РЕС.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Номер",
+          "translation": "рақам",
+          "literal": null,
+          "note": "Зарба: НО-мер.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Минуты",
+          "translation": "дақиқаҳо",
+          "literal": null,
+          "note": "Зарба: ми-НУ-ты.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пиццаи калон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Можно заказать?",
+          "cueTranslation": "Салом! Фармоиш додан мумкин?",
+          "intent": "Бигӯ: ҳа, албатта. Чӣ мехоҳед?",
+          "text": "Да, конечно. Что желаете?",
+          "accepts": [
+            "Конечно. Что будете?",
+            "Да. Что вам?"
+          ],
+          "translation": "Ҳа, албатта. Чӣ мехоҳед?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Одну большую пиццу.",
+          "cueTranslation": "Як пиццаи калон.",
+          "intent": "Бипурс: худатон мегиред ё расонем?",
+          "text": "Самовывоз или доставка?",
+          "accepts": [
+            "Доставка или самовывоз?",
+            "Доставка?"
+          ],
+          "translation": "Худатон мегиред ё расонем?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Самовывоз.",
+          "cueTranslation": "Худам мегирам.",
+          "intent": "Бигӯ: пас аз бист дақиқа тайёр",
+          "text": "Будет готово через двадцать минут.",
+          "accepts": [
+            "Через двадцать минут.",
+            "Двадцать минут."
+          ],
+          "translation": "Пас аз бист дақиқа тайёр.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Суроғаатон?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Большая пицца",
+          "translation": "Пиццаи калон",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "С доставкой",
+          "translation": "Бо расонидан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваш адрес?",
+          "translation": "Суроғаатон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваш номер?",
+          "translation": "Рақаматон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Двадцать минут",
+          "translation": "Бист дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Тридцать минут",
+          "translation": "Сӣ дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Расонидан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "С доставкой, пожалуйста.",
+          "cueTranslation": "Бо расонидан, лутфан.",
+          "intent": "Бипурс: суроғаатон?",
+          "text": "Ваш адрес?",
+          "accepts": [
+            "Какой адрес?",
+            "Адрес, пожалуйста?"
+          ],
+          "translation": "Суроғаатон?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Улица Мира, дом двенадцать.",
+          "cueTranslation": "Кӯчаи Мира, хонаи дувоздаҳ.",
+          "intent": "Бипурс: рақаматон?",
+          "text": "Ваш номер?",
+          "accepts": [
+            "Ваш телефон?",
+            "Номер телефона?"
+          ],
+          "translation": "Рақаматон?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Восемь, девятьсот, один два три.",
+          "cueTranslation": "Ҳашт, нӯҳсад, як ду се.",
+          "intent": "Бигӯ: ташаккур. Сӣ дақиқа",
+          "text": "Спасибо. Тридцать минут.",
+          "accepts": [
+            "Спасибо. Минут тридцать.",
+            "Тридцать минут."
+          ],
+          "translation": "Ташаккур. Сӣ дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҳарф ба ҳарф",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Алло, пиццерия.",
+          "translation": "Алло, пиццерия.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Скажите по буквам.",
+          "translation": "Ҳарф ба ҳарф гӯед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Повторите, пожалуйста.",
+          "translation": "Такрор кунед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Оплата при получении.",
+          "translation": "Пардохт ҳангоми гирифтан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "С вас тысяча.",
+          "translation": "Аз шумо ҳазор.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Что будете пить?",
+          "translation": "Чӣ менӯшед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Насаб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Моя фамилия Смирнов.",
+          "cueTranslation": "Насаби ман Смирнов.",
+          "intent": "Бигӯ: ҳарф ба ҳарф гӯед",
+          "text": "Скажите по буквам.",
+          "accepts": [
+            "По буквам, пожалуйста.",
+            "Как пишется?"
+          ],
+          "translation": "Ҳарф ба ҳарф гӯед.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "С, М, И, Р, Н, О, В.",
+          "cueTranslation": "С, М, И, Р, Н, О, В.",
+          "intent": "Бигӯ: ташаккур. Чӣ менӯшед?",
+          "text": "Спасибо. Что будете пить?",
+          "accepts": [
+            "Что будете пить?",
+            "Спасибо. Напиток?"
+          ],
+          "translation": "Ташаккур. Чӣ менӯшед?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Две колы.",
+          "cueTranslation": "Ду кола.",
+          "intent": "Бигӯ: аз шумо ҳазор. Пардохт ҳангоми гирифтан",
+          "text": "С вас тысяча. Оплата при получении.",
+          "accepts": [
+            "Тысяча рублей.",
+            "С вас тысяча."
+          ],
+          "translation": "Аз шумо ҳазор. Пардохт ҳангоми гирифтан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Баста ҳастем",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Извините, мы закрыты.",
+          "translation": "Бубахшед, мо баста ҳастем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мы открываемся в десять.",
+          "translation": "Соати даҳ мекушоем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваш заказ готов.",
+          "translation": "Фармоишатон тайёр.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Перезвоните, пожалуйста.",
+          "translation": "Боз занг занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Одна большая пицца?",
+          "translation": "Як пиццаи калон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ждём вас!",
+          "translation": "Интизори шумоем!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай мекушоед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло? Можно заказать сейчас?",
+          "cueTranslation": "Алло? Ҳозир фармоиш мешавад?",
+          "intent": "Бигӯ: бубахшед, мо баста ҳастем",
+          "text": "Извините, мы закрыты.",
+          "accepts": [
+            "Извините, уже закрыто.",
+            "Мы закрыты, извините."
+          ],
+          "translation": "Бубахшед, мо баста ҳастем.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой. А когда открываетесь?",
+          "cueTranslation": "Вой. Кай мекушоед?",
+          "intent": "Бигӯ: соати даҳ мекушоем",
+          "text": "Мы открываемся в десять.",
+          "accepts": [
+            "В десять.",
+            "В десять часов."
+          ],
+          "translation": "Соати даҳ мекушоем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, позвоню завтра.",
+          "cueTranslation": "Хуб, фардо занг мезанам.",
+          "intent": "Бигӯ: ташаккур. Хайр",
+          "text": "Спасибо. До свидания!",
+          "accepts": [
+            "До свидания!",
+            "Спасибо, ждём!"
+          ],
+          "translation": "Ташаккур. Хайр!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фармоиш бо телефон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло? Это пиццерия?",
+          "cueTranslation": "Алло? Ин пиццерия?",
+          "intent": "Бигӯ: ҳа. Чӣ ёрӣ диҳам?",
+          "text": "Да. Чем могу помочь?",
+          "accepts": [
+            "Да, слушаю вас.",
+            "Да, здравствуйте!"
+          ],
+          "translation": "Ҳа. Чӣ ёрӣ диҳам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Одну большую пиццу, с доставкой.",
+          "cueTranslation": "Як пиццаи калон, бо расонидан.",
+          "intent": "Бипурс: суроғаатон?",
+          "text": "Ваш адрес?",
+          "accepts": [
+            "Какой адрес?",
+            "Адрес, пожалуйста?"
+          ],
+          "translation": "Суроғаатон?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Улица Мира, дом двенадцать.",
+          "cueTranslation": "Кӯчаи Мира, хонаи дувоздаҳ.",
+          "intent": "Бипурс: чӣ менӯшед?",
+          "text": "Что будете пить?",
+          "accepts": [
+            "Напитки нужны?",
+            "Что-нибудь пить?"
+          ],
+          "translation": "Чӣ менӯшед?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ничего, спасибо. Сколько ждать?",
+          "cueTranslation": "Ҳеҷ чиз, ташаккур. Чанд интизор шавам?",
+          "intent": "Бигӯ: сӣ дақиқа",
+          "text": "Тридцать минут.",
+          "accepts": [
+            "Минут тридцать.",
+            "Примерно тридцать минут."
+          ],
+          "translation": "Сӣ дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

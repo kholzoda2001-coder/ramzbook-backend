@@ -1,0 +1,562 @@
+{
+  "slug": "exams_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Задания и экзамены",
+    "titleTranslated": "Вазифа ва имтиҳон",
+    "scenario": "Имтиҳон наздик аст: бо ҳамкурс тайёрӣ мебинед, дар имтиҳон билет мегиред ва вақтро мепурсед, баҳоро мефаҳмед ва агар нагузаред, мепурсед, ки кай аз нав супоред.",
+    "emoji": "📝",
+    "order": 12,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Имтиҳон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Экзамен",
+          "translation": "имтиҳон",
+          "literal": null,
+          "note": "Зарба: эк-ЗА-мен.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Зачёт",
+          "translation": "санҷиш (зачёт)",
+          "literal": null,
+          "note": "Зарба: за-ЧЁТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Оценка",
+          "translation": "баҳо",
+          "literal": null,
+          "note": "Зарба: о-ЦЕН-ка. Дар Русия баҳо аз 2 то 5.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Сдать",
+          "translation": "супоридан",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ручка",
+          "translation": "қалам",
+          "literal": null,
+          "note": "Зарба: РУЧ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Билет",
+          "translation": "билет (саволҳои имтиҳон)",
+          "literal": null,
+          "note": "Зарба: би-ЛЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Тайёрӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Когда экзамен?",
+          "cueTranslation": "Имтиҳон кай?",
+          "intent": "Бигӯ: душанбе",
+          "text": "В понедельник.",
+          "accepts": [
+            "В понедельник утром.",
+            "Понедельник."
+          ],
+          "translation": "Душанбе.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ты готов?",
+          "cueTranslation": "Тайёрӣ?",
+          "intent": "Бигӯ: ҳанӯз не",
+          "text": "Ещё нет.",
+          "accepts": [
+            "Нет ещё.",
+            "Не готова ещё."
+          ],
+          "translation": "Ҳанӯз не.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Давай повторим вместе.",
+          "cueTranslation": "Биё якҷоя такрор кунем.",
+          "intent": "Бигӯ: фикри хуб",
+          "text": "Хорошая идея.",
+          "accepts": [
+            "Давай!",
+            "Отлично, давай."
+          ],
+          "translation": "Фикри хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Баҳои хуб",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Устный экзамен",
+          "translation": "Имтиҳони шифоҳӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Письменный экзамен",
+          "translation": "Имтиҳони хаттӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошая оценка",
+          "translation": "Баҳои хуб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я сдал",
+          "translation": "Супоридам",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я сдала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Удачи тебе",
+          "translation": "Барори кор ба ту",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Моя ручка",
+          "translation": "Қалами ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Билетро гиред",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Возьмите билет.",
+          "cueTranslation": "Билетро гиред.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, беру."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Можете начинать.",
+          "cueTranslation": "Сар кардан мумкин.",
+          "intent": "Бипурс: чанд вақт?",
+          "text": "Сколько времени?",
+          "accepts": [
+            "Сколько у нас времени?",
+            "Сколько минут?"
+          ],
+          "translation": "Чанд вақт?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сорок минут.",
+          "cueTranslation": "Чил дақиқа.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Понятно.",
+          "accepts": [
+            "Понял.",
+            "Поняла."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Супоридам!",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я не готов.",
+          "translation": "Ман тайёр нестам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я не готова».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно ручку?",
+          "translation": "Қалам мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько времени?",
+          "translation": "Чанд вақт?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это трудно.",
+          "translation": "Ин душвор.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я сдал экзамен!",
+          "translation": "Имтиҳонро супоридам!",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я сдала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Какая оценка?",
+          "translation": "Баҳо чанд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Баҳо чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ну что, как экзамен?",
+          "cueTranslation": "Хуб, имтиҳон чӣ шуд?",
+          "intent": "Бигӯ: имтиҳонро супоридам!",
+          "text": "Я сдал экзамен!",
+          "accepts": [
+            "Я сдала!",
+            "Сдал!"
+          ],
+          "translation": "Имтиҳонро супоридам!",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Поздравляю! Какая оценка?",
+          "cueTranslation": "Табрик! Баҳо чанд?",
+          "intent": "Бигӯ: чор",
+          "text": "Четыре.",
+          "accepts": [
+            "Четвёрка.",
+            "У меня четыре."
+          ],
+          "translation": "Чор.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Молодец!",
+          "cueTranslation": "Офарин!",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо большое."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Аз нав супоридан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я забыл ручку.",
+          "translation": "Қаламамро фаромӯш кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я забыла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно выйти?",
+          "translation": "Берун равам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я закончил.",
+          "translation": "Тамом кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я закончила».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно пересдать?",
+          "translation": "Аз нав супорам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда пересдача?",
+          "translation": "Аз нав супоридан кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я буду стараться.",
+          "translation": "Кӯшиш мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кӯшиш мекунам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "К сожалению, это двойка.",
+          "cueTranslation": "Афсӯс, баҳо ду.",
+          "intent": "Бипурс: аз нав супорам?",
+          "text": "Можно пересдать?",
+          "accepts": [
+            "Можно пересдать экзамен?",
+            "Пересдать можно?"
+          ],
+          "translation": "Аз нав супорам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, можно.",
+          "cueTranslation": "Ҳа, мумкин.",
+          "intent": "Бипурс: кай?",
+          "text": "Когда пересдача?",
+          "accepts": [
+            "Когда?",
+            "Когда можно пересдать?"
+          ],
+          "translation": "Аз нав супоридан кай?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Через неделю. Готовьтесь.",
+          "cueTranslation": "Пас аз як ҳафта. Тайёрӣ бинед.",
+          "intent": "Бигӯ: ташаккур. Кӯшиш мекунам",
+          "text": "Спасибо. Я буду стараться.",
+          "accepts": [
+            "Спасибо, буду стараться.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур. Кӯшиш мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: имтиҳон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте. Возьмите билет.",
+          "cueTranslation": "Салом. Билетро гиред.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Беру."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Можете начинать.",
+          "cueTranslation": "Сар кардан мумкин.",
+          "intent": "Бипурс: чанд вақт?",
+          "text": "Сколько времени?",
+          "accepts": [
+            "Сколько у нас времени?",
+            "Сколько минут?"
+          ],
+          "translation": "Чанд вақт?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сорок минут. Ручка есть?",
+          "cueTranslation": "Чил дақиқа. Қалам доред?",
+          "intent": "Бигӯ: не. Қалам мешавад?",
+          "text": "Нет. Можно ручку?",
+          "accepts": [
+            "Можно ручку?",
+            "Нет, дайте ручку, пожалуйста."
+          ],
+          "translation": "Не. Қалам мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот. Удачи!",
+          "cueTranslation": "Ана. Барори кор!",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо!",
+          "accepts": [
+            "Спасибо большое!",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккур!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

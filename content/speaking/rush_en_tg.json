@@ -1,0 +1,562 @@
+{
+  "slug": "rush_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "A busy day",
+    "titleTranslated": "Рӯзи серкор",
+    "scenario": "Мизоҷон бисёранд ва ҳама шитоб доранд. Шумо мегӯед «як дақиқа», аз ҳамкор ёрӣ мепурсед, мегӯед, ки чизе тамом шуд ва навбатро ором идора мекунед.",
+    "emoji": "⏱️",
+    "order": 19,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Серкор",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Busy",
+          "translation": "серкор",
+          "literal": "бизӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Line",
+          "translation": "навбат",
+          "literal": "лайн",
+          "note": "Одамоне, ки пай дар пай меистанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Coworker",
+          "translation": "ҳамкор",
+          "literal": "коувёркэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Wait",
+          "translation": "интизор шудан",
+          "literal": "вейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Quick",
+          "translation": "зуд",
+          "literal": "квик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Customer",
+          "translation": "мизоҷ",
+          "literal": "кастэмэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо навбатӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me! I'm waiting!",
+          "cueTranslation": "Бубахшед! Ман интизорам!",
+          "intent": "Бигӯ: як дақиқа, лутфан",
+          "text": "One minute, please.",
+          "accepts": [
+            "Just a minute.",
+            "One moment, please."
+          ],
+          "translation": "Як дақиқа, лутфан.",
+          "literal": "ван минит плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "How long?",
+          "cueTranslation": "Чанд вақт?",
+          "intent": "Бигӯ: шумо навбатӣ",
+          "text": "You're next.",
+          "accepts": [
+            "You are next.",
+            "You're next, sorry."
+          ],
+          "translation": "Шумо навбатӣ.",
+          "literal": "юр некст",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, thanks.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: ташаккур барои интизорӣ",
+          "text": "Thanks for waiting.",
+          "accepts": [
+            "Thank you for waiting.",
+            "Sorry for the wait."
+          ],
+          "translation": "Ташаккур барои интизорӣ.",
+          "literal": "ҫенкс фор вейтинг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Навбати дароз",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Very busy",
+          "translation": "Хеле серкор",
+          "literal": "верӣ бизӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Long line",
+          "translation": "Навбати дароз",
+          "literal": "лонг лайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "You're next",
+          "translation": "Шумо навбатӣ",
+          "literal": "юр некст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Help me",
+          "translation": "Ёрӣ диҳед",
+          "literal": "ҳелп мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Two minutes",
+          "translation": "Ду дақиқа",
+          "literal": "ту минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sold out",
+          "translation": "Тамом шуд",
+          "literal": "соулд аут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳамкор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hey, are you okay?",
+          "cueTranslation": "Эй, хубӣ?",
+          "intent": "Бигӯ: хеле серкор. Ёрӣ диҳед, лутфан",
+          "text": "Very busy. Help me, please.",
+          "accepts": [
+            "Help me, please.",
+            "It's busy. Can you help?"
+          ],
+          "translation": "Хеле серкор. Ёрӣ диҳед, лутфан.",
+          "literal": "верӣ бизӣ ҳелп мӣ плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sure. What can I do?",
+          "cueTranslation": "Албатта. Чӣ кор кунам?",
+          "intent": "Бигӯ: мизоҷи навбатиро гиред",
+          "text": "Take the next customer.",
+          "accepts": [
+            "Help the next customer.",
+            "Take the next one."
+          ],
+          "translation": "Мизоҷи навбатиро гиред.",
+          "literal": "тейк ҙэ некст кастэмэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, no problem.",
+          "cueTranslation": "Хуб, мушкил нест.",
+          "intent": "Бигӯ: ташаккур!",
+          "text": "Thank you!",
+          "accepts": [
+            "Thanks a lot!",
+            "Thank you so much!"
+          ],
+          "translation": "Ташаккур!",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Тез мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Next customer, please!",
+          "translation": "Мизоҷи навбатӣ, лутфан!",
+          "literal": "некст кастэмэр плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "No more milk.",
+          "translation": "Шир тамом шуд.",
+          "literal": "ноу мор милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Today is busy.",
+          "translation": "Имрӯз серкор аст.",
+          "literal": "тудей из бизӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll be quick.",
+          "translation": "Зуд мекунам.",
+          "literal": "айл бӣ квик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Please wait a minute.",
+          "translation": "Лутфан, як дақиқа сабр кунед.",
+          "literal": "плиз вейт э минит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm coming.",
+          "translation": "Ҳозир меоям.",
+          "literal": "айм каминг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Шир тамом",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "A latte, please.",
+          "cueTranslation": "Як латте, лутфан.",
+          "intent": "Бигӯ: бубахшед, шир тамом шуд",
+          "text": "Sorry, no more milk.",
+          "accepts": [
+            "Sorry, we're out of milk.",
+            "No milk, sorry."
+          ],
+          "translation": "Бубахшед, шир тамом шуд.",
+          "literal": "сорӣ ноу мор милк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh no. What do you have?",
+          "cueTranslation": "Вой. Чӣ доред?",
+          "intent": "Бигӯ: чой ё қаҳваи сиёҳ",
+          "text": "Tea or black coffee.",
+          "accepts": [
+            "Black coffee or tea.",
+            "We have tea."
+          ],
+          "translation": "Чой ё қаҳваи сиёҳ.",
+          "literal": "тӣ ор блэк кофӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Black coffee, then.",
+          "cueTranslation": "Пас қаҳваи сиёҳ.",
+          "intent": "Бигӯ: хуб, зуд мекунам",
+          "text": "Okay, I'll be quick.",
+          "accepts": [
+            "Okay, one minute.",
+            "Coming right up."
+          ],
+          "translation": "Хуб, зуд мекунам.",
+          "literal": "оукей айл бӣ квик",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Сабр кунед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Sorry, my mistake.",
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "сорӣ май мистейк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "This is correct.",
+          "translation": "Ин дуруст аст.",
+          "literal": "ҙис из кэрект",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm new here.",
+          "translation": "Ман ин ҷо навам.",
+          "literal": "айм ню ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Please be patient.",
+          "translation": "Лутфан, сабр кунед.",
+          "literal": "плиз бӣ пейшэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Almost done!",
+          "translation": "Қариб тамом!",
+          "literal": "олмоуст дан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "We're very busy.",
+          "translation": "Мо хеле серкорем.",
+          "literal": "вир верӣ бизӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Хатои ман",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "This is taking so long!",
+          "cueTranslation": "Ин хеле дароз шуд!",
+          "intent": "Бигӯ: бубахшед, мо хеле серкорем",
+          "text": "Sorry, we're very busy.",
+          "accepts": [
+            "Sorry, it's busy today.",
+            "We're very busy, sorry."
+          ],
+          "translation": "Бубахшед, мо хеле серкорем.",
+          "literal": "сорӣ вир верӣ бизӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "I have a meeting!",
+          "cueTranslation": "Ман ҷаласа дорам!",
+          "intent": "Бигӯ: лутфан, сабр кунед. Қариб тамом",
+          "text": "Please be patient. Almost done!",
+          "accepts": [
+            "Almost done!",
+            "Please wait. Almost ready."
+          ],
+          "translation": "Лутфан, сабр кунед. Қариб тамом!",
+          "literal": "плиз бӣ пейшэнт олмоуст дан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hmm, this is not mine.",
+          "cueTranslation": "Ҳмм, ин аз ман нест.",
+          "intent": "Бигӯ: бубахшед, хатои ман",
+          "text": "Sorry, my mistake.",
+          "accepts": [
+            "Sorry! My mistake.",
+            "Oh, sorry."
+          ],
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "сорӣ май мистейк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи серкор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me! We are waiting!",
+          "cueTranslation": "Бубахшед! Мо интизорем!",
+          "intent": "Бигӯ: як дақиқа. Шумо навбатӣ",
+          "text": "One minute. You're next.",
+          "accepts": [
+            "You're next.",
+            "One minute, please."
+          ],
+          "translation": "Як дақиқа. Шумо навбатӣ.",
+          "literal": "ван минит юр некст",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Two lattes, please.",
+          "cueTranslation": "Ду латте, лутфан.",
+          "intent": "Бигӯ: бубахшед, шир тамом шуд",
+          "text": "Sorry, no more milk.",
+          "accepts": [
+            "Sorry, we're out of milk.",
+            "No milk, sorry."
+          ],
+          "translation": "Бубахшед, шир тамом шуд.",
+          "literal": "сорӣ ноу мор милк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Then two black coffees.",
+          "cueTranslation": "Пас ду қаҳваи сиёҳ.",
+          "intent": "Бигӯ: хуб, зуд мекунам",
+          "text": "Okay, I'll be quick.",
+          "accepts": [
+            "Okay, one minute.",
+            "Coming right up."
+          ],
+          "translation": "Хуб, зуд мекунам.",
+          "literal": "оукей айл бӣ квик",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you. Busy day, huh?",
+          "cueTranslation": "Ташаккур. Рӯзи серкор, ҳа?",
+          "intent": "Бигӯ: ҳа. Ташаккур барои интизорӣ",
+          "text": "Yes. Thanks for waiting.",
+          "accepts": [
+            "Thanks for waiting.",
+            "Yes! Thank you for waiting."
+          ],
+          "translation": "Ҳа. Ташаккур барои интизорӣ.",
+          "literal": "йес ҫенкс фор вейтинг",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

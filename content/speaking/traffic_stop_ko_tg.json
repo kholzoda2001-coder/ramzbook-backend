@@ -1,0 +1,548 @@
+{
+  "slug": "traffic_stop_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "경찰 단속",
+    "titleTranslated": "Полиси роҳ",
+    "scenario": "Полиси роҳ мошинро нигоҳ медорад. Шумо ором ҳастед, шаҳодатнома ва корти хориҷиро медиҳед, кӯтоҳ ҷавоб медиҳед ва агар нафаҳмед — хоҳиш мекунед, ки оҳиста гӯяд.",
+    "emoji": "👮",
+    "order": 17,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳои ронанда",
+      "items": [
+        {
+          "kind": "word",
+          "text": "경찰",
+          "translation": "полис",
+          "literal": "кёнгчхал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "면허증",
+          "translation": "шаҳодатнома",
+          "literal": "мёнҳоҷынг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "보험",
+          "translation": "суғурта",
+          "literal": "поҳом",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "속도",
+          "translation": "суръат",
+          "literal": "соктто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "벌금",
+          "translation": "ҷарима",
+          "literal": "полгым",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "천천히",
+          "translation": "оҳиста",
+          "literal": "чхончхонҳи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요, 면허증 보여 주세요.",
+          "cueTranslation": "Салом, шаҳодатномаро нишон диҳед.",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "네, 여기 있어요.",
+          "accepts": [
+            "여기요."
+          ],
+          "translation": "Ҳа, мана.",
+          "literal": "нэ ёги иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "외국인등록증도요.",
+          "cueTranslation": "Корти хориҷӣ ҳам.",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "네, 여기요.",
+          "accepts": [
+            "여기 있어요."
+          ],
+          "translation": "Ҳа, мана.",
+          "literal": "нэ ёгиё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "차는 누구 거예요?",
+          "cueTranslation": "Мошин аз кист?",
+          "intent": "Бигӯ: мошини ширкат",
+          "text": "회사 차예요.",
+          "accepts": [
+            "회사 거예요."
+          ],
+          "translation": "Мошини ширкат.",
+          "literal": "ҳвеса чхаэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Хеле тез",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "너무 빨라요",
+          "translation": "Хеле тез",
+          "literal": "ному ппаллаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "몰랐어요",
+          "translation": "Намедонистам",
+          "literal": "моллассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "죄송합니다",
+          "translation": "Бубахшед",
+          "literal": "чвесонгҳамнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 한번",
+          "translation": "Боз як бор",
+          "literal": "таши ҳанбон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "면허증 여기요",
+          "translation": "Шаҳодатнома, мана",
+          "literal": "мёнҳоҷынг ёгиё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "이해했어요",
+          "translation": "Фаҳмидам",
+          "literal": "иҳэҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суръат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "너무 빨랐어요.",
+          "cueTranslation": "Хеле тез рондед.",
+          "intent": "Бигӯ: бубахшед, намедонистам",
+          "text": "죄송합니다, 몰랐어요.",
+          "accepts": [
+            "죄송합니다."
+          ],
+          "translation": "Бубахшед, намедонистам.",
+          "literal": "чвесонгҳамнида моллассоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "여기는 육십 킬로예요.",
+          "cueTranslation": "Ин ҷо шаст километр.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "네, 알겠습니다.",
+          "accepts": [
+            "이해했어요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "нэ алгэтссымнида",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "팔십 킬로로 달렸어요.",
+          "cueTranslation": "Ҳаштод километр рондед.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "죄송합니다.",
+          "accepts": [
+            "정말 죄송합니다."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "чвесонгҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Оҳиста, лутфан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "천천히 말씀해 주세요.",
+          "translation": "Оҳиста гӯед, лутфан.",
+          "literal": "чхончхонҳи малссымҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "한국말 잘 못해요.",
+          "translation": "Кореягиро хуб намедонам.",
+          "literal": "ҳангунгмал чал мотхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 한번 말해 주세요.",
+          "translation": "Боз як бор гӯед.",
+          "literal": "таши ҳанбон малҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "무슨 뜻이에요?",
+          "translation": "Маънояш чист?",
+          "literal": "мусын ттышиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "벌금이 얼마예요?",
+          "translation": "Ҷарима чанд аст?",
+          "literal": "полгыми олмаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "어디서 내요?",
+          "translation": "Куҷо пардохт мекунам?",
+          "literal": "одисо нэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суғуртаи кӯҳна",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "보험 기간이 지났어요.",
+          "cueTranslation": "Мӯҳлати суғурта гузаштааст.",
+          "intent": "Бигӯ: бубахшед, оҳиста гӯед",
+          "text": "죄송해요, 천천히 말씀해 주세요.",
+          "accepts": [
+            "천천히 말씀해 주세요."
+          ],
+          "translation": "Бубахшед, оҳиста гӯед.",
+          "literal": "чвесонгҳэё чхончхонҳи малссымҳэ чусэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "보험이 끝났어요.",
+          "cueTranslation": "Суғурта тамом шуд.",
+          "intent": "Бигӯ: мошини ширкат аст",
+          "text": "회사 차예요.",
+          "accepts": [
+            "이거 회사 차예요."
+          ],
+          "translation": "Мошини ширкат аст.",
+          "literal": "ҳвеса чхаэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "회사에 연락하세요.",
+          "cueTranslation": "Ба ширкат хабар диҳед.",
+          "intent": "Бигӯ: хуб, ҳозир занг мезанам",
+          "text": "네, 지금 전화할게요.",
+          "accepts": [
+            "네, 전화할게요."
+          ],
+          "translation": "Хуб, ҳозир занг мезанам.",
+          "literal": "нэ чигым чонҳваҳалгэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Эҳтиёттар мешавам",
+      "items": [
+        {
+          "kind": "word",
+          "text": "조심할게요.",
+          "translation": "Эҳтиёт мешавам.",
+          "literal": "чошимҳалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "다음부터 천천히 갈게요.",
+          "translation": "Минбаъд оҳиста меравам.",
+          "literal": "таымбутхо чхончхонҳи калгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "처음이에요.",
+          "translation": "Бори аввал аст.",
+          "literal": "чхоымиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "벌금 낼게요.",
+          "translation": "Ҷаримаро месупорам.",
+          "literal": "полгым нэлгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "이해했습니다.",
+          "translation": "Фаҳмидам.",
+          "literal": "иҳэҳэтссымнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "감사합니다, 조심히 갈게요.",
+          "translation": "Ташаккур, эҳтиёткорона меравам.",
+          "literal": "камсаҳамнида чошимҳи калгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Танҳо огоҳӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "이번에는 경고예요.",
+          "cueTranslation": "Ин дафъа огоҳӣ.",
+          "intent": "Бигӯ: ташаккур, эҳтиёт мешавам",
+          "text": "감사합니다, 조심할게요.",
+          "accepts": [
+            "조심할게요."
+          ],
+          "translation": "Ташаккур, эҳтиёт мешавам.",
+          "literal": "камсаҳамнида чошимҳалгэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "처음이에요?",
+          "cueTranslation": "Бори аввал?",
+          "intent": "Бигӯ: ҳа, бори аввал",
+          "text": "네, 처음이에요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, бори аввал.",
+          "literal": "нэ чхоымиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "천천히 가세요.",
+          "cueTranslation": "Оҳиста равед.",
+          "intent": "Бигӯ: хуб, хайр",
+          "text": "네, 안녕히 계세요.",
+          "accepts": [
+            "감사합니다.",
+            "네, 알겠습니다."
+          ],
+          "translation": "Хуб, хайр.",
+          "literal": "нэ аннёнгҳи кэсэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: полиси роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "차 세우세요. 면허증 주세요.",
+          "cueTranslation": "Мошинро нигоҳ доред. Шаҳодатномаро диҳед.",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "네, 여기 있어요.",
+          "accepts": [
+            "여기요."
+          ],
+          "translation": "Ҳа, мана.",
+          "literal": "нэ ёги иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "왜 이렇게 빨리 갔어요?",
+          "cueTranslation": "Чаро ин қадар тез рафтед?",
+          "intent": "Бигӯ: бубахшед, намедонистам",
+          "text": "죄송합니다, 몰랐어요.",
+          "accepts": [
+            "죄송합니다."
+          ],
+          "translation": "Бубахшед, намедонистам.",
+          "literal": "чвесонгҳамнида моллассоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "여기는 학교 앞이에요. 삼십 킬로예요.",
+          "cueTranslation": "Ин ҷо пеши мактаб. Сӣ километр.",
+          "intent": "Бигӯ: оҳиста гӯед, лутфан",
+          "text": "천천히 말씀해 주세요.",
+          "accepts": [
+            "다시 한번 말해 주세요."
+          ],
+          "translation": "Оҳиста гӯед, лутфан.",
+          "literal": "чхончхонҳи малссымҳэ чусэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "학교 앞, 삼십 킬로. 경고예요.",
+          "cueTranslation": "Пеши мактаб, сӣ километр. Огоҳӣ.",
+          "intent": "Бигӯ: ташаккур, эҳтиёт мешавам",
+          "text": "감사합니다, 조심할게요.",
+          "accepts": [
+            "조심할게요."
+          ],
+          "translation": "Ташаккур, эҳтиёт мешавам.",
+          "literal": "камсаҳамнида чошимҳалгэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

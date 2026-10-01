@@ -1,0 +1,562 @@
+{
+  "slug": "phone_plan_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Связь и интернет",
+    "titleTranslated": "Телефон ва интернет",
+    "scenario": "Шумо сим-корт мехаред, тарифро интихоб мекунед, ба ҳисоб пул меандозед ва агар телефон ё интернет кор накунад, ёрӣ мепурсед.",
+    "emoji": "📶",
+    "order": 9,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Алоқа",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Телефон",
+          "translation": "телефон",
+          "literal": null,
+          "note": "Зарба: те-ле-ФОН.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Интернет",
+          "translation": "интернет",
+          "literal": null,
+          "note": "Зарба: ин-тер-НЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Тариф",
+          "translation": "тариф",
+          "literal": null,
+          "note": "Зарба: та-РИФ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Симка",
+          "translation": "сим-корт",
+          "literal": null,
+          "note": "Зарба: СИМ-ка. Аслан «сим-карта».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Зарядка",
+          "translation": "заряднок",
+          "literal": null,
+          "note": "Зарба: за-РЯД-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Баланс",
+          "translation": "ҳисоби телефон",
+          "literal": null,
+          "note": "Зарба: ба-ЛАНС.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Сим-корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ба ман сим-корт лозим",
+          "text": "Мне нужна симка.",
+          "accepts": [
+            "Сим-карту, пожалуйста.",
+            "Нужна сим-карта."
+          ],
+          "translation": "Ба ман сим-корт лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Какой тариф?",
+          "cueTranslation": "Хуб. Кадом тариф?",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Сколько стоит?",
+          "accepts": [
+            "Сколько?",
+            "А сколько стоит?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Пятьсот рублей в месяц.",
+          "cueTranslation": "Моҳе панҷсад рубл.",
+          "intent": "Бигӯ: хуб, мегирам",
+          "text": "Хорошо, беру.",
+          "accepts": [
+            "Беру.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, мегирам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Тарифи моҳона",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Новая симка",
+          "translation": "Сим-корти нав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Месячный тариф",
+          "translation": "Тарифи моҳона",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Больше интернета",
+          "translation": "Интернети бештар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Нет связи",
+          "translation": "Алоқа нест",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужна зарядка",
+          "translation": "Заряднок лозим",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Мало зарядки",
+          "translation": "Заряд кам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Интернети бештар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здесь двадцать гигабайт.",
+          "cueTranslation": "Ин ҷо бист гигабайт.",
+          "intent": "Бипурс: интернети бештар ҳаст?",
+          "text": "Есть больше интернета?",
+          "accepts": [
+            "Больше интернета есть?",
+            "А больше есть?"
+          ],
+          "translation": "Интернети бештар ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, безлимит за восемьсот.",
+          "cueTranslation": "Ҳа, беҳадд барои ҳаштсад.",
+          "intent": "Бигӯ: хуб, онро мегирам",
+          "text": "Хорошо, беру его.",
+          "accepts": [
+            "Беру.",
+            "Хорошо, этот."
+          ],
+          "translation": "Хуб, онро мегирам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ваш паспорт, пожалуйста.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот паспорт."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Алоқа нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Телефон не работает.",
+          "translation": "Телефон кор намекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Нет связи.",
+          "translation": "Алоқа нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Интернет медленный.",
+          "translation": "Интернет суст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Не могу позвонить.",
+          "translation": "Занг зада наметавонам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Телефон разрядился.",
+          "translation": "Заряди телефон тамом шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно здесь зарядить?",
+          "translation": "Ин ҷо заряд кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҳоло кор мекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что случилось?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: алоқа нест",
+          "text": "Нет связи.",
+          "accepts": [
+            "Связи нет.",
+            "Телефон не ловит."
+          ],
+          "translation": "Алоқа нест.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Перезагрузите телефон.",
+          "cueTranslation": "Телефонро хомӯш карда, боз фаъол кунед.",
+          "intent": "Бигӯ: хуб, як дақиқа",
+          "text": "Хорошо, минуту.",
+          "accepts": [
+            "Хорошо.",
+            "Сейчас."
+          ],
+          "translation": "Хуб, як дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Теперь работает?",
+          "cueTranslation": "Ҳоло кор мекунад?",
+          "intent": "Бигӯ: ҳа, ҳоло кор мекунад",
+          "text": "Да, теперь работает.",
+          "accepts": [
+            "Да, спасибо!",
+            "Работает, спасибо."
+          ],
+          "translation": "Ҳа, ҳоло кор мекунад.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пул андохтан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Пополните баланс, пожалуйста.",
+          "translation": "Ба ҳисоб пул андозед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "На пятьсот рублей.",
+          "translation": "Ба панҷсад рубл.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой у меня номер?",
+          "translation": "Рақами ман чанд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Позвоните мне, пожалуйста.",
+          "translation": "Ба ман занг занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Напишите мне.",
+          "translation": "Ба ман нависед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужна зарядка.",
+          "translation": "Ба ман заряднок лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Панҷсад рубл",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Слушаю вас.",
+          "cueTranslation": "Салом! Гӯш мекунам.",
+          "intent": "Бигӯ: ба ҳисоб пул андозед, лутфан",
+          "text": "Пополните баланс, пожалуйста.",
+          "accepts": [
+            "Пополнить баланс.",
+            "Хочу пополнить баланс."
+          ],
+          "translation": "Ба ҳисоб пул андозед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. На сколько?",
+          "cueTranslation": "Хуб. Ба чанд?",
+          "intent": "Бигӯ: ба панҷсад рубл",
+          "text": "На пятьсот рублей.",
+          "accepts": [
+            "Пятьсот.",
+            "Пятьсот рублей."
+          ],
+          "translation": "Ба панҷсад рубл.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Готово! Что-то ещё?",
+          "cueTranslation": "Тайёр! Боз чизе?",
+          "intent": "Бигӯ: ба ман заряднок лозим",
+          "text": "Мне нужна зарядка.",
+          "accepts": [
+            "Зарядку, пожалуйста.",
+            "Есть зарядка?"
+          ],
+          "translation": "Ба ман заряднок лозим.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сим-корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ба ман сим-корт лозим",
+          "text": "Мне нужна симка.",
+          "accepts": [
+            "Сим-карту, пожалуйста.",
+            "Нужна сим-карта."
+          ],
+          "translation": "Ба ман сим-корт лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой тариф? Двадцать гигабайт или безлимит?",
+          "cueTranslation": "Кадом тариф? Бист гигабайт ё беҳадд?",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Сколько стоит?",
+          "accepts": [
+            "Сколько?",
+            "Какая цена?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Пятьсот или восемьсот рублей.",
+          "cueTranslation": "Панҷсад ё ҳаштсад рубл.",
+          "intent": "Бигӯ: панҷсад, лутфан",
+          "text": "Пятьсот, пожалуйста.",
+          "accepts": [
+            "За пятьсот.",
+            "Пятьсот."
+          ],
+          "translation": "Панҷсад, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Ваш паспорт, пожалуйста.",
+          "cueTranslation": "Хуб. Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот паспорт."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

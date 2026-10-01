@@ -1,0 +1,562 @@
+{
+  "slug": "supermarket_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the supermarket",
+    "titleTranslated": "Дар супермаркет",
+    "scenario": "Шумо дар супермаркет харид мекунед: мепурсед, ки чиз дар куҷост, гӯшти ҳалол меҷӯед, нархро мефаҳмед ва дар касса пардохт мекунед.",
+    "emoji": "🛒",
+    "order": 8,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Харид",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Rice",
+          "translation": "биринҷ",
+          "literal": "райс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Eggs",
+          "translation": "тухм",
+          "literal": "егз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Meat",
+          "translation": "гӯшт",
+          "literal": "мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Fruit",
+          "translation": "мева",
+          "literal": "фрут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Cart",
+          "translation": "аробача",
+          "literal": "карт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Price",
+          "translation": "нарх",
+          "literal": "прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Биринҷ куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Can I help you?",
+          "cueTranslation": "Салом! Ёрӣ диҳам?",
+          "intent": "Бипурс: биринҷ куҷост?",
+          "text": "Where is the rice?",
+          "accepts": [
+            "Rice?",
+            "Where's the rice?"
+          ],
+          "translation": "Биринҷ куҷост?",
+          "literal": "вэр из ҙэ райс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aisle four.",
+          "cueTranslation": "Қатори чор.",
+          "intent": "Бипурс: ва тухм?",
+          "text": "And eggs?",
+          "accepts": [
+            "Where are the eggs?",
+            "And the eggs?"
+          ],
+          "translation": "Ва тухм?",
+          "literal": "энд егз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Next to the milk.",
+          "cueTranslation": "Назди шир.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you very much."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гӯшти ҳалол",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Halal meat",
+          "translation": "Гӯшти ҳалол",
+          "literal": "ҳэлэл мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Fresh fruit",
+          "translation": "Меваи тоза",
+          "literal": "фреш фрут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Twelve eggs",
+          "translation": "Дувоздаҳ тухм",
+          "literal": "твелв егз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Aisle four",
+          "translation": "Қатори чор",
+          "literal": "айл фор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Too expensive",
+          "translation": "Хеле қимат",
+          "literal": "ту икспенсив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Small bag",
+          "translation": "Халтаи хурд",
+          "literal": "смол бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Як кило чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can I help you find something?",
+          "cueTranslation": "Ёрӣ диҳам, ки ёбед?",
+          "intent": "Бипурс: гӯшти ҳалол доред?",
+          "text": "Do you have halal meat?",
+          "accepts": [
+            "Halal meat?",
+            "Is there halal meat?"
+          ],
+          "translation": "Гӯшти ҳалол доред?",
+          "literal": "ду ю ҳэв ҳэлэл мит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, in the back.",
+          "cueTranslation": "Ҳа, дар қафо.",
+          "intent": "Бипурс: як кило чанд?",
+          "text": "How much is one kilo?",
+          "accepts": [
+            "How much per kilo?",
+            "How much?"
+          ],
+          "translation": "Як кило чанд?",
+          "literal": "ҳау мач из ван килоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Twelve dollars.",
+          "cueTranslation": "Дувоздаҳ доллар.",
+          "intent": "Бигӯ: хеле қимат",
+          "text": "Too expensive.",
+          "accepts": [
+            "It's expensive.",
+            "That's too much."
+          ],
+          "translation": "Хеле қимат.",
+          "literal": "ту икспенсив",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Тоза аст?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where are the eggs?",
+          "translation": "Тухм куҷост?",
+          "literal": "вэр ар ҙэ егз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this fresh?",
+          "translation": "Ин тоза аст?",
+          "literal": "из ҙис фреш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "How much is this?",
+          "translation": "Ин чанд пул?",
+          "literal": "ҳау мач из ҙис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a cart.",
+          "translation": "Ба ман аробача лозим.",
+          "literal": "ай нид э карт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it on sale?",
+          "translation": "Бо тахфиф аст?",
+          "literal": "из ит он сейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Where do I pay?",
+          "translation": "Куҷо пардохт кунам?",
+          "literal": "вэр ду ай пей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ду кило",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Good morning!",
+          "cueTranslation": "Субҳ ба хайр!",
+          "intent": "Бипурс: ин тоза аст?",
+          "text": "Is this fresh?",
+          "accepts": [
+            "Is it fresh?",
+            "Fresh?"
+          ],
+          "translation": "Ин тоза аст?",
+          "literal": "из ҙис фреш",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, from today.",
+          "cueTranslation": "Ҳа, аз имрӯз.",
+          "intent": "Бипурс: ин чанд пул?",
+          "text": "How much is this?",
+          "accepts": [
+            "How much?",
+            "What's the price?"
+          ],
+          "translation": "Ин чанд пул?",
+          "literal": "ҳау мач из ҙис",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Three dollars a kilo.",
+          "cueTranslation": "Се доллар як кило.",
+          "intent": "Бигӯ: ду кило, лутфан",
+          "text": "Two kilos, please.",
+          "accepts": [
+            "Two kilos.",
+            "I'll take two kilos."
+          ],
+          "translation": "Ду кило, лутфан.",
+          "literal": "ту килоуз плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар касса",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I have a bag.",
+          "translation": "Ман халта дорам.",
+          "literal": "ай ҳэв э бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Card is okay?",
+          "translation": "Корт мешавад?",
+          "literal": "кард из оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I forgot milk.",
+          "translation": "Ширро фаромӯш кардам.",
+          "literal": "ай фэргот милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "One moment, please.",
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "ван моумэнт плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this halal?",
+          "translation": "Ин ҳалол аст?",
+          "literal": "из ҙис ҳэлэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the exit?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": "вэр из ҙэ егзит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ширро фаромӯш кардам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Do you need a bag?",
+          "cueTranslation": "Салом! Халта лозим?",
+          "intent": "Бигӯ: не, ман халта дорам",
+          "text": "No, I have a bag.",
+          "accepts": [
+            "No, thanks. I have one.",
+            "No, thank you."
+          ],
+          "translation": "Не, ман халта дорам.",
+          "literal": "ноу ай ҳэв э бэг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Twenty-five dollars.",
+          "cueTranslation": "Хуб. Бисту панҷ доллар.",
+          "intent": "Бигӯ: як лаҳза. Ширро фаромӯш кардам",
+          "text": "One moment. I forgot milk.",
+          "accepts": [
+            "Sorry, I forgot milk.",
+            "Wait, I forgot milk."
+          ],
+          "translation": "Як лаҳза. Ширро фаромӯш кардам.",
+          "literal": "ван моумэнт ай фэргот милк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "No problem. I'll wait.",
+          "cueTranslation": "Мушкил нест. Интизор мешавам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks!",
+            "Thank you so much."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: супермаркет",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Can I help you?",
+          "cueTranslation": "Салом! Ёрӣ диҳам?",
+          "intent": "Бипурс: гӯшти ҳалол доред?",
+          "text": "Do you have halal meat?",
+          "accepts": [
+            "Halal meat?",
+            "Is there halal meat?"
+          ],
+          "translation": "Гӯшти ҳалол доред?",
+          "literal": "ду ю ҳэв ҳэлэл мит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, in aisle seven.",
+          "cueTranslation": "Ҳа, дар қатори ҳафт.",
+          "intent": "Бипурс: як кило чанд?",
+          "text": "How much is one kilo?",
+          "accepts": [
+            "How much per kilo?",
+            "How much?"
+          ],
+          "translation": "Як кило чанд?",
+          "literal": "ҳау мач из ван килоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ten dollars. It's on sale.",
+          "cueTranslation": "Даҳ доллар. Бо тахфиф.",
+          "intent": "Бигӯ: олӣ. Ду кило, лутфан",
+          "text": "Great. Two kilos, please.",
+          "accepts": [
+            "Two kilos, please.",
+            "Great!"
+          ],
+          "translation": "Олӣ. Ду кило, лутфан.",
+          "literal": "грейт ту килоуз плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Anything else?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бипурс: куҷо пардохт кунам?",
+          "text": "Where do I pay?",
+          "accepts": [
+            "Where is the cashier?",
+            "Where can I pay?"
+          ],
+          "translation": "Куҷо пардохт кунам?",
+          "literal": "вэр ду ай пей",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

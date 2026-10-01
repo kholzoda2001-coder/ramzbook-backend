@@ -1,0 +1,549 @@
+{
+  "slug": "fare_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "요금 계산",
+    "titleTranslated": "Пардохти пули роҳ",
+    "scenario": "Мусофир мепурсад, ки чанд пул аст. Шумо нархро мегӯед, мепурсед нақд ё бо корт, бақия медиҳед, чек пешниҳод мекунед ва агар бақия набошад — роҳи дигари пардохтро мегӯед.",
+    "emoji": "💵",
+    "order": 8,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "요금",
+          "translation": "нарх, пули роҳ",
+          "literal": "ёгым",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "카드",
+          "translation": "корт",
+          "literal": "кхады",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "현금",
+          "translation": "нақд",
+          "literal": "ҳёнгым",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "거스름돈",
+          "translation": "бақия",
+          "literal": "косырымдон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "영수증",
+          "translation": "чек",
+          "literal": "ёнгсуҷынг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "원",
+          "translation": "вон",
+          "literal": "вон",
+          "note": "Пули Корея. Рақам пеш меояд: 만 원 = даҳ ҳазор вон.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд пул?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "얼마예요?",
+          "cueTranslation": "Чанд пул?",
+          "intent": "Бигӯ: дувоздаҳ ҳазор вон",
+          "text": "만 이천 원이에요.",
+          "accepts": [
+            "만 이천 원이요."
+          ],
+          "translation": "Дувоздаҳ ҳазор вон.",
+          "literal": "ман ичхон вониэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "카드 돼요?",
+          "cueTranslation": "Корт мешавад?",
+          "intent": "Бигӯ: ҳа, мешавад",
+          "text": "네, 돼요.",
+          "accepts": [
+            "네, 카드 돼요."
+          ],
+          "translation": "Ҳа, мешавад.",
+          "literal": "нэ твеё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "여기요.",
+          "cueTranslation": "Мана.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "고맙습니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бо корт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "카드로 할게요",
+          "translation": "Бо корт",
+          "literal": "кхадыро ҳалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "현금이에요?",
+          "translation": "Нақд?",
+          "literal": "ҳёнгымиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "만 원",
+          "translation": "Даҳ ҳазор вон",
+          "literal": "ман вон",
+          "note": "만 = даҳ ҳазор. 이만 원 = бист ҳазор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "거스름돈 여기요",
+          "translation": "Бақия, мана",
+          "literal": "косырымдон ёгиё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "영수증 드릴까요?",
+          "translation": "Чек диҳам?",
+          "literal": "ёнгсуҷынг тырилккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "여기 대세요",
+          "translation": "Ин ҷо наздик кунед",
+          "literal": "ёги тэсэё",
+          "note": "Кортро ба дастгоҳ наздик кардан.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нақд ё корт?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "계산할게요.",
+          "cueTranslation": "Пардохт мекунам.",
+          "intent": "Бипурс: нақд ё корт?",
+          "text": "현금이에요, 카드예요?",
+          "accepts": [
+            "카드예요?",
+            "현금이에요?"
+          ],
+          "translation": "Нақд ё корт?",
+          "literal": "ҳёнгымиэё кхадыэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "카드요.",
+          "cueTranslation": "Бо корт.",
+          "intent": "Бигӯ: ин ҷо наздик кунед",
+          "text": "여기 대세요.",
+          "accepts": [
+            "여기에 대 주세요."
+          ],
+          "translation": "Ин ҷо наздик кунед.",
+          "literal": "ёги тэсэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "됐어요?",
+          "cueTranslation": "Шуд?",
+          "intent": "Бигӯ: ҳа, шуд",
+          "text": "네, 됐어요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, шуд.",
+          "literal": "нэ твессоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Бақия",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "거스름돈 여기 있어요.",
+          "translation": "Бақия ин ҷо.",
+          "literal": "косырымдон ёги иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "만 원 받았어요.",
+          "translation": "Даҳ ҳазор вон гирифтам.",
+          "literal": "ман вон падассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "잔돈 없어요?",
+          "translation": "Пули майда надоред?",
+          "literal": "чандон опссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "영수증 필요하세요?",
+          "translation": "Чек лозим?",
+          "literal": "ёнгсуҷынг пхирёҳасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "미터기 보세요.",
+          "translation": "Ба счётчик нигаред.",
+          "literal": "митхоги посэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "안녕히 가세요.",
+          "translation": "Хайр (бо саломатӣ равед).",
+          "literal": "аннёнгҳи касэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Чек лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여기 만 원이요.",
+          "cueTranslation": "Мана даҳ ҳазор вон.",
+          "intent": "Бигӯ: бақия ин ҷо",
+          "text": "거스름돈 여기 있어요.",
+          "accepts": [
+            "거스름돈이요.",
+            "거스름돈 여기요."
+          ],
+          "translation": "Бақия ин ҷо.",
+          "literal": "косырымдон ёги иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "감사합니다.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бипурс: чек лозим?",
+          "text": "영수증 필요하세요?",
+          "accepts": [
+            "영수증 드릴까요?"
+          ],
+          "translation": "Чек лозим?",
+          "literal": "ёнгсуҷынг пхирёҳасэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 주세요.",
+          "cueTranslation": "Ҳа, диҳед.",
+          "intent": "Бигӯ: мана",
+          "text": "여기요.",
+          "accepts": [
+            "여기 있어요."
+          ],
+          "translation": "Мана.",
+          "literal": "ёгиё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Роҳҳои пардохт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "밤에는 요금이 비싸요.",
+          "translation": "Шабона нарх гаронтар аст.",
+          "literal": "памэнын ёгыми писсаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "고속도로 요금이에요.",
+          "translation": "Ин пули роҳи пулакӣ.",
+          "literal": "косоктторо ёгымиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "이체도 돼요.",
+          "translation": "Интиқол ҳам мешавад.",
+          "literal": "ичхэдо твеё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "계좌 번호 드릴게요.",
+          "translation": "Рақами ҳисобро медиҳам.",
+          "literal": "кэҷва понҳо тырилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "천 원 더 주세요.",
+          "translation": "Боз ҳазор вон диҳед.",
+          "literal": "чхон вон то чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "정말 감사합니다.",
+          "translation": "Бисёр ташаккур.",
+          "literal": "чонгмал камсаҳамнида",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бақия надорам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "오만 원짜리밖에 없어요.",
+          "cueTranslation": "Танҳо панҷоҳҳазорӣ дорам.",
+          "intent": "Бигӯ: бубахшед, бақия надорам",
+          "text": "죄송해요, 잔돈이 없어요.",
+          "accepts": [
+            "잔돈이 없어요."
+          ],
+          "translation": "Бубахшед, бақия надорам.",
+          "literal": "чвесонгҳэё чандони опссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "그럼 어떡해요?",
+          "cueTranslation": "Пас чӣ кунем?",
+          "intent": "Бигӯ: корт ҳам мешавад",
+          "text": "카드도 돼요.",
+          "accepts": [
+            "카드로 하세요.",
+            "이체도 돼요."
+          ],
+          "translation": "Корт ҳам мешавад.",
+          "literal": "кхадыдо твеё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "좋아요, 카드로 할게요.",
+          "cueTranslation": "Хуб, бо корт.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "네, 감사합니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: пардохт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "다 왔어요? 얼마예요?",
+          "cueTranslation": "Расидем? Чанд пул?",
+          "intent": "Бигӯ: понздаҳ ҳазор вон",
+          "text": "만 오천 원이에요.",
+          "accepts": [
+            "만 오천 원이요."
+          ],
+          "translation": "Понздаҳ ҳазор вон.",
+          "literal": "ман очхон вониэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "현금 드릴게요. 이만 원이요.",
+          "cueTranslation": "Нақд медиҳам. Бист ҳазор вон.",
+          "intent": "Бигӯ: бақия, панҷ ҳазор вон",
+          "text": "거스름돈 오천 원이요.",
+          "accepts": [
+            "오천 원 여기 있어요."
+          ],
+          "translation": "Бақия, панҷ ҳазор вон.",
+          "literal": "косырымдон очхон вониё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "영수증 주세요.",
+          "cueTranslation": "Чек диҳед.",
+          "intent": "Бигӯ: мана",
+          "text": "여기 있어요.",
+          "accepts": [
+            "여기요."
+          ],
+          "translation": "Мана.",
+          "literal": "ёги иссоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "감사합니다, 수고하세요.",
+          "cueTranslation": "Ташаккур, хаста нашавед.",
+          "intent": "Бигӯ: хайр",
+          "text": "안녕히 가세요.",
+          "accepts": [
+            "감사합니다, 안녕히 가세요."
+          ],
+          "translation": "Хайр.",
+          "literal": "аннёнгҳи касэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

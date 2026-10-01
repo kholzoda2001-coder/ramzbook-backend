@@ -1,0 +1,562 @@
+{
+  "slug": "allergy_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Food and allergies",
+    "titleTranslated": "Хӯрок ва аллергия",
+    "scenario": "Меҳмон мепурсад, ки дар хӯрок чӣ ҳаст: гӯшти хук, чормағз, шир. Шумо ҷавоб медиҳед, аз ошпаз мепурсед ва хӯроки дигар пешниҳод мекунед.",
+    "emoji": "🥜",
+    "order": 18,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Дар хӯрок чӣ ҳаст?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Nuts",
+          "translation": "чормағз",
+          "literal": "натс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Pork",
+          "translation": "гӯшти хук",
+          "literal": "порк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Beef",
+          "translation": "гӯшти гов",
+          "literal": "биф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Halal",
+          "translation": "ҳалол",
+          "literal": "ҳэлэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Vegetarian",
+          "translation": "бе гӯшт",
+          "literal": "веҷэтэриэн",
+          "note": "Хӯрок барои касе, ки гӯшт намехӯрад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Allergy",
+          "translation": "аллергия",
+          "literal": "элэрҷӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Гӯшти хук ҳаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is there pork in this?",
+          "cueTranslation": "Дар ин гӯшти хук ҳаст?",
+          "intent": "Бигӯ: не, ин гӯшти гов",
+          "text": "No, it's beef.",
+          "accepts": [
+            "No pork. Beef.",
+            "No. It's beef."
+          ],
+          "translation": "Не, ин гӯшти гов.",
+          "literal": "ноу итс биф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is it halal?",
+          "cueTranslation": "Ҳалол аст?",
+          "intent": "Бигӯ: ҳа, ҳалол",
+          "text": "Yes, it's halal.",
+          "accepts": [
+            "Yes.",
+            "Yes, halal."
+          ],
+          "translation": "Ҳа, ҳалол.",
+          "literal": "йес итс ҳэлэл",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Great, I'll take it.",
+          "cueTranslation": "Олӣ, мегирам.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, great.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бе чормағз",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "No pork",
+          "translation": "Бе гӯшти хук",
+          "literal": "ноу порк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "No nuts",
+          "translation": "Бе чормағз",
+          "literal": "ноу натс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Halal meat",
+          "translation": "Гӯшти ҳалол",
+          "literal": "ҳэлэл мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "With milk",
+          "translation": "Бо шир",
+          "literal": "виҙ милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll ask",
+          "translation": "Мепурсам",
+          "literal": "айл аск",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Fish only",
+          "translation": "Танҳо моҳӣ",
+          "literal": "фиш оунлӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Аллергия",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I have a nut allergy.",
+          "cueTranslation": "Ман ба чормағз аллергия дорам.",
+          "intent": "Бигӯ: мефаҳмам. Аз ошпаз мепурсам",
+          "text": "I understand. I'll ask the chef.",
+          "accepts": [
+            "I'll ask the chef.",
+            "Okay. I'll ask."
+          ],
+          "translation": "Мефаҳмам. Аз ошпаз мепурсам.",
+          "literal": "ай андэрстэнд айл аск ҙэ шеф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: дар ин чормағз нест",
+          "text": "This has no nuts.",
+          "accepts": [
+            "No nuts in this.",
+            "It has no nuts."
+          ],
+          "translation": "Дар ин чормағз нест.",
+          "literal": "ҙис ҳэз ноу натс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Are you sure?",
+          "cueTranslation": "Боварӣ доред?",
+          "intent": "Бигӯ: ҳа, аз ошпаз пурсидам",
+          "text": "Yes, I asked the chef.",
+          "accepts": [
+            "Yes, I'm sure.",
+            "Yes, the chef said so."
+          ],
+          "translation": "Ҳа, аз ошпаз пурсидам.",
+          "literal": "йес ай аскт ҙэ шеф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Аз ошпаз мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "It has milk.",
+          "translation": "Дар он шир ҳаст.",
+          "literal": "ит ҳэз милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "This has no nuts.",
+          "translation": "Дар ин чормағз нест.",
+          "literal": "ҙис ҳэз ноу натс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll ask the chef.",
+          "translation": "Аз ошпаз мепурсам.",
+          "literal": "айл аск ҙэ шеф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "The chicken is halal.",
+          "translation": "Мурғ ҳалол аст.",
+          "literal": "ҙэ чикин из ҳэлэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "We have vegetarian food.",
+          "translation": "Мо хӯроки бе гӯшт дорем.",
+          "literal": "вӣ ҳэв веҷэтэриэн фуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Try the fish.",
+          "translation": "Моҳиро бичашед.",
+          "literal": "трай ҙэ фиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бе гӯшт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I don't eat meat.",
+          "cueTranslation": "Ман гӯшт намехӯрам.",
+          "intent": "Бигӯ: мо хӯроки бе гӯшт дорем",
+          "text": "We have vegetarian food.",
+          "accepts": [
+            "We have food with no meat.",
+            "We have vegetarian dishes."
+          ],
+          "translation": "Мо хӯроки бе гӯшт дорем.",
+          "literal": "вӣ ҳэв веҷэтэриэн фуд",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What do you have?",
+          "cueTranslation": "Чӣ доред?",
+          "intent": "Бигӯ: шӯрбои сабзавот ва салат",
+          "text": "Vegetable soup and salad.",
+          "accepts": [
+            "Salad and vegetable soup.",
+            "Vegetable soup."
+          ],
+          "translation": "Шӯрбои сабзавот ва салат.",
+          "literal": "веҷтэбэл суп энд сэлэд",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is there milk in the soup?",
+          "cueTranslation": "Дар шӯрбо шир ҳаст?",
+          "intent": "Бигӯ: ҳа, дар он шир ҳаст",
+          "text": "Yes, it has milk.",
+          "accepts": [
+            "Yes, a little milk.",
+            "Yes."
+          ],
+          "translation": "Ҳа, дар он шир ҳаст.",
+          "literal": "йес ит ҳэз милк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Бо биринҷ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "It's not spicy.",
+          "translation": "Тунд нест.",
+          "literal": "итс нот спайсӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "This has no sugar.",
+          "translation": "Дар ин шакар нест.",
+          "literal": "ҙис ҳэз ноу шугэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's made fresh.",
+          "translation": "Тоза тайёр шудааст.",
+          "literal": "итс мейд фреш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Small or large?",
+          "translation": "Хурд ё калон?",
+          "literal": "смол ор лардж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "It comes with rice.",
+          "translation": "Бо биринҷ меояд.",
+          "literal": "ит камз виҙ райс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Do you want bread?",
+          "translation": "Нон мехоҳед?",
+          "literal": "ду ю вонт бред",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тунд нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What comes with the chicken?",
+          "cueTranslation": "Мурғ бо чӣ меояд?",
+          "intent": "Бигӯ: бо биринҷ меояд",
+          "text": "It comes with rice.",
+          "accepts": [
+            "Rice.",
+            "With rice."
+          ],
+          "translation": "Бо биринҷ меояд.",
+          "literal": "ит камз виҙ райс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is it spicy?",
+          "cueTranslation": "Тунд аст?",
+          "intent": "Бигӯ: не, тунд нест",
+          "text": "No, it's not spicy.",
+          "accepts": [
+            "Not spicy.",
+            "No, not at all."
+          ],
+          "translation": "Не, тунд нест.",
+          "literal": "ноу итс нот спайсӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Perfect. One chicken, please.",
+          "cueTranslation": "Олӣ. Як мурғ, лутфан.",
+          "intent": "Бипурс: нон мехоҳед?",
+          "text": "Do you want bread?",
+          "accepts": [
+            "Bread too?",
+            "Any bread?"
+          ],
+          "translation": "Нон мехоҳед?",
+          "literal": "ду ю вонт бред",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: хӯроки бехатар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Is there pork in the soup?",
+          "cueTranslation": "Салом! Дар шӯрбо гӯшти хук ҳаст?",
+          "intent": "Бигӯ: не, ин гӯшти гов",
+          "text": "No, it's beef.",
+          "accepts": [
+            "No pork. Beef.",
+            "No. It's beef."
+          ],
+          "translation": "Не, ин гӯшти гов.",
+          "literal": "ноу итс биф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. And I have a nut allergy.",
+          "cueTranslation": "Хуб. Ва ман ба чормағз аллергия дорам.",
+          "intent": "Бигӯ: мефаҳмам. Аз ошпаз мепурсам",
+          "text": "I understand. I'll ask the chef.",
+          "accepts": [
+            "I'll ask the chef.",
+            "Okay. I'll ask."
+          ],
+          "translation": "Мефаҳмам. Аз ошпаз мепурсам.",
+          "literal": "ай андэрстэнд айл аск ҙэ шеф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you. Is it safe?",
+          "cueTranslation": "Ташаккур. Бехатар аст?",
+          "intent": "Бигӯ: ҳа, дар ин чормағз нест",
+          "text": "Yes, this has no nuts.",
+          "accepts": [
+            "Yes, no nuts.",
+            "Yes, it's safe."
+          ],
+          "translation": "Ҳа, дар ин чормағз нест.",
+          "literal": "йес ҙис ҳэз ноу натс",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Great! One soup, please.",
+          "cueTranslation": "Олӣ! Як шӯрбо, лутфан.",
+          "intent": "Бипурс: нон мехоҳед?",
+          "text": "Do you want bread?",
+          "accepts": [
+            "Bread too?",
+            "Any bread?"
+          ],
+          "translation": "Нон мехоҳед?",
+          "literal": "ду ю вонт бред",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

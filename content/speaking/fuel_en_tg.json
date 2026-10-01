@@ -1,0 +1,562 @@
+{
+  "slug": "fuel_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the gas station",
+    "titleTranslated": "Нуқтаи сӯзишворӣ",
+    "scenario": "Бензин кам аст. Шумо ба нуқтаи сӯзишворӣ меравед, рақами колонкаро мегӯед, пул медиҳед, бод ба чарх медиҳед ва мошинро мешӯед.",
+    "emoji": "⛽",
+    "order": 11,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Колонка",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Pump",
+          "translation": "колонка",
+          "literal": "памп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Diesel",
+          "translation": "дизел",
+          "literal": "дизэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Air",
+          "translation": "бод",
+          "literal": "еэр",
+          "note": "Бод барои чарх.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Oil",
+          "translation": "равған",
+          "literal": "ойл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Wash",
+          "translation": "шустан",
+          "literal": "вош",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Full",
+          "translation": "пур",
+          "literal": "фул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Колонкаи чор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Which pump?",
+          "cueTranslation": "Салом! Кадом колонка?",
+          "intent": "Бигӯ: рақами чор",
+          "text": "Number four.",
+          "accepts": [
+            "Pump four.",
+            "Four, please."
+          ],
+          "translation": "Рақами чор.",
+          "literal": "намбэр фор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "How much gas?",
+          "cueTranslation": "Чанд бензин?",
+          "intent": "Бигӯ: пур, лутфан",
+          "text": "Full, please.",
+          "accepts": [
+            "Fill it up, please.",
+            "A full tank, please."
+          ],
+          "translation": "Пур, лутфан.",
+          "literal": "фул плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Cash or card?",
+          "cueTranslation": "Хуб. Нақд ё корт?",
+          "intent": "Бигӯ: корт",
+          "text": "Card.",
+          "accepts": [
+            "By card.",
+            "Card, please."
+          ],
+          "translation": "Корт.",
+          "literal": "кард",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бензини оддӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Pump four",
+          "translation": "Колонкаи чор",
+          "literal": "памп фор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Full tank",
+          "translation": "Баки пур",
+          "literal": "фул тэнк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Forty dollars",
+          "translation": "Чил доллар",
+          "literal": "фортӣ доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Regular gas",
+          "translation": "Бензини оддӣ",
+          "literal": "регюлэр гэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Car wash",
+          "translation": "Мошиншӯӣ",
+          "literal": "кар вош",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Oil change",
+          "translation": "Иваз кардани равған",
+          "literal": "ойл чейндж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Оддӣ ё дизел?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Regular or diesel?",
+          "cueTranslation": "Оддӣ ё дизел?",
+          "intent": "Бигӯ: оддӣ",
+          "text": "Regular.",
+          "accepts": [
+            "Regular, please.",
+            "Regular gas."
+          ],
+          "translation": "Оддӣ.",
+          "literal": "регюлэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "How much?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: чил доллар",
+          "text": "Forty dollars.",
+          "accepts": [
+            "Forty, please.",
+            "Forty dollars, please."
+          ],
+          "translation": "Чил доллар.",
+          "literal": "фортӣ доларз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, pump four is ready.",
+          "cueTranslation": "Хуб, колонкаи чор тайёр.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Great, thanks."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Бод ва равған",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where is the air?",
+          "translation": "Бод куҷост?",
+          "literal": "вэр из ҙэ еэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "My tire is low.",
+          "translation": "Чархи ман паст аст.",
+          "literal": "май тайэр из лоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I need oil.",
+          "translation": "Ба ман равған лозим.",
+          "literal": "ай нид ойл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "The pump doesn't work.",
+          "translation": "Колонка кор намекунад.",
+          "literal": "ҙэ памп дазнт вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the restroom?",
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "вэр из ҙэ реструм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "A coffee, please.",
+          "translation": "Як қаҳва, лутфан.",
+          "literal": "э кофӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Колонка кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi. Can I help you?",
+          "cueTranslation": "Салом. Ёрӣ диҳам?",
+          "intent": "Бигӯ: колонка кор намекунад",
+          "text": "The pump doesn't work.",
+          "accepts": [
+            "Pump four doesn't work.",
+            "The pump is not working."
+          ],
+          "translation": "Колонка кор намекунад.",
+          "literal": "ҙэ памп дазнт вёрк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Try pump five, please.",
+          "cueTranslation": "Колонкаи панҷро санҷед, лутфан.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Okay.",
+            "Thanks."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Anything else?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бигӯ: як қаҳва, лутфан",
+          "text": "A coffee, please.",
+          "accepts": [
+            "One coffee, please.",
+            "Coffee, please."
+          ],
+          "translation": "Як қаҳва, лутфан.",
+          "literal": "э кофӣ плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мошиншӯӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "A car wash, please.",
+          "translation": "Мошиншӯӣ, лутфан.",
+          "literal": "э кар вош плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "How much is it?",
+          "translation": "Чанд пул аст?",
+          "literal": "ҳау мач из ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's free today.",
+          "translation": "Имрӯз ройгон аст.",
+          "literal": "итс фрӣ тудей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wait five minutes.",
+          "translation": "Панҷ дақиқа сабр кунед.",
+          "literal": "вейт файв минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it open now?",
+          "translation": "Ҳозир кушода аст?",
+          "literal": "из ит оупэн нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "The car is clean!",
+          "translation": "Мошин тоза шуд!",
+          "literal": "ҙэ кар из клин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мошин тоза шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you want a car wash?",
+          "cueTranslation": "Мошиншӯӣ мехоҳед?",
+          "intent": "Бигӯ: ҳа. Чанд пул аст?",
+          "text": "Yes. How much is it?",
+          "accepts": [
+            "Yes. How much?",
+            "How much is it?"
+          ],
+          "translation": "Ҳа. Чанд пул аст?",
+          "literal": "йес ҳау мач из ит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "It's free today with gas.",
+          "cueTranslation": "Имрӯз бо бензин ройгон.",
+          "intent": "Бигӯ: олӣ! Ташаккур",
+          "text": "Great! Thank you.",
+          "accepts": [
+            "Great!",
+            "Oh, great. Thanks!"
+          ],
+          "translation": "Олӣ! Ташаккур.",
+          "literal": "грейт ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wait five minutes, please.",
+          "cueTranslation": "Панҷ дақиқа сабр кунед, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, no problem.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: баки пур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Which pump?",
+          "cueTranslation": "Салом! Кадом колонка?",
+          "intent": "Бигӯ: рақами чор",
+          "text": "Number four.",
+          "accepts": [
+            "Pump four.",
+            "Four."
+          ],
+          "translation": "Рақами чор.",
+          "literal": "намбэр фор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Regular or diesel?",
+          "cueTranslation": "Оддӣ ё дизел?",
+          "intent": "Бигӯ: оддӣ, баки пур",
+          "text": "Regular, full tank.",
+          "accepts": [
+            "Regular. Full, please.",
+            "Regular, please."
+          ],
+          "translation": "Оддӣ, баки пур.",
+          "literal": "регюлэр фул тэнк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "That's forty dollars.",
+          "cueTranslation": "Чил доллар мешавад.",
+          "intent": "Бигӯ: корт, лутфан",
+          "text": "Card, please.",
+          "accepts": [
+            "By card.",
+            "Here's my card."
+          ],
+          "translation": "Корт, лутфан.",
+          "literal": "кард плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Done. Anything else?",
+          "cueTranslation": "Тайёр. Боз чизе?",
+          "intent": "Бипурс: бод куҷост?",
+          "text": "Where is the air?",
+          "accepts": [
+            "Where can I get air?",
+            "Air for my tire?"
+          ],
+          "translation": "Бод куҷост?",
+          "literal": "вэр из ҙэ еэр",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

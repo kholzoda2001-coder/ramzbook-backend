@@ -1,0 +1,563 @@
+{
+  "slug": "emergency_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Emergency call",
+    "titleTranslated": "Занги фаврӣ",
+    "scenario": "Ҳолати фаврӣ: оташ, касе афтод ё сумкаро дузд бурд. Шумо ба 911 занг мезанед, кӯтоҳ мегӯед чӣ шуд ва дар куҷо ҳастед, ва ба саволҳо ором ҷавоб медиҳед.",
+    "emoji": "🚨",
+    "order": 19,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ёрӣ!",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Help",
+          "translation": "ёрӣ",
+          "literal": "ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Fire",
+          "translation": "оташ",
+          "literal": "файэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Police",
+          "translation": "полис",
+          "literal": "пэлис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ambulance",
+          "translation": "ёрии таъҷилӣ",
+          "literal": "эмбюлэнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Thief",
+          "translation": "дузд",
+          "literal": "ҫиф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Emergency",
+          "translation": "ҳолати фаврӣ",
+          "literal": "имёрджэнсӣ",
+          "note": "Дар ИМА рақами фаврӣ 911 аст.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Оташ!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nine one one. What's your emergency?",
+          "cueTranslation": "Нӯҳ як як. Чӣ шуд?",
+          "intent": "Бигӯ: ёрӣ диҳед! Оташ!",
+          "text": "Help! There's a fire!",
+          "accepts": [
+            "Fire! Help!",
+            "There's a fire!"
+          ],
+          "translation": "Ёрӣ диҳед! Оташ!",
+          "literal": "ҳелп ҙэрз э файэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you?",
+          "cueTranslation": "Шумо куҷоед?",
+          "intent": "Бигӯ: кӯчаи Мейн, хонаи даҳ",
+          "text": "Ten Main Street.",
+          "accepts": [
+            "Main Street, number ten.",
+            "I'm on Main Street."
+          ],
+          "translation": "Кӯчаи Мейн, хонаи даҳ.",
+          "literal": "тен мейн стрит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is anyone inside?",
+          "cueTranslation": "Касе дарун ҳаст?",
+          "intent": "Бигӯ: не, ҳама берунанд",
+          "text": "No, everyone is outside.",
+          "accepts": [
+            "No. We are all outside.",
+            "No one."
+          ],
+          "translation": "Не, ҳама берунанд.",
+          "literal": "ноу еврӣван из аутсайд",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Зуд биёед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Help, please!",
+          "translation": "Ёрӣ диҳед!",
+          "literal": "ҳелп плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "A fire",
+          "translation": "Оташ",
+          "literal": "э файэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "He fell",
+          "translation": "Ӯ афтод",
+          "literal": "ҳӣ фел",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Not breathing",
+          "translation": "Нафас намекашад",
+          "literal": "нот бриҙинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Come quickly",
+          "translation": "Зуд биёед",
+          "literal": "кам квиклӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Right now",
+          "translation": "Ҳозир",
+          "literal": "райт нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Як мард афтод",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nine one one. What happened?",
+          "cueTranslation": "Нӯҳ як як. Чӣ шуд?",
+          "intent": "Бигӯ: як мард афтод",
+          "text": "A man fell.",
+          "accepts": [
+            "A man fell down.",
+            "Someone fell."
+          ],
+          "translation": "Як мард афтод.",
+          "literal": "э мэн фел",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is he breathing?",
+          "cueTranslation": "Нафас мекашад?",
+          "intent": "Бигӯ: ҳа, нафас мекашад",
+          "text": "Yes, he is breathing.",
+          "accepts": [
+            "Yes.",
+            "Yes, he's breathing."
+          ],
+          "translation": "Ҳа, нафас мекашад.",
+          "literal": "йес ҳӣ из бриҙинг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "The ambulance is coming.",
+          "cueTranslation": "Ёрии таъҷилӣ меояд.",
+          "intent": "Бигӯ: лутфан, зуд",
+          "text": "Please be quick.",
+          "accepts": [
+            "Please hurry.",
+            "Come quickly, please."
+          ],
+          "translation": "Лутфан, зуд.",
+          "literal": "плиз бӣ квик",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дузд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Please send help.",
+          "translation": "Лутфан, ёрӣ фиристед.",
+          "literal": "плиз сенд ҳелп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Someone took my bag.",
+          "translation": "Касе сумкаамро бурд.",
+          "literal": "самван тук май бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "He is hurt.",
+          "translation": "Ӯ захмӣ аст.",
+          "literal": "ҳӣ из ҳёрт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Please be quick.",
+          "translation": "Лутфан, зуд.",
+          "literal": "плиз бӣ квик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Everyone is outside.",
+          "translation": "Ҳама берунанд.",
+          "literal": "еврӣван из аутсайд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Call an ambulance!",
+          "translation": "Ёрии таъҷилиро ҷеғ занед!",
+          "literal": "кол эн эмбюлэнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ӯ чӣ хел буд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Police. What happened?",
+          "cueTranslation": "Полис. Чӣ шуд?",
+          "intent": "Бигӯ: касе сумкаамро бурд",
+          "text": "Someone took my bag.",
+          "accepts": [
+            "My bag! A thief!",
+            "A man took my bag."
+          ],
+          "translation": "Касе сумкаамро бурд.",
+          "literal": "самван тук май бэг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "What did he look like?",
+          "cueTranslation": "Ӯ чӣ хел буд?",
+          "intent": "Бигӯ: қадбаланд, куртаи сиёҳ",
+          "text": "Tall, black jacket.",
+          "accepts": [
+            "Tall. A black jacket.",
+            "He was tall."
+          ],
+          "translation": "Қадбаланд, куртаи сиёҳ.",
+          "literal": "тол блэк ҷэкит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Where are you now?",
+          "cueTranslation": "Хуб. Ҳозир куҷоед?",
+          "intent": "Бигӯ: ман дар кӯчаи Мейн",
+          "text": "I'm on Main Street.",
+          "accepts": [
+            "Main Street.",
+            "On Main Street."
+          ],
+          "translation": "Ман дар кӯчаи Мейн ҳастам.",
+          "literal": "айм он мейн стрит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Писарам гум шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Please speak slowly.",
+          "translation": "Лутфан, оҳиста гап занед.",
+          "literal": "плиз спик слоулӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "My English is bad.",
+          "translation": "Англисиям бад аст.",
+          "literal": "май инглиш из бэд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a translator.",
+          "translation": "Ба ман тарҷумон лозим.",
+          "literal": "ай нид э трэнслейтэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the hospital?",
+          "translation": "Беморхона куҷост?",
+          "literal": "вэр из ҙэ ҳоспитэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "My son is lost.",
+          "translation": "Писарам гум шуд.",
+          "literal": "май сан из лост",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "He is six.",
+          "translation": "Ӯ шашсола аст.",
+          "literal": "ҳӣ из сикс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чӣ пӯшидааст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Police. How can I help?",
+          "cueTranslation": "Полис. Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: писарам гум шуд",
+          "text": "My son is lost.",
+          "accepts": [
+            "I can't find my son.",
+            "My son is missing."
+          ],
+          "translation": "Писарам гум шуд.",
+          "literal": "май сан из лост",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "How old is he?",
+          "cueTranslation": "Ӯ чандсола аст?",
+          "intent": "Бигӯ: шашсола",
+          "text": "He is six.",
+          "accepts": [
+            "Six.",
+            "Six years old."
+          ],
+          "translation": "Ӯ шашсола аст.",
+          "literal": "ҳӣ из сикс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What is he wearing?",
+          "cueTranslation": "Чӣ пӯшидааст?",
+          "intent": "Бигӯ: куртаи сурх",
+          "text": "A red jacket.",
+          "accepts": [
+            "Red jacket.",
+            "He wears red."
+          ],
+          "translation": "Куртаи сурх.",
+          "literal": "э ред ҷэкит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: 911",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nine one one. What's your emergency?",
+          "cueTranslation": "Нӯҳ як як. Чӣ шуд?",
+          "intent": "Бигӯ: ёрӣ диҳед! Як мард афтод",
+          "text": "Help! A man fell.",
+          "accepts": [
+            "A man fell. Help!",
+            "Help, please! A man fell."
+          ],
+          "translation": "Ёрӣ диҳед! Як мард афтод.",
+          "literal": "ҳелп э мэн фел",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where are you?",
+          "cueTranslation": "Шумо куҷоед?",
+          "intent": "Бигӯ: ман дар кӯчаи Мейн",
+          "text": "I'm on Main Street.",
+          "accepts": [
+            "Main Street.",
+            "On Main Street."
+          ],
+          "translation": "Ман дар кӯчаи Мейн ҳастам.",
+          "literal": "айм он мейн стрит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is he breathing?",
+          "cueTranslation": "Нафас мекашад?",
+          "intent": "Бигӯ: ҳа, вале захмӣ аст",
+          "text": "Yes, but he is hurt.",
+          "accepts": [
+            "Yes. He is hurt.",
+            "Yes, he's breathing."
+          ],
+          "translation": "Ҳа, вале захмӣ аст.",
+          "literal": "йес бат ҳӣ из ҳёрт",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Stay with him. The ambulance is coming.",
+          "cueTranslation": "Бо ӯ монед. Ёрии таъҷилӣ меояд.",
+          "intent": "Бигӯ: хуб. Лутфан, зуд",
+          "text": "Okay. Please be quick.",
+          "accepts": [
+            "Okay. Please hurry.",
+            "Okay, thank you."
+          ],
+          "translation": "Хуб. Лутфан, зуд.",
+          "literal": "оукей плиз бӣ квик",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

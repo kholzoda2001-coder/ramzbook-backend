@@ -1,0 +1,558 @@
+{
+  "slug": "pickup_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "손님 태우기",
+    "titleTranslated": "Гирифтани мусофир",
+    "scenario": "Шумо мусофирро аз суроға мегиред: номашро мепурсед, салом медиҳед, мегӯед, ки камарбандро бандад ва мепурсед, ки ба куҷо меравад.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мусофир",
+      "items": [
+        {
+          "kind": "word",
+          "text": "손님",
+          "translation": "мусофир, мизоҷ",
+          "literal": "сонним",
+          "note": "Ба мусофир ва харидор ҳамин хел муроҷиат мекунанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "안전벨트",
+          "translation": "камарбанд",
+          "literal": "анҷонбэлтхы",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "어디",
+          "translation": "куҷо",
+          "literal": "оди",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "출발",
+          "translation": "ҳаракат, баромадан",
+          "literal": "чхулбал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "기사님",
+          "translation": "ронанда (бо эҳтиром)",
+          "literal": "кисаним",
+          "note": "Мусофирон ронандаро «기사님» мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "도착",
+          "translation": "расидан",
+          "literal": "точхак",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо Минҷӣ ҳастед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "택시예요?",
+          "cueTranslation": "Таксӣ ҳастед?",
+          "intent": "Бигӯ: ҳа",
+          "text": "네.",
+          "accepts": [
+            "네, 택시예요.",
+            "네, 맞아요."
+          ],
+          "translation": "Ҳа.",
+          "literal": "нэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "김민지예요.",
+          "cueTranslation": "Ман Ким Минҷӣ.",
+          "intent": "Бигӯ: салом, шинед",
+          "text": "안녕하세요, 타세요.",
+          "accepts": [
+            "타세요.",
+            "네, 타세요."
+          ],
+          "translation": "Салом, шинед.",
+          "literal": "аннёнгҳасэё тхасэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "뒤에 타도 돼요?",
+          "cueTranslation": "Ақиб шинам мешавад?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "네, 그럼요.",
+          "accepts": [
+            "네, 타세요.",
+            "네, 돼요."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": "нэ кыромё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Шинед",
+      "items": [
+        {
+          "kind": "word",
+          "text": "타세요",
+          "translation": "Шинед",
+          "literal": "тхасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "벨트 하세요",
+          "translation": "Камарбандро бандед",
+          "literal": "пэлтхы ҳасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "어디 가세요?",
+          "translation": "Куҷо меравед?",
+          "literal": "оди касэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "출발할게요",
+          "translation": "Ҳаракат мекунам",
+          "literal": "чхулбалҳалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "다 왔어요",
+          "translation": "Расидем",
+          "literal": "та вассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "천천히 갈게요",
+          "translation": "Оҳиста меравам",
+          "literal": "чхончхонҳи калгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Камарбанд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "벨트 해야 돼요?",
+          "cueTranslation": "Камарбанд бандам лозим?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "네, 해 주세요.",
+          "accepts": [
+            "네, 하세요.",
+            "네, 벨트 하세요."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "нэ ҳэ чусэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "했어요.",
+          "cueTranslation": "Бастам.",
+          "intent": "Бигӯ: ташаккур, ҳаракат мекунам",
+          "text": "감사합니다, 출발할게요.",
+          "accepts": [
+            "출발할게요.",
+            "감사합니다."
+          ],
+          "translation": "Ташаккур, ҳаракат мекунам.",
+          "literal": "камсаҳамнида чхулбалҳалгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "에어컨 좀 켜 주세요.",
+          "cueTranslation": "Кондитсионерро гиронед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [
+            "네.",
+            "네, 켤게요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ронандаи шумо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "제가 기사예요.",
+          "translation": "Ман ронанда ҳастам.",
+          "literal": "чэга кисаэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "어디로 가세요?",
+          "translation": "Ба куҷо меравед?",
+          "literal": "одиро касэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "주소 말씀해 주세요.",
+          "translation": "Суроғаро гӯед.",
+          "literal": "чусо малссымҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "안전벨트를 해 주세요.",
+          "translation": "Камарбандро бандед.",
+          "literal": "анҷонбэлтхырыл ҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "짐 있어요?",
+          "translation": "Бор доред?",
+          "literal": "чим иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "창문 열까요?",
+          "translation": "Тирезаро кушоям?",
+          "literal": "чхангмун ёлккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요.",
+          "cueTranslation": "Салом.",
+          "intent": "Бипурс: ба куҷо меравед?",
+          "text": "어디로 가세요?",
+          "accepts": [
+            "어디 가세요?"
+          ],
+          "translation": "Ба куҷо меравед?",
+          "literal": "одиро касэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "서울역이요.",
+          "cueTranslation": "Ба вокзали Сеул.",
+          "intent": "Такрор кун: вокзали Сеул?",
+          "text": "서울역이요?",
+          "accepts": [
+            "서울역 맞아요?",
+            "서울역 가세요?"
+          ],
+          "translation": "Вокзали Сеул?",
+          "literal": "соурёгиё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 맞아요.",
+          "cueTranslation": "Ҳа, дуруст.",
+          "intent": "Бигӯ: хуб, ҳаракат мекунам",
+          "text": "네, 출발할게요.",
+          "accepts": [
+            "출발할게요.",
+            "알겠어요, 출발할게요."
+          ],
+          "translation": "Хуб, ҳаракат мекунам.",
+          "literal": "нэ чхулбалҳалгэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "이십 분 걸려요.",
+          "translation": "Бист дақиқа мекашад.",
+          "literal": "ишип пун коллёё",
+          "note": "Барои дақиқа рақамҳои хитоӣ-кореягӣ: 이십 분.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "길이 막혀요.",
+          "translation": "Роҳ банд аст.",
+          "literal": "кири макхёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "에어컨 켤까요?",
+          "translation": "Кондитсионер гиронам?",
+          "literal": "эокхон кхёлккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "다 왔어요.",
+          "translation": "Расидем.",
+          "literal": "та вассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "여기서 내리세요?",
+          "translation": "Ин ҷо мефуроед?",
+          "literal": "ёгисо нэрисэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "문 조심하세요.",
+          "translation": "Аз дар эҳтиёт шавед.",
+          "literal": "мун чошимҳасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Расидем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "얼마나 걸려요?",
+          "cueTranslation": "Чӣ қадар вақт мегирад?",
+          "intent": "Бигӯ: бист дақиқа",
+          "text": "이십 분이요.",
+          "accepts": [
+            "이십 분 걸려요."
+          ],
+          "translation": "Бист дақиқа.",
+          "literal": "ишип пуниё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "여기서 내려 주세요.",
+          "cueTranslation": "Ин ҷо фуроред.",
+          "intent": "Бигӯ: хуб, расидем",
+          "text": "네, 다 왔어요.",
+          "accepts": [
+            "다 왔어요.",
+            "네, 알겠어요."
+          ],
+          "translation": "Хуб, расидем.",
+          "literal": "нэ та вассоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "감사합니다.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: рӯзи хуб",
+          "text": "좋은 하루 보내세요.",
+          "accepts": [
+            "안녕히 가세요."
+          ],
+          "translation": "Рӯзи хуб.",
+          "literal": "чоын ҳару понэсэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мусофири аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "택시 맞아요?",
+          "cueTranslation": "Таксӣ ҳамин аст?",
+          "intent": "Бигӯ: ҳа, шинед",
+          "text": "네, 타세요.",
+          "accepts": [
+            "네, 맞아요. 타세요.",
+            "네."
+          ],
+          "translation": "Ҳа, шинед.",
+          "literal": "нэ тхасэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 감사합니다.",
+          "cueTranslation": "Ҳа, ташаккур.",
+          "intent": "Бигӯ: камарбандро бандед",
+          "text": "벨트 해 주세요.",
+          "accepts": [
+            "안전벨트 해 주세요.",
+            "벨트 하세요."
+          ],
+          "translation": "Камарбандро бандед.",
+          "literal": "пэлтхы ҳэ чусэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 했어요.",
+          "cueTranslation": "Ҳа, бастам.",
+          "intent": "Бипурс: ба куҷо меравед?",
+          "text": "어디로 가세요?",
+          "accepts": [
+            "어디 가세요?"
+          ],
+          "translation": "Ба куҷо меравед?",
+          "literal": "одиро касэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "강남역이요.",
+          "cueTranslation": "Ба истгоҳи Каннам.",
+          "intent": "Бигӯ: хуб, ҳаракат мекунам",
+          "text": "네, 출발할게요.",
+          "accepts": [
+            "알겠어요.",
+            "출발할게요."
+          ],
+          "translation": "Хуб, ҳаракат мекунам.",
+          "literal": "нэ чхулбалҳалгэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

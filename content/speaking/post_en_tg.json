@@ -1,0 +1,562 @@
+{
+  "slug": "post_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the post office",
+    "titleTranslated": "Дар почта",
+    "scenario": "Шумо ба оила баста мефиристед: мегӯед ба кадом кишвар, нарх ва вақтро мепурсед, варақаро пур мекунед ва мегӯед, ки дарунаш чист.",
+    "emoji": "📮",
+    "order": 13,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Почта",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Package",
+          "translation": "баста",
+          "literal": "пэкиҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Letter",
+          "translation": "мактуб",
+          "literal": "летэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Stamp",
+          "translation": "марка",
+          "literal": "стэмп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Address",
+          "translation": "суроға",
+          "literal": "эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Form",
+          "translation": "варақа",
+          "literal": "форм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Box",
+          "translation": "қуттӣ",
+          "literal": "бокс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Баста ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! What are you sending?",
+          "cueTranslation": "Салом! Чӣ мефиристед?",
+          "intent": "Бигӯ: баста ба Тоҷикистон",
+          "text": "A package to Tajikistan.",
+          "accepts": [
+            "To Tajikistan.",
+            "This package, to Tajikistan."
+          ],
+          "translation": "Баста ба Тоҷикистон.",
+          "literal": "э пэкиҷ ту тоҷикистон",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Put it here, please.",
+          "cueTranslation": "Ин ҷо гузоред, лутфан.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "How much?",
+          "accepts": [
+            "How much is it?",
+            "How much to send it?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "ҳау мач",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Forty dollars.",
+          "cueTranslation": "Чил доллар.",
+          "intent": "Бипурс: кай мерасад?",
+          "text": "When does it arrive?",
+          "accepts": [
+            "How long?",
+            "When will it arrive?"
+          ],
+          "translation": "Кай мерасад?",
+          "literal": "вен даз ит эрайв",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бо ҳавопаймо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Two kilos",
+          "translation": "Ду кило",
+          "literal": "ту килоуз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "This form",
+          "translation": "Ин варақа",
+          "literal": "ҙис форм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "By air",
+          "translation": "Бо ҳавопаймо",
+          "literal": "бай еэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Fast mail",
+          "translation": "Почтаи тез",
+          "literal": "фэст мейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "One stamp",
+          "translation": "Як марка",
+          "literal": "ван стэмп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Big box",
+          "translation": "Қуттии калон",
+          "literal": "биг бокс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Варақа",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Please fill in this form.",
+          "cueTranslation": "Лутфан, ин варақаро пур кунед.",
+          "intent": "Бипурс: ин ҷо?",
+          "text": "Here?",
+          "accepts": [
+            "Write here?",
+            "On this line?"
+          ],
+          "translation": "Ин ҷо?",
+          "literal": "ҳир",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Name and address.",
+          "cueTranslation": "Ҳа. Ном ва суроға.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, sure.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "What's in the box?",
+          "cueTranslation": "Дар қуттӣ чӣ ҳаст?",
+          "intent": "Бигӯ: либос ва туҳфаҳо",
+          "text": "Clothes and gifts.",
+          "accepts": [
+            "Clothes.",
+            "Gifts for my family."
+          ],
+          "translation": "Либос ва туҳфаҳо.",
+          "literal": "клоуз энд гифтс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Барои оилаам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Send this, please.",
+          "translation": "Инро фиристед, лутфан.",
+          "literal": "сенд ҙис плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It's for my family.",
+          "translation": "Барои оилаам аст.",
+          "literal": "итс фор май фэмилӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "How many days?",
+          "translation": "Чанд рӯз?",
+          "literal": "ҳау менӣ дейз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it fast?",
+          "translation": "Тез аст?",
+          "literal": "из ит фэст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I need a box.",
+          "translation": "Ба ман қуттӣ лозим.",
+          "literal": "ай нид э бокс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "One stamp, please.",
+          "translation": "Як марка, лутфан.",
+          "literal": "ван стэмп плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Кадомаш тез?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Air or ground?",
+          "cueTranslation": "Бо ҳавопаймо ё бо замин?",
+          "intent": "Бипурс: кадомаш тез аст?",
+          "text": "Which is fast?",
+          "accepts": [
+            "Which is faster?",
+            "Which one is fast?"
+          ],
+          "translation": "Кадомаш тез аст?",
+          "literal": "вич из фэст",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Air. Ten days.",
+          "cueTranslation": "Бо ҳавопаймо. Даҳ рӯз.",
+          "intent": "Бигӯ: бо ҳавопаймо, лутфан",
+          "text": "Air, please.",
+          "accepts": [
+            "By air.",
+            "By air, please."
+          ],
+          "translation": "Бо ҳавопаймо, лутфан.",
+          "literal": "еэр плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Sixty dollars.",
+          "cueTranslation": "Хуб. Шаст доллар.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Here you go.",
+          "accepts": [
+            "Here.",
+            "Here, sixty dollars."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "ҳир ю гоу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Шикастанӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I have a package.",
+          "translation": "Ман баста дорам.",
+          "literal": "ай ҳэв э пэкиҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I track it?",
+          "translation": "Пайгирӣ карда метавонам?",
+          "literal": "кен ай трэк ит",
+          "note": "Яъне дар интернет бинам, ки баста куҷост.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "What's the number?",
+          "translation": "Рақам чанд?",
+          "literal": "вотс ҙэ намбэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's very heavy.",
+          "translation": "Хеле вазнин аст.",
+          "literal": "итс верӣ ҳевӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Please be careful.",
+          "translation": "Лутфан, эҳтиёт кунед.",
+          "literal": "плиз бӣ кеэрфул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "It's fragile.",
+          "translation": "Шикастанӣ аст.",
+          "literal": "итс фрэҷайл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Пайгирӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "What's inside?",
+          "cueTranslation": "Дарунаш чист?",
+          "intent": "Бигӯ: шикастанӣ аст. Лутфан, эҳтиёт кунед",
+          "text": "It's fragile. Please be careful.",
+          "accepts": [
+            "Please be careful.",
+            "Fragile, please."
+          ],
+          "translation": "Шикастанӣ аст. Лутфан, эҳтиёт кунед.",
+          "literal": "итс фрэҷайл плиз бӣ кеэрфул",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Here is your receipt.",
+          "cueTranslation": "Хуб. Ана чекатон.",
+          "intent": "Бипурс: пайгирӣ карда метавонам?",
+          "text": "Can I track it?",
+          "accepts": [
+            "Can I check it online?",
+            "Tracking?"
+          ],
+          "translation": "Пайгирӣ карда метавонам?",
+          "literal": "кен ай трэк ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, the number is on top.",
+          "cueTranslation": "Ҳа, рақам дар боло.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, thank you."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: почта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Next! What are you sending?",
+          "cueTranslation": "Навбатӣ! Чӣ мефиристед?",
+          "intent": "Бигӯ: баста ба Тоҷикистон",
+          "text": "A package to Tajikistan.",
+          "accepts": [
+            "To Tajikistan.",
+            "This package to Tajikistan."
+          ],
+          "translation": "Баста ба Тоҷикистон.",
+          "literal": "э пэкиҷ ту тоҷикистон",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Air or ground?",
+          "cueTranslation": "Бо ҳавопаймо ё бо замин?",
+          "intent": "Бипурс: кадомаш тез аст?",
+          "text": "Which is fast?",
+          "accepts": [
+            "Which is faster?",
+            "Which one is fast?"
+          ],
+          "translation": "Кадомаш тез аст?",
+          "literal": "вич из фэст",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Air. Ten days, sixty dollars.",
+          "cueTranslation": "Бо ҳавопаймо. Даҳ рӯз, шаст доллар.",
+          "intent": "Бигӯ: бо ҳавопаймо, лутфан",
+          "text": "Air, please.",
+          "accepts": [
+            "By air.",
+            "By air, please."
+          ],
+          "translation": "Бо ҳавопаймо, лутфан.",
+          "literal": "еэр плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Please fill in this form.",
+          "cueTranslation": "Лутфан, ин варақаро пур кунед.",
+          "intent": "Бигӯ: хуб. Шикастанӣ аст",
+          "text": "Okay. It's fragile.",
+          "accepts": [
+            "Okay.",
+            "Sure. It's fragile."
+          ],
+          "translation": "Хуб. Шикастанӣ аст.",
+          "literal": "оукей итс фрэҷайл",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

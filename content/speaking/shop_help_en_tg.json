@@ -1,0 +1,562 @@
+{
+  "slug": "shop_help_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Helping a customer",
+    "titleTranslated": "Ёрӣ ба харидор",
+    "scenario": "Харидор чизе меҷӯяд. Шумо мепурсед, ки чӣ лозим, нишон медиҳед, ки куҷост, андоза ва рангро мепурсед, ва агар набошад, мегӯед, ки кай меояд.",
+    "emoji": "🛒",
+    "order": 13,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Андоза ва ранг",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Size",
+          "translation": "андоза",
+          "literal": "сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Color",
+          "translation": "ранг",
+          "literal": "калэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Small",
+          "translation": "хурд",
+          "literal": "смол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Medium",
+          "translation": "миёна",
+          "literal": "мидиэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Large",
+          "translation": "калон",
+          "literal": "лардж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Fitting room",
+          "translation": "ҳуҷраи пӯшидан",
+          "literal": "фитинг рум",
+          "note": "Ҷое, ки либосро пӯшида мебинанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Нон куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me, where is the bread?",
+          "cueTranslation": "Бубахшед, нон куҷост?",
+          "intent": "Бигӯ: қатори ду. Биёед",
+          "text": "Aisle two. Come with me.",
+          "accepts": [
+            "In aisle two.",
+            "This way, please."
+          ],
+          "translation": "Қатори ду. Биёед.",
+          "literal": "айл ту кам виҙ мӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бипурс: боз чизе лозим?",
+          "text": "Anything else?",
+          "accepts": [
+            "Do you need anything else?",
+            "Something else?"
+          ],
+          "translation": "Боз чизе лозим?",
+          "literal": "енӣҫинг елс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "No, that's all.",
+          "cueTranslation": "Не, ҳамин.",
+          "intent": "Бигӯ: хуб. Рӯзи хуш",
+          "text": "Okay. Have a nice day!",
+          "accepts": [
+            "Have a nice day!",
+            "Have a good day!"
+          ],
+          "translation": "Хуб. Рӯзи хуш!",
+          "literal": "оукей ҳэв э найс дей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Кадом андоза?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Aisle two",
+          "translation": "Қатори ду",
+          "literal": "айл ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Which size?",
+          "translation": "Кадом андоза?",
+          "literal": "вич сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Which color?",
+          "translation": "Кадом ранг?",
+          "literal": "вич калэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Medium size",
+          "translation": "Андозаи миёна",
+          "literal": "мидиэм сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Try it",
+          "translation": "Пӯшида бинед",
+          "literal": "трай ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Over there",
+          "translation": "Он ҷо",
+          "literal": "оувэр ҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пӯшида бинед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I like this shirt.",
+          "cueTranslation": "Ин курта ба ман писанд.",
+          "intent": "Бипурс: кадом андоза?",
+          "text": "Which size?",
+          "accepts": [
+            "What size?",
+            "Which size, please?"
+          ],
+          "translation": "Кадом андоза?",
+          "literal": "вич сайз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Medium, please.",
+          "cueTranslation": "Миёна, лутфан.",
+          "intent": "Бигӯ: ана. Пӯшида бинед",
+          "text": "Here. Try it.",
+          "accepts": [
+            "Here you go.",
+            "Try it, please."
+          ],
+          "translation": "Ана. Пӯшида бинед.",
+          "literal": "ҳир трай ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is the fitting room?",
+          "cueTranslation": "Ҳуҷраи пӯшидан куҷост?",
+          "intent": "Бигӯ: он ҷо",
+          "text": "Over there.",
+          "accepts": [
+            "It's over there.",
+            "There, on the left."
+          ],
+          "translation": "Он ҷо.",
+          "literal": "оувэр ҙэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ёрӣ диҳам?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Can I help you?",
+          "translation": "Ёрӣ диҳам?",
+          "literal": "кен ай ҳелп ю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Looking for something?",
+          "translation": "Чизе меҷӯед?",
+          "literal": "лукинг фор самҫинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Follow me, please.",
+          "translation": "Аз пайи ман биёед.",
+          "literal": "фолоу мӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's in aisle two.",
+          "translation": "Дар қатори ду.",
+          "literal": "итс ин айл ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "We have blue.",
+          "translation": "Кабуд дорем.",
+          "literal": "вӣ ҳэв блу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "This one is cheaper.",
+          "translation": "Ин арзонтар аст.",
+          "literal": "ҙис ван из чипэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ранги дигар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you have this in red?",
+          "cueTranslation": "Инро сурх доред?",
+          "intent": "Бигӯ: не. Кабуд дорем",
+          "text": "No. We have blue.",
+          "accepts": [
+            "Sorry, only blue.",
+            "We have blue."
+          ],
+          "translation": "Не. Кабуд дорем.",
+          "literal": "ноу вӣ ҳэв блу",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hmm. It's expensive.",
+          "cueTranslation": "Ҳмм. Қимат аст.",
+          "intent": "Бигӯ: ин арзонтар аст",
+          "text": "This one is cheaper.",
+          "accepts": [
+            "This is cheaper.",
+            "Look, this one is cheaper."
+          ],
+          "translation": "Ин арзонтар аст.",
+          "literal": "ҙис ван из чипэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, nice! I'll take it.",
+          "cueTranslation": "О, хуб! Мегирам.",
+          "intent": "Бигӯ: олӣ. Касса он ҷо",
+          "text": "Great. The register is there.",
+          "accepts": [
+            "Great. Pay over there.",
+            "Great!"
+          ],
+          "translation": "Олӣ. Касса он ҷо.",
+          "literal": "грейт ҙэ реҷистэр из ҙэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тамом шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Sorry, it's sold out.",
+          "translation": "Бубахшед, тамом шуд.",
+          "literal": "сорӣ итс соулд аут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It comes on Monday.",
+          "translation": "Душанбе меояд.",
+          "literal": "ит камз он мандей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Let me check.",
+          "translation": "Ҳозир месанҷам.",
+          "literal": "лет мӣ чек",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's in the back.",
+          "translation": "Дар анбор аст.",
+          "literal": "итс ин ҙэ бэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'll ask my manager.",
+          "translation": "Аз менеҷер мепурсам.",
+          "literal": "айл аск май мэниҷэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Over here, please.",
+          "translation": "Ин ҷо, лутфан.",
+          "literal": "оувэр ҳир плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай меояд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Do you have more of these?",
+          "cueTranslation": "Боз аз инҳо доред?",
+          "intent": "Бигӯ: ҳозир месанҷам",
+          "text": "Let me check.",
+          "accepts": [
+            "One moment.",
+            "I'll check."
+          ],
+          "translation": "Ҳозир месанҷам.",
+          "literal": "лет мӣ чек",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: бубахшед, тамом шуд",
+          "text": "Sorry, it's sold out.",
+          "accepts": [
+            "Sorry, none left.",
+            "Sorry, we don't have it."
+          ],
+          "translation": "Бубахшед, тамом шуд.",
+          "literal": "сорӣ итс соулд аут",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "When will you have more?",
+          "cueTranslation": "Кай боз меояд?",
+          "intent": "Бигӯ: душанбе меояд",
+          "text": "It comes on Monday.",
+          "accepts": [
+            "On Monday.",
+            "Monday."
+          ],
+          "translation": "Душанбе меояд.",
+          "literal": "ит камз он мандей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: харидор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me, can you help me?",
+          "cueTranslation": "Бубахшед, ёрӣ медиҳед?",
+          "intent": "Бигӯ: ҳа, албатта. Чизе меҷӯед?",
+          "text": "Yes, of course. Looking for something?",
+          "accepts": [
+            "Sure. Can I help you?",
+            "Yes. What do you need?"
+          ],
+          "translation": "Ҳа, албатта. Чизе меҷӯед?",
+          "literal": "йес ов корс лукинг фор самҫинг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, this jacket. Size large.",
+          "cueTranslation": "Ҳа, ин куртка. Андозаи калон.",
+          "intent": "Бигӯ: ҳозир месанҷам",
+          "text": "Let me check.",
+          "accepts": [
+            "One moment.",
+            "I'll check."
+          ],
+          "translation": "Ҳозир месанҷам.",
+          "literal": "лет мӣ чек",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have it?",
+          "cueTranslation": "Доред?",
+          "intent": "Бигӯ: бубахшед, тамом шуд. Душанбе меояд",
+          "text": "Sorry, it's sold out. It comes on Monday.",
+          "accepts": [
+            "Sorry, it's sold out.",
+            "Monday, sorry."
+          ],
+          "translation": "Бубахшед, тамом шуд. Душанбе меояд.",
+          "literal": "сорӣ итс соулд аут ит камз он мандей",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, I'll come on Monday.",
+          "cueTranslation": "Хуб, душанбе меоям.",
+          "intent": "Бигӯ: ташаккур. Рӯзи хуш",
+          "text": "Thank you. Have a nice day!",
+          "accepts": [
+            "Thanks! See you Monday.",
+            "Have a nice day!"
+          ],
+          "translation": "Ташаккур. Рӯзи хуш!",
+          "literal": "ҫенк ю ҳэв э найс дей",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
