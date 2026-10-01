@@ -1,0 +1,562 @@
+{
+  "slug": "cashier_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the cash register",
+    "titleTranslated": "Дар касса",
+    "scenario": "Шумо дар мағоза кассир ҳастед: салом медиҳед, мепурсед халта лозим аст ё не, нархро мегӯед, купон ва тахфифро месанҷед, пул мегиред ва чек медиҳед.",
+    "emoji": "💳",
+    "order": 11,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Касса",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Cashier",
+          "translation": "кассир",
+          "literal": "кэшир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Bag",
+          "translation": "халта",
+          "literal": "бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Price",
+          "translation": "нарх",
+          "literal": "прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Total",
+          "translation": "ҳамагӣ",
+          "literal": "тоутэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Coupon",
+          "translation": "купон",
+          "literal": "купон",
+          "note": "Коғаз ё рамз барои тахфиф.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Receipt",
+          "translation": "чек",
+          "literal": "рисит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Халта лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi!",
+          "cueTranslation": "Салом!",
+          "intent": "Бигӯ: салом! Халта лозим?",
+          "text": "Hi! Need a bag?",
+          "accepts": [
+            "Hello! A bag?",
+            "Hi! Do you need a bag?"
+          ],
+          "translation": "Салом! Халта лозим?",
+          "literal": "ҳай нид э бэг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, one bag.",
+          "cueTranslation": "Ҳа, як халта.",
+          "intent": "Бигӯ: ҳамагӣ понздаҳ доллар",
+          "text": "Your total is fifteen.",
+          "accepts": [
+            "Fifteen dollars.",
+            "It's fifteen dollars."
+          ],
+          "translation": "Ҳамагӣ понздаҳ.",
+          "literal": "ёр тоутэл из фифтин",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Here you go.",
+          "cueTranslation": "Марҳамат.",
+          "intent": "Бигӯ: ташаккур. Ана чекатон",
+          "text": "Thank you. Here's your receipt.",
+          "accepts": [
+            "Thanks. Your receipt.",
+            "Here is your receipt."
+          ],
+          "translation": "Ташаккур. Ана чекатон.",
+          "literal": "ҫенк ю ҳирз ёр рисит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Навбатӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Next, please",
+          "translation": "Навбатӣ, лутфан",
+          "literal": "некст плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Paper bag",
+          "translation": "Халтаи коғазӣ",
+          "literal": "пейпэр бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Fifteen dollars",
+          "translation": "Понздаҳ доллар",
+          "literal": "фифтин доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Your receipt",
+          "translation": "Чеки шумо",
+          "literal": "ёр рисит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Card here",
+          "translation": "Корт ин ҷо",
+          "literal": "кард ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "On sale",
+          "translation": "Бо тахфиф",
+          "literal": "он сейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Купон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I have a coupon.",
+          "cueTranslation": "Ман купон дорам.",
+          "intent": "Бигӯ: хуб. Нишон диҳед, лутфан",
+          "text": "Okay. Show me, please.",
+          "accepts": [
+            "Can I see it?",
+            "Show me, please."
+          ],
+          "translation": "Хуб. Нишон диҳед, лутфан.",
+          "literal": "оукей шоу мӣ плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here.",
+          "cueTranslation": "Ана.",
+          "intent": "Бигӯ: бубахшед, ин кӯҳна аст",
+          "text": "Sorry, it's old.",
+          "accepts": [
+            "Sorry, this is old.",
+            "Sorry, it doesn't work."
+          ],
+          "translation": "Бубахшед, ин кӯҳна аст.",
+          "literal": "сорӣ итс оулд",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, okay. No problem.",
+          "cueTranslation": "О, хуб. Мушкил нест.",
+          "intent": "Бигӯ: даҳ доллар, лутфан",
+          "text": "Ten dollars, please.",
+          "accepts": [
+            "It's ten dollars.",
+            "Your total is ten."
+          ],
+          "translation": "Даҳ доллар, лутфан.",
+          "literal": "тен доларз плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҳамагӣ бист",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Next, please!",
+          "translation": "Навбатӣ, лутфан!",
+          "literal": "некст плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Need a bag?",
+          "translation": "Халта лозим?",
+          "literal": "нид э бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Your total is twenty.",
+          "translation": "Ҳамагӣ бист.",
+          "literal": "ёр тоутэл из твентӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Insert your card.",
+          "translation": "Кортро дароред.",
+          "literal": "инсёрт ёр кард",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sign here, please.",
+          "translation": "Ин ҷо имзо кунед, лутфан.",
+          "literal": "сайн ҳир плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "This is on sale.",
+          "translation": "Ин бо тахфиф аст.",
+          "literal": "ҙис из он сейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Нарх нодуруст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "This price is wrong.",
+          "cueTranslation": "Ин нарх нодуруст аст.",
+          "intent": "Бигӯ: бубахшед. Месанҷам",
+          "text": "Sorry. I'll check.",
+          "accepts": [
+            "Let me check.",
+            "Sorry, one moment."
+          ],
+          "translation": "Бубахшед. Месанҷам.",
+          "literal": "сорӣ айл чек",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "It says five dollars.",
+          "cueTranslation": "Он ҷо панҷ доллар навишта.",
+          "intent": "Бигӯ: ҳа, ин бо тахфиф аст",
+          "text": "Yes, this is on sale.",
+          "accepts": [
+            "You're right. It's on sale.",
+            "Yes, five dollars."
+          ],
+          "translation": "Ҳа, ин бо тахфиф аст.",
+          "literal": "йес ҙис из он сейл",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: ҳамагӣ бист",
+          "text": "Your total is twenty.",
+          "accepts": [
+            "Twenty dollars.",
+            "It's twenty, please."
+          ],
+          "translation": "Ҳамагӣ бист.",
+          "literal": "ёр тоутэл из твентӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дастгоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Here's your change.",
+          "translation": "Ана бақияатон.",
+          "literal": "ҳирз ёр чейнҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "The machine doesn't work.",
+          "translation": "Дастгоҳ кор намекунад.",
+          "literal": "ҙэ мэшин дазнт вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Can you pay cash?",
+          "translation": "Нақд дода метавонед?",
+          "literal": "кен ю пей кэш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Try again, please.",
+          "translation": "Боз кӯшиш кунед, лутфан.",
+          "literal": "трай эген плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Your card, please.",
+          "translation": "Корти шумо, лутфан.",
+          "literal": "ёр кард плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Have a nice day!",
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Корт кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "My card doesn't work.",
+          "cueTranslation": "Корти ман кор намекунад.",
+          "intent": "Бигӯ: боз кӯшиш кунед, лутфан",
+          "text": "Try again, please.",
+          "accepts": [
+            "Please try again.",
+            "One more time, please."
+          ],
+          "translation": "Боз кӯшиш кунед, лутфан.",
+          "literal": "трай эген плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "No, it doesn't work.",
+          "cueTranslation": "Не, кор намекунад.",
+          "intent": "Бигӯ: дастгоҳ кор намекунад. Нақд дода метавонед?",
+          "text": "The machine doesn't work. Can you pay cash?",
+          "accepts": [
+            "Can you pay cash?",
+            "Sorry. Cash, please?"
+          ],
+          "translation": "Дастгоҳ кор намекунад. Нақд дода метавонед?",
+          "literal": "ҙэ мэшин дазнт вёрк кен ю пей кэш",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sure. Here's twenty.",
+          "cueTranslation": "Албатта. Ана бист.",
+          "intent": "Бигӯ: ана бақияатон. Рӯзи хуш",
+          "text": "Here's your change. Have a nice day!",
+          "accepts": [
+            "Here's your change.",
+            "Your change. Have a nice day!"
+          ],
+          "translation": "Ана бақияатон. Рӯзи хуш!",
+          "literal": "ҳирз ёр чейнҷ ҳэв э найс дей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: касса",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi!",
+          "cueTranslation": "Салом!",
+          "intent": "Бигӯ: салом! Халта лозим?",
+          "text": "Hi! Need a bag?",
+          "accepts": [
+            "Hello! A bag?",
+            "Hi! Do you need a bag?"
+          ],
+          "translation": "Салом! Халта лозим?",
+          "literal": "ҳай нид э бэг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "No, thanks. This is on sale, right?",
+          "cueTranslation": "Не, ташаккур. Ин бо тахфиф, дуруст?",
+          "intent": "Бигӯ: ҳа, ин бо тахфиф аст",
+          "text": "Yes, this is on sale.",
+          "accepts": [
+            "Yes, it's on sale.",
+            "Yes."
+          ],
+          "translation": "Ҳа, ин бо тахфиф аст.",
+          "literal": "йес ҙис из он сейл",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Great. How much?",
+          "cueTranslation": "Олӣ. Чанд?",
+          "intent": "Бигӯ: ҳамагӣ бист",
+          "text": "Your total is twenty.",
+          "accepts": [
+            "Twenty dollars.",
+            "It's twenty dollars."
+          ],
+          "translation": "Ҳамагӣ бист.",
+          "literal": "ёр тоутэл из твентӣ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Here's my card.",
+          "cueTranslation": "Ана корти ман.",
+          "intent": "Бигӯ: ташаккур. Ана чекатон",
+          "text": "Thank you. Here's your receipt.",
+          "accepts": [
+            "Your receipt.",
+            "Thanks! Here is your receipt."
+          ],
+          "translation": "Ташаккур. Ана чекатон.",
+          "literal": "ҫенк ю ҳирз ёр рисит",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
