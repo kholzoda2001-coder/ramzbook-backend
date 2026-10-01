@@ -1,0 +1,562 @@
+{
+  "slug": "timetable_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Расписание",
+    "titleTranslated": "Ҷадвали дарсҳо",
+    "scenario": "Шумо ҷадвали дарсҳоро мефаҳмед: дарси аввал кай аст, дар кадом синфхона, кай танаффус ва кадом рӯз дарс нест. Бо ҳамкурс дар бораи ҷадвал гап мезанед.",
+    "emoji": "🗓️",
+    "order": 7,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҷадвал",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Расписание",
+          "translation": "ҷадвал",
+          "literal": null,
+          "note": "Зарба: рас-пи-СА-ни-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Пара",
+          "translation": "дарс (дусоата)",
+          "literal": null,
+          "note": "Зарба: ПА-ра. Дар донишгоҳ як дарс = «пара».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Аудитория",
+          "translation": "синфхона",
+          "literal": null,
+          "note": "Зарба: ау-ди-ТО-ри-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Понедельник",
+          "translation": "душанбе",
+          "literal": null,
+          "note": "Зарба: по-не-ДЕЛЬ-ник.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Перерыв",
+          "translation": "танаффус",
+          "literal": null,
+          "note": "Зарба: пе-ре-РЫВ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Отменили",
+          "translation": "бекор карданд",
+          "literal": null,
+          "note": "Зарба: от-ме-НИ-ли.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Дарси аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты смотрел расписание?",
+          "cueTranslation": "Ҷадвалро дидӣ?",
+          "intent": "Бигӯ: не. Он куҷост?",
+          "text": "Нет. Где оно?",
+          "accepts": [
+            "Нет, где расписание?",
+            "Не смотрел. Где?"
+          ],
+          "translation": "Не. Он куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На сайте и на стене.",
+          "cueTranslation": "Дар сайт ва дар девор.",
+          "intent": "Бипурс: дарси аввал кай?",
+          "text": "Когда первая пара?",
+          "accepts": [
+            "Во сколько первая пара?",
+            "Первая пара когда?"
+          ],
+          "translation": "Дарси аввал кай?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В девять.",
+          "cueTranslation": "Соати нӯҳ.",
+          "intent": "Бигӯ: фаҳмидам. Ташаккур",
+          "text": "Понятно. Спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Фаҳмидам. Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Синфхона",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Первая пара",
+          "translation": "Дарси аввал",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Какая аудитория?",
+          "translation": "Кадом синфхона?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "В понедельник",
+          "translation": "Душанбе",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Большой перерыв",
+          "translation": "Танаффуси калон",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Пару отменили",
+          "translation": "Дарс бекор шуд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "В девять",
+          "translation": "Соати нӯҳ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом синфхона?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сегодня русский язык.",
+          "cueTranslation": "Имрӯз забони русӣ.",
+          "intent": "Бипурс: кадом синфхона?",
+          "text": "Какая аудитория?",
+          "accepts": [
+            "В какой аудитории?",
+            "Аудитория какая?"
+          ],
+          "translation": "Кадом синфхона?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Аудитория триста.",
+          "cueTranslation": "Синфхонаи сесад.",
+          "intent": "Бипурс: соати чанд?",
+          "text": "Во сколько?",
+          "accepts": [
+            "Когда?",
+            "Во сколько начало?"
+          ],
+          "translation": "Соати чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В одиннадцать.",
+          "cueTranslation": "Соати ёздаҳ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понятно."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дарс бекор шуд?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где расписание?",
+          "translation": "Ҷадвал куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда первая пара?",
+          "translation": "Дарси аввал кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Где аудитория триста?",
+          "translation": "Синфхонаи сесад куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Пара отменена?",
+          "translation": "Дарс бекор шуд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Сегодня есть пары?",
+          "translation": "Имрӯз дарс ҳаст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда перерыв?",
+          "translation": "Танаффус кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ошёнаи сеюм",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Куда идёшь?",
+          "cueTranslation": "Салом! Ба куҷо меравӣ?",
+          "intent": "Бипурс: синфхонаи сесад куҷост?",
+          "text": "Где аудитория триста?",
+          "accepts": [
+            "Где триста?",
+            "Ты знаешь, где аудитория триста?"
+          ],
+          "translation": "Синфхонаи сесад куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На третьем этаже.",
+          "cueTranslation": "Дар ошёнаи сеюм.",
+          "intent": "Бигӯ: ташаккур!",
+          "text": "Спасибо!",
+          "accepts": [
+            "Спасибо большое!",
+            "Спасибо, понятно."
+          ],
+          "translation": "Ташаккур!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Но пару отменили!",
+          "cueTranslation": "Вале дарс бекор шуд!",
+          "intent": "Бипурс: дарс бекор шуд?",
+          "text": "Пара отменена?",
+          "accepts": [
+            "Правда? Отменили?",
+            "Отменили пару?"
+          ],
+          "translation": "Дарс бекор шуд?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳафта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Во вторник нет пар.",
+          "translation": "Сешанбе дарс нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "В среду четыре пары.",
+          "translation": "Чоршанбе чор дарс.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я свободен в пятницу.",
+          "translation": "Ҷумъа холӣ ҳастам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я свободна».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Пойдём в столовую?",
+          "translation": "Ба ошхона равем?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Перерыв двадцать минут.",
+          "translation": "Танаффус бист дақиқа.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Увидимся на паре!",
+          "translation": "Дар дарс вомехӯрем!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сколько у тебя пар в среду?",
+          "cueTranslation": "Чоршанбе чанд дарс дорӣ?",
+          "intent": "Бигӯ: чор дарс",
+          "text": "Четыре пары.",
+          "accepts": [
+            "Четыре.",
+            "В среду четыре пары."
+          ],
+          "translation": "Чор дарс.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ого! А во вторник?",
+          "cueTranslation": "Во! Ва сешанбе?",
+          "intent": "Бигӯ: сешанбе дарс нест",
+          "text": "Во вторник нет пар.",
+          "accepts": [
+            "Во вторник ничего.",
+            "Нет пар."
+          ],
+          "translation": "Сешанбе дарс нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сейчас перерыв. Пойдём в столовую?",
+          "cueTranslation": "Ҳоло танаффус. Ба ошхона равем?",
+          "intent": "Бигӯ: равем",
+          "text": "Пойдём!",
+          "accepts": [
+            "Давай!",
+            "Да, пойдём."
+          ],
+          "translation": "Равем!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҷадвал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты знаешь расписание?",
+          "cueTranslation": "Салом! Ҷадвалро медонӣ?",
+          "intent": "Бигӯ: не. Дарси аввал кай?",
+          "text": "Нет. Когда первая пара?",
+          "accepts": [
+            "Нет. Во сколько первая пара?",
+            "Когда первая пара?"
+          ],
+          "translation": "Не. Дарси аввал кай?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "В девять. Русский язык.",
+          "cueTranslation": "Соати нӯҳ. Забони русӣ.",
+          "intent": "Бипурс: кадом синфхона?",
+          "text": "Какая аудитория?",
+          "accepts": [
+            "В какой аудитории?",
+            "Аудитория какая?"
+          ],
+          "translation": "Кадом синфхона?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Триста, на третьем этаже.",
+          "cueTranslation": "Сесад, дар ошёнаи сеюм.",
+          "intent": "Бипурс: танаффус кай?",
+          "text": "Когда перерыв?",
+          "accepts": [
+            "Во сколько перерыв?",
+            "А перерыв когда?"
+          ],
+          "translation": "Танаффус кай?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "В одиннадцать.",
+          "cueTranslation": "Соати ёздаҳ.",
+          "intent": "Бигӯ: ташаккур. Дар дарс вомехӯрем!",
+          "text": "Спасибо. Увидимся на паре!",
+          "accepts": [
+            "Увидимся!",
+            "Спасибо, до встречи."
+          ],
+          "translation": "Ташаккур. Дар дарс вомехӯрем!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
