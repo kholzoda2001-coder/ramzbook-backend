@@ -1,0 +1,558 @@
+{
+  "slug": "route_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "주소와 길",
+    "titleTranslated": "Суроға ва роҳ",
+    "scenario": "Мусофир мегӯяд, ки ба куҷо меравад. Шумо суроғаро такрор мекунед, мепурсед «ба чап ё ба рост?», мегӯед, ки навигатор доред ва даромадгоҳи дурустро меёбед.",
+    "emoji": "🗺️",
+    "order": 5,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Чап ва рост",
+      "items": [
+        {
+          "kind": "word",
+          "text": "왼쪽",
+          "translation": "чап",
+          "literal": "венччок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "오른쪽",
+          "translation": "рост (тараф)",
+          "literal": "орынччок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "직진",
+          "translation": "рост ба пеш",
+          "literal": "чикччин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "주소",
+          "translation": "суроға",
+          "literal": "чусо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "공항",
+          "translation": "фурудгоҳ",
+          "literal": "конгҳанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "입구",
+          "translation": "даромадгоҳ",
+          "literal": "ипкку",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ба фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "공항 가 주세요.",
+          "cueTranslation": "Ба фурудгоҳ баред.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [
+            "네.",
+            "네, 공항이요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "인천 공항이요.",
+          "cueTranslation": "Фурудгоҳи Инчхон.",
+          "intent": "Такрор кун: Инчхон?",
+          "text": "인천이요?",
+          "accepts": [
+            "인천 공항이요?",
+            "인천 맞아요?"
+          ],
+          "translation": "Инчхон?",
+          "literal": "инчхониё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 일 터미널이요.",
+          "cueTranslation": "Ҳа, терминали як.",
+          "intent": "Бигӯ: хуб, терминали як",
+          "text": "네, 일 터미널이요.",
+          "accepts": [
+            "일 터미널 알겠어요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, терминали як.",
+          "literal": "нэ ил тхоминориё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гардед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "왼쪽으로 가요",
+          "translation": "Ба чап меравем",
+          "literal": "венччогыро каё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "오른쪽이에요?",
+          "translation": "Ба рост?",
+          "literal": "орынччогиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "쭉 가세요",
+          "translation": "Рост равед",
+          "literal": "ччук касэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "여기서 돌아요",
+          "translation": "Ин ҷо мегардем",
+          "literal": "ёгисо тораё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "다음 신호",
+          "translation": "Светофори навбатӣ",
+          "literal": "таым шинҳо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "이 길",
+          "translation": "Ҳамин роҳ",
+          "literal": "и кил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чап ё рост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여기서 돌아요.",
+          "cueTranslation": "Ин ҷо гардед.",
+          "intent": "Бипурс: чап ё рост?",
+          "text": "왼쪽이요, 오른쪽이요?",
+          "accepts": [
+            "왼쪽이에요?",
+            "왼쪽 맞아요?"
+          ],
+          "translation": "Чап ё рост?",
+          "literal": "венччогиё орынччогиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "왼쪽이요.",
+          "cueTranslation": "Ба чап.",
+          "intent": "Бигӯ: хуб, ба чап",
+          "text": "네, 왼쪽으로 갈게요.",
+          "accepts": [
+            "왼쪽이요, 알겠어요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, ба чап.",
+          "literal": "нэ венччогыро калгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "그다음에 쭉 가세요.",
+          "cueTranslation": "Баъд рост равед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네.",
+          "accepts": [
+            "네, 알겠어요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Суроға чист?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "주소가 어디예요?",
+          "translation": "Суроға куҷост?",
+          "literal": "чусога одиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "내비가 있어요.",
+          "translation": "Навигатор дорам.",
+          "literal": "нэбига иссоё",
+          "note": "«내비» — навигатор (кӯтоҳи 내비게이션).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "주소 다시 말해 주세요.",
+          "translation": "Суроғаро боз гӯед.",
+          "literal": "чусо таши малҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "이 길이 맞아요?",
+          "translation": "Ин роҳ дуруст аст?",
+          "literal": "и кири маҷаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "어느 입구예요?",
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "оны ипккуэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "여기 세워 드릴까요?",
+          "translation": "Ин ҷо нигоҳ дорам?",
+          "literal": "ёги сэво тырилккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Кадом даромадгоҳ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "롯데 백화점 가 주세요.",
+          "cueTranslation": "Ба универмаги Лотте баред.",
+          "intent": "Бипурс: кадом даромадгоҳ?",
+          "text": "어느 입구예요?",
+          "accepts": [
+            "어느 입구로 가요?",
+            "입구가 어디예요?"
+          ],
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "оны ипккуэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "정문이요.",
+          "cueTranslation": "Дари асосӣ.",
+          "intent": "Бигӯ: хуб, навигатор дорам",
+          "text": "네, 내비가 있어요.",
+          "accepts": [
+            "알겠어요.",
+            "네, 알겠어요."
+          ],
+          "translation": "Хуб, навигатор дорам.",
+          "literal": "нэ нэбига иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "얼마나 걸려요?",
+          "cueTranslation": "Чӣ қадар мекашад?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "십 분이요.",
+          "accepts": [
+            "십 분 걸려요."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": "шип пуниё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қариб расидем",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "거의 다 왔어요.",
+          "translation": "Қариб расидем.",
+          "literal": "коэ та вассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "여기서 못 세워요.",
+          "translation": "Ин ҷо истода наметавонам.",
+          "literal": "ёгисо мот сэвоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "조금 더 가요.",
+          "translation": "Каме дигар меравем.",
+          "literal": "чогым то каё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "저기 세울게요.",
+          "translation": "Он ҷо нигоҳ медорам.",
+          "literal": "чоги сэулгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "길을 잘못 들었어요.",
+          "translation": "Роҳро хато рафтам.",
+          "literal": "кирыл чалмот тыроссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "죄송해요, 돌아갈게요.",
+          "translation": "Бубахшед, бармегардам.",
+          "literal": "чвесонгҳэё торагалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Истодан мумкин нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여기 세워 주세요.",
+          "cueTranslation": "Ин ҷо нигоҳ доред.",
+          "intent": "Бигӯ: ин ҷо наметавонам",
+          "text": "여기서 못 세워요.",
+          "accepts": [
+            "여기는 안 돼요.",
+            "죄송해요, 여기서 못 세워요."
+          ],
+          "translation": "Ин ҷо наметавонам.",
+          "literal": "ёгисо мот сэвоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "왜요?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: истодан мумкин нест",
+          "text": "주차 금지예요.",
+          "accepts": [
+            "여기 주차 금지예요."
+          ],
+          "translation": "Истодан мумкин нест.",
+          "literal": "чучха кымҷиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "그럼 저기요.",
+          "cueTranslation": "Пас он ҷо.",
+          "intent": "Бигӯ: хуб, он ҷо нигоҳ медорам",
+          "text": "네, 저기 세울게요.",
+          "accepts": [
+            "저기 세울게요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, он ҷо нигоҳ медорам.",
+          "literal": "нэ чоги сэулгэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ба фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "김포 공항 가 주세요.",
+          "cueTranslation": "Ба фурудгоҳи Кимпхо баред.",
+          "intent": "Бигӯ: хуб, фурудгоҳи Кимпхо",
+          "text": "네, 김포 공항이요.",
+          "accepts": [
+            "김포 공항이요?",
+            "네, 알겠어요."
+          ],
+          "translation": "Хуб, фурудгоҳи Кимпхо.",
+          "literal": "нэ кимпхо конгҳангиё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "얼마나 걸려요?",
+          "cueTranslation": "Чӣ қадар мекашад?",
+          "intent": "Бигӯ: сӣ дақиқа",
+          "text": "삼십 분이요.",
+          "accepts": [
+            "삼십 분 걸려요."
+          ],
+          "translation": "Сӣ дақиқа.",
+          "literal": "самшип пуниё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "국내선이에요.",
+          "cueTranslation": "Парвози дохилӣ.",
+          "intent": "Бипурс: кадом даромадгоҳ?",
+          "text": "어느 입구예요?",
+          "accepts": [
+            "입구가 어디예요?"
+          ],
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "оны ипккуэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "삼 번 입구요.",
+          "cueTranslation": "Даромадгоҳи се.",
+          "intent": "Бигӯ: хуб, даромадгоҳи се",
+          "text": "네, 삼 번 입구요.",
+          "accepts": [
+            "알겠어요.",
+            "삼 번이요?"
+          ],
+          "translation": "Хуб, даромадгоҳи се.",
+          "literal": "нэ сам пон ипккуё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

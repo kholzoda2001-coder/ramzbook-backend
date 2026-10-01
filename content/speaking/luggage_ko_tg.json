@@ -1,0 +1,549 @@
+{
+  "slug": "luggage_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "짐 싣기",
+    "titleTranslated": "Бағоҷ ва бағоҷдон",
+    "scenario": "Мусофир ҷомадонҳои калон дорад. Шумо бағоҷдонро мекушоед, ёрӣ медиҳед, мепурсед, ки чанд сумка ҳаст, ва дар охир мегӯед, ки ҳеҷ чизро дар мошин фаромӯш накунад.",
+    "emoji": "🧳",
+    "order": 7,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Сумкаҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "짐",
+          "translation": "бор, бағоҷ",
+          "literal": "чим",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "가방",
+          "translation": "сумка",
+          "literal": "кабанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "트렁크",
+          "translation": "бағоҷдон",
+          "literal": "тхыронгкхы",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "무거워요",
+          "translation": "вазнин аст",
+          "literal": "муговоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "캐리어",
+          "translation": "ҷомадони чархдор",
+          "literal": "кхэрио",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "휴대폰",
+          "translation": "телефон",
+          "literal": "ҳюдэпхон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ёрӣ медиҳам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "짐이 많아요.",
+          "cueTranslation": "Бор зиёд аст.",
+          "intent": "Бигӯ: ёрӣ медиҳам",
+          "text": "제가 도와드릴게요.",
+          "accepts": [
+            "도와드릴게요.",
+            "제가 할게요."
+          ],
+          "translation": "Ёрӣ медиҳам.",
+          "literal": "чэга товадырилгэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "감사합니다.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: бағоҷдонро мекушоям",
+          "text": "트렁크 열게요.",
+          "accepts": [
+            "트렁크 열어 드릴게요."
+          ],
+          "translation": "Бағоҷдонро мекушоям.",
+          "literal": "тхыронгкхы ёлгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "이거 무거워요.",
+          "cueTranslation": "Ин вазнин аст.",
+          "intent": "Бигӯ: ҳеҷ гап не",
+          "text": "괜찮아요.",
+          "accepts": [
+            "괜찮아요, 제가 할게요."
+          ],
+          "translation": "Ҳеҷ гап не.",
+          "literal": "квенчханаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ду сумка",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "두 개",
+          "translation": "Ду дона",
+          "literal": "ту кэ",
+          "note": "Барои шумориш рақамҳои кореягӣ: 하나, 둘 → 한 개, 두 개.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "큰 가방",
+          "translation": "Сумкаи калон",
+          "literal": "кхын кабанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "트렁크 열게요",
+          "translation": "Бағоҷдонро мекушоям",
+          "literal": "тхыронгкхы ёлгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "도와드릴게요",
+          "translation": "Ёрӣ медиҳам",
+          "literal": "товадырилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "너무 무거워요",
+          "translation": "Хеле вазнин",
+          "literal": "ному муговоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "여기 넣을게요",
+          "translation": "Ин ҷо мегузорам",
+          "literal": "ёги ноылгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чанд сумка?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "가방 있어요.",
+          "cueTranslation": "Сумка дорам.",
+          "intent": "Бипурс: чанд дона?",
+          "text": "몇 개예요?",
+          "accepts": [
+            "가방 몇 개예요?"
+          ],
+          "translation": "Чанд дона?",
+          "literal": "мёт кээё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "두 개요.",
+          "cueTranslation": "Ду дона.",
+          "intent": "Бигӯ: хуб, ба бағоҷдон",
+          "text": "네, 트렁크에 넣을게요.",
+          "accepts": [
+            "트렁크에 넣을게요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, ба бағоҷдон.",
+          "literal": "нэ тхыронгкхыэ ноылгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "이 가방은 제가 들게요.",
+          "cueTranslation": "Ин сумкаро худам мегирам.",
+          "intent": "Бигӯ: хуб",
+          "text": "네.",
+          "accepts": [
+            "네, 알겠어요.",
+            "네, 좋아요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Бағоҷдон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "트렁크가 작아요.",
+          "translation": "Бағоҷдон хурд аст.",
+          "literal": "тхыронгкхыга чагаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "캐리어가 커요.",
+          "translation": "Ҷомадон калон аст.",
+          "literal": "кхэриога кхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "뒷자리에 넣을까요?",
+          "translation": "Ба курсии ақиб гузорам?",
+          "literal": "твитччариэ ноылккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "조심하세요, 무거워요.",
+          "translation": "Эҳтиёт шавед, вазнин аст.",
+          "literal": "чошимҳасэё муговоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "다 넣었어요.",
+          "translation": "Ҳамаашро гузоштам.",
+          "literal": "та нооссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "가방 몇 개예요?",
+          "translation": "Чанд сумка?",
+          "literal": "кабанг мёт кээё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҷой намешавад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "캐리어 세 개예요.",
+          "cueTranslation": "Се ҷомадон.",
+          "intent": "Бигӯ: бағоҷдон хурд аст",
+          "text": "트렁크가 작아요.",
+          "accepts": [
+            "트렁크가 좀 작아요."
+          ],
+          "translation": "Бағоҷдон хурд аст.",
+          "literal": "тхыронгкхыга чагаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어떡해요?",
+          "cueTranslation": "Чӣ кор кунем?",
+          "intent": "Бипурс: ба курсии ақиб гузорам?",
+          "text": "뒷자리에 넣을까요?",
+          "accepts": [
+            "뒤에 넣을까요?"
+          ],
+          "translation": "Ба курсии ақиб гузорам?",
+          "literal": "твитччариэ ноылккаё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 좋아요.",
+          "cueTranslation": "Ҳа, хуб.",
+          "intent": "Бигӯ: ҳамаашро гузоштам",
+          "text": "다 넣었어요.",
+          "accepts": [
+            "다 됐어요."
+          ],
+          "translation": "Ҳамаашро гузоштам.",
+          "literal": "та нооссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Фаромӯш накунед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "두고 가지 마세요.",
+          "translation": "Чизе нагузошта равед.",
+          "literal": "туго каҷи масэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "휴대폰 챙기세요.",
+          "translation": "Телефонатонро гиред.",
+          "literal": "ҳюдэпхон чхэнггисэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "이거 손님 거예요?",
+          "translation": "Ин аз шумост?",
+          "literal": "иго сонним коэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "뒷자리 확인하세요.",
+          "translation": "Курсии ақибро санҷед.",
+          "literal": "твитччари ҳвагинҳасэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "가방 꺼내 드릴게요.",
+          "translation": "Сумкаро мебарорам.",
+          "literal": "кабанг кконэ тырилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "잠깐만요!",
+          "translation": "Як дақиқа!",
+          "literal": "чамкканманё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Телефони шумо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "감사합니다, 안녕히 계세요.",
+          "cueTranslation": "Ташаккур, хайр.",
+          "intent": "Бигӯ: як дақиқа!",
+          "text": "잠깐만요!",
+          "accepts": [
+            "잠시만요!"
+          ],
+          "translation": "Як дақиқа!",
+          "literal": "чамкканманё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "네?",
+          "cueTranslation": "Ҳа?",
+          "intent": "Бипурс: ин телефони шумост?",
+          "text": "이거 손님 휴대폰이에요?",
+          "accepts": [
+            "이거 손님 거예요?"
+          ],
+          "translation": "Ин телефони шумост?",
+          "literal": "иго сонним ҳюдэпхониэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "아, 네! 감사합니다.",
+          "cueTranslation": "Оҳ, ҳа! Ташаккур.",
+          "intent": "Бигӯ: ҳеҷ гап не",
+          "text": "괜찮아요.",
+          "accepts": [
+            "천만에요."
+          ],
+          "translation": "Ҳеҷ гап не.",
+          "literal": "квенчханаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бағоҷи калон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "짐이 많아요. 도와줄 수 있어요?",
+          "cueTranslation": "Бор зиёд аст. Ёрӣ дода метавонед?",
+          "intent": "Бигӯ: ҳа, ёрӣ медиҳам",
+          "text": "네, 도와드릴게요.",
+          "accepts": [
+            "네, 제가 할게요."
+          ],
+          "translation": "Ҳа, ёрӣ медиҳам.",
+          "literal": "нэ товадырилгэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "캐리어 두 개하고 가방 하나요.",
+          "cueTranslation": "Ду ҷомадон ва як сумка.",
+          "intent": "Бигӯ: хуб, ба бағоҷдон",
+          "text": "네, 트렁크에 넣을게요.",
+          "accepts": [
+            "트렁크에 넣을게요."
+          ],
+          "translation": "Хуб, ба бағоҷдон.",
+          "literal": "нэ тхыронгкхыэ ноылгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "다 들어가요?",
+          "cueTranslation": "Ҳама ҷой мешавад?",
+          "intent": "Бигӯ: ҳа, ҳамаашро гузоштам",
+          "text": "네, 다 넣었어요.",
+          "accepts": [
+            "네, 다 들어가요."
+          ],
+          "translation": "Ҳа, ҳамаашро гузоштам.",
+          "literal": "нэ та нооссоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "감사합니다. 여기서 내려요.",
+          "cueTranslation": "Ташаккур. Ин ҷо мефуроям.",
+          "intent": "Бигӯ: телефонатонро гиред",
+          "text": "휴대폰 챙기세요.",
+          "accepts": [
+            "두고 가지 마세요."
+          ],
+          "translation": "Телефонатонро гиред.",
+          "literal": "ҳюдэпхон чхэнггисэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

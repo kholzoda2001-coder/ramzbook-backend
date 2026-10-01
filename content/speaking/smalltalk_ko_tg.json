@@ -1,0 +1,555 @@
+{
+  "slug": "smalltalk_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "손님과 대화",
+    "titleTranslated": "Гап бо мусофир",
+    "scenario": "Дар роҳ мусофир гап мезанад: аз куҷо ҳастед, оила доред, ҳаво чӣ хел. Шумо кӯтоҳ ҷавоб медиҳед, мусиқӣ ва кондитсионерро мепурсед.",
+    "emoji": "💬",
+    "order": 9,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳаво ва мусиқӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "날씨",
+          "translation": "ҳаво",
+          "literal": "налшши",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "음악",
+          "translation": "мусиқӣ",
+          "literal": "ымак",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "가족",
+          "translation": "оила",
+          "literal": "каҷок",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "더워요",
+          "translation": "гарм аст",
+          "literal": "товоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "추워요",
+          "translation": "хунук аст",
+          "literal": "чхувоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "에어컨",
+          "translation": "кондитсионер",
+          "literal": "эокхон",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Аз куҷо ҳастед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "어느 나라 사람이에요?",
+          "cueTranslation": "Аз кадом кишвар ҳастед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "타지키스탄 사람이에요.",
+          "accepts": [
+            "타지키스탄이요.",
+            "타지키스탄에서 왔어요."
+          ],
+          "translation": "Аз Тоҷикистон ҳастам.",
+          "literal": "тхаҷикхисытхан сарамиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "한국에 언제 왔어요?",
+          "cueTranslation": "Ба Корея кай омадед?",
+          "intent": "Бигӯ: ду сол пеш",
+          "text": "이 년 전에요.",
+          "accepts": [
+            "이 년 됐어요."
+          ],
+          "translation": "Ду сол пеш.",
+          "literal": "и нён чонэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "한국말 잘해요!",
+          "cueTranslation": "Кореягиро хуб медонед!",
+          "intent": "Бигӯ: ташаккур, каме",
+          "text": "감사합니다, 조금요.",
+          "accepts": [
+            "아니에요, 조금요.",
+            "조금 해요."
+          ],
+          "translation": "Ташаккур, каме.",
+          "literal": "камсаҳамнида чогымё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Мусиқӣ хуб?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "음악 괜찮아요?",
+          "translation": "Мусиқӣ хуб?",
+          "literal": "ымак квенчханаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "소리 줄일까요?",
+          "translation": "Овозро паст кунам?",
+          "literal": "сори чурилккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "너무 더워요",
+          "translation": "Хеле гарм",
+          "literal": "ному товоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "오늘 추워요",
+          "translation": "Имрӯз хунук",
+          "literal": "оныл чхувоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "에어컨 켤까요?",
+          "translation": "Кондитсионер гиронам?",
+          "literal": "эокхон кхёлккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "창문 열까요?",
+          "translation": "Тиреза кушоям?",
+          "literal": "чхангмун ёлккаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Овоз ва гармо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "음악 좀 줄여 주세요.",
+          "cueTranslation": "Мусиқиро паст кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 줄일게요.",
+          "accepts": [
+            "네.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, паст мекунам.",
+          "literal": "нэ чурилгэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "좀 더워요.",
+          "cueTranslation": "Каме гарм аст.",
+          "intent": "Бипурс: кондитсионер гиронам?",
+          "text": "에어컨 켤까요?",
+          "accepts": [
+            "창문 열까요?"
+          ],
+          "translation": "Кондитсионер гиронам?",
+          "literal": "эокхон кхёлккаё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 켜 주세요.",
+          "cueTranslation": "Ҳа, гиронед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네.",
+          "accepts": [
+            "네, 켤게요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман аз Тоҷикистон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "타지키스탄에서 왔어요.",
+          "translation": "Аз Тоҷикистон омадам.",
+          "literal": "тхаҷикхисытханэсо вассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "한국에 이 년 있었어요.",
+          "translation": "Ду сол дар Корея будам.",
+          "literal": "ҳангугэ и нён иссоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "한국말 조금 해요.",
+          "translation": "Каме кореягӣ медонам.",
+          "literal": "ҳангунгмал чогым ҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "서울이 좋아요.",
+          "translation": "Сеул ба ман маъқул.",
+          "literal": "соури чоаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "오늘 날씨 좋아요.",
+          "translation": "Имрӯз ҳаво хуб.",
+          "literal": "оныл налшши чоаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "비가 많이 와요.",
+          "translation": "Борон бисёр меборад.",
+          "literal": "пига мани ваё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Хеле гарм",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "오늘 날씨 어때요?",
+          "cueTranslation": "Имрӯз ҳаво чӣ хел?",
+          "intent": "Бигӯ: хеле гарм",
+          "text": "너무 더워요.",
+          "accepts": [
+            "진짜 더워요.",
+            "더워요."
+          ],
+          "translation": "Хеле гарм.",
+          "literal": "ному товоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "타지키스탄도 더워요?",
+          "cueTranslation": "Тоҷикистон ҳам гарм аст?",
+          "intent": "Бигӯ: ҳа, тобистон гарм",
+          "text": "네, 여름에 더워요.",
+          "accepts": [
+            "네, 더워요."
+          ],
+          "translation": "Ҳа, тобистон гарм.",
+          "literal": "нэ ёрымэ товоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "겨울은요?",
+          "cueTranslation": "Зимистон-чӣ?",
+          "intent": "Бигӯ: зимистон хунук",
+          "text": "겨울에는 추워요.",
+          "accepts": [
+            "추워요.",
+            "겨울은 추워요."
+          ],
+          "translation": "Зимистон хунук.",
+          "literal": "кёурэнын чхувоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Оила",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "가족이 타지키스탄에 있어요.",
+          "translation": "Оилаам дар Тоҷикистон аст.",
+          "literal": "каҷоги тхаҷикхисытханэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "아이가 두 명 있어요.",
+          "translation": "Ду фарзанд дорам.",
+          "literal": "аига ту мёнг иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "결혼했어요.",
+          "translation": "Оиладор ҳастам.",
+          "literal": "кёлҳонҳэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "아내가 있어요.",
+          "translation": "Зан дорам.",
+          "literal": "анэга иссоё",
+          "note": "Зан мегӯяд: «남편이 있어요» (шавҳар дорам).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "가족이 보고 싶어요.",
+          "translation": "Оиламро пазмон шудам.",
+          "literal": "каҷоги пого шипхоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "매일 전화해요.",
+          "translation": "Ҳар рӯз занг мезанам.",
+          "literal": "мэил чонҳваҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Оила доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "가족 있어요?",
+          "cueTranslation": "Оила доред?",
+          "intent": "Бигӯ: ҳа, ду фарзанд дорам",
+          "text": "네, 아이가 두 명 있어요.",
+          "accepts": [
+            "네, 아이가 둘 있어요.",
+            "네, 있어요."
+          ],
+          "translation": "Ҳа, ду фарзанд дорам.",
+          "literal": "нэ аига ту мёнг иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "가족은 어디 있어요?",
+          "cueTranslation": "Оила куҷост?",
+          "intent": "Бигӯ: дар Тоҷикистон",
+          "text": "타지키스탄에 있어요.",
+          "accepts": [
+            "타지키스탄에요."
+          ],
+          "translation": "Дар Тоҷикистон.",
+          "literal": "тхаҷикхисытханэ иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "보고 싶겠어요.",
+          "cueTranslation": "Пазмон мешавед, ҳа?",
+          "intent": "Бигӯ: ҳа, ҳар рӯз занг мезанам",
+          "text": "네, 매일 전화해요.",
+          "accepts": [
+            "네, 보고 싶어요."
+          ],
+          "translation": "Ҳа, ҳар рӯз занг мезанам.",
+          "literal": "нэ мэил чонҳваҳэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сӯҳбат дар роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "기사님, 어디서 왔어요?",
+          "cueTranslation": "Ронанда, аз куҷо омадед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "타지키스탄에서 왔어요.",
+          "accepts": [
+            "타지키스탄 사람이에요.",
+            "타지키스탄이요."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": "тхаҷикхисытханэсо вассоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "한국말 잘하시네요.",
+          "cueTranslation": "Кореягиро хуб медонед.",
+          "intent": "Бигӯ: ташаккур, каме",
+          "text": "감사합니다, 조금 해요.",
+          "accepts": [
+            "아니에요, 조금요."
+          ],
+          "translation": "Ташаккур, каме.",
+          "literal": "камсаҳамнида чогым ҳэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "좀 춥네요.",
+          "cueTranslation": "Каме хунук аст.",
+          "intent": "Бипурс: тирезаро пӯшам?",
+          "text": "창문 닫을까요?",
+          "accepts": [
+            "에어컨 끌까요?"
+          ],
+          "translation": "Тирезаро пӯшам?",
+          "literal": "чхангмун тадылккаё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 닫아 주세요.",
+          "cueTranslation": "Ҳа, пӯшед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 닫을게요.",
+          "accepts": [
+            "네.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, мепӯшам.",
+          "literal": "нэ тадылгэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

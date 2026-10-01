@@ -1,0 +1,546 @@
+{
+  "slug": "accident_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "작은 사고",
+    "titleTranslated": "Садамаи хурд",
+    "scenario": "Мошини дигар ба мошини шумо зад. Шумо мепурсед, ки ҳама солим аст, акс мегиред, суғуртаро мепурсед ва ба полис занг мезанед.",
+    "emoji": "💥",
+    "order": 19,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Садама",
+      "items": [
+        {
+          "kind": "word",
+          "text": "사고",
+          "translation": "садама",
+          "literal": "саго",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "다쳤어요",
+          "translation": "захмӣ шуд",
+          "literal": "тачхоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "보험",
+          "translation": "суғурта",
+          "literal": "поҳом",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "블랙박스",
+          "translation": "видеорегистратор",
+          "literal": "пыллэкппакссы",
+          "note": "Дар Корея қариб ҳар мошин видеорегистратор дорад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "경찰",
+          "translation": "полис",
+          "literal": "кёнгчхал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "사거리",
+          "translation": "чорраҳа",
+          "literal": "сагори",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо хубед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "괜찮으세요?",
+          "cueTranslation": "Шумо хубед?",
+          "intent": "Бигӯ: ҳа, хубам",
+          "text": "네, 괜찮아요.",
+          "accepts": [
+            "괜찮아요."
+          ],
+          "translation": "Ҳа, хубам.",
+          "literal": "нэ квенчханаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "다친 사람 있어요?",
+          "cueTranslation": "Касе захмӣ шуд?",
+          "intent": "Бигӯ: не, нест",
+          "text": "아니요, 없어요.",
+          "accepts": [
+            "아니요."
+          ],
+          "translation": "Не, нест.",
+          "literal": "аниё опссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "차가 많이 망가졌어요.",
+          "cueTranslation": "Мошин бисёр шикаст.",
+          "intent": "Бигӯ: акс мегирам",
+          "text": "사진 찍을게요.",
+          "accepts": [
+            "사진 찍어요."
+          ],
+          "translation": "Акс мегирам.",
+          "literal": "саҷин ччигылгэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гуноҳи кӣ?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "누구 잘못이에요?",
+          "translation": "Гуноҳи кист?",
+          "literal": "нугу чалмошиэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "빨간불이었어요",
+          "translation": "Чароғ сурх буд",
+          "literal": "ппалганбуриоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "뒤에서 박았어요",
+          "translation": "Аз ақиб зад",
+          "literal": "твиэсо пагассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "보험 회사",
+          "translation": "Ширкати суғурта",
+          "literal": "поҳом ҳвеса",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "경찰 부를게요",
+          "translation": "Полисро ҷеғ мезанам",
+          "literal": "кёнгчхал пурылгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "사진 찍을게요",
+          "translation": "Акс мегирам",
+          "literal": "саҷин ччигылгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чароғ сурх буд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "왜 갑자기 섰어요?",
+          "cueTranslation": "Чаро ногаҳон истодед?",
+          "intent": "Бигӯ: чароғ сурх буд",
+          "text": "빨간불이었어요.",
+          "accepts": [
+            "신호가 빨간불이었어요."
+          ],
+          "translation": "Чароғ сурх буд.",
+          "literal": "ппалганбуриоссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "저는 못 봤어요.",
+          "cueTranslation": "Ман надидам.",
+          "intent": "Бигӯ: аз ақиб задед",
+          "text": "뒤에서 박았어요.",
+          "accepts": [
+            "뒤에서 부딪혔어요."
+          ],
+          "translation": "Аз ақиб задед.",
+          "literal": "твиэсо пагассоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "미안해요.",
+          "cueTranslation": "Бубахшед.",
+          "intent": "Бигӯ: ҳеҷ гап не, суғурта доред?",
+          "text": "괜찮아요, 보험 있어요?",
+          "accepts": [
+            "보험 있어요?"
+          ],
+          "translation": "Ҳеҷ гап не, суғурта доред?",
+          "literal": "квенчханаё поҳом иссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Акс мегирам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "사진 찍을게요.",
+          "translation": "Акс мегирам.",
+          "literal": "саҷин ччигылгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "번호판 찍을게요.",
+          "translation": "Рақами мошинро акс мегирам.",
+          "literal": "понҳопхан ччигылгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "블랙박스 있어요.",
+          "translation": "Видеорегистратор дорам.",
+          "literal": "пыллэкппакссы иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "차를 옆으로 빼요.",
+          "translation": "Мошинро ба канор мебарем.",
+          "literal": "чхарыл ёпхыро ппэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "전화번호 주세요.",
+          "translation": "Рақами телефонро диҳед.",
+          "literal": "чонвабонҳо чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "회사에 연락할게요.",
+          "translation": "Ба ширкат хабар медиҳам.",
+          "literal": "ҳвесаэ ёллакхалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суғурта доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "보험 있어요?",
+          "cueTranslation": "Суғурта доред?",
+          "intent": "Бигӯ: ҳа, суғуртаи ширкат",
+          "text": "네, 회사 보험이에요.",
+          "accepts": [
+            "네, 있어요."
+          ],
+          "translation": "Ҳа, суғуртаи ширкат.",
+          "literal": "нэ ҳвеса поҳомиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "보험 회사에 전화할게요.",
+          "cueTranslation": "Ба ширкати суғурта занг мезанам.",
+          "intent": "Бигӯ: рақами телефонро диҳед",
+          "text": "전화번호 주세요.",
+          "accepts": [
+            "번호 알려 주세요."
+          ],
+          "translation": "Рақами телефонро диҳед.",
+          "literal": "чонвабонҳо чусэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "공일공... 여기 있어요.",
+          "cueTranslation": "Сифр-як-сифр... мана.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "네, 감사합니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Занг ба полис",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "사고가 났어요.",
+          "translation": "Садама шуд.",
+          "literal": "сагога нассоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "여기 사거리예요.",
+          "translation": "Ин ҷо чорраҳа.",
+          "literal": "ёги сагориэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "다친 사람 없어요.",
+          "translation": "Захмӣ нест.",
+          "literal": "тачхин сарам опссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "빨리 와 주세요.",
+          "translation": "Тез биёед.",
+          "literal": "ппалли ва чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "차가 두 대예요.",
+          "translation": "Ду мошин.",
+          "literal": "чхага ту тээё",
+          "note": "Мошинро бо «대» мешуморанд: 한 대, 두 대.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "주소 보낼게요.",
+          "translation": "Суроғаро мефиристам.",
+          "literal": "чусо понэлгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Полис, чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "경찰입니다. 무슨 일이에요?",
+          "cueTranslation": "Полис. Чӣ шуд?",
+          "intent": "Бигӯ: садама шуд",
+          "text": "사고가 났어요.",
+          "accepts": [
+            "교통사고가 났어요."
+          ],
+          "translation": "Садама шуд.",
+          "literal": "сагога нассоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "다친 사람 있어요?",
+          "cueTranslation": "Захмӣ ҳаст?",
+          "intent": "Бигӯ: не, захмӣ нест",
+          "text": "아니요, 다친 사람 없어요.",
+          "accepts": [
+            "아니요, 없어요."
+          ],
+          "translation": "Не, захмӣ нест.",
+          "literal": "аниё тачхин сарам опссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "어디예요?",
+          "cueTranslation": "Куҷо?",
+          "intent": "Бигӯ: дар чорраҳа",
+          "text": "사거리예요.",
+          "accepts": [
+            "여기 사거리예요."
+          ],
+          "translation": "Дар чорраҳа.",
+          "literal": "сагориэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: садама",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "괜찮으세요? 제가 박았어요.",
+          "cueTranslation": "Хубед? Ман задам.",
+          "intent": "Бигӯ: ҳа, хубам",
+          "text": "네, 괜찮아요.",
+          "accepts": [
+            "괜찮아요."
+          ],
+          "translation": "Ҳа, хубам.",
+          "literal": "нэ квенчханаё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "정말 죄송해요.",
+          "cueTranslation": "Хеле бубахшед.",
+          "intent": "Бигӯ: акс мегирам",
+          "text": "사진 찍을게요.",
+          "accepts": [
+            "사진 좀 찍을게요."
+          ],
+          "translation": "Акс мегирам.",
+          "literal": "саҷин ччигылгэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 찍으세요.",
+          "cueTranslation": "Ҳа, гиред.",
+          "intent": "Бипурс: суғурта доред?",
+          "text": "보험 있어요?",
+          "accepts": [
+            "보험 회사 어디예요?"
+          ],
+          "translation": "Суғурта доред?",
+          "literal": "поҳом иссоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 보험 회사 부를게요.",
+          "cueTranslation": "Ҳа, ширкати суғуртаро ҷеғ мезанам.",
+          "intent": "Бигӯ: хуб, ба ширкат хабар медиҳам",
+          "text": "네, 회사에 연락할게요.",
+          "accepts": [
+            "회사에 전화할게요."
+          ],
+          "translation": "Хуб, ба ширкат хабар медиҳам.",
+          "literal": "нэ ҳвесаэ ёллакхалгэё",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

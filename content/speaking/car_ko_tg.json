@@ -1,0 +1,555 @@
+{
+  "slug": "car_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "회사 택시",
+    "titleTranslated": "Мошини корӣ",
+    "scenario": "Рӯзи аввал дар ширкати таксӣ. Шумо калид ва ҳуҷҷатҳои мошинро мегиред, бензин ва чархҳоро месанҷед ва мепурсед, ки мошинро куҷо гузоред.",
+    "emoji": "🚗",
+    "order": 3,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мошин ва калид",
+      "items": [
+        {
+          "kind": "word",
+          "text": "차",
+          "translation": "мошин",
+          "literal": "чха",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "열쇠",
+          "translation": "калид",
+          "literal": "ёлсве",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "기름",
+          "translation": "бензин",
+          "literal": "кирым",
+          "note": "Дар гапи ҳаррӯза бензинро «기름» (равған) мегӯянд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "타이어",
+          "translation": "чарх",
+          "literal": "тхаио",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "주차장",
+          "translation": "таваққуфгоҳ",
+          "literal": "чучхаҷанг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "서류",
+          "translation": "ҳуҷҷатҳо",
+          "literal": "сорю",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Калидҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "차 열쇠 받았어요?",
+          "cueTranslation": "Калиди мошинро гирифтед?",
+          "intent": "Бигӯ: не, ҳанӯз",
+          "text": "아니요, 아직요.",
+          "accepts": [
+            "아직 안 받았어요.",
+            "아직이요."
+          ],
+          "translation": "Не, ҳанӯз.",
+          "literal": "аниё аҷигё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "여기 열쇠예요.",
+          "cueTranslation": "Ин калид.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "고맙습니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "하얀 차예요.",
+          "cueTranslation": "Мошини сафед.",
+          "intent": "Бигӯ: хуб, мошини сафед",
+          "text": "네, 하얀 차요.",
+          "accepts": [
+            "하얀 차요?",
+            "네, 알겠어요."
+          ],
+          "translation": "Хуб, мошини сафед.",
+          "literal": "нэ ҳаян чхаё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Мошини сафед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "하얀 차",
+          "translation": "Мошини сафед",
+          "literal": "ҳаян чха",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "차 열쇠",
+          "translation": "Калиди мошин",
+          "literal": "чха ёлсве",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "기름 있어요?",
+          "translation": "Бензин ҳаст?",
+          "literal": "кирым иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "타이어 괜찮아요?",
+          "translation": "Чархҳо хубанд?",
+          "literal": "тхаио квенчханаё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "서류 주세요",
+          "translation": "Ҳуҷҷатҳоро диҳед",
+          "literal": "сорю чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "어디에 주차해요?",
+          "translation": "Куҷо мегузорам?",
+          "literal": "одиэ чучхаҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бензин ҳаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "기름 있어요?",
+          "cueTranslation": "Бензин ҳаст?",
+          "intent": "Бигӯ: ҳа, пур аст",
+          "text": "네, 가득 있어요.",
+          "accepts": [
+            "네, 있어요.",
+            "네, 가득이요."
+          ],
+          "translation": "Ҳа, пур аст.",
+          "literal": "нэ кадык иссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "타이어는요?",
+          "cueTranslation": "Чархҳо-чӣ?",
+          "intent": "Бигӯ: чархҳо хубанд",
+          "text": "타이어 괜찮아요.",
+          "accepts": [
+            "괜찮아요.",
+            "타이어는 괜찮아요."
+          ],
+          "translation": "Чархҳо хубанд.",
+          "literal": "тхаио квенчханаё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "서류 있어요?",
+          "cueTranslation": "Ҳуҷҷатҳо ҳастанд?",
+          "intent": "Бигӯ: ҳа, дар мошин",
+          "text": "네, 차에 있어요.",
+          "accepts": [
+            "네, 있어요."
+          ],
+          "translation": "Ҳа, дар мошин.",
+          "literal": "нэ чхаэ иссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Мошинро месанҷам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "차를 확인할게요.",
+          "translation": "Мошинро месанҷам.",
+          "literal": "чхарыл ҳвагинҳалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "기름이 조금 있어요.",
+          "translation": "Бензин каме ҳаст.",
+          "literal": "кирыми чогым иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "타이어 바람이 없어요.",
+          "translation": "Чарх бод надорад.",
+          "literal": "тхаио парами опссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "불이 안 켜져요.",
+          "translation": "Чароғ намесӯзад.",
+          "literal": "пури ан кхёҷоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "차가 깨끗해요.",
+          "translation": "Мошин тоза аст.",
+          "literal": "чхага ккэккытхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "면허증 여기 있어요.",
+          "translation": "Шаҳодатнома ин ҷо.",
+          "literal": "мёнҳоҷынг ёги иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "차 확인했어요?",
+          "cueTranslation": "Мошинро санҷидед?",
+          "intent": "Бигӯ: ҳа, санҷидам",
+          "text": "네, 확인했어요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, санҷидам.",
+          "literal": "нэ ҳвагинҳэссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "문제 있어요?",
+          "cueTranslation": "Мушкил ҳаст?",
+          "intent": "Бигӯ: чарх бод надорад",
+          "text": "타이어 바람이 없어요.",
+          "accepts": [
+            "타이어가 문제예요."
+          ],
+          "translation": "Чарх бод надорад.",
+          "literal": "тхаио парами опссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "저기서 바람 넣으세요.",
+          "cueTranslation": "Он ҷо бод кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 알겠어요.",
+          "accepts": [
+            "알겠습니다.",
+            "네."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пеш аз роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "면허증 있어요.",
+          "translation": "Шаҳодатнома дорам.",
+          "literal": "мёнҳоҷынг иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "보험 서류 어디 있어요?",
+          "translation": "Ҳуҷҷати суғурта куҷост?",
+          "literal": "поҳом сорю оди иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "차 어디에 세워요?",
+          "translation": "Мошинро куҷо мемонам?",
+          "literal": "чха одиэ сэвоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "몇 시에 반납해요?",
+          "translation": "Соати чанд бармегардонам?",
+          "literal": "мёт шиэ паннапхэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "기름 넣어야 해요.",
+          "translation": "Бензин рехтан лозим.",
+          "literal": "кирым нооя ҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "이제 출발해요.",
+          "translation": "Акнун ба роҳ мебароям.",
+          "literal": "иҷэ чхулбалҳэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тайёр ҳастӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "준비됐어요?",
+          "cueTranslation": "Тайёр ҳастед?",
+          "intent": "Бигӯ: ҳа, тайёрам",
+          "text": "네, 준비됐어요.",
+          "accepts": [
+            "네."
+          ],
+          "translation": "Ҳа, тайёрам.",
+          "literal": "нэ чунбидвессоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "면허증 있어요?",
+          "cueTranslation": "Шаҳодатнома доред?",
+          "intent": "Бигӯ: ҳа, ин ҷо",
+          "text": "네, 여기 있어요.",
+          "accepts": [
+            "네, 있어요.",
+            "여기요."
+          ],
+          "translation": "Ҳа, ин ҷо.",
+          "literal": "нэ ёги иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "밤 열 시에 차 반납하세요.",
+          "cueTranslation": "Соати даҳи шаб мошинро баргардонед.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "네, 알겠어요.",
+          "accepts": [
+            "알겠습니다."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "нэ алгэссоё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мошини корӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "안녕하세요, 오늘 처음이에요?",
+          "cueTranslation": "Салом, имрӯз рӯзи аввал?",
+          "intent": "Бигӯ: ҳа, рӯзи аввал",
+          "text": "네, 처음이에요.",
+          "accepts": [
+            "네, 오늘 처음이에요."
+          ],
+          "translation": "Ҳа, рӯзи аввал.",
+          "literal": "нэ чхоымиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "이 차 쓰세요. 열쇠 여기 있어요.",
+          "cueTranslation": "Ин мошинро истифода баред. Калид ин ҷо.",
+          "intent": "Бипурс: бензин ҳаст?",
+          "text": "기름 있어요?",
+          "accepts": [
+            "기름은요?",
+            "기름은 있어요?"
+          ],
+          "translation": "Бензин ҳаст?",
+          "literal": "кирым иссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "조금 있어요. 넣으세요.",
+          "cueTranslation": "Каме ҳаст. Резед.",
+          "intent": "Бипурс: мошинро куҷо мемонам?",
+          "text": "차 어디에 세워요?",
+          "accepts": [
+            "어디에 주차해요?",
+            "주차는 어디에 해요?"
+          ],
+          "translation": "Мошинро куҷо мемонам?",
+          "literal": "чха одиэ сэвоё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "저기 주차장에요.",
+          "cueTranslation": "Дар он таваққуфгоҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "감사합니다.",
+          "accepts": [
+            "고맙습니다.",
+            "네, 감사합니다."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "камсаҳамнида",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

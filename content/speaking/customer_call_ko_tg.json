@@ -1,0 +1,553 @@
+{
+  "slug": "customer_call_ko_tg",
+  "targetLanguage": "ko",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "손님께 전화",
+    "titleTranslated": "Занг ба мизоҷ",
+    "scenario": "Шумо ба суроға расидед, вале мизоҷ нест. Бо телефон занг мезанед: мегӯед, ки расидед, мепурсед ӯ куҷост, мошинатонро мегӯед ва агар алоқа бад бошад — боз мепурсед.",
+    "emoji": "📱",
+    "order": 15,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "전화",
+          "translation": "занг, телефон",
+          "literal": "чонва",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "여보세요",
+          "translation": "алло",
+          "literal": "ёбосэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "검은색",
+          "translation": "сиёҳ",
+          "literal": "комынсэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "앞",
+          "translation": "пеш",
+          "literal": "ап",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "편의점",
+          "translation": "мағозача",
+          "literal": "пхёниҷом",
+          "note": "Мағозачаҳои шабонарӯзӣ — дар ҳар гӯшаи Корея.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "출구",
+          "translation": "баромадгоҳ",
+          "literal": "чхулгу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ман расидам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여보세요?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ: салом, таксӣ",
+          "text": "안녕하세요, 택시예요.",
+          "accepts": [
+            "택시 기사예요."
+          ],
+          "translation": "Салом, таксӣ.",
+          "literal": "аннёнгҳасэё тхэкшшиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "아, 네.",
+          "cueTranslation": "Оҳ, ҳа.",
+          "intent": "Бигӯ: ман расидам",
+          "text": "도착했어요.",
+          "accepts": [
+            "지금 도착했어요."
+          ],
+          "translation": "Расидам.",
+          "literal": "точхакхэссоё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "일 분만 기다려 주세요.",
+          "cueTranslation": "Як дақиқа интизор шавед.",
+          "intent": "Бигӯ: хуб",
+          "text": "네, 기다릴게요.",
+          "accepts": [
+            "네.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, интизор мешавам.",
+          "literal": "нэ кидарилгэё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Мошини сиёҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "검은색 차",
+          "translation": "Мошини сиёҳ",
+          "literal": "комынсэк чха",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "편의점 앞",
+          "translation": "Пеши мағозача",
+          "literal": "пхёниҷом ап",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "어디 계세요?",
+          "translation": "Куҷо ҳастед?",
+          "literal": "оди кэсэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "안 들려요",
+          "translation": "Намешунавам",
+          "literal": "ан тыллёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "도착했어요",
+          "translation": "Расидам",
+          "literal": "точхакхэссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "기다릴게요",
+          "translation": "Интизор мешавам",
+          "literal": "кидарилгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Шумо куҷоед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "차가 어디 있어요?",
+          "cueTranslation": "Мошин куҷост?",
+          "intent": "Бигӯ: пеши мағозача",
+          "text": "편의점 앞이에요.",
+          "accepts": [
+            "편의점 앞에 있어요."
+          ],
+          "translation": "Пеши мағозача.",
+          "literal": "пхёниҷом апхиэё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "무슨 차예요?",
+          "cueTranslation": "Кадом мошин?",
+          "intent": "Бигӯ: мошини сиёҳ",
+          "text": "검은색 차예요.",
+          "accepts": [
+            "검은색이요."
+          ],
+          "translation": "Мошини сиёҳ.",
+          "literal": "комынсэк чхаэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "보여요! 지금 가요.",
+          "cueTranslation": "Мебинам! Ҳозир меоям.",
+          "intent": "Бигӯ: хуб",
+          "text": "네.",
+          "accepts": [
+            "네, 기다릴게요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб.",
+          "literal": "нэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Шуморо намебинам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "손님이 안 보여요.",
+          "translation": "Шуморо намебинам.",
+          "literal": "сонними ан поёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "어디 계세요?",
+          "translation": "Шумо куҷоед?",
+          "literal": "оди кэсэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "정문 앞에 있어요.",
+          "translation": "Пеши дари асосӣ ҳастам.",
+          "literal": "чонгмун апхэ иссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "비상등 켤게요.",
+          "translation": "Чароғи огоҳиро мегиронам.",
+          "literal": "писангдынг кхёлгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "무슨 옷 입었어요?",
+          "translation": "Чӣ либос пӯшидаед?",
+          "literal": "мусын от ибоссоё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "손 흔들어 주세요.",
+          "translation": "Даст афшонед.",
+          "literal": "сон ҳындыро чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Либоси сурх",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "저 여기 있어요.",
+          "cueTranslation": "Ман ин ҷо ҳастам.",
+          "intent": "Бигӯ: шуморо намебинам",
+          "text": "손님이 안 보여요.",
+          "accepts": [
+            "안 보여요."
+          ],
+          "translation": "Шуморо намебинам.",
+          "literal": "сонними ан поёё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "빨간 옷 입었어요.",
+          "cueTranslation": "Либоси сурх пӯшидаам.",
+          "intent": "Бигӯ: хуб, даст афшонед",
+          "text": "네, 손 흔들어 주세요.",
+          "accepts": [
+            "손 흔들어 주세요."
+          ],
+          "translation": "Хуб, даст афшонед.",
+          "literal": "нэ сон ҳындыро чусэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "보여요?",
+          "cueTranslation": "Мебинед?",
+          "intent": "Бигӯ: ҳа, мебинам",
+          "text": "네, 보여요.",
+          "accepts": [
+            "보여요."
+          ],
+          "translation": "Ҳа, мебинам.",
+          "literal": "нэ поёё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Алоқа бад аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "잘 안 들려요.",
+          "translation": "Хуб намешунавам.",
+          "literal": "чал ан тыллёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 말해 주세요.",
+          "translation": "Боз гӯед.",
+          "literal": "таши малҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "천천히 말해 주세요.",
+          "translation": "Оҳиста гӯед.",
+          "literal": "чхончхонҳи малҳэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "문자 보내 주세요.",
+          "translation": "Паём фиристед.",
+          "literal": "мунҷа понэ чусэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "다시 전화할게요.",
+          "translation": "Боз занг мезанам.",
+          "literal": "таши чонҳваҳалгэё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "지금 들려요?",
+          "translation": "Ҳозир мешунавед?",
+          "literal": "чигым тыллёё",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Намешунавам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여보세요? 저... 출구...",
+          "cueTranslation": "Алло? Ман... баромадгоҳ...",
+          "intent": "Бигӯ: хуб намешунавам",
+          "text": "잘 안 들려요.",
+          "accepts": [
+            "안 들려요.",
+            "다시 말해 주세요."
+          ],
+          "translation": "Хуб намешунавам.",
+          "literal": "чал ан тыллёё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "삼 번 출구요!",
+          "cueTranslation": "Баромадгоҳи се!",
+          "intent": "Такрор кун: баромадгоҳи се?",
+          "text": "삼 번 출구요?",
+          "accepts": [
+            "삼 번 출구 맞아요?"
+          ],
+          "translation": "Баромадгоҳи се?",
+          "literal": "сам пон чхулгуё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "네, 맞아요.",
+          "cueTranslation": "Ҳа, дуруст.",
+          "intent": "Бигӯ: хуб, ду дақиқа",
+          "text": "네, 이 분이요.",
+          "accepts": [
+            "이 분 후에 갈게요.",
+            "알겠어요."
+          ],
+          "translation": "Хуб, ду дақиқа.",
+          "literal": "нэ и пуниё",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг ба мизоҷ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "여보세요?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ: салом, ман расидам",
+          "text": "안녕하세요, 도착했어요.",
+          "accepts": [
+            "택시예요, 도착했어요.",
+            "도착했어요."
+          ],
+          "translation": "Салом, расидам.",
+          "literal": "аннёнгҳасэё точхакхэссоё",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "어디 있어요? 안 보여요.",
+          "cueTranslation": "Куҷоед? Намебинам.",
+          "intent": "Бигӯ: пеши мағозача",
+          "text": "편의점 앞이에요.",
+          "accepts": [
+            "편의점 앞에 있어요."
+          ],
+          "translation": "Пеши мағозача.",
+          "literal": "пхёниҷом апхиэё",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "무슨 차예요?",
+          "cueTranslation": "Кадом мошин?",
+          "intent": "Бигӯ: мошини сафед",
+          "text": "하얀색 차예요.",
+          "accepts": [
+            "하얀 차예요.",
+            "흰색 차예요."
+          ],
+          "translation": "Мошини сафед.",
+          "literal": "ҳаянсэк чхаэё",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "아, 보여요. 일 분만요.",
+          "cueTranslation": "Оҳ, мебинам. Як дақиқа.",
+          "intent": "Бигӯ: хуб, интизор мешавам",
+          "text": "네, 기다릴게요.",
+          "accepts": [
+            "알겠어요."
+          ],
+          "translation": "Хуб, интизор мешавам.",
+          "literal": "нэ кидарилгэё",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}
