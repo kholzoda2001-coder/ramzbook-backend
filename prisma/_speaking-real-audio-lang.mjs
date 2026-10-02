@@ -188,7 +188,7 @@ for (const it of items) {
     // 02.10.2026: «How much?» тоза аз санҷиш мегузашт, вале БАЪДИ омехтан бо садо
     // нутқ 0.16 с < 0.1625 шуд ва санҷиши ниҳоӣ ТАМОМИ борро (126) манъ кард → ҳамон
     // санҷиши ниҳоӣ ин ҷо, барои ҳар овоз: нашуд — овози дигар.
-    if (o.error || o.lead > 0.9 || o.speech < minSpeech(it.text) || o.peak < 0.3) {
+    if (o.error || o.lead > 0.6 || o.speech < minSpeech(it.text) || o.peak < 0.3) {
       console.log(`  ↻ «${it.text}» ${voice}: пеш=${o.lead}s нутқ=${o.speech}s peak=${o.peak} — овози дигар`);
       continue;
     }
@@ -217,7 +217,7 @@ let bad = 0;
 for (const it of all) {
   const m = final[`${WORK}/${it.key}.mp3`];
   // Садо пеш аз гап ҚАСДАН аст, пас `lead` то 0.9 с иҷозат.
-  const ok = !m.error && m.peak >= 0.3 && m.peak < 0.99 && m.speech >= minSpeech(it.text) && m.lead <= 0.9;
+  const ok = !m.error && m.peak >= 0.3 && m.peak < 0.99 && m.speech >= minSpeech(it.text) && m.lead <= 0.6;
   console.log(`  ${ok ? '✓' : '✗'} ${it.label} «${it.text}»: ${m.dur}s нутқ=${m.speech}s пеш=${m.lead}s peak=${m.peak}`);
   if (!ok) bad++;
 }

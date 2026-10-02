@@ -36,7 +36,7 @@ for (const r of course) for (const t of [...toks(r.word), ...toks(r.example ?? '
 // CEFR A1 (Oxford 3000, A1), ки дар рӯйхати курси мо калима нестанд: was/were — гузаштаи be (A1).
 ("meet toilet done can't tonight repeat another enjoy finish finished quickly together mean spell until about " +
  "was were wasn't i'd course wrong better free photo photos check hear leave forget thing things trip kid kids " +
- "building text end around line away fast only").split(' ').forEach((w) => A1.add(w));
+ "building text end around line away fast only shower excuse tell little message before outside just center careful perfect someone glass").split(' ').forEach((w) => A1.add(w));
 // Номҳои хос: одамон, кӯча, донишгоҳ, хӯрок, кишвар, мошин, ихтисор.
 'anna main state plov tajikistan mexico poland toyota gps'.split(' ').forEach((w) => A1.add(w));
 const isA1 = (w) => lem(w).some((l) => A1.has(l));
@@ -50,7 +50,7 @@ console.log(`роҳи «${goal}»: ${packs.length} вазъият — ${packs.ma
 
 const PAST = /\b(went|came|saw|made|took|gave|said|told|ate|drank|bought|broke|fell|forgot|found|felt|left|lost|met|paid|sent|slept|spoke|stood|thought|wrote|knew|began|did|had|was|were|[a-z]{3,}ed)\b/i;
 // left — тараф, hundred — шумора, finished — сифат («Finished.» = тайёр).
-const NOT_PAST = /\b(need|tired|closed|bored|interested|married|red|bed|speed|left|hundred|finished)\b/i;
+const NOT_PAST = /\b(need|tired|closed|bored|interested|married|red|bed|speed|left|hundred|finished|lost)\b/i; // lost — сифат: «I'm lost»
 const GRAM = {
   'Present Perfect': /\b(have|has|'ve)\s+(been|gone|done|seen|worked|lived|finished|had|got)\b/i,
   'will/won\'t': /\b(will|won't|'ll)\b/i,
