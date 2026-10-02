@@ -1,0 +1,562 @@
+{
+  "slug": "complaint_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "An unhappy customer",
+    "titleTranslated": "Харидори норозӣ",
+    "scenario": "Харидор норозӣ аст: мол шикаста, кӯҳна ё андозааш нодуруст. Шумо оромона узр мепурсед, чекро мепурсед, молро иваз мекунед ё мудирро ҷеғ мезанед.",
+    "emoji": "😟",
+    "order": 19,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мушкил",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Problem",
+          "translation": "мушкил",
+          "literal": "проблэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Return",
+          "translation": "баргардондан",
+          "literal": "ритёрн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Broken",
+          "translation": "шикаста",
+          "literal": "броукэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Wrong",
+          "translation": "нодуруст",
+          "literal": "ронг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Old",
+          "translation": "кӯҳна",
+          "literal": "оулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Change",
+          "translation": "иваз кардан",
+          "literal": "чейндж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ин шикаста!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you the manager?",
+          "cueTranslation": "Шумо мудиред?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, sorry.",
+            "No, I'm not."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "This is broken!",
+          "cueTranslation": "Ин шикаста!",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Sorry.",
+          "accepts": [
+            "I'm sorry.",
+            "Oh, sorry."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "сорӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Can I return it?",
+          "cueTranslation": "Баргардонда метавонам?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, you can.",
+            "Yes, of course."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Money back",
+          "translation": "Пулро баргардондан",
+          "literal": "манӣ бэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Your receipt?",
+          "translation": "Чекатон?",
+          "literal": "ёр рисит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "No problem",
+          "translation": "Мушкил нест",
+          "literal": "ноу проблэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm sorry",
+          "translation": "Бубахшед",
+          "literal": "айм сорӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Not fresh",
+          "translation": "Тоза нест (кӯҳна)",
+          "literal": "нот фреш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wrong size",
+          "translation": "Андозаи нодуруст",
+          "literal": "ронг сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Пуламро баргардонед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I want my money back.",
+          "cueTranslation": "Пуламро баргардонед.",
+          "intent": "Бипурс: чекатон?",
+          "text": "Your receipt?",
+          "accepts": [
+            "Do you have the receipt?",
+            "Receipt, please?"
+          ],
+          "translation": "Чекатон?",
+          "literal": "ёр рисит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here it is.",
+          "cueTranslation": "Ана.",
+          "intent": "Бигӯ: ташаккур. мушкил нест",
+          "text": "Thank you. No problem.",
+          "accepts": [
+            "No problem.",
+            "Thanks."
+          ],
+          "translation": "Ташаккур. Мушкил нест.",
+          "literal": "ҫенк ю ноу проблэм",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And this milk is old!",
+          "cueTranslation": "Ин шир кӯҳна!",
+          "intent": "Бигӯ: бубахшед",
+          "text": "I'm sorry.",
+          "accepts": [
+            "Oh, I'm sorry.",
+            "Sorry."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "айм сорӣ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What's the problem?",
+          "translation": "Чӣ мушкил?",
+          "literal": "вотс ҙэ проблэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm very sorry.",
+          "translation": "Хеле бубахшед.",
+          "literal": "айм верӣ сорӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Receipt, please.",
+          "translation": "Чек, лутфан.",
+          "literal": "рисит плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's not fresh.",
+          "translation": "Тоза нест.",
+          "literal": "итс нот фреш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Here is new milk.",
+          "translation": "Ана шири нав.",
+          "literal": "ҳир из ню милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Please wait here.",
+          "translation": "Лутфан, ин ҷо интизор шавед.",
+          "literal": "плиз вейт ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Нон тоза нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me! This is wrong!",
+          "cueTranslation": "Бубахшед! Ин нодуруст!",
+          "intent": "Бипурс: чӣ мушкил?",
+          "text": "What's the problem?",
+          "accepts": [
+            "What's wrong?",
+            "Is there a problem?"
+          ],
+          "translation": "Чӣ мушкил?",
+          "literal": "вотс ҙэ проблэм",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "The bread is not fresh.",
+          "cueTranslation": "Нон тоза нест.",
+          "intent": "Бигӯ: хеле бубахшед",
+          "text": "I'm very sorry.",
+          "accepts": [
+            "Sorry.",
+            "I'm so sorry."
+          ],
+          "translation": "Хеле бубахшед.",
+          "literal": "айм верӣ сорӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "I want new bread.",
+          "cueTranslation": "Нони нав мехоҳам.",
+          "intent": "Бигӯ: як лаҳза, лутфан",
+          "text": "One moment, please.",
+          "accepts": [
+            "One moment.",
+            "Okay, one moment."
+          ],
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "ван моумэнт плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Иваз мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I can change it.",
+          "translation": "Ман онро иваз карда метавонам.",
+          "literal": "ай кен чейндж ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Here is your money.",
+          "translation": "Ана пулатон.",
+          "literal": "ҳир из ёр манӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wrong size?",
+          "translation": "Андоза нодуруст?",
+          "literal": "ронг сайз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry about that.",
+          "translation": "Барои ин бубахшед.",
+          "literal": "сорӣ эбаут ҙэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "The manager is coming.",
+          "translation": "Мудир ҳозир меояд.",
+          "literal": "ҙэ мэниҷэр из каминг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Manager",
+          "translation": "мудир",
+          "literal": "мэниҷэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Пойафзол калон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "These shoes are too big.",
+          "cueTranslation": "Ин пойафзол хеле калон.",
+          "intent": "Бипурс: андоза нодуруст?",
+          "text": "Wrong size?",
+          "accepts": [
+            "The wrong size?",
+            "Too big?"
+          ],
+          "translation": "Андоза нодуруст?",
+          "literal": "ронг сайз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Can I change them?",
+          "cueTranslation": "Ҳа. Иваз карда метавонам?",
+          "intent": "Бигӯ: ҳа. ман онро иваз карда метавонам",
+          "text": "Yes. I can change it.",
+          "accepts": [
+            "Yes, of course.",
+            "Yes, no problem."
+          ],
+          "translation": "Ҳа. Ман онро иваз карда метавонам.",
+          "literal": "йес ай кен чейндж ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you so much.",
+          "cueTranslation": "Ташаккури зиёд.",
+          "intent": "Бигӯ: барои ин бубахшед",
+          "text": "Sorry about that.",
+          "accepts": [
+            "No problem.",
+            "I'm sorry about that."
+          ],
+          "translation": "Барои ин бубахшед.",
+          "literal": "сорӣ эбаут ҙэт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: телефони шикаста",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me! I have a problem.",
+          "cueTranslation": "Бубахшед! Ман мушкил дорам.",
+          "intent": "Бипурс: чӣ мушкил?",
+          "text": "What's the problem?",
+          "accepts": [
+            "Yes? What's the problem?",
+            "What's wrong?"
+          ],
+          "translation": "Чӣ мушкил?",
+          "literal": "вотс ҙэ проблэм",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "This phone is broken.",
+          "cueTranslation": "Ин телефон шикаста.",
+          "intent": "Бигӯ: хеле бубахшед. чек, лутфан",
+          "text": "I'm very sorry. Receipt, please.",
+          "accepts": [
+            "Sorry. Receipt, please.",
+            "Do you have the receipt?"
+          ],
+          "translation": "Хеле бубахшед. Чек, лутфан.",
+          "literal": "айм верӣ сорӣ рисит плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Here. I want my money back.",
+          "cueTranslation": "Ана. Пуламро баргардонед.",
+          "intent": "Бигӯ: лутфан, интизор шавед. мудир ҳозир меояд",
+          "text": "Please wait. The manager is coming.",
+          "accepts": [
+            "One moment, please.",
+            "Please wait. I'll call the manager."
+          ],
+          "translation": "Лутфан, интизор шавед. Мудир ҳозир меояд.",
+          "literal": "плиз вейт ҙэ мэниҷэр из каминг",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Thank you.",
+          "cueTranslation": "Хуб. Ташаккур.",
+          "intent": "Бигӯ: барои ин бубахшед",
+          "text": "Sorry about that.",
+          "accepts": [
+            "I'm sorry.",
+            "Sorry about that. One moment."
+          ],
+          "translation": "Барои ин бубахшед.",
+          "literal": "сорӣ эбаут ҙэт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

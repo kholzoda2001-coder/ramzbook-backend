@@ -112,12 +112,15 @@ MISSING = set()
 
 
 def lit(text):
-    if '{' in text:
-        return None  # ниг. тавзеҳ дар боло
+    # «{name}» — номи хонанда, транскрипсия намешавад. «{job}» қолаб мемонад
+    # («ай эм {job}»): сервер онро бо касби ҳадафи хонанда пур мекунад
+    # (`lib/speaking/persona.ts`, 02.10.2026).
+    if '{name}' in text:
+        return None
     out = []
-    for w in re.findall(r"[A-Za-z']+|___", text):
-        if w == '___':
-            out.append('___')
+    for w in re.findall(r"\{job\}|[A-Za-z']+|___", text):
+        if w in ('___', '{job}'):
+            out.append(w)
             continue
         k = w.lower()
         v = EXTRA.get(k) or DICT.get(k)

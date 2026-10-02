@@ -46,10 +46,11 @@ for (const slug of process.argv.slice(2)) {
     // Транскрипсия барои ҲАР чизе, ки хонанда мегӯяд (на танҳо калима).
     if (NEEDS_LITERAL[j.targetLanguage]) {
       for (const it of L.items as any[]) {
-        // «{job}» — транскрипсия қасдан нест (барнома `translit`-ро иваз намекунад).
+        // «{job}» — забонҳое, ки транскрипсияи касб надоранд, литерали холӣ доранд.
         if (!it.literal?.trim()) { if (!String(it.text).includes('{')) { errs++; console.log(`   ❌ NO_LITERAL «${it.text}»`); } }
-        // Транскрипсия ҳарфи тоҷикӣ бошад, на лотинӣ.
-        else if (/[a-zçğıöşüâîûäß]/i.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_LATIN «${it.text}» → «${it.literal}»`); }
+        // Транскрипсия ҳарфи тоҷикӣ бошад, на лотинӣ. Ҷойгузори «{job}» (сервер онро бо
+        // транскрипсияи касб пур мекунад, `lib/speaking/persona.ts`) истисно аст.
+        else if (/[a-zçğıöşüâîûäß]/i.test(it.literal.replace(/\{job\}/g, ''))) { errs++; console.log(`   ❌ LITERAL_LATIN «${it.text}» → «${it.literal}»`); }
         else if (/[\u0600-\u06FF\uAC00-\uD7A3\u3130-\u318F]/.test(it.literal)) { errs++; console.log(`   ❌ LITERAL_SCRIPT «${it.text}» → «${it.literal}»`); }
       }
     }

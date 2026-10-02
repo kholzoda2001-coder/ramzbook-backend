@@ -1,0 +1,567 @@
+{
+  "slug": "prices_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Prices and numbers",
+    "titleTranslated": "Нарх ва шумора",
+    "scenario": "Харидор нарх мепурсад: доллар ва сент, тахфиф, нисфи нарх, кило. Шумо рақамро дуруст ва равшан мегӯед ва ҳамагиро ҳисоб мекунед.",
+    "emoji": "🏷️",
+    "order": 9,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул ва нарх",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Dollars",
+          "translation": "доллар",
+          "literal": "доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Cents",
+          "translation": "сент",
+          "literal": "сентс",
+          "note": "Як доллар — сад сент.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Half",
+          "translation": "нисф",
+          "literal": "ҳаф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Sale",
+          "translation": "тахфиф",
+          "literal": "сейл",
+          "note": "«On sale» — бо тахфиф, арзонтар аз нархи муқаррарӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Free",
+          "translation": "ройгон",
+          "literal": "фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Kilo",
+          "translation": "кило",
+          "literal": "килоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ин чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "How much is this?",
+          "cueTranslation": "Ин чанд пул?",
+          "intent": "Бигӯ: панҷ доллар",
+          "text": "Five dollars.",
+          "accepts": [
+            "It's five dollars.",
+            "Five."
+          ],
+          "translation": "Панҷ доллар.",
+          "literal": "файв доларз",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is it on sale?",
+          "cueTranslation": "Тахфиф дорад?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, it is.",
+            "Yes, on sale."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the bag free?",
+          "cueTranslation": "Халта ройгон аст?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, it's not.",
+            "No, sorry."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Рақамҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Fifty cents",
+          "translation": "Панҷоҳ сент",
+          "literal": "фифтӣ сентс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Half price",
+          "translation": "Нисфи нарх",
+          "literal": "ҳаф прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "On sale",
+          "translation": "Бо тахфиф",
+          "literal": "он сейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Five dollars",
+          "translation": "Панҷ доллар",
+          "literal": "файв доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Very cheap",
+          "translation": "Хеле арзон",
+          "literal": "верӣ чип",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Per kilo",
+          "translation": "Барои як кило",
+          "literal": "пёр килоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Арзон аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is this cheap?",
+          "cueTranslation": "Ин арзон аст?",
+          "intent": "Бигӯ: нисфи нарх",
+          "text": "Half price.",
+          "accepts": [
+            "Yes, half price.",
+            "It's half price."
+          ],
+          "translation": "Нисфи нарх.",
+          "literal": "ҳаф прайс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "And the bread?",
+          "cueTranslation": "Нон чӣ?",
+          "intent": "Бигӯ: панҷоҳ сент",
+          "text": "Fifty cents.",
+          "accepts": [
+            "It's fifty cents.",
+            "Fifty."
+          ],
+          "translation": "Панҷоҳ сент.",
+          "literal": "фифтӣ сентс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Are the apples on sale?",
+          "cueTranslation": "Себҳо тахфиф доранд?",
+          "intent": "Бигӯ: ҳа, бо тахфиф",
+          "text": "Yes, on sale.",
+          "accepts": [
+            "On sale.",
+            "Yes, they are."
+          ],
+          "translation": "Ҳа, бо тахфиф.",
+          "literal": "йес он сейл",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "It's on sale.",
+          "translation": "Бо тахфиф аст.",
+          "literal": "итс он сейл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It's half price.",
+          "translation": "Нисфи нарх аст.",
+          "literal": "итс ҳаф прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Nine dollars, please.",
+          "translation": "Нӯҳ доллар, лутфан.",
+          "literal": "найн доларз плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "nine|нӯҳ",
+            "six|шаш",
+            "twelve|дувоздаҳ"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Apples are two dollars.",
+          "translation": "Себ ду доллар.",
+          "literal": "эпэлз ар ту доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Three dollars a kilo.",
+          "translation": "Килояш се доллар.",
+          "literal": "ҫрӣ доларз э килоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Apples",
+          "translation": "себ",
+          "literal": "эпэлз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Себ ва шир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "How much are the apples?",
+          "cueTranslation": "Себҳо чанд пул?",
+          "intent": "Бигӯ: килояш се доллар",
+          "text": "Three dollars a kilo.",
+          "accepts": [
+            "Three dollars.",
+            "Three a kilo."
+          ],
+          "translation": "Килояш се доллар.",
+          "literal": "ҫрӣ доларз э килоу",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the milk on sale?",
+          "cueTranslation": "Шир тахфиф дорад?",
+          "intent": "Бигӯ: ҳа, нисфи нарх аст",
+          "text": "Yes, it's half price.",
+          "accepts": [
+            "Half price.",
+            "Yes, on sale."
+          ],
+          "translation": "Ҳа, нисфи нарх аст.",
+          "literal": "йес итс ҳаф прайс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Great! How much in total?",
+          "cueTranslation": "Олӣ! Ҳамагӣ чанд?",
+          "intent": "Бигӯ: нӯҳ доллар, лутфан",
+          "text": "Nine dollars, please.",
+          "accepts": [
+            "Nine dollars.",
+            "It's nine dollars."
+          ],
+          "translation": "Нӯҳ доллар, лутфан.",
+          "literal": "найн доларз плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чанд то?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "How many?",
+          "translation": "Чанд то?",
+          "literal": "ҳау менӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "One or two?",
+          "translation": "Як ё ду?",
+          "literal": "ван ор ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's free.",
+          "translation": "Ройгон аст.",
+          "literal": "итс фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Hundred",
+          "translation": "сад",
+          "literal": "ҳандрэд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "One hundred dollars.",
+          "translation": "Сад доллар.",
+          "literal": "ван ҳандрэд доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, it's not free.",
+          "translation": "Бубахшед, ройгон нест.",
+          "literal": "сорӣ итс нот фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Халта ройгон?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I need some bags.",
+          "cueTranslation": "Ба ман якчанд халта лозим.",
+          "intent": "Бипурс: чанд то?",
+          "text": "How many?",
+          "accepts": [
+            "How many bags?",
+            "One or two?"
+          ],
+          "translation": "Чанд то?",
+          "literal": "ҳау менӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Three. Are they free?",
+          "cueTranslation": "Се то. Ройгон?",
+          "intent": "Бигӯ: бубахшед, ройгон нест",
+          "text": "Sorry, it's not free.",
+          "accepts": [
+            "No, sorry.",
+            "They're not free."
+          ],
+          "translation": "Бубахшед, ройгон нест.",
+          "literal": "сорӣ итс нот фрӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How much?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: панҷоҳ сент",
+          "text": "Fifty cents.",
+          "accepts": [
+            "Fifty cents each.",
+            "It's fifty cents."
+          ],
+          "translation": "Панҷоҳ сент.",
+          "literal": "фифтӣ сентс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: нарх мепурсанд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! How much is this oil?",
+          "cueTranslation": "Салом! Ин равған чанд пул?",
+          "intent": "Бигӯ: панҷ доллар. бо тахфиф аст",
+          "text": "Five dollars. It's on sale.",
+          "accepts": [
+            "Five dollars.",
+            "It's on sale. Five dollars."
+          ],
+          "translation": "Панҷ доллар. Бо тахфиф аст.",
+          "literal": "файв доларз итс он сейл",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Good! And the apples?",
+          "cueTranslation": "Хуб! Себҳо чӣ?",
+          "intent": "Бигӯ: килояш се доллар",
+          "text": "Three dollars a kilo.",
+          "accepts": [
+            "Three dollars.",
+            "Three a kilo."
+          ],
+          "translation": "Килояш се доллар.",
+          "literal": "ҫрӣ доларз э килоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Two kilos, please. Total?",
+          "cueTranslation": "Ду кило, лутфан. Ҳамагӣ?",
+          "intent": "Бигӯ: ёздаҳ доллар, лутфан",
+          "text": "Eleven dollars, please.",
+          "accepts": [
+            "Eleven dollars.",
+            "It's eleven dollars."
+          ],
+          "translation": "Ёздаҳ доллар, лутфан.",
+          "literal": "илевэн доларз плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Here you are.",
+          "cueTranslation": "Марҳамат.",
+          "intent": "Бигӯ: ташаккур. рӯзи хуш!",
+          "text": "Thank you. Have a nice day!",
+          "accepts": [
+            "Thanks! Have a nice day!",
+            "Thank you!"
+          ],
+          "translation": "Ташаккур. Рӯзи хуш!",
+          "literal": "ҫенк ю ҳэв э найс дей",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

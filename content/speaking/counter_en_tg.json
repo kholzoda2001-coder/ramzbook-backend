@@ -1,0 +1,566 @@
+{
+  "slug": "counter_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "At the café counter",
+    "titleTranslated": "Дар қаҳвахона",
+    "scenario": "Шумо дар пештахтаи қаҳвахона кор мекунед: фармоиш мегиред, мепурсед хурд ё калон, бо шир ё бе шакар, барои ин ҷо ё барои бурдан — ва нӯшокиро медиҳед.",
+    "emoji": "☕",
+    "order": 11,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пештахта",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Cup",
+          "translation": "пиёла",
+          "literal": "кап",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Small",
+          "translation": "хурд",
+          "literal": "смол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Large",
+          "translation": "калон",
+          "literal": "лардж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Tea",
+          "translation": "чой",
+          "literal": "тӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Coffee",
+          "translation": "қаҳва",
+          "literal": "кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Sugar",
+          "translation": "шакар",
+          "literal": "шугэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Фармоиши кӯтоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Small or large?",
+          "cueTranslation": "Хурд ё калон?",
+          "intent": "Бигӯ: калон",
+          "text": "Large.",
+          "accepts": [
+            "Large, please.",
+            "A large one."
+          ],
+          "translation": "Калон.",
+          "literal": "лардж",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tea or coffee?",
+          "cueTranslation": "Чой ё қаҳва?",
+          "intent": "Бигӯ: чой",
+          "text": "Tea.",
+          "accepts": [
+            "Tea, please.",
+            "Tea for me."
+          ],
+          "translation": "Чой.",
+          "literal": "тӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "With sugar?",
+          "cueTranslation": "Бо шакар?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No sugar.",
+            "No, thanks."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "To go",
+          "translation": "Барои бурдан",
+          "literal": "ту гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "For here",
+          "translation": "Барои ин ҷо",
+          "literal": "фор ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "No sugar",
+          "translation": "Бе шакар",
+          "literal": "ноу шугэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "With milk",
+          "translation": "Бо шир",
+          "literal": "виз милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Large coffee",
+          "translation": "Қаҳваи калон",
+          "literal": "лардж кофӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Your name?",
+          "translation": "Номатон?",
+          "literal": "ёр нейм",
+          "note": "Дар қаҳвахона номро ба пиёла менависанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Фармоиш мегирам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "A coffee, please.",
+          "cueTranslation": "Як қаҳва, лутфан.",
+          "intent": "Бипурс: хурд ё калон?",
+          "text": "Small or large?",
+          "accepts": [
+            "Small or large coffee?",
+            "What size?"
+          ],
+          "translation": "Хурд ё калон?",
+          "literal": "смол ор лардж",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Large, please.",
+          "cueTranslation": "Калон, лутфан.",
+          "intent": "Бипурс: барои ин ҷо ё барои бурдан?",
+          "text": "For here or to go?",
+          "accepts": [
+            "To go?",
+            "For here?"
+          ],
+          "translation": "Барои ин ҷо ё барои бурдан?",
+          "literal": "фор ҳир ор ту гоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "To go.",
+          "cueTranslation": "Барои бурдан.",
+          "intent": "Бипурс: номатон?",
+          "text": "Your name?",
+          "accepts": [
+            "What's your name?",
+            "And your name?"
+          ],
+          "translation": "Номатон?",
+          "literal": "ёр нейм",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Coffee with milk?",
+          "translation": "Қаҳва бо шир?",
+          "literal": "кофӣ виз милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "For here?",
+          "translation": "Барои ин ҷо?",
+          "literal": "фор ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Your coffee is ready.",
+          "translation": "Қаҳваатон тайёр.",
+          "literal": "ёр кофӣ из редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "coffee|қаҳва",
+            "tea|чой"
+          ],
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "That's four dollars.",
+          "translation": "Чор доллар мешавад.",
+          "literal": "ҙэтс фор доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ready",
+          "translation": "тайёр",
+          "literal": "редӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "One moment, please.",
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "ван моумэнт плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Чой бо шир?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can I have a tea?",
+          "cueTranslation": "Як чой гирифта метавонам?",
+          "intent": "Бипурс: бо шир?",
+          "text": "With milk?",
+          "accepts": [
+            "Tea with milk?",
+            "Milk?"
+          ],
+          "translation": "Бо шир?",
+          "literal": "виз милк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "No milk. How much?",
+          "cueTranslation": "Бе шир. Чанд пул?",
+          "intent": "Бигӯ: чор доллар мешавад",
+          "text": "That's four dollars.",
+          "accepts": [
+            "Four dollars.",
+            "It's four dollars."
+          ],
+          "translation": "Чор доллар мешавад.",
+          "literal": "ҙэтс фор доларз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Here you are.",
+          "cueTranslation": "Марҳамат.",
+          "intent": "Бигӯ: ташаккур. як лаҳза, лутфан",
+          "text": "Thank you. One moment, please.",
+          "accepts": [
+            "One moment, please.",
+            "Thanks."
+          ],
+          "translation": "Ташаккур. Як лаҳза, лутфан.",
+          "literal": "ҫенк ю ван моумэнт плиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Нӯшокӣ тайёр",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hot",
+          "translation": "гарм",
+          "literal": "ҳот",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It's very hot.",
+          "translation": "Хеле гарм аст.",
+          "literal": "итс верӣ ҳот",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Here's your tea.",
+          "translation": "Ана чойатон.",
+          "literal": "ҳирз ёр тӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Sugar is here.",
+          "translation": "Шакар ин ҷост.",
+          "literal": "шугэр из ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, no milk.",
+          "translation": "Бубахшед, шир нест.",
+          "literal": "сорӣ ноу милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Enjoy your coffee!",
+          "translation": "Қаҳваи гуворо!",
+          "literal": "инджой ёр кофӣ",
+          "note": "Вақте нӯшокиро медиҳед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Қаҳвааш гарм",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is my coffee ready?",
+          "cueTranslation": "Қаҳваи ман тайёр?",
+          "intent": "Бигӯ: ҳа. ана қаҳваатон",
+          "text": "Yes. Here's your coffee.",
+          "accepts": [
+            "Here's your coffee.",
+            "Yes, it's ready."
+          ],
+          "translation": "Ҳа. Ана қаҳваатон.",
+          "literal": "йес ҳирз ёр кофӣ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks! Is it hot?",
+          "cueTranslation": "Ташаккур! Гарм аст?",
+          "intent": "Бигӯ: ҳа, хеле гарм аст",
+          "text": "Yes, it's very hot.",
+          "accepts": [
+            "Very hot.",
+            "Yes, it's hot."
+          ],
+          "translation": "Ҳа, хеле гарм аст.",
+          "literal": "йес итс верӣ ҳот",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is the sugar?",
+          "cueTranslation": "Шакар куҷост?",
+          "intent": "Бигӯ: шакар ин ҷост",
+          "text": "Sugar is here.",
+          "accepts": [
+            "It's here.",
+            "Here."
+          ],
+          "translation": "Шакар ин ҷост.",
+          "literal": "шугэр из ҳир",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фармоиши қаҳва",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! A coffee, please.",
+          "cueTranslation": "Салом! Як қаҳва, лутфан.",
+          "intent": "Бипурс: хурд ё калон?",
+          "text": "Small or large?",
+          "accepts": [
+            "What size?",
+            "Small or large coffee?"
+          ],
+          "translation": "Хурд ё калон?",
+          "literal": "смол ор лардж",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Small. With milk.",
+          "cueTranslation": "Хурд. Бо шир.",
+          "intent": "Бипурс: барои ин ҷо ё барои бурдан?",
+          "text": "For here or to go?",
+          "accepts": [
+            "To go?",
+            "For here?"
+          ],
+          "translation": "Барои ин ҷо ё барои бурдан?",
+          "literal": "фор ҳир ор ту гоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "To go. How much?",
+          "cueTranslation": "Барои бурдан. Чанд пул?",
+          "intent": "Бигӯ: се доллар мешавад",
+          "text": "That's three dollars.",
+          "accepts": [
+            "Three dollars.",
+            "It's three dollars."
+          ],
+          "translation": "Се доллар мешавад.",
+          "literal": "ҙэтс ҫрӣ доларз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: ана қаҳваатон. қаҳваи гуворо!",
+          "text": "Here's your coffee. Enjoy!",
+          "accepts": [
+            "Here's your coffee.",
+            "Enjoy your coffee!"
+          ],
+          "translation": "Ана қаҳваатон. Гуворо бошад!",
+          "literal": "ҳирз ёр кофӣ инджой",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

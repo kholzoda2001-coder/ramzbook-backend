@@ -1,0 +1,566 @@
+{
+  "slug": "cleaning_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Cleaning",
+    "titleTranslated": "Тозакунӣ",
+    "scenario": "Пас аз кор ё дар миёнаи рӯз тоза мекунед: фарш, ошхона, ҳоҷатхона, партов. Шумо асбоб мепурсед, мегӯед, ки фарш тар аст, ва хабар медиҳед, ки ҳама тоза шуд.",
+    "emoji": "🧽",
+    "order": 12,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Тозагӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Mop",
+          "translation": "швабра",
+          "literal": "моп",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Trash",
+          "translation": "партов",
+          "literal": "трэш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Floor",
+          "translation": "фарш",
+          "literal": "флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Dirty",
+          "translation": "чиркин",
+          "literal": "дёртӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Wet",
+          "translation": "тар",
+          "literal": "вет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Gloves",
+          "translation": "дастпӯшак",
+          "literal": "гловз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ хел аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is the floor wet?",
+          "cueTranslation": "Фарш тар аст?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, it's wet.",
+            "Yes, careful."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is this table dirty?",
+          "cueTranslation": "Ин миз чиркин аст?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, it's clean.",
+            "No, it's okay."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is the mop?",
+          "cueTranslation": "Швабра куҷост?",
+          "intent": "Бигӯ: ин ҷо",
+          "text": "Here.",
+          "accepts": [
+            "It's here.",
+            "Right here."
+          ],
+          "translation": "Ин ҷо.",
+          "literal": "ҳир",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wet floor",
+          "translation": "Фарши тар",
+          "literal": "вет флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Take out",
+          "translation": "Берун бурдан",
+          "literal": "тейк аут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "The trash",
+          "translation": "Партов",
+          "literal": "ҙэ трэш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Very dirty",
+          "translation": "Хеле чиркин",
+          "literal": "верӣ дёртӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "All clean",
+          "translation": "Ҳама тоза",
+          "literal": "ол клин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Be careful",
+          "translation": "Эҳтиёт бошед",
+          "literal": "бӣ кеэрфул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Фарш тар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Careful! What's that?",
+          "cueTranslation": "Эҳтиёт! Ин чист?",
+          "intent": "Бигӯ: фарши тар",
+          "text": "Wet floor.",
+          "accepts": [
+            "The floor is wet.",
+            "It's wet."
+          ],
+          "translation": "Фарши тар.",
+          "literal": "вет флор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the kitchen dirty?",
+          "cueTranslation": "Ошхона чиркин аст?",
+          "intent": "Бигӯ: хеле чиркин",
+          "text": "Very dirty.",
+          "accepts": [
+            "Yes, very dirty.",
+            "Yes."
+          ],
+          "translation": "Хеле чиркин.",
+          "literal": "верӣ дёртӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And now?",
+          "cueTranslation": "Ҳоло чӣ?",
+          "intent": "Бигӯ: ҳама тоза",
+          "text": "All clean.",
+          "accepts": [
+            "It's all clean.",
+            "Clean now."
+          ],
+          "translation": "Ҳама тоза.",
+          "literal": "ол клин",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I clean the floor.",
+          "translation": "Ман фаршро тоза мекунам.",
+          "literal": "ай клин ҙэ флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "floor|фарш",
+            "kitchen|ошхона"
+          ],
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "The floor is wet.",
+          "translation": "Фарш тар аст.",
+          "literal": "ҙэ флор из вет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Be careful, please.",
+          "translation": "Лутфан, эҳтиёт бошед.",
+          "literal": "бӣ кеэрфул плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the trash?",
+          "translation": "Партов куҷост?",
+          "literal": "вэр из ҙэ трэш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Take out the trash?",
+          "translation": "Партовро барорам?",
+          "literal": "тейк аут ҙэ трэш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "I need gloves.",
+          "translation": "Ба ман дастпӯшак лозим.",
+          "literal": "ай нид гловз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ошхонаро тоза кун",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Please clean the kitchen.",
+          "cueTranslation": "Лутфан, ошхонаро тоза кун.",
+          "intent": "Бигӯ: ба ман дастпӯшак лозим",
+          "text": "I need gloves.",
+          "accepts": [
+            "Gloves, please.",
+            "Okay. I need gloves."
+          ],
+          "translation": "Ба ман дастпӯшак лозим.",
+          "literal": "ай нид гловз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here. Then the floor, please.",
+          "cueTranslation": "Ана. Баъд фарш, лутфан.",
+          "intent": "Бипурс: швабра куҷост?",
+          "text": "Where is the mop?",
+          "accepts": [
+            "The mop?",
+            "Where's the mop?"
+          ],
+          "translation": "Швабра куҷост?",
+          "literal": "вэр из ҙэ моп",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Behind the door.",
+          "cueTranslation": "Паси дар.",
+          "intent": "Бипурс: партовро барорам?",
+          "text": "Take out the trash?",
+          "accepts": [
+            "And the trash?",
+            "The trash too?"
+          ],
+          "translation": "Партовро барорам?",
+          "literal": "тейк аут ҙэ трэш",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тамом?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "It's all clean.",
+          "translation": "Ҳама тоза аст.",
+          "literal": "итс ол клин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it okay now?",
+          "translation": "Ҳоло хуб аст?",
+          "literal": "из ит оукей нау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Full",
+          "translation": "пур",
+          "literal": "фул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "The trash is full.",
+          "translation": "Партов пур аст.",
+          "literal": "ҙэ трэш из фул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I clean the toilets.",
+          "translation": "Ман ҳоҷатхонаҳоро тоза мекунам.",
+          "literal": "ай клин ҙэ тойлэтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Five minutes, please.",
+          "translation": "Панҷ дақиқа, лутфан.",
+          "literal": "файв минитс плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тамом кардӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you done?",
+          "cueTranslation": "Тамом кардӣ?",
+          "intent": "Бигӯ: панҷ дақиқа, лутфан",
+          "text": "Five minutes, please.",
+          "accepts": [
+            "Not yet. Five minutes.",
+            "Five minutes."
+          ],
+          "translation": "Панҷ дақиқа, лутфан.",
+          "literal": "файв минитс плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. And the toilets?",
+          "cueTranslation": "Хуб. Ҳоҷатхонаҳо чӣ?",
+          "intent": "Бигӯ: ҳама тоза аст",
+          "text": "It's all clean.",
+          "accepts": [
+            "All clean.",
+            "They're clean."
+          ],
+          "translation": "Ҳама тоза аст.",
+          "literal": "итс ол клин",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Good! Anything else?",
+          "cueTranslation": "Хуб! Боз чизе?",
+          "intent": "Бигӯ: партов пур аст",
+          "text": "The trash is full.",
+          "accepts": [
+            "Trash is full.",
+            "Yes, the trash is full."
+          ],
+          "translation": "Партов пур аст.",
+          "literal": "ҙэ трэш из фул",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: тозакунии ошхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! The kitchen is very dirty.",
+          "cueTranslation": "Салом! Ошхона хеле чиркин.",
+          "intent": "Бигӯ: хуб. ба ман дастпӯшак лозим",
+          "text": "Okay. I need gloves.",
+          "accepts": [
+            "I need gloves.",
+            "Okay, gloves, please."
+          ],
+          "translation": "Хуб. Ба ман дастпӯшак лозим.",
+          "literal": "оукей ай нид гловз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here. Clean the floor first.",
+          "cueTranslation": "Ана. Аввал фаршро тоза кун.",
+          "intent": "Бипурс: швабра куҷост?",
+          "text": "Where is the mop?",
+          "accepts": [
+            "The mop?",
+            "Okay. Where's the mop?"
+          ],
+          "translation": "Швабра куҷост?",
+          "literal": "вэр из ҙэ моп",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Behind the door. Is it wet?",
+          "cueTranslation": "Паси дар. Тар аст?",
+          "intent": "Бигӯ: ҳа. лутфан, эҳтиёт бошед",
+          "text": "Yes. Be careful, please.",
+          "accepts": [
+            "Be careful, it's wet.",
+            "Yes, careful."
+          ],
+          "translation": "Ҳа. Лутфан, эҳтиёт бошед.",
+          "literal": "йес бӣ кеэрфул плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks. Are you done?",
+          "cueTranslation": "Ташаккур. Тамом кардӣ?",
+          "intent": "Бигӯ: ҳа, ҳама тоза аст",
+          "text": "Yes, it's all clean.",
+          "accepts": [
+            "All clean.",
+            "Yes, all clean."
+          ],
+          "translation": "Ҳа, ҳама тоза аст.",
+          "literal": "йес итс ол клин",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

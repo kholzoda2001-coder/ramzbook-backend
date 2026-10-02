@@ -16,6 +16,7 @@ import {
 } from '@/lib/speaking/access';
 import { pickSpeakingLesson } from '@/lib/speaking/pick';
 import { asGoal, inPath, levelOf, orderChapters } from '@/lib/speaking/situations';
+import { fillJobLiteral } from '@/lib/speaking/persona';
 
 export const dynamic = 'force-dynamic';
 
@@ -331,7 +332,13 @@ export async function GET(req: NextRequest) {
           .map((i) => toEngineItem(i)),
       },
     );
-    const exercises = steps.map((s) => toWire(s, ev));
+    // «I am {job}.»: транскрипсияро бо касби ҳамон ҳадаф пур мекунем (ниг. persona.ts).
+    const exercises = steps.map((s) => {
+      const w = toWire(s, ev);
+      return 'translit' in w && w.translit
+        ? { ...w, translit: fillJobLiteral(w.translit, targetLanguage?.code ?? '', goal) }
+        : w;
+    });
 
     const chapterLessons = chapter.lessons.length;
     const chapterDone = chapter.lessons.filter((l) => doneIds.has(l.id)).length;

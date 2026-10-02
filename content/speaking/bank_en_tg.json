@@ -52,10 +52,10 @@
         },
         {
           "kind": "word",
-          "text": "Phone",
-          "translation": "телефон",
-          "literal": "фоун",
-          "note": null,
+          "text": "SIM",
+          "translation": "SIM-корт",
+          "literal": "сим",
+          "note": "Корти хурди рақами телефон.",
           "cue": null,
           "cueTranslation": null,
           "order": 3
@@ -72,13 +72,23 @@
         },
         {
           "kind": "word",
+          "text": "PIN",
+          "translation": "рамзи корт",
+          "literal": "пин",
+          "note": "PIN — рамзи чаҳоррақамаи корт.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        },
+        {
+          "kind": "word",
           "text": "Internet",
           "translation": "интернет",
           "literal": "интэрнет",
           "note": null,
           "cue": null,
           "cueTranslation": null,
-          "order": 5
+          "order": 6
         }
       ]
     },
@@ -280,9 +290,9 @@
         },
         {
           "kind": "sentence",
-          "text": "How much per month?",
+          "text": "How much a month?",
           "translation": "Дар як моҳ чанд?",
-          "literal": "ҳау мач пёр манҫ",
+          "literal": "ҳау мач э манҫ",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -359,14 +369,14 @@
           "kind": "turn",
           "cue": "Ten gigabytes per month.",
           "cueTranslation": "Моҳе даҳ гигабайт.",
-          "intent": "Бигӯ: хуб, мегирам",
-          "text": "Okay, I'll take it.",
+          "intent": "Бигӯ: хуб, инро мехоҳам",
+          "text": "Okay, I want it.",
           "accepts": [
             "I'll take it.",
             "Okay."
           ],
-          "translation": "Хуб, мегирам.",
-          "literal": "оукей айл тейк ит",
+          "translation": "Хуб, инро мехоҳам.",
+          "literal": "оукей ай вонт ит",
           "note": null,
           "order": 2
         }
@@ -409,9 +419,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I forgot my PIN.",
-          "translation": "Рамзамро фаромӯш кардам.",
-          "literal": "ай фэргот май пин",
+          "text": "My PIN doesn't work.",
+          "translation": "Рамзам кор намекунад.",
+          "literal": "май пин дазнт вёрк",
           "note": "PIN — рамзи корт.",
           "cue": null,
           "cueTranslation": null,
@@ -463,14 +473,14 @@
           "kind": "turn",
           "cue": "Did you enter the right PIN?",
           "cueTranslation": "Рамзи дурустро ворид кардед?",
-          "intent": "Бигӯ: рамзамро фаромӯш кардам",
-          "text": "I forgot my PIN.",
+          "intent": "Бигӯ: рамзам кор намекунад",
+          "text": "My PIN doesn't work.",
           "accepts": [
-            "I forgot it.",
-            "No, I forgot my PIN."
+            "I forgot my PIN.",
+            "It doesn't work."
           ],
-          "translation": "Рамзамро фаромӯш кардам.",
-          "literal": "ай фэргот май пин",
+          "translation": "Рамзам кор намекунад.",
+          "literal": "май пин дазнт вёрк",
           "note": null,
           "order": 1
         },
@@ -531,13 +541,13 @@
           "cue": "Thanks. Do you want a card too?",
           "cueTranslation": "Ташаккур. Корт ҳам мехоҳед?",
           "intent": "Бигӯ: ҳа ва бипурс дар як моҳ чанд",
-          "text": "Yes. How much per month?",
+          "text": "Yes. How much a month?",
           "accepts": [
             "Yes, please. How much?",
             "How much per month?"
           ],
           "translation": "Ҳа. Дар як моҳ чанд?",
-          "literal": "йес ҳау мач пёр манҫ",
+          "literal": "йес ҳау мач э манҫ",
           "note": null,
           "order": 2
         },

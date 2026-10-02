@@ -277,9 +277,9 @@
         },
         {
           "kind": "sentence",
-          "text": "How much per hour?",
+          "text": "How much an hour?",
           "translation": "Соате чанд пул?",
-          "literal": "ҳау мач пёр ауэр",
+          "literal": "ҳау мач эн ауэр",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -307,9 +307,9 @@
         },
         {
           "kind": "sentence",
-          "text": "Tomorrow I'm off.",
-          "translation": "Фардо ман кор надорам.",
-          "literal": "туморроу айм оф",
+          "text": "I don't work tomorrow.",
+          "translation": "Фардо кор намекунам.",
+          "literal": "ай доунт вёрк туморроу",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -396,9 +396,9 @@
         },
         {
           "kind": "sentence",
-          "text": "It's a deal.",
-          "translation": "Хуб, розӣ.",
-          "literal": "итс э дил",
+          "text": "That's fine.",
+          "translation": "Майлаш.",
+          "literal": "ҙэтс файн",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -445,14 +445,14 @@
           "kind": "turn",
           "cue": "Can you work on Sunday?",
           "cueTranslation": "Якшанбе кор карда метавонӣ?",
-          "intent": "Бигӯ: фардо кор надорам",
-          "text": "Tomorrow I'm off.",
+          "intent": "Бигӯ: фардо кор намекунам",
+          "text": "I don't work tomorrow.",
           "accepts": [
-            "I'm off tomorrow.",
-            "Sorry, I can't."
+            "Sorry, I can't.",
+            "Tomorrow I'm off."
           ],
-          "translation": "Фардо ман кор надорам.",
-          "literal": "туморроу айм оф",
+          "translation": "Фардо кор намекунам.",
+          "literal": "ай доунт вёрк туморроу",
           "note": null,
           "order": 0
         },
@@ -461,13 +461,13 @@
           "cue": "It's overtime. Double pay.",
           "cueTranslation": "Кори иловагӣ. Музди дучанд.",
           "intent": "Бипурс: соате чанд?",
-          "text": "How much per hour?",
+          "text": "How much an hour?",
           "accepts": [
             "How much?",
-            "How much an hour?"
+            "How much per hour?"
           ],
           "translation": "Соате чанд пул?",
-          "literal": "ҳау мач пёр ауэр",
+          "literal": "ҳау мач эн ауэр",
           "note": null,
           "order": 1
         },
@@ -475,14 +475,14 @@
           "kind": "turn",
           "cue": "Forty dollars.",
           "cueTranslation": "Чил доллар.",
-          "intent": "Бигӯ: хуб, розӣ",
-          "text": "Okay, it's a deal.",
+          "intent": "Бигӯ: хуб, майлаш",
+          "text": "Okay, that's fine.",
           "accepts": [
-            "It's a deal.",
-            "Okay, deal."
+            "That's fine.",
+            "Okay, it's a deal."
           ],
-          "translation": "Хуб, розӣ.",
-          "literal": "оукей итс э дил",
+          "translation": "Хуб, майлаш.",
+          "literal": "оукей ҙэтс файн",
           "note": null,
           "order": 2
         }

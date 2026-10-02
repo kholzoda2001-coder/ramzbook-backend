@@ -438,9 +438,9 @@
         },
         {
           "kind": "sentence",
-          "text": "Is this seat free?",
-          "translation": "Ин ҷо холист?",
-          "literal": "из ҙис сит фрӣ",
+          "text": "Sit with me.",
+          "translation": "Бо ман шин.",
+          "literal": "сит виз мӣ",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -457,14 +457,14 @@
           "kind": "turn",
           "cue": "Hi!",
           "cueTranslation": "Салом!",
-          "intent": "Бипурс: ин ҷо холист?",
-          "text": "Is this seat free?",
+          "intent": "Бипурс: ин ҷо нишаста метавонам?",
+          "text": "Can I sit here?",
           "accepts": [
-            "Can I sit here?",
-            "Is it free?"
+            "Is this seat free?",
+            "Can I sit here, please?"
           ],
-          "translation": "Ин ҷо холист?",
-          "literal": "из ҙис сит фрӣ",
+          "translation": "Ин ҷо нишаста метавонам?",
+          "literal": "кен ай сит ҳир",
           "note": null,
           "order": 0
         },

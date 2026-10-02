@@ -287,9 +287,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I finished the test.",
-          "translation": "Санҷишро тамом кардам.",
-          "literal": "ай финишт ҙэ тест",
+          "text": "I'm done.",
+          "translation": "Ман тамом кардам.",
+          "literal": "айм дан",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -396,9 +396,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I did my best.",
-          "translation": "Кӯшиши худро кардам.",
-          "literal": "ай дид май бест",
+          "text": "It was difficult.",
+          "translation": "Душвор буд.",
+          "literal": "ит воз дификэлт",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -460,14 +460,14 @@
           "kind": "turn",
           "cue": "One more minute.",
           "cueTranslation": "Боз як дақиқа.",
-          "intent": "Бигӯ: санҷишро тамом кардам",
-          "text": "I finished the test.",
+          "intent": "Бигӯ: тамом кардам",
+          "text": "I'm done.",
           "accepts": [
             "I finished.",
-            "Done. I finished."
+            "I finished the test."
           ],
-          "translation": "Санҷишро тамом кардам.",
-          "literal": "ай финишт ҙэ тест",
+          "translation": "Ман тамом кардам.",
+          "literal": "айм дан",
           "note": null,
           "order": 1
         },
@@ -527,14 +527,14 @@
           "kind": "turn",
           "cue": "Time's up! Did you finish?",
           "cueTranslation": "Вақт тамом! Тамом кардед?",
-          "intent": "Бигӯ: ҳа, санҷишро тамом кардам",
-          "text": "Yes, I finished the test.",
+          "intent": "Бигӯ: ҳа, тамом кардам",
+          "text": "Yes, I'm done.",
           "accepts": [
             "Yes, I finished.",
             "Yes."
           ],
-          "translation": "Ҳа, санҷишро тамом кардам.",
-          "literal": "йес ай финишт ҙэ тест",
+          "translation": "Ҳа, тамом кардам.",
+          "literal": "йес айм дан",
           "note": null,
           "order": 2
         },
@@ -542,14 +542,14 @@
           "kind": "turn",
           "cue": "Good. Grades on Monday.",
           "cueTranslation": "Хуб. Баҳоҳо рӯзи душанбе.",
-          "intent": "Бигӯ: хуб, кӯшиши худро кардам",
-          "text": "Okay. I did my best.",
+          "intent": "Бигӯ: хуб, душвор буд",
+          "text": "Okay. It was difficult.",
           "accepts": [
-            "I did my best.",
+            "It was difficult.",
             "Okay, thanks."
           ],
-          "translation": "Хуб. Кӯшиши худро кардам.",
-          "literal": "оукей ай дид май бест",
+          "translation": "Хуб. Душвор буд.",
+          "literal": "оукей ит воз дификэлт",
           "note": null,
           "order": 3
         }

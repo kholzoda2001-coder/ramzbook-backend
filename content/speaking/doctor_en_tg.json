@@ -302,9 +302,9 @@
         },
         {
           "kind": "word",
-          "text": "Yesterday",
-          "translation": "дирӯз",
-          "literal": "естэрдей",
+          "text": "Day",
+          "translation": "рӯз",
+          "literal": "дей",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -312,9 +312,9 @@
         },
         {
           "kind": "sentence",
-          "text": "Since yesterday.",
-          "translation": "Аз дирӯз.",
-          "literal": "синс естэрдей",
+          "text": "Two days.",
+          "translation": "Ду рӯз.",
+          "literal": "ту дейз",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -359,16 +359,16 @@
         },
         {
           "kind": "turn",
-          "cue": "Since when?",
-          "cueTranslation": "Аз кай?",
-          "intent": "Бигӯ: аз дирӯз",
-          "text": "Since yesterday.",
+          "cue": "How long?",
+          "cueTranslation": "Чанд вақт?",
+          "intent": "Бигӯ: ду рӯз",
+          "text": "Two days.",
           "accepts": [
-            "Yesterday.",
-            "From yesterday."
+            "Since yesterday.",
+            "Two days now."
           ],
-          "translation": "Аз дирӯз.",
-          "literal": "синс естэрдей",
+          "translation": "Ду рӯз.",
+          "literal": "ту дейз",
           "note": null,
           "order": 2
         }

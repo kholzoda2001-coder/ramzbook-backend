@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
+import { fillJobLiteral } from '@/lib/speaking/persona';
 
 export const dynamic = 'force-dynamic';
 
@@ -101,7 +102,7 @@ export async function GET(req: NextRequest) {
                 translation: i.translation.trim(),
                 // Талаффуз ва аудио ТАНҲО барои калимаи омӯхта — калимаи
                 // қулфшуда набояд ҷавобро пеш аз дарс нишон диҳад.
-                literal: isLearned ? (i.literal?.trim() ?? '') : '',
+                literal: isLearned ? fillJobLiteral(i.literal?.trim() ?? '', '', undefined) : '',
                 audioUrl: isLearned ? (i.audioUrl ?? '') : '',
                 learned: isLearned,
               };

@@ -290,9 +290,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I'll do it again.",
-          "translation": "Аз нав мекунам.",
-          "literal": "айл ду ит эген",
+          "text": "I can redo it.",
+          "translation": "Аз нав карда метавонам.",
+          "literal": "ай кен ридӯ ит",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -344,14 +344,14 @@
           "kind": "turn",
           "cue": "Hmm. This part is not straight.",
           "cueTranslation": "Ҳм. Ин қисм рост нест.",
-          "intent": "Бигӯ: аз нав мекунам",
-          "text": "I'll do it again.",
+          "intent": "Бигӯ: аз нав карда метавонам",
+          "text": "I can redo it.",
           "accepts": [
             "Okay, I'll redo it.",
             "Sorry, I'll do it again."
           ],
-          "translation": "Аз нав мекунам.",
-          "literal": "айл ду ит эген",
+          "translation": "Аз нав карда метавонам.",
+          "literal": "ай кен ридӯ ит",
           "note": null,
           "order": 1
         },
@@ -530,14 +530,14 @@
           "kind": "turn",
           "cue": "This line is not straight.",
           "cueTranslation": "Ин хат рост нест.",
-          "intent": "Бигӯ: бубахшед, аз нав мекунам",
-          "text": "Sorry. I'll do it again.",
+          "intent": "Бигӯ: бубахшед, аз нав карда метавонам",
+          "text": "Sorry. I can redo it.",
           "accepts": [
             "I'll do it again.",
             "Sorry, I'll redo it."
           ],
-          "translation": "Бубахшед. Аз нав мекунам.",
-          "literal": "сорӣ айл ду ит эген",
+          "translation": "Бубахшед. Аз нав карда метавонам.",
+          "literal": "сорӣ ай кен ридӯ ит",
           "note": null,
           "order": 1
         },

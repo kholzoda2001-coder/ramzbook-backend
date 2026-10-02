@@ -1,15 +1,15 @@
 {
-  "slug": "call_en_tg",
+  "slug": "callmgr_en_tg",
   "targetLanguage": "en",
   "nativeLanguage": "tg",
   "category": {
-    "title": "Calling the foreman",
-    "titleTranslated": "Занг ба бригадир",
-    "scenario": "Дер мемонед, бемор шудед ё имрӯз намеоед — бояд ба бригадир занг занед. Дар телефон рӯй намебинед, садо бад аст. Шумо кӯтоҳ ва фаҳмо мегӯед, ки чӣ шуд ва кай меоед.",
+    "title": "Calling the manager",
+    "titleTranslated": "Занг ба мудир",
+    "scenario": "Дер мемонед, бемор шудед ё имрӯз намеоед — бояд ба мудир занг занед. Дар телефон рӯй намебинед, садо бад аст. Шумо кӯтоҳ ва фаҳмо мегӯед, ки чӣ шуд ва кай меоед.",
     "emoji": "📞",
     "order": 15,
     "goals": [
-      "build"
+      "service"
     ],
     "isPremium": false,
     "isActive": true
@@ -181,9 +181,9 @@
         },
         {
           "kind": "sentence",
-          "text": "Sorry, boss",
-          "translation": "Бубахшед, бригадир",
-          "literal": "сорӣ бос",
+          "text": "Very sorry",
+          "translation": "Хеле бубахшед",
+          "literal": "верӣ сорӣ",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -208,13 +208,13 @@
       "items": [
         {
           "kind": "turn",
-          "cue": "Hello, I'm listening.",
-          "cueTranslation": "Алло, гӯш мекунам.",
+          "cue": "Hello, Anna speaking.",
+          "cueTranslation": "Алло, Анна гап мезанад.",
           "intent": "Бигӯ: бубахшед, дер мондам",
           "text": "Sorry, I'm late.",
           "accepts": [
             "I'm late, sorry.",
-            "Sorry, boss. I'm late."
+            "Very sorry. I'm late."
           ],
           "translation": "Бубахшед, дер мондам.",
           "literal": "сорӣ айм лейт",
@@ -223,7 +223,7 @@
         },
         {
           "kind": "turn",
-          "cue": "When will you come?",
+          "cue": "When do you come?",
           "cueTranslation": "Кай меоӣ?",
           "intent": "Бигӯ: баъди як соат",
           "text": "In one hour.",
@@ -343,28 +343,28 @@
         },
         {
           "kind": "turn",
-          "cue": "I see. Tomorrow?",
-          "cueTranslation": "Фаҳмо. Фардо?",
-          "intent": "Бигӯ: ҳа, фардо омада метавонам",
-          "text": "Yes, I can come tomorrow.",
+          "cue": "I see. And tomorrow?",
+          "cueTranslation": "Фаҳмо. Фардо чӣ?",
+          "intent": "Бипурс: фардо омада метавонам?",
+          "text": "Can I come tomorrow?",
           "accepts": [
-            "Yes, tomorrow.",
-            "I'll come tomorrow."
+            "Tomorrow?",
+            "Yes. Can I come tomorrow?"
           ],
-          "translation": "Ҳа, фардо омада метавонам.",
-          "literal": "йес ай кен кам туморроу",
+          "translation": "Фардо омада метавонам?",
+          "literal": "кен ай кам туморроу",
           "note": null,
           "order": 1
         },
         {
           "kind": "turn",
-          "cue": "Okay. Get well!",
-          "cueTranslation": "Хуб. Шифо ёбӣ!",
+          "cue": "Yes, of course. Get well!",
+          "cueTranslation": "Ҳа, албатта. Шифо ёбӣ!",
           "intent": "Ташаккур гӯй",
           "text": "Thank you!",
           "accepts": [
             "Thanks!",
-            "Thank you, boss."
+            "Thank you, Anna."
           ],
           "translation": "Ташаккур!",
           "literal": "ҫенк ю",
@@ -410,9 +410,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I can call tonight.",
-          "translation": "Бегоҳ занг зада метавонам.",
-          "literal": "ай кен кол тунайт",
+          "text": "I'm coming.",
+          "translation": "Ҳозир меоям.",
+          "literal": "айм каминг",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -420,9 +420,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I'm coming.",
-          "translation": "Ҳозир меоям.",
-          "literal": "айм каминг",
+          "text": "Sorry, I'm late.",
+          "translation": "Бубахшед, дер мондам.",
+          "literal": "сорӣ айм лейт",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -430,9 +430,9 @@
         },
         {
           "kind": "sentence",
-          "text": "Sorry, I'm late.",
-          "translation": "Бубахшед, дер мондам.",
-          "literal": "сорӣ айм лейт",
+          "text": "I can call tonight.",
+          "translation": "Бегоҳ занг зада метавонам.",
+          "literal": "ай кен кол тунайт",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -447,8 +447,8 @@
       "items": [
         {
           "kind": "turn",
-          "cue": "Hello! Where are you? We already...",
-          "cueTranslation": "Алло! Ту куҷоӣ? Мо аллакай...",
+          "cue": "Hello! Where are you? We...",
+          "cueTranslation": "Алло! Ту куҷоӣ? Мо...",
           "intent": "Бигӯ: шуморо намешунавам",
           "text": "I can't hear you.",
           "accepts": [
@@ -477,16 +477,16 @@
         },
         {
           "kind": "turn",
-          "cue": "Okay. Call me when you're close.",
-          "cueTranslation": "Хуб. Вақте наздик шудӣ, занг зан.",
-          "intent": "Бигӯ: хуб, занг зада метавонам",
-          "text": "Okay, I can call.",
+          "cue": "Okay. Call me back, please.",
+          "cueTranslation": "Хуб. Лутфан, боз занг зан.",
+          "intent": "Бигӯ: хуб, бегоҳ занг зада метавонам",
+          "text": "Okay, I can call tonight.",
           "accepts": [
-            "I'll call.",
+            "I'll call tonight.",
             "Okay."
           ],
-          "translation": "Хуб, занг зада метавонам.",
-          "literal": "оукей ай кен кол",
+          "translation": "Хуб, бегоҳ занг зада метавонам.",
+          "literal": "оукей ай кен кол тунайт",
           "note": null,
           "order": 2
         }
@@ -495,20 +495,20 @@
     {
       "order": 8,
       "stage": "mission",
-      "title": "Миссия: занг ба бригадир",
+      "title": "Миссия: занг ба мудир",
       "items": [
         {
           "kind": "turn",
-          "cue": "Hello, I'm listening.",
-          "cueTranslation": "Алло, гӯш мекунам.",
+          "cue": "Hello, Anna speaking.",
+          "cueTranslation": "Алло, Анна гап мезанад.",
           "intent": "Салом гӯй ва бубахшед",
-          "text": "Hello! Sorry.",
+          "text": "Hello, Anna! Sorry.",
           "accepts": [
-            "Hi, boss. Sorry.",
+            "Hi, Anna. Sorry.",
             "Hello, sorry."
           ],
-          "translation": "Салом! Бубахшед.",
-          "literal": "ҳелоу сорӣ",
+          "translation": "Салом, Анна! Бубахшед.",
+          "literal": "ҳелоу эннэ сорӣ",
           "note": null,
           "order": 0
         },

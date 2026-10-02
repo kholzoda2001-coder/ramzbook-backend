@@ -283,7 +283,7 @@
           "kind": "sentence",
           "text": "I am {job}.",
           "translation": "Ман {job_tg} ҳастам.",
-          "literal": null,
+          "literal": "ай эм {job}",
           "note": "Касби худро гӯед.",
           "cue": "What can you do?",
           "cueTranslation": "Шумо чӣ кор карда метавонед?",
@@ -301,10 +301,10 @@
         },
         {
           "kind": "sentence",
-          "text": "How much per hour?",
+          "text": "How much an hour?",
           "translation": "Соате чанд пул?",
-          "literal": "ҳау мач пёр ауэр",
-          "note": "«Per hour» — дар як соат.",
+          "literal": "ҳау мач эн ауэр",
+          "note": "«An hour» — дар як соат.",
           "cue": null,
           "cueTranslation": null,
           "order": 4
@@ -367,7 +367,7 @@
             "I'm {job}."
           ],
           "translation": "Ман {job_tg} ҳастам.",
-          "literal": null,
+          "literal": "ай эм {job}",
           "note": null,
           "order": 2
         }

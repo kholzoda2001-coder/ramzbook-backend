@@ -259,9 +259,9 @@
       "items": [
         {
           "kind": "sentence",
-          "text": "I started at seven.",
-          "translation": "Соати ҳафт сар кардам.",
-          "literal": "ай стартид эт севэн",
+          "text": "I start at seven.",
+          "translation": "Ман соати ҳафт сар мекунам.",
+          "literal": "ай старт эт севэн",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -273,9 +273,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I finished at five.",
-          "translation": "Соати панҷ тамом кардам.",
-          "literal": "ай финишт эт файв",
+          "text": "I finish at five.",
+          "translation": "Ман соати панҷ тамом мекунам.",
+          "literal": "ай финиш эт файв",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -307,9 +307,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I worked eight hours.",
-          "translation": "Ҳашт соат кор кардам.",
-          "literal": "ай вёркт эйт ауэрз",
+          "text": "I work eight hours.",
+          "translation": "Ман ҳашт соат кор мекунам.",
+          "literal": "ай вёрк эйт ауэрз",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -317,9 +317,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I forgot to sign.",
-          "translation": "Имзо гузоштанро фаромӯш кардам.",
-          "literal": "ай фэргот ту сайн",
+          "text": "I can sign now.",
+          "translation": "Ҳозир имзо мекунам.",
+          "literal": "ай кен сайн нау",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -349,31 +349,31 @@
         },
         {
           "kind": "turn",
-          "cue": "Why? When did you start?",
-          "cueTranslation": "Чаро? Кай сар кардӣ?",
-          "intent": "Бигӯ: соати ҳафт сар кардам",
-          "text": "I started at seven.",
+          "cue": "Why? When do you start?",
+          "cueTranslation": "Чаро? Кай сар мекунӣ?",
+          "intent": "Бигӯ: соати ҳафт сар мекунам",
+          "text": "I start at seven.",
           "accepts": [
             "At seven.",
-            "Seven."
+            "I started at seven."
           ],
-          "translation": "Соати ҳафт сар кардам.",
-          "literal": "ай стартид эт севэн",
+          "translation": "Ман соати ҳафт сар мекунам.",
+          "literal": "ай старт эт севэн",
           "note": null,
           "order": 1
         },
         {
           "kind": "turn",
-          "cue": "And you finished at...?",
-          "cueTranslation": "Ва тамом кардӣ соати...?",
-          "intent": "Бигӯ: соати панҷ тамом кардам",
-          "text": "I finished at five.",
+          "cue": "And when do you finish?",
+          "cueTranslation": "Ва кай тамом мекунӣ?",
+          "intent": "Бигӯ: соати панҷ тамом мекунам",
+          "text": "I finish at five.",
           "accepts": [
             "At five.",
-            "Five."
+            "I finished at five."
           ],
-          "translation": "Соати панҷ тамом кардам.",
-          "literal": "ай финишт эт файв",
+          "translation": "Ман соати панҷ тамом мекунам.",
+          "literal": "ай финиш эт файв",
           "note": null,
           "order": 2
         }
@@ -386,9 +386,9 @@
       "items": [
         {
           "kind": "sentence",
-          "text": "I worked on Saturday.",
-          "translation": "Шанбе кор кардам.",
-          "literal": "ай вёркт он сэтэрдей",
+          "text": "I work on Saturday.",
+          "translation": "Ман шанбе кор мекунам.",
+          "literal": "ай вёрк он сэтэрдей",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -396,9 +396,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I had no break.",
-          "translation": "Танаффус надоштам.",
-          "literal": "ай ҳэд ноу брейк",
+          "text": "No break today.",
+          "translation": "Имрӯз танаффус набуд.",
+          "literal": "ноу брейк тудей",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -455,14 +455,14 @@
           "kind": "turn",
           "cue": "Okay, I see. I'll fix it.",
           "cueTranslation": "Хуб, фаҳмидам. Ислоҳ мекунам.",
-          "intent": "Бигӯ: инчунин шанбе кор кардам",
-          "text": "I also worked on Saturday.",
+          "intent": "Бигӯ: ман шанбе ҳам кор мекунам",
+          "text": "I work on Saturday too.",
           "accepts": [
-            "I worked on Saturday too.",
-            "And Saturday."
+            "And Saturday.",
+            "I also worked on Saturday."
           ],
-          "translation": "Ман шанбе ҳам кор кардам.",
-          "literal": "ай олсоу вёркт он сэтэрдей",
+          "translation": "Ман шанбе ҳам кор мекунам.",
+          "literal": "ай вёрк он сэтэрдей ту",
           "note": null,
           "order": 0
         },
@@ -485,14 +485,14 @@
           "kind": "turn",
           "cue": "And your break?",
           "cueTranslation": "Танаффусат чӣ?",
-          "intent": "Бигӯ: танаффус надоштам",
-          "text": "I had no break.",
+          "intent": "Бигӯ: имрӯз танаффус набуд",
+          "text": "No break today.",
           "accepts": [
             "No break.",
-            "I didn't have a break."
+            "I had no break."
           ],
-          "translation": "Танаффус надоштам.",
-          "literal": "ай ҳэд ноу брейк",
+          "translation": "Имрӯз танаффус набуд.",
+          "literal": "ноу брейк тудей",
           "note": null,
           "order": 2
         }
@@ -507,29 +507,29 @@
           "kind": "turn",
           "cue": "Hi. Did you sign in today?",
           "cueTranslation": "Салом. Имрӯз имзо гузоштӣ?",
-          "intent": "Бигӯ: не, фаромӯш кардам",
-          "text": "No, I forgot to sign.",
+          "intent": "Бигӯ: не. ҳозир имзо мекунам",
+          "text": "No. I can sign now.",
           "accepts": [
             "No, I forgot.",
             "Sorry, I forgot."
           ],
-          "translation": "Не, имзо гузоштанро фаромӯш кардам.",
-          "literal": "ноу ай фэргот ту сайн",
+          "translation": "Не. Ҳозир имзо мекунам.",
+          "literal": "ноу ай кен сайн нау",
           "note": null,
           "order": 0
         },
         {
           "kind": "turn",
-          "cue": "Okay. What time did you start?",
-          "cueTranslation": "Хуб. Соати чанд сар кардӣ?",
-          "intent": "Бигӯ: соати ҳафт сар кардам",
-          "text": "I started at seven.",
+          "cue": "Okay. What time do you start?",
+          "cueTranslation": "Хуб. Соати чанд сар мекунӣ?",
+          "intent": "Бигӯ: соати ҳафт сар мекунам",
+          "text": "I start at seven.",
           "accepts": [
             "At seven.",
-            "Seven."
+            "I started at seven."
           ],
-          "translation": "Соати ҳафт сар кардам.",
-          "literal": "ай стартид эт севэн",
+          "translation": "Ман соати ҳафт сар мекунам.",
+          "literal": "ай старт эт севэн",
           "note": null,
           "order": 1
         },

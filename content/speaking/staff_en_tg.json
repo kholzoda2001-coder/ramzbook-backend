@@ -1,15 +1,15 @@
 {
-  "slug": "crew_en_tg",
+  "slug": "staff_en_tg",
   "targetLanguage": "en",
   "nativeLanguage": "tg",
   "category": {
-    "title": "Break with the crew",
-    "titleTranslated": "Вагонча ва ҳамкорон",
-    "scenario": "Танаффус бо ҳамкорон аз кишварҳои гуногун: чой, хӯрок ва суҳбат. Шумо мегӯед, ки аз куҷоед, чанд вақт кор мекунед ва бо ҳам дам мегиред.",
-    "emoji": "☕",
+    "title": "Break with coworkers",
+    "titleTranslated": "Танаффус бо ҳамкорон",
+    "scenario": "Танаффус дар ҳуҷраи кормандон бо ҳамкорон аз кишварҳои гуногун: чой, хӯрок ва суҳбат. Шумо мегӯед, ки аз куҷоед, дар куҷо зиндагӣ мекунед ва бо ҳам дам мегиред.",
+    "emoji": "🍵",
     "order": 17,
     "goals": [
-      "build"
+      "service"
     ],
     "isPremium": false,
     "isActive": true
@@ -203,7 +203,7 @@
     {
       "order": 3,
       "stage": "dialogue",
-      "title": "Шиносоӣ дар вагонча",
+      "title": "Шиносоӣ",
       "items": [
         {
           "kind": "turn",
@@ -224,7 +224,7 @@
           "kind": "turn",
           "cue": "I'm from Mexico. I'm tired today!",
           "cueTranslation": "Ман аз Мексика. Имрӯз монда шудам!",
-          "intent": "Бигӯ: ман ҳам. Биё дам гирем",
+          "intent": "Бигӯ: ман ҳам. биё дам гирем",
           "text": "Me too. Let's rest.",
           "accepts": [
             "Let's rest.",
@@ -530,7 +530,7 @@
           "kind": "turn",
           "cue": "Nice! Are you tired today?",
           "cueTranslation": "Офарин! Имрӯз монда шудӣ?",
-          "intent": "Бигӯ: ҳа, монда. Биё дам гирем",
+          "intent": "Бигӯ: ҳа, монда. биё дам гирем",
           "text": "Yes, I'm tired. Let's rest.",
           "accepts": [
             "Tired. Let's rest.",

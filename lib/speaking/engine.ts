@@ -813,7 +813,9 @@ export function buildChain(text: string, cfg: EngineConfig): string[] {
     if (arKo && AR_ENDS_CLAUSE.test(w[start])) continue;
     if (cfg.lang === 'ko' && koDependentStart(w[start])) continue;
     // Порча ду ҷумларо намепайвандад: «빨리 가 주세요. 늦었어요.» → «가 주세요. 늦었어요.» ✗.
-    if (arKo && w.slice(start, n - 1).some((x) => /[.!?\u061F]$/.test(x))) continue;
+    // ҲАМАИ забонҳо (02.10.2026): англисӣ 24 порчаи чунин дошт — «Like this? Okay?» →
+    // «this? Okay?», «I'm late. Sorry.» → «late. Sorry.», «Hello, Anna! Sorry.» → «Anna! Sorry.».
+    if (w.slice(start, n - 1).some((x) => /[.!?\u061F]$/.test(x))) continue;
     if (cfg.lang === 'ar' && start > 0 && arCutsNounAdjective(w[start - 1], w[start])) continue;
     if (cfg.lang === 'tr' && start > 0 && TR_COMPOUND_HEAD.test(bare(w[start]))) continue;
 

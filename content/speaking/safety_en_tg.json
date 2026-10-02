@@ -294,9 +294,9 @@
         },
         {
           "kind": "sentence",
-          "text": "Where's the first aid?",
-          "translation": "Қуттии ёрии аввалия куҷост?",
-          "literal": "вэрз ҙэ фёрст эйд",
+          "text": "Call the boss!",
+          "translation": "Бригадирро ҷеғ зан!",
+          "literal": "кол ҙэ бос",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -304,9 +304,9 @@
         },
         {
           "kind": "sentence",
-          "text": "A man fell.",
-          "translation": "Одаме афтод.",
-          "literal": "э мэн фел",
+          "text": "A man is hurt.",
+          "translation": "Одаме захмӣ шуд.",
+          "literal": "э мэн из ҳёрт",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -453,14 +453,14 @@
           "kind": "turn",
           "cue": "Nine one one. What's your emergency?",
           "cueTranslation": "Наҳ-як-як. Чӣ ҳодиса рӯй дод?",
-          "intent": "Бигӯ: одаме афтод",
-          "text": "A man fell.",
+          "intent": "Бигӯ: одаме захмӣ шуд",
+          "text": "A man is hurt.",
           "accepts": [
-            "A man fell down.",
-            "Someone fell."
+            "A man fell.",
+            "Someone is hurt."
           ],
-          "translation": "Одаме афтод.",
-          "literal": "э мэн фел",
+          "translation": "Одаме захмӣ шуд.",
+          "literal": "э мэн из ҳёрт",
           "note": null,
           "order": 0
         },
@@ -520,14 +520,14 @@
           "kind": "turn",
           "cue": "What happened?",
           "cueTranslation": "Чӣ шуд?",
-          "intent": "Бигӯ: одаме афтод, ёрии таъҷилӣ ҷеғ зан",
-          "text": "A man fell. Call an ambulance!",
+          "intent": "Бигӯ: одаме захмӣ шуд, ёрии таъҷилӣ ҷеғ зан",
+          "text": "A man is hurt. Call an ambulance!",
           "accepts": [
-            "A man fell! Call an ambulance!",
+            "A man fell. Call an ambulance!",
             "Call an ambulance!"
           ],
-          "translation": "Одаме афтод. Ёрии таъҷилӣ ҷеғ зан!",
-          "literal": "э мэн фел кол эн эмбюлэнс",
+          "translation": "Одаме захмӣ шуд. Ёрии таъҷилӣ ҷеғ зан!",
+          "literal": "э мэн из ҳёрт кол эн эмбюлэнс",
           "note": null,
           "order": 0
         },

@@ -505,14 +505,14 @@
           "kind": "turn",
           "cue": "Stop! Where is your helmet?",
           "cueTranslation": "Ист! Каскаат куҷост?",
-          "intent": "Бигӯ: бубахшед, ҳозир мепӯшам",
-          "text": "Sorry. I'll put it on.",
+          "intent": "Бигӯ: бубахшед. ҳозир",
+          "text": "Sorry. Right now.",
           "accepts": [
-            "Sorry, one moment.",
-            "Sorry, I'll put it on now."
+            "Sorry, I'll put it on.",
+            "One moment, please."
           ],
-          "translation": "Бубахшед. Ҳозир мепӯшам.",
-          "literal": "сорӣ айл пут ит он",
+          "translation": "Бубахшед. Ҳозир.",
+          "literal": "сорӣ райт нау",
           "note": null,
           "order": 0
         },

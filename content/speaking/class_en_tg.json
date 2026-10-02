@@ -310,9 +310,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I forgot my book.",
-          "translation": "Китобамро фаромӯш кардам.",
-          "literal": "ай фэргот май бук",
+          "text": "Sorry, no book.",
+          "translation": "Бубахшед, китоб надорам.",
+          "literal": "сорӣ ноу бук",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -389,9 +389,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I finished it.",
-          "translation": "Тамомаш кардам.",
-          "literal": "ай финишт ит",
+          "text": "It's ready.",
+          "translation": "Тайёр аст.",
+          "literal": "итс редӣ",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -515,14 +515,14 @@
           "kind": "turn",
           "cue": "Where is your book?",
           "cueTranslation": "Китобат куҷост?",
-          "intent": "Бигӯ: китобамро фаромӯш кардам",
-          "text": "I forgot my book.",
+          "intent": "Бигӯ: бубахшед, китоб надорам",
+          "text": "Sorry, no book.",
           "accepts": [
-            "I forgot it.",
-            "Sorry, I forgot my book."
+            "I forgot my book.",
+            "Sorry, I don't have it."
           ],
-          "translation": "Китобамро фаромӯш кардам.",
-          "literal": "ай фэргот май бук",
+          "translation": "Бубахшед, китоб надорам.",
+          "literal": "сорӣ ноу бук",
           "note": null,
           "order": 1
         },

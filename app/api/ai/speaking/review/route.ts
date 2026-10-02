@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized, apiError } from '@/lib/auth';
 import { SPEAKING_LOCKED } from '@/lib/speaking/access';
+import { fillJobLiteral } from '@/lib/speaking/persona';
 
 export const dynamic = 'force-dynamic';
 
@@ -76,7 +77,8 @@ function toRecall(i: ReviewItem) {
     prompt: i.translation.trim(),
     target: text,
     targetWords: text.split(/\s+/).filter(Boolean),
-    translit: i.literal?.trim() ?? '',
+    // Ҳадафи хонанда дар такрор номаълум → қолаби «{job}» холӣ (ниг. persona.ts).
+    translit: fillJobLiteral(i.literal?.trim() ?? '', '', undefined),
     meaning: i.translation.trim(),
     grammar: i.note?.trim() ?? '',
     audioUrl: i.audioUrl ?? '',

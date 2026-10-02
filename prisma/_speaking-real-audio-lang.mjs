@@ -7,7 +7,7 @@
 // `real` (ev 4) маҳз ҳамин фарқро меомӯзонад, пас овози он бояд ДИГАР бошад:
 //   • гӯяндаи мард (`ru-RU-Chirp3-HD-Orus`, эҳтиётӣ Fenrir) — на овози курс;
 //   • суръат 1.12× — нутқи муқаррарӣ, на нутқи «барои хориҷӣ»;
-//   • садои мулоими атроф (brown noise, ~17 дБ пасттар аз овоз) ва 0.35 с
+//   • садои мулоими атроф (brown noise, ~17 дБ пасттар аз овоз) ва 0.15 с
 //     садо пеш аз гап — мисли занги воқеӣ ё кӯча.
 //
 // Танҳо навбатҳои (`turn`) нишастҳои МУКОЛАМА аз нишасти 4 (индекс ≥ 3, ниг.
@@ -149,7 +149,7 @@ function addRoom(src, dst, seed) {
   execFileSync(FFMPEG, ['-y', '-loglevel', 'error', '-i', src,
     '-f', 'lavfi', '-i', `anoisesrc=color=brown:amplitude=1:seed=${seed}:sample_rate=24000`,
     '-filter_complex',
-    '[0]aresample=24000,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,adelay=350|350,apad=pad_dur=0.3,volume=0.89[v];'
+    '[0]aresample=24000,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,adelay=150|150,apad=pad_dur=0.3,volume=0.89[v];'
     + '[1]highpass=f=120,lowpass=f=3200,volume=0.07[n];'
     + '[v][n]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[o]',
     '-map', '[o]', '-ac', '1', '-ar', '24000', '-b:a', '64k', dst]);
@@ -185,8 +185,11 @@ for (const it of items) {
     }
     // Калимаи аввал оҳиста («Yes. Cash or card?», «Okay. Get well!») → санҷиш
     // онро хомӯшӣ мешуморад (пеш > 0.9 с) → овози ДИГАР.
-    if (o.error || o.lead > 0.9) {
-      console.log(`  ↻ «${it.text}» ${voice}: пеш=${o.lead}s — овози дигар`);
+    // 02.10.2026: «How much?» тоза аз санҷиш мегузашт, вале БАЪДИ омехтан бо садо
+    // нутқ 0.16 с < 0.1625 шуд ва санҷиши ниҳоӣ ТАМОМИ борро (126) манъ кард → ҳамон
+    // санҷиши ниҳоӣ ин ҷо, барои ҳар овоз: нашуд — овози дигар.
+    if (o.error || o.lead > 0.9 || o.speech < minSpeech(it.text) || o.peak < 0.3) {
+      console.log(`  ↻ «${it.text}» ${voice}: пеш=${o.lead}s нутқ=${o.speech}s peak=${o.peak} — овози дигар`);
       continue;
     }
     it.voice = voice;

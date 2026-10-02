@@ -382,9 +382,9 @@
       "items": [
         {
           "kind": "sentence",
-          "text": "I'll take it.",
-          "translation": "Мегирам.",
-          "literal": "айл тейк ит",
+          "text": "I want it.",
+          "translation": "Инро мехоҳам.",
+          "literal": "ай вонт ит",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -451,14 +451,14 @@
           "kind": "turn",
           "cue": "So, do you like it?",
           "cueTranslation": "Хуб, маъқул аст?",
-          "intent": "Бигӯ: ҳа, мегирам",
-          "text": "Yes, I'll take it.",
+          "intent": "Бигӯ: ҳа, инро мехоҳам",
+          "text": "Yes, I want it.",
           "accepts": [
             "I'll take it.",
             "Yes, I like it."
           ],
-          "translation": "Ҳа, мегирам.",
-          "literal": "йес айл тейк ит",
+          "translation": "Ҳа, инро мехоҳам.",
+          "literal": "йес ай вонт ит",
           "note": null,
           "order": 0
         },

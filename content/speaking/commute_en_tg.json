@@ -419,9 +419,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I'm on my way.",
-          "translation": "Ман дар роҳам.",
-          "literal": "айм он май вей",
+          "text": "I'm coming.",
+          "translation": "Ҳозир меоям.",
+          "literal": "айм каминг",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -467,14 +467,14 @@
           "kind": "turn",
           "cue": "Hello? Where are you? It's eight!",
           "cueTranslation": "Алло? Ту куҷоӣ? Соат ҳашт!",
-          "intent": "Бигӯ: дар роҳам, роҳ банд аст",
-          "text": "I'm on my way. Lots of traffic.",
+          "intent": "Бигӯ: ҳозир меоям, роҳ банд аст",
+          "text": "I'm coming. Lots of traffic.",
           "accepts": [
             "I'm on the bus. Traffic.",
-            "On my way, lots of traffic."
+            "I'm on my way. Lots of traffic."
           ],
-          "translation": "Ман дар роҳам. Роҳ сахт банд.",
-          "literal": "айм он май вей лотс ов трэфик",
+          "translation": "Ҳозир меоям. Роҳ сахт банд.",
+          "literal": "айм каминг лотс ов трэфик",
           "note": null,
           "order": 1
         },

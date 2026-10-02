@@ -1,0 +1,572 @@
+{
+  "slug": "shelves_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Shelves and products",
+    "titleTranslated": "Рафҳо ва мол",
+    "scenario": "Шумо молро ба рафҳо мегузоред: шир, нон, биринҷ, равған, тухм. Мегӯед, ки чӣ дар куҷост, раф холӣ шуд ё не, ва нархро ба харидор мегӯед.",
+    "emoji": "📦",
+    "order": 4,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мол",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Milk",
+          "translation": "шир",
+          "literal": "милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Bread",
+          "translation": "нон",
+          "literal": "бред",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Rice",
+          "translation": "биринҷ",
+          "literal": "райс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Oil",
+          "translation": "равған",
+          "literal": "ойл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Eggs",
+          "translation": "тухм",
+          "literal": "егз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Price",
+          "translation": "нарх",
+          "literal": "прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ин чист?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where is the milk?",
+          "cueTranslation": "Шир куҷост?",
+          "intent": "Бигӯ: ин ҷо",
+          "text": "Here.",
+          "accepts": [
+            "It's here.",
+            "Right here."
+          ],
+          "translation": "Ин ҷо.",
+          "literal": "ҳир",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is this rice?",
+          "cueTranslation": "Ин биринҷ аст?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, it is.",
+            "Yes, rice."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do we have eggs?",
+          "cueTranslation": "Тухм дорем?",
+          "intent": "Бигӯ, ки не",
+          "text": "No.",
+          "accepts": [
+            "No, we don't.",
+            "No eggs."
+          ],
+          "translation": "Не.",
+          "literal": "ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Боло ва поён",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Top",
+          "translation": "боло",
+          "literal": "топ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Top shelf",
+          "translation": "Рафи боло",
+          "literal": "топ шелф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Bottom",
+          "translation": "поён",
+          "literal": "ботэм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bottom shelf",
+          "translation": "Рафи поён",
+          "literal": "ботэм шелф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Two boxes",
+          "translation": "Ду қуттӣ",
+          "literal": "ту боксиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "More milk",
+          "translation": "Шири бештар",
+          "literal": "мор милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Куҷо гузорам?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where do the eggs go?",
+          "cueTranslation": "Тухм ба куҷо меравад?",
+          "intent": "Бигӯ: рафи боло",
+          "text": "Top shelf.",
+          "accepts": [
+            "On the top shelf.",
+            "The top shelf."
+          ],
+          "translation": "Рафи боло.",
+          "literal": "топ шелф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "And the rice?",
+          "cueTranslation": "Биринҷ чӣ?",
+          "intent": "Бигӯ: рафи поён",
+          "text": "Bottom shelf.",
+          "accepts": [
+            "On the bottom shelf.",
+            "The bottom shelf."
+          ],
+          "translation": "Рафи поён.",
+          "literal": "ботэм шелф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How many boxes of oil?",
+          "cueTranslation": "Чанд қуттӣ равған?",
+          "intent": "Бигӯ: ду қуттӣ",
+          "text": "Two boxes.",
+          "accepts": [
+            "Two.",
+            "Two boxes of oil."
+          ],
+          "translation": "Ду қуттӣ.",
+          "literal": "ту боксиз",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Where does it go?",
+          "translation": "Ин ба куҷо меравад?",
+          "literal": "вэр даз ит гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "The milk is here.",
+          "translation": "Шир ин ҷост.",
+          "literal": "ҙэ милк из ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "milk|шир",
+            "bread|нон",
+            "rice|биринҷ"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "We need more milk.",
+          "translation": "Ба мо шири бештар лозим.",
+          "literal": "вӣ нид мор милк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "On the top shelf.",
+          "translation": "Дар рафи боло.",
+          "literal": "он ҙэ топ шелф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Empty",
+          "translation": "холӣ",
+          "literal": "емптӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "The shelf is empty.",
+          "translation": "Раф холист.",
+          "literal": "ҙэ шелф из емптӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Раф холист",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Take this box.",
+          "cueTranslation": "Ин қуттиро гир.",
+          "intent": "Бипурс: ин ба куҷо меравад?",
+          "text": "Where does it go?",
+          "accepts": [
+            "Where?",
+            "Where do I put it?"
+          ],
+          "translation": "Ин ба куҷо меравад?",
+          "literal": "вэр даз ит гоу",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Milk. Look at the shelf.",
+          "cueTranslation": "Шир. Ба раф нигоҳ кун.",
+          "intent": "Бигӯ: раф холист",
+          "text": "The shelf is empty.",
+          "accepts": [
+            "It's empty.",
+            "The shelf is empty!"
+          ],
+          "translation": "Раф холист.",
+          "literal": "ҙэ шелф из емптӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh! What do we need?",
+          "cueTranslation": "Оҳ! Ба мо чӣ лозим?",
+          "intent": "Бигӯ: ба мо шири бештар лозим",
+          "text": "We need more milk.",
+          "accepts": [
+            "More milk.",
+            "We need milk."
+          ],
+          "translation": "Ба мо шири бештар лозим.",
+          "literal": "вӣ нид мор милк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Нарх",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What's the price?",
+          "translation": "Нархаш чанд?",
+          "literal": "вотс ҙэ прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Cheap",
+          "translation": "арзон",
+          "literal": "чип",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it cheap?",
+          "translation": "Арзон аст?",
+          "literal": "из ит чип",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Expensive",
+          "translation": "қимат",
+          "literal": "икспенсив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "It's very expensive.",
+          "translation": "Хеле қимат аст.",
+          "literal": "итс верӣ икспенсив",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Two dollars.",
+          "translation": "Ду доллар.",
+          "literal": "ту доларз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "two|ду",
+            "five|панҷ",
+            "ten|даҳ"
+          ],
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Харидор мепурсад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me, where is the bread?",
+          "cueTranslation": "Бубахшед, нон куҷост?",
+          "intent": "Бигӯ: дар рафи боло",
+          "text": "On the top shelf.",
+          "accepts": [
+            "Top shelf.",
+            "It's on the top shelf."
+          ],
+          "translation": "Дар рафи боло.",
+          "literal": "он ҙэ топ шелф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you. What's the price?",
+          "cueTranslation": "Ташаккур. Нархаш чанд?",
+          "intent": "Бигӯ: ду доллар",
+          "text": "Two dollars.",
+          "accepts": [
+            "It's two dollars.",
+            "Two."
+          ],
+          "translation": "Ду доллар.",
+          "literal": "ту доларз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, it's cheap!",
+          "cueTranslation": "Оҳ, арзон!",
+          "intent": "Бигӯ: ҳа, арзон",
+          "text": "Yes, it's cheap.",
+          "accepts": [
+            "Yes.",
+            "Yes, very cheap."
+          ],
+          "translation": "Ҳа, арзон.",
+          "literal": "йес итс чип",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: раф холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi. Can you help? The shelf is empty.",
+          "cueTranslation": "Салом. Ёрӣ медиҳӣ? Раф холист.",
+          "intent": "Бипурс: ба мо чӣ лозим?",
+          "text": "What do we need?",
+          "accepts": [
+            "What do you need?",
+            "Okay. What do we need?"
+          ],
+          "translation": "Ба мо чӣ лозим?",
+          "literal": "вот ду вӣ нид",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Milk and eggs.",
+          "cueTranslation": "Шир ва тухм.",
+          "intent": "Бигӯ: фаҳмидам. ду қуттӣ?",
+          "text": "Got it. Two boxes?",
+          "accepts": [
+            "Two boxes?",
+            "Okay. Two boxes?"
+          ],
+          "translation": "Фаҳмидам. Ду қуттӣ?",
+          "literal": "гот ит ту боксиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Eggs on the top shelf.",
+          "cueTranslation": "Ҳа. Тухм дар рафи боло.",
+          "intent": "Бигӯ: фаҳмидам, рафи боло",
+          "text": "Got it. Top shelf.",
+          "accepts": [
+            "Okay, top shelf.",
+            "Top shelf. Okay."
+          ],
+          "translation": "Фаҳмидам. Рафи боло.",
+          "literal": "гот ит топ шелф",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "And the milk is two dollars.",
+          "cueTranslation": "Ва шир ду доллар.",
+          "intent": "Бигӯ: хуб, ду доллар",
+          "text": "Okay, two dollars.",
+          "accepts": [
+            "Two dollars. Okay.",
+            "Okay."
+          ],
+          "translation": "Хуб, ду доллар.",
+          "literal": "оукей ту доларз",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

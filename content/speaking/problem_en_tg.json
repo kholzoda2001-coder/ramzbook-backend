@@ -275,10 +275,10 @@
         },
         {
           "kind": "sentence",
-          "text": "We're out of cement.",
-          "translation": "Семент тамом шуд.",
-          "literal": "вир аут ов симент",
-          "note": "«We're out of …» — … тамом шуд.",
+          "text": "No more cement.",
+          "translation": "Семент дигар нест.",
+          "literal": "ноу мор симент",
+          "note": null,
           "cue": null,
           "cueTranslation": null,
           "swaps": [
@@ -299,10 +299,10 @@
         },
         {
           "kind": "sentence",
-          "text": "It's not my fault.",
-          "translation": "Гуноҳи ман нест.",
-          "literal": "итс нот май фолт",
-          "note": null,
+          "text": "Not me.",
+          "translation": "Ман не.",
+          "literal": "нот мӣ",
+          "note": "«Not me» — ман не (кори ман нест).",
           "cue": null,
           "cueTranslation": null,
           "order": 3
@@ -338,14 +338,14 @@
           "kind": "turn",
           "cue": "Why are you standing there?",
           "cueTranslation": "Чаро он ҷо истодаӣ?",
-          "intent": "Бигӯ: семент тамом шуд",
-          "text": "We're out of cement.",
+          "intent": "Бигӯ: семент дигар нест",
+          "text": "No more cement.",
           "accepts": [
             "No cement.",
-            "The cement is gone."
+            "We're out of cement."
           ],
-          "translation": "Семент тамом шуд.",
-          "literal": "вир аут ов симент",
+          "translation": "Семент дигар нест.",
+          "literal": "ноу мор симент",
           "note": null,
           "order": 0
         },
@@ -353,14 +353,14 @@
           "kind": "turn",
           "cue": "What? We had ten bags this morning!",
           "cueTranslation": "Чӣ? Саҳар даҳ халта доштем!",
-          "intent": "Бигӯ: гуноҳи ман нест",
-          "text": "It's not my fault.",
+          "intent": "Бигӯ: ман не",
+          "text": "Not me.",
           "accepts": [
-            "Not me.",
-            "It's not my fault, really."
+            "It's not me.",
+            "It's not my fault."
           ],
-          "translation": "Гуноҳи ман нест.",
-          "literal": "итс нот май фолт",
+          "translation": "Ман не.",
+          "literal": "нот мӣ",
           "note": null,
           "order": 1
         },
@@ -539,14 +539,14 @@
           "kind": "turn",
           "cue": "Again? Did you break it?",
           "cueTranslation": "Боз? Ту шикастӣ?",
-          "intent": "Бигӯ: не, гуноҳи ман нест",
-          "text": "No, it's not my fault.",
+          "intent": "Бигӯ: не, ман не",
+          "text": "No, not me.",
           "accepts": [
-            "It's not my fault.",
-            "No, not me."
+            "Not me.",
+            "No, it's not my fault."
           ],
-          "translation": "Не, гуноҳи ман нест.",
-          "literal": "ноу итс нот май фолт",
+          "translation": "Не, ман не.",
+          "literal": "ноу нот мӣ",
           "note": null,
           "order": 1
         },

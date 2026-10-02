@@ -1,0 +1,566 @@
+{
+  "slug": "shifts_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Shifts and hours",
+    "titleTranslated": "Навбат ва соатҳо",
+    "scenario": "Дар мағоза навбатҳо (shift) ҳастанд: саҳар, бегоҳ, охири ҳафта. Шумо ҷадвалро мепурсед, мегӯед кай кор карда метавонед ва навбатро иваз мекунед.",
+    "emoji": "🗓️",
+    "order": 20,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Навбат",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Shift",
+          "translation": "навбат (смена)",
+          "literal": "шифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Morning",
+          "translation": "саҳар",
+          "literal": "морнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Evening",
+          "translation": "бегоҳ",
+          "literal": "ивнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Weekend",
+          "translation": "охири ҳафта",
+          "literal": "викенд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schedule",
+          "translation": "ҷадвал",
+          "literal": "скеджул",
+          "note": "Талаффуз: «скеджул».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Hours",
+          "translation": "соатҳо",
+          "literal": "ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Кадом навбат?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Morning or evening shift?",
+          "cueTranslation": "Навбати саҳар ё бегоҳ?",
+          "intent": "Бигӯ: саҳар",
+          "text": "Morning.",
+          "accepts": [
+            "Morning, please.",
+            "The morning shift."
+          ],
+          "translation": "Саҳар.",
+          "literal": "морнинг",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Can you work on the weekend?",
+          "cueTranslation": "Охири ҳафта кор карда метавонӣ?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, I can.",
+            "Sure."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is eight hours okay?",
+          "cueTranslation": "Ҳашт соат хуб?",
+          "intent": "Бигӯ: ҳа, хуб",
+          "text": "Yes, okay.",
+          "accepts": [
+            "Okay.",
+            "Yes, eight hours."
+          ],
+          "translation": "Ҳа, хуб.",
+          "literal": "йес оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Morning shift",
+          "translation": "Навбати саҳар",
+          "literal": "морнинг шифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Evening shift",
+          "translation": "Навбати бегоҳ",
+          "literal": "ивнинг шифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Day off",
+          "translation": "Рӯзи истироҳат",
+          "literal": "дей оф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Next week",
+          "translation": "Ҳафтаи оянда",
+          "literal": "некст вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "My schedule",
+          "translation": "Ҷадвали ман",
+          "literal": "май скеджул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Eight hours",
+          "translation": "Ҳашт соат",
+          "literal": "эйт ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҷадвали ҳафта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Which shift do you want?",
+          "cueTranslation": "Кадом навбатро мехоҳӣ?",
+          "intent": "Бигӯ: навбати саҳар",
+          "text": "Morning shift.",
+          "accepts": [
+            "The morning shift.",
+            "Morning, please."
+          ],
+          "translation": "Навбати саҳар.",
+          "literal": "морнинг шифт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "When is your day off?",
+          "cueTranslation": "Рӯзи истироҳатат кай?",
+          "intent": "Бигӯ: якшанбе",
+          "text": "Sunday.",
+          "accepts": [
+            "On Sunday.",
+            "My day off is Sunday."
+          ],
+          "translation": "Якшанбе.",
+          "literal": "сандей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have your schedule?",
+          "cueTranslation": "Ҷадвалатро дорӣ?",
+          "intent": "Бигӯ: ҷадвали ман? не",
+          "text": "My schedule? No.",
+          "accepts": [
+            "No, I don't.",
+            "No."
+          ],
+          "translation": "Ҷадвали ман? Не.",
+          "literal": "май скеджул ноу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "When is my shift?",
+          "translation": "Навбати ман кай?",
+          "literal": "вен из май шифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I start at seven.",
+          "translation": "Ман соати ҳафт сар мекунам.",
+          "literal": "ай старт эт севэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "seven|ҳафт",
+            "eight|ҳашт"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I finish at three.",
+          "translation": "Ман соати се тамом мекунам.",
+          "literal": "ай финиш эт ҫрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Where is the schedule?",
+          "translation": "Ҷадвал куҷост?",
+          "literal": "вэр из ҙэ скеджул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm free on Monday.",
+          "translation": "Душанбе ман холӣ ҳастам.",
+          "literal": "айм фрӣ он мандей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Free",
+          "translation": "холӣ (бекор)",
+          "literal": "фрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Навбати ман",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Do you know your shifts?",
+          "cueTranslation": "Салом! Навбатҳоятро медонӣ?",
+          "intent": "Бигӯ: не. ҷадвал куҷост?",
+          "text": "No. Where is the schedule?",
+          "accepts": [
+            "Where is the schedule?",
+            "No. When is my shift?"
+          ],
+          "translation": "Не. Ҷадвал куҷост?",
+          "literal": "ноу вэр из ҙэ скеджул",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "On the wall. You start at seven.",
+          "cueTranslation": "Дар девор. Соати ҳафт сар мекунӣ.",
+          "intent": "Бипурс: кай тамом мекунам?",
+          "text": "When do I finish?",
+          "accepts": [
+            "And I finish at?",
+            "What time do I finish?"
+          ],
+          "translation": "Кай тамом мекунам?",
+          "literal": "вен ду ай финиш",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "At three.",
+          "cueTranslation": "Соати се.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Иваз кардан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Can I change shifts?",
+          "translation": "Навбатро иваз карда метавонам?",
+          "literal": "кен ай чейндж шифтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I can't on Friday.",
+          "translation": "Ҷумъа наметавонам.",
+          "literal": "ай кент он фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "A day off, please?",
+          "translation": "Рӯзи истироҳат, лутфан?",
+          "literal": "э дей оф плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "My hours are wrong.",
+          "translation": "Соатҳои ман нодурустанд.",
+          "literal": "май ауэрз ар ронг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Overtime",
+          "translation": "кори иловагӣ",
+          "literal": "оувэртайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it overtime?",
+          "translation": "Ин кори иловагӣ аст?",
+          "literal": "из ит оувэртайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҷумъа наметавонам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "You work on Friday evening.",
+          "cueTranslation": "Ҷумъа бегоҳ кор мекунӣ.",
+          "intent": "Бигӯ: ҷумъа наметавонам",
+          "text": "I can't on Friday.",
+          "accepts": [
+            "Sorry, I can't on Friday.",
+            "Not Friday, sorry."
+          ],
+          "translation": "Ҷумъа наметавонам.",
+          "literal": "ай кент он фрайдей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Why? What's the problem?",
+          "cueTranslation": "Чаро? Чӣ мушкил?",
+          "intent": "Бипурс: навбатро иваз карда метавонам?",
+          "text": "Can I change shifts?",
+          "accepts": [
+            "Can I change?",
+            "Can I work on Saturday?"
+          ],
+          "translation": "Навбатро иваз карда метавонам?",
+          "literal": "кен ай чейндж шифтс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Saturday, ten hours.",
+          "cueTranslation": "Хуб. Шанбе, даҳ соат.",
+          "intent": "Бипурс: ин кори иловагӣ аст?",
+          "text": "Is it overtime?",
+          "accepts": [
+            "Overtime?",
+            "Is that overtime?"
+          ],
+          "translation": "Ин кори иловагӣ аст?",
+          "literal": "из ит оувэртайм",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҷадвали нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Here's your schedule.",
+          "cueTranslation": "Салом! Ана ҷадвалат.",
+          "intent": "Бипурс: навбати ман кай?",
+          "text": "When is my shift?",
+          "accepts": [
+            "My shift?",
+            "When do I work?"
+          ],
+          "translation": "Навбати ман кай?",
+          "literal": "вен из май шифт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Monday, morning shift.",
+          "cueTranslation": "Душанбе, навбати саҳар.",
+          "intent": "Бипурс: соати ҳафт сар мекунам?",
+          "text": "Okay. I start at seven?",
+          "accepts": [
+            "At seven?",
+            "What time do I start?"
+          ],
+          "translation": "Хуб. Соати ҳафт сар мекунам?",
+          "literal": "оукей ай старт эт севэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, at seven. Any questions?",
+          "cueTranslation": "Ҳа, соати ҳафт. Савол ҳаст?",
+          "intent": "Бипурс: рӯзи истироҳатам кай?",
+          "text": "Yes. When is my day off?",
+          "accepts": [
+            "When is my day off?",
+            "My day off?"
+          ],
+          "translation": "Ҳа. Рӯзи истироҳатам кай?",
+          "literal": "йес вен из май дей оф",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Sunday. Have a good week!",
+          "cueTranslation": "Якшанбе. Ҳафтаи хуш!",
+          "intent": "Бигӯ: ташаккур, ба шумо ҳам",
+          "text": "Thank you, you too.",
+          "accepts": [
+            "Thanks!",
+            "Thank you!"
+          ],
+          "translation": "Ташаккур, ба шумо ҳам.",
+          "literal": "ҫенк ю ю ту",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

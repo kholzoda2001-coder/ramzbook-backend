@@ -399,9 +399,9 @@
         },
         {
           "kind": "sentence",
-          "text": "I did it.",
-          "translation": "Ман кардам.",
-          "literal": "ай дид ит",
+          "text": "I'm done.",
+          "translation": "Ман тамом кардам.",
+          "literal": "айм дан",
           "note": null,
           "cue": null,
           "cueTranslation": null,
@@ -478,14 +478,14 @@
           "kind": "turn",
           "cue": "So, did you do it?",
           "cueTranslation": "Хуб, кардӣ?",
-          "intent": "Бигӯ, ки кардӣ ва бипурс: баъд чӣ?",
-          "text": "I did it. What's next?",
+          "intent": "Бигӯ, ки тамом кардӣ ва бипурс: баъд чӣ?",
+          "text": "I'm done. What's next?",
           "accepts": [
             "Done. What's next?",
-            "It's done. What's next?"
+            "I did it. What's next?"
           ],
-          "translation": "Ман кардам. Баъд чӣ?",
-          "literal": "ай дид ит вотс некст",
+          "translation": "Тамом кардам. Баъд чӣ?",
+          "literal": "айм дан вотс некст",
           "note": null,
           "order": 2
         }

@@ -1,0 +1,567 @@
+{
+  "slug": "aisle_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Helping customers",
+    "titleTranslated": "Харидор меҷӯяд",
+    "scenario": "Харидор мепурсад, ки мол дар куҷост. Шумо қатор (aisle) ва тарафро мегӯед, роҳро нишон медиҳед ё мегӯед, ки ин мол нест — ва хушмуомила хайрухуш мекунед.",
+    "emoji": "🔎",
+    "order": 7,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Дар мағоза",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Aisle",
+          "translation": "қатор (байни рафҳо)",
+          "literal": "айл",
+          "note": "Талаффуз: «айл», ҳарфи s хонда намешавад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Left",
+          "translation": "чап",
+          "literal": "лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Right",
+          "translation": "рост",
+          "literal": "райт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Fruit",
+          "translation": "мева",
+          "literal": "фрут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Meat",
+          "translation": "гӯшт",
+          "literal": "мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Drinks",
+          "translation": "нӯшокӣ",
+          "literal": "дринкс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me, fruit?",
+          "cueTranslation": "Бубахшед, мева?",
+          "intent": "Бигӯ: аз чап",
+          "text": "Left.",
+          "accepts": [
+            "On the left.",
+            "It's on the left."
+          ],
+          "translation": "Аз чап.",
+          "literal": "лефт",
+          "note": "Як калима кофист.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "And meat?",
+          "cueTranslation": "Гӯшт чӣ?",
+          "intent": "Бигӯ: аз рост",
+          "text": "Right.",
+          "accepts": [
+            "On the right.",
+            "It's on the right."
+          ],
+          "translation": "Аз рост.",
+          "literal": "райт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have drinks?",
+          "cueTranslation": "Нӯшокӣ доред?",
+          "intent": "Бигӯ, ки ҳа",
+          "text": "Yes.",
+          "accepts": [
+            "Yes, we do.",
+            "Yes, here."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йес",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Қатор ва роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Aisle five",
+          "translation": "Қатори панҷ",
+          "literal": "айл файв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Aisle two",
+          "translation": "Қатори ду",
+          "literal": "айл ту",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "This way",
+          "translation": "Ин тараф",
+          "literal": "ҙис вей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Follow me",
+          "translation": "Аз паи ман биёед",
+          "literal": "фолоу мӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Over there",
+          "translation": "Он ҷо",
+          "literal": "оувэр ҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Sorry",
+          "translation": "бубахшед",
+          "literal": "сорӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Роҳ нишон медиҳам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Where is the rice?",
+          "cueTranslation": "Биринҷ куҷост?",
+          "intent": "Бигӯ: қатори панҷ",
+          "text": "Aisle five.",
+          "accepts": [
+            "In aisle five.",
+            "It's in aisle five."
+          ],
+          "translation": "Қатори панҷ.",
+          "literal": "айл файв",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sorry, where?",
+          "cueTranslation": "Бубахшед, куҷо?",
+          "intent": "Бигӯ: аз паи ман биёед",
+          "text": "Follow me.",
+          "accepts": [
+            "Come with me.",
+            "This way."
+          ],
+          "translation": "Аз паи ман биёед.",
+          "literal": "фолоу мӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you so much!",
+          "cueTranslation": "Ташаккури зиёд!",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "No problem.",
+          "accepts": [
+            "You're welcome.",
+            "Okay."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "ноу проблэм",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Can I help you?",
+          "translation": "Ёрӣ диҳам?",
+          "literal": "кен ай ҳелп ю",
+          "note": "Аввалин саволи фурӯшанда.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "It's in aisle five.",
+          "translation": "Дар қатори панҷ.",
+          "literal": "итс ин айл файв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "swaps": [
+            "five|панҷ",
+            "two|ду",
+            "three|се"
+          ],
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "This way, please.",
+          "translation": "Ин тараф, лутфан.",
+          "literal": "ҙис вей плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "It's over there.",
+          "translation": "Он ҷост.",
+          "literal": "итс оувэр ҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "We don't have it.",
+          "translation": "Мо инро надорем.",
+          "literal": "вӣ доунт ҳэв ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, I don't know.",
+          "translation": "Бубахшед, намедонам.",
+          "literal": "сорӣ ай доунт ноу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Тухм куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! I need eggs.",
+          "cueTranslation": "Салом! Ба ман тухм лозим.",
+          "intent": "Бигӯ: дар қатори ду",
+          "text": "It's in aisle two.",
+          "accepts": [
+            "Aisle two.",
+            "In aisle two."
+          ],
+          "translation": "Дар қатори ду.",
+          "literal": "итс ин айл ту",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aisle two? Where is it?",
+          "cueTranslation": "Қатори ду? Куҷост?",
+          "intent": "Бигӯ: ин тараф, лутфан",
+          "text": "This way, please.",
+          "accepts": [
+            "Follow me.",
+            "Over there."
+          ],
+          "translation": "Ин тараф, лутфан.",
+          "literal": "ҙис вей плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have coffee?",
+          "cueTranslation": "Қаҳва доред?",
+          "intent": "Бигӯ: бубахшед, мо инро надорем",
+          "text": "Sorry, we don't have it.",
+          "accepts": [
+            "Sorry, no.",
+            "We don't have it."
+          ],
+          "translation": "Бубахшед, мо инро надорем.",
+          "literal": "сорӣ вӣ доунт ҳэв ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хушмуомила",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What do you need?",
+          "translation": "Ба шумо чӣ лозим?",
+          "literal": "вот ду ю нид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Anything else?",
+          "translation": "Боз чизе?",
+          "literal": "енӣҫинг елс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Ask",
+          "translation": "пурсидан",
+          "literal": "аск",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I can ask.",
+          "translation": "Ман пурсида метавонам.",
+          "literal": "ай кен аск",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "One moment, please.",
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "ван моумэнт плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Have a nice day!",
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ман намедонам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me! Help, please.",
+          "cueTranslation": "Бубахшед! Ёрӣ, лутфан.",
+          "intent": "Бипурс: ба шумо чӣ лозим?",
+          "text": "What do you need?",
+          "accepts": [
+            "Can I help you?",
+            "Yes? What do you need?"
+          ],
+          "translation": "Ба шумо чӣ лозим?",
+          "literal": "вот ду ю нид",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Do you have green tea?",
+          "cueTranslation": "Чойи кабуд доред?",
+          "intent": "Бигӯ: бубахшед, намедонам. ман пурсида метавонам",
+          "text": "Sorry, I don't know. I can ask.",
+          "accepts": [
+            "I don't know. One moment, please.",
+            "Sorry. I can ask."
+          ],
+          "translation": "Бубахшед, намедонам. Пурсида метавонам.",
+          "literal": "сорӣ ай доунт ноу ай кен аск",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks. That's all.",
+          "cueTranslation": "Ташаккур. Ҳамааш.",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "Have a nice day!",
+          "accepts": [
+            "Have a good day!",
+            "Bye!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ёрӣ ба харидор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Excuse me!",
+          "cueTranslation": "Бубахшед!",
+          "intent": "Бипурс: ёрӣ диҳам?",
+          "text": "Can I help you?",
+          "accepts": [
+            "Yes? Can I help you?",
+            "What do you need?"
+          ],
+          "translation": "Ёрӣ диҳам?",
+          "literal": "кен ай ҳелп ю",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Where is the milk?",
+          "cueTranslation": "Шир куҷост?",
+          "intent": "Бигӯ: дар қатори панҷ",
+          "text": "It's in aisle five.",
+          "accepts": [
+            "Aisle five.",
+            "In aisle five."
+          ],
+          "translation": "Дар қатори панҷ.",
+          "literal": "итс ин айл файв",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sorry, where is aisle five?",
+          "cueTranslation": "Бубахшед, қатори панҷ куҷост?",
+          "intent": "Бигӯ: лутфан, аз паи ман биёед",
+          "text": "Follow me, please.",
+          "accepts": [
+            "This way, please.",
+            "Follow me."
+          ],
+          "translation": "Лутфан, аз паи ман биёед.",
+          "literal": "фолоу мӣ плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бипурс: боз чизе?",
+          "text": "Anything else?",
+          "accepts": [
+            "Anything else? No?",
+            "You're welcome. Anything else?"
+          ],
+          "translation": "Боз чизе?",
+          "literal": "енӣҫинг елс",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
