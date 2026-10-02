@@ -1,0 +1,562 @@
+{
+  "slug": "route_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Addresses and directions",
+    "titleTranslated": "Суроға ва роҳ",
+    "scenario": "Мусофир мегӯяд, ки ба куҷо меравад. Шумо суроғаро такрор мекунед, мепурсед «чап ё рост?», мегӯед, ки GPS доред ва ҷои дурустро меёбед.",
+    "emoji": "🗺️",
+    "order": 5,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Чап ва рост",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Address",
+          "translation": "суроға",
+          "literal": "эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Left",
+          "translation": "чап",
+          "literal": "лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Right",
+          "translation": "рост",
+          "literal": "райт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Straight",
+          "translation": "рост ба пеш",
+          "literal": "стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Corner",
+          "translation": "кунҷ",
+          "literal": "корнэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Airport",
+          "translation": "фурудгоҳ",
+          "literal": "еэрпорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ба фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "To the airport, please.",
+          "cueTranslation": "Ба фурудгоҳ, лутфан.",
+          "intent": "Бипурс: ба фурудгоҳ?",
+          "text": "To the airport?",
+          "accepts": [
+            "The airport?",
+            "Airport?"
+          ],
+          "translation": "Ба фурудгоҳ?",
+          "literal": "ту ҙэ еэрпорт",
+          "note": "Суроғаро такрор кунед — хато намешавад.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Terminal two.",
+          "cueTranslation": "Ҳа. Терминали ду.",
+          "intent": "Бигӯ: хуб, рақами ду",
+          "text": "Okay, number two.",
+          "accepts": [
+            "Terminal two. Okay.",
+            "Okay."
+          ],
+          "translation": "Хуб, рақами ду.",
+          "literal": "оукей намбэр ту",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How long is the drive?",
+          "cueTranslation": "Роҳ чанд вақт?",
+          "intent": "Бигӯ: бист дақиқа",
+          "text": "Twenty minutes.",
+          "accepts": [
+            "About twenty minutes.",
+            "Twenty minutes, maybe."
+          ],
+          "translation": "Бист дақиқа.",
+          "literal": "твентӣ минитс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гардед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Turn left",
+          "translation": "Ба чап гардед",
+          "literal": "тёрн лефт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Turn right",
+          "translation": "Ба рост гардед",
+          "literal": "тёрн райт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Go straight",
+          "translation": "Рост равед",
+          "literal": "гоу стрейт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "This street?",
+          "translation": "Ҳамин кӯча?",
+          "literal": "ҙис стрит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Next corner",
+          "translation": "Кунҷи навбатӣ",
+          "literal": "некст корнэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Right here",
+          "translation": "Ҳамин ҷо",
+          "literal": "райт ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чап ё рост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Turn here, please.",
+          "cueTranslation": "Ин ҷо гардед, лутфан.",
+          "intent": "Бипурс: чап ё рост?",
+          "text": "Left or right?",
+          "accepts": [
+            "Left?",
+            "Right or left?"
+          ],
+          "translation": "Чап ё рост?",
+          "literal": "лефт ор райт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Left. Then go straight.",
+          "cueTranslation": "Ба чап. Баъд рост равед.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Okay, got it.",
+          "accepts": [
+            "Okay.",
+            "Got it."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "оукей гот ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Stop at the next corner.",
+          "cueTranslation": "Дар кунҷи навбатӣ истед.",
+          "intent": "Бипурс: ҳамин ҷо?",
+          "text": "Right here?",
+          "accepts": [
+            "Here?",
+            "This corner?"
+          ],
+          "translation": "Ҳамин ҷо?",
+          "literal": "райт ҳир",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Суроға чист?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "What's the address?",
+          "translation": "Суроға чист?",
+          "literal": "вотс ҙэ эдрес",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I have GPS.",
+          "translation": "Ман GPS дорам.",
+          "literal": "ай ҳэв ҷи пи эс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Show me, please.",
+          "translation": "Нишон диҳед, лутфан.",
+          "literal": "шоу мӣ плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this the building?",
+          "translation": "Ҳамин бино аст?",
+          "literal": "из ҙис ҙэ билдинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Which entrance?",
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "вич ентрэнс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it far?",
+          "translation": "Дур аст?",
+          "literal": "из ит фар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бинои сафед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Can you take me home?",
+          "cueTranslation": "Салом! Маро ба хона мебаред?",
+          "intent": "Бипурс: суроға чист?",
+          "text": "What's the address?",
+          "accepts": [
+            "Your address?",
+            "What is the address?"
+          ],
+          "translation": "Суроға чист?",
+          "literal": "вотс ҙэ эдрес",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here, on my phone.",
+          "cueTranslation": "Ана, дар телефонам.",
+          "intent": "Бигӯ: хуб. Ман GPS дорам",
+          "text": "Okay. I have GPS.",
+          "accepts": [
+            "I have GPS.",
+            "Okay, thanks."
+          ],
+          "translation": "Хуб. Ман GPS дорам.",
+          "literal": "оукей ай ҳэв ҷи пи эс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "It's a big white building.",
+          "cueTranslation": "Бинои калони сафед.",
+          "intent": "Бипурс: кадом даромадгоҳ?",
+          "text": "Which entrance?",
+          "accepts": [
+            "Which door?",
+            "What entrance?"
+          ],
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "вич ентрэнс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қариб расидем",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Two more minutes.",
+          "translation": "Боз ду дақиқа.",
+          "literal": "ту мор минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I stop here?",
+          "translation": "Ин ҷо истам?",
+          "literal": "кен ай стоп ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "There's no parking.",
+          "translation": "Ҷои истодан нест.",
+          "literal": "ҙэрз ноу паркинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "One more minute.",
+          "translation": "Боз як дақиқа.",
+          "literal": "ван мор минит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry, wrong street.",
+          "translation": "Бубахшед, кӯча нодуруст.",
+          "literal": "сорӣ ронг стрит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Parking",
+          "translation": "ҷои мошин гузоштан",
+          "literal": "паркинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҷои истодан нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are we close?",
+          "cueTranslation": "Наздик шудем?",
+          "intent": "Бигӯ: боз ду дақиқа",
+          "text": "Two more minutes.",
+          "accepts": [
+            "Almost there.",
+            "One more minute."
+          ],
+          "translation": "Боз ду дақиқа.",
+          "literal": "ту мор минитс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Can you stop at the gate?",
+          "cueTranslation": "Назди дарвоза меистед?",
+          "intent": "Бигӯ: ҷои истодан нест",
+          "text": "There's no parking.",
+          "accepts": [
+            "No parking here.",
+            "Sorry, no parking."
+          ],
+          "translation": "Ҷои истодан нест.",
+          "literal": "ҙэрз ноу паркинг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Stop at the corner.",
+          "cueTranslation": "Хуб. Дар кунҷ истед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, sure.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ба фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! To the airport, please.",
+          "cueTranslation": "Салом! Ба фурудгоҳ, лутфан.",
+          "intent": "Бипурс: ба фурудгоҳ?",
+          "text": "To the airport?",
+          "accepts": [
+            "The airport?",
+            "Airport?"
+          ],
+          "translation": "Ба фурудгоҳ?",
+          "literal": "ту ҙэ еэрпорт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Is it far?",
+          "cueTranslation": "Ҳа. Дур аст?",
+          "intent": "Бигӯ: бист дақиқа",
+          "text": "Twenty minutes.",
+          "accepts": [
+            "About twenty minutes.",
+            "No, twenty minutes."
+          ],
+          "translation": "Бист дақиқа.",
+          "literal": "твентӣ минитс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Good. Turn left here, it's faster.",
+          "cueTranslation": "Хуб. Ин ҷо ба чап гардед, тезтар аст.",
+          "intent": "Бипурс: ба чап? Хуб",
+          "text": "Left? Okay.",
+          "accepts": [
+            "Left?",
+            "Turn left? Okay."
+          ],
+          "translation": "Ба чап? Хуб.",
+          "literal": "лефт оукей",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Stop at terminal two, please.",
+          "cueTranslation": "Дар терминали ду истед, лутфан.",
+          "intent": "Бигӯ: хуб, рақами ду",
+          "text": "Okay, number two.",
+          "accepts": [
+            "Terminal two. Okay.",
+            "Okay."
+          ],
+          "translation": "Хуб, рақами ду.",
+          "literal": "оукей намбэр ту",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

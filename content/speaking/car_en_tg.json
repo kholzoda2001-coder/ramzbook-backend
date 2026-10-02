@@ -1,0 +1,562 @@
+{
+  "slug": "car_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "The work car",
+    "titleTranslated": "Мошини корӣ",
+    "scenario": "Рӯзи аввал дар ширкати такси. Шумо калидро мегиред ва мошинро месанҷед: бензин, чароғҳо, чархҳо. Мепурсед, ки ҳуҷҷатҳо куҷоянд ва мошинро куҷо гузоред.",
+    "emoji": "🚗",
+    "order": 3,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мошин ва калид",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Car",
+          "translation": "мошин",
+          "literal": "кар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Keys",
+          "translation": "калидҳо",
+          "literal": "киз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Gas",
+          "translation": "бензин",
+          "literal": "гэс",
+          "note": "Дар Амрико «gas», дар Англия «petrol».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Tire",
+          "translation": "чарх",
+          "literal": "тайэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Lights",
+          "translation": "чароғҳо",
+          "literal": "лайтс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Seat",
+          "translation": "курсӣ",
+          "literal": "сит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Калид, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you the new driver?",
+          "cueTranslation": "Салом! Шумо ронандаи нав ҳастед?",
+          "intent": "Бигӯ: ҳа, ман",
+          "text": "Yes, I am.",
+          "accepts": [
+            "Yes.",
+            "Yes, that's me."
+          ],
+          "translation": "Ҳа, ман.",
+          "literal": "йес ай эм",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here are the keys.",
+          "cueTranslation": "Ана калидҳо.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Thank you very much."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Your car is the white one.",
+          "cueTranslation": "Мошини шумо — сафедаш.",
+          "intent": "Бипурс: сафедаш?",
+          "text": "The white one?",
+          "accepts": [
+            "White?",
+            "This white car?"
+          ],
+          "translation": "Сафедаш?",
+          "literal": "ҙэ вайт ван",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Мошини сафед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "White car",
+          "translation": "Мошини сафед",
+          "literal": "вайт кар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Full tank",
+          "translation": "Баки пур",
+          "literal": "фул тэнк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Empty",
+          "translation": "холӣ",
+          "literal": "емптӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Car papers",
+          "translation": "Ҳуҷҷатҳои мошин",
+          "literal": "кар пейпэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Front seat",
+          "translation": "Курсии пеш",
+          "literal": "франт сит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Clean",
+          "translation": "тоза",
+          "literal": "клин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бензин ҳаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Check the car first.",
+          "cueTranslation": "Аввал мошинро санҷед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, sure.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Is the tank full?",
+          "cueTranslation": "Бак пур аст?",
+          "intent": "Бигӯ: не, холӣ аст",
+          "text": "No, it's empty.",
+          "accepts": [
+            "No. Empty.",
+            "It's empty."
+          ],
+          "translation": "Не, холӣ аст.",
+          "literal": "ноу итс емптӣ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Get gas first.",
+          "cueTranslation": "Хуб. Аввал бензин гиред.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Got it.",
+          "accepts": [
+            "Okay.",
+            "Okay, got it."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "гот ит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Мошинро месанҷам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "The lights work.",
+          "translation": "Чароғҳо кор мекунанд.",
+          "literal": "ҙэ лайтс вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Check this tire.",
+          "translation": "Ин чархро санҷед.",
+          "literal": "чек ҙис тайэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are the papers?",
+          "translation": "Ҳуҷҷатҳо куҷоянд?",
+          "literal": "вэр ар ҙэ пейпэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "The car is dirty.",
+          "translation": "Мошин чиркин аст.",
+          "literal": "ҙэ кар из дёртӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I need gas.",
+          "translation": "Ба ман бензин лозим.",
+          "literal": "ай нид гэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are the keys?",
+          "translation": "Калидҳо куҷоянд?",
+          "literal": "вэр ар ҙэ киз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Everything okay with the car?",
+          "cueTranslation": "Бо мошин ҳама хуб?",
+          "intent": "Бигӯ: ин чарх паст аст",
+          "text": "Check this tire.",
+          "accepts": [
+            "This tire is low.",
+            "The tire is bad."
+          ],
+          "translation": "Ин чархро санҷед.",
+          "literal": "чек ҙис тайэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, I'll fix it.",
+          "cueTranslation": "Хуб, дуруст мекунам.",
+          "intent": "Бипурс: ҳуҷҷатҳо куҷоянд?",
+          "text": "Where are the papers?",
+          "accepts": [
+            "Where are the car papers?",
+            "The papers?"
+          ],
+          "translation": "Ҳуҷҷатҳо куҷоянд?",
+          "literal": "вэр ар ҙэ пейпэрз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "In the glove box.",
+          "cueTranslation": "Дар қуттии пеши мошин.",
+          "intent": "Ташаккур гӯй",
+          "text": "Thank you.",
+          "accepts": [
+            "Thanks.",
+            "Okay, thanks."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "ҫенк ю",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пеш аз роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "The mirrors are good.",
+          "translation": "Оинаҳо хубанд.",
+          "literal": "ҙэ мирэрз ар гуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "The papers are here.",
+          "translation": "Ҳуҷҷатҳо ин ҷоянд.",
+          "literal": "ҙэ пейпэрз ар ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "The car is clean.",
+          "translation": "Мошин тоза аст.",
+          "literal": "ҙэ кар из клин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm ready to go.",
+          "translation": "Ман ба роҳ тайёрам.",
+          "literal": "айм реди ту гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Where do I park?",
+          "translation": "Мошинро куҷо гузорам?",
+          "literal": "вэр ду ай парк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "See you tonight.",
+          "translation": "То бегоҳ.",
+          "literal": "сӣ ю тунайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тайёр ҳастед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Are you ready to go?",
+          "cueTranslation": "Ба роҳ тайёред?",
+          "intent": "Бигӯ: ҳа, тайёрам",
+          "text": "Yes, I'm ready.",
+          "accepts": [
+            "Ready.",
+            "Yes, I'm ready to go."
+          ],
+          "translation": "Ҳа, тайёрам.",
+          "literal": "йес айм реди",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bring the car back at ten.",
+          "cueTranslation": "Мошинро соати даҳ баргардонед.",
+          "intent": "Бипурс: мошинро куҷо гузорам?",
+          "text": "Where do I park?",
+          "accepts": [
+            "Where do I park it?",
+            "Where do I leave it?"
+          ],
+          "translation": "Мошинро куҷо гузорам?",
+          "literal": "вэр ду ай парк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Right here, by the office.",
+          "cueTranslation": "Ҳамин ҷо, назди идора.",
+          "intent": "Бигӯ: хуб, то бегоҳ",
+          "text": "Okay. See you tonight.",
+          "accepts": [
+            "See you tonight.",
+            "Okay, see you."
+          ],
+          "translation": "Хуб. То бегоҳ.",
+          "literal": "оукей сӣ ю тунайт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мошини корӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! You're the new driver, right?",
+          "cueTranslation": "Салом! Шумо ронандаи нав, дуруст?",
+          "intent": "Бигӯ: ҳа, ман",
+          "text": "Yes, I am.",
+          "accepts": [
+            "Yes.",
+            "Yes, that's me."
+          ],
+          "translation": "Ҳа, ман.",
+          "literal": "йес ай эм",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here are the keys. It's the white car.",
+          "cueTranslation": "Ана калидҳо. Мошини сафед.",
+          "intent": "Ташаккур гӯй ва бипурс: бензин ҳаст?",
+          "text": "Thank you. Is there gas?",
+          "accepts": [
+            "Thanks. Is the tank full?",
+            "Is there gas?"
+          ],
+          "translation": "Ташаккур. Бензин ҳаст?",
+          "literal": "ҫенк ю из ҙэр гэс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, the tank is full.",
+          "cueTranslation": "Ҳа, бак пур аст.",
+          "intent": "Бигӯ: ин чархро санҷед",
+          "text": "Check this tire.",
+          "accepts": [
+            "This tire is low.",
+            "The tire is bad."
+          ],
+          "translation": "Ин чархро санҷед.",
+          "literal": "чек ҙис тайэр",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh! Take it to the garage.",
+          "cueTranslation": "О! Ба гараж баред.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Okay, got it.",
+          "accepts": [
+            "Okay.",
+            "Got it."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": "оукей гот ит",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "luggage_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Bags and the trunk",
+    "titleTranslated": "Бағоҷ ва бағоҷдон",
+    "scenario": "Мусофир ҷомадонҳои калон дорад. Шумо бағоҷдонро мекушоед, ёрӣ медиҳед, мепурсед, ки чанд сумка ҳаст, ва дар охир мегӯед, ки ҳеҷ чизро дар мошин фаромӯш накунад.",
+    "emoji": "🧳",
+    "order": 7,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Сумкаҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Trunk",
+          "translation": "бағоҷдон",
+          "literal": "транк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Bag",
+          "translation": "сумка",
+          "literal": "бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Suitcase",
+          "translation": "ҷомадон",
+          "literal": "сюткейс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Heavy",
+          "translation": "вазнин",
+          "literal": "ҳевӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Big",
+          "translation": "калон",
+          "literal": "биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Small",
+          "translation": "хурд",
+          "literal": "смол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ёрӣ медиҳам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I have two big bags.",
+          "cueTranslation": "Ман ду сумкаи калон дорам.",
+          "intent": "Бигӯ: ман ёрӣ медиҳам",
+          "text": "I can help.",
+          "accepts": [
+            "I can help.",
+            "I'll help you."
+          ],
+          "translation": "Ман ёрӣ медиҳам.",
+          "literal": "ай кен ҳелп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thank you! They are heavy.",
+          "cueTranslation": "Ташаккур! Вазнинанд.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "No problem.",
+          "accepts": [
+            "It's okay.",
+            "No problem at all."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "ноу проблэм",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Where do I put this?",
+          "cueTranslation": "Инро куҷо гузорам?",
+          "intent": "Бигӯ: дар бағоҷдон",
+          "text": "In the trunk.",
+          "accepts": [
+            "The trunk.",
+            "Put it in the trunk."
+          ],
+          "translation": "Дар бағоҷдон.",
+          "literal": "ин ҙэ транк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ду сумка",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Two bags",
+          "translation": "Ду сумка",
+          "literal": "ту бэгз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Very heavy",
+          "translation": "Хеле вазнин",
+          "literal": "верӣ ҳевӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "One more?",
+          "translation": "Боз як?",
+          "literal": "ван мор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Be careful",
+          "translation": "Эҳтиёт шавед",
+          "literal": "бӣ кеэрфул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Your bags",
+          "translation": "Бағоҷатон",
+          "literal": "ёр бэгз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "All done",
+          "translation": "Ҳама тайёр",
+          "literal": "ол дан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чанд сумка?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "I have bags.",
+          "cueTranslation": "Ман сумкаҳо дорам.",
+          "intent": "Бипурс: чанд сумка?",
+          "text": "How many bags?",
+          "accepts": [
+            "How many?",
+            "How many bags do you have?"
+          ],
+          "translation": "Чанд сумка?",
+          "literal": "ҳау менӣ бэгз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Three. One is very heavy.",
+          "cueTranslation": "Се. Яктош хеле вазнин.",
+          "intent": "Бигӯ: мушкил нест, ман ёрӣ медиҳам",
+          "text": "No problem. Let me help.",
+          "accepts": [
+            "Let me help.",
+            "No problem."
+          ],
+          "translation": "Мушкил нест. Ман ёрӣ медиҳам.",
+          "literal": "ноу проблэм лет мӣ ҳелп",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "This small one stays with me.",
+          "cueTranslation": "Ин хурдашро бо худ мегирам.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, sure.",
+            "Sure."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Бағоҷдон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Open the trunk?",
+          "translation": "Бағоҷдонро кушоям?",
+          "literal": "оупэн ҙэ транк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is that all?",
+          "translation": "Ҳамаш ҳамин?",
+          "literal": "из ҙэт ол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "It's too big.",
+          "translation": "Хеле калон аст.",
+          "literal": "итс ту биг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Put it in front.",
+          "translation": "Дар пеш гузоред.",
+          "literal": "пут ит ин франт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Be careful, please.",
+          "translation": "Эҳтиёт шавед, лутфан.",
+          "literal": "бӣ кеэрфул плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "The trunk is full.",
+          "translation": "Бағоҷдон пур аст.",
+          "literal": "ҙэ транк из фул",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҷой намешавад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can you open the trunk?",
+          "cueTranslation": "Бағоҷдонро кушода метавонед?",
+          "intent": "Бигӯ: ҳа, мекушоям",
+          "text": "Yes, I can open it.",
+          "accepts": [
+            "Sure.",
+            "Yes, one second."
+          ],
+          "translation": "Ҳа, кушода метавонам.",
+          "literal": "йес ай кен оупэн ит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Here is the last bag.",
+          "cueTranslation": "Ана сумкаи охирин.",
+          "intent": "Бигӯ: бағоҷдон пур аст",
+          "text": "The trunk is full.",
+          "accepts": [
+            "It doesn't fit.",
+            "Sorry, it's full."
+          ],
+          "translation": "Бағоҷдон пур аст.",
+          "literal": "ҙэ транк из фул",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh no! What now?",
+          "cueTranslation": "Вой! Акнун чӣ?",
+          "intent": "Бигӯ: дар пеш гузоред",
+          "text": "Put it in front.",
+          "accepts": [
+            "In the front seat.",
+            "Put it here, in front."
+          ],
+          "translation": "Дар пеш гузоред.",
+          "literal": "пут ит ин франт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Фаромӯш накунед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Don't forget your bag.",
+          "translation": "Сумкаатонро фаромӯш накунед.",
+          "literal": "доунт фэргет ёр бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this your phone?",
+          "translation": "Ин телефони шумост?",
+          "literal": "из ҙис ёр фоун",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Take your things.",
+          "translation": "Чизҳоятонро гиред.",
+          "literal": "тейк ёр ҫингз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Here you go.",
+          "translation": "Марҳамат.",
+          "literal": "ҳир ю гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "I can close it.",
+          "translation": "Пӯшида метавонам.",
+          "literal": "ай кен клоуз ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Anything else?",
+          "translation": "Боз чизе?",
+          "literal": "энӣҫинг елс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Телефони шумо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Thank you for the ride!",
+          "cueTranslation": "Барои роҳ ташаккур!",
+          "intent": "Бигӯ: сумкаатонро фаромӯш накунед",
+          "text": "Don't forget your bag.",
+          "accepts": [
+            "Your bag!",
+            "Take your bag, please."
+          ],
+          "translation": "Сумкаатонро фаромӯш накунед.",
+          "literal": "доунт фэргет ёр бэг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, yes! Thanks.",
+          "cueTranslation": "О, ҳа! Ташаккур.",
+          "intent": "Бипурс: ин телефони шумост?",
+          "text": "Is this your phone?",
+          "accepts": [
+            "Your phone?",
+            "Is this phone yours?"
+          ],
+          "translation": "Ин телефони шумост?",
+          "literal": "из ҙис ёр фоун",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes! Thank you so much!",
+          "cueTranslation": "Ҳа! Ташаккури зиёд!",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Here you go.",
+          "accepts": [
+            "You're welcome.",
+            "Here."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "ҳир ю гоу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бағоҷи калон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! I have three bags.",
+          "cueTranslation": "Салом! Ман се сумка дорам.",
+          "intent": "Бигӯ: ман ёрӣ медиҳам",
+          "text": "I can help.",
+          "accepts": [
+            "I'll help you.",
+            "I can help."
+          ],
+          "translation": "Ман ёрӣ медиҳам.",
+          "literal": "ай кен ҳелп",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks! This one is very heavy.",
+          "cueTranslation": "Ташаккур! Ин хеле вазнин.",
+          "intent": "Бигӯ: мушкил нест, кушода метавонам",
+          "text": "No problem. I can open it.",
+          "accepts": [
+            "No problem.",
+            "I'll open the trunk."
+          ],
+          "translation": "Мушкил нест. Кушода метавонам.",
+          "literal": "ноу проблэм ай кен оупэн ит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Can the small bag go in front?",
+          "cueTranslation": "Сумкаи хурд дар пеш меравад?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Yes, of course.",
+          "accepts": [
+            "Sure.",
+            "Yes."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": "йес ов корс",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "We're here. Thank you!",
+          "cueTranslation": "Расидем. Ташаккур!",
+          "intent": "Бигӯ: сумкаатонро фаромӯш накунед",
+          "text": "Don't forget your bag.",
+          "accepts": [
+            "Your bags, please.",
+            "Take your bags."
+          ],
+          "translation": "Сумкаатонро фаромӯш накунед.",
+          "literal": "доунт фэргет ёр бэг",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

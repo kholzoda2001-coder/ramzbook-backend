@@ -1,0 +1,563 @@
+{
+  "slug": "pickup_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Picking up a passenger",
+    "titleTranslated": "Гирифтани мусофир",
+    "scenario": "Шумо мусофирро аз суроға мегиред: номашро мепурсед, салом медиҳед, мегӯед, ки камарбандро бандад ва мепурсед, ки ба куҷо меравад.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мусофир",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Passenger",
+          "translation": "мусофир",
+          "literal": "пэсинджэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Driver",
+          "translation": "ронанда",
+          "literal": "драйвэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Name",
+          "translation": "ном",
+          "literal": "нейм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Seatbelt",
+          "translation": "камарбанд",
+          "literal": "ситбелт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Door",
+          "translation": "дар",
+          "literal": "дор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Back seat",
+          "translation": "курсии қафо",
+          "literal": "бэк сит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо Анна ҳастед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you my driver?",
+          "cueTranslation": "Салом! Шумо ронандаи ман ҳастед?",
+          "intent": "Бигӯ: ҳа. Шумо Анна ҳастед?",
+          "text": "Yes. Are you Anna?",
+          "accepts": [
+            "Yes. Anna?",
+            "Yes, I am. Anna?"
+          ],
+          "translation": "Ҳа. Шумо Анна ҳастед?",
+          "literal": "йес ар ю энэ",
+          "note": "Номи мусофирро пурсед — ин мусофири шумост?",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, I'm Anna.",
+          "cueTranslation": "Ҳа, ман Анна.",
+          "intent": "Бигӯ: салом! Шинед, лутфан",
+          "text": "Hello! Get in, please.",
+          "accepts": [
+            "Hi! Get in.",
+            "Please get in."
+          ],
+          "translation": "Салом! Шинед, лутфан.",
+          "literal": "ҳелоу гет ин плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks. Can I sit in front?",
+          "cueTranslation": "Ташаккур. Дар пеш шинам?",
+          "intent": "Бигӯ: албатта",
+          "text": "Sure.",
+          "accepts": [
+            "Of course.",
+            "Yes, sure."
+          ],
+          "translation": "Албатта.",
+          "literal": "шуэр",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Шинед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Get in",
+          "translation": "Шинед",
+          "literal": "гет ин",
+          "note": "Яъне «ба мошин дароед».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Good morning",
+          "translation": "Субҳ ба хайр",
+          "literal": "гуд морнинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Your name?",
+          "translation": "Номатон?",
+          "literal": "ёр нейм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Seatbelt, please",
+          "translation": "Камарбанд, лутфан",
+          "literal": "ситбелт плиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Let's go",
+          "translation": "Рафтем",
+          "literal": "летс гоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ten minutes",
+          "translation": "Даҳ дақиқа",
+          "literal": "тен минитс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Камарбанд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Okay, I'm in.",
+          "cueTranslation": "Хуб, шиштам.",
+          "intent": "Бигӯ: камарбанд, лутфан",
+          "text": "Seatbelt, please.",
+          "accepts": [
+            "Your seatbelt, please.",
+            "Please, the seatbelt."
+          ],
+          "translation": "Камарбанд, лутфан.",
+          "literal": "ситбелт плиз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, sorry. Done.",
+          "cueTranslation": "О, бубахшед. Тайёр.",
+          "intent": "Бигӯ: ташаккур. Рафтем",
+          "text": "Thank you. Let's go.",
+          "accepts": [
+            "Thanks. Let's go.",
+            "Let's go."
+          ],
+          "translation": "Ташаккур. Рафтем.",
+          "literal": "ҫенк ю летс гоу",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "How long is the ride?",
+          "cueTranslation": "Роҳ чанд вақт?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "Ten minutes.",
+          "accepts": [
+            "About ten minutes.",
+            "Ten minutes, maybe."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": "тен минитс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ронандаи шумо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I'm your driver.",
+          "translation": "Ман ронандаи шумоям.",
+          "literal": "айм ёр драйвэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Please close the door.",
+          "translation": "Лутфан, дарро пӯшед.",
+          "literal": "плиз клоуз ҙэ дор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Where are you going?",
+          "translation": "Ба куҷо меравед?",
+          "literal": "вэр ар ю гоуинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this your bag?",
+          "translation": "Ин сумкаи шумост?",
+          "literal": "из ҙис ёр бэг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "own",
+          "text": "My name is ___.",
+          "translation": "Номи ман ___.",
+          "literal": "май нейм из ___",
+          "note": "Номи худро гӯед.",
+          "cue": "What's your name?",
+          "cueTranslation": "Номатон чист?",
+          "intent": "Номи худро гӯед",
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Are you comfortable?",
+          "translation": "Бароҳатед?",
+          "literal": "ар ю камфэртэбэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello! Is this my taxi?",
+          "cueTranslation": "Салом! Ин таксии ман аст?",
+          "intent": "Бигӯ: ҳа, ман ронандаи шумо",
+          "text": "Yes, I'm your driver.",
+          "accepts": [
+            "Yes. I'm your driver.",
+            "Yes, it is."
+          ],
+          "translation": "Ҳа, ман ронандаи шумоям.",
+          "literal": "йес айм ёр драйвэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Can I put my bag here?",
+          "cueTranslation": "Сумкаамро ин ҷо гузорам?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Yes, of course.",
+          "accepts": [
+            "Sure.",
+            "Yes."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": "йес ов корс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Thanks. I'm ready.",
+          "cueTranslation": "Ташаккур. Тайёрам.",
+          "intent": "Бипурс: ба куҷо меравед?",
+          "text": "Where are you going?",
+          "accepts": [
+            "Where to?",
+            "Where are we going?"
+          ],
+          "translation": "Ба куҷо меравед?",
+          "literal": "вэр ар ю гоуинг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Is the music okay?",
+          "translation": "Мусиқӣ хуб аст?",
+          "literal": "из ҙэ мюзик оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Is it too cold?",
+          "translation": "Хеле хунук аст?",
+          "literal": "из ит ту коулд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Open the window?",
+          "translation": "Тирезаро кушоям?",
+          "literal": "оупэн ҙэ виндоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Window",
+          "translation": "тиреза",
+          "literal": "виндоу",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "We are here.",
+          "translation": "Расидем.",
+          "literal": "вӣ ар ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Have a nice day!",
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Расидем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Is this the place?",
+          "cueTranslation": "Ҳамин ҷост?",
+          "intent": "Бигӯ: ҳа, расидем",
+          "text": "Yes, we are here.",
+          "accepts": [
+            "Yes. We're here.",
+            "We are here."
+          ],
+          "translation": "Ҳа, расидем.",
+          "literal": "йес вӣ ар ҳир",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Great! Thank you!",
+          "cueTranslation": "Олӣ! Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш",
+          "text": "Have a nice day!",
+          "accepts": [
+            "Have a good day!",
+            "Bye! Have a nice day."
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "You too! Bye!",
+          "cueTranslation": "Ба шумо ҳам! Хайр!",
+          "intent": "Бигӯ: хайр",
+          "text": "Bye!",
+          "accepts": [
+            "Goodbye!",
+            "Bye-bye!"
+          ],
+          "translation": "Хайр!",
+          "literal": "бай",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мусофири аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Are you my driver?",
+          "cueTranslation": "Салом! Шумо ронандаи ман ҳастед?",
+          "intent": "Бигӯ: ҳа. Шумо Анна ҳастед?",
+          "text": "Yes. Are you Anna?",
+          "accepts": [
+            "Yes. Anna?",
+            "Yes, I am. Anna?"
+          ],
+          "translation": "Ҳа. Шумо Анна ҳастед?",
+          "literal": "йес ар ю энэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes! Can I sit in the back?",
+          "cueTranslation": "Ҳа! Дар қафо шинам?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Yes, of course.",
+          "accepts": [
+            "Sure.",
+            "Of course."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": "йес ов корс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, I'm in.",
+          "cueTranslation": "Хуб, шиштам.",
+          "intent": "Бигӯ: камарбанд, лутфан",
+          "text": "Seatbelt, please.",
+          "accepts": [
+            "Your seatbelt, please.",
+            "Please, the seatbelt."
+          ],
+          "translation": "Камарбанд, лутфан.",
+          "literal": "ситбелт плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Sure. Done.",
+          "cueTranslation": "Албатта. Тайёр.",
+          "intent": "Бипурс: ба куҷо меравед?",
+          "text": "Where are you going?",
+          "accepts": [
+            "Where to?",
+            "Where are we going?"
+          ],
+          "translation": "Ба куҷо меравед?",
+          "literal": "вэр ар ю гоуинг",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

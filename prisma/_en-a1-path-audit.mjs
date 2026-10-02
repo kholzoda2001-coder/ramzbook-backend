@@ -35,9 +35,10 @@ for (const r of course) for (const t of [...toks(r.word), ...toks(r.example ?? '
  'help work new good very much many next right left near far back home day week month year time hour minute').split(' ').forEach((w) => A1.add(w));
 // CEFR A1 (Oxford 3000, A1), ки дар рӯйхати курси мо калима нестанд: was/were — гузаштаи be (A1).
 ("meet toilet done can't tonight repeat another enjoy finish finished quickly together mean spell until about " +
- "was were wasn't i'd").split(' ').forEach((w) => A1.add(w));
-// Номҳои хос: одамон, кӯча, донишгоҳ, хӯрок, кишвар.
-'anna main state plov tajikistan mexico poland'.split(' ').forEach((w) => A1.add(w));
+ "was were wasn't i'd course wrong better free photo photos check hear leave forget thing things trip kid kids " +
+ "building text end around line away fast only").split(' ').forEach((w) => A1.add(w));
+// Номҳои хос: одамон, кӯча, донишгоҳ, хӯрок, кишвар, мошин, ихтисор.
+'anna main state plov tajikistan mexico poland toyota gps'.split(' ').forEach((w) => A1.add(w));
 const isA1 = (w) => lem(w).some((l) => A1.has(l));
 
 const packs = readdirSync('content/speaking').filter((f) => f.endsWith('_en_tg.json'))

@@ -1,0 +1,562 @@
+{
+  "slug": "dropoff_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Delivering orders",
+    "titleTranslated": "Расонидани фармоиш",
+    "scenario": "Шумо хӯрок ва бастаҳо мерасонед: мегӯед, ки фармоиш омад, ошёнаро мепурсед, имзо мегиред ё бастаро назди дар мегузоред ва акс мефиристед.",
+    "emoji": "📦",
+    "order": 13,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фармоиш",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Order",
+          "translation": "фармоиш",
+          "literal": "ордэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Package",
+          "translation": "баста",
+          "literal": "пэкиҷ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Broken",
+          "translation": "шикаста",
+          "literal": "броукэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Apartment",
+          "translation": "хона (квартира)",
+          "literal": "эпартмэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Sign",
+          "translation": "имзо кардан",
+          "literal": "сайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Delivery",
+          "translation": "расонидан",
+          "literal": "диливэрӣ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Фармоиши шумо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello?",
+          "cueTranslation": "Салом?",
+          "intent": "Бигӯ: фармоиши шумо",
+          "text": "Your order.",
+          "accepts": [
+            "Delivery!",
+            "Here is your order."
+          ],
+          "translation": "Фармоиши шумо.",
+          "literal": "ёр ордэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, great! Thank you.",
+          "cueTranslation": "О, олӣ! Ташаккур.",
+          "intent": "Бигӯ: лутфан, ин ҷо имзо кунед",
+          "text": "Sign here, please.",
+          "accepts": [
+            "Please sign here.",
+            "Sign here."
+          ],
+          "translation": "Лутфан, ин ҷо имзо кунед.",
+          "literal": "сайн ҳир плиз",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Here you go.",
+          "cueTranslation": "Марҳамат.",
+          "intent": "Бигӯ: ташаккур. Рӯзи хуш",
+          "text": "Thanks. Have a nice day!",
+          "accepts": [
+            "Thank you!",
+            "Have a good day!"
+          ],
+          "translation": "Ташаккур. Рӯзи хуш!",
+          "literal": "ҫенкс ҳэв э найс дей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ин ҷо имзо кунед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Your order",
+          "translation": "Фармоиши шумо",
+          "literal": "ёр ордэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sign here",
+          "translation": "Ин ҷо имзо кунед",
+          "literal": "сайн ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Which floor?",
+          "translation": "Кадом ошёна?",
+          "literal": "вич флор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Front door",
+          "translation": "Дари даромад",
+          "literal": "франт дор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hot food",
+          "translation": "Хӯроки гарм",
+          "literal": "ҳот фуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Two boxes",
+          "translation": "Ду қуттӣ",
+          "literal": "ту боксиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом ошёна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Come in. Apartment twelve.",
+          "cueTranslation": "Салом! Дароед. Хонаи дувоздаҳ.",
+          "intent": "Бипурс: кадом ошёна?",
+          "text": "Which floor?",
+          "accepts": [
+            "What floor?",
+            "Which floor, please?"
+          ],
+          "translation": "Кадом ошёна?",
+          "literal": "вич флор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "The third floor.",
+          "cueTranslation": "Ошёнаи сеюм.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Okay, coming.",
+          "accepts": [
+            "Okay.",
+            "I'm coming."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": "оукей каминг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Is it hot food?",
+          "cueTranslation": "Хӯрок гарм аст?",
+          "intent": "Бигӯ: ҳа, хӯроки гарм",
+          "text": "Yes, hot food.",
+          "accepts": [
+            "Yes, it's hot.",
+            "Yes."
+          ],
+          "translation": "Ҳа, хӯроки гарм.",
+          "literal": "йес ҳот фуд",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Назди дар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "I'm at the door.",
+          "translation": "Ман назди дар ҳастам.",
+          "literal": "айм эт ҙэ дор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Leave it here?",
+          "translation": "Ин ҷо гузорам?",
+          "literal": "лив ит ҳир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Is this apartment twelve?",
+          "translation": "Ин хонаи дувоздаҳ аст?",
+          "literal": "из ҙис эпартмэнт твелв",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "No one is home.",
+          "translation": "Касе дар хона нест.",
+          "literal": "ноу ван из ҳоум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "At the door?",
+          "translation": "Назди дар?",
+          "literal": "эт ҙэ дор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "A photo, okay?",
+          "translation": "Акс, хуб?",
+          "literal": "э фоутоу оукей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Касе нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello? Who is this?",
+          "cueTranslation": "Алло? Кӣ?",
+          "intent": "Бигӯ: расонидан. Ман назди дар ҳастам",
+          "text": "Delivery. I'm at the door.",
+          "accepts": [
+            "I'm at the door.",
+            "Delivery! I'm here."
+          ],
+          "translation": "Расонидан. Ман назди дар ҳастам.",
+          "literal": "диливэрӣ айм эт ҙэ дор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sorry, I'm not home.",
+          "cueTranslation": "Бубахшед, ман дар хона нестам.",
+          "intent": "Бипурс: ин ҷо гузорам?",
+          "text": "Leave it here?",
+          "accepts": [
+            "Can I leave it here?",
+            "At the door?"
+          ],
+          "translation": "Ин ҷо гузорам?",
+          "literal": "лив ит ҳир",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, at the door, please.",
+          "cueTranslation": "Ҳа, назди дар, лутфан.",
+          "intent": "Бигӯ: хуб. Акс мефиристам",
+          "text": "Okay. I can send a photo.",
+          "accepts": [
+            "Okay.",
+            "Okay, I'll leave it here."
+          ],
+          "translation": "Хуб. Акс фиристода метавонам.",
+          "literal": "оукей ай кен сенд э фоутоу",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чизе нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "This box is broken.",
+          "translation": "Ин қуттӣ шикастааст.",
+          "literal": "ҙис бокс из броукэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Only two boxes?",
+          "translation": "Танҳо ду қуттӣ?",
+          "literal": "оунлӣ ту боксиз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Call the store?",
+          "translation": "Ба мағоза занг занам?",
+          "literal": "кол ҙэ стор",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorry about that.",
+          "translation": "Барои ин бубахшед.",
+          "literal": "сорӣ эбаут ҙэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Is everything there?",
+          "translation": "Ҳама чиз ҳаст?",
+          "literal": "из еврӣҫинг ҙэр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Please check it.",
+          "translation": "Лутфан, санҷед.",
+          "literal": "плиз чек ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Нӯшокӣ нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wait, my drink is missing.",
+          "cueTranslation": "Истед, нӯшокиам нест.",
+          "intent": "Бигӯ: бубахшед. Ба мағоза занг мезанам",
+          "text": "Sorry. I can call the store.",
+          "accepts": [
+            "I'm sorry. I'll call them.",
+            "Sorry about that."
+          ],
+          "translation": "Бубахшед. Ба мағоза занг зада метавонам.",
+          "literal": "сорӣ ай кен кол ҙэ стор",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, thanks.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бипурс: дигар ҳама чиз ҳаст?",
+          "text": "Is everything else there?",
+          "accepts": [
+            "Everything else okay?",
+            "Is the rest okay?"
+          ],
+          "translation": "Дигар ҳама чиз ҳаст?",
+          "literal": "из еврӣҫинг елс ҙэр",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, the rest is fine.",
+          "cueTranslation": "Ҳа, боқимонда хуб аст.",
+          "intent": "Бигӯ: хуб. Рӯзи хуш",
+          "text": "Okay. Have a nice day!",
+          "accepts": [
+            "Have a good day!",
+            "Okay, bye!"
+          ],
+          "translation": "Хуб. Рӯзи хуш!",
+          "literal": "оукей ҳэв э найс дей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: расонидан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hello? Who is it?",
+          "cueTranslation": "Салом? Кӣ?",
+          "intent": "Бигӯ: расонидан. Фармоиши шумо",
+          "text": "Delivery. Your order.",
+          "accepts": [
+            "Delivery!",
+            "Your order is here."
+          ],
+          "translation": "Расонидан. Фармоиши шумо.",
+          "literal": "диливэрӣ ёр ордэр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Great! Come up, third floor.",
+          "cueTranslation": "Олӣ! Бароед, ошёнаи сеюм.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Okay, coming.",
+          "accepts": [
+            "Okay.",
+            "I'm coming."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": "оукей каминг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hi! Is it all there?",
+          "cueTranslation": "Салом! Ҳамааш ҳаст?",
+          "intent": "Бигӯ: ҳа. Лутфан, ин ҷо имзо кунед",
+          "text": "Yes. Sign here, please.",
+          "accepts": [
+            "Yes. Please sign here.",
+            "Yes, everything."
+          ],
+          "translation": "Ҳа. Лутфан, ин ҷо имзо кунед.",
+          "literal": "йес сайн ҳир плиз",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Done. Thank you!",
+          "cueTranslation": "Тайёр. Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш",
+          "text": "Have a nice day!",
+          "accepts": [
+            "Have a good day!",
+            "You're welcome. Bye!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "ҳэв э найс дей",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

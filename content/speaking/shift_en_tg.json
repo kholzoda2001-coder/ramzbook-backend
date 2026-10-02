@@ -1,0 +1,563 @@
+{
+  "slug": "shift_en_tg",
+  "targetLanguage": "en",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Shift and earnings",
+    "titleTranslated": "Навбати корӣ ва даромад",
+    "scenario": "Бо диспетчер ва сардори ширкат дар бораи кор гап мезанед: кай сар мекунед ва кай тамом, рӯзи истироҳат, музди ҳафта, барнома ва баҳои мусофирон.",
+    "emoji": "💰",
+    "order": 20,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Навбат",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Shift",
+          "translation": "навбати корӣ",
+          "literal": "шифт",
+          "note": "Вақти кор: рӯз ё шаб.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "App",
+          "translation": "барнома",
+          "literal": "эп",
+          "note": "Барномаи телефон, ки фармоишҳо меоранд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Rating",
+          "translation": "баҳо",
+          "literal": "рейтинг",
+          "note": "Баҳои мусофирон — аз 1 то 5 ситора.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Week",
+          "translation": "ҳафта",
+          "literal": "вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Day off",
+          "translation": "рӯзи истироҳат",
+          "literal": "дей оф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Night",
+          "translation": "шаб",
+          "literal": "найт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Навбати шаб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Can you work the night shift?",
+          "cueTranslation": "Навбати шаб кор карда метавонед?",
+          "intent": "Бигӯ: ҳа, метавонам",
+          "text": "Yes, I can.",
+          "accepts": [
+            "Yes.",
+            "Sure, I can."
+          ],
+          "translation": "Ҳа, метавонам.",
+          "literal": "йес ай кен",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "It starts at eight.",
+          "cueTranslation": "Соати ҳашт сар мешавад.",
+          "intent": "Бипурс: кай тамом мешавад?",
+          "text": "When does it end?",
+          "accepts": [
+            "And the end?",
+            "When does it finish?"
+          ],
+          "translation": "Кай тамом мешавад?",
+          "literal": "вен даз ит енд",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "At four in the morning.",
+          "cueTranslation": "Соати чори субҳ.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Okay, no problem.",
+            "Okay, fine."
+          ],
+          "translation": "Хуб.",
+          "literal": "оукей",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Панҷ ситора",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Night shift",
+          "translation": "Навбати шаб",
+          "literal": "найт шифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Day off",
+          "translation": "Рӯзи истироҳат",
+          "literal": "дей оф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Every week",
+          "translation": "Ҳар ҳафта",
+          "literal": "еврӣ вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Good rating",
+          "translation": "Баҳои хуб",
+          "literal": "гуд рейтинг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Five stars",
+          "translation": "Панҷ ситора",
+          "literal": "файв старз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Weekly pay",
+          "translation": "Музди ҳафтаина",
+          "literal": "виклӣ пей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Рӯзи истироҳат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "You work six days.",
+          "cueTranslation": "Шумо шаш рӯз кор мекунед.",
+          "intent": "Бипурс: рӯзи истироҳатам кай?",
+          "text": "When is my day off?",
+          "accepts": [
+            "My day off?",
+            "Which day is off?"
+          ],
+          "translation": "Рӯзи истироҳатам кай?",
+          "literal": "вен из май дей оф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sunday.",
+          "cueTranslation": "Якшанбе.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, thank you.",
+          "accepts": [
+            "Okay.",
+            "Good, thanks."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "оукей ҫенк ю",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "And you get paid every week.",
+          "cueTranslation": "Ва ҳар ҳафта музд мегиред.",
+          "intent": "Бигӯ: олӣ",
+          "text": "Great!",
+          "accepts": [
+            "Very good.",
+            "Great, thanks!"
+          ],
+          "translation": "Олӣ!",
+          "literal": "грейт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Соатҳои бештар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "When do I start?",
+          "translation": "Кай сар кунам?",
+          "literal": "вен ду ай старт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "I want more hours.",
+          "translation": "Ман соатҳои бештар мехоҳам.",
+          "literal": "ай вонт мор ауэрз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "I can't work Friday.",
+          "translation": "Ҷумъа кор карда наметавонам.",
+          "literal": "ай кент вёрк фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "I'm sick today.",
+          "translation": "Имрӯз бемор ҳастам.",
+          "literal": "айм сик тудей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "The app doesn't work.",
+          "translation": "Барнома кор намекунад.",
+          "literal": "ҙэ эп дазнт вёрк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "I work ___ hours.",
+          "translation": "Ман ___ соат кор мекунам.",
+          "literal": "ай вёрк ___ ауэрз",
+          "note": "Чанд соат кор мекунед — шумораро гӯед.",
+          "cue": "How many hours do you work?",
+          "cueTranslation": "Чанд соат кор мекунед?",
+          "intent": "Шумораи соатҳоро гӯед",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Барнома кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dispatch. How can I help?",
+          "cueTranslation": "Диспетчер. Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: барнома кор намекунад",
+          "text": "The app doesn't work.",
+          "accepts": [
+            "My app is not working.",
+            "The app is broken."
+          ],
+          "translation": "Барнома кор намекунад.",
+          "literal": "ҙэ эп дазнт вёрк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Close it and open it again.",
+          "cueTranslation": "Бандед ва боз кушоед.",
+          "intent": "Бигӯ: хуб, як дақиқа",
+          "text": "Okay, one minute.",
+          "accepts": [
+            "Okay.",
+            "One minute, please."
+          ],
+          "translation": "Хуб, як дақиқа.",
+          "literal": "оукей ван минит",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Does it work now?",
+          "cueTranslation": "Ҳоло кор мекунад?",
+          "intent": "Бигӯ: ҳа, ҳоло кор мекунад",
+          "text": "Yes, it works now.",
+          "accepts": [
+            "Yes, thank you!",
+            "It works now. Thanks!"
+          ],
+          "translation": "Ҳа, ҳоло кор мекунад.",
+          "literal": "йес ит вёркс нау",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Музди ҳафта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "How much this week?",
+          "translation": "Ин ҳафта чанд?",
+          "literal": "ҳау мач ҙис вик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "My rating is good.",
+          "translation": "Баҳои ман хуб аст.",
+          "literal": "май рейтинг из гуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Is my rating good?",
+          "translation": "Баҳои ман хуб аст?",
+          "literal": "из май рейтинг гуд",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Can I see it?",
+          "translation": "Дида метавонам?",
+          "literal": "кен ай сӣ ит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Pay on Friday?",
+          "translation": "Музд ҷумъа?",
+          "literal": "пей он фрайдей",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Thank you very much.",
+          "translation": "Ташаккури зиёд.",
+          "literal": "ҫенк ю верӣ мач",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Баҳои хуб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Here is your pay for this week.",
+          "cueTranslation": "Ана музди ин ҳафтаатон.",
+          "intent": "Бипурс: чанд?",
+          "text": "How much?",
+          "accepts": [
+            "How much this week?",
+            "How much is it?"
+          ],
+          "translation": "Чанд?",
+          "literal": "ҳау мач",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Six hundred dollars.",
+          "cueTranslation": "Шашсад доллар.",
+          "intent": "Бигӯ: олӣ! Баҳои ман хуб аст?",
+          "text": "Great! Is my rating good?",
+          "accepts": [
+            "Great! My rating?",
+            "Thanks! And my rating?"
+          ],
+          "translation": "Олӣ! Баҳои ман хуб аст?",
+          "literal": "грейт из май рейтинг гуд",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes, five stars. Good job!",
+          "cueTranslation": "Ҳа, панҷ ситора. Офарин!",
+          "intent": "Бигӯ: ташаккур, сардор",
+          "text": "Thank you very much.",
+          "accepts": [
+            "Thanks, boss!",
+            "Thank you!"
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": "ҫенк ю верӣ мач",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳафтаи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hi! Can you work next week?",
+          "cueTranslation": "Салом! Ҳафтаи оянда кор карда метавонед?",
+          "intent": "Бигӯ: ҳа. Ман соатҳои бештар мехоҳам",
+          "text": "Yes. I want more hours.",
+          "accepts": [
+            "Yes, more hours, please.",
+            "Yes, I can."
+          ],
+          "translation": "Ҳа. Ман соатҳои бештар мехоҳам.",
+          "literal": "йес ай вонт мор ауэрз",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Night shift, Monday to Saturday.",
+          "cueTranslation": "Хуб. Навбати шаб, аз душанбе то шанбе.",
+          "intent": "Бипурс: рӯзи истироҳатам якшанбе?",
+          "text": "Is Sunday my day off?",
+          "accepts": [
+            "My day off is Sunday?",
+            "Sunday off?"
+          ],
+          "translation": "Рӯзи истироҳатам якшанбе?",
+          "literal": "из сандей май дей оф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yes. Any questions?",
+          "cueTranslation": "Ҳа. Саволе ҳаст?",
+          "intent": "Бипурс: музд ҷумъа?",
+          "text": "Pay on Friday?",
+          "accepts": [
+            "When do I get paid?",
+            "Payday is when?"
+          ],
+          "translation": "Рӯзи музд кай?",
+          "literal": "пей он фрайдей",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Every Friday.",
+          "cueTranslation": "Ҳар ҷумъа.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Great, thank you!",
+          "accepts": [
+            "Great!",
+            "Okay, thanks."
+          ],
+          "translation": "Олӣ, ташаккур!",
+          "literal": "грейт ҫенк ю",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
