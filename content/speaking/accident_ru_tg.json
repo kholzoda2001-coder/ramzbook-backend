@@ -1,0 +1,563 @@
+{
+  "slug": "accident_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Небольшое ДТП",
+    "titleTranslated": "Садамаи хурд",
+    "scenario": "Мошини дигар ба мошини шумо зад. Шумо мепурсед, ки ҳама солим аст, акс мегиред, суғуртаро иваз мекунед ва ба полис занг мезанед.",
+    "emoji": "💥",
+    "order": 19,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Садама",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Авария",
+          "translation": "садама",
+          "literal": null,
+          "note": "Зарба: а-ВА-ри-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Ранен",
+          "translation": "захмӣ",
+          "literal": null,
+          "note": "Зарба: РА-нен.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Фото",
+          "translation": "акс",
+          "literal": null,
+          "note": "Зарба: ФО-то.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Царапина",
+          "translation": "харошидагӣ",
+          "literal": null,
+          "note": "Зарба: ца-РА-пи-на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Бампер",
+          "translation": "бампер",
+          "literal": null,
+          "note": "Зарба: БАМ-пер.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Виноват",
+          "translation": "гунаҳкор",
+          "literal": null,
+          "note": "Зарба дар охир: ви-но-ВАТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо хубед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ой! Вы в порядке?",
+          "cueTranslation": "Вой! Шумо хубед?",
+          "intent": "Бигӯ: ҳа, ман хубам. Шумо?",
+          "text": "Да, я в порядке. А вы?",
+          "accepts": [
+            "Я нормально. А вы?",
+            "Да. Вы в порядке?"
+          ],
+          "translation": "Ҳа, ман хубам. Шумо?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я в порядке. Извините!",
+          "cueTranslation": "Ман хубам. Бубахшед!",
+          "intent": "Бигӯ: ҳеҷ гап не. Касе захмӣ нест",
+          "text": "Ничего. Никто не ранен.",
+          "accepts": [
+            "Ничего.",
+            "Никто не ранен."
+          ],
+          "translation": "Ҳеҷ гап не. Касе захмӣ нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Посмотрите на бампер.",
+          "cueTranslation": "Ба бампер нигоҳ кунед.",
+          "intent": "Бигӯ: харошидагии хурд",
+          "text": "Маленькая царапина.",
+          "accepts": [
+            "Только царапина.",
+            "Небольшая царапина."
+          ],
+          "translation": "Харошидагии хурд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Гуноҳи кӣ?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Маленькая царапина",
+          "translation": "Харошидагии хурд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я виноват",
+          "translation": "Гуноҳ аз ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Вы виноваты",
+          "translation": "Гуноҳ аз шумо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Сделайте фото",
+          "translation": "Акс гиред",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваша страховка",
+          "translation": "Суғуртаи шумо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Стойте здесь",
+          "translation": "Ин ҷо истед",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чароғ сурх буд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Это вы виноваты!",
+          "cueTranslation": "Гуноҳ аз шумо!",
+          "intent": "Бигӯ: не, гуноҳ аз ман нест",
+          "text": "Нет, я не виноват.",
+          "accepts": [
+            "Я не виноват.",
+            "Я не виновата.",
+            "Нет, не я."
+          ],
+          "translation": "Не, гуноҳ аз ман нест.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вы резко остановились!",
+          "cueTranslation": "Шумо якбора истодед!",
+          "intent": "Бигӯ: чароғ сурх буд",
+          "text": "Был красный свет.",
+          "accepts": [
+            "Красный свет был.",
+            "Там был красный."
+          ],
+          "translation": "Чароғ сурх буд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно, ладно. Звоним в полицию.",
+          "cueTranslation": "Хуб, хуб. Ба полис занг мезанем.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Давайте.",
+            "Хорошо, звоним."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Акс мегирам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я сделаю фото.",
+          "translation": "Ман акс мегирам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Никто не ранен.",
+          "translation": "Касе захмӣ нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Вызовите полицию.",
+          "translation": "Полисро даъват кунед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот моя страховка.",
+          "translation": "Ана суғуртаи ман.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваш номер телефона?",
+          "translation": "Рақами телефонатон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Подождите здесь, пожалуйста.",
+          "translation": "Ин ҷо интизор шавед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суғурта доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "У вас есть страховка?",
+          "cueTranslation": "Шумо суғурта доред?",
+          "intent": "Бигӯ: ҳа, ана суғуртаи ман",
+          "text": "Да, вот моя страховка.",
+          "accepts": [
+            "Да, вот.",
+            "Да, есть."
+          ],
+          "translation": "Ҳа, ана суғуртаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Вот моя.",
+          "cueTranslation": "Ташаккур. Ана аз ман.",
+          "intent": "Бипурс: рақами телефонатон?",
+          "text": "Ваш номер телефона?",
+          "accepts": [
+            "Какой у вас номер?",
+            "Номер телефона, пожалуйста?"
+          ],
+          "translation": "Рақами телефонатон?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Он есть в страховке.",
+          "cueTranslation": "Дар суғурта ҳаст.",
+          "intent": "Бигӯ: хуб. Ман акс мегирам",
+          "text": "Хорошо. Я сделаю фото.",
+          "accepts": [
+            "Сделаю фото.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Хуб. Ман акс мегирам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Занг ба полис",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Это авария.",
+          "translation": "Ин садама аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я на улице Ленина.",
+          "translation": "Ман дар кӯчаи Ленин ҳастам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужна полиция.",
+          "translation": "Полис лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "У меня пассажир.",
+          "translation": "Ман мусофир дорам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Болит спина.",
+          "translation": "Пуштам дард мекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Приезжайте быстрее, пожалуйста.",
+          "translation": "Зудтар биёед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Полис, чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Полиция. Что случилось?",
+          "cueTranslation": "Полис. Чӣ шуд?",
+          "intent": "Бигӯ: ин садама аст",
+          "text": "Это авария.",
+          "accepts": [
+            "Авария. В меня въехали.",
+            "Машина въехала в меня."
+          ],
+          "translation": "Ин садама аст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Где вы?",
+          "cueTranslation": "Шумо куҷоед?",
+          "intent": "Бигӯ: ман дар кӯчаи Ленин",
+          "text": "Я на улице Ленина.",
+          "accepts": [
+            "Улица Ленина.",
+            "На улице Ленина."
+          ],
+          "translation": "Ман дар кӯчаи Ленин ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Есть раненые?",
+          "cueTranslation": "Захмӣ ҳаст?",
+          "intent": "Бигӯ: не, касе захмӣ нест",
+          "text": "Нет, никто не ранен.",
+          "accepts": [
+            "Никто не ранен.",
+            "Нет, все в порядке."
+          ],
+          "translation": "Не, касе захмӣ нест.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: садама",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы в порядке?",
+          "cueTranslation": "Шумо хубед?",
+          "intent": "Бигӯ: ҳа, ман хубам. Шумо?",
+          "text": "Да, я в порядке. А вы?",
+          "accepts": [
+            "Я нормально. А вы?",
+            "Да. Вы в порядке?"
+          ],
+          "translation": "Ҳа, ман хубам. Шумо?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я в порядке. Извините, я виноват.",
+          "cueTranslation": "Ман хубам. Бубахшед, гуноҳ аз ман.",
+          "intent": "Бигӯ: хуб. Суғурта доред?",
+          "text": "Хорошо. У вас есть страховка?",
+          "accepts": [
+            "Ваша страховка?",
+            "Страховка есть?"
+          ],
+          "translation": "Хуб. Суғурта доред?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да. Вот.",
+          "cueTranslation": "Ҳа. Ана.",
+          "intent": "Бигӯ: ташаккур. Ман акс мегирам",
+          "text": "Спасибо. Я сделаю фото.",
+          "accepts": [
+            "Сделаю фото.",
+            "Спасибо. Фото сделаю."
+          ],
+          "translation": "Ташаккур. Ман акс мегирам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно. Звоним в полицию?",
+          "cueTranslation": "Албатта. Ба полис занг занем?",
+          "intent": "Бигӯ: ҳа, полис лозим",
+          "text": "Да, нужна полиция.",
+          "accepts": [
+            "Да, звоним.",
+            "Да. Нужен протокол."
+          ],
+          "translation": "Ҳа, полис лозим.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "class_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "На занятии",
+    "titleTranslated": "Дар дарс",
+    "scenario": "Дар дарс муаллим мегӯяд, ки китобро кушоед, савол медиҳад ва вазифа месупорад. Шумо савол медиҳед, хоҳиш мекунед, ки такрор кунад, ва мегӯед, ки чиро намефаҳмед.",
+    "emoji": "📚",
+    "order": 5,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Дарс",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Преподаватель",
+          "translation": "муаллим",
+          "literal": null,
+          "note": "Зарба: пре-по-да-ВА-тель.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Книга",
+          "translation": "китоб",
+          "literal": null,
+          "note": "Зарба: КНИ-га.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Страница",
+          "translation": "саҳифа",
+          "literal": null,
+          "note": "Зарба: стра-НИ-ца.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Вопрос",
+          "translation": "савол",
+          "literal": null,
+          "note": "Зарба: воп-РОС.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Задание",
+          "translation": "вазифа",
+          "literal": null,
+          "note": "Зарба: за-ДА-ни-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Тетрадь",
+          "translation": "дафтар",
+          "literal": null,
+          "note": "Зарба: тет-РАДЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Китобро кушоед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Откройте книги.",
+          "cueTranslation": "Китобҳоро кушоед.",
+          "intent": "Бипурс: кадом саҳифа?",
+          "text": "Какая страница?",
+          "accepts": [
+            "Какую страницу?",
+            "Страница какая?"
+          ],
+          "translation": "Кадом саҳифа?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Страница десять.",
+          "cueTranslation": "Саҳифаи даҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Хорошо.",
+            "Понятно, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Все поняли?",
+          "cueTranslation": "Ҳама фаҳмиданд?",
+          "intent": "Бигӯ: ҳа, фаҳмо",
+          "text": "Да, понятно.",
+          "accepts": [
+            "Понял.",
+            "Поняла."
+          ],
+          "translation": "Ҳа, фаҳмо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Савол мешавад?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Страница десять",
+          "translation": "Саҳифаи даҳ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно вопрос?",
+          "translation": "Савол мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ещё раз",
+          "translation": "Боз як бор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Медленнее, пожалуйста",
+          "translation": "Оҳистатар, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Домашнее задание",
+          "translation": "Вазифаи хонагӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Не понял",
+          "translation": "Нафаҳмидам",
+          "literal": null,
+          "note": "Зан мегӯяд: «Не поняла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ин калима",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Есть вопросы?",
+          "cueTranslation": "Савол ҳаст?",
+          "intent": "Бигӯ: ҳа. Савол мешавад?",
+          "text": "Да. Можно вопрос?",
+          "accepts": [
+            "Можно вопрос?",
+            "У меня вопрос."
+          ],
+          "translation": "Ҳа. Савол мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно.",
+          "cueTranslation": "Албатта.",
+          "intent": "Бипурс: ин калима чӣ маъно дорад?",
+          "text": "Что значит это слово?",
+          "accepts": [
+            "Что это значит?",
+            "Что это слово значит?"
+          ],
+          "translation": "Ин калима чӣ маъно дорад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Это значит «работа».",
+          "cueTranslation": "Ин маънои «кор»-ро дорад.",
+          "intent": "Бигӯ: фаҳмидам. Ташаккур",
+          "text": "Понятно. Спасибо.",
+          "accepts": [
+            "Понял, спасибо.",
+            "Поняла, спасибо."
+          ],
+          "translation": "Фаҳмидам. Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман савол дорам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "У меня вопрос.",
+          "translation": "Ман савол дорам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Повторите, пожалуйста.",
+          "translation": "Такрор кунед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не понял.",
+          "translation": "Нафаҳмидам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я не поняла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Как это по-русски?",
+          "translation": "Ин ба русӣ чӣ мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Говорите медленнее, пожалуйста.",
+          "translation": "Оҳистатар гап занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Это трудно.",
+          "translation": "Ин душвор.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Боз як бор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Это понятно?",
+          "cueTranslation": "Ин фаҳмо аст?",
+          "intent": "Бигӯ: не, нафаҳмидам. Такрор кунед, лутфан",
+          "text": "Нет, я не понял. Повторите, пожалуйста.",
+          "accepts": [
+            "Не понял. Повторите, пожалуйста.",
+            "Я не поняла, повторите."
+          ],
+          "translation": "Не, нафаҳмидам. Такрор кунед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Ещё раз, медленно.",
+          "cueTranslation": "Хуб. Боз як бор, оҳиста.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Теперь понятно?",
+          "cueTranslation": "Ҳоло фаҳмо?",
+          "intent": "Бигӯ: ҳа, ҳоло фаҳмо",
+          "text": "Да, теперь понятно.",
+          "accepts": [
+            "Да, понял.",
+            "Да, поняла."
+          ],
+          "translation": "Ҳа, ҳоло фаҳмо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Вазифаи хонагӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Какое домашнее задание?",
+          "translation": "Вазифаи хонагӣ чист?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "На когда?",
+          "translation": "То кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я забыл тетрадь.",
+          "translation": "Дафтарамро фаромӯш кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я забыла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно ручку?",
+          "translation": "Қалам мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, я опоздал.",
+          "translation": "Бубахшед, дер мондам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я опоздала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно войти?",
+          "translation": "Дароям?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дер мондам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы опоздали!",
+          "cueTranslation": "Шумо дер мондед!",
+          "intent": "Бигӯ: бубахшед, дер мондам. Дароям?",
+          "text": "Извините, я опоздал. Можно войти?",
+          "accepts": [
+            "Извините. Можно войти?",
+            "Извините, я опоздала."
+          ],
+          "translation": "Бубахшед, дер мондам. Дароям?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Входите. Садитесь.",
+          "cueTranslation": "Дароед. Шинед.",
+          "intent": "Бипурс: вазифаи хонагӣ чист?",
+          "text": "Какое домашнее задание?",
+          "accepts": [
+            "Что задали?",
+            "Какое задание?"
+          ],
+          "translation": "Вазифаи хонагӣ чист?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Страница двадцать, упражнение три.",
+          "cueTranslation": "Саҳифаи бист, машқи се.",
+          "intent": "Бипурс: то кай?",
+          "text": "На когда?",
+          "accepts": [
+            "Когда сдавать?",
+            "До какого дня?"
+          ],
+          "translation": "То кай?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дарс",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Откройте книги, страница десять.",
+          "cueTranslation": "Салом! Китобҳоро кушоед, саҳифаи даҳ.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Да.",
+            "Открываю."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Есть вопросы?",
+          "cueTranslation": "Савол ҳаст?",
+          "intent": "Бигӯ: ҳа. Ин калима чӣ маъно дорад?",
+          "text": "Да. Что значит это слово?",
+          "accepts": [
+            "Что значит это слово?",
+            "Можно вопрос?"
+          ],
+          "translation": "Ҳа. Ин калима чӣ маъно дорад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Это значит «дом». Понятно?",
+          "cueTranslation": "Ин маънои «хона»-ро дорад. Фаҳмо?",
+          "intent": "Бигӯ: ҳа, фаҳмо",
+          "text": "Да, понятно.",
+          "accepts": [
+            "Понял.",
+            "Поняла."
+          ],
+          "translation": "Ҳа, фаҳмо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Домашнее задание: страница двадцать.",
+          "cueTranslation": "Вазифаи хонагӣ: саҳифаи бист.",
+          "intent": "Бипурс: то кай?",
+          "text": "На когда?",
+          "accepts": [
+            "Когда сдавать?",
+            "До какого дня?"
+          ],
+          "translation": "То кай?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

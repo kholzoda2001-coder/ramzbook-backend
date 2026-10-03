@@ -1,0 +1,562 @@
+{
+  "slug": "library_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "В библиотеке",
+    "titleTranslated": "Дар китобхона",
+    "scenario": "Шумо дар китобхонаи донишгоҳ китоб мегиред ва бармегардонед, компютер ва чопгарро истифода мебаред ва мепурсед, ки китобхона то соати чанд кушода аст.",
+    "emoji": "📖",
+    "order": 8,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Китобхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Библиотека",
+          "translation": "китобхона",
+          "literal": null,
+          "note": "Зарба: биб-ли-о-ТЕ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Книга",
+          "translation": "китоб",
+          "literal": null,
+          "note": "Зарба: КНИ-га.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Взять",
+          "translation": "гирифтан",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Вернуть",
+          "translation": "баргардондан",
+          "literal": null,
+          "note": "Зарба: вер-НУТЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Компьютер",
+          "translation": "компютер",
+          "literal": null,
+          "note": "Зарба: ком-ПЬЮ-тер.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Принтер",
+          "translation": "чопгар",
+          "literal": null,
+          "note": "Зарба: ПРИН-тер.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ин китоб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Что вам?",
+          "cueTranslation": "Салом! Чӣ лозим?",
+          "intent": "Бигӯ: ба ман ин китоб лозим",
+          "text": "Мне нужна эта книга.",
+          "accepts": [
+            "Эту книгу, пожалуйста.",
+            "Можно эту книгу?"
+          ],
+          "translation": "Ба ман ин китоб лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ваш студенческий, пожалуйста.",
+          "cueTranslation": "Корти донишҷӯиатон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот книга. На две недели.",
+          "cueTranslation": "Ана китоб. Барои ду ҳафта.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ду ҳафта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Эта книга",
+          "translation": "Ин китоб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Две недели",
+          "translation": "Ду ҳафта",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Читальный зал",
+          "translation": "Толори хониш",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Свободный компьютер",
+          "translation": "Компютери холӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Распечатать, пожалуйста",
+          "translation": "Чоп кунед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Тихо, пожалуйста",
+          "translation": "Ором, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Компютер ва чоп",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Чем могу помочь?",
+          "cueTranslation": "Чӣ ёрӣ диҳам?",
+          "intent": "Бипурс: компютери холӣ ҳаст?",
+          "text": "Есть свободный компьютер?",
+          "accepts": [
+            "Компьютер свободен?",
+            "Можно компьютер?"
+          ],
+          "translation": "Компютери холӣ ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, номер пять.",
+          "cueTranslation": "Ҳа, рақами панҷ.",
+          "intent": "Бипурс: чоп кардан мумкин?",
+          "text": "Можно распечатать?",
+          "accepts": [
+            "Можно печатать?",
+            "Принтер есть?"
+          ],
+          "translation": "Чоп кардан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, пять рублей за страницу.",
+          "cueTranslation": "Ҳа, барои як саҳифа панҷ рубл.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понятно, спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Китобро бармегардонам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где эта книга?",
+          "translation": "Ин китоб куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно взять домой?",
+          "translation": "Ба хона гирам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я хочу вернуть книгу.",
+          "translation": "Мехоҳам китобро баргардонам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда вернуть?",
+          "translation": "Кай баргардонам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где читальный зал?",
+          "translation": "Толори хониш куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Интернет не работает.",
+          "translation": "Интернет кор намекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Толори хониш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте!",
+          "cueTranslation": "Салом!",
+          "intent": "Бигӯ: мехоҳам китобро баргардонам",
+          "text": "Я хочу вернуть книгу.",
+          "accepts": [
+            "Вот, возвращаю книгу.",
+            "Хочу вернуть."
+          ],
+          "translation": "Мехоҳам китобро баргардонам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Ещё что-нибудь?",
+          "cueTranslation": "Хуб. Боз чизе?",
+          "intent": "Бипурс: ин китобро ба хона гирам?",
+          "text": "Можно эту книгу домой?",
+          "accepts": [
+            "Можно взять домой?",
+            "Эту книгу можно взять?"
+          ],
+          "translation": "Ин китобро ба хона гирам?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Нет, только в читальном зале.",
+          "cueTranslation": "Не, танҳо дар толори хониш.",
+          "intent": "Бипурс: толори хониш куҷост?",
+          "text": "Где читальный зал?",
+          "accepts": [
+            "А где читальный зал?",
+            "Читальный зал где?"
+          ],
+          "translation": "Толори хониш куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "То соати чанд?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Здесь свободно?",
+          "translation": "Ин ҷо холӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Говорите тише, пожалуйста.",
+          "translation": "Оҳистатар гап занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "До скольки открыто?",
+          "translation": "То соати чанд кушода?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужен интернет.",
+          "translation": "Ба ман интернет лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Книга потерялась.",
+          "translation": "Китоб гум шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Простите за опоздание.",
+          "translation": "Барои таъхир бубахшед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Таъхир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы вернули книгу поздно.",
+          "cueTranslation": "Китобро дер баргардондед.",
+          "intent": "Бигӯ: барои таъхир бубахшед",
+          "text": "Простите за опоздание.",
+          "accepts": [
+            "Извините, пожалуйста.",
+            "Извините за опоздание."
+          ],
+          "translation": "Барои таъхир бубахшед.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ничего. Будьте внимательны.",
+          "cueTranslation": "Ҳеҷ гап не. Бодиққат бошед.",
+          "intent": "Бипурс: то соати чанд кушода?",
+          "text": "До скольки открыто?",
+          "accepts": [
+            "Во сколько закрываетесь?",
+            "Когда закрывается?"
+          ],
+          "translation": "То соати чанд кушода?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "До восьми вечера.",
+          "cueTranslation": "То ҳашти бегоҳ.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Понятно, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: китобхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ба ман ин китоб лозим",
+          "text": "Мне нужна эта книга.",
+          "accepts": [
+            "Эту книгу, пожалуйста.",
+            "Можно эту книгу?"
+          ],
+          "translation": "Ба ман ин китоб лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Студенческий, пожалуйста.",
+          "cueTranslation": "Корти донишҷӯӣ, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот. На две недели.",
+          "cueTranslation": "Ана. Барои ду ҳафта.",
+          "intent": "Бипурс: компютери холӣ ҳаст?",
+          "text": "Есть свободный компьютер?",
+          "accepts": [
+            "Компьютер свободен?",
+            "Можно компьютер?"
+          ],
+          "translation": "Компютери холӣ ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, номер три.",
+          "cueTranslation": "Ҳа, рақами се.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Отлично, спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

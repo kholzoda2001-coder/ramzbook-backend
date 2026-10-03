@@ -1,0 +1,563 @@
+{
+  "slug": "classmates_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Однокурсники",
+    "titleTranslated": "Ҳамкурсон",
+    "scenario": "Шумо бо ҳамкурсон шинос мешавед: мегӯед аз куҷо ҳастед ва дар кадом факултет мехонед, рақами телефон иваз мекунед ва якҷоя барои имтиҳон тайёрӣ мебинед.",
+    "emoji": "👫",
+    "order": 9,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳамкурс",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Однокурсник",
+          "translation": "ҳамкурс",
+          "literal": null,
+          "note": "Зарба: од-но-КУР-сник.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Друг",
+          "translation": "дӯст",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Страна",
+          "translation": "кишвар",
+          "literal": null,
+          "note": "Зарба дар охир: стра-НА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Язык",
+          "translation": "забон",
+          "literal": null,
+          "note": "Зарба: я-ЗЫК.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Специальность",
+          "translation": "ихтисос",
+          "literal": null,
+          "note": "Зарба: спе-ци-АЛЬ-ность.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Вместе",
+          "translation": "якҷоя",
+          "literal": null,
+          "note": "Зарба: ВМЕС-те.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Факултет",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты новенький?",
+          "cueTranslation": "Салом! Ту навӣ?",
+          "intent": "Бигӯ: ҳа. Ман аз Тоҷикистон",
+          "text": "Да. Я из Таджикистана.",
+          "accepts": [
+            "Да, из Таджикистана.",
+            "Да, я новая. Из Таджикистана."
+          ],
+          "translation": "Ҳа. Ман аз Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Круто! Я Маша. Какой у тебя факультет?",
+          "cueTranslation": "Олӣ! Ман Маша. Факултетат кадом?",
+          "intent": "Бигӯ: забони русӣ",
+          "text": "Русский язык.",
+          "accepts": [
+            "Экономический.",
+            "Я на экономике."
+          ],
+          "translation": "Забони русӣ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "И я тоже!",
+          "cueTranslation": "Ман ҳам!",
+          "intent": "Бигӯ: олӣ!",
+          "text": "Здорово!",
+          "accepts": [
+            "Отлично!",
+            "Класс!"
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Якҷоя",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Мой однокурсник",
+          "translation": "Ҳамкурси ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой язык?",
+          "translation": "Кадом забон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Из Таджикистана",
+          "translation": "Аз Тоҷикистон",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошая идея",
+          "translation": "Фикри хуб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Давай вместе",
+          "translation": "Биё якҷоя",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "После пары",
+          "translation": "Баъди дарс",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Қаҳва баъди дарс",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты говоришь по-английски?",
+          "cueTranslation": "Ту англисӣ гап мезанӣ?",
+          "intent": "Бигӯ: каме. Ва тоҷикӣ ва русӣ",
+          "text": "Немного. И таджикский, и русский.",
+          "accepts": [
+            "Немного.",
+            "Чуть-чуть. Ещё таджикский."
+          ],
+          "translation": "Каме. Ва тоҷикӣ ва русӣ.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Здорово! Пойдём пить кофе после пары?",
+          "cueTranslation": "Олӣ! Баъди дарс қаҳва нӯшем?",
+          "intent": "Бигӯ: фикри хуб!",
+          "text": "Хорошая идея!",
+          "accepts": [
+            "Давай!",
+            "Пойдём!"
+          ],
+          "translation": "Фикри хуб!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Встретимся у входа.",
+          "cueTranslation": "Назди даромадгоҳ вомехӯрем.",
+          "intent": "Бигӯ: хуб, то дидор",
+          "text": "Хорошо, до встречи.",
+          "accepts": [
+            "До встречи!",
+            "Хорошо, увидимся."
+          ],
+          "translation": "Хуб, то дидор.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Шиносоӣ",
+      "items": [
+        {
+          "kind": "own",
+          "text": "Меня зовут ___.",
+          "translation": "Номи ман ___.",
+          "literal": null,
+          "note": "Номи худро гӯед.",
+          "cue": "Как тебя зовут?",
+          "cueTranslation": "Номат чист?",
+          "intent": "Номи худро гӯед",
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я из Таджикистана.",
+          "translation": "Ман аз Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я учу русский язык.",
+          "translation": "Ман забони русӣ меомӯзам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ты откуда?",
+          "translation": "Ту аз куҷоӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Давай дружить!",
+          "translation": "Биё дӯст шавем!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Дай свой номер.",
+          "translation": "Рақаматро деҳ.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Рақами телефон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты откуда?",
+          "cueTranslation": "Салом! Ту аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон. Ту чӣ?",
+          "text": "Из Таджикистана. А ты?",
+          "accepts": [
+            "Из Таджикистана.",
+            "Я из Таджикистана. А ты?"
+          ],
+          "translation": "Аз Тоҷикистон. Ту чӣ?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я из Москвы.",
+          "cueTranslation": "Ман аз Москва.",
+          "intent": "Бигӯ: рақаматро деҳ",
+          "text": "Дай свой номер.",
+          "accepts": [
+            "Дашь номер?",
+            "Какой у тебя номер?"
+          ],
+          "translation": "Рақаматро деҳ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно! Пиши.",
+          "cueTranslation": "Албатта! Навис.",
+          "intent": "Бигӯ: ташаккур! Биё дӯст шавем",
+          "text": "Спасибо! Давай дружить.",
+          "accepts": [
+            "Спасибо!",
+            "Давай дружить!"
+          ],
+          "translation": "Ташаккур! Биё дӯст шавем.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Якҷоя хонем",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Давай учиться вместе.",
+          "translation": "Биё якҷоя хонем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Где ты живёшь?",
+          "translation": "Ту дар куҷо зиндагӣ мекунӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я живу в общежитии.",
+          "translation": "Ман дар ётоқ зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Пойдём в столовую.",
+          "translation": "Ба ошхона равем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Помоги мне, пожалуйста.",
+          "translation": "Ба ман ёрӣ деҳ, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "До завтра!",
+          "translation": "То фардо!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Имтиҳон наздик",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Где ты живёшь?",
+          "cueTranslation": "Ту дар куҷо зиндагӣ мекунӣ?",
+          "intent": "Бигӯ: ман дар ётоқ зиндагӣ мекунам",
+          "text": "Я живу в общежитии.",
+          "accepts": [
+            "В общежитии.",
+            "В общаге."
+          ],
+          "translation": "Ман дар ётоқ зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я тоже! Экзамен скоро.",
+          "cueTranslation": "Ман ҳам! Имтиҳон наздик.",
+          "intent": "Бигӯ: биё якҷоя хонем",
+          "text": "Давай учиться вместе.",
+          "accepts": [
+            "Давай вместе.",
+            "Будем учиться вместе?"
+          ],
+          "translation": "Биё якҷоя хонем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Отличная идея!",
+          "cueTranslation": "Фикри олӣ!",
+          "intent": "Бигӯ: то фардо!",
+          "text": "До завтра!",
+          "accepts": [
+            "Пока!",
+            "Увидимся завтра!"
+          ],
+          "translation": "То фардо!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳамкурсон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Ты новенький?",
+          "cueTranslation": "Салом! Ту навӣ?",
+          "intent": "Бигӯ: ҳа. Ман аз Тоҷикистон",
+          "text": "Да. Я из Таджикистана.",
+          "accepts": [
+            "Да, из Таджикистана.",
+            "Да, я новая. Из Таджикистана."
+          ],
+          "translation": "Ҳа. Ман аз Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я Маша. Какой у тебя факультет?",
+          "cueTranslation": "Ман Маша. Факултетат кадом?",
+          "intent": "Бигӯ: забони русӣ",
+          "text": "Русский язык.",
+          "accepts": [
+            "Экономический.",
+            "Я на экономике."
+          ],
+          "translation": "Забони русӣ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Я тоже! Где ты живёшь?",
+          "cueTranslation": "Ман ҳам! Дар куҷо зиндагӣ мекунӣ?",
+          "intent": "Бигӯ: ман дар ётоқ зиндагӣ мекунам",
+          "text": "Я живу в общежитии.",
+          "accepts": [
+            "В общежитии.",
+            "В общаге."
+          ],
+          "translation": "Ман дар ётоқ зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Давай кофе после пары?",
+          "cueTranslation": "Баъди дарс қаҳва нӯшем?",
+          "intent": "Бигӯ: фикри хуб!",
+          "text": "Хорошая идея!",
+          "accepts": [
+            "Давай!",
+            "Пойдём!"
+          ],
+          "translation": "Фикри хуб!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

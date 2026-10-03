@@ -1,0 +1,563 @@
+{
+  "slug": "register_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "В деканате",
+    "titleTranslated": "Деканат",
+    "scenario": "Шумо ба деканат меравед: мегӯед, ки донишҷӯи нав ҳастед, факултетро мегӯед, аризаро пур мекунед, акс ва нусхаи шиносномаро медиҳед ва мепурсед, ки корти донишҷӯӣ кай тайёр мешавад.",
+    "emoji": "🏫",
+    "order": 3,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Деканат",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Деканат",
+          "translation": "деканат",
+          "literal": null,
+          "note": "Зарба: де-ка-НАТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Факультет",
+          "translation": "факултет",
+          "literal": null,
+          "note": "Зарба: фа-куль-ТЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Заявление",
+          "translation": "ариза",
+          "literal": null,
+          "note": "Зарба: за-яв-ЛЕ-ни-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Фото",
+          "translation": "акс",
+          "literal": null,
+          "note": "Зарба: ФО-то.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Копия",
+          "translation": "нусха",
+          "literal": null,
+          "note": "Зарба: КО-пи-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Студенческий",
+          "translation": "корти донишҷӯӣ",
+          "literal": null,
+          "note": "Зарба: сту-ДЕН-чес-кий. Аслан «студенческий билет».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Донишҷӯи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Что вы хотите?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: ман донишҷӯи нав ҳастам",
+          "text": "Я новый студент.",
+          "accepts": [
+            "Я новая студентка.",
+            "Я первокурсник."
+          ],
+          "translation": "Ман донишҷӯи нав ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой факультет?",
+          "cueTranslation": "Кадом факултет?",
+          "intent": "Бигӯ: забони русӣ",
+          "text": "Русский язык.",
+          "accepts": [
+            "Экономика.",
+            "Экономический."
+          ],
+          "translation": "Забони русӣ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Заполните заявление.",
+          "cueTranslation": "Аризаро пур кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Хорошо, сейчас.",
+            "Ладно."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Новый студент",
+          "translation": "Донишҷӯи нав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Первый курс",
+          "translation": "Курси якум",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Две фотографии",
+          "translation": "Ду акс",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Копия паспорта",
+          "translation": "Нусхаи шиноснома",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваша фамилия?",
+          "translation": "Насабатон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Студенческий билет",
+          "translation": "Корти донишҷӯӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Акс лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ваша фамилия?",
+          "cueTranslation": "Насабатон?",
+          "intent": "Бигӯ: Раҳимов",
+          "text": "Рахимов.",
+          "accepts": [
+            "Моя фамилия Рахимов.",
+            "Рахимова."
+          ],
+          "translation": "Раҳимов.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Нужны фотографии.",
+          "cueTranslation": "Аксҳо лозиманд.",
+          "intent": "Бипурс: чандто?",
+          "text": "Сколько?",
+          "accepts": [
+            "Сколько фотографий?",
+            "Сколько нужно?"
+          ],
+          "translation": "Чандто?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Две фотографии и копия паспорта.",
+          "cueTranslation": "Ду акс ва нусхаи шиноснома.",
+          "intent": "Бигӯ: хуб, ана",
+          "text": "Хорошо, вот.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, ана.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман дар курси якум",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я новый студент.",
+          "translation": "Ман донишҷӯи нав.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я новая студентка».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Где деканат?",
+          "translation": "Деканат куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "own",
+          "text": "Моя фамилия ___.",
+          "translation": "Насаби ман ___.",
+          "literal": null,
+          "note": "Насаби худро гӯед.",
+          "cue": "Ваша фамилия?",
+          "cueTranslation": "Насабатон?",
+          "intent": "Насаби худро гӯед",
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я на первом курсе.",
+          "translation": "Ман дар курси якум.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где заполнить?",
+          "translation": "Куҷо пур кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот мои документы.",
+          "translation": "Ана ҳуҷҷатҳоям.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ин ҷо имзо кунед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы студент?",
+          "cueTranslation": "Салом! Шумо донишҷӯед?",
+          "intent": "Бигӯ: ҳа, ман дар курси якум",
+          "text": "Да, я на первом курсе.",
+          "accepts": [
+            "Да, первый курс.",
+            "Да, первокурсник."
+          ],
+          "translation": "Ҳа, ман дар курси якум.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Документы принесли?",
+          "cueTranslation": "Ҳуҷҷатҳоро овардед?",
+          "intent": "Бигӯ: ҳа, ана ҳуҷҷатҳоям",
+          "text": "Да, вот мои документы.",
+          "accepts": [
+            "Да, вот.",
+            "Вот документы."
+          ],
+          "translation": "Ҳа, ана ҳуҷҷатҳоям.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Подпишите здесь.",
+          "cueTranslation": "Хуб. Ин ҷо имзо кунед.",
+          "intent": "Бипурс: ин ҷо?",
+          "text": "Здесь?",
+          "accepts": [
+            "Вот здесь?",
+            "Где подписать?"
+          ],
+          "translation": "Ин ҷо?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Боз чӣ лозим?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Когда будет студенческий?",
+          "translation": "Корти донишҷӯӣ кай мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Что ещё нужно?",
+          "translation": "Боз чӣ лозим?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не понимаю.",
+          "translation": "Ман намефаҳмам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Повторите, пожалуйста.",
+          "translation": "Такрор кунед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда занятия?",
+          "translation": "Дарсҳо кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо за помощь.",
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Маълумотнома",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ваш студенческий будет в пятницу.",
+          "cueTranslation": "Корти донишҷӯиатон ҷумъа тайёр мешавад.",
+          "intent": "Бипурс: боз чӣ лозим?",
+          "text": "Что ещё нужно?",
+          "accepts": [
+            "Ещё что-нибудь нужно?",
+            "Что-то ещё?"
+          ],
+          "translation": "Боз чӣ лозим?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ещё медицинская справка.",
+          "cueTranslation": "Боз маълумотномаи тиббӣ.",
+          "intent": "Бигӯ: такрор кунед, лутфан",
+          "text": "Повторите, пожалуйста.",
+          "accepts": [
+            "Ещё раз, пожалуйста.",
+            "Не понял, повторите."
+          ],
+          "translation": "Такрор кунед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Справка от врача.",
+          "cueTranslation": "Маълумотнома аз духтур.",
+          "intent": "Бигӯ: фаҳмидам. Ташаккур",
+          "text": "Понятно. Спасибо.",
+          "accepts": [
+            "Понял, спасибо.",
+            "Поняла, спасибо."
+          ],
+          "translation": "Фаҳмидам. Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: деканат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ман донишҷӯи нав ҳастам",
+          "text": "Я новый студент.",
+          "accepts": [
+            "Я новая студентка.",
+            "Я первокурсник."
+          ],
+          "translation": "Ман донишҷӯи нав ҳастам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой факультет?",
+          "cueTranslation": "Кадом факултет?",
+          "intent": "Бигӯ: забони русӣ",
+          "text": "Русский язык.",
+          "accepts": [
+            "Экономика.",
+            "Экономический."
+          ],
+          "translation": "Забони русӣ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Нужны две фотографии и копия паспорта.",
+          "cueTranslation": "Ду акс ва нусхаи шиноснома лозим.",
+          "intent": "Бигӯ: хуб, ана ҳуҷҷатҳоям",
+          "text": "Хорошо, вот мои документы.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Вот документы."
+          ],
+          "translation": "Хуб, ана ҳуҷҷатҳоям.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично. Студенческий в пятницу.",
+          "cueTranslation": "Олӣ. Корти донишҷӯӣ ҷумъа.",
+          "intent": "Бигӯ: ташаккури зиёд",
+          "text": "Большое спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо большое!"
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

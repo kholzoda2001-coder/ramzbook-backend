@@ -1,0 +1,563 @@
+{
+  "slug": "pickup_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Встреча пассажира",
+    "titleTranslated": "Гирифтани мусофир",
+    "scenario": "Шумо мусофирро аз суроға мегиред: номашро мепурсед, салом медиҳед, мегӯед, ки камарбандро бандад ва мепурсед, ки ба куҷо меравад.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мусофир",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Пассажир",
+          "translation": "мусофир",
+          "literal": null,
+          "note": "Зарба: пас-са-ЖИР.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Водитель",
+          "translation": "ронанда",
+          "literal": null,
+          "note": "Зарба: во-ДИ-тель.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Имя",
+          "translation": "ном",
+          "literal": null,
+          "note": "Зарба: И-мя.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ремень",
+          "translation": "камарбанд",
+          "literal": null,
+          "note": "Зарба: ре-МЕНЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Дверь",
+          "translation": "дар",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Сзади",
+          "translation": "дар қафо",
+          "literal": null,
+          "note": "Зарба: СЗА-ди.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шумо Анна ҳастед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы мой водитель?",
+          "cueTranslation": "Салом! Шумо ронандаи ман ҳастед?",
+          "intent": "Бигӯ: ҳа. Шумо Анна?",
+          "text": "Да. Вы Анна?",
+          "accepts": [
+            "Да. Анна?",
+            "Да, я. Вы Анна?"
+          ],
+          "translation": "Ҳа. Шумо Анна?",
+          "literal": null,
+          "note": "Номи мусофирро пурсед — ин мусофири шумост?",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, я Анна.",
+          "cueTranslation": "Ҳа, ман Анна.",
+          "intent": "Бигӯ: салом! Шинед, лутфан",
+          "text": "Здравствуйте! Садитесь, пожалуйста.",
+          "accepts": [
+            "Садитесь, пожалуйста.",
+            "Здравствуйте, садитесь."
+          ],
+          "translation": "Салом! Шинед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Можно спереди?",
+          "cueTranslation": "Ташаккур. Дар пеш шинам?",
+          "intent": "Бигӯ: албатта",
+          "text": "Конечно.",
+          "accepts": [
+            "Да, конечно.",
+            "Можно."
+          ],
+          "translation": "Албатта.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Шинед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Садитесь, пожалуйста",
+          "translation": "Шинед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Доброе утро",
+          "translation": "Субҳ ба хайр",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваше имя?",
+          "translation": "Номатон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Пристегнитесь, пожалуйста",
+          "translation": "Камарбандро бандед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Десять минут",
+          "translation": "Даҳ дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Куда едем?",
+          "translation": "Ба куҷо меравем?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Камарбанд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Всё, я села.",
+          "cueTranslation": "Тамом, шиштам.",
+          "intent": "Бигӯ: камарбандро бандед, лутфан",
+          "text": "Пристегнитесь, пожалуйста.",
+          "accepts": [
+            "Пристегнитесь.",
+            "Ремень, пожалуйста."
+          ],
+          "translation": "Камарбандро бандед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой, извините. Готово.",
+          "cueTranslation": "Вой, бубахшед. Тайёр.",
+          "intent": "Бигӯ: ташаккур. Рафтем",
+          "text": "Спасибо. Поехали.",
+          "accepts": [
+            "Поехали.",
+            "Спасибо, едем."
+          ],
+          "translation": "Ташаккур. Рафтем.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Долго ехать?",
+          "cueTranslation": "Роҳ дароз аст?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "Десять минут.",
+          "accepts": [
+            "Минут десять.",
+            "Примерно десять минут."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ронандаи шумо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я ваш водитель.",
+          "translation": "Ман ронандаи шумо ҳастам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Закройте дверь, пожалуйста.",
+          "translation": "Дарро пӯшед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Это ваша сумка?",
+          "translation": "Ин сумкаи шумост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "own",
+          "text": "Меня зовут ___.",
+          "translation": "Номи ман ___.",
+          "literal": null,
+          "note": "Номи худро гӯед.",
+          "cue": "Как вас зовут?",
+          "cueTranslation": "Номатон чист?",
+          "intent": "Номи худро гӯед",
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Вам удобно?",
+          "translation": "Ба шумо бароҳат аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Поехали!",
+          "translation": "Рафтем!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба куҷо?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Это моё такси?",
+          "cueTranslation": "Салом! Ин таксии ман аст?",
+          "intent": "Бигӯ: ҳа, ман ронандаи шумо",
+          "text": "Да, я ваш водитель.",
+          "accepts": [
+            "Да. Я ваш водитель.",
+            "Да, ваше."
+          ],
+          "translation": "Ҳа, ман ронандаи шумо.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Можно сумку сюда?",
+          "cueTranslation": "Сумкаро ин ҷо гузорам?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Да, конечно.",
+          "accepts": [
+            "Конечно.",
+            "Да, можно."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Я готова.",
+          "cueTranslation": "Ташаккур. Тайёрам.",
+          "intent": "Бипурс: ба куҷо меравем?",
+          "text": "Куда едем?",
+          "accepts": [
+            "Куда вам?",
+            "Куда поедем?"
+          ],
+          "translation": "Ба куҷо меравем?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Музыка нормально?",
+          "translation": "Мусиқӣ хуб аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Не холодно?",
+          "translation": "Хунук нест?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Открыть окно?",
+          "translation": "Тирезаро кушоям?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Окно",
+          "translation": "тиреза",
+          "literal": null,
+          "note": "Зарба дар охир: ок-НО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Приехали.",
+          "translation": "Расидем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошего дня!",
+          "translation": "Рӯзи хуш!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Расидем",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Это здесь?",
+          "cueTranslation": "Ҳамин ҷост?",
+          "intent": "Бигӯ: ҳа, расидем",
+          "text": "Да, приехали.",
+          "accepts": [
+            "Приехали.",
+            "Да, здесь."
+          ],
+          "translation": "Ҳа, расидем.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично! Спасибо!",
+          "cueTranslation": "Олӣ! Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш",
+          "text": "Хорошего дня!",
+          "accepts": [
+            "Всего доброго!",
+            "До свидания!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "И вам! До свидания!",
+          "cueTranslation": "Ба шумо ҳам! Хайр!",
+          "intent": "Бигӯ: хайр",
+          "text": "До свидания!",
+          "accepts": [
+            "Всего доброго!",
+            "Пока!"
+          ],
+          "translation": "Хайр!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мусофири аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы мой водитель?",
+          "cueTranslation": "Салом! Шумо ронандаи ман ҳастед?",
+          "intent": "Бигӯ: ҳа. Шумо Анна?",
+          "text": "Да. Вы Анна?",
+          "accepts": [
+            "Да. Анна?",
+            "Да, я. Вы Анна?"
+          ],
+          "translation": "Ҳа. Шумо Анна?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да! Можно сзади?",
+          "cueTranslation": "Ҳа! Дар қафо шинам?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Да, конечно.",
+          "accepts": [
+            "Конечно.",
+            "Да, можно."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Всё, я села.",
+          "cueTranslation": "Тамом, шиштам.",
+          "intent": "Бигӯ: камарбандро бандед, лутфан",
+          "text": "Пристегнитесь, пожалуйста.",
+          "accepts": [
+            "Пристегнитесь.",
+            "Ремень, пожалуйста."
+          ],
+          "translation": "Камарбандро бандед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно. Готово.",
+          "cueTranslation": "Албатта. Тайёр.",
+          "intent": "Бипурс: ба куҷо меравем?",
+          "text": "Куда едем?",
+          "accepts": [
+            "Куда вам?",
+            "Куда поедем?"
+          ],
+          "translation": "Ба куҷо меравем?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

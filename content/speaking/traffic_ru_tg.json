@@ -1,0 +1,562 @@
+{
+  "slug": "traffic_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Пробки и опоздание",
+    "titleTranslated": "Роҳбандӣ ва дер мондан",
+    "scenario": "Роҳ банд аст ва мусофир шитоб дорад. Шумо мегӯед, ки пробка аст, чанд дақиқа мемонад, роҳи дигарро пешниҳод мекунед ва ором мегӯед, ки тезтар рондан хатарнок аст.",
+    "emoji": "🚦",
+    "order": 12,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Роҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Пробка",
+          "translation": "роҳбандӣ",
+          "literal": null,
+          "note": "Зарба: ПРОБ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Опоздание",
+          "translation": "дер мондан",
+          "literal": null,
+          "note": "Зарба: о-поз-ДА-ни-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Срочно",
+          "translation": "фаврӣ",
+          "literal": null,
+          "note": "Зарба: СРОЧ-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Дорога",
+          "translation": "роҳ",
+          "literal": null,
+          "note": "Зарба: до-РО-га.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Мост",
+          "translation": "пул (кӯпрук)",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Минуты",
+          "translation": "дақиқаҳо",
+          "literal": null,
+          "note": "Зарба: ми-НУ-ты.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Роҳбандӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Почему так медленно?",
+          "cueTranslation": "Чаро ин қадар оҳиста?",
+          "intent": "Бигӯ: роҳбандии калон",
+          "text": "Большая пробка.",
+          "accepts": [
+            "Пробка.",
+            "Пробки, извините."
+          ],
+          "translation": "Роҳбандии калон.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я опаздываю на работу!",
+          "cueTranslation": "Ба кор дер мемонам!",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Извините.",
+          "accepts": [
+            "Извините, пожалуйста.",
+            "Простите."
+          ],
+          "translation": "Бубахшед.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько минут?",
+          "cueTranslation": "Чанд дақиқа?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "Десять минут.",
+          "accepts": [
+            "Минут десять.",
+            "Примерно десять минут."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Роҳи дигар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Большая пробка",
+          "translation": "Роҳбандии калон",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Десять минут",
+          "translation": "Даҳ дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Другая дорога",
+          "translation": "Роҳи дигар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, пожалуйста",
+          "translation": "Бубахшед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Дорога закрыта",
+          "translation": "Роҳ баста",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Почти приехали",
+          "translation": "Қариб расидем",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Тезтар аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Есть другая дорога?",
+          "cueTranslation": "Роҳи дигар ҳаст?",
+          "intent": "Бигӯ: ҳа, роҳи дигар ҳаст",
+          "text": "Да, есть другая дорога.",
+          "accepts": [
+            "Да, есть.",
+            "Есть."
+          ],
+          "translation": "Ҳа, роҳи дигар ҳаст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Так быстрее?",
+          "cueTranslation": "Ҳамин тавр тезтар?",
+          "intent": "Бигӯ: ҳа, тезтар",
+          "text": "Да, быстрее.",
+          "accepts": [
+            "Быстрее.",
+            "Да, немного быстрее."
+          ],
+          "translation": "Ҳа, тезтар.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, поехали там.",
+          "cueTranslation": "Хуб, аз он ҷо равем.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, едем."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Роҳ баста",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Дорога закрыта.",
+          "translation": "Роҳ баста аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Там авария.",
+          "translation": "Он ҷо садама.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Поедем другой дорогой.",
+          "translation": "Аз роҳи дигар меравем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Сейчас много машин.",
+          "translation": "Ҳоло мошин бисёр аст.",
+          "literal": null,
+          "note": "Субҳ ва бегоҳ, вақте ҳама ба кор мераванд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, долго.",
+          "translation": "Бубахшед, дер шуд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Не опоздаете.",
+          "translation": "Дер намемонед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Почему стоим?",
+          "cueTranslation": "Чаро истодаем?",
+          "intent": "Бигӯ: роҳ баста аст",
+          "text": "Дорога закрыта.",
+          "accepts": [
+            "Закрыта дорога.",
+            "Дорога закрыта, извините."
+          ],
+          "translation": "Роҳ баста аст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой! Что случилось?",
+          "cueTranslation": "Вой! Чӣ шуд?",
+          "intent": "Бигӯ: он ҷо садама",
+          "text": "Там авария.",
+          "accepts": [
+            "Авария.",
+            "Там авария впереди."
+          ],
+          "translation": "Он ҷо садама.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Что делать?",
+          "cueTranslation": "Чӣ кор кунем?",
+          "intent": "Бигӯ: аз роҳи дигар меравем",
+          "text": "Поедем другой дорогой.",
+          "accepts": [
+            "Объедем.",
+            "Поедем другой дорогой."
+          ],
+          "translation": "Аз роҳи дигар меравем.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хатарнок аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Быстрее нельзя.",
+          "translation": "Тезтар мумкин нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Это опасно.",
+          "translation": "Ин хатарнок аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ещё пять минут.",
+          "translation": "Боз панҷ дақиқа.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Позвоните начальнику.",
+          "translation": "Ба сардоратон занг занед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Не волнуйтесь.",
+          "translation": "Хавотир нашавед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот, приехали.",
+          "translation": "Ана, расидем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тезтар!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Быстрее, пожалуйста! Я очень опаздываю!",
+          "cueTranslation": "Тезтар, лутфан! Хеле дер мондам!",
+          "intent": "Бигӯ: тезтар мумкин нест",
+          "text": "Быстрее нельзя.",
+          "accepts": [
+            "Извините, нельзя.",
+            "Нельзя быстрее."
+          ],
+          "translation": "Тезтар мумкин нест.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Почему?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: ин хатарнок аст",
+          "text": "Это опасно.",
+          "accepts": [
+            "Опасно.",
+            "Это опасно, извините."
+          ],
+          "translation": "Ин хатарнок аст.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ладно, ладно. Сколько ещё?",
+          "cueTranslation": "Хуб, хуб. Боз чанд?",
+          "intent": "Бигӯ: боз панҷ дақиқа. Хавотир нашавед",
+          "text": "Ещё пять минут. Не волнуйтесь.",
+          "accepts": [
+            "Пять минут.",
+            "Не волнуйтесь, пять минут."
+          ],
+          "translation": "Боз панҷ дақиқа. Хавотир нашавед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: роҳбандӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Почему так медленно?",
+          "cueTranslation": "Чаро ин қадар оҳиста?",
+          "intent": "Бигӯ: роҳбандии калон",
+          "text": "Большая пробка.",
+          "accepts": [
+            "Пробка.",
+            "Пробки, извините."
+          ],
+          "translation": "Роҳбандии калон.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "У меня самолёт в шесть!",
+          "cueTranslation": "Соати шаш ҳавопаймо дорам!",
+          "intent": "Бигӯ: хавотир нашавед",
+          "text": "Не волнуйтесь.",
+          "accepts": [
+            "Не переживайте.",
+            "Успеем, не волнуйтесь."
+          ],
+          "translation": "Хавотир нашавед.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Есть другая дорога?",
+          "cueTranslation": "Роҳи дигар ҳаст?",
+          "intent": "Бигӯ: ҳа, аз роҳи дигар меравем",
+          "text": "Да, поедем другой дорогой.",
+          "accepts": [
+            "Да, объедем.",
+            "Да, есть другая дорога."
+          ],
+          "translation": "Ҳа, аз роҳи дигар меравем.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо! Мы скоро?",
+          "cueTranslation": "Ташаккур! Зуд мерасем?",
+          "intent": "Бигӯ: қариб расидем",
+          "text": "Почти приехали.",
+          "accepts": [
+            "Почти.",
+            "Ещё пять минут."
+          ],
+          "translation": "Қариб расидем.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "money_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Деньги и переводы",
+    "titleTranslated": "Пул ва фиристодан ба хона",
+    "scenario": "Шумо ба оила пул мефиристед: мегӯед ба куҷо ва чанд, қурб ва комиссияро мепурсед, шиносномаро нишон медиҳед ва агар банкомат кортро нигоҳ дорад, ба бонк занг мезанед.",
+    "emoji": "💱",
+    "order": 11,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Деньги",
+          "translation": "пул",
+          "literal": null,
+          "note": "Зарба: ДЕНЬ-ги.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Перевод",
+          "translation": "интиқол",
+          "literal": null,
+          "note": "Зарба: пе-ре-ВОД.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Банкомат",
+          "translation": "банкомат",
+          "literal": null,
+          "note": "Зарба: бан-ко-МАТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Курс",
+          "translation": "қурб",
+          "literal": null,
+          "note": "Як ҳиҷо. Нархи асъор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Комиссия",
+          "translation": "комиссия",
+          "literal": null,
+          "note": "Зарба: ко-МИС-си-я. Пули иловагӣ барои хизмат.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Отправить",
+          "translation": "фиристодан",
+          "literal": null,
+          "note": "Зарба: от-ПРА-вить.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пул фиристодан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: мехоҳам пул фиристам",
+          "text": "Хочу отправить деньги.",
+          "accepts": [
+            "Отправить деньги.",
+            "Мне нужно отправить деньги."
+          ],
+          "translation": "Мехоҳам пул фиристам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Куда?",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бигӯ: ба Тоҷикистон",
+          "text": "В Таджикистан.",
+          "accepts": [
+            "Таджикистан.",
+            "В Таджикистан, пожалуйста."
+          ],
+          "translation": "Ба Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: бист ҳазор рубл",
+          "text": "Двадцать тысяч рублей.",
+          "accepts": [
+            "Двадцать тысяч.",
+            "20 тысяч."
+          ],
+          "translation": "Бист ҳазор рубл.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Қурби асъор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Двадцать тысяч",
+          "translation": "Бист ҳазор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Курс валют",
+          "translation": "Қурби асъор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Отправить деньги",
+          "translation": "Пул фиристодан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Без комиссии",
+          "translation": "Бе комиссия",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Моя семья",
+          "translation": "Оилаи ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Только наличные",
+          "translation": "Танҳо нақд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Қурб чанд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Доброе утро!",
+          "cueTranslation": "Субҳ ба хайр!",
+          "intent": "Бипурс: қурб чанд?",
+          "text": "Какой курс?",
+          "accepts": [
+            "Какой сегодня курс?",
+            "Курс какой?"
+          ],
+          "translation": "Қурб чанд?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Одиннадцать сомони за сто рублей.",
+          "cueTranslation": "Ёздаҳ сомонӣ барои сад рубл.",
+          "intent": "Бипурс: комиссия ҳаст?",
+          "text": "Есть комиссия?",
+          "accepts": [
+            "Комиссия есть?",
+            "Какая комиссия?"
+          ],
+          "translation": "Комиссия ҳаст?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Сегодня без комиссии.",
+          "cueTranslation": "Имрӯз бе комиссия.",
+          "intent": "Бигӯ: олӣ",
+          "text": "Отлично!",
+          "accepts": [
+            "Хорошо.",
+            "Отлично, спасибо!"
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ба Тоҷикистон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Отправить домой.",
+          "translation": "Ба хона фиристодан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "В Таджикистан, пожалуйста.",
+          "translation": "Ба Тоҷикистон, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда будут?",
+          "translation": "Кай мерасад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот мой паспорт.",
+          "translation": "Ана шиносномаи ман.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Какая комиссия?",
+          "translation": "Комиссия чанд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где банкомат?",
+          "translation": "Банкомат куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Шиноснома",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Следующий, пожалуйста.",
+          "cueTranslation": "Навбатӣ, лутфан.",
+          "intent": "Бигӯ: мехоҳам ба хона пул фиристам",
+          "text": "Хочу отправить деньги домой.",
+          "accepts": [
+            "Отправить деньги домой.",
+            "Перевод домой, пожалуйста."
+          ],
+          "translation": "Мехоҳам ба хона пул фиристам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Куда?",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бигӯ: ба Тоҷикистон, лутфан",
+          "text": "В Таджикистан, пожалуйста.",
+          "accepts": [
+            "Таджикистан.",
+            "В Таджикистан."
+          ],
+          "translation": "Ба Тоҷикистон, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Паспорт, пожалуйста.",
+          "cueTranslation": "Хуб. Шиноснома, лутфан.",
+          "intent": "Бигӯ: ана шиносномаи ман",
+          "text": "Вот мой паспорт.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Пожалуйста."
+          ],
+          "translation": "Ана шиносномаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Банкомат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Банкомат не работает.",
+          "translation": "Банкомат кор намекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужны наличные.",
+          "translation": "Ба ман пули нақд лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Проверьте, пожалуйста.",
+          "translation": "Лутфан, санҷед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это безопасно?",
+          "translation": "Бехатар аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Чек, пожалуйста.",
+          "translation": "Чек, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо за помощь.",
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кортам монд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Банк, здравствуйте. Чем помочь?",
+          "cueTranslation": "Бонк, салом. Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: банкомат кор намекунад",
+          "text": "Банкомат не работает.",
+          "accepts": [
+            "Карта осталась в банкомате.",
+            "Банкомат съел карту."
+          ],
+          "translation": "Банкомат кор намекунад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какой банкомат?",
+          "cueTranslation": "Кадом банкомат?",
+          "intent": "Бигӯ: дар кӯчаи Ленин",
+          "text": "На улице Ленина.",
+          "accepts": [
+            "Улица Ленина.",
+            "Тот, что на Ленина."
+          ],
+          "translation": "Дар кӯчаи Ленин.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Приходите завтра с паспортом.",
+          "cueTranslation": "Хуб. Фардо бо шиноснома биёед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Хорошо, завтра."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: пул ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: мехоҳам ба хона пул фиристам",
+          "text": "Хочу отправить деньги домой.",
+          "accepts": [
+            "Перевод домой, пожалуйста.",
+            "Отправить деньги домой."
+          ],
+          "translation": "Мехоҳам ба хона пул фиристам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: сӣ ҳазор рубл",
+          "text": "Тридцать тысяч рублей.",
+          "accepts": [
+            "Тридцать тысяч.",
+            "30 тысяч."
+          ],
+          "translation": "Сӣ ҳазор рубл.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Комиссия сто рублей.",
+          "cueTranslation": "Комиссия сад рубл.",
+          "intent": "Бипурс: кай мерасад",
+          "text": "Когда будут?",
+          "accepts": [
+            "Когда придут деньги?",
+            "Сколько идут?"
+          ],
+          "translation": "Кай мерасад?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Через час.",
+          "cueTranslation": "Пас аз як соат.",
+          "intent": "Бигӯ: олӣ. Ана шиносномаи ман",
+          "text": "Отлично. Вот мой паспорт.",
+          "accepts": [
+            "Отлично!",
+            "Вот мой паспорт."
+          ],
+          "translation": "Олӣ. Ана шиносномаи ман.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,564 @@
+{
+  "slug": "traffic_stop_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Остановка ДПС",
+    "titleTranslated": "Полиси роҳ",
+    "scenario": "Нозири ДПС мошинро нигоҳ медорад. Шумо ором ҳастед, шаҳодатнома ва суғуртаро медиҳед, кӯтоҳ ҷавоб медиҳед ва агар нафаҳмед — хоҳиш мекунед, ки оҳиста гӯяд.",
+    "emoji": "👮",
+    "order": 17,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳуҷҷатҳои ронанда",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Полиция",
+          "translation": "полис",
+          "literal": null,
+          "note": "Зарба: по-ЛИ-ци-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Права",
+          "translation": "шаҳодатномаи ронандагӣ",
+          "literal": null,
+          "note": "Зарба дар охир: пра-ВА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Инспектор",
+          "translation": "нозир",
+          "literal": null,
+          "note": "Зарба: ин-СПЕК-тор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Скорость",
+          "translation": "суръат",
+          "literal": null,
+          "note": "Зарба: СКО-рость.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Штраф",
+          "translation": "ҷарима",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Страховка",
+          "translation": "суғурта",
+          "literal": null,
+          "note": "Зарба: стра-ХОВ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте. Ваши документы.",
+          "cueTranslation": "Салом. Ҳуҷҷатҳоятон.",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Да, пожалуйста.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Вот документы."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "И страховку.",
+          "cueTranslation": "Ва суғуртаро.",
+          "intent": "Бигӯ: як сония",
+          "text": "Одну секунду.",
+          "accepts": [
+            "Секунду.",
+            "Сейчас."
+          ],
+          "translation": "Як сония.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Оставайтесь в машине.",
+          "cueTranslation": "Ташаккур. Дар мошин монед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Хорошо, понял.",
+            "Хорошо, поняла."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Хеле тез",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Мои права",
+          "translation": "Шаҳодатномаи ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Документы машины",
+          "translation": "Ҳуҷҷатҳои мошин",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень быстро",
+          "translation": "Хеле тез",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ограничение скорости",
+          "translation": "Ҳадди суръат",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Одну секунду",
+          "translation": "Як сония",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Всё понятно",
+          "translation": "Ҳама фаҳмо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суръат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы знаете, какая у вас скорость?",
+          "cueTranslation": "Медонед, суръататон чанд буд?",
+          "intent": "Бигӯ: не, бубахшед",
+          "text": "Нет, извините.",
+          "accepts": [
+            "Нет.",
+            "Извините, не знаю."
+          ],
+          "translation": "Не, бубахшед.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вы ехали семьдесят.",
+          "cueTranslation": "Шумо ҳафтод рондед.",
+          "intent": "Бигӯ: бубахшед, нозир",
+          "text": "Извините, инспектор.",
+          "accepts": [
+            "Извините.",
+            "Простите, пожалуйста."
+          ],
+          "translation": "Бубахшед, нозир.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Здесь можно пятьдесят.",
+          "cueTranslation": "Ин ҷо панҷоҳ мумкин.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Понятно.",
+          "accepts": [
+            "Понял.",
+            "Поняла.",
+            "Хорошо, понятно."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Оҳиста, лутфан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Вот мои права.",
+          "translation": "Ана шаҳодатномаи ман.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я не знал.",
+          "translation": "Ман намедонистам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я не знала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Говорите медленно, пожалуйста.",
+          "translation": "Оҳиста гап занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Повторите, пожалуйста.",
+          "translation": "Такрор кунед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Это штраф?",
+          "translation": "Ин ҷарима аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где платить штраф?",
+          "translation": "Ҷаримаро куҷо пардохт кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суғуртаи кӯҳна",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ваша страховка просрочена.",
+          "cueTranslation": "Мӯҳлати суғуртаатон гузаштааст.",
+          "intent": "Бигӯ: оҳиста гап занед, лутфан",
+          "text": "Говорите медленно, пожалуйста.",
+          "accepts": [
+            "Медленно, пожалуйста.",
+            "Повторите, пожалуйста."
+          ],
+          "translation": "Оҳиста гап занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Страховка. Она старая.",
+          "cueTranslation": "Суғурта. Кӯҳна аст.",
+          "intent": "Бигӯ: ана навашро",
+          "text": "Вот новая.",
+          "accepts": [
+            "Вот новая страховка.",
+            "Есть новая, вот."
+          ],
+          "translation": "Ана навашро.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, спасибо.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бипурс: ин ҷарима аст?",
+          "text": "Это штраф?",
+          "accepts": [
+            "Штраф будет?",
+            "Будет штраф?"
+          ],
+          "translation": "Ин ҷарима аст?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Эҳтиёттар мешавам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Спасибо, инспектор.",
+          "translation": "Ташаккур, нозир.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно ехать?",
+          "translation": "Равам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Буду осторожнее.",
+          "translation": "Эҳтиёттар мешавам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я работаю в такси.",
+          "translation": "Ман дар такси кор мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Пассажир ждёт.",
+          "translation": "Мусофир интизор аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Всё в порядке?",
+          "translation": "Ҳама дуруст аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Танҳо огоҳӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сегодня только предупреждение.",
+          "cueTranslation": "Имрӯз танҳо огоҳӣ.",
+          "intent": "Бигӯ: ташаккур, нозир",
+          "text": "Спасибо, инспектор.",
+          "accepts": [
+            "Спасибо большое.",
+            "Спасибо!"
+          ],
+          "translation": "Ташаккур, нозир.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Езжайте медленнее, хорошо?",
+          "cueTranslation": "Оҳистатар ронед, хуб?",
+          "intent": "Бигӯ: ҳа, эҳтиёттар мешавам",
+          "text": "Да, буду осторожнее.",
+          "accepts": [
+            "Хорошо, буду осторожнее.",
+            "Да, конечно."
+          ],
+          "translation": "Ҳа, эҳтиёттар мешавам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Вот ваши документы.",
+          "cueTranslation": "Хуб. Ана ҳуҷҷатҳоятон.",
+          "intent": "Ташаккур гӯй ва бипурс: равам?",
+          "text": "Спасибо. Можно ехать?",
+          "accepts": [
+            "Можно ехать?",
+            "Спасибо. Я могу ехать?"
+          ],
+          "translation": "Ташаккур. Равам?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ДПС",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Добрый вечер. Документы и страховку.",
+          "cueTranslation": "Шоми хуш. Ҳуҷҷатҳо ва суғурта.",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Да, пожалуйста.",
+          "accepts": [
+            "Вот, пожалуйста.",
+            "Вот документы."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вы ехали слишком быстро.",
+          "cueTranslation": "Шумо хеле тез рондед.",
+          "intent": "Бигӯ: бубахшед, намедонистам",
+          "text": "Извините, я не знал.",
+          "accepts": [
+            "Извините, я не знала.",
+            "Извините, инспектор.",
+            "Простите, не знал."
+          ],
+          "translation": "Бубахшед, намедонистам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Здесь школа. Можно только двадцать.",
+          "cueTranslation": "Ин ҷо мактаб. Танҳо бист мумкин.",
+          "intent": "Бигӯ: фаҳмидам. Эҳтиёттар мешавам",
+          "text": "Понятно. Буду осторожнее.",
+          "accepts": [
+            "Понятно.",
+            "Хорошо, буду осторожнее."
+          ],
+          "translation": "Фаҳмидам. Эҳтиёттар мешавам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Сегодня только предупреждение.",
+          "cueTranslation": "Хуб. Имрӯз танҳо огоҳӣ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо, инспектор.",
+          "accepts": [
+            "Спасибо большое.",
+            "Спасибо!"
+          ],
+          "translation": "Ташаккур, нозир.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

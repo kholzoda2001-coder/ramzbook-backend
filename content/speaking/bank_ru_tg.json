@@ -1,0 +1,562 @@
+{
+  "slug": "bank_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Банк и стипендия",
+    "titleTranslated": "Бонк ва стипендия",
+    "scenario": "Донишҷӯ барои стипендия корти бонкӣ лозим дорад. Шумо корт мекушоед, мепурсед, ки хизмат пулакӣ аст ё не, агар рамзро фаромӯш кунед — ёрӣ мепурсед, ва тарифи донишҷӯӣ мегиред.",
+    "emoji": "🏦",
+    "order": 15,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Бонк",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Банк",
+          "translation": "бонк",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Карта",
+          "translation": "корт",
+          "literal": null,
+          "note": "Зарба: КАР-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Счёт",
+          "translation": "ҳисоб",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Стипендия",
+          "translation": "стипендия",
+          "literal": null,
+          "note": "Зарба: сти-ПЕН-ди-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Банкомат",
+          "translation": "банкомат",
+          "literal": null,
+          "note": "Зарба: бан-ко-МАТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Пин-код",
+          "translation": "рамзи корт",
+          "literal": null,
+          "note": "Зарба: пин-КОД.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Корт кушодан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: мехоҳам корт кушоям",
+          "text": "Хочу открыть карту.",
+          "accepts": [
+            "Мне нужна карта.",
+            "Открыть карту, пожалуйста."
+          ],
+          "translation": "Мехоҳам корт кушоям.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Для стипендии?",
+          "cueTranslation": "Барои стипендия?",
+          "intent": "Бигӯ: ҳа, барои стипендия",
+          "text": "Да, для стипендии.",
+          "accepts": [
+            "Да.",
+            "Да, для стипендии."
+          ],
+          "translation": "Ҳа, барои стипендия.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Паспорт и студенческий, пожалуйста.",
+          "cueTranslation": "Шиноснома ва корти донишҷӯӣ, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот документы."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Корти нав",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Новая карта",
+          "translation": "Корти нав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Для стипендии",
+          "translation": "Барои стипендия",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой счёт",
+          "translation": "Ҳисоби ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Без комиссии",
+          "translation": "Бе комиссия",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Забыл пин-код",
+          "translation": "Рамзро фаромӯш кардам",
+          "literal": null,
+          "note": "Зан мегӯяд: «Забыла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Карта заблокирована",
+          "translation": "Корт баста шуд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ройгон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Карта будет через неделю.",
+          "cueTranslation": "Корт пас аз як ҳафта тайёр мешавад.",
+          "intent": "Бипурс: ин ройгон аст",
+          "text": "Это бесплатно?",
+          "accepts": [
+            "Обслуживание платное?",
+            "Сколько стоит?"
+          ],
+          "translation": "Ин ройгон аст?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Для студентов бесплатно.",
+          "cueTranslation": "Барои донишҷӯён ройгон.",
+          "intent": "Бигӯ: олӣ!",
+          "text": "Отлично!",
+          "accepts": [
+            "Здорово!",
+            "Отлично, спасибо!"
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Подпишите здесь.",
+          "cueTranslation": "Ин ҷо имзо кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, здесь?"
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Корт кор намекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Когда стипендия?",
+          "translation": "Стипендия кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Где банкомат?",
+          "translation": "Банкомат куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Карта не работает.",
+          "translation": "Корт кор намекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я забыл пин-код.",
+          "translation": "Рамзамро фаромӯш кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я забыла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно новую карту?",
+          "translation": "Корти нав мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько на счёте?",
+          "translation": "Дар ҳисоб чанд аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Рамз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Следующий!",
+          "cueTranslation": "Навбатӣ!",
+          "intent": "Бигӯ: корт кор намекунад",
+          "text": "Карта не работает.",
+          "accepts": [
+            "Моя карта не работает.",
+            "Не работает карта."
+          ],
+          "translation": "Корт кор намекунад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вы правильно ввели пин-код?",
+          "cueTranslation": "Рамзро дуруст дохил кардед?",
+          "intent": "Бигӯ: рамзамро фаромӯш кардам",
+          "text": "Я забыл пин-код.",
+          "accepts": [
+            "Я забыла пин-код.",
+            "Забыл пин-код."
+          ],
+          "translation": "Рамзамро фаромӯш кардам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ничего. Сделаем новый.",
+          "cueTranslation": "Ҳеҷ гап не. Навашро месозем.",
+          "intent": "Ташаккур гӯй",
+          "text": "Большое спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тарифи донишҷӯӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Нужен новый номер.",
+          "translation": "Рақами нав лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Для студентов есть?",
+          "translation": "Барои донишҷӯён ҳаст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько интернета?",
+          "translation": "Интернет чӣ қадар?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно оплатить телефоном?",
+          "translation": "Бо телефон пардохт мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Положите деньги, пожалуйста.",
+          "translation": "Лутфан, пул гузоред.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Помогите, пожалуйста.",
+          "translation": "Ёрӣ диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Сим-корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Слушаю вас.",
+          "cueTranslation": "Салом! Гӯш мекунам.",
+          "intent": "Бигӯ: рақами нав лозим",
+          "text": "Нужен новый номер.",
+          "accepts": [
+            "Сим-карту, пожалуйста.",
+            "Нужна сим-карта."
+          ],
+          "translation": "Рақами нав лозим.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Есть студенческий тариф.",
+          "cueTranslation": "Тарифи донишҷӯӣ ҳаст.",
+          "intent": "Бипурс: интернет чӣ қадар",
+          "text": "Сколько интернета?",
+          "accepts": [
+            "Сколько интернета?",
+            "Сколько там гигабайт?"
+          ],
+          "translation": "Интернет чӣ қадар?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Тридцать, за триста рублей.",
+          "cueTranslation": "Сӣ, барои сесад рубл.",
+          "intent": "Бигӯ: олӣ, мегирам",
+          "text": "Отлично, беру.",
+          "accepts": [
+            "Беру.",
+            "Хорошо, беру."
+          ],
+          "translation": "Олӣ, мегирам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бонк",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: мехоҳам корт кушоям",
+          "text": "Хочу открыть карту.",
+          "accepts": [
+            "Мне нужна карта.",
+            "Открыть карту, пожалуйста."
+          ],
+          "translation": "Мехоҳам корт кушоям.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Для стипендии?",
+          "cueTranslation": "Барои стипендия?",
+          "intent": "Бигӯ: ҳа. Ин ройгон аст",
+          "text": "Да. Это бесплатно?",
+          "accepts": [
+            "Да. Сколько стоит?",
+            "Да. Это платно?"
+          ],
+          "translation": "Ҳа. Ин ройгон аст?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Для студентов бесплатно.",
+          "cueTranslation": "Барои донишҷӯён ройгон.",
+          "intent": "Бигӯ: олӣ! Ана ҳуҷҷатҳоям",
+          "text": "Отлично! Вот мои документы.",
+          "accepts": [
+            "Отлично!",
+            "Вот документы."
+          ],
+          "translation": "Олӣ! Ана ҳуҷҷатҳоям.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Карта через неделю.",
+          "cueTranslation": "Ташаккур. Корт пас аз як ҳафта.",
+          "intent": "Бипурс: стипендия кай?",
+          "text": "Когда стипендия?",
+          "accepts": [
+            "Когда будет стипендия?",
+            "А стипендия когда?"
+          ],
+          "translation": "Стипендия кай?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

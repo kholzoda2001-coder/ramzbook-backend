@@ -1,0 +1,562 @@
+{
+  "slug": "help_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Просим помощь",
+    "titleTranslated": "Ёрӣ пурсидан",
+    "scenario": "Шумо аз муаллим ва куратор ёрӣ мепурсед: мегӯед, ки машқ душвор аст, хоҳиш мекунед, ки фаҳмонад, мӯҳлати супоридан мепурсед ва маълумотнома мегиред.",
+    "emoji": "🙋",
+    "order": 11,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ёрӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Помощь",
+          "translation": "ёрӣ",
+          "literal": null,
+          "note": "Зарба: ПО-мощь.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Объяснить",
+          "translation": "фаҳмондан",
+          "literal": null,
+          "note": "Зарба: объ-яс-НИТЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Понятно",
+          "translation": "фаҳмо",
+          "literal": null,
+          "note": "Зарба: по-НЯТ-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Трудно",
+          "translation": "душвор",
+          "literal": null,
+          "note": "Зарба: ТРУД-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Консультация",
+          "translation": "машварат",
+          "literal": null,
+          "note": "Зарба: кон-суль-ТА-ци-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Куратор",
+          "translation": "куратор (сарпараст)",
+          "literal": null,
+          "note": "Зарба: ку-РА-тор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ёрӣ диҳед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы что-то хотели?",
+          "cueTranslation": "Шумо чизе мехостед?",
+          "intent": "Бигӯ: ҳа. Ёрӣ диҳед, лутфан",
+          "text": "Да. Помогите, пожалуйста.",
+          "accepts": [
+            "Можно помощь?",
+            "Помогите, пожалуйста."
+          ],
+          "translation": "Ҳа. Ёрӣ диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно. Что непонятно?",
+          "cueTranslation": "Албатта. Чӣ фаҳмо нест?",
+          "intent": "Бигӯ: ин машқ душвор",
+          "text": "Это задание трудное.",
+          "accepts": [
+            "Задание трудное.",
+            "Мне трудно."
+          ],
+          "translation": "Ин машқ душвор.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Давайте посмотрим вместе.",
+          "cueTranslation": "Якҷоя бинем.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо большое.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Фаҳмонед",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Мне трудно",
+          "translation": "Ба ман душвор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Объясните, пожалуйста",
+          "translation": "Фаҳмонед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ещё раз",
+          "translation": "Боз як бор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой куратор",
+          "translation": "Куратори ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Есть консультация?",
+          "translation": "Машварат ҳаст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот здесь",
+          "translation": "Ҳамин ҷо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳамин ҷо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что случилось?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: фаҳмонед, лутфан",
+          "text": "Объясните, пожалуйста.",
+          "accepts": [
+            "Можете объяснить?",
+            "Объясните ещё раз."
+          ],
+          "translation": "Фаҳмонед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какое место?",
+          "cueTranslation": "Кадом ҷо?",
+          "intent": "Бигӯ: ҳамин ҷо",
+          "text": "Вот здесь.",
+          "accepts": [
+            "Здесь.",
+            "Вот это."
+          ],
+          "translation": "Ҳамин ҷо.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "А, понятно. Смотрите.",
+          "cueTranslation": "А, фаҳмо. Бинед.",
+          "intent": "Бигӯ: ташаккур, ҳоло фаҳмо",
+          "text": "Спасибо, теперь понятно.",
+          "accepts": [
+            "Теперь понятно.",
+            "Понял, спасибо."
+          ],
+          "translation": "Ташаккур, ҳоло фаҳмо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дертар супорам?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Можно с вами поговорить?",
+          "translation": "Бо шумо гап занам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "У меня проблема.",
+          "translation": "Ман мушкил дорам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я заболел.",
+          "translation": "Бемор шудам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я заболела».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно потом?",
+          "translation": "Баъдтар мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда консультация?",
+          "translation": "Машварат кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваша электронная почта?",
+          "translation": "Почтаи электронии шумо?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "То ҷумъа",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Что случилось?",
+          "cueTranslation": "Салом! Чӣ шуд?",
+          "intent": "Бигӯ: бемор шудам. Баъдтар мумкин",
+          "text": "Я заболел. Можно потом?",
+          "accepts": [
+            "Я заболела. Можно позже?",
+            "Можно сдать позже?"
+          ],
+          "translation": "Бемор шудам. Баъдтар мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, до пятницы.",
+          "cueTranslation": "Ҳа, то ҷумъа.",
+          "intent": "Бигӯ: ташаккури зиёд",
+          "text": "Большое спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Выздоравливайте!",
+          "cueTranslation": "Шифо ёбед!",
+          "intent": "Бипурс: машварат кай?",
+          "text": "Когда консультация?",
+          "accepts": [
+            "Есть консультация?",
+            "Во сколько консультация?"
+          ],
+          "translation": "Машварат кай?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Маълумотнома",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где кабинет куратора?",
+          "translation": "Утоқи куратор куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужен документ.",
+          "translation": "Ба ман ҳуҷҷат лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно зайти?",
+          "translation": "Дароям?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, можно?",
+          "translation": "Бубахшед, мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Это срочно.",
+          "translation": "Ин фаврӣ аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо, вы очень помогли.",
+          "translation": "Ташаккур, шумо хеле ёрӣ додед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Фаврӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Да? Заходите.",
+          "cueTranslation": "Ҳа? Дароед.",
+          "intent": "Бигӯ: бубахшед, мумкин",
+          "text": "Извините, можно?",
+          "accepts": [
+            "Извините.",
+            "Простите, можно?"
+          ],
+          "translation": "Бубахшед, мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ничего. Что нужно?",
+          "cueTranslation": "Ҳеҷ гап не. Чӣ лозим?",
+          "intent": "Бигӯ: ба ман ҳуҷҷат лозим. Фаврӣ аст",
+          "text": "Мне нужен документ. Это срочно.",
+          "accepts": [
+            "Мне нужна справка.",
+            "Справка, срочно."
+          ],
+          "translation": "Ба ман ҳуҷҷат лозим. Фаврӣ аст.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, завтра будет.",
+          "cueTranslation": "Хуб, фардо мешавад.",
+          "intent": "Бигӯ: ташаккур, шумо хеле ёрӣ додед",
+          "text": "Спасибо, вы очень помогли.",
+          "accepts": [
+            "Большое спасибо!",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккур, шумо хеле ёрӣ додед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ёрӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы что-то хотели?",
+          "cueTranslation": "Салом! Шумо чизе мехостед?",
+          "intent": "Бигӯ: ҳа. Ёрӣ диҳед, лутфан",
+          "text": "Да. Помогите, пожалуйста.",
+          "accepts": [
+            "Можно помощь?",
+            "Помогите, пожалуйста."
+          ],
+          "translation": "Ҳа. Ёрӣ диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно. Что случилось?",
+          "cueTranslation": "Албатта. Чӣ шуд?",
+          "intent": "Бигӯ: ин машқ душвор",
+          "text": "Это задание трудное.",
+          "accepts": [
+            "Задание трудное.",
+            "Мне трудно."
+          ],
+          "translation": "Ин машқ душвор.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Давайте посмотрим. Где?",
+          "cueTranslation": "Биёед бинем. Куҷо?",
+          "intent": "Бигӯ: ҳамин ҷо. Фаҳмонед, лутфан",
+          "text": "Вот здесь. Объясните, пожалуйста.",
+          "accepts": [
+            "Вот здесь.",
+            "Здесь. Объясните, пожалуйста."
+          ],
+          "translation": "Ҳамин ҷо. Фаҳмонед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Смотрите. Теперь понятно?",
+          "cueTranslation": "Бинед. Ҳоло фаҳмо?",
+          "intent": "Бигӯ: ҳа. Шумо хеле ёрӣ додед",
+          "text": "Да. Вы очень помогли.",
+          "accepts": [
+            "Да, спасибо!",
+            "Понятно, спасибо большое."
+          ],
+          "translation": "Ҳа. Шумо хеле ёрӣ додед.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

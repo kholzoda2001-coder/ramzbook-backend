@@ -1,0 +1,563 @@
+{
+  "slug": "customer_call_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Звонок клиенту",
+    "titleTranslated": "Занг ба мизоҷ",
+    "scenario": "Шумо ба суроға расидед, вале мизоҷ нест. Бо телефон занг мезанед: мегӯед, ки расидед, мепурсед ӯ куҷост, мошинатонро мегӯед ва агар алоқа бад бошад — боз мепурсед.",
+    "emoji": "📱",
+    "order": 15,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Телефон",
+          "translation": "телефон",
+          "literal": null,
+          "note": "Зарба: те-ле-ФОН.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Звонок",
+          "translation": "занг",
+          "literal": null,
+          "note": "Зарба: зво-НОК.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "На месте",
+          "translation": "расидам (дар ҷой)",
+          "literal": null,
+          "note": "Яъне «ман дар ҷои лозимӣ ҳастам».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ждать",
+          "translation": "интизор шудан",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Чёрный",
+          "translation": "сиёҳ",
+          "literal": null,
+          "note": "Зарба: ЧЁР-ный.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Ворота",
+          "translation": "дарвоза",
+          "literal": null,
+          "note": "Зарба: во-РО-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ман расидам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ: салом, ман ронандаи шумо",
+          "text": "Здравствуйте, я ваш водитель.",
+          "accepts": [
+            "Это ваш водитель.",
+            "Здравствуйте! Водитель."
+          ],
+          "translation": "Салом, ман ронандаи шумо.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой, здравствуйте! Вы уже здесь?",
+          "cueTranslation": "Вой, салом! Шумо аллакай ин ҷоед?",
+          "intent": "Бигӯ: ҳа, ман расидам",
+          "text": "Да, я на месте.",
+          "accepts": [
+            "Да, я здесь.",
+            "Я на месте."
+          ],
+          "translation": "Ҳа, ман расидам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, одну минуту.",
+          "cueTranslation": "Хуб, як дақиқа.",
+          "intent": "Бигӯ: хуб, интизор мешавам",
+          "text": "Хорошо, жду.",
+          "accepts": [
+            "Жду.",
+            "Хорошо, я жду."
+          ],
+          "translation": "Хуб, интизор мешавам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Мошини сиёҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Уже здесь",
+          "translation": "Аллакай ин ҷо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Чёрная машина",
+          "translation": "Мошини сиёҳ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Одну минуту",
+          "translation": "Як дақиқа",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Где именно?",
+          "translation": "Дақиқан куҷо?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Большие ворота",
+          "translation": "Дарвозаи калон",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Позвоните мне",
+          "translation": "Ба ман занг занед",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Шумо куҷоед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Я тоже на улице. Вы где?",
+          "cueTranslation": "Ман ҳам дар кӯча. Шумо куҷоед?",
+          "intent": "Бигӯ: назди дарвозаи калон",
+          "text": "У больших ворот.",
+          "accepts": [
+            "Возле больших ворот.",
+            "У ворот."
+          ],
+          "translation": "Назди дарвозаи калон.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какая машина?",
+          "cueTranslation": "Кадом мошин?",
+          "intent": "Бигӯ: Тойотаи сиёҳ",
+          "text": "Чёрная Тойота.",
+          "accepts": [
+            "Тойота, чёрная.",
+            "Чёрная машина, Тойота."
+          ],
+          "translation": "Тойотаи сиёҳ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Вижу вас! Иду.",
+          "cueTranslation": "Шуморо мебинам! Меоям.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо!",
+          "accepts": [
+            "Отлично!",
+            "Жду."
+          ],
+          "translation": "Хуб!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Шуморо намебинам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Вы где сейчас?",
+          "translation": "Ҳозир куҷоед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я вас не вижу.",
+          "translation": "Ман шуморо намебинам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я стою впереди.",
+          "translation": "Ман дар пеш истодаам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Выходите, пожалуйста.",
+          "translation": "Бароед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я могу подождать.",
+          "translation": "Интизор шуда метавонам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините, не слышно.",
+          "translation": "Бубахшед, намешунавам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Куртаи сурх",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте, я у двери.",
+          "cueTranslation": "Салом, ман назди дар.",
+          "intent": "Бигӯ: ман шуморо намебинам",
+          "text": "Я вас не вижу.",
+          "accepts": [
+            "Не вижу вас.",
+            "Извините, я вас не вижу."
+          ],
+          "translation": "Ман шуморо намебинам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Я у входа в гостиницу. Красная куртка.",
+          "cueTranslation": "Ман назди даромади меҳмонхона. Куртаи сурх.",
+          "intent": "Бигӯ: хуб! Ман дар пеш истодаам",
+          "text": "Хорошо! Я стою впереди.",
+          "accepts": [
+            "Я впереди.",
+            "Хорошо, сейчас подъеду."
+          ],
+          "translation": "Хуб! Ман дар пеш истодаам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "А, вижу вас!",
+          "cueTranslation": "А, шуморо мебинам!",
+          "intent": "Бигӯ: олӣ",
+          "text": "Отлично!",
+          "accepts": [
+            "Хорошо!",
+            "Отлично, жду."
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Алоқа бад аст",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Буду через пять минут.",
+          "translation": "Пас аз панҷ дақиқа мерасам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я уже еду.",
+          "translation": "Ман аллакай дар роҳам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Подождите меня, пожалуйста.",
+          "translation": "Маро интизор шавед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Напишите мне, пожалуйста.",
+          "translation": "Ба ман нависед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Плохо слышно.",
+          "translation": "Бад шунида мешавад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вы меня слышите?",
+          "translation": "Маро мешунавед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Намешунавам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло? Где... вы... сейчас?",
+          "cueTranslation": "Алло? Шумо... ҳозир... куҷо?",
+          "intent": "Бигӯ: бубахшед, намешунавам",
+          "text": "Извините, не слышно.",
+          "accepts": [
+            "Плохая связь.",
+            "Не слышно, извините."
+          ],
+          "translation": "Бубахшед, намешунавам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Алло? Сейчас слышно?",
+          "cueTranslation": "Алло? Ҳоло мешунавед?",
+          "intent": "Бигӯ: ҳа. Пас аз панҷ дақиқа мерасам",
+          "text": "Да. Буду через пять минут.",
+          "accepts": [
+            "Да. Пять минут.",
+            "Да, через пять минут."
+          ],
+          "translation": "Ҳа. Пас аз панҷ дақиқа мерасам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, жду у ворот.",
+          "cueTranslation": "Хуб, назди дарвоза интизорам.",
+          "intent": "Бигӯ: хуб, ман дар роҳам",
+          "text": "Хорошо, я уже еду.",
+          "accepts": [
+            "Хорошо, еду.",
+            "Еду."
+          ],
+          "translation": "Хуб, ман дар роҳам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг ба мизоҷ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Алло?",
+          "cueTranslation": "Алло?",
+          "intent": "Бигӯ: салом, ман ронандаи шумо. Ман расидам",
+          "text": "Здравствуйте, я ваш водитель. Я на месте.",
+          "accepts": [
+            "Я на месте.",
+            "Водитель. Я на месте."
+          ],
+          "translation": "Салом, ман ронандаи шумо. Ман расидам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично! Где именно?",
+          "cueTranslation": "Олӣ! Дақиқан куҷо?",
+          "intent": "Бигӯ: назди дарвозаи калон",
+          "text": "У больших ворот.",
+          "accepts": [
+            "У ворот.",
+            "Возле больших ворот."
+          ],
+          "translation": "Назди дарвозаи калон.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Какая машина?",
+          "cueTranslation": "Кадом мошин?",
+          "intent": "Бигӯ: Тойотаи сиёҳ",
+          "text": "Чёрная Тойота.",
+          "accepts": [
+            "Тойота, чёрная.",
+            "Чёрная машина."
+          ],
+          "translation": "Тойотаи сиёҳ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, выхожу через две минуты.",
+          "cueTranslation": "Хуб, пас аз ду дақиқа мебароям.",
+          "intent": "Бигӯ: хуб, интизор мешавам",
+          "text": "Хорошо, жду.",
+          "accepts": [
+            "Жду.",
+            "Хорошо, я жду."
+          ],
+          "translation": "Хуб, интизор мешавам.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

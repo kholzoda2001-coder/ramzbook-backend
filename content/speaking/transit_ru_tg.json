@@ -1,0 +1,562 @@
+{
+  "slug": "transit_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Метро и автобус",
+    "titleTranslated": "Автобус ва метро",
+    "scenario": "Шумо дар шаҳр бо метро ва автобус мегардед: мепурсед ба марказ чӣ хел равед, корти сафар мехаред, чанд истгоҳ аст ва аз мусофирон хоҳиш мекунед, ки истгоҳро гӯянд.",
+    "emoji": "🚇",
+    "order": 5,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Нақлиёт",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Метро",
+          "translation": "метро",
+          "literal": null,
+          "note": "Зарба дар охир: мет-РО.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Автобус",
+          "translation": "автобус",
+          "literal": null,
+          "note": "Зарба: ав-ТО-бус.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Станция",
+          "translation": "истгоҳ (метро)",
+          "literal": null,
+          "note": "Зарба: СТАН-ци-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Карта",
+          "translation": "корт (барои сафар)",
+          "literal": null,
+          "note": "Зарба: КАР-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Линия",
+          "translation": "хат",
+          "literal": null,
+          "note": "Зарба: ЛИ-ни-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Пересадка",
+          "translation": "гузариш (ба хати дигар)",
+          "literal": null,
+          "note": "Зарба: пе-ре-САД-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ба марказ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вам помочь?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: ба марказ чӣ хел равам?",
+          "text": "Как доехать до центра?",
+          "accepts": [
+            "Как проехать в центр?",
+            "В центр как ехать?"
+          ],
+          "translation": "Ба марказ чӣ хел равам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На метро. Красная линия.",
+          "cueTranslation": "Бо метро. Хати сурх.",
+          "intent": "Бипурс: метро куҷост?",
+          "text": "Где метро?",
+          "accepts": [
+            "А метро где?",
+            "Где станция метро?"
+          ],
+          "translation": "Метро куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Через дорогу.",
+          "cueTranslation": "Он тарафи роҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Хати сурх",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Красная линия",
+          "translation": "Хати сурх",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Следующая станция",
+          "translation": "Истгоҳи навбатӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Одна поездка",
+          "translation": "Як сафар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "В центр",
+          "translation": "Ба марказ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Где выход?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Десять поездок",
+          "translation": "Даҳ сафар",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Следующий!",
+          "cueTranslation": "Навбатӣ!",
+          "intent": "Бигӯ: як корт, лутфан",
+          "text": "Одну карту, пожалуйста.",
+          "accepts": [
+            "Карту, пожалуйста.",
+            "Одну карту."
+          ],
+          "translation": "Як корт, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сколько поездок?",
+          "cueTranslation": "Чанд сафар?",
+          "intent": "Бигӯ: даҳ сафар",
+          "text": "Десять поездок.",
+          "accepts": [
+            "Десять.",
+            "На десять поездок."
+          ],
+          "translation": "Даҳ сафар.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Шестьсот рублей.",
+          "cueTranslation": "Шашсад рубл.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Чанд истгоҳ?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Этот автобус в центр?",
+          "translation": "Ин автобус ба марказ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне здесь выходить?",
+          "translation": "Ман ин ҷо фароям?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Какая линия?",
+          "translation": "Кадом хат?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько остановок?",
+          "translation": "Чанд истгоҳ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Это моя остановка?",
+          "translation": "Ин истгоҳи ман аст?",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я проехала».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где пересадка?",
+          "translation": "Гузариш куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба марказ меравад?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вам помочь?",
+          "cueTranslation": "Салом! Ёрӣ диҳам?",
+          "intent": "Бипурс: ин автобус ба марказ?",
+          "text": "Этот автобус в центр?",
+          "accepts": [
+            "В центр едет?",
+            "Он едет в центр?"
+          ],
+          "translation": "Ин автобус ба марказ?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, едет.",
+          "cueTranslation": "Ҳа, меравад.",
+          "intent": "Бипурс: чанд истгоҳ?",
+          "text": "Сколько остановок?",
+          "accepts": [
+            "Сколько?",
+            "Сколько остановок, скажите?"
+          ],
+          "translation": "Чанд истгоҳ?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Четыре остановки.",
+          "cueTranslation": "Чор истгоҳ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Четыре. Спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар автобус",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Вы выходите?",
+          "translation": "Шумо мефароед?",
+          "literal": null,
+          "note": "Дар автобуси пур мепурсанд, то гузаранд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно сесть?",
+          "translation": "Шинам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь свободно?",
+          "translation": "Ин ҷо холӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Автобус опаздывает.",
+          "translation": "Автобус дер мемонад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Скажите, пожалуйста.",
+          "translation": "Гӯед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне здесь выходить.",
+          "translation": "Ман ин ҷо мефароям.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Истгоҳи ман?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Это улица Мира.",
+          "cueTranslation": "Ин кӯчаи Мира.",
+          "intent": "Бипурс: ман ин ҷо фароям?",
+          "text": "Мне здесь выходить?",
+          "accepts": [
+            "Здесь выходить?",
+            "Это моя остановка?"
+          ],
+          "translation": "Ман ин ҷо фароям?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А куда вам?",
+          "cueTranslation": "Ба куҷо меравед?",
+          "intent": "Бигӯ: ба марказ",
+          "text": "В центр.",
+          "accepts": [
+            "Мне в центр.",
+            "До центра."
+          ],
+          "translation": "Ба марказ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ещё две остановки.",
+          "cueTranslation": "Боз ду истгоҳ.",
+          "intent": "Бигӯ: гӯед, лутфан",
+          "text": "Скажите, пожалуйста.",
+          "accepts": [
+            "Скажите мне, пожалуйста.",
+            "Хорошо. Скажете?"
+          ],
+          "translation": "Гӯед, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: метро",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вам помочь?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: ба марказ чӣ хел равам?",
+          "text": "Как доехать до центра?",
+          "accepts": [
+            "Как проехать в центр?",
+            "В центр как ехать?"
+          ],
+          "translation": "Ба марказ чӣ хел равам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "На метро, красная линия.",
+          "cueTranslation": "Бо метро, хати сурх.",
+          "intent": "Бигӯ: хуб. Як корт, лутфан",
+          "text": "Хорошо. Одну карту, пожалуйста.",
+          "accepts": [
+            "Одну карту, пожалуйста.",
+            "Хорошо. Карту, пожалуйста."
+          ],
+          "translation": "Хуб. Як корт, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот. Шестьсот рублей.",
+          "cueTranslation": "Ана. Шашсад рубл.",
+          "intent": "Бипурс: чанд истгоҳ?",
+          "text": "Сколько остановок?",
+          "accepts": [
+            "Сколько станций?",
+            "Сколько ехать?"
+          ],
+          "translation": "Чанд истгоҳ?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Пять станций.",
+          "cueTranslation": "Панҷ истгоҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Пять. Спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "neighbors_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Соседи",
+    "titleTranslated": "Ҳамсояҳо",
+    "scenario": "Шумо бо ҳамсояҳо шинос мешавед, бастаро мегиред, чизе қарз мегиред ва агар шаб садо баланд бошад, бо хушмуомилагӣ хоҳиш мекунед, ки оромтар бошанд.",
+    "emoji": "🏠",
+    "order": 15,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳамсоя",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Сосед",
+          "translation": "ҳамсоя",
+          "literal": null,
+          "note": "Зарба: со-СЕД.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Дверь",
+          "translation": "дар",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Шум",
+          "translation": "садо",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Праздник",
+          "translation": "ҷашн",
+          "literal": null,
+          "note": "Зарба: ПРАЗД-ник.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Посылка",
+          "translation": "баста",
+          "literal": null,
+          "note": "Зарба: по-СЫЛ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Этаж",
+          "translation": "ошёна",
+          "literal": null,
+          "note": "Зарба: э-ТАЖ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳамсояи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы новый сосед?",
+          "cueTranslation": "Салом! Шумо ҳамсояи нав?",
+          "intent": "Бигӯ: ҳа, ман дар хонаи панҷум зиндагӣ мекунам",
+          "text": "Да, я живу в пятой квартире.",
+          "accepts": [
+            "Да, я новый.",
+            "Да. Пятая квартира."
+          ],
+          "translation": "Ҳа, ман дар хонаи панҷум зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Очень приятно! Я Ольга.",
+          "cueTranslation": "Аз шиносоӣ хурсандам! Ман Олга.",
+          "intent": "Бигӯ: ман ҳам хеле хурсандам",
+          "text": "Мне тоже очень приятно.",
+          "accepts": [
+            "Очень приятно.",
+            "Взаимно!"
+          ],
+          "translation": "Ман ҳам хеле хурсандам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Если нужна помощь, спрашивайте.",
+          "cueTranslation": "Агар ёрӣ лозим бошад, пурсед.",
+          "intent": "Ташаккур гӯй",
+          "text": "Большое спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо вам."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Хонаи панҷум",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Новый сосед",
+          "translation": "Ҳамсояи нав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Пятая квартира",
+          "translation": "Хонаи панҷум",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень громко",
+          "translation": "Хеле баланд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Поздно вечером",
+          "translation": "Бегоҳии дер",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ваша посылка",
+          "translation": "Бастаи шумо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Заходите, пожалуйста",
+          "translation": "Дароед, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бастаи шумо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Это ваша посылка?",
+          "cueTranslation": "Салом! Ин бастаи шумост?",
+          "intent": "Бигӯ: ҳа! Ташаккур",
+          "text": "Да! Спасибо.",
+          "accepts": [
+            "Ой, да. Спасибо!",
+            "Да, моя."
+          ],
+          "translation": "Ҳа! Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Она была у моей двери.",
+          "cueTranslation": "Назди дари ман буд.",
+          "intent": "Бигӯ: шумо хеле меҳрубонед",
+          "text": "Вы очень добры.",
+          "accepts": [
+            "Спасибо большое.",
+            "Как мило, спасибо."
+          ],
+          "translation": "Шумо хеле меҳрубонед.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Не за что!",
+          "cueTranslation": "Ҳеҷ гап не!",
+          "intent": "Бигӯ: дароед, чой нӯшед",
+          "text": "Заходите на чай.",
+          "accepts": [
+            "Хотите чаю?",
+            "Заходите, пожалуйста."
+          ],
+          "translation": "Дароед, чой нӯшед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ёрӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я живу наверху.",
+          "translation": "Ман дар боло зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень приятно.",
+          "translation": "Аз шиносоӣ хурсандам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Помогите, пожалуйста.",
+          "translation": "Ёрӣ диҳед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно взять?",
+          "translation": "Гирифтан мумкин?",
+          "literal": null,
+          "note": "«Одолжить» — чизеро муваққатан гирифтан.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Верну завтра.",
+          "translation": "Фардо бармегардонам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Добрый день!",
+          "translation": "Рӯз ба хайр!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Нардбон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Тебе помочь?",
+          "cueTranslation": "Салом! Ёрӣ диҳам?",
+          "intent": "Бигӯ: ҳа. Гирифтан мумкин",
+          "text": "Да. Можно взять?",
+          "accepts": [
+            "Можно взять?",
+            "Да, можно одолжить?"
+          ],
+          "translation": "Ҳа. Гирифтан мумкин?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Лестницу? Конечно.",
+          "cueTranslation": "Нардбон? Албатта.",
+          "intent": "Бигӯ: фардо бармегардонам",
+          "text": "Верну завтра.",
+          "accepts": [
+            "Завтра верну.",
+            "Я верну завтра."
+          ],
+          "translation": "Фардо бармегардонам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Не спеши.",
+          "cueTranslation": "Шитоб накун.",
+          "intent": "Ташаккур гӯй",
+          "text": "Большое спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Спасибо тебе."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Садо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Уже очень поздно.",
+          "translation": "Аллакай хеле дер.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Дети спят.",
+          "translation": "Кӯдакон хобанд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Тише, пожалуйста.",
+          "translation": "Лутфан, оромтар.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Музыка громкая.",
+          "translation": "Мусиқӣ баланд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Извините за шум.",
+          "translation": "Барои садо бубахшед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ничего страшного.",
+          "translation": "Ҳеҷ гап не.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Шаби дер",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Что-то случилось?",
+          "cueTranslation": "Салом! Чизе шуд?",
+          "intent": "Бигӯ: мусиқӣ баланд. Кӯдакон хобанд",
+          "text": "Музыка громкая. Дети спят.",
+          "accepts": [
+            "Музыка громкая.",
+            "Дети спят, извините."
+          ],
+          "translation": "Мусиқӣ баланд. Кӯдакон хобанд.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой, извините! У нас праздник.",
+          "cueTranslation": "Вой, бубахшед! Мо ҷашн дорем.",
+          "intent": "Бигӯ: лутфан, оромтар",
+          "text": "Тише, пожалуйста.",
+          "accepts": [
+            "Чуть тише, пожалуйста.",
+            "Пожалуйста, уже поздно."
+          ],
+          "translation": "Лутфан, оромтар.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Конечно. Извините за шум.",
+          "cueTranslation": "Албатта. Барои садо бубахшед.",
+          "intent": "Бигӯ: ҳеҷ гап не. Ташаккур",
+          "text": "Ничего страшного. Спасибо.",
+          "accepts": [
+            "Ничего.",
+            "Спасибо."
+          ],
+          "translation": "Ҳеҷ гап не. Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳамсоя",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы новый сосед?",
+          "cueTranslation": "Салом! Шумо ҳамсояи нав?",
+          "intent": "Бигӯ: ҳа, ман дар боло зиндагӣ мекунам",
+          "text": "Да, я живу наверху.",
+          "accepts": [
+            "Да, я новый.",
+            "Да, я новая."
+          ],
+          "translation": "Ҳа, ман дар боло зиндагӣ мекунам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Очень приятно! Я Ольга, из второй квартиры.",
+          "cueTranslation": "Аз шиносоӣ хурсандам! Ман Олга, аз хонаи дуюм.",
+          "intent": "Бигӯ: ман ҳам хеле хурсандам",
+          "text": "Мне тоже очень приятно.",
+          "accepts": [
+            "Очень приятно.",
+            "Взаимно!"
+          ],
+          "translation": "Ман ҳам хеле хурсандам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Эта посылка была у моей двери.",
+          "cueTranslation": "Ин баста назди дари ман буд.",
+          "intent": "Бигӯ: ташаккур! Шумо хеле меҳрубонед",
+          "text": "Спасибо! Вы очень добры.",
+          "accepts": [
+            "Спасибо большое!",
+            "Как мило, спасибо!"
+          ],
+          "translation": "Ташаккур! Шумо хеле меҳрубонед.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Не за что. Увидимся!",
+          "cueTranslation": "Ҳеҷ гап не. То дидор!",
+          "intent": "Бигӯ: то дидор",
+          "text": "До встречи!",
+          "accepts": [
+            "Пока!",
+            "До свидания!"
+          ],
+          "translation": "То дидор!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "barber_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "В парикмахерской",
+    "titleTranslated": "Дар сартарошхона",
+    "scenario": "Шумо ба сартарошхона меравед: навбат мегиред, мегӯед мӯйро чӣ хел гиранд — кӯтоҳ ё каме, ришро ҳам, нархро мепурсед ва барои кори хуб ташаккур мегӯед.",
+    "emoji": "💈",
+    "order": 20,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мӯй",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Стрижка",
+          "translation": "мӯйгирӣ",
+          "literal": null,
+          "note": "Зарба: СТРИЖ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Коротко",
+          "translation": "кӯтоҳ",
+          "literal": null,
+          "note": "Зарба: КО-рот-ко.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Длинные",
+          "translation": "дароз",
+          "literal": null,
+          "note": "Зарба: ДЛИН-ны-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Борода",
+          "translation": "риш",
+          "literal": null,
+          "note": "Зарба дар охир: бо-ро-ДА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Зеркало",
+          "translation": "оина",
+          "literal": null,
+          "note": "Зарба: ЗЕР-ка-ло.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Очередь",
+          "translation": "навбат",
+          "literal": null,
+          "note": "Зарба: О-че-редь.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Навбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Стрижка?",
+          "cueTranslation": "Салом! Мӯй гиред?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Да, пожалуйста.",
+          "accepts": [
+            "Да.",
+            "Да, стрижка."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Подождите десять минут.",
+          "cueTranslation": "Даҳ дақиқа интизор шавед.",
+          "intent": "Бигӯ: хуб, мушкил нест",
+          "text": "Хорошо, без проблем.",
+          "accepts": [
+            "Хорошо.",
+            "Ладно."
+          ],
+          "translation": "Хуб, мушкил нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Садитесь сюда.",
+          "cueTranslation": "Ин ҷо шинед.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳамин хел",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Очень коротко",
+          "translation": "Хеле кӯтоҳ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Немного",
+          "translation": "каме",
+          "literal": null,
+          "note": "Зарба: не-МНО-го.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "По бокам",
+          "translation": "Аз паҳлӯҳо",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Сверху немного",
+          "translation": "Аз боло каме",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Моя борода",
+          "translation": "Риши ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот так",
+          "translation": "Ҳамин хел",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Паҳлӯҳо кӯтоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Как стрижём?",
+          "cueTranslation": "Чӣ хел гирем?",
+          "intent": "Бигӯ: аз паҳлӯҳо кӯтоҳ",
+          "text": "По бокам коротко.",
+          "accepts": [
+            "Коротко по бокам.",
+            "Бока коротко."
+          ],
+          "translation": "Аз паҳлӯҳо кӯтоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "А сверху?",
+          "cueTranslation": "Ва аз боло?",
+          "intent": "Бигӯ: каме",
+          "text": "Немного.",
+          "accepts": [
+            "Чуть-чуть.",
+            "Только немного."
+          ],
+          "translation": "Каме.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Бороду тоже?",
+          "cueTranslation": "Хуб. Риш ҳам?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Да, пожалуйста.",
+          "accepts": [
+            "Да.",
+            "Да, бороду тоже."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "На хеле кӯтоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Не очень коротко.",
+          "translation": "На хеле кӯтоҳ.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот так, пожалуйста.",
+          "translation": "Ҳамин хел, лутфан.",
+          "literal": null,
+          "note": "Метавонед аксро нишон диҳед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Долго ждать?",
+          "translation": "Дароз интизор шавам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Коротко, пожалуйста.",
+          "translation": "Лутфан, кӯтоҳ.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Только немного.",
+          "translation": "Танҳо каме.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Бороду тоже.",
+          "translation": "Риш ҳам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба оина нигоҳ кунед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Какую стрижку?",
+          "cueTranslation": "Чӣ хел мӯйгирӣ?",
+          "intent": "Бигӯ: ҳамин хел, лутфан",
+          "text": "Вот так, пожалуйста.",
+          "accepts": [
+            "Вот такую.",
+            "Как на фото."
+          ],
+          "translation": "Ҳамин хел, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Коротко?",
+          "cueTranslation": "Хуб. Кӯтоҳ?",
+          "intent": "Бигӯ: на хеле кӯтоҳ",
+          "text": "Не очень коротко.",
+          "accepts": [
+            "Немного коротко.",
+            "Не очень."
+          ],
+          "translation": "На хеле кӯтоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Посмотрите в зеркало. Хорошо?",
+          "cueTranslation": "Ба оина нигоҳ кунед. Хуб?",
+          "intent": "Бигӯ: лутфан, кӯтоҳ",
+          "text": "Коротко, пожалуйста.",
+          "accepts": [
+            "Ещё немного короче.",
+            "Чуть короче, пожалуйста."
+          ],
+          "translation": "Лутфан, кӯтоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Олӣ шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Очень хорошо!",
+          "translation": "Хеле хуб!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нравится!",
+          "translation": "Ба ман маъқул!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно картой?",
+          "translation": "Бо корт мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это вам.",
+          "translation": "Ин ба шумо.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "До следующего месяца.",
+          "translation": "То моҳи оянда.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Я приду ещё.",
+          "translation": "Боз меоям.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бо корт мешавад?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Готово. Нравится?",
+          "cueTranslation": "Тайёр. Писанд аст?",
+          "intent": "Бигӯ: хеле хуб",
+          "text": "Очень хорошо!",
+          "accepts": [
+            "Очень хорошо!",
+            "Нравится, спасибо!"
+          ],
+          "translation": "Хеле хуб!",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Восемьсот рублей.",
+          "cueTranslation": "Ҳаштсад рубл.",
+          "intent": "Бипурс: бо корт мешавад?",
+          "text": "Можно картой?",
+          "accepts": [
+            "Картой можно?",
+            "Карта подойдёт?"
+          ],
+          "translation": "Бо корт мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, конечно.",
+          "cueTranslation": "Ҳа, албатта.",
+          "intent": "Бигӯ: марҳамат. Ва ин ба шумо",
+          "text": "Вот. И это вам.",
+          "accepts": [
+            "Это вам.",
+            "Спасибо! Это вам."
+          ],
+          "translation": "Марҳамат. Ва ин ба шумо.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сартарошхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Стрижка?",
+          "cueTranslation": "Салом! Мӯй гиред?",
+          "intent": "Бигӯ: ҳа. Дароз интизор шавам?",
+          "text": "Да. Долго ждать?",
+          "accepts": [
+            "Да, пожалуйста. Долго?",
+            "Да. Есть очередь?"
+          ],
+          "translation": "Ҳа. Дароз интизор шавам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Садитесь. Как коротко?",
+          "cueTranslation": "Шинед. Чӣ қадар кӯтоҳ?",
+          "intent": "Бигӯ: на хеле кӯтоҳ",
+          "text": "Не очень коротко.",
+          "accepts": [
+            "Немного коротко.",
+            "Не очень."
+          ],
+          "translation": "На хеле кӯтоҳ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "А борода?",
+          "cueTranslation": "Ва риш?",
+          "intent": "Бигӯ: каме, лутфан",
+          "text": "Немного, пожалуйста.",
+          "accepts": [
+            "Чуть-чуть.",
+            "Только немного."
+          ],
+          "translation": "Каме, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Готово! Нравится?",
+          "cueTranslation": "Тайёр! Писанд аст?",
+          "intent": "Бигӯ: хеле хуб! То моҳи оянда",
+          "text": "Очень хорошо! До следующего месяца.",
+          "accepts": [
+            "Отлично получилось!",
+            "Очень хорошо, спасибо!"
+          ],
+          "translation": "Хеле хуб! То моҳи оянда.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,562 @@
+{
+  "slug": "allergy_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Халяль и аллергия",
+    "titleTranslated": "Хӯрок ва аллергия",
+    "scenario": "Меҳмон мепурсад, ки дар хӯрок чӣ ҳаст: гӯшти хук, чормағз, шир. Шумо ҷавоб медиҳед, аз ошпаз мепурсед ва хӯроки дигар пешниҳод мекунед.",
+    "emoji": "🥜",
+    "order": 18,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Дар хӯрок чӣ ҳаст?",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Орехи",
+          "translation": "чормағз",
+          "literal": null,
+          "note": "Зарба: о-РЕ-хи.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Свинина",
+          "translation": "гӯшти хук",
+          "literal": null,
+          "note": "Зарба: сви-НИ-на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Говядина",
+          "translation": "гӯшти гов",
+          "literal": null,
+          "note": "Зарба: го-ВЯ-ди-на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Халяль",
+          "translation": "ҳалол",
+          "literal": null,
+          "note": "Зарба: ха-ЛЯЛЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Без мяса",
+          "translation": "бе гӯшт",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Аллергия",
+          "translation": "аллергия",
+          "literal": null,
+          "note": "Зарба: ал-лер-ГИ-я.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Гӯшти хук ҳаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здесь есть свинина?",
+          "cueTranslation": "Дар ин гӯшти хук ҳаст?",
+          "intent": "Бигӯ: не, ин гӯшти гов",
+          "text": "Нет, это говядина.",
+          "accepts": [
+            "Нет, говядина.",
+            "Нет свинины. Говядина."
+          ],
+          "translation": "Не, ин гӯшти гов.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Это халяль?",
+          "cueTranslation": "Ин ҳалол аст?",
+          "intent": "Бигӯ: ҳа, ҳалол",
+          "text": "Да, халяль.",
+          "accepts": [
+            "Да.",
+            "Да, это халяль."
+          ],
+          "translation": "Ҳа, ҳалол.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично, беру.",
+          "cueTranslation": "Олӣ, мегирам.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Отлично.",
+            "Хорошо, сейчас."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Бе чормағз",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Без свинины",
+          "translation": "Бе гӯшти хук",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Без орехов",
+          "translation": "Бе чормағз",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Халяльное мясо",
+          "translation": "Гӯшти ҳалол",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "С молоком",
+          "translation": "Бо шир",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я спрошу",
+          "translation": "Мепурсам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Только рыба",
+          "translation": "Танҳо моҳӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Аллергия",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "У меня аллергия на орехи.",
+          "cueTranslation": "Ман ба чормағз аллергия дорам.",
+          "intent": "Бигӯ: мефаҳмам. Аз ошпаз мепурсам",
+          "text": "Понимаю. Я спрошу у повара.",
+          "accepts": [
+            "Я спрошу у повара.",
+            "Хорошо, спрошу."
+          ],
+          "translation": "Мефаҳмам. Аз ошпаз мепурсам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: дар ин чормағз нест",
+          "text": "Здесь нет орехов.",
+          "accepts": [
+            "Орехов нет.",
+            "Без орехов."
+          ],
+          "translation": "Дар ин чормағз нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Точно?",
+          "cueTranslation": "Аниқ?",
+          "intent": "Бигӯ: ҳа, аз ошпаз пурсидам",
+          "text": "Да, я спросил повара.",
+          "accepts": [
+            "Да, точно.",
+            "Да, я спросила повара."
+          ],
+          "translation": "Ҳа, аз ошпаз пурсидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Аз ошпаз мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Здесь есть молоко.",
+          "translation": "Дар ин шир ҳаст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь нет орехов.",
+          "translation": "Дар ин чормағз нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я спрошу у повара.",
+          "translation": "Аз ошпаз мепурсам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Курица халяль.",
+          "translation": "Мурғ ҳалол.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Есть еда без мяса.",
+          "translation": "Хӯроки бе гӯшт ҳаст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Попробуйте рыбу.",
+          "translation": "Моҳиро бичашед.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бе гӯшт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Я не ем мясо.",
+          "cueTranslation": "Ман гӯшт намехӯрам.",
+          "intent": "Бигӯ: хӯроки бе гӯшт ҳаст",
+          "text": "Есть еда без мяса.",
+          "accepts": [
+            "У нас есть без мяса.",
+            "Есть вегетарианские блюда."
+          ],
+          "translation": "Хӯроки бе гӯшт ҳаст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Что есть?",
+          "cueTranslation": "Чӣ ҳаст?",
+          "intent": "Бигӯ: шӯрбо ва хӯриш",
+          "text": "Суп и салат.",
+          "accepts": [
+            "Салат и овощной суп.",
+            "Овощной суп."
+          ],
+          "translation": "Шӯрбо ва хӯриш.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В супе есть молоко?",
+          "cueTranslation": "Дар шӯрбо шир ҳаст?",
+          "intent": "Бигӯ: ҳа, дар он шир ҳаст",
+          "text": "Да, там есть молоко.",
+          "accepts": [
+            "Да, немного.",
+            "Да, есть."
+          ],
+          "translation": "Ҳа, дар он шир ҳаст.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Бо биринҷ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Это не острое.",
+          "translation": "Ин тунд нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь нет сахара.",
+          "translation": "Дар ин шакар нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Всё свежее.",
+          "translation": "Ҳама тару тоза.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Маленькая или большая?",
+          "translation": "Хурд ё калон?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Подаётся с рисом.",
+          "translation": "Бо биринҷ меояд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Хлеб будете?",
+          "translation": "Нон мехоҳед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тунд нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "А курица с чем?",
+          "cueTranslation": "Мурғ бо чӣ?",
+          "intent": "Бигӯ: бо биринҷ меояд",
+          "text": "Подаётся с рисом.",
+          "accepts": [
+            "С рисом.",
+            "Рис."
+          ],
+          "translation": "Бо биринҷ меояд.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Острое?",
+          "cueTranslation": "Тунд?",
+          "intent": "Бигӯ: не, тунд нест",
+          "text": "Нет, не острое.",
+          "accepts": [
+            "Не острое.",
+            "Нет, совсем нет."
+          ],
+          "translation": "Не, тунд нест.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично. Одну курицу, пожалуйста.",
+          "cueTranslation": "Олӣ. Як мурғ, лутфан.",
+          "intent": "Бипурс: нон мехоҳед?",
+          "text": "Хлеб будете?",
+          "accepts": [
+            "А хлеб?",
+            "Хлеба?"
+          ],
+          "translation": "Нон мехоҳед?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: хӯроки бехатар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! В супе есть свинина?",
+          "cueTranslation": "Салом! Дар шӯрбо гӯшти хук ҳаст?",
+          "intent": "Бигӯ: не, ин гӯшти гов",
+          "text": "Нет, это говядина.",
+          "accepts": [
+            "Нет, говядина.",
+            "Нет свинины."
+          ],
+          "translation": "Не, ин гӯшти гов.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. И у меня аллергия на орехи.",
+          "cueTranslation": "Хуб. Ва ман ба чормағз аллергия дорам.",
+          "intent": "Бигӯ: мефаҳмам. Аз ошпаз мепурсам",
+          "text": "Понимаю. Я спрошу у повара.",
+          "accepts": [
+            "Я спрошу у повара.",
+            "Хорошо, спрошу."
+          ],
+          "translation": "Мефаҳмам. Аз ошпаз мепурсам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Это безопасно?",
+          "cueTranslation": "Ташаккур. Бехатар аст?",
+          "intent": "Бигӯ: ҳа, дар ин чормағз нест",
+          "text": "Да, здесь нет орехов.",
+          "accepts": [
+            "Да, без орехов.",
+            "Да, можно."
+          ],
+          "translation": "Ҳа, дар ин чормағз нест.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Отлично! Один суп, пожалуйста.",
+          "cueTranslation": "Олӣ! Як шӯрбо, лутфан.",
+          "intent": "Бипурс: нон мехоҳед?",
+          "text": "Хлеб будете?",
+          "accepts": [
+            "А хлеб?",
+            "Хлеба?"
+          ],
+          "translation": "Нон мехоҳед?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

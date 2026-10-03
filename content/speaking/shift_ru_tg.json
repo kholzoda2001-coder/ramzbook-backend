@@ -1,0 +1,563 @@
+{
+  "slug": "shift_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Смена и заработок",
+    "titleTranslated": "Навбати корӣ ва даромад",
+    "scenario": "Бо диспетчер ва сардори таксопарк дар бораи кор гап мезанед: кай сар мекунед ва кай тамом, рӯзи истироҳат, пули ҳафта, барнома ва баҳои мусофирон.",
+    "emoji": "💰",
+    "order": 20,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Смена",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Смена",
+          "translation": "навбати корӣ",
+          "literal": null,
+          "note": "Зарба: СМЕ-на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Приложение",
+          "translation": "барнома",
+          "literal": null,
+          "note": "Зарба: при-ЛО-же-ни-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Рейтинг",
+          "translation": "баҳо",
+          "literal": null,
+          "note": "Зарба: РЕЙ-тинг.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Неделя",
+          "translation": "ҳафта",
+          "literal": null,
+          "note": "Зарба: не-ДЕ-ля.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Выходной",
+          "translation": "рӯзи истироҳат",
+          "literal": null,
+          "note": "Зарба дар охир: вы-ход-НОЙ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Ночь",
+          "translation": "шаб",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Навбати шаб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Можешь работать в ночную смену?",
+          "cueTranslation": "Дар навбати шаб кор карда метавонӣ?",
+          "intent": "Бигӯ: ҳа, метавонам",
+          "text": "Да, могу.",
+          "accepts": [
+            "Да.",
+            "Конечно, могу."
+          ],
+          "translation": "Ҳа, метавонам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Начало в восемь.",
+          "cueTranslation": "Аз соати ҳашт сар мешавад.",
+          "intent": "Бипурс: кай тамом мешавад?",
+          "text": "А когда конец?",
+          "accepts": [
+            "До скольки?",
+            "Когда заканчивается?"
+          ],
+          "translation": "Кай тамом мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "В четыре утра.",
+          "cueTranslation": "Соати чори субҳ.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо, нормально."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Панҷ ситора",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ночная смена",
+          "translation": "Навбати шаб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Один выходной",
+          "translation": "Як рӯзи истироҳат",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Каждую неделю",
+          "translation": "Ҳар ҳафта",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Хороший рейтинг",
+          "translation": "Баҳои хуб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Пять звёзд",
+          "translation": "Панҷ ситора",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Аренда машины",
+          "translation": "Иҷораи мошин",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Рӯзи истироҳат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ты работаешь шесть дней.",
+          "cueTranslation": "Ту шаш рӯз кор мекунӣ.",
+          "intent": "Бипурс: рӯзи истироҳат кай?",
+          "text": "Когда выходной?",
+          "accepts": [
+            "А выходной когда?",
+            "Какой день выходной?"
+          ],
+          "translation": "Рӯзи истироҳат кай?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "В воскресенье.",
+          "cueTranslation": "Якшанбе.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Ладно.",
+            "Хорошо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Деньги каждую неделю.",
+          "cueTranslation": "Пул ҳар ҳафта.",
+          "intent": "Бигӯ: олӣ",
+          "text": "Отлично!",
+          "accepts": [
+            "Хорошо.",
+            "Отлично, спасибо!"
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Соатҳои бештар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Когда начинать?",
+          "translation": "Кай сар кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Хочу больше часов.",
+          "translation": "Соатҳои бештар мехоҳам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "В пятницу не могу.",
+          "translation": "Ҷумъа наметавонам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Я сегодня болею.",
+          "translation": "Ман имрӯз беморам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Приложение не работает.",
+          "translation": "Барнома кор намекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "own",
+          "text": "Я работаю ___ часов.",
+          "translation": "Ман ___ соат кор мекунам.",
+          "literal": null,
+          "note": "Чанд соат кор мекунед — шумораро гӯед.",
+          "cue": "Сколько часов вы работаете?",
+          "cueTranslation": "Шумо чанд соат кор мекунед?",
+          "intent": "Шумораи соатҳоро гӯед",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Барнома",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Диспетчер. Слушаю.",
+          "cueTranslation": "Диспетчер. Гӯш мекунам.",
+          "intent": "Бигӯ: барнома кор намекунад",
+          "text": "Приложение не работает.",
+          "accepts": [
+            "Не работает приложение.",
+            "Приложение сломалось."
+          ],
+          "translation": "Барнома кор намекунад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Закрой и открой снова.",
+          "cueTranslation": "Банд кун ва боз кушо.",
+          "intent": "Бигӯ: хуб, як дақиқа",
+          "text": "Хорошо, минуту.",
+          "accepts": [
+            "Хорошо.",
+            "Сейчас."
+          ],
+          "translation": "Хуб, як дақиқа.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Работает?",
+          "cueTranslation": "Кор мекунад?",
+          "intent": "Бигӯ: ҳа, ҳоло кор мекунад",
+          "text": "Да, теперь работает.",
+          "accepts": [
+            "Да, спасибо!",
+            "Работает, спасибо."
+          ],
+          "translation": "Ҳа, ҳоло кор мекунад.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пули ҳафта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Сколько за неделю?",
+          "translation": "Барои ҳафта чанд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой рейтинг хороший.",
+          "translation": "Баҳои ман хуб аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Какой у меня рейтинг?",
+          "translation": "Баҳои ман чанд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно посмотреть?",
+          "translation": "Дидан мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда деньги?",
+          "translation": "Пул кай?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спасибо, начальник.",
+          "translation": "Ташаккур, сардор.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Баҳои хуб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вот твои деньги за неделю.",
+          "cueTranslation": "Ана пули ҳафтаат.",
+          "intent": "Бипурс: чанд?",
+          "text": "Сколько?",
+          "accepts": [
+            "Сколько за неделю?",
+            "Сколько здесь?"
+          ],
+          "translation": "Чанд?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сорок тысяч.",
+          "cueTranslation": "Чил ҳазор.",
+          "intent": "Бигӯ: олӣ! Баҳои ман чанд?",
+          "text": "Отлично! Какой у меня рейтинг?",
+          "accepts": [
+            "Отлично! А рейтинг?",
+            "Спасибо! Какой рейтинг?"
+          ],
+          "translation": "Олӣ! Баҳои ман чанд?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Пять звёзд. Молодец!",
+          "cueTranslation": "Панҷ ситора. Офарин!",
+          "intent": "Бигӯ: ташаккур, сардор",
+          "text": "Спасибо, начальник.",
+          "accepts": [
+            "Спасибо большое!",
+            "Спасибо!"
+          ],
+          "translation": "Ташаккур, сардор.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳафтаи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Можешь работать на следующей неделе?",
+          "cueTranslation": "Салом! Ҳафтаи оянда кор карда метавонӣ?",
+          "intent": "Бигӯ: ҳа. Соатҳои бештар мехоҳам",
+          "text": "Да. Хочу больше часов.",
+          "accepts": [
+            "Да, могу.",
+            "Да, больше часов, пожалуйста."
+          ],
+          "translation": "Ҳа. Соатҳои бештар мехоҳам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Ночная смена, с понедельника по субботу.",
+          "cueTranslation": "Хуб. Навбати шаб, аз душанбе то шанбе.",
+          "intent": "Бипурс: рӯзи истироҳат якшанбе?",
+          "text": "Выходной в воскресенье?",
+          "accepts": [
+            "Воскресенье выходной?",
+            "В воскресенье выходной?"
+          ],
+          "translation": "Рӯзи истироҳат якшанбе?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да. Вопросы есть?",
+          "cueTranslation": "Ҳа. Савол ҳаст?",
+          "intent": "Бипурс: пул кай",
+          "text": "Когда деньги?",
+          "accepts": [
+            "Когда деньги?",
+            "Когда платят?"
+          ],
+          "translation": "Пул кай?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Каждую пятницу.",
+          "cueTranslation": "Ҳар ҷумъа.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Отлично, спасибо!",
+          "accepts": [
+            "Отлично!",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Олӣ, ташаккур!",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

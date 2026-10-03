@@ -1,0 +1,562 @@
+{
+  "slug": "dorm_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Общежитие",
+    "titleTranslated": "Хобгоҳ",
+    "scenario": "Шумо ба ётоқи донишҷӯӣ омадед: калид мегиред, бо ҳамҳуҷра шинос мешавед, мепурсед ошхона куҷост ва ётоқ кай баста мешавад, ва агар оби гарм набошад, ба мудир мегӯед.",
+    "emoji": "🛏️",
+    "order": 4,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ётоқ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Общежитие",
+          "translation": "ётоқ",
+          "literal": null,
+          "note": "Зарба: об-ще-ЖИ-ти-е.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Комната",
+          "translation": "ҳуҷра",
+          "literal": null,
+          "note": "Зарба: КОМ-на-та.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Сосед",
+          "translation": "ҳамҳуҷра, ҳамсоя",
+          "literal": null,
+          "note": "Зарба: со-СЕД.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Кровать",
+          "translation": "кат",
+          "literal": null,
+          "note": "Зарба: кро-ВАТЬ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Душ",
+          "translation": "душ",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Комендант",
+          "translation": "мудири ётоқ",
+          "literal": null,
+          "note": "Зарба: ко-мен-ДАНТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Калид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы новенький?",
+          "cueTranslation": "Салом! Шумо навед?",
+          "intent": "Бигӯ: ҳа, ман донишҷӯи нав",
+          "text": "Да, я новый студент.",
+          "accepts": [
+            "Да.",
+            "Да, я новая студентка."
+          ],
+          "translation": "Ҳа, ман донишҷӯи нав.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ваша комната двести пять.",
+          "cueTranslation": "Ҳуҷраи шумо дусаду панҷ.",
+          "intent": "Бигӯ: ташаккур. Калид?",
+          "text": "Спасибо. А ключ?",
+          "accepts": [
+            "Где ключ?",
+            "Спасибо. Ключ, пожалуйста."
+          ],
+          "translation": "Ташаккур. Калид?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот ключ.",
+          "cueTranslation": "Ана калид.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳуҷраи ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Моя комната",
+          "translation": "Ҳуҷраи ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Второй этаж",
+          "translation": "Ошёнаи дуюм",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой сосед",
+          "translation": "Ҳамҳуҷраи ман",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Горячая вода",
+          "translation": "Оби гарм",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Тихо, пожалуйста",
+          "translation": "Ором, лутфан",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где кухня?",
+          "translation": "Ошхона куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳамҳуҷра",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Я твой сосед.",
+          "cueTranslation": "Салом! Ман ҳамҳуҷраи ту.",
+          "intent": "Бигӯ: салом! Аз шиносоӣ хурсандам",
+          "text": "Привет! Очень приятно.",
+          "accepts": [
+            "Привет!",
+            "Приятно познакомиться."
+          ],
+          "translation": "Салом! Аз шиносоӣ хурсандам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Откуда ты?",
+          "cueTranslation": "Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Из Таджикистана.",
+          "accepts": [
+            "Я из Таджикистана.",
+            "Таджикистан."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Эта кровать твоя.",
+          "cueTranslation": "Ин кат аз они ту.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Понятно, спасибо."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Оби гарм нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где кухня?",
+          "translation": "Ошхона куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Нет горячей воды.",
+          "translation": "Оби гарм нест.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Где душ?",
+          "translation": "Душ куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно готовить?",
+          "translation": "Хӯрок пухтан мумкин?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Я потерял ключ.",
+          "translation": "Калидамро гум кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я потеряла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Во сколько закрывается?",
+          "translation": "Соати чанд баста мешавад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мудири ётоқ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Чем могу помочь?",
+          "cueTranslation": "Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: оби гарм нест",
+          "text": "Нет горячей воды.",
+          "accepts": [
+            "Горячей воды нет.",
+            "В душе нет горячей воды."
+          ],
+          "translation": "Оби гарм нест.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Сейчас посмотрю. Какая комната?",
+          "cueTranslation": "Ҳозир мебинам. Кадом ҳуҷра?",
+          "intent": "Бигӯ: дусаду панҷ",
+          "text": "Двести пять.",
+          "accepts": [
+            "Комната двести пять.",
+            "205."
+          ],
+          "translation": "Дусаду панҷ.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Ещё что-то?",
+          "cueTranslation": "Хуб. Боз чизе?",
+          "intent": "Бипурс: соати чанд баста мешавад?",
+          "text": "Во сколько закрывается?",
+          "accepts": [
+            "Когда закрывается общежитие?",
+            "До скольки открыто?"
+          ],
+          "translation": "Соати чанд баста мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хоб",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "У соседа громко.",
+          "translation": "Дар ҳамсоя садо баланд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я хочу спать.",
+          "translation": "Мехоҳам хоб равам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Тише, пожалуйста.",
+          "translation": "Лутфан, оромтар.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Давай убираться вместе.",
+          "translation": "Якҷоя тоза кунем.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Чьё это?",
+          "translation": "Ин аз кист?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Спокойной ночи!",
+          "translation": "Шаб ба хайр!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Шаб ба хайр",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Эй, хочешь музыку?",
+          "cueTranslation": "Эй, мусиқӣ мехоҳӣ?",
+          "intent": "Бигӯ: не, ташаккур. Мехоҳам хоб равам",
+          "text": "Нет, спасибо. Я хочу спать.",
+          "accepts": [
+            "Я хочу спать.",
+            "Нет, я спать."
+          ],
+          "translation": "Не, ташаккур. Мехоҳам хоб равам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой, извини!",
+          "cueTranslation": "Вой, бубахш!",
+          "intent": "Бигӯ: ҳеҷ гап не. Шаб ба хайр",
+          "text": "Ничего. Спокойной ночи!",
+          "accepts": [
+            "Спокойной ночи!",
+            "Всё нормально. Спокойной ночи."
+          ],
+          "translation": "Ҳеҷ гап не. Шаб ба хайр!",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спокойной ночи! Завтра уборка.",
+          "cueTranslation": "Шаб ба хайр! Фардо тозакунӣ.",
+          "intent": "Бигӯ: хуб, якҷоя тоза кунем",
+          "text": "Хорошо, давай убираться вместе.",
+          "accepts": [
+            "Давай вместе.",
+            "Хорошо, вместе."
+          ],
+          "translation": "Хуб, якҷоя тоза кунем.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ётоқ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Вы новенький?",
+          "cueTranslation": "Салом! Шумо навед?",
+          "intent": "Бигӯ: ҳа, ман донишҷӯи нав",
+          "text": "Да, я новый студент.",
+          "accepts": [
+            "Да.",
+            "Да, я новая студентка."
+          ],
+          "translation": "Ҳа, ман донишҷӯи нав.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Комната двести пять. Вот ключ.",
+          "cueTranslation": "Ҳуҷраи дусаду панҷ. Ана калид.",
+          "intent": "Бипурс: ошхона куҷост?",
+          "text": "Где кухня?",
+          "accepts": [
+            "А кухня где?",
+            "Кухня где?"
+          ],
+          "translation": "Ошхона куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "На каждом этаже.",
+          "cueTranslation": "Дар ҳар ошёна.",
+          "intent": "Бипурс: соати чанд баста мешавад?",
+          "text": "Во сколько закрывается?",
+          "accepts": [
+            "Когда закрывается?",
+            "До скольки открыто?"
+          ],
+          "translation": "Соати чанд баста мешавад?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "В двенадцать ночи.",
+          "cueTranslation": "Соати дувоздаҳи шаб.",
+          "intent": "Бигӯ: фаҳмидам. Ташаккур",
+          "text": "Понятно. Спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Фаҳмидам. Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

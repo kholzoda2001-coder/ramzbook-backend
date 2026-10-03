@@ -1,0 +1,564 @@
+{
+  "slug": "shelves_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Выкладка товара",
+    "titleTranslated": "Мол дар рафҳо",
+    "scenario": "Шумо дар мағоза ё анбор мол мечинед: қуттиҳоро мекушоед, молро ба раф мегузоред, мӯҳлати молро месанҷед ва мепурсед, ки чиро куҷо гузоред.",
+    "emoji": "📦",
+    "order": 12,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Раф",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Полка",
+          "translation": "раф",
+          "literal": null,
+          "note": "Зарба: ПОЛ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Коробка",
+          "translation": "қуттӣ",
+          "literal": null,
+          "note": "Зарба: ко-РОБ-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Склад",
+          "translation": "анбор",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ценник",
+          "translation": "нархнома",
+          "literal": null,
+          "note": "Зарба: ЦЕН-ник.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ряд",
+          "translation": "қатор",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Пусто",
+          "translation": "холӣ",
+          "literal": null,
+          "note": "Зарба: ПУС-то.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Кадом раф?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Открой эти коробки.",
+          "cueTranslation": "Ин қуттиҳоро кушо.",
+          "intent": "Бигӯ: хуб",
+          "text": "Хорошо.",
+          "accepts": [
+            "Сейчас.",
+            "Ладно."
+          ],
+          "translation": "Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Молоко поставь на полку.",
+          "cueTranslation": "Ширро ба раф гузор.",
+          "intent": "Бипурс: ба кадом раф?",
+          "text": "На какую полку?",
+          "accepts": [
+            "Какую полку?",
+            "Куда именно?"
+          ],
+          "translation": "Ба кадом раф?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Верхняя полка, пятый ряд.",
+          "cueTranslation": "Рафи боло, қатори панҷум.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Хорошо, понятно.",
+          "accepts": [
+            "Понятно.",
+            "Понял.",
+            "Поняла."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Рафи боло",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Верхняя полка",
+          "translation": "Рафи боло",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Нижняя полка",
+          "translation": "Рафи поён",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Пятый ряд",
+          "translation": "Қатори панҷум",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Новые ценники",
+          "translation": "Нархномаҳои нав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "На складе",
+          "translation": "Дар анбор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Всё пусто",
+          "translation": "Ҳама холӣ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Раф холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Полка пустая.",
+          "cueTranslation": "Раф холӣ.",
+          "intent": "Бигӯ: дар анбор боз ҳаст",
+          "text": "На складе есть ещё.",
+          "accepts": [
+            "Ещё есть на складе.",
+            "Я принесу со склада."
+          ],
+          "translation": "Дар анбор боз ҳаст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Принеси, пожалуйста.",
+          "cueTranslation": "Хуб. Биёр, лутфан.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Хорошо, сейчас.",
+          "accepts": [
+            "Сейчас.",
+            "Ладно."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "И повесь ценники.",
+          "cueTranslation": "Ва нархномаҳоро овез.",
+          "intent": "Бипурс: нарх чанд?",
+          "text": "Какая цена?",
+          "accepts": [
+            "Сколько стоит?",
+            "Какую цену?"
+          ],
+          "translation": "Нарх чанд?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Инро куҷо гузорам?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Куда это поставить?",
+          "translation": "Инро куҷо гузорам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Коробка тяжёлая.",
+          "translation": "Қуттӣ вазнин.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Полка полная.",
+          "translation": "Раф пур.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужны ещё ценники.",
+          "translation": "Боз нархнома лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Этот ряд?",
+          "translation": "Ҳамин қатор?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Здесь всё готово.",
+          "translation": "Ин ҷо ҳама тайёр.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Қатори сеюм",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Как дела?",
+          "cueTranslation": "Салом! Корҳо чӣ хел?",
+          "intent": "Бигӯ: хуб. Инро куҷо гузорам?",
+          "text": "Хорошо. Куда это поставить?",
+          "accepts": [
+            "Куда это поставить?",
+            "Нормально. Куда это?"
+          ],
+          "translation": "Хуб. Инро куҷо гузорам?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Рис в третьем ряду.",
+          "cueTranslation": "Биринҷ дар қатори сеюм.",
+          "intent": "Бипурс: ҳамин қатор?",
+          "text": "Этот ряд?",
+          "accepts": [
+            "Третий ряд? Здесь?",
+            "Этот?"
+          ],
+          "translation": "Ҳамин қатор?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, нижняя полка.",
+          "cueTranslation": "Ҳа, рафи поён.",
+          "intent": "Бигӯ: хуб. Раф пур",
+          "text": "Хорошо. Полка полная.",
+          "accepts": [
+            "Полка полная.",
+            "Извините, полка полная."
+          ],
+          "translation": "Хуб. Раф пур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мӯҳлат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я закончил пятый ряд.",
+          "translation": "Қатори панҷумро тамом кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я закончила».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Я проверю.",
+          "translation": "Ман месанҷам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Молоко старое.",
+          "translation": "Шир кӯҳна аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Убрать его?",
+          "translation": "Онро барорам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Машина приехала.",
+          "translation": "Мошини бор омад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Что дальше?",
+          "translation": "Баъд чӣ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Шири кӯҳна",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Сроки проверил?",
+          "cueTranslation": "Мӯҳлатҳоро санҷидӣ?",
+          "intent": "Бигӯ: ҳа. Шир кӯҳна аст",
+          "text": "Да. Молоко старое.",
+          "accepts": [
+            "Да, молоко просрочено.",
+            "Проверил. Молоко старое."
+          ],
+          "translation": "Ҳа. Шир кӯҳна аст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ой. Убери с полки.",
+          "cueTranslation": "Вой. Аз раф гир.",
+          "intent": "Бипурс: онро барорам",
+          "text": "Убрать его?",
+          "accepts": [
+            "В мусор?",
+            "Выбросить?"
+          ],
+          "translation": "Онро барорам?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да. Потом помоги с машиной.",
+          "cueTranslation": "Ҳа. Баъд бо мошини бор ёрӣ деҳ.",
+          "intent": "Бигӯ: хуб, фаҳмидам",
+          "text": "Хорошо, понятно.",
+          "accepts": [
+            "Хорошо.",
+            "Понял.",
+            "Поняла."
+          ],
+          "translation": "Хуб, фаҳмидам.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рафҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Привет! Полка с молоком пустая.",
+          "cueTranslation": "Салом! Рафи шир холӣ.",
+          "intent": "Бигӯ: дар анбор боз ҳаст",
+          "text": "На складе есть ещё.",
+          "accepts": [
+            "Я принесу со склада.",
+            "Ещё есть на складе."
+          ],
+          "translation": "Дар анбор боз ҳаст.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Принеси две коробки.",
+          "cueTranslation": "Хуб. Ду қуттӣ биёр.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Хорошо, сейчас.",
+          "accepts": [
+            "Сейчас.",
+            "Ладно."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Поставь на верхнюю полку, пятый ряд.",
+          "cueTranslation": "Ба рафи боло, қатори панҷум гузор.",
+          "intent": "Бигӯ: рафи боло, қатори панҷум. Хуб",
+          "text": "Верхняя полка, пятый ряд. Хорошо.",
+          "accepts": [
+            "Пятый ряд. Хорошо.",
+            "Хорошо, понятно."
+          ],
+          "translation": "Рафи боло, қатори панҷум. Хуб.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "И проверь сроки!",
+          "cueTranslation": "Ва мӯҳлатҳоро санҷ!",
+          "intent": "Бигӯ: хуб. Шир кӯҳна аст",
+          "text": "Хорошо. Молоко старое.",
+          "accepts": [
+            "Молоко просрочено.",
+            "Хорошо. Одно просрочено."
+          ],
+          "translation": "Хуб. Шир кӯҳна аст.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

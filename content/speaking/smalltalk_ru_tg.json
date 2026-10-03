@@ -1,0 +1,563 @@
+{
+  "slug": "smalltalk_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Разговор с пассажиром",
+    "titleTranslated": "Гап бо мусофир",
+    "scenario": "Дар роҳ мусофир гап мезанад: аз куҷо ҳастед, оила доред, ҳаво чӣ хел. Шумо кӯтоҳ ҷавоб медиҳед, мусиқӣ ва кондитсионерро мепурсед.",
+    "emoji": "💬",
+    "order": 9,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳаво ва мусиқӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Музыка",
+          "translation": "мусиқӣ",
+          "literal": null,
+          "note": "Зарба: МУ-зы-ка.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Погода",
+          "translation": "ҳаво",
+          "literal": null,
+          "note": "Зарба: по-ГО-да.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Дождь",
+          "translation": "борон",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Жарко",
+          "translation": "гарм",
+          "literal": null,
+          "note": "Зарба: ЖАР-ко.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Холодно",
+          "translation": "хунук",
+          "literal": null,
+          "note": "Зарба: ХО-лод-но.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Тихо",
+          "translation": "ором",
+          "literal": null,
+          "note": "Зарба: ТИ-хо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Аз куҷо ҳастед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вы откуда?",
+          "cueTranslation": "Шумо аз куҷо ҳастед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Из Таджикистана.",
+          "accepts": [
+            "Я из Таджикистана.",
+            "Таджикистан."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "О, хорошо! Вам здесь нравится?",
+          "cueTranslation": "О, хуб! Ин ҷо ба шумо писанд аст?",
+          "intent": "Бигӯ: ҳа, хеле",
+          "text": "Да, очень.",
+          "accepts": [
+            "Да, нравится.",
+            "Да, хорошо."
+          ],
+          "translation": "Ҳа, хеле.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Работа тяжёлая?",
+          "cueTranslation": "Кор вазнин аст?",
+          "intent": "Бигӯ: не, ба ман писанд аст",
+          "text": "Нет, мне нравится.",
+          "accepts": [
+            "Нормально.",
+            "Нет, нормально."
+          ],
+          "translation": "Не, ба ман писанд аст.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Мусиқӣ хуб?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Музыка нормально?",
+          "translation": "Мусиқӣ хуб?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Слишком громко?",
+          "translation": "Хеле баланд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошая погода",
+          "translation": "Ҳавои хуб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Очень жарко",
+          "translation": "Хеле гарм",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Сильный дождь",
+          "translation": "Борони сахт",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне тоже",
+          "translation": "Ба ман ҳам",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суруд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Включите радио, пожалуйста.",
+          "cueTranslation": "Радиоро фаъол кунед, лутфан.",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Да, конечно.",
+          "accepts": [
+            "Конечно.",
+            "Сейчас."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо. Мне нравится эта песня.",
+          "cueTranslation": "Ташаккур. Ин суруд ба ман писанд.",
+          "intent": "Бигӯ: ба ман ҳам",
+          "text": "Мне тоже.",
+          "accepts": [
+            "Мне тоже нравится.",
+            "И мне тоже."
+          ],
+          "translation": "Ба ман ҳам.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Немного громко.",
+          "cueTranslation": "Каме баланд.",
+          "intent": "Бигӯ: бубахшед. Ҳамин хел беҳтар?",
+          "text": "Извините. Так лучше?",
+          "accepts": [
+            "Извините! Так нормально?",
+            "Так лучше?"
+          ],
+          "translation": "Бубахшед. Ҳамин хел беҳтар?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман аз Тоҷикистон",
+      "items": [
+        {
+          "kind": "own",
+          "text": "Я из ___.",
+          "translation": "Ман аз ___ ҳастам.",
+          "literal": null,
+          "note": "Шаҳр ё кишвари худро гӯед.",
+          "cue": "Вы откуда?",
+          "cueTranslation": "Шумо аз куҷо ҳастед?",
+          "intent": "Ҷои худро гӯед",
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нравится Москва.",
+          "translation": "Москва ба ман писанд.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Вы местный?",
+          "translation": "Шумо маҳаллӣ ҳастед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Не жарко?",
+          "translation": "Гарм нест?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Будет дождь.",
+          "translation": "Борон меборад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Сегодня хорошая погода.",
+          "translation": "Имрӯз ҳаво хуб.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Хеле гарм",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ой, как сегодня жарко!",
+          "cueTranslation": "Вой, имрӯз чӣ қадар гарм!",
+          "intent": "Бипурс: тирезаро кушоям",
+          "text": "Открыть окно?",
+          "accepts": [
+            "Кондиционер включить?",
+            "Включить?"
+          ],
+          "translation": "Тирезаро кушоям?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, пожалуйста.",
+          "cueTranslation": "Ҳа, лутфан.",
+          "intent": "Бигӯ: як сония",
+          "text": "Одну секунду.",
+          "accepts": [
+            "Секунду.",
+            "Сейчас."
+          ],
+          "translation": "Як сония.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Спасибо! Намного лучше.",
+          "cueTranslation": "Ташаккур! Хеле беҳтар.",
+          "intent": "Бигӯ: олӣ",
+          "text": "Отлично!",
+          "accepts": [
+            "Хорошо.",
+            "Отлично, пожалуйста."
+          ],
+          "translation": "Олӣ!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Оила",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "У меня двое детей.",
+          "translation": "Ман ду фарзанд дорам.",
+          "literal": null,
+          "note": "«Двое детей» — ду фарзанд.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Семья там.",
+          "translation": "Оилаам он ҷост.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Я работаю каждый день.",
+          "translation": "Ман ҳар рӯз кор мекунам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Вы здесь работаете?",
+          "translation": "Шумо ин ҷо кор мекунед?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Добро пожаловать!",
+          "translation": "Хуш омадед!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Хорошей поездки!",
+          "translation": "Сафари хуш!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Оила доред?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "У вас есть семья?",
+          "cueTranslation": "Шумо оила доред?",
+          "intent": "Бигӯ: ҳа, ман ду фарзанд дорам",
+          "text": "Да, у меня двое детей.",
+          "accepts": [
+            "Да. Двое детей.",
+            "Двое детей."
+          ],
+          "translation": "Ҳа, ман ду фарзанд дорам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Они здесь?",
+          "cueTranslation": "Онҳо ин ҷоянд?",
+          "intent": "Бигӯ: не, оилаам он ҷост",
+          "text": "Нет, семья там.",
+          "accepts": [
+            "Нет, в Таджикистане.",
+            "Нет, они дома."
+          ],
+          "translation": "Не, оилаам он ҷост.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Я тоже здесь работаю.",
+          "cueTranslation": "Ман ҳам ин ҷо кор мекунам.",
+          "intent": "Бигӯ: барори кор!",
+          "text": "Удачи!",
+          "accepts": [
+            "Удачи вам!",
+            "Успехов!"
+          ],
+          "translation": "Барори кор!",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сӯҳбат дар роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Хорошая погода, да?",
+          "cueTranslation": "Салом! Ҳаво хуб, ҳа?",
+          "intent": "Бигӯ: ҳа, хеле хуб",
+          "text": "Да, очень хорошая.",
+          "accepts": [
+            "Да, хорошая.",
+            "Да, отличная."
+          ],
+          "translation": "Ҳа, хеле хуб.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Вы откуда?",
+          "cueTranslation": "Шумо аз куҷо ҳастед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Из Таджикистана.",
+          "accepts": [
+            "Я из Таджикистана.",
+            "Таджикистан."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Здорово! Вам нравится Москва?",
+          "cueTranslation": "Олӣ! Москва ба шумо писанд аст?",
+          "intent": "Бигӯ: ҳа, Москва ба ман писанд",
+          "text": "Да, мне нравится Москва.",
+          "accepts": [
+            "Да, очень.",
+            "Да, нравится."
+          ],
+          "translation": "Ҳа, Москва ба ман писанд.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Включите музыку, пожалуйста.",
+          "cueTranslation": "Мусиқӣ монед, лутфан.",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Да, конечно.",
+          "accepts": [
+            "Конечно.",
+            "Сейчас."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

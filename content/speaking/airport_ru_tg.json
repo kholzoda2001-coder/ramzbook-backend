@@ -1,0 +1,562 @@
+{
+  "slug": "airport_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "В аэропорту",
+    "titleTranslated": "Дар фурудгоҳ",
+    "scenario": "Шумо ба хона парвоз мекунед: шиносномаро нишон медиҳед, бағоҷро месупоред, ҷои назди тирезаро мепурсед, дарвозаро меёбед ва агар сумка гум шавад — хабар медиҳед.",
+    "emoji": "🛫",
+    "order": 3,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Парвоз",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Рейс",
+          "translation": "парвоз",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Билет",
+          "translation": "чипта",
+          "literal": null,
+          "note": "Зарба: би-ЛЕТ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Выход",
+          "translation": "дарвоза (ба ҳавопаймо)",
+          "literal": null,
+          "note": "Зарба: ВЫ-ход.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Паспорт",
+          "translation": "шиноснома",
+          "literal": null,
+          "note": "Зарба: ПАС-порт.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Место",
+          "translation": "ҷой",
+          "literal": null,
+          "note": "Зарба: МЕС-то.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Багаж",
+          "translation": "бағоҷ",
+          "literal": null,
+          "note": "Зарба: ба-ГАЖ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Бақайдгирӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Куда летите?",
+          "cueTranslation": "Салом! Ба куҷо парвоз мекунед?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "В Душанбе.",
+          "accepts": [
+            "Душанбе.",
+            "Я лечу в Душанбе."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Паспорт, пожалуйста.",
+          "cueTranslation": "Шиноснома, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Вот, пожалуйста.",
+          "accepts": [
+            "Пожалуйста.",
+            "Вот мой паспорт."
+          ],
+          "translation": "Марҳамат.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Багаж есть?",
+          "cueTranslation": "Бағоҷ доред?",
+          "intent": "Бигӯ: ҳа, як сумка",
+          "text": "Да, одна сумка.",
+          "accepts": [
+            "Одна сумка.",
+            "Да, одна."
+          ],
+          "translation": "Ҳа, як сумка.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Назди тиреза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "У окна",
+          "translation": "Назди тиреза",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "У прохода",
+          "translation": "Назди роҳрав",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Выход десять",
+          "translation": "Дарвозаи даҳ",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Одна сумка",
+          "translation": "Як сумка",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Посадочный талон",
+          "translation": "Талони нишаст",
+          "literal": null,
+          "note": "Коғазе, ки бо он ба ҳавопаймо медароед.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Вовремя",
+          "translation": "сари вақт",
+          "literal": null,
+          "note": "Зарба: ВО-вре-мя.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом дарвоза?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "У окна или у прохода?",
+          "cueTranslation": "Назди тиреза ё роҳрав?",
+          "intent": "Бигӯ: назди тиреза, лутфан",
+          "text": "У окна, пожалуйста.",
+          "accepts": [
+            "У окна.",
+            "Место у окна."
+          ],
+          "translation": "Назди тиреза, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Вот посадочный талон.",
+          "cueTranslation": "Хуб. Ана талони нишаст.",
+          "intent": "Бипурс: кадом дарвоза?",
+          "text": "Какой выход?",
+          "accepts": [
+            "Выход какой?",
+            "Какой номер выхода?"
+          ],
+          "translation": "Кадом дарвоза?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Выход десять.",
+          "cueTranslation": "Дарвозаи даҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Спасибо.",
+          "accepts": [
+            "Спасибо большое.",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Сари вақт?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Где выход десять?",
+          "translation": "Дарвозаи даҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Рейс опаздывает?",
+          "translation": "Парвоз дер мекунад?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Сумка тяжёлая.",
+          "translation": "Сумка вазнин.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "У меня одна сумка.",
+          "translation": "Ман як сумка дорам.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Когда на выход?",
+          "translation": "Кай ба баромадгоҳ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Рейс вовремя?",
+          "translation": "Парвоз сари вақт?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дарвозаи даҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Вам помочь?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: дарвозаи даҳ куҷост?",
+          "text": "Где выход десять?",
+          "accepts": [
+            "Выход десять где?",
+            "Где десятый выход?"
+          ],
+          "translation": "Дарвозаи даҳ куҷост?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Прямо, потом налево.",
+          "cueTranslation": "Рост, баъд ба чап.",
+          "intent": "Бипурс: парвоз сари вақт?",
+          "text": "Рейс вовремя?",
+          "accepts": [
+            "Рейс не задерживается?",
+            "Вовремя?"
+          ],
+          "translation": "Парвоз сари вақт?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Да, посадка в пять.",
+          "cueTranslation": "Ҳа, нишаст соати панҷ.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Отлично, спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Сумка гум шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Я потерял сумку.",
+          "translation": "Сумкаамро гум кардам.",
+          "literal": null,
+          "note": "Зан мегӯяд: «Я потеряла».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Это моя сумка.",
+          "translation": "Ин сумкаи ман.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Чёрная и большая.",
+          "translation": "Сиёҳ ва калон.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Вот мой билет.",
+          "translation": "Ана чиптаи ман.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Мой рейс опаздывает.",
+          "translation": "Парвози ман дер мекунад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Где багаж?",
+          "translation": "Бағоҷ куҷост?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чӣ ранг?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Следующий. Что случилось?",
+          "cueTranslation": "Навбатӣ. Чӣ шуд?",
+          "intent": "Бигӯ: сумкаамро гум кардам",
+          "text": "Я потерял сумку.",
+          "accepts": [
+            "Я потеряла сумку.",
+            "Моей сумки нет."
+          ],
+          "translation": "Сумкаамро гум кардам.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какого цвета?",
+          "cueTranslation": "Чӣ ранг?",
+          "intent": "Бигӯ: сиёҳ ва калон",
+          "text": "Чёрная и большая.",
+          "accepts": [
+            "Чёрная, большая.",
+            "Большая чёрная сумка."
+          ],
+          "translation": "Сиёҳ ва калон.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Мы вам позвоним.",
+          "cueTranslation": "Хуб. Ба шумо занг мезанем.",
+          "intent": "Бигӯ: ташаккур. Ана рақами ман",
+          "text": "Спасибо. Вот мой номер.",
+          "accepts": [
+            "Спасибо.",
+            "Спасибо. Мой номер здесь."
+          ],
+          "translation": "Ташаккур. Ана рақами ман.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Куда летите?",
+          "cueTranslation": "Салом! Ба куҷо парвоз мекунед?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "В Душанбе.",
+          "accepts": [
+            "Душанбе.",
+            "Я лечу в Душанбе."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Паспорт, пожалуйста. Багаж есть?",
+          "cueTranslation": "Шиноснома, лутфан. Бағоҷ доред?",
+          "intent": "Бигӯ: марҳамат. Як сумка",
+          "text": "Вот, пожалуйста. Одна сумка.",
+          "accepts": [
+            "Вот. Одна сумка.",
+            "Да, одна сумка."
+          ],
+          "translation": "Марҳамат. Як сумка.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "У окна или у прохода?",
+          "cueTranslation": "Назди тиреза ё роҳрав?",
+          "intent": "Бигӯ: назди тиреза, лутфан",
+          "text": "У окна, пожалуйста.",
+          "accepts": [
+            "У окна.",
+            "Место у окна."
+          ],
+          "translation": "Назди тиреза, лутфан.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Вот посадочный талон.",
+          "cueTranslation": "Ана талони нишаст.",
+          "intent": "Бипурс: кадом дарвоза?",
+          "text": "Какой выход?",
+          "accepts": [
+            "Выход какой?",
+            "Какой номер выхода?"
+          ],
+          "translation": "Кадом дарвоза?",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

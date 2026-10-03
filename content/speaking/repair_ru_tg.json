@@ -1,0 +1,562 @@
+{
+  "slug": "repair_ru_tg",
+  "targetLanguage": "ru",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Машина сломалась",
+    "titleTranslated": "Мошин вайрон шуд",
+    "scenario": "Мошин вайрон шуд: чарх сӯрох шуд ё чароғи мотор месӯзад. Шумо ба автосервис меравед, мушкилро кӯтоҳ мегӯед, нарх ва вақтро мепурсед ва чек мегиред.",
+    "emoji": "🔧",
+    "order": 18,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Автосервис",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Двигатель",
+          "translation": "мотор",
+          "literal": null,
+          "note": "Зарба: ДВИ-га-тель.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Тормоза",
+          "translation": "тормоз",
+          "literal": null,
+          "note": "Зарба дар охир: тор-мо-ЗА.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Механик",
+          "translation": "усто",
+          "literal": null,
+          "note": "Зарба: ме-ХА-ник.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Шина",
+          "translation": "чарх (шина)",
+          "literal": null,
+          "note": "Зарба: ШИ-на.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Аккумулятор",
+          "translation": "аккумулятор",
+          "literal": null,
+          "note": "Зарба: ак-ку-му-ЛЯ-тор.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Шум",
+          "translation": "садо",
+          "literal": null,
+          "note": "Як ҳиҷо.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чархи сӯрох",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Что случилось?",
+          "cueTranslation": "Салом! Чӣ шуд?",
+          "intent": "Бигӯ: мушкил бо чарх",
+          "text": "Проблема с колесом.",
+          "accepts": [
+            "Колесо пробито.",
+            "Спустило колесо."
+          ],
+          "translation": "Мушкил бо чарх.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Какое?",
+          "cueTranslation": "Кадомаш?",
+          "intent": "Бигӯ: аз чап, аз қафо",
+          "text": "Слева, сзади.",
+          "accepts": [
+            "Сзади слева.",
+            "Левое заднее."
+          ],
+          "translation": "Аз чап, аз қафо.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Без проблем. Сделаем.",
+          "cueTranslation": "Мушкил нест. Дуруст мекунем.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Сколько стоит?",
+          "accepts": [
+            "Сколько?",
+            "Сколько будет стоить?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Чароғи мотор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Пробитое колесо",
+          "translation": "Чархи сӯрох",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Лампочка двигателя",
+          "translation": "Чароғи мотор",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Странный шум",
+          "translation": "Садои аҷиб",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Сел аккумулятор",
+          "translation": "Аккумулятор холӣ шуд",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Сколько времени?",
+          "translation": "Чанд вақт?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "До вечера?",
+          "translation": "То бегоҳ?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Садои аҷиб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Что с машиной?",
+          "cueTranslation": "Мошин чӣ шуд?",
+          "intent": "Бигӯ: чароғи мотор месӯзад",
+          "text": "Горит лампочка двигателя.",
+          "accepts": [
+            "Лампочка двигателя.",
+            "Горит лампочка."
+          ],
+          "translation": "Чароғи мотор месӯзад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Шум есть?",
+          "cueTranslation": "Садо ҳаст?",
+          "intent": "Бигӯ: ҳа, садои аҷиб",
+          "text": "Да, странный шум.",
+          "accepts": [
+            "Да, шум.",
+            "Да, есть шум."
+          ],
+          "translation": "Ҳа, садои аҷиб.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Надо проверить.",
+          "cueTranslation": "Хуб. Бояд санҷид.",
+          "intent": "Бипурс: чанд вақт?",
+          "text": "Сколько времени?",
+          "accepts": [
+            "Долго?",
+            "Сколько это займёт?"
+          ],
+          "translation": "Чанд вақт?",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ба роҳ намеафтад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Тормоза плохие.",
+          "translation": "Тормоз бад аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Машина не заводится.",
+          "translation": "Мошин ба роҳ намеафтад.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Нужно сегодня.",
+          "translation": "Имрӯз лозим аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это моё такси.",
+          "translation": "Ин таксии ман аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Это дорого?",
+          "translation": "Қимат аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Позвоните мне, пожалуйста.",
+          "translation": "Ба ман занг занед, лутфан.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Автосервис, салом",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Автосервис, здравствуйте.",
+          "cueTranslation": "Хизматрасонии мошин, салом.",
+          "intent": "Бигӯ: мошин ба роҳ намеафтад",
+          "text": "Машина не заводится.",
+          "accepts": [
+            "Моя машина не заводится.",
+            "Не заводится машина."
+          ],
+          "translation": "Мошин ба роҳ намеафтад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Может, аккумулятор. Где вы?",
+          "cueTranslation": "Шояд аккумулятор. Шумо куҷоед?",
+          "intent": "Бигӯ: дар кӯчаи Ленин",
+          "text": "На улице Ленина.",
+          "accepts": [
+            "Улица Ленина.",
+            "Я на улице Ленина."
+          ],
+          "translation": "Дар кӯчаи Ленин.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Приедем через час.",
+          "cueTranslation": "Пас аз як соат меоем.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Хорошо, спасибо.",
+          "accepts": [
+            "Спасибо.",
+            "Хорошо, жду."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тайёр аст?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Машина готова?",
+          "translation": "Мошин тайёр аст?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Что было?",
+          "translation": "Чӣ буд?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Можно заплатить потом?",
+          "translation": "Баъдтар пардохт кунам?",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Это слишком дорого.",
+          "translation": "Ин хеле қимат аст.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Мне нужен чек.",
+          "translation": "Ба ман чек лозим.",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Теперь работает!",
+          "translation": "Ҳоло кор мекунад!",
+          "literal": null,
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Аккумулятори нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Ваша машина готова.",
+          "cueTranslation": "Салом! Мошинатон тайёр.",
+          "intent": "Бипурс: чӣ буд?",
+          "text": "Что было?",
+          "accepts": [
+            "Что сломалось?",
+            "А что было?"
+          ],
+          "translation": "Чӣ буд?",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Аккумулятор. Поставили новый.",
+          "cueTranslation": "Аккумулятор. Навашро гузоштем.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Сколько стоит?",
+          "accepts": [
+            "Сколько?",
+            "Сколько с меня?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Шесть тысяч рублей.",
+          "cueTranslation": "Шаш ҳазор рубл.",
+          "intent": "Бигӯ: хуб. Ба ман чек лозим",
+          "text": "Хорошо. Мне нужен чек.",
+          "accepts": [
+            "Хорошо. Чек, пожалуйста.",
+            "Чек, пожалуйста."
+          ],
+          "translation": "Хуб. Ба ман чек лозим.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: автосервис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Здравствуйте! Чем помочь?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: чароғи мотор месӯзад",
+          "text": "Горит лампочка двигателя.",
+          "accepts": [
+            "Лампочка двигателя горит.",
+            "Горит лампочка."
+          ],
+          "translation": "Чароғи мотор месӯзад.",
+          "literal": null,
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо. Странный шум есть?",
+          "cueTranslation": "Хуб. Садои аҷиб ҳаст?",
+          "intent": "Бигӯ: ҳа. Ва тормоз бад аст",
+          "text": "Да. И тормоза плохие.",
+          "accepts": [
+            "Да, есть шум.",
+            "Да. Тормоза тоже плохие."
+          ],
+          "translation": "Ҳа. Ва тормоз бад аст.",
+          "literal": null,
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Нужно два часа.",
+          "cueTranslation": "Ду соат лозим.",
+          "intent": "Бигӯ: ин таксии ман. Имрӯз лозим",
+          "text": "Это моё такси. Нужно сегодня.",
+          "accepts": [
+            "Нужно сегодня.",
+            "Пожалуйста, сегодня. Это для работы."
+          ],
+          "translation": "Ин таксии ман. Имрӯз лозим.",
+          "literal": null,
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Хорошо, будет готово в пять.",
+          "cueTranslation": "Хуб, соати панҷ тайёр мешавад.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Отлично, спасибо.",
+          "accepts": [
+            "Спасибо!",
+            "Хорошо, спасибо."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": null,
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
