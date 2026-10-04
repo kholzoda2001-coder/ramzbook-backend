@@ -1,0 +1,549 @@
+{
+  "slug": "route_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Adresse und Weg",
+    "titleTranslated": "Суроға ва роҳ",
+    "scenario": "Мусофир суроғаро мегӯяд. Шумо мепурсед, ки кадом кӯча ва рақами хона аст, навигаторро истифода мебаред ва роҳро мепурсед: рост, чап, дар чорраҳа.",
+    "emoji": "🗺️",
+    "order": 5,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Роҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Links",
+          "translation": "чап",
+          "literal": "линкс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Rechts",
+          "translation": "рост",
+          "literal": "рэхьц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Geradeaus",
+          "translation": "рост пеш",
+          "literal": "гэра:дэа́ус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ampel",
+          "translation": "светофор",
+          "literal": "а́мпэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kreuzung",
+          "translation": "чорраҳа",
+          "literal": "кро́йцунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Navi",
+          "translation": "навигатор",
+          "literal": "на́:ви",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Суроға",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Zur Gartenstraße, bitte.",
+          "cueTranslation": "Ба кӯчаи Гартен, лутфан.",
+          "intent": "Бипурс: рақами хона?",
+          "text": "Welche Hausnummer?",
+          "accepts": [
+            "Welche Nummer?"
+          ],
+          "translation": "Рақами хона?",
+          "literal": "вэ́лхьэ ҳа́уснума",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nummer fünf.",
+          "cueTranslation": "Рақами панҷ.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut.",
+            "Gartenstraße fünf."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kennen Sie den Weg?",
+          "cueTranslation": "Роҳро медонед?",
+          "intent": "Бигӯ: навигатор дорам",
+          "text": "Ich habe ein Navi.",
+          "accepts": [
+            "Ja, mit Navi."
+          ],
+          "translation": "Навигатор дорам.",
+          "literal": "ихь ҳа́:бэ айн на́:ви",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hier links",
+          "translation": "Ин ҷо ба чап",
+          "literal": "ҳи:а линкс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Dann rechts",
+          "translation": "Баъд ба рост",
+          "literal": "дан рэхьц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Immer geradeaus",
+          "translation": "Ҳамеша рост",
+          "literal": "и́ма гэра:дэа́ус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ampel rechts",
+          "translation": "Дар светофор ба рост",
+          "literal": "а́мпэл рэхьц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier halten?",
+          "translation": "Ин ҷо истам?",
+          "literal": "ҳи:а ҳа́лтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Welche Straße?",
+          "translation": "Кадом кӯча?",
+          "literal": "вэ́лхьэ штра́:сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ба кадом тараф?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hier links, bitte.",
+          "cueTranslation": "Ин ҷо ба чап, лутфан.",
+          "intent": "Бигӯ: хуб, ба чап",
+          "text": "Okay, links.",
+          "accepts": [
+            "Links, okay."
+          ],
+          "translation": "Хуб, ба чап.",
+          "literal": "окэ́: линкс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dann an der Ampel rechts.",
+          "cueTranslation": "Баъд дар светофор ба рост.",
+          "intent": "Такрор кун: дар светофор ба рост",
+          "text": "An der Ampel rechts.",
+          "accepts": [
+            "Rechts, okay."
+          ],
+          "translation": "Дар светофор ба рост.",
+          "literal": "ан дэ:а а́мпэл рэхьц",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, genau.",
+          "cueTranslation": "Ҳа, дуруст.",
+          "intent": "Бипурс: ин ҷо истам?",
+          "text": "Hier halten?",
+          "accepts": [
+            "Soll ich hier halten?"
+          ],
+          "translation": "Ин ҷо истам?",
+          "literal": "ҳи:а ҳа́лтэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман роҳ мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie ist die Adresse?",
+          "translation": "Суроға чист?",
+          "literal": "ви: ист ди: адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Straße?",
+          "translation": "Кӯча куҷост?",
+          "literal": "во: ист ди: штра́:сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Links oder rechts?",
+          "translation": "Чап ё рост?",
+          "literal": "линкс о́:да рэхьц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist es weit?",
+          "translation": "Дур аст?",
+          "literal": "ист эс вайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Navi sagt links.",
+          "translation": "Навигатор ба чап мегӯяд.",
+          "literal": "дас на́:ви за:кт линкс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wir sind da.",
+          "translation": "Расидем.",
+          "literal": "ви:а зинт да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Кӯчаи номаълум",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Zur Lindenstraße, bitte.",
+          "cueTranslation": "Ба кӯчаи Линден, лутфан.",
+          "intent": "Бигӯ: кӯчаро намедонам",
+          "text": "Ich kenne die Straße nicht.",
+          "accepts": [
+            "Wo ist das?",
+            "Die kenne ich nicht."
+          ],
+          "translation": "Кӯчаро намедонам.",
+          "literal": "ихь кэ́нэ ди: штра́:сэ нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Beim Park.",
+          "cueTranslation": "Назди боғ.",
+          "intent": "Бипурс: дур аст?",
+          "text": "Ist es weit?",
+          "accepts": [
+            "Weit?"
+          ],
+          "translation": "Дур аст?",
+          "literal": "ист эс вайт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, fünf Minuten.",
+          "cueTranslation": "Не, панҷ дақиқа.",
+          "intent": "Бигӯ: хуб, навигатор дорам",
+          "text": "Gut, ich habe ein Navi.",
+          "accepts": [
+            "Okay, mit Navi."
+          ],
+          "translation": "Хуб, навигатор дорам.",
+          "literal": "гу:т ихь ҳа́:бэ айн на́:ви",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Расидан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hier ist Nummer fünf.",
+          "translation": "Ин рақами панҷ.",
+          "literal": "ҳи:а ист ну́ма фюнф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich halte hier.",
+          "translation": "Ин ҷо меистам.",
+          "literal": "ихь ҳа́лтэ ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier halten geht nicht.",
+          "translation": "Ин ҷо истодан намешавад.",
+          "literal": "ҳи:а ҳа́лтэн гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Da vorne ist frei.",
+          "translation": "Он ҷо, пеш, холӣ аст.",
+          "literal": "да: фо́рнэ ист фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Vorsicht beim Aussteigen.",
+          "translation": "Ҳангоми фуромадан эҳтиёт.",
+          "literal": "фо́:азихьт байм а́усштайгэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen schönen Tag!",
+          "translation": "Рӯзи хуш!",
+          "literal": "а́йнэн шё́:нэн та:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ин ҷо истам?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hier, bitte. Halten Sie hier.",
+          "cueTranslation": "Ин ҷо, лутфан. Ин ҷо истед.",
+          "intent": "Бигӯ: ин ҷо истода наметавонам",
+          "text": "Ich kann hier nicht halten.",
+          "accepts": [
+            "Hier geht nicht."
+          ],
+          "translation": "Ин ҷо истода наметавонам.",
+          "literal": "ихь кан ҳи:а нихьт ҳа́лтэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo dann?",
+          "cueTranslation": "Пас куҷо?",
+          "intent": "Бигӯ: он ҷо, пеш, холӣ аст",
+          "text": "Da vorne ist frei.",
+          "accepts": [
+            "Da vorne."
+          ],
+          "translation": "Он ҷо, пеш, холӣ аст.",
+          "literal": "да: фо́рнэ ист фрай",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, danke.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "Einen schönen Tag!",
+          "accepts": [
+            "Schönen Tag!",
+            "Tschüss!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "а́йнэн шё́:нэн та:к",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: роҳи мураккаб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Zur Gartenstraße, bitte.",
+          "cueTranslation": "Ба кӯчаи Гартен, лутфан.",
+          "intent": "Бипурс: рақами хона?",
+          "text": "Welche Hausnummer?",
+          "accepts": [
+            "Welche Nummer?"
+          ],
+          "translation": "Рақами хона?",
+          "literal": "вэ́лхьэ ҳа́уснума",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nummer zwölf. Hier links!",
+          "cueTranslation": "Рақами дувоздаҳ. Ин ҷо ба чап!",
+          "intent": "Бигӯ: хуб, ба чап",
+          "text": "Okay, links.",
+          "accepts": [
+            "Links, okay."
+          ],
+          "translation": "Хуб, ба чап.",
+          "literal": "окэ́: линкс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und dann geradeaus.",
+          "cueTranslation": "Ва баъд рост.",
+          "intent": "Бипурс: дур аст?",
+          "text": "Ist es weit?",
+          "accepts": [
+            "Weit?"
+          ],
+          "translation": "Дур аст?",
+          "literal": "ист эс вайт",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein. Da ist es!",
+          "cueTranslation": "Не. Ана ҳамон!",
+          "intent": "Бигӯ: расидем",
+          "text": "Wir sind da.",
+          "accepts": [
+            "So, wir sind da."
+          ],
+          "translation": "Расидем.",
+          "literal": "ви:а зинт да:",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

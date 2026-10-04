@@ -1,0 +1,546 @@
+{
+  "slug": "hotel_stay_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Im Hotel",
+    "titleTranslated": "Қабул дар меҳмонхона",
+    "scenario": "Шумо ба меҳмонхона меоед: номатонро мегӯед, ҳуҷра мегиред, мепурсед, ки ноништа соати чанд аст ва Wi-Fi ҳаст, ва агар чизе кор накунад, хабар медиҳед.",
+    "emoji": "🏨",
+    "order": 4,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Меҳмонхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hotel",
+          "translation": "меҳмонхона",
+          "literal": "ҳотэ́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Zimmer",
+          "translation": "ҳуҷра",
+          "literal": "ци́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Nacht",
+          "translation": "шаб",
+          "literal": "нахт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Frühstück",
+          "translation": "ноништа",
+          "literal": "фрю́:штюк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Aufzug",
+          "translation": "лифт",
+          "literal": "а́уфцу:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Reservierung",
+          "translation": "фармоиш (броня)",
+          "literal": "рэзэрви́:рунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Қабул",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Abend! Haben Sie eine Reservierung?",
+          "cueTranslation": "Шом ба хайр! Фармоиш доред?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich habe eine Reservierung."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie ist Ihr Name?",
+          "cueTranslation": "Номатон?",
+          "intent": "Бигӯ: Каримов",
+          "text": "Karimov.",
+          "accepts": [
+            "Mein Name ist Karimov."
+          ],
+          "translation": "Каримов.",
+          "literal": "кари́:мов",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwei Nächte?",
+          "cueTranslation": "Ду шаб?",
+          "intent": "Бигӯ: ҳа, ду шаб",
+          "text": "Ja, zwei Nächte.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, ду шаб.",
+          "literal": "йа: цвай нэ́хьтэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zwei Nächte",
+          "translation": "Ду шаб",
+          "literal": "цвай нэ́хьтэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Zimmer",
+          "translation": "Як ҳуҷра",
+          "literal": "айн ци́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Welcher Stock?",
+          "translation": "Кадом ошёна?",
+          "literal": "вэ́лхьа шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann Frühstück?",
+          "translation": "Ноништа кай?",
+          "literal": "ван фрю́:штюк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Passwort?",
+          "translation": "Рамз?",
+          "literal": "дас па́сворт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Aufzug",
+          "translation": "Лифт",
+          "literal": "дэ:а а́уфцу:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Калид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hier ist Ihr Schlüssel.",
+          "cueTranslation": "Мана калидатон.",
+          "intent": "Бипурс: кадом ошёна?",
+          "text": "Welcher Stock?",
+          "accepts": [
+            "In welchem Stock?"
+          ],
+          "translation": "Кадом ошёна?",
+          "literal": "вэ́лхьа шток",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dritter Stock.",
+          "cueTranslation": "Ошёнаи сеюм.",
+          "intent": "Бипурс: ноништа кай?",
+          "text": "Wann ist Frühstück?",
+          "accepts": [
+            "Frühstück wann?"
+          ],
+          "translation": "Ноништа кай аст?",
+          "literal": "ван ист фрю́:штюк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Von sieben bis zehn.",
+          "cueTranslation": "Аз ҳафт то даҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke!",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich habe reserviert.",
+          "translation": "Ман фармоиш додаам.",
+          "literal": "ихь ҳа́:бэ рэзэрви́:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Gibt es WLAN?",
+          "translation": "Wi-Fi ҳаст?",
+          "literal": "ги:пт эс вэ́:ла:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist der Aufzug?",
+          "translation": "Лифт куҷост?",
+          "literal": "во: ист дэ:а а́уфцу:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Frühstück?",
+          "translation": "Бо ноништа?",
+          "literal": "мит фрю́:штюк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann muss ich gehen?",
+          "translation": "Кай бояд равам?",
+          "literal": "ван мус ихь гэ́:эн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein ruhiges Zimmer, bitte.",
+          "translation": "Ҳуҷраи ором, лутфан.",
+          "literal": "айн ру́:игэс ци́ма би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Wi-Fi ва ноништа",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Noch Fragen?",
+          "cueTranslation": "Боз савол?",
+          "intent": "Бипурс: Wi-Fi ҳаст?",
+          "text": "Gibt es WLAN?",
+          "accepts": [
+            "Haben Sie WLAN?"
+          ],
+          "translation": "Wi-Fi ҳаст?",
+          "literal": "ги:пт эс вэ́:ла:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, das Passwort ist hier.",
+          "cueTranslation": "Ҳа, рамз ин ҷо.",
+          "intent": "Бипурс: бо ноништа?",
+          "text": "Mit Frühstück?",
+          "accepts": [
+            "Ist Frühstück dabei?"
+          ],
+          "translation": "Бо ноништа?",
+          "literal": "мит фрю́:штюк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, mit Frühstück.",
+          "cueTranslation": "Ҳа, бо ноништа.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Super, danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": "зу́:па да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мушкил дар ҳуҷра",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Die Heizung geht nicht.",
+          "translation": "Гармкунак кор намекунад.",
+          "literal": "ди: ҳа́йцунг гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein warmes Wasser.",
+          "translation": "Оби гарм нест.",
+          "literal": "кайн ва́рмэс ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Zimmer ist laut.",
+          "translation": "Ҳуҷра пурсадо аст.",
+          "literal": "дас ци́ма ист лаут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein anderes Zimmer?",
+          "translation": "Ҳуҷраи дигар?",
+          "literal": "айн а́ндэрэс ци́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte neue Handtücher.",
+          "translation": "Лутфан сачоқҳои нав.",
+          "literal": "би́тэ но́йэ ҳа́нттю:хьа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke für die Hilfe.",
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": "да́нкэ фю:а ди: ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ба қабулгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Rezeption, hallo?",
+          "cueTranslation": "Қабулгоҳ, ало?",
+          "intent": "Бигӯ: оби гарм нест",
+          "text": "Kein warmes Wasser.",
+          "accepts": [
+            "Es gibt kein warmes Wasser."
+          ],
+          "translation": "Оби гарм нест.",
+          "literal": "кайн ва́рмэс ва́са",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Welches Zimmer?",
+          "cueTranslation": "Кадом ҳуҷра?",
+          "intent": "Бигӯ: ҳуҷраи сесаду ду",
+          "text": "Zimmer dreihundertzwei.",
+          "accepts": [
+            "Dreihundertzwei."
+          ],
+          "translation": "Ҳуҷраи сесаду ду.",
+          "literal": "ци́ма дра́йҳундатцвай",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir kommen sofort.",
+          "cueTranslation": "Ҳозир меоем.",
+          "intent": "Бигӯ: барои ёрӣ ташаккур",
+          "text": "Danke für die Hilfe.",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": "да́нкэ фю:а ди: ҳи́лфэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: шаби аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Abend! Ihr Name, bitte?",
+          "cueTranslation": "Шом ба хайр! Номатон?",
+          "intent": "Бигӯ: Каримов, ман фармоиш додаам",
+          "text": "Karimov. Ich habe reserviert.",
+          "accepts": [
+            "Karimov."
+          ],
+          "translation": "Каримов. Фармоиш додаам.",
+          "literal": "кари́:мов ихь ҳа́:бэ рэзэрви́:ат",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, zwei Nächte. Hier ist der Schlüssel.",
+          "cueTranslation": "Ҳа, ду шаб. Мана калид.",
+          "intent": "Бипурс: Wi-Fi ҳаст?",
+          "text": "Gibt es WLAN?",
+          "accepts": [
+            "Haben Sie WLAN?"
+          ],
+          "translation": "Wi-Fi ҳаст?",
+          "literal": "ги:пт эс вэ́:ла:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, gratis.",
+          "cueTranslation": "Ҳа, ройгон.",
+          "intent": "Бипурс: ноништа кай?",
+          "text": "Wann ist Frühstück?",
+          "accepts": [
+            "Und das Frühstück?"
+          ],
+          "translation": "Ноништа кай аст?",
+          "literal": "ван ист фрю́:штюк",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ab sieben Uhr.",
+          "cueTranslation": "Аз соати ҳафт.",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

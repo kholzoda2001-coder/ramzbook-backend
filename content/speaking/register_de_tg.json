@@ -1,0 +1,562 @@
+{
+  "slug": "register_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Im Studienbüro",
+    "titleTranslated": "Идораи донишгоҳ",
+    "scenario": "Шумо ба идораи донишгоҳ меравед: мегӯед, ки донишҷӯи нав ҳастед, факултетро мегӯед, формаро пур мекунед, акс ва нусхаи шиносномаро медиҳед ва мепурсед, ки корти донишҷӯӣ кай тайёр мешавад.",
+    "emoji": "🏫",
+    "order": 3,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Идора",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Büro",
+          "translation": "идора",
+          "literal": "бюро́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Formular",
+          "translation": "форма, варақа",
+          "literal": "формула́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Foto",
+          "translation": "акс",
+          "literal": "фо́:то",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Kopie",
+          "translation": "нусха",
+          "literal": "копи́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ausweis",
+          "translation": "корт, ҳуҷҷат",
+          "literal": "а́усвайс",
+          "note": "«Studentenausweis» — корти донишҷӯӣ.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Fach",
+          "translation": "факултет, ихтисос",
+          "literal": "фах",
+          "note": "Чизе ки мехонед: Deutsch, Informatik…",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Донишҷӯи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was möchten Sie?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: ман донишҷӯи нав ҳастам",
+          "text": "Ich bin neu hier.",
+          "accepts": [
+            "Ich bin ein neuer Student.",
+            "Ich bin neu."
+          ],
+          "translation": "Ман ин ҷо нав ҳастам.",
+          "literal": "ихь бин ной ҳи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Welches Fach?",
+          "cueTranslation": "Кадом ихтисос?",
+          "intent": "Бигӯ: забони олмонӣ",
+          "text": "Deutsch.",
+          "accepts": [
+            "Informatik.",
+            "Ich studiere Deutsch."
+          ],
+          "translation": "Забони олмонӣ.",
+          "literal": "дойч",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Füllen Sie das Formular aus.",
+          "cueTranslation": "Формаро пур кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut.",
+            "Ja, gut."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Erstes Semester",
+          "translation": "Семестри аввал",
+          "literal": "э́:астэс зэмэ́ста",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Fotos",
+          "translation": "Ду акс",
+          "literal": "цвай фо́:то:с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Eine Kopie",
+          "translation": "Як нусха",
+          "literal": "а́йнэ копи́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Name?",
+          "translation": "Номатон?",
+          "literal": "и:а на́:мэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Pass",
+          "translation": "шиноснома",
+          "literal": "пас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Fertig",
+          "translation": "тайёр",
+          "literal": "фэ́ртихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Акс лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie ist Ihr Name?",
+          "cueTranslation": "Номатон чист?",
+          "intent": "Бигӯ: Раҳимов",
+          "text": "Rahimov.",
+          "accepts": [
+            "Mein Name ist Rahimov.",
+            "Ich heiße Rahimov."
+          ],
+          "translation": "Раҳимов.",
+          "literal": "раҳи́:мов",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir brauchen Fotos.",
+          "cueTranslation": "Ба мо акс лозим.",
+          "intent": "Бипурс: чандто?",
+          "text": "Wie viele?",
+          "accepts": [
+            "Wie viele Fotos?"
+          ],
+          "translation": "Чандто?",
+          "literal": "ви: фи́:лэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwei Fotos und eine Kopie.",
+          "cueTranslation": "Ду акс ва як нусха.",
+          "intent": "Бигӯ: мана, марҳамат",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Bitte schön.",
+            "Hier sind sie."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Форма",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin neu hier.",
+          "translation": "Ман ин ҷо нав ҳастам.",
+          "literal": "ихь бин ной ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich studiere Informatik.",
+          "translation": "Ман информатика мехонам.",
+          "literal": "ихь штуди́:рэ информа́:тик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "own",
+          "text": "Mein Fach ist ___.",
+          "translation": "Ихтисоси ман ___.",
+          "literal": "майн фах ист ___",
+          "note": "Ихтисоси худро гӯед.",
+          "cue": "Was studieren Sie?",
+          "cueTranslation": "Шумо чӣ мехонед?",
+          "intent": "Ихтисоси худро гӯед",
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist das Formular?",
+          "translation": "Форма куҷост?",
+          "literal": "во: ист дас формула́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist mein Pass.",
+          "translation": "Мана шиносномаам.",
+          "literal": "ҳи:а ист майн пас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe zwei Fotos.",
+          "translation": "Ман ду акс дорам.",
+          "literal": "ихь ҳа́:бэ цвай фо́:то:с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷатҳо, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ihren Pass, bitte.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: мана шиносномаам",
+          "text": "Hier ist mein Pass.",
+          "accepts": [
+            "Hier, bitte.",
+            "Bitte schön."
+          ],
+          "translation": "Мана шиносномаам.",
+          "literal": "ҳи:а ист майн пас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fotos?",
+          "cueTranslation": "Акс доред?",
+          "intent": "Бигӯ: ҳа, ду акс",
+          "text": "Ja, zwei Fotos.",
+          "accepts": [
+            "Ja, ich habe zwei Fotos.",
+            "Ja."
+          ],
+          "translation": "Ҳа, ду акс.",
+          "literal": "йа: цвай фо́:то:с",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und eine Kopie vom Pass?",
+          "cueTranslation": "Ва нусхаи шиноснома?",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "Ja, hier.",
+          "accepts": [
+            "Ja, hier ist die Kopie.",
+            "Hier, bitte."
+          ],
+          "translation": "Ҳа, мана.",
+          "literal": "йа: ҳи:а",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Корти донишҷӯӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wann ist er fertig?",
+          "translation": "Кай тайёр мешавад?",
+          "literal": "ван ист э:а фэ́ртихь",
+          "note": "«er» — Ausweis.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Studentenausweis",
+          "translation": "Корти донишҷӯии ман",
+          "literal": "майн штудэ́нтэнаусвайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis Freitag?",
+          "translation": "То ҷумъа?",
+          "literal": "бис фра́йта:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch eine Frage.",
+          "translation": "Боз як савол.",
+          "literal": "нох а́йнэ фра́:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist Raum zehn?",
+          "translation": "Ҳуҷраи даҳ куҷост?",
+          "literal": "во: ист раум цэ:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke für die Hilfe.",
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": "да́нкэ фю:а ди: ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай тайёр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Gut, alles ist da.",
+          "cueTranslation": "Хуб, ҳама ҳаст.",
+          "intent": "Бипурс: корт кай тайёр мешавад?",
+          "text": "Wann ist der Ausweis fertig?",
+          "accepts": [
+            "Wann ist er fertig?",
+            "Wann?"
+          ],
+          "translation": "Корт кай тайёр мешавад?",
+          "literal": "ван ист дэ:а а́усвайс фэ́ртихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Am Freitag.",
+          "cueTranslation": "Рӯзи ҷумъа.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke.",
+            "Danke schön."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Noch Fragen?",
+          "cueTranslation": "Боз савол ҳаст?",
+          "intent": "Бигӯ: не, ташаккур",
+          "text": "Nein, danke.",
+          "accepts": [
+            "Nein, alles gut.",
+            "Nein."
+          ],
+          "translation": "Не, ташаккур.",
+          "literal": "найн да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сабти ном",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag! Kann ich helfen?",
+          "cueTranslation": "Рӯз ба хайр! Ёрӣ диҳам?",
+          "intent": "Бигӯ: ман донишҷӯи нав ҳастам",
+          "text": "Ich bin neu hier.",
+          "accepts": [
+            "Ich bin ein neuer Student.",
+            "Ja, ich bin neu."
+          ],
+          "translation": "Ман ин ҷо нав ҳастам.",
+          "literal": "ихь бин ной ҳи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Was studieren Sie?",
+          "cueTranslation": "Чӣ мехонед?",
+          "intent": "Бигӯ: информатика",
+          "text": "Informatik.",
+          "accepts": [
+            "Ich studiere Informatik.",
+            "Deutsch."
+          ],
+          "translation": "Информатика.",
+          "literal": "информа́:тик",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fotos und eine Kopie?",
+          "cueTranslation": "Акс ва нусха доред?",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "Ja, hier, bitte.",
+          "accepts": [
+            "Ja, hier.",
+            "Ja."
+          ],
+          "translation": "Ҳа, мана, марҳамат.",
+          "literal": "йа: ҳи:а би́тэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Der Ausweis ist am Freitag fertig.",
+          "cueTranslation": "Хуб. Корт рӯзи ҷумъа тайёр.",
+          "intent": "Ташаккур гӯй ва хайр",
+          "text": "Danke! Tschüss!",
+          "accepts": [
+            "Vielen Dank!",
+            "Danke schön, auf Wiedersehen!"
+          ],
+          "translation": "Ташаккур! Хайр!",
+          "literal": "да́нкэ чюс",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

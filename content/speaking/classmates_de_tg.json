@@ -1,0 +1,559 @@
+{
+  "slug": "classmates_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kommilitonen",
+    "titleTranslated": "Ҳамкурсон",
+    "scenario": "Бо ҳамкурсон шинос мешавед: мепурсед, ки аз куҷоянд ва чӣ мехонанд, рақами телефонро мубодила мекунед ва якҷоя ба қаҳвахона ё ба омӯзиш даъват мекунед.",
+    "emoji": "👫",
+    "order": 9,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳамкурсон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Freund",
+          "translation": "дӯст",
+          "literal": "фройнт",
+          "note": "Зан: «Freundin».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Zusammen",
+          "translation": "якҷоя",
+          "literal": "цуза́мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Nummer",
+          "translation": "рақам",
+          "literal": "ну́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Kaffee",
+          "translation": "қаҳва",
+          "literal": "ка́фэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Lernen",
+          "translation": "омӯхтан, дарс тайёр кардан",
+          "literal": "лэ́рнэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Gruppe",
+          "translation": "гурӯҳ",
+          "literal": "гру́пэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шиносоӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Bist du neu?",
+          "cueTranslation": "Салом! Навӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich bin neu."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich bin Lena. Und du?",
+          "cueTranslation": "Ман Лена. Ту чӣ?",
+          "intent": "Номи худро гӯй: Алӣ",
+          "text": "Ich bin Ali.",
+          "accepts": [
+            "Ich heiße Ali.",
+            "Ali."
+          ],
+          "translation": "Ман Алӣ.",
+          "literal": "ихь бин али",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Freut mich!",
+          "cueTranslation": "Шодам!",
+          "intent": "Бигӯ: ман ҳам",
+          "text": "Mich auch.",
+          "accepts": [
+            "Freut mich auch."
+          ],
+          "translation": "Ман ҳам.",
+          "literal": "михь аух",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Саволҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Aus Tadschikistan",
+          "translation": "Аз Тоҷикистон",
+          "literal": "аус таджикиста́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Welches Fach?",
+          "translation": "Кадом ихтисос?",
+          "literal": "вэ́лхьэс фах",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Deine Nummer?",
+          "translation": "Рақамат?",
+          "literal": "да́йнэ ну́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Gerne",
+          "translation": "бо хурсандӣ",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Leider nicht",
+          "translation": "Мутаассифона, не",
+          "literal": "ла́йда нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis später",
+          "translation": "То баъд",
+          "literal": "бис шпэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Аз куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Woher kommst du?",
+          "cueTranslation": "Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Aus Tadschikistan.",
+          "accepts": [
+            "Ich komme aus Tadschikistan."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": "аус таджикиста́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Toll! Was studierst du?",
+          "cueTranslation": "Олӣ! Чӣ мехонӣ?",
+          "intent": "Бигӯ: информатика",
+          "text": "Informatik.",
+          "accepts": [
+            "Ich studiere Informatik.",
+            "Deutsch."
+          ],
+          "translation": "Информатика.",
+          "literal": "информа́:тик",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich auch!",
+          "cueTranslation": "Ман ҳам!",
+          "intent": "Бигӯ: олӣ!",
+          "text": "Super!",
+          "accepts": [
+            "Toll!",
+            "Cool!"
+          ],
+          "translation": "Олӣ!",
+          "literal": "зу́:па",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich wohne im Wohnheim.",
+          "translation": "Ман дар хобгоҳ зиндагӣ мекунам.",
+          "literal": "ихь во́:нэ им во́:нҳайм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich lerne viel.",
+          "translation": "Ман бисёр мехонам.",
+          "literal": "ихь лэ́рнэ фи:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich spreche etwas Deutsch.",
+          "translation": "Каме олмонӣ гап мезанам.",
+          "literal": "ихь шпрэ́хэ э́твас дойч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "own",
+          "text": "Ich studiere ___.",
+          "translation": "Ман ___ мехонам.",
+          "literal": "ихь штуди́:рэ ___",
+          "note": "Ихтисоси худро гӯед.",
+          "cue": "Was studierst du?",
+          "cueTranslation": "Чӣ мехонӣ?",
+          "intent": "Ихтисоси худро гӯед",
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hast du Zeit?",
+          "translation": "Вақт дорӣ?",
+          "literal": "ҳаст ду: цайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Lernen wir zusammen?",
+          "translation": "Якҷоя мехонем?",
+          "literal": "лэ́рнэн ви:а цуза́мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Рақами телефон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hast du WhatsApp?",
+          "cueTranslation": "WhatsApp дорӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, klar.",
+            "Ja, ich habe WhatsApp."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gib mir deine Nummer.",
+          "cueTranslation": "Рақаматро деҳ.",
+          "intent": "Бигӯ: мана, марҳамат",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Klar, hier.",
+            "Ja, gerne."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke! Ich schreibe dir.",
+          "cueTranslation": "Ташаккур! Ба ту менависам.",
+          "intent": "Бигӯ: хуб",
+          "text": "Gut.",
+          "accepts": [
+            "Okay!",
+            "Super!"
+          ],
+          "translation": "Хуб.",
+          "literal": "гу:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Даъват",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Gehen wir Kaffee trinken?",
+          "translation": "Қаҳва нӯшем?",
+          "literal": "гэ́:эн ви:а ка́фэ три́нкэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Heute habe ich Zeit.",
+          "translation": "Имрӯз вақт дорам.",
+          "literal": "ҳо́йтэ ҳа́:бэ ихь цайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Heute geht es nicht.",
+          "translation": "Имрӯз намешавад.",
+          "literal": "ҳо́йтэ гэ:т эс нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Vielleicht morgen.",
+          "translation": "Шояд фардо.",
+          "literal": "фила́йхьт мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo treffen wir uns?",
+          "translation": "Дар куҷо вомехӯрем?",
+          "literal": "во: трэ́фэн ви:а унс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Vor der Bibliothek.",
+          "translation": "Назди китобхона.",
+          "literal": "фо:а дэ:а библиотэ́:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Қаҳва нӯшем?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Gehen wir Kaffee trinken?",
+          "cueTranslation": "Қаҳва нӯшем?",
+          "intent": "Бигӯ: бо хурсандӣ!",
+          "text": "Gerne!",
+          "accepts": [
+            "Ja, gerne!",
+            "Ja, gute Idee."
+          ],
+          "translation": "Бо хурсандӣ!",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann hast du Zeit?",
+          "cueTranslation": "Кай вақт дорӣ?",
+          "intent": "Бигӯ: баъди дарс",
+          "text": "Nach dem Unterricht.",
+          "accepts": [
+            "Um zwei Uhr.",
+            "Heute Nachmittag."
+          ],
+          "translation": "Баъди дарс.",
+          "literal": "на:х дэ:м у́нтарихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, vor der Bibliothek.",
+          "cueTranslation": "Хуб, назди китобхона.",
+          "intent": "Бигӯ: то баъд",
+          "text": "Bis später!",
+          "accepts": [
+            "Okay, bis dann!",
+            "Tschüss!"
+          ],
+          "translation": "То баъд!",
+          "literal": "бис шпэ́:та",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дӯсти нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Wie heißt du?",
+          "cueTranslation": "Салом! Номат чист?",
+          "intent": "Номи худро гӯй: Алӣ",
+          "text": "Ich heiße Ali.",
+          "accepts": [
+            "Ich bin Ali.",
+            "Ali."
+          ],
+          "translation": "Номи ман Алӣ.",
+          "literal": "ихь ҳа́йсэ али",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Woher kommst du?",
+          "cueTranslation": "Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Ich komme aus Tadschikistan.",
+          "accepts": [
+            "Aus Tadschikistan."
+          ],
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "ихь ко́мэ аус таджикиста́:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Lernen wir zusammen?",
+          "cueTranslation": "Якҷоя мехонем?",
+          "intent": "Бигӯ: бо хурсандӣ!",
+          "text": "Ja, gerne!",
+          "accepts": [
+            "Gerne!",
+            "Ja, gute Idee!"
+          ],
+          "translation": "Ҳа, бо хурсандӣ!",
+          "literal": "йа: гэ́рнэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gib mir deine Nummer.",
+          "cueTranslation": "Рақаматро деҳ.",
+          "intent": "Бигӯ: мана, марҳамат",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Klar, hier.",
+            "Ja, gerne."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

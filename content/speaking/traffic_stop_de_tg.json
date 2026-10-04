@@ -1,0 +1,548 @@
+{
+  "slug": "traffic_stop_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Polizeikontrolle",
+    "titleTranslated": "Полиси роҳ",
+    "scenario": "Полис шуморо нигоҳ медорад. Шумо ором салом медиҳед, шаҳодатнома ва ҳуҷҷатҳои мошинро медиҳед, саволҳоро мефаҳмед ва бо эҳтиром ҷавоб медиҳед.",
+    "emoji": "👮",
+    "order": 17,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Полис",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Polizei",
+          "translation": "полис",
+          "literal": "полица́й",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Kontrolle",
+          "translation": "санҷиш",
+          "literal": "контро́лэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Fahrzeugschein",
+          "translation": "ҳуҷҷати мошин",
+          "literal": "фа́:ацойкшайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Schnell",
+          "translation": "тез",
+          "literal": "шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Strafe",
+          "translation": "ҷарима",
+          "literal": "штра́:фэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Ausweis",
+          "translation": "шаҳодатнома (ID)",
+          "literal": "а́усвайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag. Polizei. Kontrolle.",
+          "cueTranslation": "Рӯз ба хайр. Полис. Санҷиш.",
+          "intent": "Салом гӯй",
+          "text": "Guten Tag.",
+          "accepts": [
+            "Hallo.",
+            "Guten Tag!"
+          ],
+          "translation": "Рӯз ба хайр.",
+          "literal": "гу́:тэн та:к",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihren Führerschein, bitte.",
+          "cueTranslation": "Шаҳодатномаатон, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und den Fahrzeugschein.",
+          "cueTranslation": "Ва ҳуҷҷати мошин.",
+          "intent": "Бигӯ: як лаҳза",
+          "text": "Einen Moment.",
+          "accepts": [
+            "Moment, bitte."
+          ],
+          "translation": "Як лаҳза.",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hier, bitte",
+          "translation": "Мана, марҳамат",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Moment",
+          "translation": "Як лаҳза",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Ausweis",
+          "translation": "Шаҳодатномаи ман",
+          "literal": "майн а́усвайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu schnell",
+          "translation": "Хеле тез",
+          "literal": "цу: шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe",
+          "translation": "Мефаҳмам",
+          "literal": "ихь фэаштэ́:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht verstanden",
+          "translation": "Нафаҳмидам",
+          "literal": "нихьт фэашта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Хеле тез",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Sie waren zu schnell.",
+          "cueTranslation": "Шумо хеле тез ҳайдед.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Entschuldigung.",
+          "accepts": [
+            "Es tut mir leid."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das kostet dreißig Euro.",
+          "cueTranslation": "Ин сӣ евро ҷарима аст.",
+          "intent": "Бигӯ: мефаҳмам",
+          "text": "Ich verstehe.",
+          "accepts": [
+            "Okay, ich verstehe."
+          ],
+          "translation": "Мефаҳмам.",
+          "literal": "ихь фэаштэ́:э",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zahlen Sie mit Karte?",
+          "cueTranslation": "Бо корт пардохт мекунед?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, mit Karte."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҷавобҳо ба полис",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin Fahrer.",
+          "translation": "Ман ронанда ҳастам.",
+          "literal": "ихь бин фа́:ра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist ein Firmenauto.",
+          "translation": "Ин мошини ширкат аст.",
+          "literal": "дас ист айн фи́рмэнауто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Papiere sind hier.",
+          "translation": "Ҳуҷҷатҳо ин ҷоянд.",
+          "literal": "ди: папи́:рэ зинт ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte langsam sprechen.",
+          "translation": "Лутфан оҳиста гап занед.",
+          "literal": "би́тэ ла́нгза:м шпрэ́хэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe nicht getrunken.",
+          "translation": "Ман нанӯшидаам.",
+          "literal": "ихь ҳа́:бэ нихьт гэтру́нкэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Darf ich jetzt fahren?",
+          "translation": "Ҳоло равам мешавад?",
+          "literal": "дарф ихь йэцт фа́:рэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мошини кӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ist das Ihr Auto?",
+          "cueTranslation": "Ин мошини шумост?",
+          "intent": "Бигӯ: не, ин мошини ширкат аст",
+          "text": "Nein, das ist ein Firmenauto.",
+          "accepts": [
+            "Nein, von der Firma."
+          ],
+          "translation": "Не, ин мошини ширкат аст.",
+          "literal": "найн дас ист айн фи́рмэнауто",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Alkohol getrunken?",
+          "cueTranslation": "Майзадагӣ кардед?",
+          "intent": "Бигӯ: не, ман нанӯшидаам",
+          "text": "Nein, ich habe nicht getrunken.",
+          "accepts": [
+            "Nein.",
+            "Nein, nie."
+          ],
+          "translation": "Не, ман нанӯшидаам.",
+          "literal": "найн ихь ҳа́:бэ нихьт гэтру́нкэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut.",
+          "cueTranslation": "Хуб.",
+          "intent": "Бипурс: ҳоло равам мешавад?",
+          "text": "Darf ich jetzt fahren?",
+          "accepts": [
+            "Kann ich fahren?"
+          ],
+          "translation": "Ҳоло равам мешавад?",
+          "literal": "дарф ихь йэцт фа́:рэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Огоҳӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das Licht ist kaputt.",
+          "translation": "Чароғ вайрон аст.",
+          "literal": "дас лихьт ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Das geht so nicht.",
+          "translation": "Ин тавр намешавад.",
+          "literal": "дас гэ:т зо: нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich mache das morgen.",
+          "translation": "Фардо мекунам.",
+          "literal": "ихь ма́хэ дас мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke für die Info.",
+          "translation": "Барои огоҳӣ ташаккур.",
+          "literal": "да́нкэ фю:а ди: и́нфо",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Fahrt!",
+          "translation": "Роҳи сафед!",
+          "literal": "гу́:тэ фа:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Auf Wiedersehen!",
+          "translation": "Хайр!",
+          "literal": "ауф ви́:дазэ:эн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чароғ вайрон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ihr Licht hinten ist kaputt.",
+          "cueTranslation": "Чароғи қафоатон вайрон аст.",
+          "intent": "Бигӯ: фардо мекунам",
+          "text": "Ich mache das morgen.",
+          "accepts": [
+            "Ich repariere das morgen."
+          ],
+          "translation": "Фардо мекунам.",
+          "literal": "ихь ма́хэ дас мо́ргэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Heute keine Strafe.",
+          "cueTranslation": "Хуб. Имрӯз ҷарима нест.",
+          "intent": "Бигӯ: барои огоҳӣ ташаккур",
+          "text": "Danke für die Info.",
+          "accepts": [
+            "Vielen Dank!"
+          ],
+          "translation": "Барои огоҳӣ ташаккур.",
+          "literal": "да́нкэ фю:а ди: и́нфо",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gute Fahrt!",
+          "cueTranslation": "Роҳи сафед!",
+          "intent": "Бигӯ: хайр!",
+          "text": "Auf Wiedersehen!",
+          "accepts": [
+            "Danke, tschüss!"
+          ],
+          "translation": "Хайр!",
+          "literal": "ауф ви́:дазэ:эн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: санҷиши шабона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Abend. Polizei. Ihren Führerschein, bitte.",
+          "cueTranslation": "Шом ба хайр. Полис. Шаҳодатнома, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist das Ihr Auto?",
+          "cueTranslation": "Ин мошини шумост?",
+          "intent": "Бигӯ: не, ин мошини ширкат аст",
+          "text": "Nein, das ist ein Firmenauto.",
+          "accepts": [
+            "Nein, von der Firma."
+          ],
+          "translation": "Не, ин мошини ширкат аст.",
+          "literal": "найн дас ист айн фи́рмэнауто",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Alkohol getrunken?",
+          "cueTranslation": "Майзадагӣ кардед?",
+          "intent": "Бигӯ: не, ман нанӯшидаам",
+          "text": "Nein, ich habe nicht getrunken.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, ман нанӯшидаам.",
+          "literal": "найн ихь ҳа́:бэ нихьт гэтру́нкэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Alles gut. Gute Fahrt!",
+          "cueTranslation": "Ҳама хуб. Роҳи сафед!",
+          "intent": "Ташаккур гӯй ва хайр",
+          "text": "Danke! Auf Wiedersehen!",
+          "accepts": [
+            "Danke, tschüss!"
+          ],
+          "translation": "Ташаккур! Хайр!",
+          "literal": "да́нкэ ауф ви́:дазэ:эн",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "slug": "car_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Das Firmenauto",
+    "titleTranslated": "Мошини корӣ",
+    "scenario": "Рӯзи аввали кор: сардор ба шумо мошини кориро медиҳад. Калид ва ҳуҷҷатҳоро мегиред, мепурсед, ки бензин ё дизел аст, ва мошинро месанҷед.",
+    "emoji": "🚗",
+    "order": 3,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мошин",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Auto",
+          "translation": "мошин",
+          "literal": "а́уто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Schlüssel",
+          "translation": "калид",
+          "literal": "шлю́сэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Führerschein",
+          "translation": "шаҳодатномаи ронандагӣ",
+          "literal": "фю́:рашайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Benzin",
+          "translation": "бензин",
+          "literal": "бэнци́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Diesel",
+          "translation": "дизел",
+          "literal": "ди́:зэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Reifen",
+          "translation": "чарх (шина)",
+          "literal": "ра́йфэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Калид",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Bist du der neue Fahrer?",
+          "cueTranslation": "Салом! Ту ронандаи навӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich bin neu.",
+            "Ja, genau."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist der Schlüssel.",
+          "cueTranslation": "Мана калид.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hast du deinen Führerschein?",
+          "cueTranslation": "Шаҳодатномаат ҳаст?",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "Ja, hier.",
+          "accepts": [
+            "Ja, hier ist er.",
+            "Ja."
+          ],
+          "translation": "Ҳа, мана.",
+          "literal": "йа: ҳи:а",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Welches Auto?",
+          "translation": "Кадом мошин?",
+          "literal": "вэ́лхьэс а́уто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Weißes Auto",
+          "translation": "Мошини сафед",
+          "literal": "ва́йсэс а́уто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Oder Diesel?",
+          "translation": "Ё дизел?",
+          "literal": "о́:да ди́:зэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Tank",
+          "translation": "Бак",
+          "literal": "дэ:а танк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Alles okay",
+          "translation": "Ҳама хуб",
+          "literal": "а́лэс окэ́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Papiere",
+          "translation": "Ҳуҷҷатҳо",
+          "literal": "ди: папи́:рэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом мошин?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dein Auto ist draußen.",
+          "cueTranslation": "Мошинат берун аст.",
+          "intent": "Бипурс: кадом мошин?",
+          "text": "Welches Auto?",
+          "accepts": [
+            "Welches?"
+          ],
+          "translation": "Кадом мошин?",
+          "literal": "вэ́лхьэс а́уто",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das weiße Auto.",
+          "cueTranslation": "Мошини сафед.",
+          "intent": "Бипурс: бензин ё дизел?",
+          "text": "Benzin oder Diesel?",
+          "accepts": [
+            "Diesel?"
+          ],
+          "translation": "Бензин ё дизел?",
+          "literal": "бэнци́:н о́:да ди́:зэл",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Diesel.",
+          "cueTranslation": "Дизел.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Мошинро месанҷам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Der Tank ist voll.",
+          "translation": "Бак пур аст.",
+          "literal": "дэ:а танк ист фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Reifen ist kaputt.",
+          "translation": "Чарх вайрон аст.",
+          "literal": "дэ:а ра́йфэн ист капу́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Licht geht nicht.",
+          "translation": "Чароғ кор намекунад.",
+          "literal": "дас лихьт гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo sind die Papiere?",
+          "translation": "Ҳуҷҷатҳо куҷоянд?",
+          "literal": "во: зинт ди: папи́:рэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Auto ist schmutzig.",
+          "translation": "Мошин чиркин аст.",
+          "literal": "дас а́уто ист шму́цихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Alles ist okay.",
+          "translation": "Ҳама хуб аст.",
+          "literal": "а́лэс ист окэ́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ist alles okay mit dem Auto?",
+          "cueTranslation": "Мошин ҳама хуб аст?",
+          "intent": "Бигӯ: чарх вайрон аст",
+          "text": "Der Reifen ist kaputt.",
+          "accepts": [
+            "Nein, der Reifen ist kaputt."
+          ],
+          "translation": "Чарх вайрон аст.",
+          "literal": "дэ:а ра́йфэн ист капу́т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh! Nimm das blaue Auto.",
+          "cueTranslation": "О! Мошини кабудро гир.",
+          "intent": "Бипурс: ҳуҷҷатҳо куҷоянд?",
+          "text": "Wo sind die Papiere?",
+          "accepts": [
+            "Und die Papiere?"
+          ],
+          "translation": "Ҳуҷҷатҳо куҷоянд?",
+          "literal": "во: зинт ди: папи́:рэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Im Auto, vorne.",
+          "cueTranslation": "Дар мошин, пеш.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay.",
+            "Danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қоидаҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Fahr bitte langsam.",
+          "translation": "Оҳиста ҳай, лутфан.",
+          "literal": "фа:а би́тэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein Alkohol!",
+          "translation": "Майзадагӣ мумкин нест!",
+          "literal": "кайн а́лкоҳо:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Am Abend zurück.",
+          "translation": "Бегоҳ баргард.",
+          "literal": "ам а́:бэнт цурю́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich fahre langsam.",
+          "translation": "Ман оҳиста меронам.",
+          "literal": "ихь фа́:рэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann bringe ich es?",
+          "translation": "Онро кай биёрам?",
+          "literal": "ван бри́нгэ ихь эс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich tanke morgen.",
+          "translation": "Пагоҳ бензин мерезам.",
+          "literal": "ихь та́нкэ мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дастури сардор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fahr bitte langsam!",
+          "cueTranslation": "Оҳиста ҳай, лутфан!",
+          "intent": "Бигӯ: ман оҳиста меронам",
+          "text": "Ich fahre langsam.",
+          "accepts": [
+            "Ja, langsam.",
+            "Okay, langsam."
+          ],
+          "translation": "Ман оҳиста меронам.",
+          "literal": "ихь фа́:рэ ла́нгза:м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und am Abend zurück.",
+          "cueTranslation": "Ва бегоҳ баргард.",
+          "intent": "Бипурс: соати чанд?",
+          "text": "Um wie viel Uhr?",
+          "accepts": [
+            "Wann genau?"
+          ],
+          "translation": "Соати чанд?",
+          "literal": "ум ви: фи:л у:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Um sechs Uhr.",
+          "cueTranslation": "Соати шаш.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut, um sechs.",
+            "Alles klar."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Bist du der neue Fahrer?",
+          "cueTranslation": "Салом! Ронандаи навӣ?",
+          "intent": "Бигӯ: ҳа, ман ронанда ҳастам",
+          "text": "Ja, ich bin Fahrer.",
+          "accepts": [
+            "Ja, ich bin der Fahrer.",
+            "Ja."
+          ],
+          "translation": "Ҳа, ман ронанда ҳастам.",
+          "literal": "йа: ихь бин фа́:ра",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist der Schlüssel.",
+          "cueTranslation": "Мана калид.",
+          "intent": "Бипурс: кадом мошин?",
+          "text": "Welches Auto?",
+          "accepts": [
+            "Danke. Welches Auto?"
+          ],
+          "translation": "Кадом мошин?",
+          "literal": "вэ́лхьэс а́уто",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Das weiße Auto. Diesel.",
+          "cueTranslation": "Мошини сафед. Дизел.",
+          "intent": "Бигӯ: чарх вайрон аст",
+          "text": "Der Reifen ist kaputt.",
+          "accepts": [
+            "Der Reifen ist kaputt, leider."
+          ],
+          "translation": "Чарх вайрон аст.",
+          "literal": "дэ:а ра́йфэн ист капу́т",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Dann nimm das blaue.",
+          "cueTranslation": "Пас кабудро гир.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke.",
+            "Alles klar."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

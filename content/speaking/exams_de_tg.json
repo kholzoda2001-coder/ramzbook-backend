@@ -1,0 +1,555 @@
+{
+  "slug": "exams_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Aufgaben und Prüfungen",
+    "titleTranslated": "Вазифа ва имтиҳон",
+    "scenario": "Вақти имтиҳон: мепурсед, ки имтиҳон кай ва дар куҷост, чӣ лозим аст, баҳои худро мефаҳмед ва бо ҳамкурс гап мезанед.",
+    "emoji": "📝",
+    "order": 12,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Имтиҳон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Prüfung",
+          "translation": "имтиҳон",
+          "literal": "прю́:фунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Test",
+          "translation": "тест",
+          "literal": "тэст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Note",
+          "translation": "баҳо",
+          "literal": "но́:тэ",
+          "note": "Дар Олмон 1 — беҳтарин, 5 — бад.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Bestanden",
+          "translation": "гузашт (имтиҳон)",
+          "literal": "бэшта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Hausaufgabe",
+          "translation": "вазифаи хонагӣ",
+          "literal": "ҳа́усауфга:бэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Wichtig",
+          "translation": "муҳим",
+          "literal": "ви́хьтихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Имтиҳон кай?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Die Prüfung ist bald.",
+          "cueTranslation": "Имтиҳон наздик аст.",
+          "intent": "Бипурс: кай?",
+          "text": "Wann?",
+          "accepts": [
+            "Wann ist die Prüfung?"
+          ],
+          "translation": "Кай?",
+          "literal": "ван",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Am Freitag.",
+          "cueTranslation": "Рӯзи ҷумъа.",
+          "intent": "Бипурс: соати чанд?",
+          "text": "Um wie viel Uhr?",
+          "accepts": [
+            "Wann genau?"
+          ],
+          "translation": "Соати чанд?",
+          "literal": "ум ви: фи:л у:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Um zehn Uhr.",
+          "cueTranslation": "Соати даҳ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Тайёрӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Am Freitag",
+          "translation": "Рӯзи ҷумъа",
+          "literal": "ам фра́йта:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Welcher Raum?",
+          "translation": "Кадом ҳуҷра?",
+          "literal": "вэ́лхьа раум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Stunden",
+          "translation": "Ду соат",
+          "literal": "цвай шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich lerne",
+          "translation": "Ман мехонам",
+          "literal": "ихь лэ́рнэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Viel Glück!",
+          "translation": "Барори кор!",
+          "literal": "фи:л глюк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Note",
+          "translation": "Баҳои хуб",
+          "literal": "гу́:тэ но́:тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ лозим?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hast du Fragen zur Prüfung?",
+          "cueTranslation": "Дар бораи имтиҳон савол дорӣ?",
+          "intent": "Бипурс: кадом ҳуҷра?",
+          "text": "Welcher Raum?",
+          "accepts": [
+            "In welchem Raum?",
+            "Wo ist die Prüfung?"
+          ],
+          "translation": "Кадом ҳуҷра?",
+          "literal": "вэ́лхьа раум",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Raum zwanzig.",
+          "cueTranslation": "Ҳуҷраи бист.",
+          "intent": "Бипурс: чанд соат?",
+          "text": "Wie lange?",
+          "accepts": [
+            "Wie viele Stunden?"
+          ],
+          "translation": "Чӣ қадар давом мекунад?",
+          "literal": "ви: ла́нгэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwei Stunden.",
+          "cueTranslation": "Ду соат.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман тайёрам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich lerne für morgen.",
+          "translation": "Барои фардо мехонам.",
+          "literal": "ихь лэ́рнэ фю:а мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Prüfung ist schwer.",
+          "translation": "Имтиҳон душвор аст.",
+          "literal": "ди: прю́:фунг ист швэ:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe keine Zeit.",
+          "translation": "Ман вақт надорам.",
+          "literal": "ихь ҳа́:бэ ка́йнэ цайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Brauche ich ein Buch?",
+          "translation": "Ба ман китоб лозим?",
+          "literal": "бра́ухэ ихь айн бу:х",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bin fertig.",
+          "translation": "Ман тайёрам (тамом кардам).",
+          "literal": "ихь бин фэ́ртихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist meine Hausaufgabe?",
+          "translation": "Вазифаи хонагии ман куҷост?",
+          "literal": "во: ист ма́йнэ ҳа́усауфга:бэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Вазифаи хонагӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist Ihre Hausaufgabe?",
+          "cueTranslation": "Вазифаи хонагиатон куҷост?",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Hier ist sie.",
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Und Ihr Test?",
+          "cueTranslation": "Хуб. Ва тестатон?",
+          "intent": "Бигӯ: ман тамом кардам",
+          "text": "Ich bin fertig.",
+          "accepts": [
+            "Fertig.",
+            "Er ist fertig."
+          ],
+          "translation": "Ман тамом кардам.",
+          "literal": "ихь бин фэ́ртихь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sehr gut!",
+          "cueTranslation": "Хеле хуб!",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke!",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Баҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Welche Note habe ich?",
+          "translation": "Ман чӣ баҳо дорам?",
+          "literal": "вэ́лхьэ но́:тэ ҳа́:бэ ихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe bestanden!",
+          "translation": "Ман гузаштам!",
+          "literal": "ихь ҳа́:бэ бэшта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht bestanden.",
+          "translation": "Нагузаштам.",
+          "literal": "нихьт бэшта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch eine Prüfung?",
+          "translation": "Боз як имтиҳон?",
+          "literal": "нох а́йнэ прю́:фунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bin froh.",
+          "translation": "Ман шодам.",
+          "literal": "ихь бин фро:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist gut.",
+          "translation": "Ин хуб аст.",
+          "literal": "дас ист гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Натиҷа",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Die Noten sind da.",
+          "cueTranslation": "Баҳоҳо омаданд.",
+          "intent": "Бипурс: ман чӣ баҳо дорам?",
+          "text": "Welche Note habe ich?",
+          "accepts": [
+            "Meine Note?",
+            "Was ist meine Note?"
+          ],
+          "translation": "Ман чӣ баҳо дорам?",
+          "literal": "вэ́лхьэ но́:тэ ҳа́:бэ ихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Eine Zwei. Sie haben bestanden.",
+          "cueTranslation": "Ду. Шумо гузаштед.",
+          "intent": "Бигӯ: ман шодам!",
+          "text": "Ich bin froh!",
+          "accepts": [
+            "Super!",
+            "Toll, danke!"
+          ],
+          "translation": "Ман шодам!",
+          "literal": "ихь бин фро:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut gemacht!",
+          "cueTranslation": "Офарин!",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: имтиҳон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Lernst du für die Prüfung?",
+          "cueTranslation": "Салом! Барои имтиҳон мехонӣ?",
+          "intent": "Бигӯ: ҳа, бисёр мехонам",
+          "text": "Ja, ich lerne viel.",
+          "accepts": [
+            "Ja.",
+            "Ja, sehr viel."
+          ],
+          "translation": "Ҳа, бисёр мехонам.",
+          "literal": "йа: ихь лэ́рнэ фи:л",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann ist die Prüfung?",
+          "cueTranslation": "Имтиҳон кай аст?",
+          "intent": "Бигӯ: рӯзи ҷумъа",
+          "text": "Am Freitag.",
+          "accepts": [
+            "Freitag um zehn.",
+            "Am Freitag um zehn Uhr."
+          ],
+          "translation": "Рӯзи ҷумъа.",
+          "literal": "ам фра́йта:к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist sie schwer?",
+          "cueTranslation": "Душвор аст?",
+          "intent": "Бигӯ: ҳа, душвор",
+          "text": "Ja, sie ist schwer.",
+          "accepts": [
+            "Ja, schwer.",
+            "Ein bisschen."
+          ],
+          "translation": "Ҳа, душвор аст.",
+          "literal": "йа: зи: ист швэ:а",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Viel Glück!",
+          "cueTranslation": "Барори кор!",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke!",
+          "accepts": [
+            "Danke schön!",
+            "Dir auch!"
+          ],
+          "translation": "Ташаккур!",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

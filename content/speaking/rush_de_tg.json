@@ -1,0 +1,549 @@
+{
+  "slug": "rush_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Viel los im Café",
+    "titleTranslated": "Рӯзи серкор",
+    "scenario": "Дар қаҳвахона навбати дароз аст: шумо тез кор мекунед, ба меҳмонон мегӯед, ки интизор шаванд, аз ҳамкор ёрӣ мехоҳед ва ба сардор мегӯед, ки чизе тамом шуд.",
+    "emoji": "⏱️",
+    "order": 19,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Серкор",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Schnell",
+          "translation": "тез",
+          "literal": "шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Warten",
+          "translation": "интизор шудан",
+          "literal": "ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kollege",
+          "translation": "ҳамкор",
+          "literal": "коле́:гэ",
+          "note": "Зан: «Kollegin».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Voll",
+          "translation": "пур",
+          "literal": "фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Becher",
+          "translation": "истакони қоғазӣ",
+          "literal": "бэ́хьа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Gleich",
+          "translation": "ҳозир",
+          "literal": "глайхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Навбат дароз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo, ein Kaffee!",
+          "cueTranslation": "Салом, як қаҳва!",
+          "intent": "Бигӯ: як лаҳза, лутфан",
+          "text": "Einen Moment, bitte.",
+          "accepts": [
+            "Moment, bitte."
+          ],
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "а́йнэн момэ́нт би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bitte schnell!",
+          "cueTranslation": "Лутфан тез!",
+          "intent": "Бигӯ: ҳозир",
+          "text": "Gleich!",
+          "accepts": [
+            "Sofort!",
+            "Kommt gleich."
+          ],
+          "translation": "Ҳозир!",
+          "literal": "глайхь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: мана, марҳамат",
+          "text": "Bitte schön.",
+          "accepts": [
+            "Hier, bitte."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "би́тэ шё:н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bitte warten",
+          "translation": "Лутфан интизор шавед",
+          "literal": "би́тэ ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommt gleich",
+          "translation": "Ҳозир меояд",
+          "literal": "комт глайхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Zum Mitnehmen?",
+          "translation": "Барои бурдан?",
+          "literal": "цум ми́тнэ:мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier trinken?",
+          "translation": "Ин ҷо менӯшед?",
+          "literal": "ҳи:а три́нкэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Nächste",
+          "translation": "Навбатӣ",
+          "literal": "дэ:а нэ́:хьстэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hilf mir!",
+          "translation": "Ёрӣ деҳ!",
+          "literal": "ҳилф ми:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Барои бурдан?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Einen Tee, bitte.",
+          "cueTranslation": "Як чой, лутфан.",
+          "intent": "Бипурс: барои бурдан?",
+          "text": "Zum Mitnehmen?",
+          "accepts": [
+            "Hier oder zum Mitnehmen?"
+          ],
+          "translation": "Барои бурдан?",
+          "literal": "цум ми́тнэ:мэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, zum Mitnehmen.",
+          "cueTranslation": "Ҳа, барои бурдан.",
+          "intent": "Бигӯ: ҳозир меояд",
+          "text": "Kommt gleich.",
+          "accepts": [
+            "Gleich!",
+            "Sofort."
+          ],
+          "translation": "Ҳозир меояд.",
+          "literal": "комт глайхь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: навбатӣ, лутфан",
+          "text": "Der Nächste, bitte!",
+          "accepts": [
+            "Wer ist der Nächste?"
+          ],
+          "translation": "Навбатӣ, лутфан!",
+          "literal": "дэ:а нэ́:хьстэ би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Тез кор мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Heute ist viel los.",
+          "translation": "Имрӯз серкор аст.",
+          "literal": "ҳо́йтэ ист фи:л ло:с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte warten Sie kurz.",
+          "translation": "Лутфан каме интизор шавед.",
+          "literal": "би́тэ ва́ртэн зи: курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kannst du mir helfen?",
+          "translation": "Ба ман ёрӣ медиҳӣ?",
+          "literal": "канст ду: ми:а ҳэ́лфэн",
+          "note": "Ба ҳамкор («du»).",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Becher sind alle.",
+          "translation": "Истаконҳо тамом шуданд.",
+          "literal": "ди: бэ́хьа зинт а́лэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich mache den Kaffee.",
+          "translation": "Ман қаҳва тайёр мекунам.",
+          "literal": "ихь ма́хэ дэ:н ка́фэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Du machst die Kasse.",
+          "translation": "Ту дар касса бош.",
+          "literal": "ду: махст ди: ка́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бо ҳамкор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Viel los heute!",
+          "cueTranslation": "Имрӯз серкор!",
+          "intent": "Бипурс: ба ман ёрӣ медиҳӣ?",
+          "text": "Kannst du mir helfen?",
+          "accepts": [
+            "Hilf mir, bitte!"
+          ],
+          "translation": "Ба ман ёрӣ медиҳӣ?",
+          "literal": "канст ду: ми:а ҳэ́лфэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, klar! Was mache ich?",
+          "cueTranslation": "Ҳа, албатта! Чӣ кунам?",
+          "intent": "Бигӯ: ту дар касса бош",
+          "text": "Du machst die Kasse.",
+          "accepts": [
+            "Mach du die Kasse."
+          ],
+          "translation": "Ту дар касса бош.",
+          "literal": "ду: махст ди: ка́сэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und du?",
+          "cueTranslation": "Ва ту?",
+          "intent": "Бигӯ: ман қаҳва тайёр мекунам",
+          "text": "Ich mache den Kaffee.",
+          "accepts": [
+            "Ich mache Kaffee."
+          ],
+          "translation": "Ман қаҳва тайёр мекунам.",
+          "literal": "ихь ма́хэ дэ:н ка́фэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чизе тамом шуд",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Die Milch ist alle.",
+          "translation": "Шир тамом шуд.",
+          "literal": "ди: милхь ист а́лэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wir brauchen Becher.",
+          "translation": "Ба мо истакон лозим.",
+          "literal": "ви:а бра́ухэн бэ́хьа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich hole sie schnell.",
+          "translation": "Зуд меорам.",
+          "literal": "ихь ҳо́:лэ зи: шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das dauert fünf Minuten.",
+          "translation": "Ин панҷ дақиқа мегирад.",
+          "literal": "дас да́уат фюнф мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke fürs Warten.",
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Nächste, bitte!",
+          "translation": "Навбатӣ, лутфан!",
+          "literal": "дэ:а нэ́:хьстэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ба сардор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist los?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: шир тамом шуд",
+          "text": "Die Milch ist alle.",
+          "accepts": [
+            "Wir haben keine Milch."
+          ],
+          "translation": "Шир тамом шуд.",
+          "literal": "ди: милхь ист а́лэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Im Lager ist mehr.",
+          "cueTranslation": "Дар анбор боз ҳаст.",
+          "intent": "Бигӯ: зуд меорам",
+          "text": "Ich hole sie schnell.",
+          "accepts": [
+            "Ich hole Milch."
+          ],
+          "translation": "Зуд меорам.",
+          "literal": "ихь ҳо́:лэ зи: шнэл",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke, gut gemacht!",
+          "cueTranslation": "Ташаккур, офарин!",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne!",
+          "accepts": [
+            "Kein Problem."
+          ],
+          "translation": "Бо хурсандӣ!",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: соати серкор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Zwei Kaffee, bitte!",
+          "cueTranslation": "Ду қаҳва, лутфан!",
+          "intent": "Бипурс: барои бурдан?",
+          "text": "Zum Mitnehmen?",
+          "accepts": [
+            "Hier oder zum Mitnehmen?"
+          ],
+          "translation": "Барои бурдан?",
+          "literal": "цум ми́тнэ:мэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja. Schnell, bitte!",
+          "cueTranslation": "Ҳа. Тез, лутфан!",
+          "intent": "Бигӯ: лутфан каме интизор шавед",
+          "text": "Bitte warten Sie kurz.",
+          "accepts": [
+            "Einen Moment, bitte."
+          ],
+          "translation": "Лутфан каме интизор шавед.",
+          "literal": "би́тэ ва́ртэн зи: курц",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: панҷ дақиқа",
+          "text": "Fünf Minuten.",
+          "accepts": [
+            "Das dauert fünf Minuten."
+          ],
+          "translation": "Панҷ дақиқа.",
+          "literal": "фюнф мину́:тэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay.",
+          "cueTranslation": "Хуб.",
+          "intent": "Бигӯ: барои интизорӣ ташаккур",
+          "text": "Danke fürs Warten.",
+          "accepts": [
+            "Danke!",
+            "Kommt gleich!"
+          ],
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

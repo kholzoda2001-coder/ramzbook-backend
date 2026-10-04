@@ -1,0 +1,555 @@
+{
+  "slug": "complaint_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Ein unzufriedener Gast",
+    "titleTranslated": "Шикояти меҳмон",
+    "scenario": "Меҳмон норозӣ аст: хӯрок хунук ё нодуруст аст, ё дер омад. Шумо бубахшед мегӯед, мегӯед, ки онро иваз мекунед ва ба сардор хабар медиҳед.",
+    "emoji": "😟",
+    "order": 9,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мушкил",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kalt",
+          "translation": "хунук",
+          "literal": "калт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Falsch",
+          "translation": "нодуруст",
+          "literal": "фалш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Spät",
+          "translation": "дер",
+          "literal": "шпэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Schmutzig",
+          "translation": "чиркин",
+          "literal": "шму́цихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Entschuldigung",
+          "translation": "бубахшед",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Neu",
+          "translation": "нав",
+          "literal": "ной",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Хӯрок хунук аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Entschuldigung! Die Suppe ist kalt.",
+          "cueTranslation": "Бубахшед! Шӯрбо хунук аст.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Entschuldigung!",
+          "accepts": [
+            "Oh, Entschuldigung.",
+            "Das tut mir leid."
+          ],
+          "translation": "Бубахшед!",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich möchte eine neue.",
+          "cueTranslation": "Навашро мехоҳам.",
+          "intent": "Бигӯ: ҳозир",
+          "text": "Sofort.",
+          "accepts": [
+            "Ja, sofort.",
+            "Natürlich, sofort."
+          ],
+          "translation": "Ҳозир.",
+          "literal": "зофо́рт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Bitte."
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Mein Fehler",
+          "translation": "Хатои ман",
+          "literal": "майн фэ́:ла",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Neues Essen",
+          "translation": "Хӯроки нав",
+          "literal": "но́йэс э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Moment",
+          "translation": "Як лаҳза",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kalte Suppe",
+          "translation": "Шӯрбои хунук",
+          "literal": "ка́лтэ зу́пэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Chef",
+          "translation": "Сардор",
+          "literal": "дэ:а шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Natürlich",
+          "translation": "албатта",
+          "literal": "натю́:алихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Хӯроки нодуруст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Das ist falsch. Ich habe Hähnchen bestellt.",
+          "cueTranslation": "Ин нодуруст. Ман мурғ фармудам.",
+          "intent": "Бигӯ: мебахшед, хатои ман",
+          "text": "Entschuldigung, mein Fehler.",
+          "accepts": [
+            "Das tut mir leid.",
+            "Oh, Entschuldigung."
+          ],
+          "translation": "Бубахшед, хатои ман.",
+          "literal": "энтшу́лдигунг майн фэ́:ла",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bitte schnell.",
+          "cueTranslation": "Лутфан тезтар.",
+          "intent": "Бигӯ: инро иваз мекунам",
+          "text": "Ich wechsle das.",
+          "accepts": [
+            "Sofort.",
+            "Ich wechsle das sofort."
+          ],
+          "translation": "Инро иваз мекунам.",
+          "literal": "ихь вэ́кслэ дас",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay.",
+          "cueTranslation": "Хуб.",
+          "intent": "Бигӯ: як лаҳза",
+          "text": "Einen Moment, bitte.",
+          "accepts": [
+            "Einen Moment."
+          ],
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "а́йнэн момэ́нт би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҷавоб ба шикоят",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Es tut mir leid.",
+          "translation": "Афсӯс мехӯрам.",
+          "literal": "эс ту:т ми:а лайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bringe eine neue.",
+          "translation": "Навашро меорам.",
+          "literal": "ихь бри́нгэ а́йнэ но́йэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das geht schnell.",
+          "translation": "Ин зуд мешавад.",
+          "literal": "дас гэ:т шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich rufe den Chef.",
+          "translation": "Сардорро даъват мекунам.",
+          "literal": "ихь ру́:фэ дэ:н шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Glas ist schmutzig.",
+          "translation": "Стакан чиркин аст.",
+          "literal": "дас гла:с ист шму́цихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist jetzt alles gut?",
+          "translation": "Ҳоло ҳама хуб?",
+          "literal": "ист йэцт а́лэс гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Стакани чиркин",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Das Glas ist schmutzig!",
+          "cueTranslation": "Стакан чиркин аст!",
+          "intent": "Бигӯ: хеле афсӯс мехӯрам",
+          "text": "Das tut mir sehr leid.",
+          "accepts": [
+            "Entschuldigung!",
+            "Oh, das tut mir leid."
+          ],
+          "translation": "Хеле афсӯс мехӯрам.",
+          "literal": "дас ту:т ми:а зэ:а лайт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ein neues, bitte.",
+          "cueTranslation": "Нав, лутфан.",
+          "intent": "Бигӯ: ҳозир меорам",
+          "text": "Ich bringe sofort ein neues.",
+          "accepts": [
+            "Sofort!",
+            "Natürlich."
+          ],
+          "translation": "Ҳозир навашро меорам.",
+          "literal": "ихь бри́нгэ зофо́рт айн но́йэс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бипурс: ҳоло ҳама хуб?",
+          "text": "Ist jetzt alles gut?",
+          "accepts": [
+            "Alles gut?"
+          ],
+          "translation": "Ҳоло ҳама хуб?",
+          "literal": "ист йэцт а́лэс гу:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хеле дер",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wir warten schon lange.",
+          "translation": "Мо кайҳо интизорем.",
+          "literal": "ви:а ва́ртэн шо:н ла́нгэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Es dauert noch kurz.",
+          "translation": "Боз каме вақт мегирад.",
+          "literal": "эс да́уат нох курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Küche ist voll.",
+          "translation": "Ошхона серкор аст.",
+          "literal": "ди: кю́хьэ ист фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Getränk gratis?",
+          "translation": "Як нӯшокӣ ройгон?",
+          "literal": "айн гэтрэ́нк гра́:тис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke fürs Warten.",
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich frage den Koch.",
+          "translation": "Аз ошпаз мепурсам.",
+          "literal": "ихь фра́:гэ дэ:н кох",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Интизории дароз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wir warten schon lange!",
+          "cueTranslation": "Мо кайҳо интизорем!",
+          "intent": "Бигӯ: бубахшед, ошхона серкор аст",
+          "text": "Entschuldigung, die Küche ist voll.",
+          "accepts": [
+            "Das tut mir leid."
+          ],
+          "translation": "Бубахшед, ошхона серкор аст.",
+          "literal": "энтшу́лдигунг ди: кю́хьэ ист фол",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange noch?",
+          "cueTranslation": "Боз чӣ қадар?",
+          "intent": "Бигӯ: аз ошпаз мепурсам",
+          "text": "Ich frage den Koch.",
+          "accepts": [
+            "Einen Moment, ich frage."
+          ],
+          "translation": "Аз ошпаз мепурсам.",
+          "literal": "ихь фра́:гэ дэ:н кох",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, danke.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: барои интизорӣ ташаккур",
+          "text": "Danke fürs Warten.",
+          "accepts": [
+            "Vielen Dank.",
+            "Danke."
+          ],
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: меҳмони норозӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Entschuldigung! Das ist falsch!",
+          "cueTranslation": "Бубахшед! Ин нодуруст аст!",
+          "intent": "Бигӯ: хеле афсӯс мехӯрам",
+          "text": "Das tut mir sehr leid.",
+          "accepts": [
+            "Entschuldigung!",
+            "Oh, das tut mir leid."
+          ],
+          "translation": "Хеле афсӯс мехӯрам.",
+          "literal": "дас ту:т ми:а зэ:а лайт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und die Suppe ist kalt.",
+          "cueTranslation": "Ва шӯрбо хунук аст.",
+          "intent": "Бигӯ: навашро меорам",
+          "text": "Ich bringe eine neue.",
+          "accepts": [
+            "Ich wechsle das sofort."
+          ],
+          "translation": "Навашро меорам.",
+          "literal": "ихь бри́нгэ а́йнэ но́йэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich möchte den Chef sprechen.",
+          "cueTranslation": "Бо сардор гап задан мехоҳам.",
+          "intent": "Бигӯ: сардорро даъват мекунам",
+          "text": "Ich rufe den Chef.",
+          "accepts": [
+            "Einen Moment, ich rufe den Chef."
+          ],
+          "translation": "Сардорро даъват мекунам.",
+          "literal": "ихь ру́:фэ дэ:н шэф",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: барои интизорӣ ташаккур",
+          "text": "Danke fürs Warten.",
+          "accepts": [
+            "Gerne.",
+            "Vielen Dank."
+          ],
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

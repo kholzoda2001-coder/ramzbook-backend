@@ -1,0 +1,548 @@
+{
+  "slug": "traffic_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Stau und Verspätung",
+    "titleTranslated": "Роҳбандӣ ва дер мондан",
+    "scenario": "Дар роҳ роҳбандӣ (Stau) аст. Шумо ба мусофир ё мизоҷ мегӯед, ки дер мемонед, мепурсед, ки роҳи дигар ҳаст ё не, ва бубахшед мегӯед.",
+    "emoji": "🚦",
+    "order": 12,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Роҳбандӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Stau",
+          "translation": "роҳбандӣ",
+          "literal": "штау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Verspätung",
+          "translation": "дер мондан",
+          "literal": "фэашпэ́:тунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Unfall",
+          "translation": "садама",
+          "literal": "у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Baustelle",
+          "translation": "корҳои сохтмонӣ",
+          "literal": "ба́уштэлэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Umweg",
+          "translation": "роҳи давр",
+          "literal": "у́мвэ:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Minuten",
+          "translation": "дақиқа",
+          "literal": "мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Роҳбандӣ!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Warum fahren wir nicht?",
+          "cueTranslation": "Чаро намеравем?",
+          "intent": "Бигӯ: роҳбандӣ аст",
+          "text": "Stau.",
+          "accepts": [
+            "Es gibt Stau.",
+            "Da ist Stau."
+          ],
+          "translation": "Роҳбандӣ.",
+          "literal": "штау",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "Zehn Minuten.",
+          "accepts": [
+            "Ungefähr zehn Minuten."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": "цэ:н мину́:тэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich habe einen Termin!",
+          "cueTranslation": "Ман вохӯрӣ дорам!",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Entschuldigung.",
+          "accepts": [
+            "Es tut mir leid."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Viel Stau",
+          "translation": "Роҳбандии зиёд",
+          "literal": "фи:л штау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Unfall",
+          "translation": "Як садама",
+          "literal": "айн у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Etwas später",
+          "translation": "Каме дертар",
+          "literal": "э́твас шпэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Umweg",
+          "translation": "Роҳи давр",
+          "literal": "айн у́мвэ:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte warten",
+          "translation": "Лутфан интизор шавед",
+          "literal": "би́тэ ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gleich weiter",
+          "translation": "Ҳозир давом медиҳем",
+          "literal": "глайхь ва́йта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Роҳи дигар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Gibt es einen Umweg?",
+          "cueTranslation": "Роҳи дигар ҳаст?",
+          "intent": "Бигӯ: ҳа, роҳи давр",
+          "text": "Ja, einen Umweg.",
+          "accepts": [
+            "Ja, über die Stadt."
+          ],
+          "translation": "Ҳа, роҳи давр.",
+          "literal": "йа: а́йнэн у́мвэ:к",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist er schneller?",
+          "cueTranslation": "Тезтар аст?",
+          "intent": "Бигӯ: ҳа, каме",
+          "text": "Ja, ein bisschen.",
+          "accepts": [
+            "Ja, etwas schneller."
+          ],
+          "translation": "Ҳа, каме.",
+          "literal": "йа: айн би́схэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, fahren Sie!",
+          "cueTranslation": "Хуб, ҳайдед!",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Alles klar."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман дер мемонам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wir haben Verspätung.",
+          "translation": "Мо дер мемонем.",
+          "literal": "ви:а ҳа́:бэн фэашпэ́:тунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Vorne ist ein Unfall.",
+          "translation": "Пеш садама шудааст.",
+          "literal": "фо́рнэ ист айн у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich fahre einen Umweg.",
+          "translation": "Аз роҳи давр меравам.",
+          "literal": "ихь фа́:рэ а́йнэн у́мвэ:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das kostet nicht mehr.",
+          "translation": "Ин зиёд пул намешавад.",
+          "literal": "дас ко́стэт нихьт мэ:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zehn Minuten später.",
+          "translation": "Даҳ дақиқа дертар.",
+          "literal": "цэ:н мину́:тэн шпэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Es tut mir leid.",
+          "translation": "Бубахшед.",
+          "literal": "эс ту:т ми:а лайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Пули зиёд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Der Umweg kostet mehr, oder?",
+          "cueTranslation": "Роҳи давр бештар пул мешавад, ҳа?",
+          "intent": "Бигӯ: не, зиёд пул намешавад",
+          "text": "Nein, das kostet nicht mehr.",
+          "accepts": [
+            "Nein, gleicher Preis."
+          ],
+          "translation": "Не, зиёд пул намешавад.",
+          "literal": "найн дас ко́стэт нихьт мэ:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Wie lange noch?",
+          "cueTranslation": "Хуб. Боз чӣ қадар?",
+          "intent": "Бигӯ: понздаҳ дақиқа",
+          "text": "Fünfzehn Minuten.",
+          "accepts": [
+            "Noch fünfzehn Minuten."
+          ],
+          "translation": "Понздаҳ дақиқа.",
+          "literal": "фю́нфцэ:н мину́:тэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, danke.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: бубахшед барои дер мондан",
+          "text": "Entschuldigung für die Verspätung.",
+          "accepts": [
+            "Es tut mir leid."
+          ],
+          "translation": "Барои дер мондан бубахшед.",
+          "literal": "энтшу́лдигунг фю:а ди: фэашпэ́:тунг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ба мизоҷ хабар додан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin im Stau.",
+          "translation": "Ман дар роҳбандӣ ҳастам.",
+          "literal": "ихь бин им штау",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich komme später.",
+          "translation": "Дертар меоям.",
+          "literal": "ихь ко́мэ шпэ́:та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch zwanzig Minuten.",
+          "translation": "Боз бист дақиқа.",
+          "literal": "нох цва́нцихь мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist das okay?",
+          "translation": "Ин хуб аст?",
+          "literal": "ист дас окэ́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich rufe wieder an.",
+          "translation": "Боз занг мезанам.",
+          "literal": "ихь ру́:фэ ви́:да ан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke fürs Warten.",
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Занг: дер мемонам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Wo sind Sie?",
+          "cueTranslation": "Ало? Шумо куҷоед?",
+          "intent": "Бигӯ: дар роҳбандӣ ҳастам",
+          "text": "Ich bin im Stau.",
+          "accepts": [
+            "Im Stau, leider."
+          ],
+          "translation": "Ман дар роҳбандӣ ҳастам.",
+          "literal": "ихь бин им штау",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann kommen Sie?",
+          "cueTranslation": "Кай меоед?",
+          "intent": "Бигӯ: боз бист дақиқа",
+          "text": "Noch zwanzig Minuten.",
+          "accepts": [
+            "In zwanzig Minuten."
+          ],
+          "translation": "Боз бист дақиқа.",
+          "literal": "нох цва́нцихь мину́:тэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, ich warte.",
+          "cueTranslation": "Хуб, интизор мешавам.",
+          "intent": "Бигӯ: барои интизорӣ ташаккур",
+          "text": "Danke fürs Warten.",
+          "accepts": [
+            "Vielen Dank!"
+          ],
+          "translation": "Барои интизорӣ ташаккур.",
+          "literal": "да́нкэ фю:ас ва́ртэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: садама дар роҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Warum stehen wir?",
+          "cueTranslation": "Чаро истодаем?",
+          "intent": "Бигӯ: он ҷо, пеш, садама",
+          "text": "Da vorne ist ein Unfall.",
+          "accepts": [
+            "Ein Unfall.",
+            "Es gibt einen Unfall."
+          ],
+          "translation": "Он ҷо, пеш, садама.",
+          "literal": "да: фо́рнэ ист айн у́нфал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh nein! Ich habe einen Termin.",
+          "cueTranslation": "Эҳ! Ман вохӯрӣ дорам.",
+          "intent": "Бигӯ: аз роҳи давр меравам",
+          "text": "Ich fahre einen Umweg.",
+          "accepts": [
+            "Ich nehme einen Umweg."
+          ],
+          "translation": "Аз роҳи давр меравам.",
+          "literal": "ихь фа́:рэ а́йнэн у́мвэ:к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kostet das mehr?",
+          "cueTranslation": "Бештар пул мешавад?",
+          "intent": "Бигӯ: не, зиёд пул намешавад",
+          "text": "Nein, das kostet nicht mehr.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, зиёд пул намешавад.",
+          "literal": "найн дас ко́стэт нихьт мэ:а",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Kein Problem."
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

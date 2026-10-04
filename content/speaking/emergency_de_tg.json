@@ -1,0 +1,548 @@
+{
+  "slug": "emergency_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Notruf hundertzwölf",
+    "titleTranslated": "Занги фаврӣ",
+    "scenario": "Ҳолати фаврӣ: касе бемор шуд ё сӯхтор аст. Шумо ба 112 занг мезанед, ором мегӯед, ки чӣ шуд ва куҷо, ва саволҳои оддиро ҷавоб медиҳед.",
+    "emoji": "🚨",
+    "order": 19,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фаврӣ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Notruf",
+          "translation": "занги фаврӣ",
+          "literal": "но́:тру:ф",
+          "note": "Дар Олмон: 112.",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Krankenwagen",
+          "translation": "мошини ёрии таъҷилӣ",
+          "literal": "кра́нкэнва:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Feuer",
+          "translation": "сӯхтор",
+          "literal": "фо́йа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Hilfe",
+          "translation": "ёрӣ",
+          "literal": "ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schnell",
+          "translation": "тез",
+          "literal": "шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Adresse",
+          "translation": "суроға",
+          "literal": "адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "112",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Notruf. Was ist passiert?",
+          "cueTranslation": "Занги фаврӣ. Чӣ шуд?",
+          "intent": "Бигӯ: мард бемор аст",
+          "text": "Ein Mann ist krank.",
+          "accepts": [
+            "Ein Mann ist umgefallen."
+          ],
+          "translation": "Мард бемор аст.",
+          "literal": "айн ман ист кранк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo sind Sie?",
+          "cueTranslation": "Куҷоед?",
+          "intent": "Бигӯ: дар кӯчаи Гартен, даҳ",
+          "text": "Gartenstraße zehn.",
+          "accepts": [
+            "In der Gartenstraße zehn."
+          ],
+          "translation": "Кӯчаи Гартен, даҳ.",
+          "literal": "га́ртэнштра:сэ цэ:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Der Krankenwagen kommt.",
+          "cueTranslation": "Ёрии таъҷилӣ меояд.",
+          "intent": "Бигӯ: тез, лутфан!",
+          "text": "Bitte schnell!",
+          "accepts": [
+            "Danke, schnell bitte!"
+          ],
+          "translation": "Тез, лутфан!",
+          "literal": "би́тэ шнэл",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hilfe, bitte!",
+          "translation": "Ёрӣ, лутфан!",
+          "literal": "ҳи́лфэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Schnell, bitte!",
+          "translation": "Тез, лутфан!",
+          "literal": "шнэл би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Unfall",
+          "translation": "Садама",
+          "literal": "айн у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Es brennt!",
+          "translation": "Сӯхтор!",
+          "literal": "эс брэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Er atmet",
+          "translation": "Ӯ нафас мегирад",
+          "literal": "э:а а́:тмэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Adresse",
+          "translation": "Суроғаи ман",
+          "literal": "ма́йнэ адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ӯ нафас мегирад?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Atmet er?",
+          "cueTranslation": "Ӯ нафас мегирад?",
+          "intent": "Бигӯ: ҳа, нафас мегирад",
+          "text": "Ja, er atmet.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, нафас мегирад.",
+          "literal": "йа: э:а а́:тмэт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist er wach?",
+          "cueTranslation": "Ҳушёр аст?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, er ist nicht wach."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bleiben Sie bei ihm.",
+          "cueTranslation": "Назди ӯ монед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Ja, ich bleibe."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман хабар медиҳам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Es gibt einen Unfall.",
+          "translation": "Садама шуд.",
+          "literal": "эс ги:пт а́йнэн у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Kind ist verletzt.",
+          "translation": "Кӯдак захмӣ шуд.",
+          "literal": "айн кинт ист фэалэ́цт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Küche brennt.",
+          "translation": "Ошхона месӯзад.",
+          "literal": "ди: кю́хьэ брэнт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte kommen Sie schnell.",
+          "translation": "Лутфан тез биёед.",
+          "literal": "би́тэ ко́мэн зи: шнэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich spreche wenig Deutsch.",
+          "translation": "Ман каме олмонӣ медонам.",
+          "literal": "ихь шпрэ́хэ вэ́:нихь дойч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich warte draußen.",
+          "translation": "Берун интизорам.",
+          "literal": "ихь ва́ртэ дра́усэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Сӯхтор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Notruf. Was ist los?",
+          "cueTranslation": "Занги фаврӣ. Чӣ гап?",
+          "intent": "Бигӯ: дар ошхона сӯхтор аст",
+          "text": "In der Küche brennt es.",
+          "accepts": [
+            "Es brennt!",
+            "Feuer!"
+          ],
+          "translation": "Дар ошхона сӯхтор аст.",
+          "literal": "ин дэ:а кю́хьэ брэнт эс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist jemand im Haus?",
+          "cueTranslation": "Касе дар хона ҳаст?",
+          "intent": "Бигӯ: не, ҳама берун",
+          "text": "Nein, alle sind draußen.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, ҳама берун.",
+          "literal": "найн а́лэ зинт дра́усэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Die Feuerwehr kommt.",
+          "cueTranslation": "Сӯхторнишонҳо меоянд.",
+          "intent": "Бигӯ: берун интизорам",
+          "text": "Ich warte draußen.",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Берун интизорам.",
+          "literal": "ихь ва́ртэ дра́усэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ором бош",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bitte langsam.",
+          "translation": "Оҳиста, лутфан.",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch einmal, bitte.",
+          "translation": "Боз як бор, лутфан.",
+          "literal": "нох а́йнма:л би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Name ist Ali.",
+          "translation": "Номи ман Алӣ.",
+          "literal": "майн на́:мэ ист али",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Nummer ist hier.",
+          "translation": "Рақамам ин ҷо.",
+          "literal": "ма́йнэ ну́ма ист ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ja, ich verstehe.",
+          "translation": "Ҳа, мефаҳмам.",
+          "literal": "йа: ихь фэаштэ́:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke für die Hilfe.",
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": "да́нкэ фю:а ди: ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Саволҳои 112",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie ist Ihr Name?",
+          "cueTranslation": "Номатон чист?",
+          "intent": "Бигӯ: номи ман Алӣ",
+          "text": "Mein Name ist Ali.",
+          "accepts": [
+            "Ali."
+          ],
+          "translation": "Номи ман Алӣ.",
+          "literal": "майн на́:мэ ист али",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bleiben Sie am Telefon, bitte.",
+          "cueTranslation": "Дар телефон монед, лутфан.",
+          "intent": "Бигӯ: оҳиста, лутфан",
+          "text": "Bitte langsam.",
+          "accepts": [
+            "Ich spreche wenig Deutsch."
+          ],
+          "translation": "Оҳиста, лутфан.",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bleiben… Sie… hier.",
+          "cueTranslation": "Ин… ҷо… монед.",
+          "intent": "Бигӯ: ҳа, мефаҳмам",
+          "text": "Ja, ich verstehe.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Ҳа, мефаҳмам.",
+          "literal": "йа: ихь фэаштэ́:э",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занг ба 112",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Notruf. Was ist passiert?",
+          "cueTranslation": "Занги фаврӣ. Чӣ шуд?",
+          "intent": "Бигӯ: садама шуд",
+          "text": "Es gibt einen Unfall.",
+          "accepts": [
+            "Ein Unfall!"
+          ],
+          "translation": "Садама шуд.",
+          "literal": "эс ги:пт а́йнэн у́нфал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist jemand verletzt?",
+          "cueTranslation": "Касе захмӣ шуд?",
+          "intent": "Бигӯ: ҳа, кӯдак захмӣ шуд",
+          "text": "Ja, ein Kind ist verletzt.",
+          "accepts": [
+            "Ja, ein Kind."
+          ],
+          "translation": "Ҳа, кӯдак захмӣ шуд.",
+          "literal": "йа: айн кинт ист фэалэ́цт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo sind Sie?",
+          "cueTranslation": "Куҷоед?",
+          "intent": "Бигӯ: дар кӯчаи Гартен, даҳ",
+          "text": "Gartenstraße zehn.",
+          "accepts": [
+            "In der Gartenstraße zehn."
+          ],
+          "translation": "Кӯчаи Гартен, даҳ.",
+          "literal": "га́ртэнштра:сэ цэ:н",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Der Krankenwagen kommt.",
+          "cueTranslation": "Ёрии таъҷилӣ меояд.",
+          "intent": "Бигӯ: лутфан тез биёед",
+          "text": "Bitte kommen Sie schnell.",
+          "accepts": [
+            "Bitte schnell!"
+          ],
+          "translation": "Лутфан тез биёед.",
+          "literal": "би́тэ ко́мэн зи: шнэл",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

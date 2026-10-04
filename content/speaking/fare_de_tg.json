@@ -1,0 +1,551 @@
+{
+  "slug": "fare_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Bezahlen",
+    "titleTranslated": "Пардохти пули роҳ",
+    "scenario": "Сафар тамом шуд: шумо нархро мегӯед, мепурсед, ки нақд ё бо корт, бақия медиҳед, чек пешниҳод мекунед ва ташаккур мегӯед.",
+    "emoji": "💵",
+    "order": 8,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Fahrpreis",
+          "translation": "пули роҳ",
+          "literal": "фа́:апрайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Bar",
+          "translation": "нақд",
+          "literal": "ба:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Quittung",
+          "translation": "квитансия",
+          "literal": "кви́тунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Wechselgeld",
+          "translation": "бақия",
+          "literal": "вэ́ксэлгэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Euro",
+          "translation": "евро",
+          "literal": "о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Trinkgeld",
+          "translation": "чойпулӣ",
+          "literal": "три́нкгэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд пул?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was kostet die Fahrt?",
+          "cueTranslation": "Сафар чанд пул?",
+          "intent": "Бигӯ: понздаҳ евро",
+          "text": "Fünfzehn Euro.",
+          "accepts": [
+            "Das macht fünfzehn Euro."
+          ],
+          "translation": "Понздаҳ евро.",
+          "literal": "фю́нфцэ:н о́йро",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mit Karte, bitte.",
+          "cueTranslation": "Бо корт, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gerne.",
+            "Kein Problem."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "Schönen Tag!",
+          "accepts": [
+            "Tschüss!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "шё́:нэн та:к",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Mit Karte?",
+          "translation": "Бо корт?",
+          "literal": "мит ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Fünfzehn Euro",
+          "translation": "Понздаҳ евро",
+          "literal": "фю́нфцэ:н о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihre Quittung",
+          "translation": "Квитансияатон",
+          "literal": "и́:рэ кви́тунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Stimmt so",
+          "translation": "Бақия лозим нест",
+          "literal": "штимт зо:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Wechselgeld",
+          "translation": "Бақияатон",
+          "literal": "и:а вэ́ксэлгэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Vielen Dank",
+          "translation": "Ташаккури зиёд",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нақд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich zahle bar.",
+          "cueTranslation": "Нақд медиҳам.",
+          "intent": "Бигӯ: понздаҳ евро",
+          "text": "Fünfzehn Euro.",
+          "accepts": [
+            "Das macht fünfzehn Euro."
+          ],
+          "translation": "Понздаҳ евро.",
+          "literal": "фю́нфцэ:н о́йро",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier sind zwanzig.",
+          "cueTranslation": "Мана бист.",
+          "intent": "Бигӯ: мана бақияатон",
+          "text": "Hier ist Ihr Wechselgeld.",
+          "accepts": [
+            "Fünf Euro zurück."
+          ],
+          "translation": "Мана бақияатон.",
+          "literal": "ҳи:а ист и:а вэ́ксэлгэлт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Stimmt so.",
+          "cueTranslation": "Бақия лозим нест.",
+          "intent": "Ташаккури зиёд гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Пардохт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das macht zwanzig Euro.",
+          "translation": "Бист евро мешавад.",
+          "literal": "дас махт цва́нцихь о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Möchten Sie eine Quittung?",
+          "translation": "Квитансия мехоҳед?",
+          "literal": "мё́хьтэн зи: а́йнэ кви́тунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Karte geht nicht.",
+          "translation": "Корт кор намекунад.",
+          "literal": "ди: ка́ртэ гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Haben Sie es kleiner?",
+          "translation": "Пули майдатар доред?",
+          "literal": "ҳа́:бэн зи: эс кла́йна",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe kein Wechselgeld.",
+          "translation": "Бақия надорам.",
+          "literal": "ихь ҳа́:бэ кайн вэ́ксэлгэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke für das Trinkgeld!",
+          "translation": "Барои чойпулӣ ташаккур!",
+          "literal": "да́нкэ фю:а дас три́нкгэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Пули калон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich habe nur hundert Euro.",
+          "cueTranslation": "Ман танҳо сад евро дорам.",
+          "intent": "Бигӯ: бақия надорам",
+          "text": "Ich habe kein Wechselgeld.",
+          "accepts": [
+            "Leider kein Wechselgeld."
+          ],
+          "translation": "Бақия надорам.",
+          "literal": "ихь ҳа́:бэ кайн вэ́ксэлгэлт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh. Mit Karte geht?",
+          "cueTranslation": "О. Бо корт мешавад?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "Ja, natürlich.",
+          "accepts": [
+            "Ja, kein Problem.",
+            "Ja."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": "йа: натю́:алихь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, mit Karte.",
+          "cueTranslation": "Хуб, бо корт.",
+          "intent": "Бипурс: квитансия мехоҳед?",
+          "text": "Möchten Sie eine Quittung?",
+          "accepts": [
+            "Eine Quittung?"
+          ],
+          "translation": "Квитансия мехоҳед?",
+          "literal": "мё́хьтэн зи: а́йнэ кви́тунг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Квитансия",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Für die Firma?",
+          "translation": "Барои ширкат?",
+          "literal": "фю:а ди: фи́рма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist die Quittung.",
+          "translation": "Мана квитансия.",
+          "literal": "ҳи:а ист ди: кви́тунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Datum und Preis.",
+          "translation": "Бо сана ва нарх.",
+          "literal": "мит да́:тум унт прайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Moment, bitte.",
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "а́йнэн момэ́нт би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Fahrt war kurz.",
+          "translation": "Сафар кӯтоҳ буд.",
+          "literal": "ди: фа:ат ва:а курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis zum nächsten Mal!",
+          "translation": "То дафъаи дигар!",
+          "literal": "бис цум нэ́:хьстэн ма:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Квитансия барои ширкат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich brauche eine Quittung.",
+          "cueTranslation": "Ба ман квитансия лозим.",
+          "intent": "Бигӯ: як лаҳза, лутфан",
+          "text": "Einen Moment, bitte.",
+          "accepts": [
+            "Moment."
+          ],
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "а́йнэн момэ́нт би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Für die Firma.",
+          "cueTranslation": "Барои ширкат.",
+          "intent": "Бигӯ: мана квитансия",
+          "text": "Hier ist die Quittung.",
+          "accepts": [
+            "Bitte schön, die Quittung."
+          ],
+          "translation": "Мана квитансия.",
+          "literal": "ҳи:а ист ди: кви́тунг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke! Tschüss!",
+          "cueTranslation": "Ташаккур! Хайр!",
+          "intent": "Бигӯ: то дафъаи дигар!",
+          "text": "Bis zum nächsten Mal!",
+          "accepts": [
+            "Tschüss!",
+            "Schönen Tag!"
+          ],
+          "translation": "То дафъаи дигар!",
+          "literal": "бис цум нэ́:хьстэн ма:л",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: охири сафар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wir sind da? Was kostet das?",
+          "cueTranslation": "Расидем? Чанд пул?",
+          "intent": "Бигӯ: бист евро мешавад",
+          "text": "Das macht zwanzig Euro.",
+          "accepts": [
+            "Zwanzig Euro."
+          ],
+          "translation": "Бист евро мешавад.",
+          "literal": "дас махт цва́нцихь о́йро",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mit Karte, bitte.",
+          "cueTranslation": "Бо корт, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gerne.",
+            "Kein Problem."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich brauche eine Quittung.",
+          "cueTranslation": "Квитансия лозим.",
+          "intent": "Бигӯ: мана квитансия",
+          "text": "Hier ist die Quittung.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Мана квитансия.",
+          "literal": "ҳи:а ист ди: кви́тунг",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke schön!",
+          "cueTranslation": "Ташаккури зиёд!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "Einen schönen Tag!",
+          "accepts": [
+            "Schönen Tag!",
+            "Tschüss!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "а́йнэн шё́:нэн та:к",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

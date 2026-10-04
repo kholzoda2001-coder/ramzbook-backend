@@ -1,0 +1,547 @@
+{
+  "slug": "shift_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Schicht und Verdienst",
+    "titleTranslated": "Навбати корӣ ва даромад",
+    "scenario": "Шумо бо сардор дар бораи навбат ва пул гап мезанед: чанд соат кор кардед, чанд сафар, кай маош меояд ва рӯзи истироҳат кай аст.",
+    "emoji": "💰",
+    "order": 20,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Кор ва пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Schicht",
+          "translation": "навбат (смена)",
+          "literal": "шихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Fahrten",
+          "translation": "сафарҳо",
+          "literal": "фа́:атэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Stunden",
+          "translation": "соатҳо",
+          "literal": "шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Lohn",
+          "translation": "маош",
+          "literal": "ло:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Pause",
+          "translation": "танаффус",
+          "literal": "па́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Überstunden",
+          "translation": "соатҳои иловагӣ",
+          "literal": "ю́:баштундэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Охири навбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie war die Schicht?",
+          "cueTranslation": "Навбат чӣ хел гузашт?",
+          "intent": "Бигӯ: хуб, бисёр сафар",
+          "text": "Gut, viele Fahrten.",
+          "accepts": [
+            "Gut.",
+            "Viel Arbeit."
+          ],
+          "translation": "Хуб, сафарҳои зиёд.",
+          "literal": "гу:т фи́:лэ фа́:атэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viele Fahrten?",
+          "cueTranslation": "Чанд сафар?",
+          "intent": "Бигӯ: понздаҳ",
+          "text": "Fünfzehn.",
+          "accepts": [
+            "Fünfzehn Fahrten."
+          ],
+          "translation": "Понздаҳ.",
+          "literal": "фю́нфцэ:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Super!",
+          "cueTranslation": "Олӣ!",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zehn Stunden",
+          "translation": "Даҳ соат",
+          "literal": "цэ:н шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Viele Fahrten",
+          "translation": "Сафарҳои зиёд",
+          "literal": "фи́:лэ фа́:атэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Keine Pause",
+          "translation": "Танаффус нест",
+          "literal": "ка́йнэ па́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Lohn",
+          "translation": "Маоши ман",
+          "literal": "майн ло:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Am Freitag",
+          "translation": "Рӯзи ҷумъа",
+          "literal": "ам фра́йта:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Nächste Woche",
+          "translation": "Ҳафтаи оянда",
+          "literal": "нэ́:хьстэ во́хэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Танаффус",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hattest du Pause?",
+          "cueTranslation": "Танаффус доштӣ?",
+          "intent": "Бигӯ: не, танаффус набуд",
+          "text": "Nein, keine Pause.",
+          "accepts": [
+            "Nein."
+          ],
+          "translation": "Не, танаффус набуд.",
+          "literal": "найн ка́йнэ па́узэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das ist nicht gut.",
+          "cueTranslation": "Ин хуб нест.",
+          "intent": "Бигӯ: даҳ соат кор кардам",
+          "text": "Ich habe zehn Stunden gearbeitet.",
+          "accepts": [
+            "Zehn Stunden, ohne Pause."
+          ],
+          "translation": "Даҳ соат кор кардам.",
+          "literal": "ихь ҳа́:бэ цэ:н шту́ндэн гэа́рбайтэт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Morgen machst du Pause.",
+          "cueTranslation": "Фардо танаффус мекунӣ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман дар бораи кор мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite zehn Stunden.",
+          "translation": "Даҳ соат кор мекунам.",
+          "literal": "ихь а́рбайтэ цэ:н шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bin sehr müde.",
+          "translation": "Ман хеле хастаам.",
+          "literal": "ихь бин зэ:а мю́:дэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann kommt der Lohn?",
+          "translation": "Маош кай меояд?",
+          "literal": "ван комт дэ:а ло:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bekomme ich Überstunden?",
+          "translation": "Соатҳои иловагӣ мегирам?",
+          "literal": "бэко́мэ ихь ю́:баштундэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche frei.",
+          "translation": "Ба ман истироҳат лозим.",
+          "literal": "ихь бра́ухэ фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Am Sonntag arbeite ich.",
+          "translation": "Якшанбе кор мекунам.",
+          "literal": "ам зо́нта:к а́рбайтэ ихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Маош",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hast du Fragen?",
+          "cueTranslation": "Савол дорӣ?",
+          "intent": "Бипурс: маош кай меояд?",
+          "text": "Wann kommt der Lohn?",
+          "accepts": [
+            "Wann bekomme ich Geld?"
+          ],
+          "translation": "Маош кай меояд?",
+          "literal": "ван комт дэ:а ло:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Am Ende vom Monat.",
+          "cueTranslation": "Дар охири моҳ.",
+          "intent": "Бипурс: соатҳои иловагӣ мегирам?",
+          "text": "Bekomme ich Überstunden?",
+          "accepts": [
+            "Und die Überstunden?"
+          ],
+          "translation": "Соатҳои иловагӣ мегирам?",
+          "literal": "бэко́мэ ихь ю́:баштундэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, natürlich.",
+          "cueTranslation": "Ҳа, албатта.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Super, danke.",
+          "accepts": [
+            "Gut, danke."
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": "зу́:па да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Рӯзи истироҳат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich möchte Montag frei.",
+          "translation": "Душанбе истироҳат мехоҳам.",
+          "literal": "ихь мё́хьтэ мо́:нта:к фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Kind ist krank.",
+          "translation": "Фарзандам бемор аст.",
+          "literal": "майн кинт ист кранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite am Samstag.",
+          "translation": "Шанбе кор мекунам.",
+          "literal": "ихь а́рбайтэ ам за́мста:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Geht das?",
+          "translation": "Мешавад?",
+          "literal": "гэ:т дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Vielen Dank, Chef.",
+          "translation": "Ташаккури зиёд, сардор.",
+          "literal": "фи́:лэн данк шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis Dienstag!",
+          "translation": "То сешанбе!",
+          "literal": "бис ди́:нста:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Як рӯз истироҳат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, was ist?",
+          "cueTranslation": "Ҳа, чӣ гап?",
+          "intent": "Бигӯ: душанбе истироҳат мехоҳам",
+          "text": "Ich möchte Montag frei.",
+          "accepts": [
+            "Kann ich Montag frei haben?"
+          ],
+          "translation": "Душанбе истироҳат мехоҳам.",
+          "literal": "ихь мё́хьтэ мо́:нта:к фрай",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Warum?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: фарзандам бемор аст",
+          "text": "Mein Kind ist krank.",
+          "accepts": [
+            "Mein Sohn ist krank."
+          ],
+          "translation": "Фарзандам бемор аст.",
+          "literal": "майн кинт ист кранк",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, kein Problem.",
+          "cueTranslation": "Хуб, мушкил нест.",
+          "intent": "Бигӯ: ташаккури зиёд, сардор",
+          "text": "Vielen Dank, Chef.",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Ташаккури зиёд, сардор.",
+          "literal": "фи́:лэн данк шэф",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: гап бо сардор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Wie war die Woche?",
+          "cueTranslation": "Салом! Ҳафта чӣ хел гузашт?",
+          "intent": "Бигӯ: хуб, сафарҳои зиёд",
+          "text": "Gut, viele Fahrten.",
+          "accepts": [
+            "Gut, viel Arbeit."
+          ],
+          "translation": "Хуб, сафарҳои зиёд.",
+          "literal": "гу:т фи́:лэ фа́:атэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Super! Noch Fragen?",
+          "cueTranslation": "Олӣ! Боз савол?",
+          "intent": "Бипурс: маош кай меояд?",
+          "text": "Wann kommt der Lohn?",
+          "accepts": [
+            "Wann bekomme ich Geld?"
+          ],
+          "translation": "Маош кай меояд?",
+          "literal": "ван комт дэ:а ло:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Am Freitag.",
+          "cueTranslation": "Рӯзи ҷумъа.",
+          "intent": "Бигӯ: душанбе истироҳат мехоҳам",
+          "text": "Ich möchte Montag frei.",
+          "accepts": [
+            "Kann ich Montag frei haben?"
+          ],
+          "translation": "Душанбе истироҳат мехоҳам.",
+          "literal": "ихь мё́хьтэ мо́:нта:к фрай",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, das geht.",
+          "cueTranslation": "Ҳа, мешавад.",
+          "intent": "Бигӯ: ташаккури зиёд, сардор",
+          "text": "Vielen Dank, Chef.",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Ташаккури зиёд, сардор.",
+          "literal": "фи́:лэн данк шэф",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

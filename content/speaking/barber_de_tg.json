@@ -1,0 +1,547 @@
+{
+  "slug": "barber_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Beim Friseur",
+    "titleTranslated": "Дар сартарошхона",
+    "scenario": "Шумо ба сартарошхона меравед: вақт мегиред, мегӯед, ки чӣ тавр буред — кӯтоҳ ё каме, риш, мепурсед, ки чанд пул аст ва ташаккур мегӯед.",
+    "emoji": "💈",
+    "order": 20,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Сартарош",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Friseur",
+          "translation": "сартарош",
+          "literal": "фризё́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Haare",
+          "translation": "мӯй",
+          "literal": "ҳа́:рэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kurz",
+          "translation": "кӯтоҳ",
+          "literal": "курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Bart",
+          "translation": "риш",
+          "literal": "ба:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schneiden",
+          "translation": "буридан",
+          "literal": "шна́йдэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Termin",
+          "translation": "вақти қабул",
+          "literal": "тэами́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Вақт ҳаст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Haben Sie einen Termin?",
+          "cueTranslation": "Салом! Вақти қабул доред?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, ohne Termin."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kein Problem. Zehn Minuten warten?",
+          "cueTranslation": "Мушкил нест. Даҳ дақиқа интизор?",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Ja, ich warte.",
+            "Gut."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bitte setzen Sie sich.",
+          "cueTranslation": "Лутфан шинед.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Kurz, bitte",
+          "translation": "Кӯтоҳ, лутфан",
+          "literal": "курц би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein bisschen",
+          "translation": "Каме",
+          "literal": "айн би́схэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Den Bart",
+          "translation": "Ришро",
+          "literal": "дэ:н ба:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Wasser",
+          "translation": "Бо об",
+          "literal": "мит ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sehr gut",
+          "translation": "Хеле хуб",
+          "literal": "зэ:а гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie viel?",
+          "translation": "Чанд пул?",
+          "literal": "ви: фи:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ тавр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wie möchten Sie die Haare?",
+          "cueTranslation": "Мӯйро чӣ тавр мехоҳед?",
+          "intent": "Бигӯ: кӯтоҳ, лутфан",
+          "text": "Kurz, bitte.",
+          "accepts": [
+            "Kurz."
+          ],
+          "translation": "Кӯтоҳ, лутфан.",
+          "literal": "курц би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und oben?",
+          "cueTranslation": "Ва боло?",
+          "intent": "Бигӯ: танҳо каме",
+          "text": "Nur ein bisschen.",
+          "accepts": [
+            "Ein bisschen."
+          ],
+          "translation": "Танҳо каме.",
+          "literal": "ну:а айн би́схэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Den Bart auch?",
+          "cueTranslation": "Ришро ҳам?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Ja, bitte.",
+          "accepts": [
+            "Nein, danke."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich möchte Haare schneiden.",
+          "translation": "Мӯй гирифтан мехоҳам.",
+          "literal": "ихь мё́хьтэ ҳа́:рэ шна́йдэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte nicht zu kurz.",
+          "translation": "Лутфан на хеле кӯтоҳ.",
+          "literal": "би́тэ нихьт цу: курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Oben länger, bitte.",
+          "translation": "Боло дарозтар, лутфан.",
+          "literal": "о́:бэн лэ́нга би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist gut so.",
+          "translation": "Ҳамин хуб аст.",
+          "literal": "дас ист гу:т зо:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Was kostet das?",
+          "translation": "Ин чанд пул?",
+          "literal": "вас ко́стэт дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Haben Sie morgen Zeit?",
+          "translation": "Фардо вақт доред?",
+          "literal": "ҳа́:бэн зи: мо́ргэн цайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Вақт фардо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Friseur Schmidt, hallo?",
+          "cueTranslation": "Сартарошхонаи Шмидт, ало?",
+          "intent": "Бигӯ: фардо вақт доред?",
+          "text": "Haben Sie morgen Zeit?",
+          "accepts": [
+            "Morgen einen Termin, bitte."
+          ],
+          "translation": "Фардо вақт доред?",
+          "literal": "ҳа́:бэн зи: мо́ргэн цайт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, um zehn Uhr.",
+          "cueTranslation": "Ҳа, соати даҳ.",
+          "intent": "Бигӯ: хуб, соати даҳ",
+          "text": "Gut, um zehn.",
+          "accepts": [
+            "Zehn Uhr ist gut."
+          ],
+          "translation": "Хуб, соати даҳ.",
+          "literal": "гу:т ум цэ:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihr Name?",
+          "cueTranslation": "Номатон?",
+          "intent": "Бигӯ: Алӣ",
+          "text": "Ali.",
+          "accepts": [
+            "Mein Name ist Ali."
+          ],
+          "translation": "Алӣ.",
+          "literal": "али",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тамом",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Gefällt es Ihnen?",
+          "translation": "Маъқул аст?",
+          "literal": "гэфэ́лт эс и́:нэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ja, sehr gut!",
+          "translation": "Ҳа, хеле хуб!",
+          "literal": "йа: зэ:а гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das macht fünfzehn Euro.",
+          "translation": "Понздаҳ евро мешавад.",
+          "literal": "дас махт фю́нфцэ:н о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Karte?",
+          "translation": "Бо корт?",
+          "literal": "мит ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke, bis bald!",
+          "translation": "Ташаккур, то дидан!",
+          "literal": "да́нкэ бис балт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis zum nächsten Mal!",
+          "translation": "То дафъаи дигар!",
+          "literal": "бис цум нэ́:хьстэн ма:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Маъқул аст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "So, fertig! Gefällt es Ihnen?",
+          "cueTranslation": "Тамом! Маъқул аст?",
+          "intent": "Бигӯ: ҳа, хеле хуб!",
+          "text": "Ja, sehr gut!",
+          "accepts": [
+            "Super, danke!"
+          ],
+          "translation": "Ҳа, хеле хуб!",
+          "literal": "йа: зэ:а гу:т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das macht fünfzehn Euro.",
+          "cueTranslation": "Понздаҳ евро мешавад.",
+          "intent": "Бипурс: бо корт мешавад?",
+          "text": "Mit Karte?",
+          "accepts": [
+            "Kann ich mit Karte zahlen?"
+          ],
+          "translation": "Бо корт мешавад?",
+          "literal": "мит ка́ртэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, natürlich.",
+          "cueTranslation": "Ҳа, албатта.",
+          "intent": "Бигӯ: ташаккур, то дидан!",
+          "text": "Danke, bis bald!",
+          "accepts": [
+            "Danke, tschüss!"
+          ],
+          "translation": "Ташаккур, то дидан!",
+          "literal": "да́нкэ бис балт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мӯйи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was möchten Sie?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: мӯй гирифтан мехоҳам",
+          "text": "Ich möchte Haare schneiden.",
+          "accepts": [
+            "Haare schneiden, bitte."
+          ],
+          "translation": "Мӯй гирифтан мехоҳам.",
+          "literal": "ихь мё́хьтэ ҳа́:рэ шна́йдэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie möchten Sie es?",
+          "cueTranslation": "Чӣ тавр мехоҳед?",
+          "intent": "Бигӯ: кӯтоҳ, аммо на хеле кӯтоҳ",
+          "text": "Kurz, aber nicht zu kurz.",
+          "accepts": [
+            "Kurz, bitte."
+          ],
+          "translation": "Кӯтоҳ, аммо на хеле кӯтоҳ.",
+          "literal": "курц а́:ба нихьт цу: курц",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und den Bart?",
+          "cueTranslation": "Ва риш?",
+          "intent": "Бигӯ: танҳо каме",
+          "text": "Nur ein bisschen.",
+          "accepts": [
+            "Ein bisschen."
+          ],
+          "translation": "Танҳо каме.",
+          "literal": "ну:а айн би́схэн",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Fertig! Gefällt es Ihnen?",
+          "cueTranslation": "Тамом! Маъқул аст?",
+          "intent": "Бигӯ: ҳа, хеле хуб!",
+          "text": "Ja, sehr gut!",
+          "accepts": [
+            "Super, danke!"
+          ],
+          "translation": "Ҳа, хеле хуб!",
+          "literal": "йа: зэ:а гу:т",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

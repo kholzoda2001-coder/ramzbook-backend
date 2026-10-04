@@ -1,0 +1,557 @@
+{
+  "slug": "kitchen_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Erster Tag in der Küche",
+    "titleTranslated": "Рӯзи аввал дар ошхона",
+    "scenario": "Рӯзи аввали кор дар тарабхона. Chef ба шумо ошхона, яхдон ва ҷои либосро нишон медиҳад. Шумо мепурсед, ки чӣ кор кунед, ва дастурҳои оддиро иҷро мекунед.",
+    "emoji": "👨‍🍳",
+    "order": 3,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ошхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Küche",
+          "translation": "ошхона",
+          "literal": "кю́хьэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Kühlschrank",
+          "translation": "яхдон",
+          "literal": "кю́:лшранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Teller",
+          "translation": "тақсимча",
+          "literal": "тэ́ла",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Messer",
+          "translation": "корд",
+          "literal": "мэ́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schürze",
+          "translation": "пешдоман",
+          "literal": "шю́рцэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Spülen",
+          "translation": "шустан (зарф)",
+          "literal": "шпю́:лэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Салом, Chef",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Bist du der Neue?",
+          "cueTranslation": "Салом! Ту навӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, ich bin neu."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich bin Klaus, der Chef.",
+          "cueTranslation": "Ман Клаус, сардор.",
+          "intent": "Бигӯ: шодам",
+          "text": "Freut mich.",
+          "accepts": [
+            "Freut mich sehr.",
+            "Hallo!"
+          ],
+          "translation": "Шодам.",
+          "literal": "фройт михь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist deine Schürze.",
+          "cueTranslation": "Мана пешдоманат.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Дастурҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hier spülen",
+          "translation": "Ин ҷо бишӯй",
+          "literal": "ҳи:а шпю́:лэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Teller",
+          "translation": "Тақсимчаҳо",
+          "literal": "ди: тэ́ла",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Sofort",
+          "translation": "ҳозир",
+          "literal": "зофо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Was jetzt?",
+          "translation": "Ҳоло чӣ?",
+          "literal": "вас йэцт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Im Kühlschrank",
+          "translation": "Дар яхдон",
+          "literal": "им кю́:лшранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Fertig",
+          "translation": "тайёр, тамом",
+          "literal": "фэ́ртихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чӣ кор кунам?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Spül bitte die Teller.",
+          "cueTranslation": "Тақсимчаҳоро бишӯй, лутфан.",
+          "intent": "Бигӯ: ҳозир",
+          "text": "Sofort!",
+          "accepts": [
+            "Ja, sofort.",
+            "Okay!"
+          ],
+          "translation": "Ҳозир!",
+          "literal": "зофо́рт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bist du fertig?",
+          "cueTranslation": "Тамом кардӣ?",
+          "intent": "Бигӯ: ҳа, тамом",
+          "text": "Ja, fertig.",
+          "accepts": [
+            "Ja.",
+            "Fertig!"
+          ],
+          "translation": "Ҳа, тамом.",
+          "literal": "йа: фэ́ртихь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut gemacht!",
+          "cueTranslation": "Офарин!",
+          "intent": "Бипурс: ҳоло чӣ?",
+          "text": "Was jetzt?",
+          "accepts": [
+            "Was mache ich jetzt?",
+            "Und jetzt?"
+          ],
+          "translation": "Ҳоло чӣ?",
+          "literal": "вас йэцт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман нав ҳастам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin neu hier.",
+          "translation": "Ман ин ҷо нав ҳастам.",
+          "literal": "ихь бин ной ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Was mache ich jetzt?",
+          "translation": "Ҳоло чӣ кор кунам?",
+          "literal": "вас ма́хэ ихь йэцт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo sind die Teller?",
+          "translation": "Тақсимчаҳо куҷоянд?",
+          "literal": "во: зинт ди: тэ́ла",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist der Kühlschrank?",
+          "translation": "Яхдон куҷост?",
+          "literal": "во: ист дэ:а кю́:лшранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zeigen Sie mir, bitte.",
+          "translation": "Нишон диҳед, лутфан.",
+          "literal": "ца́йгэн зи: ми:а би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe.",
+          "translation": "Мефаҳмам.",
+          "literal": "ихь фэаштэ́:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ошхона нишон медиҳад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Das ist die Küche.",
+          "cueTranslation": "Ин ошхона.",
+          "intent": "Бипурс: яхдон куҷост?",
+          "text": "Wo ist der Kühlschrank?",
+          "accepts": [
+            "Und der Kühlschrank?"
+          ],
+          "translation": "Яхдон куҷост?",
+          "literal": "во: ист дэ:а кю́:лшранк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Da links.",
+          "cueTranslation": "Он ҷо, тарафи чап.",
+          "intent": "Бипурс: тақсимчаҳо куҷоянд?",
+          "text": "Wo sind die Teller?",
+          "accepts": [
+            "Und die Teller?"
+          ],
+          "translation": "Тақсимчаҳо куҷоянд?",
+          "literal": "во: зинт ди: тэ́ла",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier oben.",
+          "cueTranslation": "Ин ҷо, дар боло.",
+          "intent": "Бигӯ: мефаҳмам, ташаккур",
+          "text": "Ich verstehe, danke.",
+          "accepts": [
+            "Okay, danke.",
+            "Danke."
+          ],
+          "translation": "Мефаҳмам, ташаккур.",
+          "literal": "ихь фэаштэ́:э да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Тоза ва бехатар",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hände waschen",
+          "translation": "Дастҳоро бишӯй",
+          "literal": "ҳэ́ндэ ва́шэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Messer ist scharf.",
+          "translation": "Корд тез аст.",
+          "literal": "дас мэ́са ист шарф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Vorsicht, heiß!",
+          "translation": "Эҳтиёт, гарм!",
+          "literal": "фо́:азихьт ҳайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Boden ist nass.",
+          "translation": "Фарш тар аст.",
+          "literal": "дэ:а бо́:дэн ист нас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist der Müll?",
+          "translation": "Партов куҷост?",
+          "literal": "во: ист дэ:а мюл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich wasche die Hände.",
+          "translation": "Ман дастҳоро мешӯям.",
+          "literal": "ихь ва́шэ ди: ҳэ́ндэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Эҳтиёт!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Vorsicht! Das ist heiß!",
+          "cueTranslation": "Эҳтиёт! Ин гарм аст!",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Okay, danke!",
+          "accepts": [
+            "Danke!",
+            "Ah, danke."
+          ],
+          "translation": "Хуб, ташаккур!",
+          "literal": "окэ́: да́нкэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wasch zuerst die Hände.",
+          "cueTranslation": "Аввал дастҳоро бишӯй.",
+          "intent": "Бигӯ: хуб, ҳозир",
+          "text": "Okay, sofort.",
+          "accepts": [
+            "Ja, sofort.",
+            "Gut."
+          ],
+          "translation": "Хуб, ҳозир.",
+          "literal": "окэ́: зофо́рт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Der Müll ist draußen.",
+          "cueTranslation": "Партов берун аст.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Verstanden.",
+          "accepts": [
+            "Okay, verstanden.",
+            "Ich verstehe."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "фэашта́ндэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Bist du neu?",
+          "cueTranslation": "Салом! Навӣ?",
+          "intent": "Бигӯ: ҳа, ман нав ҳастам",
+          "text": "Ja, ich bin neu hier.",
+          "accepts": [
+            "Ja.",
+            "Ja, ich bin neu."
+          ],
+          "translation": "Ҳа, ман ин ҷо нав ҳастам.",
+          "literal": "йа: ихь бин ной ҳи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Hier ist deine Schürze.",
+          "cueTranslation": "Хуб. Мана пешдоманат.",
+          "intent": "Бипурс: ҳоло чӣ кор кунам?",
+          "text": "Was mache ich jetzt?",
+          "accepts": [
+            "Was jetzt?",
+            "Danke. Was mache ich?"
+          ],
+          "translation": "Ҳоло чӣ кор кунам?",
+          "literal": "вас ма́хэ ихь йэцт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Spül die Teller, bitte.",
+          "cueTranslation": "Тақсимчаҳоро бишӯй.",
+          "intent": "Бипурс: тақсимчаҳо куҷоянд?",
+          "text": "Wo sind die Teller?",
+          "accepts": [
+            "Wo sind sie?"
+          ],
+          "translation": "Тақсимчаҳо куҷоянд?",
+          "literal": "во: зинт ди: тэ́ла",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Da links. Danke!",
+          "cueTranslation": "Он ҷо, тарафи чап. Ташаккур!",
+          "intent": "Бигӯ: ҳозир",
+          "text": "Sofort!",
+          "accepts": [
+            "Okay, sofort.",
+            "Gerne."
+          ],
+          "translation": "Ҳозир!",
+          "literal": "зофо́рт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

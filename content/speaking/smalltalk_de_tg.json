@@ -1,0 +1,548 @@
+{
+  "slug": "smalltalk_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Gespräch mit Fahrgast",
+    "titleTranslated": "Гап бо мусофир",
+    "scenario": "Мусофир бо шумо гап мезанад: аз куҷоед, чанд вақт дар Олмон ҳастед, оила доред, ҳаво чӣ хел. Шумо кӯтоҳ ва хушмуомила ҷавоб медиҳед.",
+    "emoji": "💬",
+    "order": 9,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Гап",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Wetter",
+          "translation": "ҳаво",
+          "literal": "вэ́та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Familie",
+          "translation": "оила",
+          "literal": "фами́:лиэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kinder",
+          "translation": "фарзандон",
+          "literal": "ки́нда",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Jahre",
+          "translation": "сол",
+          "literal": "йа́:рэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schön",
+          "translation": "зебо, хуб",
+          "literal": "шё:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Regen",
+          "translation": "борон",
+          "literal": "рэ́:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Аз куҷоед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Woher kommen Sie?",
+          "cueTranslation": "Аз куҷоед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Aus Tadschikistan.",
+          "accepts": [
+            "Ich komme aus Tadschikistan."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": "аус таджикиста́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, interessant!",
+          "cueTranslation": "О, ҷолиб!",
+          "intent": "Бигӯ: ҳа, хеле зебо",
+          "text": "Ja, sehr schön.",
+          "accepts": [
+            "Ja, es ist schön dort."
+          ],
+          "translation": "Ҳа, хеле зебо.",
+          "literal": "йа: зэ:а шё:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange sind Sie hier?",
+          "cueTranslation": "Чанд вақт ин ҷоед?",
+          "intent": "Бигӯ: ду сол",
+          "text": "Zwei Jahre.",
+          "accepts": [
+            "Seit zwei Jahren."
+          ],
+          "translation": "Ду сол.",
+          "literal": "цвай йа́:рэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zwei Jahre",
+          "translation": "Ду сол",
+          "literal": "цвай йа́:рэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sehr schön",
+          "translation": "Хеле зебо",
+          "literal": "зэ:а шё:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Viel Regen",
+          "translation": "Борони зиёд",
+          "literal": "фи:л рэ́:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Kinder",
+          "translation": "Ду фарзанд",
+          "literal": "цвай ки́нда",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Und Sie?",
+          "translation": "Ва шумо?",
+          "literal": "унт зи:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein bisschen",
+          "translation": "Каме",
+          "literal": "айн би́схэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳаво",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Heute regnet es viel.",
+          "cueTranslation": "Имрӯз бисёр борон меборад.",
+          "intent": "Бигӯ: ҳа, борони зиёд",
+          "text": "Ja, viel Regen.",
+          "accepts": [
+            "Ja, leider."
+          ],
+          "translation": "Ҳа, борони зиёд.",
+          "literal": "йа: фи:л рэ́:гэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "In Tadschikistan auch?",
+          "cueTranslation": "Дар Тоҷикистон ҳам?",
+          "intent": "Бигӯ: не, он ҷо офтобӣ",
+          "text": "Nein, dort ist viel Sonne.",
+          "accepts": [
+            "Nein, mehr Sonne."
+          ],
+          "translation": "Не, он ҷо офтоб бисёр.",
+          "literal": "найн дорт ист фи:л зо́нэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Schön!",
+          "cueTranslation": "Хуб!",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, sehr schön."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Seit zwei Jahren hier.",
+          "translation": "Ду сол боз ин ҷо.",
+          "literal": "зайт цвай йа́:рэн ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Familie ist dort.",
+          "translation": "Оилаам он ҷост.",
+          "literal": "ма́йнэ фами́:лиэ ист дорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe zwei Kinder.",
+          "translation": "Ман ду фарзанд дорам.",
+          "literal": "ихь ҳа́:бэ цвай ки́нда",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich lerne Deutsch.",
+          "translation": "Ман олмонӣ меомӯзам.",
+          "literal": "ихь лэ́рнэ дойч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "own",
+          "text": "Ich wohne in ___.",
+          "translation": "Ман дар ___ зиндагӣ мекунам.",
+          "literal": "ихь во́:нэ ин ___",
+          "note": "Шаҳри худро гӯед.",
+          "cue": "Wo wohnen Sie?",
+          "cueTranslation": "Дар куҷо зиндагӣ мекунед?",
+          "intent": "Шаҳри худро гӯед",
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite jeden Tag.",
+          "translation": "Ман ҳар рӯз кор мекунам.",
+          "literal": "ихь а́рбайтэ йэ́:дэн та:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Оила",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Familie?",
+          "cueTranslation": "Оила доред?",
+          "intent": "Бигӯ: ҳа, ду фарзанд дорам",
+          "text": "Ja, ich habe zwei Kinder.",
+          "accepts": [
+            "Ja, zwei Kinder."
+          ],
+          "translation": "Ҳа, ду фарзанд дорам.",
+          "literal": "йа: ихь ҳа́:бэ цвай ки́нда",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sind sie hier?",
+          "cueTranslation": "Онҳо ин ҷоянд?",
+          "intent": "Бигӯ: не, оилаам он ҷост",
+          "text": "Nein, meine Familie ist dort.",
+          "accepts": [
+            "Nein, in Tadschikistan."
+          ],
+          "translation": "Не, оилаам он ҷост.",
+          "literal": "найн ма́йнэ фами́:лиэ ист дорт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihr Deutsch ist gut!",
+          "cueTranslation": "Олмониатон хуб аст!",
+          "intent": "Бигӯ: ташаккур, ман меомӯзам",
+          "text": "Danke, ich lerne.",
+          "accepts": [
+            "Danke! Ich lerne Deutsch."
+          ],
+          "translation": "Ташаккур, ман меомӯзам.",
+          "literal": "да́нкэ ихь лэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хушмуомила",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das freut mich.",
+          "translation": "Аз ин шодам.",
+          "literal": "дас фройт михь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe nicht ganz.",
+          "translation": "Пурра намефаҳмам.",
+          "literal": "ихь фэаштэ́:э нихьт ганц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte langsam.",
+          "translation": "Оҳиста, лутфан.",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Und Sie, woher?",
+          "translation": "Ва шумо аз куҷо?",
+          "literal": "унт зи: во́:ҳэа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Waren Sie schon dort?",
+          "translation": "Он ҷо будед?",
+          "literal": "ва́:рэн зи: шо:н дорт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommen Sie mal!",
+          "translation": "Як бор биёед!",
+          "literal": "ко́мэн зи: ма:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Савол ба мусофир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich bin aus München.",
+          "cueTranslation": "Ман аз Мюнхен ҳастам.",
+          "intent": "Бигӯ: аз ин шодам",
+          "text": "Das freut mich.",
+          "accepts": [
+            "Schön!"
+          ],
+          "translation": "Аз ин шодам.",
+          "literal": "дас фройт михь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich reise gern.",
+          "cueTranslation": "Ман сафарро дӯст медорам.",
+          "intent": "Бипурс: он ҷо будед?",
+          "text": "Waren Sie schon dort?",
+          "accepts": [
+            "Waren Sie in Tadschikistan?"
+          ],
+          "translation": "Он ҷо будед?",
+          "literal": "ва́:рэн зи: шо:н дорт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, noch nicht.",
+          "cueTranslation": "Не, ҳанӯз не.",
+          "intent": "Бигӯ: як бор биёед!",
+          "text": "Kommen Sie mal!",
+          "accepts": [
+            "Kommen Sie! Es ist schön."
+          ],
+          "translation": "Як бор биёед!",
+          "literal": "ко́мэн зи: ма:л",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сафари дароз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Woher kommen Sie?",
+          "cueTranslation": "Аз куҷоед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Aus Tadschikistan.",
+          "accepts": [
+            "Ich komme aus Tadschikistan."
+          ],
+          "translation": "Аз Тоҷикистон.",
+          "literal": "аус таджикиста́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange sind Sie in Deutschland?",
+          "cueTranslation": "Чанд вақт дар Олмонед?",
+          "intent": "Бигӯ: ду сол",
+          "text": "Zwei Jahre.",
+          "accepts": [
+            "Seit zwei Jahren."
+          ],
+          "translation": "Ду сол.",
+          "literal": "цвай йа́:рэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und Ihre Familie?",
+          "cueTranslation": "Ва оилаатон?",
+          "intent": "Бигӯ: оилаам он ҷост",
+          "text": "Meine Familie ist dort.",
+          "accepts": [
+            "In Tadschikistan."
+          ],
+          "translation": "Оилаам он ҷост.",
+          "literal": "ма́йнэ фами́:лиэ ист дорт",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihr Deutsch ist super!",
+          "cueTranslation": "Олмониатон олӣ!",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke schön!",
+          "accepts": [
+            "Danke, ich lerne.",
+            "Vielen Dank!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "да́нкэ шё:н",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

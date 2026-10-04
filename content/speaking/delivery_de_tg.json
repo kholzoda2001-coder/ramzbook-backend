@@ -1,0 +1,548 @@
+{
+  "slug": "delivery_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Lieferung",
+    "titleTranslated": "Расонидани фармоиш",
+    "scenario": "Шумо бастаҳо ва хӯрок мерасонед: дари хонаро мезанед, номро месанҷед, имзо мегиред, агар касе набошад, бастаро ба ҳамсоя медиҳед.",
+    "emoji": "📦",
+    "order": 13,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Расонидан",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Paket",
+          "translation": "баста, посилка",
+          "literal": "пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Klingeln",
+          "translation": "занги дарро задан",
+          "literal": "кли́нгэлн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Nachbar",
+          "translation": "ҳамсоя",
+          "literal": "на́хба:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Unterschrift",
+          "translation": "имзо",
+          "literal": "у́нташрифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Haustür",
+          "translation": "дари даромад",
+          "literal": "ҳа́устю:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Stock",
+          "translation": "ошёна",
+          "literal": "шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Баста омад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte?",
+          "cueTranslation": "Ҳа, лутфан?",
+          "intent": "Бигӯ: баста барои Шмидт",
+          "text": "Ein Paket für Schmidt.",
+          "accepts": [
+            "Paket für Schmidt.",
+            "Lieferung für Schmidt."
+          ],
+          "translation": "Баста барои Шмидт.",
+          "literal": "айн пакэ́:т фю:а шмит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das bin ich.",
+          "cueTranslation": "Ман ҳамонам.",
+          "intent": "Бигӯ: имзо, лутфан",
+          "text": "Eine Unterschrift, bitte.",
+          "accepts": [
+            "Bitte hier unterschreiben."
+          ],
+          "translation": "Имзо, лутфан.",
+          "literal": "а́йнэ у́нташрифт би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier. Danke!",
+          "cueTranslation": "Ин ҷо. Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "Schönen Tag!",
+          "accepts": [
+            "Tschüss!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "шё́:нэн та:к",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ein Paket",
+          "translation": "Як баста",
+          "literal": "айн пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Für Schmidt",
+          "translation": "Барои Шмидт",
+          "literal": "фю:а шмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier unterschreiben",
+          "translation": "Ин ҷо имзо кунед",
+          "literal": "ҳи:а унташра́йбэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Welcher Stock?",
+          "translation": "Кадом ошёна?",
+          "literal": "вэ́лхьа шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Beim Nachbarn",
+          "translation": "Назди ҳамсоя",
+          "literal": "байм на́хба:ан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Essen",
+          "translation": "Хӯроки шумо",
+          "literal": "и:а э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Кадом ошёна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Wer ist da?",
+          "cueTranslation": "Ало? Кӣ ҳаст?",
+          "intent": "Бигӯ: расонидан, барои Шмидт",
+          "text": "Lieferung für Schmidt.",
+          "accepts": [
+            "Ein Paket für Schmidt."
+          ],
+          "translation": "Расонидан, барои Шмидт.",
+          "literal": "ли́:фэрунг фю:а шмит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kommen Sie hoch.",
+          "cueTranslation": "Боло биёед.",
+          "intent": "Бипурс: кадом ошёна?",
+          "text": "Welcher Stock?",
+          "accepts": [
+            "Welche Etage?"
+          ],
+          "translation": "Кадом ошёна?",
+          "literal": "вэ́лхьа шток",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dritter Stock.",
+          "cueTranslation": "Ошёнаи сеюм.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut, ich komme."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мерасонам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich habe ein Paket.",
+          "translation": "Ман як баста дорам.",
+          "literal": "ихь ҳа́:бэ айн пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sind Sie Herr Schmidt?",
+          "translation": "Шумо ҷаноби Шмидт?",
+          "literal": "зинт зи: ҳэр шмит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Niemand ist zu Hause.",
+          "translation": "Дар хона ҳеҷ кас нест.",
+          "literal": "ни́:мант ист цу: ҳа́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich klingle beim Nachbarn.",
+          "translation": "Занги ҳамсояро мезанам.",
+          "literal": "ихь кли́нглэ байм на́хба:ан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Essen ist da.",
+          "translation": "Хӯроки шумо омад.",
+          "literal": "и:а э́сэн ист да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Guten Appetit!",
+          "translation": "Ош шавад!",
+          "literal": "гу́:тэн апэти́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Касе нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja? Ich bin der Nachbar.",
+          "cueTranslation": "Ҳа? Ман ҳамсоя.",
+          "intent": "Бигӯ: баста барои Шмидт",
+          "text": "Ein Paket für Schmidt.",
+          "accepts": [
+            "Ich habe ein Paket für Schmidt."
+          ],
+          "translation": "Баста барои Шмидт.",
+          "literal": "айн пакэ́:т фю:а шмит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Er ist nicht da.",
+          "cueTranslation": "Ӯ нест.",
+          "intent": "Бипурс: шумо онро мегиред?",
+          "text": "Nehmen Sie es?",
+          "accepts": [
+            "Können Sie es nehmen?"
+          ],
+          "translation": "Шумо онро мегиред?",
+          "literal": "нэ́:мэн зи: эс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, kein Problem.",
+          "cueTranslation": "Ҳа, мушкил нест.",
+          "intent": "Бигӯ: ин ҷо имзо кунед",
+          "text": "Bitte hier unterschreiben.",
+          "accepts": [
+            "Eine Unterschrift, bitte."
+          ],
+          "translation": "Лутфан ин ҷо имзо кунед.",
+          "literal": "би́тэ ҳи:а унташра́йбэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Хӯрок мерасонам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ihre Pizza ist da.",
+          "translation": "Питсаатон омад.",
+          "literal": "и́:рэ пи́ца ист да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Schon bezahlt.",
+          "translation": "Аллакай пардохт шуда.",
+          "literal": "шо:н бэца́:лт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bar, bitte.",
+          "translation": "Нақд, лутфан.",
+          "literal": "ба:а би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch heiß!",
+          "translation": "Ҳанӯз гарм!",
+          "literal": "нох ҳайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Cola fehlt?",
+          "translation": "Кола нест?",
+          "literal": "ди: ко́:ла фэ:лт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich frage das Restaurant.",
+          "translation": "Аз тарабхона мепурсам.",
+          "literal": "ихь фра́:гэ дас рэстора́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кола нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Danke! Aber die Cola fehlt.",
+          "cueTranslation": "Ташаккур! Аммо кола нест.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Entschuldigung!",
+          "accepts": [
+            "Oh, das tut mir leid."
+          ],
+          "translation": "Бубахшед!",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Was machen wir jetzt?",
+          "cueTranslation": "Ҳоло чӣ кунем?",
+          "intent": "Бигӯ: аз тарабхона мепурсам",
+          "text": "Ich frage das Restaurant.",
+          "accepts": [
+            "Ich rufe das Restaurant an."
+          ],
+          "translation": "Аз тарабхона мепурсам.",
+          "literal": "ихь фра́:гэ дас рэстора́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, danke.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: ош шавад!",
+          "text": "Guten Appetit!",
+          "accepts": [
+            "Gerne."
+          ],
+          "translation": "Ош шавад!",
+          "literal": "гу́:тэн апэти́:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: рӯзи бастаҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Wer ist da?",
+          "cueTranslation": "Ало? Кӣ ҳаст?",
+          "intent": "Бигӯ: баста барои Шмидт",
+          "text": "Ein Paket für Schmidt.",
+          "accepts": [
+            "Lieferung für Schmidt."
+          ],
+          "translation": "Баста барои Шмидт.",
+          "literal": "айн пакэ́:т фю:а шмит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kommen Sie hoch. Vierter Stock.",
+          "cueTranslation": "Боло биёед. Ошёнаи чорум.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut, ich komme."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hallo! Das ist für mich.",
+          "cueTranslation": "Салом! Ин барои ман.",
+          "intent": "Бигӯ: имзо, лутфан",
+          "text": "Eine Unterschrift, bitte.",
+          "accepts": [
+            "Bitte hier unterschreiben."
+          ],
+          "translation": "Имзо, лутфан.",
+          "literal": "а́йнэ у́нташрифт би́тэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "So, fertig. Danke!",
+          "cueTranslation": "Хуб, тамом. Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "Schönen Tag!",
+          "accepts": [
+            "Tschüss!",
+            "Einen schönen Tag!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "шё́:нэн та:к",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

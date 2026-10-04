@@ -1,0 +1,548 @@
+{
+  "slug": "accident_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Ein kleiner Unfall",
+    "titleTranslated": "Садамаи хурд",
+    "scenario": "Садамаи хурд: ягон кас захмӣ нашуд, аммо мошинҳо осеб диданд. Шумо мепурсед, ки ҳама хубанд, ба полис занг мезанед ва бо ронандаи дигар маълумот иваз мекунед.",
+    "emoji": "💥",
+    "order": 19,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Садама",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Unfall",
+          "translation": "садама",
+          "literal": "у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Verletzt",
+          "translation": "захмӣ",
+          "literal": "фэалэ́цт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Polizei",
+          "translation": "полис",
+          "literal": "полица́й",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Versicherung",
+          "translation": "суғурта",
+          "literal": "фэази́хьэрунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schaden",
+          "translation": "зарар",
+          "literal": "ша́:дэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Foto",
+          "translation": "акс",
+          "literal": "фо́:то",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳама хуб?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Oh nein! Ein Unfall!",
+          "cueTranslation": "Эҳ! Садама!",
+          "intent": "Бипурс: шумо хубед?",
+          "text": "Sind Sie okay?",
+          "accepts": [
+            "Alles okay?",
+            "Sind Sie verletzt?"
+          ],
+          "translation": "Шумо хубед?",
+          "literal": "зинт зи: окэ́:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, ich bin okay. Und Sie?",
+          "cueTranslation": "Ҳа, хубам. Ва шумо?",
+          "intent": "Бигӯ: ман ҳам хубам",
+          "text": "Ich bin auch okay.",
+          "accepts": [
+            "Mir geht es gut."
+          ],
+          "translation": "Ман ҳам хубам.",
+          "literal": "ихь бин аух окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Rufen wir die Polizei?",
+          "cueTranslation": "Хуб. Ба полис занг занем?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Ja.",
+          "accepts": [
+            "Ja, bitte.",
+            "Ja, ich rufe an."
+          ],
+          "translation": "Ҳа.",
+          "literal": "йа:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Alles okay?",
+          "translation": "Ҳама хуб?",
+          "literal": "а́лэс окэ́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Niemand verletzt",
+          "translation": "Касе захмӣ нашуд",
+          "literal": "ни́:мант фэалэ́цт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihre Versicherung?",
+          "translation": "Суғуртаатон?",
+          "literal": "и́:рэ фэази́хьэрунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Foto",
+          "translation": "Як акс",
+          "literal": "айн фо́:то",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Name?",
+          "translation": "Номатон?",
+          "literal": "и:а на́:мэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihre Nummer",
+          "translation": "Рақаматон",
+          "literal": "и́:рэ ну́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суғурта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Haben Sie eine Versicherung?",
+          "cueTranslation": "Суғурта доред?",
+          "intent": "Бигӯ: ҳа, мана",
+          "text": "Ja, hier.",
+          "accepts": [
+            "Ja, hier ist die Versicherung."
+          ],
+          "translation": "Ҳа, мана.",
+          "literal": "йа: ҳи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke. Mein Name ist Weber.",
+          "cueTranslation": "Ташаккур. Номи ман Вебер.",
+          "intent": "Бипурс: рақаматон?",
+          "text": "Ihre Nummer?",
+          "accepts": [
+            "Ihre Telefonnummer, bitte?"
+          ],
+          "translation": "Рақаматон?",
+          "literal": "и́:рэ ну́ма",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Null eins sieben…",
+          "cueTranslation": "Сифр як ҳафт…",
+          "intent": "Бигӯ: оҳиста, лутфан",
+          "text": "Bitte langsam.",
+          "accepts": [
+            "Langsam, bitte."
+          ],
+          "translation": "Оҳиста, лутфан.",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Niemand ist verletzt.",
+          "translation": "Касе захмӣ нашуд.",
+          "literal": "ни́:мант ист фэалэ́цт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich mache ein Foto.",
+          "translation": "Акс мегирам.",
+          "literal": "ихь ма́хэ айн фо́:то",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist ein Firmenauto.",
+          "translation": "Ин мошини ширкат аст.",
+          "literal": "дас ист айн фи́рмэнауто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich rufe die Polizei.",
+          "translation": "Ба полис занг мезанам.",
+          "literal": "ихь ру́:фэ ди: полица́й",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich rufe meinen Chef.",
+          "translation": "Ба сардорам занг мезанам.",
+          "literal": "ихь ру́:фэ ма́йнэн шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist meine Versicherung.",
+          "translation": "Мана суғуртаи ман.",
+          "literal": "ҳи:а ист ма́йнэ фэази́хьэрунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Занг ба полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Polizei, hallo?",
+          "cueTranslation": "Полис, ало?",
+          "intent": "Бигӯ: салом, садамаи хурд",
+          "text": "Hallo, ein kleiner Unfall.",
+          "accepts": [
+            "Hallo, ich hatte einen Unfall."
+          ],
+          "translation": "Салом, садамаи хурд.",
+          "literal": "ҳа́ло айн кла́йна у́нфал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist jemand verletzt?",
+          "cueTranslation": "Касе захмӣ шуд?",
+          "intent": "Бигӯ: не, касе захмӣ нашуд",
+          "text": "Nein, niemand ist verletzt.",
+          "accepts": [
+            "Nein, niemand."
+          ],
+          "translation": "Не, касе захмӣ нашуд.",
+          "literal": "найн ни́:мант ист фэалэ́цт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo sind Sie?",
+          "cueTranslation": "Куҷоед?",
+          "intent": "Бигӯ: дар кӯчаи Ҳаупт",
+          "text": "In der Hauptstraße.",
+          "accepts": [
+            "Hauptstraße."
+          ],
+          "translation": "Дар кӯчаи Ҳаупт.",
+          "literal": "ин дэ:а ҳа́уптштра:сэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ба сардор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich hatte einen Unfall.",
+          "translation": "Ман садама кардам.",
+          "literal": "ихь ҳа́тэ а́йнэн у́нфал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Nur ein kleiner Schaden.",
+          "translation": "Танҳо зарари хурд.",
+          "literal": "ну:а айн кла́йна ша́:дэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Polizei ist hier.",
+          "translation": "Полис ин ҷост.",
+          "literal": "ди: полица́й ист ҳи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Fotos.",
+          "translation": "Ман акс дорам.",
+          "literal": "ихь ҳа́:бэ фо́:то:с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Was mache ich jetzt?",
+          "translation": "Ҳоло чӣ кор кунам?",
+          "literal": "вас ма́хэ ихь йэцт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Es tut mir leid.",
+          "translation": "Бубахшед.",
+          "literal": "эс ту:т ми:а лайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Занг ба сардор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Was ist los?",
+          "cueTranslation": "Ало? Чӣ гап?",
+          "intent": "Бигӯ: ман садама кардам",
+          "text": "Ich hatte einen Unfall.",
+          "accepts": [
+            "Ein kleiner Unfall."
+          ],
+          "translation": "Ман садама кардам.",
+          "literal": "ихь ҳа́тэ а́йнэн у́нфал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bist du okay?",
+          "cueTranslation": "Ту хубӣ?",
+          "intent": "Бигӯ: ҳа, танҳо зарари хурд",
+          "text": "Ja, nur ein kleiner Schaden.",
+          "accepts": [
+            "Ja, ich bin okay."
+          ],
+          "translation": "Ҳа, танҳо зарари хурд.",
+          "literal": "йа: ну:а айн кла́йна ша́:дэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Mach Fotos.",
+          "cueTranslation": "Хуб. Акс гир.",
+          "intent": "Бигӯ: ман акс дорам",
+          "text": "Ich habe Fotos.",
+          "accepts": [
+            "Ja, ich habe Fotos."
+          ],
+          "translation": "Ман акс дорам.",
+          "literal": "ихь ҳа́:бэ фо́:то:с",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: зарбаи хурд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Oh! Sind Sie okay?",
+          "cueTranslation": "О! Шумо хубед?",
+          "intent": "Бигӯ: ҳа, ман хубам. Ва шумо?",
+          "text": "Ja, ich bin okay. Und Sie?",
+          "accepts": [
+            "Ja. Und Sie?"
+          ],
+          "translation": "Ҳа, хубам. Ва шумо?",
+          "literal": "йа: ихь бин окэ́: унт зи:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Auch okay. Ihre Versicherung, bitte.",
+          "cueTranslation": "Ман ҳам. Суғуртаатон, лутфан.",
+          "intent": "Бигӯ: мана суғуртаи ман",
+          "text": "Hier ist meine Versicherung.",
+          "accepts": [
+            "Hier, bitte."
+          ],
+          "translation": "Мана суғуртаи ман.",
+          "literal": "ҳи:а ист ма́йнэ фэази́хьэрунг",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke. Machen wir Fotos?",
+          "cueTranslation": "Ташаккур. Акс гирем?",
+          "intent": "Бигӯ: ҳа, ман акс мегирам",
+          "text": "Ja, ich mache Fotos.",
+          "accepts": [
+            "Ja, gute Idee."
+          ],
+          "translation": "Ҳа, акс мегирам.",
+          "literal": "йа: ихь ма́хэ фо́:то:с",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Und die Polizei?",
+          "cueTranslation": "Хуб. Ва полис?",
+          "intent": "Бигӯ: ман ба полис занг мезанам",
+          "text": "Ich rufe die Polizei.",
+          "accepts": [
+            "Ich rufe an."
+          ],
+          "translation": "Ба полис занг мезанам.",
+          "literal": "ихь ру́:фэ ди: полица́й",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

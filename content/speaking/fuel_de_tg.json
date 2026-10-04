@@ -1,0 +1,549 @@
+{
+  "slug": "fuel_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "An der Tankstelle",
+    "titleTranslated": "Нуқтаи сӯзишворӣ",
+    "scenario": "Бензин тамом мешавад. Шумо ба нуқтаи сӯзишворӣ меравед: сутуни бензинро мегӯед, пардохт мекунед, ҳавои чарх ва обро мепурсед.",
+    "emoji": "⛽",
+    "order": 11,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Тапка",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Tankstelle",
+          "translation": "нуқтаи сӯзишворӣ",
+          "literal": "та́нкштэлэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Tanken",
+          "translation": "бензин рехтан",
+          "literal": "та́нкэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Säule",
+          "translation": "сутун (колонка)",
+          "literal": "зо́йлэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Waschanlage",
+          "translation": "мошиншӯйхона",
+          "literal": "ва́шанла:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Luft",
+          "translation": "ҳаво",
+          "literal": "луфт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Öl",
+          "translation": "равған",
+          "literal": "ё:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Дар касса",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Welche Säule?",
+          "cueTranslation": "Салом! Кадом сутун?",
+          "intent": "Бигӯ: сутуни се",
+          "text": "Säule drei.",
+          "accepts": [
+            "Nummer drei.",
+            "Drei."
+          ],
+          "translation": "Сутуни се.",
+          "literal": "зо́йлэ драй",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sechzig Euro.",
+          "cueTranslation": "Шаст евро.",
+          "intent": "Бигӯ: бо корт, лутфан",
+          "text": "Mit Karte, bitte.",
+          "accepts": [
+            "Karte, bitte."
+          ],
+          "translation": "Бо корт, лутфан.",
+          "literal": "мит ка́ртэ би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke. Quittung?",
+          "cueTranslation": "Ташаккур. Квитансия?",
+          "intent": "Бигӯ: ҳа, лутфан",
+          "text": "Ja, bitte.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, лутфан.",
+          "literal": "йа: би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Säule drei",
+          "translation": "Сутуни се",
+          "literal": "зо́йлэ драй",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Voll tanken",
+          "translation": "Пур кардан",
+          "literal": "фол та́нкэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Dreißig Euro",
+          "translation": "Сӣ евро",
+          "literal": "дра́йсихь о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Luft prüfen",
+          "translation": "Ҳаворо санҷидан",
+          "literal": "луфт прю́:фэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wasser, bitte",
+          "translation": "Об, лутфан",
+          "literal": "ва́са би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Diesel, bitte",
+          "translation": "Дизел, лутфан",
+          "literal": "ди́:зэл би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳаво дар чарх",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kann ich helfen?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: ҳаво куҷост?",
+          "text": "Wo ist die Luft?",
+          "accepts": [
+            "Wo kann ich Luft prüfen?"
+          ],
+          "translation": "Ҳаво куҷост?",
+          "literal": "во: ист ди: луфт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Da hinten, rechts.",
+          "cueTranslation": "Он ҷо, дар қафо, рост.",
+          "intent": "Бипурс: ройгон аст?",
+          "text": "Ist das gratis?",
+          "accepts": [
+            "Kostet das Geld?"
+          ],
+          "translation": "Ройгон аст?",
+          "literal": "ист дас гра́:тис",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, gratis.",
+          "cueTranslation": "Ҳа, ройгон.",
+          "intent": "Бигӯ: олӣ, ташаккур",
+          "text": "Super, danke.",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Олӣ, ташаккур.",
+          "literal": "зу́:па да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман бензин мерезам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich tanke voll.",
+          "translation": "Пур мекунам.",
+          "literal": "ихь та́нкэ фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Tank ist leer.",
+          "translation": "Бак холӣ аст.",
+          "literal": "дэ:а танк ист лэ:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Säule geht nicht.",
+          "translation": "Сутун кор намекунад.",
+          "literal": "ди: зо́йлэ гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich zahle drinnen.",
+          "translation": "Дарун пардохт мекунам.",
+          "literal": "ихь ца́:лэ дри́нэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Toilette?",
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "во: ист ди: тоалэ́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Kaffee, bitte.",
+          "translation": "Як қаҳва, лутфан.",
+          "literal": "а́йнэн ка́фэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Сутун кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte?",
+          "cueTranslation": "Ҳа, лутфан?",
+          "intent": "Бигӯ: сутуни ду кор намекунад",
+          "text": "Säule zwei geht nicht.",
+          "accepts": [
+            "Die Säule geht nicht."
+          ],
+          "translation": "Сутуни ду кор намекунад.",
+          "literal": "зо́йлэ цвай гэ:т нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Moment, jetzt geht es.",
+          "cueTranslation": "Як лаҳза, ҳоло кор мекунад.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke!",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bitte. Noch etwas?",
+          "cueTranslation": "Марҳамат. Боз чизе?",
+          "intent": "Бипурс: ҳоҷатхона куҷост?",
+          "text": "Wo ist die Toilette?",
+          "accepts": [
+            "Die Toilette, bitte?"
+          ],
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "во: ист ди: тоалэ́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мошинро тоза мекунам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich wasche das Auto.",
+          "translation": "Мошинро мешӯям.",
+          "literal": "ихь ва́шэ дас а́уто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Waschanlage, bitte.",
+          "translation": "Мошиншӯйхона, лутфан.",
+          "literal": "ди: ва́шанла:гэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Was kostet das?",
+          "translation": "Ин чанд пул?",
+          "literal": "вас ко́стэт дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Brauche ich eine Karte?",
+          "translation": "Ба ман корт лозим?",
+          "literal": "бра́ухэ ихь а́йнэ ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Öl ist alt.",
+          "translation": "Равған кӯҳна аст.",
+          "literal": "дас ё:л ист алт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte prüfen Sie das.",
+          "translation": "Лутфан инро санҷед.",
+          "literal": "би́тэ прю́:фэн зи: дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мошиншӯйхона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Noch etwas?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бигӯ: мошиншӯйхона, лутфан",
+          "text": "Die Waschanlage, bitte.",
+          "accepts": [
+            "Einmal Waschanlage."
+          ],
+          "translation": "Мошиншӯйхона, лутфан.",
+          "literal": "ди: ва́шанла:гэ би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Das kostet zehn Euro.",
+          "cueTranslation": "Даҳ евро мешавад.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut.",
+            "Gerne."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist der Code.",
+          "cueTranslation": "Мана рамз.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke schön!",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "да́нкэ шё:н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бак холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Welche Säule?",
+          "cueTranslation": "Салом! Кадом сутун?",
+          "intent": "Бигӯ: сутуни чор",
+          "text": "Säule vier.",
+          "accepts": [
+            "Nummer vier.",
+            "Vier."
+          ],
+          "translation": "Сутуни чор.",
+          "literal": "зо́йлэ фи:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Siebzig Euro, bitte.",
+          "cueTranslation": "Ҳафтод евро, лутфан.",
+          "intent": "Бигӯ: бо корт, лутфан",
+          "text": "Mit Karte, bitte.",
+          "accepts": [
+            "Karte, bitte."
+          ],
+          "translation": "Бо корт, лутфан.",
+          "literal": "мит ка́ртэ би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Noch etwas?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бипурс: ҳаво куҷост?",
+          "text": "Wo ist die Luft?",
+          "accepts": [
+            "Wo kann ich Luft prüfen?"
+          ],
+          "translation": "Ҳаво куҷост?",
+          "literal": "во: ист ди: луфт",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Da hinten. Gute Fahrt!",
+          "cueTranslation": "Он ҷо, дар қафо. Роҳи сафед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke! Tschüss!",
+          "accepts": [
+            "Vielen Dank!"
+          ],
+          "translation": "Ташаккур! Хайр!",
+          "literal": "да́нкэ чюс",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

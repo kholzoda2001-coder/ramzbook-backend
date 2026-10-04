@@ -1,0 +1,552 @@
+{
+  "slug": "schedule_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Der Dienstplan",
+    "titleTranslated": "Ҷадвали кор",
+    "scenario": "Шумо ҷадвали корро бо сардор муҳокима мекунед: кадом рӯзҳо ва соатҳо кор мекунед, рӯзи истироҳат мепурсед ва навбатро бо ҳамкор иваз мекунед.",
+    "emoji": "🗓️",
+    "order": 20,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҷадвал",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Dienstplan",
+          "translation": "ҷадвали кор",
+          "literal": "ди́:нстпла:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Schicht",
+          "translation": "навбат (смена)",
+          "literal": "шихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Frei",
+          "translation": "озод, рӯзи истироҳат",
+          "literal": "фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Woche",
+          "translation": "ҳафта",
+          "literal": "во́хэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Wochenende",
+          "translation": "рӯзҳои истироҳат",
+          "literal": "во́хэнэндэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Tauschen",
+          "translation": "иваз кардан",
+          "literal": "та́ушэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Кай кор мекунам?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hier ist der Dienstplan.",
+          "cueTranslation": "Мана ҷадвали кор.",
+          "intent": "Бипурс: ман кай кор мекунам?",
+          "text": "Wann arbeite ich?",
+          "accepts": [
+            "Wann bin ich dran?"
+          ],
+          "translation": "Ман кай кор мекунам?",
+          "literal": "ван а́рбайтэ ихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Montag und Dienstag.",
+          "cueTranslation": "Душанбе ва сешанбе.",
+          "intent": "Бипурс: соати чанд?",
+          "text": "Um wie viel Uhr?",
+          "accepts": [
+            "Wann genau?"
+          ],
+          "translation": "Соати чанд?",
+          "literal": "ум ви: фи:л у:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Von acht bis vier.",
+          "cueTranslation": "Аз ҳашт то чор.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Von acht",
+          "translation": "Аз ҳашт",
+          "literal": "фон ахт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis vier",
+          "translation": "То чор",
+          "literal": "бис фи:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Am Wochenende",
+          "translation": "Дар охири ҳафта",
+          "literal": "ам во́хэнэндэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Frühschicht",
+          "translation": "навбати субҳ",
+          "literal": "фрю́:шихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Spätschicht",
+          "translation": "навбати шом",
+          "literal": "шпэ́:чихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Nächste Woche",
+          "translation": "Ҳафтаи оянда",
+          "literal": "нэ́:хьстэ во́хэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Рӯзи истироҳат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Arbeitest du am Samstag?",
+          "cueTranslation": "Шанбе кор мекунӣ?",
+          "intent": "Бигӯ: не, озодам",
+          "text": "Nein, ich bin frei.",
+          "accepts": [
+            "Nein, frei.",
+            "Nein."
+          ],
+          "translation": "Не, озодам.",
+          "literal": "найн ихь бин фрай",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und am Sonntag?",
+          "cueTranslation": "Ва якшанбе?",
+          "intent": "Бигӯ: ҳа, навбати шом",
+          "text": "Ja, Spätschicht.",
+          "accepts": [
+            "Ja, ich arbeite.",
+            "Ja."
+          ],
+          "translation": "Ҳа, навбати шом.",
+          "literal": "йа: шпэ́:чихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, danke.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Bitte."
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҷадвали ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite am Montag.",
+          "translation": "Ман душанбе кор мекунам.",
+          "literal": "ихь а́рбайтэ ам мо́:нта:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Frühschicht.",
+          "translation": "Ман навбати субҳ дорам.",
+          "literal": "ихь ҳа́:бэ фрю́:шихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Freitags kann ich nicht.",
+          "translation": "Ҷумъаҳо наметавонам.",
+          "literal": "фра́йта:кс кан ихь нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "own",
+          "text": "Ich bin am ___ frei.",
+          "translation": "Ман рӯзи ___ озодам.",
+          "literal": "ихь бин ам ___ фрай",
+          "note": "Рӯзи истироҳати худро гӯед.",
+          "cue": "Wann bist du frei?",
+          "cueTranslation": "Кай озодӣ?",
+          "intent": "Рӯзи озоди худро гӯед",
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kann ich tauschen?",
+          "translation": "Иваз карда метавонам?",
+          "literal": "кан ихь та́ушэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie viele Stunden?",
+          "translation": "Чанд соат?",
+          "literal": "ви: фи́:лэ шту́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҷумъа наметавонам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Du arbeitest am Freitag.",
+          "cueTranslation": "Ту ҷумъа кор мекунӣ.",
+          "intent": "Бигӯ: ҷумъа наметавонам",
+          "text": "Am Freitag kann ich nicht.",
+          "accepts": [
+            "Freitag geht leider nicht."
+          ],
+          "translation": "Ҷумъа наметавонам.",
+          "literal": "ам фра́йта:к кан ихь нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Warum nicht?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: ман ба масҷид меравам",
+          "text": "Ich gehe in die Moschee.",
+          "accepts": [
+            "Ich habe einen Termin."
+          ],
+          "translation": "Ман ба масҷид меравам.",
+          "literal": "ихь гэ́:э ин ди: мошэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay. Dann Samstag?",
+          "cueTranslation": "Хуб. Пас шанбе?",
+          "intent": "Бигӯ: ҳа, шанбе мешавад",
+          "text": "Ja, Samstag geht.",
+          "accepts": [
+            "Ja, gerne.",
+            "Samstag ist gut."
+          ],
+          "translation": "Ҳа, шанбе мешавад.",
+          "literal": "йа: за́мста:к гэ:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Иваз бо ҳамкор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Tauschst du mit mir?",
+          "translation": "Бо ман иваз мекунӣ?",
+          "literal": "таушст ду: мит ми:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Du hast Montag frei.",
+          "translation": "Ту душанбе озодӣ.",
+          "literal": "ду: ҳаст мо́:нта:к фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich arbeite für dich.",
+          "translation": "Ман ба ҷои ту кор мекунам.",
+          "literal": "ихь а́рбайтэ фю:а дихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich frage den Chef.",
+          "translation": "Аз сардор мепурсам.",
+          "literal": "ихь фра́:гэ дэ:н шэф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist okay.",
+          "translation": "Ин хуб аст.",
+          "literal": "дас ист окэ́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke, Kollege!",
+          "translation": "Ташаккур, ҳамкор!",
+          "literal": "да́нкэ коле́:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Навбатро иваз кунем?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist los?",
+          "cueTranslation": "Чӣ гап?",
+          "intent": "Бипурс: бо ман иваз мекунӣ?",
+          "text": "Tauschst du mit mir?",
+          "accepts": [
+            "Können wir tauschen?"
+          ],
+          "translation": "Бо ман иваз мекунӣ?",
+          "literal": "таушст ду: мит ми:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann?",
+          "cueTranslation": "Кай?",
+          "intent": "Бигӯ: ҷумъа",
+          "text": "Am Freitag.",
+          "accepts": [
+            "Freitag."
+          ],
+          "translation": "Ҷумъа.",
+          "literal": "ам фра́йта:к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, das geht.",
+          "cueTranslation": "Ҳа, мешавад.",
+          "intent": "Бигӯ: ташаккур, ҳамкор!",
+          "text": "Danke, Kollege!",
+          "accepts": [
+            "Super, danke!",
+            "Danke dir!"
+          ],
+          "translation": "Ташаккур, ҳамкор!",
+          "literal": "да́нкэ коле́:гэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҷадвали ҳафта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Hier ist der neue Dienstplan.",
+          "cueTranslation": "Салом! Мана ҷадвали нав.",
+          "intent": "Бипурс: ман кай кор мекунам?",
+          "text": "Wann arbeite ich?",
+          "accepts": [
+            "Wann bin ich dran?"
+          ],
+          "translation": "Ман кай кор мекунам?",
+          "literal": "ван а́рбайтэ ихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Freitag und Samstag, Spätschicht.",
+          "cueTranslation": "Ҷумъа ва шанбе, навбати шом.",
+          "intent": "Бигӯ: ҷумъа наметавонам",
+          "text": "Am Freitag kann ich nicht.",
+          "accepts": [
+            "Freitag geht leider nicht."
+          ],
+          "translation": "Ҷумъа наметавонам.",
+          "literal": "ам фра́йта:к кан ихь нихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hmm. Und am Montag?",
+          "cueTranslation": "Ҳм. Ва душанбе?",
+          "intent": "Бигӯ: ҳа, душанбе мешавад",
+          "text": "Ja, Montag geht.",
+          "accepts": [
+            "Ja, Montag ist gut."
+          ],
+          "translation": "Ҳа, душанбе мешавад.",
+          "literal": "йа: мо́:нта:к гэ:т",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, dann Montag.",
+          "cueTranslation": "Хуб, пас душанбе.",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke schön!",
+            "Super, danke!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

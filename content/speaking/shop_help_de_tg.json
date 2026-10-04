@@ -1,0 +1,553 @@
+{
+  "slug": "shop_help_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kunden helfen",
+    "titleTranslated": "Ёрӣ ба харидор",
+    "scenario": "Харидор чизе меҷӯяд: шумо мегӯед, ки он дар кадом раф аст, андоза ё ранги дигарро мепурсед ва агар набошад, мегӯед, ки кай меояд.",
+    "emoji": "🛒",
+    "order": 13,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мағоза",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kunde",
+          "translation": "харидор",
+          "literal": "ку́ндэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Größe",
+          "translation": "андоза",
+          "literal": "грё́:сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Farbe",
+          "translation": "ранг",
+          "literal": "фа́рбэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Billig",
+          "translation": "арзон",
+          "literal": "би́лихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Teuer",
+          "translation": "гарон",
+          "literal": "то́йа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Hinten",
+          "translation": "дар қафо",
+          "literal": "ҳи́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ёрӣ диҳам?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Entschuldigung!",
+          "cueTranslation": "Бубахшед!",
+          "intent": "Бипурс: ёрӣ диҳам?",
+          "text": "Kann ich helfen?",
+          "accepts": [
+            "Ja, bitte?",
+            "Kann ich Ihnen helfen?"
+          ],
+          "translation": "Ёрӣ диҳам?",
+          "literal": "кан ихь ҳэ́лфэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo ist der Reis?",
+          "cueTranslation": "Биринҷ куҷост?",
+          "intent": "Бигӯ: дар қафо, тарафи чап",
+          "text": "Hinten links.",
+          "accepts": [
+            "Da hinten.",
+            "Hinten, links."
+          ],
+          "translation": "Дар қафо, тарафи чап.",
+          "literal": "ҳи́нтэн линкс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Bitte."
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hilfe nötig?",
+          "translation": "Ёрӣ лозим?",
+          "literal": "ҳи́лфэ нё́:тихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Da hinten",
+          "translation": "Он ҷо, дар қафо",
+          "literal": "да: ҳи́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Welche Größe?",
+          "translation": "Кадом андоза?",
+          "literal": "вэ́лхьэ грё́:сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Welche Farbe?",
+          "translation": "Кадом ранг?",
+          "literal": "вэ́лхьэ фа́рбэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Leider nicht",
+          "translation": "Мутаассифона, не",
+          "literal": "ла́йда нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Mitkommen, bitte",
+          "translation": "Бо ман биёед",
+          "literal": "ми́ткомэн би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Андоза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Haben Sie das in Größe M?",
+          "cueTranslation": "Инро андозаи M доред?",
+          "intent": "Бигӯ: як лаҳза",
+          "text": "Einen Moment.",
+          "accepts": [
+            "Moment, bitte."
+          ],
+          "translation": "Як лаҳза.",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und in Blau?",
+          "cueTranslation": "Ва кабуд?",
+          "intent": "Бигӯ: мутаассифона, не",
+          "text": "Leider nicht.",
+          "accepts": [
+            "Nein, leider nicht.",
+            "Nur in Rot."
+          ],
+          "translation": "Мутаассифона, не.",
+          "literal": "ла́йда нихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Schade.",
+          "cueTranslation": "Афсӯс.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Entschuldigung.",
+          "accepts": [
+            "Das tut mir leid."
+          ],
+          "translation": "Бубахшед.",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ёрӣ ба харидор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Was suchen Sie?",
+          "translation": "Чӣ меҷӯед?",
+          "literal": "вас зу́:хэн зи:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist im Regal.",
+          "translation": "Ин дар раф аст.",
+          "literal": "дас ист им рэга́:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommen Sie mit, bitte.",
+          "translation": "Бо ман биёед, лутфан.",
+          "literal": "ко́мэн зи: мит би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist billiger.",
+          "translation": "Ин арзонтар аст.",
+          "literal": "дас ист би́лига",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Das gibt es nicht.",
+          "translation": "Ин нест.",
+          "literal": "дас ги:пт эс нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Morgen kommt neue Ware.",
+          "translation": "Фардо моли нав меояд.",
+          "literal": "мо́ргэн комт но́йэ ва́:рэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ман меҷӯям…",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Ich suche Milch.",
+          "cueTranslation": "Салом! Ман шир меҷӯям.",
+          "intent": "Бигӯ: бо ман биёед, лутфан",
+          "text": "Kommen Sie mit, bitte.",
+          "accepts": [
+            "Kommen Sie mit."
+          ],
+          "translation": "Бо ман биёед, лутфан.",
+          "literal": "ко́мэн зи: мит би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke. Ist das billig?",
+          "cueTranslation": "Ташаккур. Ин арзон аст?",
+          "intent": "Бигӯ: ин арзонтар аст",
+          "text": "Das ist billiger.",
+          "accepts": [
+            "Die hier ist billiger."
+          ],
+          "translation": "Ин арзонтар аст.",
+          "literal": "дас ист би́лига",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Super, danke!",
+          "cueTranslation": "Олӣ, ташаккур!",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мол нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das ist leider aus.",
+          "translation": "Мутаассифона тамом шуд.",
+          "literal": "дас ист ла́йда аус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Morgen wieder da.",
+          "translation": "Фардо боз ҳаст.",
+          "literal": "мо́ргэн ви́:да да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich frage im Lager.",
+          "translation": "Аз анбор мепурсам.",
+          "literal": "ихь фра́:гэ им ла́:га",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das hier ist gut.",
+          "translation": "Ин хуб аст.",
+          "literal": "дас ҳи:а ист гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Nehmen Sie das.",
+          "translation": "Инро гиред.",
+          "literal": "нэ́:мэн зи: дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gern geschehen.",
+          "translation": "Арзише надорад.",
+          "literal": "гэрн гэшэ́:эн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тамом шуд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo ist das Brot?",
+          "cueTranslation": "Нон куҷост?",
+          "intent": "Бигӯ: мутаассифона тамом шуд",
+          "text": "Das ist leider aus.",
+          "accepts": [
+            "Leider kein Brot mehr."
+          ],
+          "translation": "Мутаассифона тамом шуд.",
+          "literal": "дас ист ла́йда аус",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und morgen?",
+          "cueTranslation": "Ва фардо?",
+          "intent": "Бигӯ: фардо боз ҳаст",
+          "text": "Morgen wieder da.",
+          "accepts": [
+            "Morgen kommt neues Brot."
+          ],
+          "translation": "Фардо боз ҳаст.",
+          "literal": "мо́ргэн ви́:да да:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, danke!",
+          "cueTranslation": "Хуб, ташаккур!",
+          "intent": "Бигӯ: арзише надорад",
+          "text": "Gern geschehen.",
+          "accepts": [
+            "Gerne.",
+            "Bitte."
+          ],
+          "translation": "Арзише надорад.",
+          "literal": "гэрн гэшэ́:эн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: харидори саросема",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Entschuldigung! Ich suche Reis.",
+          "cueTranslation": "Бубахшед! Биринҷ меҷӯям.",
+          "intent": "Бигӯ: дар қафо, тарафи чап",
+          "text": "Hinten links.",
+          "accepts": [
+            "Da hinten links.",
+            "Kommen Sie mit."
+          ],
+          "translation": "Дар қафо, тарафи чап.",
+          "literal": "ҳи́нтэн линкс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist das der billige Reis?",
+          "cueTranslation": "Ин биринҷи арзон аст?",
+          "intent": "Бигӯ: ҳа, ин арзонтар аст",
+          "text": "Ja, das ist billiger.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, ин арзонтар аст.",
+          "literal": "йа: дас ист би́лига",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und haben Sie Brot?",
+          "cueTranslation": "Ва нон доред?",
+          "intent": "Бигӯ: мутаассифона тамом шуд",
+          "text": "Das ist leider aus.",
+          "accepts": [
+            "Leider nicht.",
+            "Morgen wieder da."
+          ],
+          "translation": "Мутаассифона тамом шуд.",
+          "literal": "дас ист ла́йда аус",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, danke!",
+          "cueTranslation": "Хуб, ташаккур!",
+          "intent": "Бигӯ: арзише надорад",
+          "text": "Gern geschehen.",
+          "accepts": [
+            "Gerne.",
+            "Schönen Tag!"
+          ],
+          "translation": "Арзише надорад.",
+          "literal": "гэрн гэшэ́:эн",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

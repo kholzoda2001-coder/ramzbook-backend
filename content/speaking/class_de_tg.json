@@ -1,0 +1,559 @@
+{
+  "slug": "class_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Im Unterricht",
+    "titleTranslated": "Дар дарс",
+    "scenario": "Шумо дар дарс ҳастед: салом медиҳед, мегӯед, ки нафаҳмидед, хоҳиш мекунед, ки оҳиста гап зананд ё такрор кунанд, ва мепурсед, ки калима чӣ маъно дорад.",
+    "emoji": "📚",
+    "order": 5,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Синф",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Lehrer",
+          "translation": "муаллим",
+          "literal": "лэ́:ра",
+          "note": "Зан: «Lehrerin».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Buch",
+          "translation": "китоб",
+          "literal": "бу:х",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Heft",
+          "translation": "дафтар",
+          "literal": "ҳэфт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Stift",
+          "translation": "ручка",
+          "literal": "штифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Seite",
+          "translation": "саҳифа",
+          "literal": "за́йтэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Frage",
+          "translation": "савол",
+          "literal": "фра́:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Оғози дарс",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Morgen!",
+          "cueTranslation": "Субҳ ба хайр!",
+          "intent": "Салом гӯй",
+          "text": "Guten Morgen!",
+          "accepts": [
+            "Morgen!",
+            "Hallo!"
+          ],
+          "translation": "Субҳ ба хайр!",
+          "literal": "гу́:тэн мо́ргэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist Ali da?",
+          "cueTranslation": "Алӣ ҳаст?",
+          "intent": "Бигӯ: ҳа, ман ин ҷо",
+          "text": "Ja, hier.",
+          "accepts": [
+            "Ja.",
+            "Hier!"
+          ],
+          "translation": "Ҳа, ин ҷо.",
+          "literal": "йа: ҳи:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Öffnen Sie das Buch.",
+          "cueTranslation": "Китобро кушоед.",
+          "intent": "Бипурс: кадом саҳифа?",
+          "text": "Welche Seite?",
+          "accepts": [
+            "Seite?"
+          ],
+          "translation": "Кадом саҳифа?",
+          "literal": "вэ́лхьэ за́йтэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Нафаҳмидам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Noch einmal",
+          "translation": "Боз як бор",
+          "literal": "нох а́йнма:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte langsam",
+          "translation": "Оҳиста, лутфан",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe",
+          "translation": "Ман мефаҳмам",
+          "literal": "ихь фэаштэ́:э",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht verstanden",
+          "translation": "Нафаҳмидам",
+          "literal": "нихьт фэашта́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Welche Seite?",
+          "translation": "Кадом саҳифа?",
+          "literal": "вэ́лхьэ за́йтэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Eine Frage",
+          "translation": "Як савол",
+          "literal": "а́йнэ фра́:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Оҳиста, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Lesen Sie Seite zehn.",
+          "cueTranslation": "Саҳифаи даҳро хонед.",
+          "intent": "Бигӯ: оҳиста, лутфан",
+          "text": "Bitte langsam.",
+          "accepts": [
+            "Langsam, bitte.",
+            "Bitte etwas langsamer."
+          ],
+          "translation": "Оҳиста, лутфан.",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Seite zehn. Verstehen Sie?",
+          "cueTranslation": "Саҳифаи даҳ. Мефаҳмед?",
+          "intent": "Бигӯ: ҳа, мефаҳмам",
+          "text": "Ja, ich verstehe.",
+          "accepts": [
+            "Ja.",
+            "Ja, danke."
+          ],
+          "translation": "Ҳа, мефаҳмам.",
+          "literal": "йа: ихь фэаштэ́:э",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Wer liest?",
+          "cueTranslation": "Хуб. Кӣ мехонад?",
+          "intent": "Бигӯ: ман",
+          "text": "Ich.",
+          "accepts": [
+            "Ich lese.",
+            "Ich, bitte."
+          ],
+          "translation": "Ман.",
+          "literal": "ихь",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо дар дарс",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe nicht.",
+          "translation": "Ман намефаҳмам.",
+          "literal": "ихь фэаштэ́:э нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch einmal, bitte.",
+          "translation": "Боз як бор, лутфан.",
+          "literal": "нох а́йнма:л би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Was heißt das?",
+          "translation": "Ин чӣ маъно дорад?",
+          "literal": "вас ҳайст дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe eine Frage.",
+          "translation": "Ман як савол дорам.",
+          "literal": "ихь ҳа́:бэ а́йнэ фра́:гэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie schreibt man das?",
+          "translation": "Инро чӣ тавр менависанд?",
+          "literal": "ви: шрайпт ман дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe kein Buch.",
+          "translation": "Ман китоб надорам.",
+          "literal": "ихь ҳа́:бэ кайн бу:х",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Калимаи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Das Wort heißt Hausaufgabe.",
+          "cueTranslation": "Калима «вазифаи хонагӣ» аст.",
+          "intent": "Бипурс: ин чӣ маъно дорад?",
+          "text": "Was heißt das?",
+          "accepts": [
+            "Was bedeutet das?",
+            "Was heißt Hausaufgabe?"
+          ],
+          "translation": "Ин чӣ маъно дорад?",
+          "literal": "вас ҳайст дас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Arbeit für zu Hause.",
+          "cueTranslation": "Кор барои хона.",
+          "intent": "Бигӯ: ҳа, мефаҳмам",
+          "text": "Ah, ich verstehe.",
+          "accepts": [
+            "Ja, verstanden.",
+            "Danke, ich verstehe."
+          ],
+          "translation": "А, мефаҳмам.",
+          "literal": "а: ихь фэаштэ́:э",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Noch Fragen?",
+          "cueTranslation": "Хуб. Боз савол?",
+          "intent": "Бигӯ: не, ташаккур",
+          "text": "Nein, danke.",
+          "accepts": [
+            "Nein.",
+            "Alles klar, danke."
+          ],
+          "translation": "Не, ташаккур.",
+          "literal": "найн да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ёрӣ дар синф",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hast du einen Stift?",
+          "translation": "Ручка дорӣ?",
+          "literal": "ҳаст ду: а́йнэн штифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe es vergessen.",
+          "translation": "Ман фаромӯш кардам.",
+          "literal": "ихь ҳа́:бэ эс фэагэ́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bin spät, Entschuldigung.",
+          "translation": "Дер кардам, мебахшед.",
+          "literal": "ихь бин шпэ:т энтшу́лдигунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Darf ich rein?",
+          "translation": "Даромада метавонам?",
+          "literal": "дарф ихь райн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Darf ich fragen?",
+          "translation": "Пурсам мешавад?",
+          "literal": "дарф ихь фра́:гэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis morgen!",
+          "translation": "То фардо!",
+          "literal": "бис мо́ргэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дер кардам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja? Kommen Sie rein.",
+          "cueTranslation": "Ҳа? Дароед.",
+          "intent": "Бигӯ: мебахшед, дер кардам",
+          "text": "Entschuldigung, ich bin spät.",
+          "accepts": [
+            "Entschuldigung!",
+            "Sorry, ich bin spät."
+          ],
+          "translation": "Мебахшед, дер кардам.",
+          "literal": "энтшу́лдигунг ихь бин шпэ:т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kein Problem. Setzen Sie sich.",
+          "cueTranslation": "Мушкил нест. Шинед.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir sind auf Seite zehn.",
+          "cueTranslation": "Мо дар саҳифаи даҳ ҳастем.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut, danke.",
+            "Seite zehn, okay."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дарси аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Morgen! Wie heißen Sie?",
+          "cueTranslation": "Субҳ ба хайр! Номатон чист?",
+          "intent": "Номи худро гӯй: Алӣ",
+          "text": "Ich heiße Ali.",
+          "accepts": [
+            "Mein Name ist Ali.",
+            "Ali."
+          ],
+          "translation": "Номи ман Алӣ.",
+          "literal": "ихь ҳа́йсэ али",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie ein Buch?",
+          "cueTranslation": "Китоб доред?",
+          "intent": "Бигӯ: не, китоб надорам",
+          "text": "Nein, ich habe kein Buch.",
+          "accepts": [
+            "Nein, leider nicht.",
+            "Nein."
+          ],
+          "translation": "Не, китоб надорам.",
+          "literal": "найн ихь ҳа́:бэ кайн бу:х",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kein Problem. Lesen Sie mit Max.",
+          "cueTranslation": "Мушкил нест. Бо Макс хонед.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Seite zwölf, bitte.",
+          "cueTranslation": "Саҳифаи дувоздаҳ, лутфан.",
+          "intent": "Бигӯ: боз як бор, лутфан",
+          "text": "Noch einmal, bitte.",
+          "accepts": [
+            "Welche Seite?",
+            "Bitte noch einmal."
+          ],
+          "translation": "Боз як бор, лутфан.",
+          "literal": "нох а́йнма:л би́тэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

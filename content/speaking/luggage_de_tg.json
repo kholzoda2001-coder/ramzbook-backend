@@ -1,0 +1,549 @@
+{
+  "slug": "luggage_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Gepäck",
+    "titleTranslated": "Бағоҷ ва бағоҷдон",
+    "scenario": "Мусофир бағоҷ дорад: шумо ёрӣ медиҳед, ҷомадонро ба бағоҷдон мегузоред, эҳтиёт мегӯед ва дар охир фаромӯш накардани чизҳоро ёдрас мекунед.",
+    "emoji": "🧳",
+    "order": 7,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Бағоҷ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Gepäck",
+          "translation": "бағоҷ",
+          "literal": "гэпэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Kofferraum",
+          "translation": "бағоҷдон",
+          "literal": "ко́фараум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Tasche",
+          "translation": "сумка",
+          "literal": "та́шэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Schwer",
+          "translation": "вазнин",
+          "literal": "швэ:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Leicht",
+          "translation": "сабук",
+          "literal": "лайхьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Vergessen",
+          "translation": "фаромӯш кардан",
+          "literal": "фэагэ́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ёрӣ медиҳам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich habe zwei Koffer.",
+          "cueTranslation": "Ман ду ҷомадон дорам.",
+          "intent": "Бигӯ: ман ёрӣ медиҳам",
+          "text": "Ich helfe Ihnen.",
+          "accepts": [
+            "Kein Problem.",
+            "Ich helfe."
+          ],
+          "translation": "Ман ёрӣ медиҳам.",
+          "literal": "ихь ҳэ́лфэ и́:нэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke! Sie sind schwer.",
+          "cueTranslation": "Ташаккур! Вазнинанд.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Kein Problem.",
+          "accepts": [
+            "Das geht.",
+            "Okay."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "кайн проблэ́:м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und die Tasche?",
+          "cueTranslation": "Ва сумка?",
+          "intent": "Бигӯ: сумкаро бо худ гиред",
+          "text": "Die Tasche nehmen Sie mit.",
+          "accepts": [
+            "Die Tasche mit nach vorne."
+          ],
+          "translation": "Сумкаро бо худ гиред.",
+          "literal": "ди: та́шэ нэ́:мэн зи: мит",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Kofferraum auf",
+          "translation": "Бағоҷдон кушода",
+          "literal": "ко́фараум ауф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sehr schwer",
+          "translation": "Хеле вазнин",
+          "literal": "зэ:а швэ:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ganz hinten",
+          "translation": "Дар охири қафо",
+          "literal": "ганц ҳи́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Vorsicht, bitte",
+          "translation": "Эҳтиёт, лутфан",
+          "literal": "фо́:азихьт би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch etwas?",
+          "translation": "Боз чизе?",
+          "literal": "нох э́твас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Alles drin",
+          "translation": "Ҳама дарун",
+          "literal": "а́лэс дрин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бағоҷдон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wo kommt der Koffer hin?",
+          "cueTranslation": "Ҷомадон куҷо меравад?",
+          "intent": "Бигӯ: ба бағоҷдон",
+          "text": "In den Kofferraum.",
+          "accepts": [
+            "Hinten, in den Kofferraum."
+          ],
+          "translation": "Ба бағоҷдон.",
+          "literal": "ин дэ:н ко́фараум",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay.",
+          "cueTranslation": "Хуб.",
+          "intent": "Бипурс: боз як ҷомадон?",
+          "text": "Noch ein Koffer?",
+          "accepts": [
+            "Noch etwas?"
+          ],
+          "translation": "Боз як ҷомадон?",
+          "literal": "нох айн ко́фа",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, das ist alles.",
+          "cueTranslation": "Не, ҳамин.",
+          "intent": "Бигӯ: ҳама дарун",
+          "text": "Alles drin.",
+          "accepts": [
+            "Gut, alles drin."
+          ],
+          "translation": "Ҳама дарун.",
+          "literal": "а́лэс дрин",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Кор бо бағоҷ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich nehme den Koffer.",
+          "translation": "Ҷомадонро мегирам.",
+          "literal": "ихь нэ́:мэ дэ:н ко́фа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Kofferraum ist voll.",
+          "translation": "Бағоҷдон пур аст.",
+          "literal": "дэ:а ко́фараум ист фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Vorne ist Platz.",
+          "translation": "Пеш ҷой ҳаст.",
+          "literal": "фо́рнэ ист плац",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist da Glas drin?",
+          "translation": "Дарунаш шиша ҳаст?",
+          "literal": "ист да: гла:с дрин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich mache langsam.",
+          "translation": "Оҳиста мекунам.",
+          "literal": "ихь ма́хэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist Ihr Gepäck.",
+          "translation": "Ин бағоҷи шумост.",
+          "literal": "дас ист и:а гэпэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Эҳтиёт, шиша",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Vorsicht! Da ist Glas drin.",
+          "cueTranslation": "Эҳтиёт! Дарунаш шиша ҳаст.",
+          "intent": "Бигӯ: оҳиста мекунам",
+          "text": "Ich mache langsam.",
+          "accepts": [
+            "Okay, langsam."
+          ],
+          "translation": "Оҳиста мекунам.",
+          "literal": "ихь ма́хэ ла́нгза:м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: бағоҷдон пур аст",
+          "text": "Der Kofferraum ist voll.",
+          "accepts": [
+            "Leider ist der Kofferraum voll."
+          ],
+          "translation": "Бағоҷдон пур аст.",
+          "literal": "дэ:а ко́фараум ист фол",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und die kleine Tasche?",
+          "cueTranslation": "Ва сумкаи хурд?",
+          "intent": "Бигӯ: пеш ҷой ҳаст",
+          "text": "Vorne ist Platz.",
+          "accepts": [
+            "Vorne geht."
+          ],
+          "translation": "Пеш ҷой ҳаст.",
+          "literal": "фо́рнэ ист плац",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар охир",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wir sind da.",
+          "translation": "Расидем.",
+          "literal": "ви:а зинт да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich hole Ihr Gepäck.",
+          "translation": "Бағоҷатонро меорам.",
+          "literal": "ихь ҳо́:лэ и:а гэпэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Haben Sie alles?",
+          "translation": "Ҳама чизатон ҳаст?",
+          "literal": "ҳа́:бэн зи: а́лэс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Handy!",
+          "translation": "Телефонатон!",
+          "literal": "и:а ҳэ́нди",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Nichts vergessen?",
+          "translation": "Чизе фаромӯш накардед?",
+          "literal": "нихьц фэагэ́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Reise!",
+          "translation": "Сафари хуш!",
+          "literal": "гу́:тэ ра́йзэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чизе фаромӯш накардед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "So, danke!",
+          "cueTranslation": "Хуб, ташаккур!",
+          "intent": "Бипурс: ҳама чизатон ҳаст?",
+          "text": "Haben Sie alles?",
+          "accepts": [
+            "Nichts vergessen?"
+          ],
+          "translation": "Ҳама чизатон ҳаст?",
+          "literal": "ҳа́:бэн зи: а́лэс",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, ich glaube.",
+          "cueTranslation": "Ҳа, фикр мекунам.",
+          "intent": "Бигӯ: телефонатон!",
+          "text": "Ihr Handy!",
+          "accepts": [
+            "Hier, Ihr Handy!"
+          ],
+          "translation": "Телефонатон!",
+          "literal": "и:а ҳэ́нди",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, danke schön!",
+          "cueTranslation": "О, ташаккури зиёд!",
+          "intent": "Бигӯ: сафари хуш!",
+          "text": "Gute Reise!",
+          "accepts": [
+            "Gerne, gute Reise!"
+          ],
+          "translation": "Сафари хуш!",
+          "literal": "гу́:тэ ра́йзэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Ich habe drei Koffer.",
+          "cueTranslation": "Салом! Ман се ҷомадон дорам.",
+          "intent": "Бигӯ: ман ёрӣ медиҳам",
+          "text": "Ich helfe Ihnen.",
+          "accepts": [
+            "Kein Problem, ich helfe."
+          ],
+          "translation": "Ман ёрӣ медиҳам.",
+          "literal": "ихь ҳэ́лфэ и́:нэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke. Einer ist sehr schwer.",
+          "cueTranslation": "Ташаккур. Яке хеле вазнин аст.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Kein Problem.",
+          "accepts": [
+            "Das geht.",
+            "Okay."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "кайн проблэ́:м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir sind da. Danke!",
+          "cueTranslation": "Расидем. Ташаккур!",
+          "intent": "Бипурс: ҳама чизатон ҳаст?",
+          "text": "Haben Sie alles?",
+          "accepts": [
+            "Nichts vergessen?"
+          ],
+          "translation": "Ҳама чизатон ҳаст?",
+          "literal": "ҳа́:бэн зи: а́лэс",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, alles.",
+          "cueTranslation": "Ҳа, ҳама.",
+          "intent": "Бигӯ: сафари хуш!",
+          "text": "Gute Reise!",
+          "accepts": [
+            "Tschüss, gute Reise!"
+          ],
+          "translation": "Сафари хуш!",
+          "literal": "гу́:тэ ра́йзэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

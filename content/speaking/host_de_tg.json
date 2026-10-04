@@ -1,0 +1,555 @@
+{
+  "slug": "host_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Gäste begrüßen",
+    "titleTranslated": "Пешвоз гирифтани меҳмон",
+    "scenario": "Шумо дар дари тарабхона меҳмононро пешвоз мегиред: салом медиҳед, мепурсед, ки чанд нафаранд, мизро нишон медиҳед ва менюро медиҳед.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Тарабхона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Gast",
+          "translation": "меҳмон",
+          "literal": "гаст",
+          "note": "Ҷамъ: «Gäste».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Tisch",
+          "translation": "миз",
+          "literal": "тиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Personen",
+          "translation": "нафар",
+          "literal": "пэрзо́:нэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Speisekarte",
+          "translation": "меню",
+          "literal": "шпа́йзэкартэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Reserviert",
+          "translation": "банд (фармоишшуда)",
+          "literal": "рэзэрви́:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Draußen",
+          "translation": "берун",
+          "literal": "дра́усэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Хуш омадед!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Abend!",
+          "cueTranslation": "Шом ба хайр!",
+          "intent": "Салом гӯй ва бигӯ: хуш омадед",
+          "text": "Guten Abend! Willkommen!",
+          "accepts": [
+            "Willkommen!",
+            "Guten Abend!"
+          ],
+          "translation": "Шом ба хайр! Хуш омадед!",
+          "literal": "гу́:тэн а́:бэнт вилко́мэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Einen Tisch, bitte.",
+          "cueTranslation": "Як миз, лутфан.",
+          "intent": "Бипурс: барои чанд нафар?",
+          "text": "Für wie viele Personen?",
+          "accepts": [
+            "Wie viele Personen?",
+            "Für wie viele?"
+          ],
+          "translation": "Барои чанд нафар?",
+          "literal": "фю:а ви: фи́:лэ пэрзо́:нэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Für zwei.",
+          "cueTranslation": "Барои ду нафар.",
+          "intent": "Бигӯ: лутфан, аз ин ҷо",
+          "text": "Bitte kommen Sie.",
+          "accepts": [
+            "Hier, bitte.",
+            "Bitte, hier."
+          ],
+          "translation": "Лутфан, биёед.",
+          "literal": "би́тэ ко́мэн зи:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Herzlich willkommen",
+          "translation": "Хуш омадед",
+          "literal": "ҳэ́рцлихь вилко́мэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie viele?",
+          "translation": "Чанд нафар?",
+          "literal": "ви: фи́:лэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Dieser Tisch",
+          "translation": "Ин миз",
+          "literal": "ди́:за тиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte warten",
+          "translation": "Лутфан интизор шавед",
+          "literal": "би́тэ ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Speisekarte",
+          "translation": "Меню",
+          "literal": "ди: шпа́йзэкартэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Oder draußen?",
+          "translation": "Ё берун?",
+          "literal": "о́:да дра́усэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Дарун ё берун?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wir sind drei.",
+          "cueTranslation": "Мо се нафарем.",
+          "intent": "Бипурс: дарун ё берун?",
+          "text": "Drinnen oder draußen?",
+          "accepts": [
+            "Möchten Sie draußen sitzen?"
+          ],
+          "translation": "Дарун ё берун?",
+          "literal": "дри́нэн о́:да дра́усэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Draußen, bitte.",
+          "cueTranslation": "Берун, лутфан.",
+          "intent": "Бигӯ: ин миз, лутфан",
+          "text": "Dieser Tisch, bitte.",
+          "accepts": [
+            "Hier, bitte.",
+            "Bitte schön."
+          ],
+          "translation": "Ин миз, лутфан.",
+          "literal": "ди́:за тиш би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: мана меню",
+          "text": "Hier ist die Speisekarte.",
+          "accepts": [
+            "Die Speisekarte, bitte.",
+            "Bitte schön."
+          ],
+          "translation": "Мана меню.",
+          "literal": "ҳи:а ист ди: шпа́йзэкартэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҷумлаҳои пешвоз",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Haben Sie reserviert?",
+          "translation": "Ҷой фармоиш додаед?",
+          "literal": "ҳа́:бэн зи: рэзэрви́:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte setzen Sie sich.",
+          "translation": "Лутфан шинед.",
+          "literal": "би́тэ зэ́цэн зи: зихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Tisch ist frei.",
+          "translation": "Миз холӣ аст.",
+          "literal": "дэ:а тиш ист фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Alles ist voll.",
+          "translation": "Ҳама ҷо пур аст.",
+          "literal": "а́лэс ист фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zehn Minuten, bitte.",
+          "translation": "Даҳ дақиқа, лутфан.",
+          "literal": "цэ:н мину́:тэн би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bringe die Speisekarte.",
+          "translation": "Менюро меорам.",
+          "literal": "ихь бри́нгэ ди: шпа́йзэкартэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҷой фармоиш дода?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo, wir sind vier.",
+          "cueTranslation": "Салом, мо чор нафарем.",
+          "intent": "Бипурс: ҷой фармоиш додаед?",
+          "text": "Haben Sie reserviert?",
+          "accepts": [
+            "Reserviert?",
+            "Haben Sie eine Reservierung?"
+          ],
+          "translation": "Ҷой фармоиш додаед?",
+          "literal": "ҳа́:бэн зи: рэзэрви́:ат",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, leider nicht.",
+          "cueTranslation": "Не, мутаассифона.",
+          "intent": "Бигӯ: як миз холӣ аст",
+          "text": "Ein Tisch ist frei.",
+          "accepts": [
+            "Der Tisch ist frei.",
+            "Kein Problem."
+          ],
+          "translation": "Як миз холӣ аст.",
+          "literal": "айн тиш ист фрай",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Super, danke!",
+          "cueTranslation": "Олӣ, ташаккур!",
+          "intent": "Бигӯ: лутфан шинед",
+          "text": "Bitte setzen Sie sich.",
+          "accepts": [
+            "Bitte schön.",
+            "Bitte hier."
+          ],
+          "translation": "Лутфан шинед.",
+          "literal": "би́тэ зэ́цэн зи: зихь",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҷой нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Leider ist alles voll.",
+          "translation": "Мутаассифона ҳама ҷо пур.",
+          "literal": "ла́йда ист а́лэс фол",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Können Sie warten?",
+          "translation": "Интизор шуда метавонед?",
+          "literal": "кё́нэн зи: ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Gleich ist frei.",
+          "translation": "Ҳозир холӣ мешавад.",
+          "literal": "глайхь ист фрай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Name, bitte?",
+          "translation": "Номатон, лутфан?",
+          "literal": "и:а на́:мэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte kommen Sie.",
+          "translation": "Лутфан биёед.",
+          "literal": "би́тэ ко́мэн зи:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Entschuldigung, einen Moment.",
+          "translation": "Бубахшед, як лаҳза.",
+          "literal": "энтшу́лдигунг а́йнэн момэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Интизорӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Einen Tisch für zwei, bitte.",
+          "cueTranslation": "Миз барои ду нафар, лутфан.",
+          "intent": "Бигӯ: мутаассифона ҳама ҷо пур",
+          "text": "Leider ist alles voll.",
+          "accepts": [
+            "Alles ist voll, leider."
+          ],
+          "translation": "Мутаассифона ҳама ҷо пур.",
+          "literal": "ла́йда ист а́лэс фол",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "Zehn Minuten.",
+          "accepts": [
+            "Ungefähr zehn Minuten."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": "цэ:н мину́:тэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay, wir warten.",
+          "cueTranslation": "Хуб, интизор мешавем.",
+          "intent": "Бипурс: номатон, лутфан?",
+          "text": "Ihr Name, bitte?",
+          "accepts": [
+            "Wie ist Ihr Name?"
+          ],
+          "translation": "Номатон, лутфан?",
+          "literal": "и:а на́:мэ би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: шоми серкор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Abend!",
+          "cueTranslation": "Шом ба хайр!",
+          "intent": "Салом гӯй ва бигӯ: хуш омадед",
+          "text": "Guten Abend! Willkommen!",
+          "accepts": [
+            "Herzlich willkommen!"
+          ],
+          "translation": "Шом ба хайр! Хуш омадед!",
+          "literal": "гу́:тэн а́:бэнт вилко́мэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Einen Tisch für zwei, bitte.",
+          "cueTranslation": "Миз барои ду нафар.",
+          "intent": "Бипурс: дарун ё берун?",
+          "text": "Drinnen oder draußen?",
+          "accepts": [
+            "Möchten Sie drinnen sitzen?"
+          ],
+          "translation": "Дарун ё берун?",
+          "literal": "дри́нэн о́:да дра́усэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Drinnen, bitte.",
+          "cueTranslation": "Дарун, лутфан.",
+          "intent": "Бигӯ: ин миз, лутфан",
+          "text": "Dieser Tisch, bitte.",
+          "accepts": [
+            "Bitte hier.",
+            "Bitte setzen Sie sich."
+          ],
+          "translation": "Ин миз, лутфан.",
+          "literal": "ди́:за тиш би́тэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke schön!",
+          "cueTranslation": "Ташаккури зиёд!",
+          "intent": "Бигӯ: мана меню",
+          "text": "Hier ist die Speisekarte.",
+          "accepts": [
+            "Die Speisekarte, bitte schön."
+          ],
+          "translation": "Мана меню.",
+          "literal": "ҳи:а ист ди: шпа́йзэкартэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

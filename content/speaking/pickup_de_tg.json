@@ -1,0 +1,550 @@
+{
+  "slug": "pickup_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Fahrgast abholen",
+    "titleTranslated": "Гирифтани мусофир",
+    "scenario": "Шумо ронандаи такси ҳастед. Мусофирро пешвоз мегиред: салом медиҳед, номашро месанҷед, мегӯед, ки камарбандро бибандад ва мепурсед, ки ба куҷо меравад.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Такси",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Fahrgast",
+          "translation": "мусофир",
+          "literal": "фа́:агаст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Fahrer",
+          "translation": "ронанда",
+          "literal": "фа́:ра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Einsteigen",
+          "translation": "савор шудан",
+          "literal": "а́йнштайгэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Gurt",
+          "translation": "камарбанд",
+          "literal": "гурт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Hinten",
+          "translation": "дар қафо",
+          "literal": "ҳи́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Wohin",
+          "translation": "ба куҷо",
+          "literal": "воҳи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Салом, мусофир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Sind Sie mein Taxi?",
+          "cueTranslation": "Салом! Шумо таксии ман?",
+          "intent": "Бигӯ: ҳа. Номатон?",
+          "text": "Ja. Ihr Name?",
+          "accepts": [
+            "Ja. Wie ist Ihr Name?"
+          ],
+          "translation": "Ҳа. Номатон?",
+          "literal": "йа: и:а на́:мэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Müller.",
+          "cueTranslation": "Мюллер.",
+          "intent": "Бигӯ: лутфан савор шавед",
+          "text": "Bitte einsteigen.",
+          "accepts": [
+            "Steigen Sie ein, bitte."
+          ],
+          "translation": "Лутфан савор шавед.",
+          "literal": "би́тэ а́йнштайгэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бипурс: ба куҷо?",
+          "text": "Wohin?",
+          "accepts": [
+            "Wohin, bitte?"
+          ],
+          "translation": "Ба куҷо?",
+          "literal": "воҳи́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ihr Name?",
+          "translation": "Номатон?",
+          "literal": "и:а на́:мэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte einsteigen",
+          "translation": "Лутфан савор шавед",
+          "literal": "би́тэ а́йнштайгэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Gurt, bitte",
+          "translation": "Камарбанд, лутфан",
+          "literal": "гурт би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wohin, bitte?",
+          "translation": "Ба куҷо, лутфан?",
+          "literal": "воҳи́н би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zum Bahnhof",
+          "translation": "Ба вокзал",
+          "literal": "цум ба́:нҳо:ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Fahrt",
+          "translation": "Роҳи сафед",
+          "literal": "гу́:тэ фа:ат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Камарбанд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Zum Bahnhof, bitte.",
+          "cueTranslation": "Ба вокзал, лутфан.",
+          "intent": "Бигӯ: камарбанд, лутфан",
+          "text": "Den Gurt, bitte.",
+          "accepts": [
+            "Bitte den Gurt."
+          ],
+          "translation": "Камарбанд, лутфан.",
+          "literal": "дэ:н гурт би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ach ja, sorry.",
+          "cueTranslation": "А, ҳа, бубахшед.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Kein Problem.",
+          "accepts": [
+            "Danke."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "кайн проблэ́:м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange dauert es?",
+          "cueTranslation": "Чӣ қадар вақт мегирад?",
+          "intent": "Бигӯ: даҳ дақиқа",
+          "text": "Zehn Minuten.",
+          "accepts": [
+            "Ungefähr zehn Minuten."
+          ],
+          "translation": "Даҳ дақиқа.",
+          "literal": "цэ:н мину́:тэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман ронанда ҳастам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin Ihr Fahrer.",
+          "translation": "Ман ронандаи шумо ҳастам.",
+          "literal": "ихь бин и:а фа́:ра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Sind Sie Herr Müller?",
+          "translation": "Шумо ҷаноби Мюллер?",
+          "literal": "зинт зи: ҳэр мю́ла",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte hinten einsteigen.",
+          "translation": "Лутфан дар қафо шинед.",
+          "literal": "би́тэ ҳи́нтэн а́йнштайгэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Haben Sie Gepäck?",
+          "translation": "Бағоҷ доред?",
+          "literal": "ҳа́:бэн зи: гэпэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist es zu kalt?",
+          "translation": "Хеле хунук аст?",
+          "literal": "ист эс цу: калт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wir fahren jetzt.",
+          "translation": "Ҳоло меравем.",
+          "literal": "ви:а фа́:рэн йэцт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҷаноби Мюллер?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Taxi?",
+          "cueTranslation": "Салом! Такси?",
+          "intent": "Бипурс: шумо ҷаноби Мюллер?",
+          "text": "Sind Sie Herr Müller?",
+          "accepts": [
+            "Herr Müller?"
+          ],
+          "translation": "Шумо ҷаноби Мюллер?",
+          "literal": "зинт зи: ҳэр мю́ла",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, das bin ich.",
+          "cueTranslation": "Ҳа, ман ҳамонам.",
+          "intent": "Бигӯ: ман ронандаи шумо ҳастам",
+          "text": "Ich bin Ihr Fahrer.",
+          "accepts": [
+            "Hallo, ich bin Ihr Fahrer."
+          ],
+          "translation": "Ман ронандаи шумо ҳастам.",
+          "literal": "ихь бин и:а фа́:ра",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Super. Ich habe einen Koffer.",
+          "cueTranslation": "Олӣ. Ман ҷомадон дорам.",
+          "intent": "Бигӯ: ман ёрӣ медиҳам",
+          "text": "Ich helfe Ihnen.",
+          "accepts": [
+            "Kein Problem.",
+            "Ich nehme ihn."
+          ],
+          "translation": "Ман ёрӣ медиҳам.",
+          "literal": "ихь ҳэ́лфэ и́:нэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ist die Musik okay?",
+          "translation": "Мусиқӣ хуб аст?",
+          "literal": "ист ди: музи́:к окэ́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu kalt?",
+          "translation": "Хеле хунук?",
+          "literal": "цу: калт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich mache es warm.",
+          "translation": "Гарм мекунам.",
+          "literal": "ихь ма́хэ эс варм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Fenster auf?",
+          "translation": "Тирезаро кушоям?",
+          "literal": "фэ́нста ауф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wir sind gleich da.",
+          "translation": "Ҳозир мерасем.",
+          "literal": "ви:а зинт глайхь да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist Wasser.",
+          "translation": "Мана об.",
+          "literal": "ҳи:а ист ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тиреза",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Es ist warm hier.",
+          "cueTranslation": "Ин ҷо гарм аст.",
+          "intent": "Бипурс: тирезаро кушоям?",
+          "text": "Fenster auf?",
+          "accepts": [
+            "Soll ich das Fenster öffnen?"
+          ],
+          "translation": "Тирезаро кушоям?",
+          "literal": "фэ́нста ауф",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte.",
+          "cueTranslation": "Ҳа, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gerne.",
+            "Kein Problem."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie lange noch?",
+          "cueTranslation": "Боз чӣ қадар?",
+          "intent": "Бигӯ: ҳозир мерасем",
+          "text": "Wir sind gleich da.",
+          "accepts": [
+            "Fünf Minuten.",
+            "Gleich da."
+          ],
+          "translation": "Ҳозир мерасем.",
+          "literal": "ви:а зинт глайхь да:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мусофири аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Taxi für Müller?",
+          "cueTranslation": "Салом! Такси барои Мюллер?",
+          "intent": "Бигӯ: ҳа. Лутфан савор шавед",
+          "text": "Ja. Bitte einsteigen.",
+          "accepts": [
+            "Ja, steigen Sie ein."
+          ],
+          "translation": "Ҳа. Лутфан савор шавед.",
+          "literal": "йа: би́тэ а́йнштайгэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: камарбанд, лутфан",
+          "text": "Den Gurt, bitte.",
+          "accepts": [
+            "Bitte den Gurt."
+          ],
+          "translation": "Камарбанд, лутфан.",
+          "literal": "дэ:н гурт би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Okay.",
+          "cueTranslation": "Хуб.",
+          "intent": "Бипурс: ба куҷо?",
+          "text": "Wohin, bitte?",
+          "accepts": [
+            "Wohin?"
+          ],
+          "translation": "Ба куҷо, лутфан?",
+          "literal": "воҳи́н би́тэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Zum Bahnhof.",
+          "cueTranslation": "Ба вокзал.",
+          "intent": "Бигӯ: хуб, ҳоло меравем",
+          "text": "Gut, wir fahren jetzt.",
+          "accepts": [
+            "Okay, zum Bahnhof.",
+            "Alles klar."
+          ],
+          "translation": "Хуб, ҳоло меравем.",
+          "literal": "гу:т ви:а фа́:рэн йэцт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

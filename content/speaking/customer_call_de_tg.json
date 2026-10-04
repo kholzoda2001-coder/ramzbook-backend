@@ -1,0 +1,547 @@
+{
+  "slug": "customer_call_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kunden anrufen",
+    "titleTranslated": "Занг ба мизоҷ",
+    "scenario": "Шумо суроғаро намеёбед ва ба мизоҷ занг мезанед: худро муаррифӣ мекунед, мепурсед, ки даромадгоҳ куҷост, мегӯед, ки дар назди хона ҳастед.",
+    "emoji": "📱",
+    "order": 15,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Anrufen",
+          "translation": "занг задан",
+          "literal": "а́нру:фэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Eingang",
+          "translation": "даромадгоҳ",
+          "literal": "а́йнганг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Hof",
+          "translation": "ҳавлӣ",
+          "literal": "ҳо:ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Draußen",
+          "translation": "берун",
+          "literal": "дра́усэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Unten",
+          "translation": "поён",
+          "literal": "у́нтэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Finden",
+          "translation": "ёфтан",
+          "literal": "фи́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ало, ман ронанда",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo?",
+          "cueTranslation": "Ало?",
+          "intent": "Бигӯ: салом, ман ронанда",
+          "text": "Hallo, ich bin der Fahrer.",
+          "accepts": [
+            "Hallo, hier ist der Fahrer."
+          ],
+          "translation": "Салом, ман ронанда.",
+          "literal": "ҳа́ло ихь бин дэ:а фа́:ра",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ah, gut! Wo sind Sie?",
+          "cueTranslation": "А, хуб! Куҷоед?",
+          "intent": "Бигӯ: назди хона",
+          "text": "Vor dem Haus.",
+          "accepts": [
+            "Ich bin vor dem Haus."
+          ],
+          "translation": "Назди хона.",
+          "literal": "фо:а дэ:м ҳаус",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich komme runter.",
+          "cueTranslation": "Поён меоям.",
+          "intent": "Бигӯ: хуб, ман интизорам",
+          "text": "Gut, ich warte.",
+          "accepts": [
+            "Okay, ich warte."
+          ],
+          "translation": "Хуб, интизорам.",
+          "literal": "гу:т ихь ва́ртэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Der Fahrer",
+          "translation": "Ронанда",
+          "literal": "дэ:а фа́:ра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Vorm Haus",
+          "translation": "Назди хона",
+          "literal": "фо:ам ҳаус",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Welcher Eingang?",
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "вэ́лхьа а́йнганг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Im Hof",
+          "translation": "Дар ҳавлӣ",
+          "literal": "им ҳо:ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Unten warten",
+          "translation": "Поён интизор шудан",
+          "literal": "у́нтэн ва́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht gefunden",
+          "translation": "Наёфтам",
+          "literal": "нихьт гэфу́ндэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Даромадгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich bin da, aber wo?",
+          "cueTranslation": "Ман омадам, аммо куҷо?",
+          "intent": "Бипурс: кадом даромадгоҳ?",
+          "text": "Welcher Eingang?",
+          "accepts": [
+            "Wo ist der Eingang?"
+          ],
+          "translation": "Кадом даромадгоҳ?",
+          "literal": "вэ́лхьа а́йнганг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Im Hof, links.",
+          "cueTranslation": "Дар ҳавлӣ, тарафи чап.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bis gleich!",
+          "cueTranslation": "То дидан!",
+          "intent": "Бигӯ: то дидан",
+          "text": "Bis gleich!",
+          "accepts": [
+            "Tschüss!"
+          ],
+          "translation": "То дидан!",
+          "literal": "бис глайхь",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман занг мезанам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wo ist die Adresse?",
+          "translation": "Суроға куҷост?",
+          "literal": "во: ист ди: адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bei Nummer zehn.",
+          "translation": "Назди рақами даҳ.",
+          "literal": "бай ну́ма цэ:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist Ihr Eingang?",
+          "translation": "Даромадгоҳатон куҷост?",
+          "literal": "во: ист и:а а́йнганг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommen Sie bitte runter?",
+          "translation": "Поён меоед?",
+          "literal": "ко́мэн зи: би́тэ ру́нта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "In fünf Minuten da.",
+          "translation": "Баъди панҷ дақиқа мерасам.",
+          "literal": "ин фюнф мину́:тэн да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich warte draußen.",
+          "translation": "Берун интизорам.",
+          "literal": "ихь ва́ртэ дра́усэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Суроғаро намеёбам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo, Schmidt?",
+          "cueTranslation": "Ало, Шмидт?",
+          "intent": "Бигӯ: салом, суроғаро намеёбам",
+          "text": "Hallo, ich finde die Adresse nicht.",
+          "accepts": [
+            "Ich finde Sie nicht."
+          ],
+          "translation": "Салом, суроғаро намеёбам.",
+          "literal": "ҳа́ло ихь фи́ндэ ди: адрэ́сэ нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wo sind Sie jetzt?",
+          "cueTranslation": "Ҳоло куҷоед?",
+          "intent": "Бигӯ: назди рақами даҳ",
+          "text": "Vor Nummer zehn.",
+          "accepts": [
+            "Ich bin vor Nummer zehn."
+          ],
+          "translation": "Назди рақами даҳ.",
+          "literal": "фо:а ну́ма цэ:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir sind Nummer zwölf, im Hof.",
+          "cueTranslation": "Мо рақами дувоздаҳ, дар ҳавлӣ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, ich komme."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҷавоб нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Niemand geht ran.",
+          "translation": "Касе ҷавоб намедиҳад.",
+          "literal": "ни́:мант гэ:т ран",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich schreibe eine Nachricht.",
+          "translation": "Паём менависам.",
+          "literal": "ихь шра́йбэ а́йнэ на́:хрихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich warte fünf Minuten.",
+          "translation": "Панҷ дақиқа интизор мешавам.",
+          "literal": "ихь ва́ртэ фюнф мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Dann fahre ich.",
+          "translation": "Баъд меравам.",
+          "literal": "дан фа́:рэ ихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte rufen Sie zurück.",
+          "translation": "Лутфан баргашта занг занед.",
+          "literal": "би́тэ ру́:фэн зи: цурю́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Chef sagt das.",
+          "translation": "Сардорам ҳамин мегӯяд.",
+          "literal": "майн шэф за:кт дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ба сардор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja? Was ist los?",
+          "cueTranslation": "Ҳа? Чӣ гап?",
+          "intent": "Бигӯ: касе ҷавоб намедиҳад",
+          "text": "Niemand geht ran.",
+          "accepts": [
+            "Der Kunde geht nicht ran."
+          ],
+          "translation": "Касе ҷавоб намедиҳад.",
+          "literal": "ни́:мант гэ:т ран",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Warte fünf Minuten.",
+          "cueTranslation": "Панҷ дақиқа интизор шав.",
+          "intent": "Бигӯ: хуб, ман паём менависам",
+          "text": "Gut, ich schreibe eine Nachricht.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, паём менависам.",
+          "literal": "гу:т ихь шра́йбэ а́йнэ на́:хрихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und dann fahr weiter.",
+          "cueTranslation": "Баъд давом деҳ.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Verstanden.",
+          "accepts": [
+            "Okay, verstanden."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "фэашта́ндэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занги мизоҷ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo?",
+          "cueTranslation": "Ало?",
+          "intent": "Бигӯ: салом, ман ронанда",
+          "text": "Hallo, ich bin der Fahrer.",
+          "accepts": [
+            "Hier ist der Fahrer."
+          ],
+          "translation": "Салом, ман ронанда.",
+          "literal": "ҳа́ло ихь бин дэ:а фа́:ра",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ah! Wo sind Sie?",
+          "cueTranslation": "А! Куҷоед?",
+          "intent": "Бигӯ: суроғаро намеёбам",
+          "text": "Ich finde die Adresse nicht.",
+          "accepts": [
+            "Ich finde Sie nicht."
+          ],
+          "translation": "Суроғаро намеёбам.",
+          "literal": "ихь фи́ндэ ди: адрэ́сэ нихьт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir sind im Hof, links.",
+          "cueTranslation": "Мо дар ҳавлӣ, тарафи чап.",
+          "intent": "Бигӯ: баъди панҷ дақиқа мерасам",
+          "text": "Ich bin in fünf Minuten da.",
+          "accepts": [
+            "Fünf Minuten."
+          ],
+          "translation": "Баъди панҷ дақиқа мерасам.",
+          "literal": "ихь бин ин фюнф мину́:тэн да:",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, bis gleich!",
+          "cueTranslation": "Хуб, то дидан!",
+          "intent": "Бигӯ: то дидан",
+          "text": "Bis gleich!",
+          "accepts": [
+            "Tschüss!"
+          ],
+          "translation": "То дидан!",
+          "literal": "бис глайхь",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

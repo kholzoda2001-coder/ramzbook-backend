@@ -1,0 +1,547 @@
+{
+  "slug": "airport_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Am Flughafen",
+    "titleTranslated": "Дар фурудгоҳ",
+    "scenario": "Шумо ба Олмон парвоз мекунед ё бармегардед: дар қайди парвоз бағоҷро медиҳед, гейтро мепурсед ва агар ҷомадон наояд, хабар медиҳед.",
+    "emoji": "🛫",
+    "order": 3,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фурудгоҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Flughafen",
+          "translation": "фурудгоҳ",
+          "literal": "флу́:кҳа:фэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Flug",
+          "translation": "парвоз",
+          "literal": "флу:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Ticket",
+          "translation": "чипта",
+          "literal": "ти́кэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Gate",
+          "translation": "гейт (дари баромад)",
+          "literal": "гэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Gepäck",
+          "translation": "бағоҷ",
+          "literal": "гэпэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Ankunft",
+          "translation": "омадан, фуруд",
+          "literal": "а́нкунфт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Қайди парвоз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag! Wohin fliegen Sie?",
+          "cueTranslation": "Рӯз ба хайр! Ба куҷо парвоз мекунед?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "Nach Duschanbe.",
+          "accepts": [
+            "Ich fliege nach Duschanbe."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": "на:х душанбэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihren Pass, bitte.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ein Koffer?",
+          "cueTranslation": "Як ҷомадон?",
+          "intent": "Бигӯ: ҳа, як ҷомадон",
+          "text": "Ja, ein Koffer.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, як ҷомадон.",
+          "literal": "йа: айн ко́фа",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Welches Gate?",
+          "translation": "Кадом гейт?",
+          "literal": "вэ́лхьэс гэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Ticket",
+          "translation": "Чиптаи ман",
+          "literal": "майн ти́кэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Koffer",
+          "translation": "Як ҷомадон",
+          "literal": "айн ко́фа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Am Fenster",
+          "translation": "Назди тиреза",
+          "literal": "ам фэ́нста",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Pünktlich",
+          "translation": "сари вақт",
+          "literal": "пю́нктлихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Reise!",
+          "translation": "Сафари хуш!",
+          "literal": "гу́:тэ ра́йзэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҷой ва гейт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fenster oder Gang?",
+          "cueTranslation": "Назди тиреза ё гузаргоҳ?",
+          "intent": "Бигӯ: назди тиреза, лутфан",
+          "text": "Am Fenster, bitte.",
+          "accepts": [
+            "Fenster, bitte."
+          ],
+          "translation": "Назди тиреза, лутфан.",
+          "literal": "ам фэ́нста би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist Ihr Ticket.",
+          "cueTranslation": "Мана чиптаатон.",
+          "intent": "Бипурс: кадом гейт?",
+          "text": "Welches Gate?",
+          "accepts": [
+            "Wo ist mein Gate?"
+          ],
+          "translation": "Кадом гейт?",
+          "literal": "вэ́лхьэс гэ:т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gate zwölf.",
+          "cueTranslation": "Гейти дувоздаҳ.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Danke schön."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар фурудгоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wo ist Gate zwölf?",
+          "translation": "Гейти дувоздаҳ куҷост?",
+          "literal": "во: ист гэ:т цвёлф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist der Flug pünktlich?",
+          "translation": "Парвоз сари вақт аст?",
+          "literal": "ист дэ:а флу:к пю́нктлихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Flug ist spät.",
+          "translation": "Парвози ман дер аст.",
+          "literal": "майн флу:к ист шпэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich fliege nach Hause.",
+          "translation": "Ба хона парвоз мекунам.",
+          "literal": "ихь фли́:гэ на:х ҳа́узэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist der Ausgang?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": "во: ист дэ:а а́усганг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich suche mein Gepäck.",
+          "translation": "Бағоҷамро меҷӯям.",
+          "literal": "ихь зу́:хэ майн гэпэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Парвоз дер мешавад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kann ich helfen?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: парвоз сари вақт аст?",
+          "text": "Ist der Flug pünktlich?",
+          "accepts": [
+            "Ist mein Flug pünktlich?"
+          ],
+          "translation": "Парвоз сари вақт аст?",
+          "literal": "ист дэ:а флу:к пю́нктлихь",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, eine Stunde später.",
+          "cueTranslation": "Не, як соат дертар.",
+          "intent": "Бигӯ: эҳ, хуб",
+          "text": "Oh, okay.",
+          "accepts": [
+            "Schade.",
+            "Okay, danke."
+          ],
+          "translation": "Эҳ, хуб.",
+          "literal": "о: окэ́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Das Gate ist dort.",
+          "cueTranslation": "Гейт он ҷост.",
+          "intent": "Ташаккур гӯй",
+          "text": "Danke!",
+          "accepts": [
+            "Vielen Dank!"
+          ],
+          "translation": "Ташаккур!",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҷомадон наомад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Mein Koffer ist weg.",
+          "translation": "Ҷомадонам гум шуд.",
+          "literal": "майн ко́фа ист вэк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Er ist schwarz.",
+          "translation": "Он сиёҳ аст.",
+          "literal": "э:а ист шварц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich komme aus Istanbul.",
+          "translation": "Аз Истамбул омадам.",
+          "literal": "ихь ко́мэ аус и́станбу:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist mein Ticket.",
+          "translation": "Мана чиптаам.",
+          "literal": "ҳи:а ист майн ти́кэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann kommt er?",
+          "translation": "Кай меояд?",
+          "literal": "ван комт э:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bringen Sie ihn?",
+          "translation": "Онро меоред?",
+          "literal": "бри́нгэн зи: и:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ҷомадони гумшуда",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte?",
+          "cueTranslation": "Ҳа, лутфан?",
+          "intent": "Бигӯ: ҷомадонам гум шуд",
+          "text": "Mein Koffer ist weg.",
+          "accepts": [
+            "Mein Koffer ist nicht da."
+          ],
+          "translation": "Ҷомадонам гум шуд.",
+          "literal": "майн ко́фа ист вэк",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Welche Farbe?",
+          "cueTranslation": "Чӣ ранг?",
+          "intent": "Бигӯ: сиёҳ",
+          "text": "Schwarz.",
+          "accepts": [
+            "Er ist schwarz."
+          ],
+          "translation": "Сиёҳ.",
+          "literal": "шварц",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wir bringen ihn morgen.",
+          "cueTranslation": "Фардо меорем.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke schön."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: парвоз ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag! Wohin fliegen Sie?",
+          "cueTranslation": "Рӯз ба хайр! Ба куҷо?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "Nach Duschanbe.",
+          "accepts": [
+            "Ich fliege nach Duschanbe."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": "на:х душанбэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Fenster oder Gang?",
+          "cueTranslation": "Тиреза ё гузаргоҳ?",
+          "intent": "Бигӯ: назди тиреза, лутфан",
+          "text": "Am Fenster, bitte.",
+          "accepts": [
+            "Fenster, bitte."
+          ],
+          "translation": "Назди тиреза, лутфан.",
+          "literal": "ам фэ́нста би́тэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier ist Ihr Ticket.",
+          "cueTranslation": "Мана чиптаатон.",
+          "intent": "Бипурс: кадом гейт?",
+          "text": "Welches Gate?",
+          "accepts": [
+            "Wo ist mein Gate?"
+          ],
+          "translation": "Кадом гейт?",
+          "literal": "вэ́лхьэс гэ:т",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gate fünf. Gute Reise!",
+          "cueTranslation": "Гейти панҷ. Сафари хуш!",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

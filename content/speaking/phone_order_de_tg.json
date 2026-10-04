@@ -1,0 +1,550 @@
+{
+  "slug": "phone_order_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Bestellung am Telefon",
+    "titleTranslated": "Фармоиш бо телефон",
+    "scenario": "Тарабхона хӯрок ба хона мефиристад. Шумо занг қабул мекунед: фармоишро менависед, суроға ва рақами телефонро мепурсед ва мегӯед, ки хӯрок кай мерасад.",
+    "emoji": "📞",
+    "order": 15,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Telefon",
+          "translation": "телефон",
+          "literal": "тэ́:лэфо:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Adresse",
+          "translation": "суроға",
+          "literal": "адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Straße",
+          "translation": "кӯча",
+          "literal": "штра́:сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Hausnummer",
+          "translation": "рақами хона",
+          "literal": "ҳа́уснума",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Lieferung",
+          "translation": "расонидан",
+          "literal": "ли́:фэрунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Abholen",
+          "translation": "омада гирифтан",
+          "literal": "а́пҳо:лэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ало!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Ich möchte bestellen.",
+          "cueTranslation": "Ало? Фармоиш додан мехоҳам.",
+          "intent": "Бигӯ: бо хурсандӣ. Чӣ мехоҳед?",
+          "text": "Gerne. Was möchten Sie?",
+          "accepts": [
+            "Was möchten Sie?"
+          ],
+          "translation": "Бо хурсандӣ. Чӣ мехоҳед?",
+          "literal": "гэ́рнэ вас мё́хьтэн зи:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwei Pizza, bitte.",
+          "cueTranslation": "Ду питса, лутфан.",
+          "intent": "Бипурс: расонидан ё омада гирифтан?",
+          "text": "Lieferung oder abholen?",
+          "accepts": [
+            "Liefern wir?"
+          ],
+          "translation": "Расонем ё омада мегиред?",
+          "literal": "ли́:фэрунг о́:да а́пҳо:лэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Lieferung, bitte.",
+          "cueTranslation": "Расонед, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut.",
+            "Gerne."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ihre Adresse?",
+          "translation": "Суроғаатон?",
+          "literal": "и́:рэ адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Welche Straße?",
+          "translation": "Кадом кӯча?",
+          "literal": "вэ́лхьэ штра́:сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihre Nummer?",
+          "translation": "Рақаматон?",
+          "literal": "и́:рэ ну́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Noch einmal",
+          "translation": "Боз як бор",
+          "literal": "нох а́йнма:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Dreißig Minuten",
+          "translation": "Сӣ дақиқа",
+          "literal": "дра́йсихь мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis gleich",
+          "translation": "То дидан",
+          "literal": "бис глайхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суроға",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich wohne in der Gartenstraße.",
+          "cueTranslation": "Дар кӯчаи Гартен зиндагӣ мекунам.",
+          "intent": "Бипурс: рақами хона?",
+          "text": "Welche Hausnummer?",
+          "accepts": [
+            "Und die Hausnummer?"
+          ],
+          "translation": "Рақами хона?",
+          "literal": "вэ́лхьэ ҳа́уснума",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nummer zwölf.",
+          "cueTranslation": "Рақами дувоздаҳ.",
+          "intent": "Бипурс: рақами телефонатон?",
+          "text": "Ihre Telefonnummer?",
+          "accepts": [
+            "Ihre Nummer, bitte?"
+          ],
+          "translation": "Рақами телефонатон?",
+          "literal": "и́:рэ тэлэфо́:ннума",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Null eins fünf eins…",
+          "cueTranslation": "Сифр як панҷ як…",
+          "intent": "Бигӯ: боз як бор, лутфан",
+          "text": "Noch einmal, bitte.",
+          "accepts": [
+            "Bitte langsam.",
+            "Langsam, bitte."
+          ],
+          "translation": "Боз як бор, лутфан.",
+          "literal": "нох а́йнма:л би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Фармоиш мегирам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie ist Ihre Adresse?",
+          "translation": "Суроғаатон чист?",
+          "literal": "ви: ист и́:рэ адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte langsam.",
+          "translation": "Оҳиста, лутфан.",
+          "literal": "би́тэ ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das dauert dreißig Minuten.",
+          "translation": "Сӣ дақиқа мегирад.",
+          "literal": "дас да́уат дра́йсихь мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Zahlen Sie bar?",
+          "translation": "Нақд пардохт мекунед?",
+          "literal": "ца́:лэн зи: ба:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich wiederhole die Bestellung.",
+          "translation": "Фармоишро такрор мекунам.",
+          "literal": "ихь ви:даҳо́:лэ ди: бэштэ́лунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke für die Bestellung.",
+          "translation": "Барои фармоиш ташаккур.",
+          "literal": "да́нкэ фю:а ди: бэштэ́лунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Такрор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Also, zwei Pizza?",
+          "cueTranslation": "Пас, ду питса?",
+          "intent": "Бигӯ: фармоишро такрор мекунам",
+          "text": "Ich wiederhole die Bestellung.",
+          "accepts": [
+            "Ja, ich wiederhole."
+          ],
+          "translation": "Фармоишро такрор мекунам.",
+          "literal": "ихь ви:даҳо́:лэ ди: бэштэ́лунг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, und eine Cola.",
+          "cueTranslation": "Ҳа, ва як кола.",
+          "intent": "Бигӯ: ду питса, як кола",
+          "text": "Zwei Pizza, eine Cola.",
+          "accepts": [
+            "Okay, zwei Pizza und eine Cola."
+          ],
+          "translation": "Ду питса, як кола.",
+          "literal": "цвай пи́ца а́йнэ ко́:ла",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Richtig!",
+          "cueTranslation": "Дуруст!",
+          "intent": "Бигӯ: сӣ дақиқа мегирад",
+          "text": "Das dauert dreißig Minuten.",
+          "accepts": [
+            "Dreißig Minuten."
+          ],
+          "translation": "Сӣ дақиқа мегирад.",
+          "literal": "дас да́уат дра́йсихь мину́:тэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Савол аз мизоҷ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie lange dauert das?",
+          "translation": "Чӣ қадар вақт мегирад?",
+          "literal": "ви: ла́нгэ да́уат дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Haben Sie Halal?",
+          "translation": "Халол доред?",
+          "literal": "ҳа́:бэн зи: ҳала́:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist das mit Fleisch?",
+          "translation": "Ин бо гӯшт аст?",
+          "literal": "ист дас мит флайш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich frage kurz.",
+          "translation": "Зуд мепурсам.",
+          "literal": "ихь фра́:гэ курц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ja, das haben wir.",
+          "translation": "Ҳа, инро дорем.",
+          "literal": "йа: дас ҳа́:бэн ви:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Leider nicht heute.",
+          "translation": "Имрӯз мутаассифона не.",
+          "literal": "ла́йда нихьт ҳо́йтэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Халол?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Halal?",
+          "cueTranslation": "Халол доред?",
+          "intent": "Бигӯ: зуд мепурсам",
+          "text": "Ich frage kurz.",
+          "accepts": [
+            "Einen Moment, ich frage."
+          ],
+          "translation": "Зуд мепурсам.",
+          "literal": "ихь фра́:гэ курц",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und?",
+          "cueTranslation": "Хӯш?",
+          "intent": "Бигӯ: ҳа, мурғи халол дорем",
+          "text": "Ja, das haben wir.",
+          "accepts": [
+            "Ja, Halal-Hähnchen haben wir."
+          ],
+          "translation": "Ҳа, инро дорем.",
+          "literal": "йа: дас ҳа́:бэн ви:а",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Super! Wie lange dauert das?",
+          "cueTranslation": "Олӣ! Чӣ қадар мегирад?",
+          "intent": "Бигӯ: сӣ дақиқа",
+          "text": "Dreißig Minuten.",
+          "accepts": [
+            "Das dauert dreißig Minuten."
+          ],
+          "translation": "Сӣ дақиқа.",
+          "literal": "дра́йсихь мину́:тэн",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занги фармоиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo? Ich möchte bestellen.",
+          "cueTranslation": "Ало? Фармоиш медиҳам.",
+          "intent": "Бигӯ: бо хурсандӣ. Чӣ мехоҳед?",
+          "text": "Gerne. Was möchten Sie?",
+          "accepts": [
+            "Was möchten Sie?"
+          ],
+          "translation": "Бо хурсандӣ. Чӣ мехоҳед?",
+          "literal": "гэ́рнэ вас мё́хьтэн зи:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Eine Pizza mit Hähnchen.",
+          "cueTranslation": "Як питса бо мурғ.",
+          "intent": "Бипурс: суроғаатон чист?",
+          "text": "Wie ist Ihre Adresse?",
+          "accepts": [
+            "Ihre Adresse, bitte?"
+          ],
+          "translation": "Суроғаатон чист?",
+          "literal": "ви: ист и́:рэ адрэ́сэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gartenstraße zwölf.",
+          "cueTranslation": "Кӯчаи Гартен, дувоздаҳ.",
+          "intent": "Бипурс: нақд пардохт мекунед?",
+          "text": "Zahlen Sie bar?",
+          "accepts": [
+            "Bar oder Karte?"
+          ],
+          "translation": "Нақд пардохт мекунед?",
+          "literal": "ца́:лэн зи: ба:а",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, bar.",
+          "cueTranslation": "Ҳа, нақд.",
+          "intent": "Бигӯ: сӣ дақиқа мегирад, ташаккур",
+          "text": "Dreißig Minuten. Danke!",
+          "accepts": [
+            "Das dauert dreißig Minuten.",
+            "Danke für die Bestellung."
+          ],
+          "translation": "Сӣ дақиқа. Ташаккур!",
+          "literal": "дра́йсихь мину́:тэн да́нкэ",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

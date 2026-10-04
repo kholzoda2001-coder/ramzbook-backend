@@ -1,0 +1,547 @@
+{
+  "slug": "pharmacy_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "In der Apotheke",
+    "titleTranslated": "Дар дорухона",
+    "scenario": "Шумо бемор ҳастед ва ба дорухона (Apotheke) меравед: мегӯед, ки чӣ дард мекунад, дору мепурсед ва мефаҳмед, ки онро чӣ тавр бояд хӯрд.",
+    "emoji": "💊",
+    "order": 12,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Дорухона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Apotheke",
+          "translation": "дорухона",
+          "literal": "апотэ́:кэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Tabletten",
+          "translation": "ҳаб (таблетка)",
+          "literal": "таблэ́тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kopfschmerzen",
+          "translation": "дарди сар",
+          "literal": "ко́пфшмэрцэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Fieber",
+          "translation": "табларза",
+          "literal": "фи́:ба",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Husten",
+          "translation": "сулфа",
+          "literal": "ҳу́:стэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Rezept",
+          "translation": "рецепт (дастури духтур)",
+          "literal": "рэцэ́пт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чӣ дард мекунад?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was fehlt Ihnen?",
+          "cueTranslation": "Салом! Чӣ шудааст?",
+          "intent": "Бигӯ: дарди сар дорам",
+          "text": "Ich habe Kopfschmerzen.",
+          "accepts": [
+            "Kopfschmerzen."
+          ],
+          "translation": "Дарди сар дорам.",
+          "literal": "ихь ҳа́:бэ ко́пфшмэрцэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fieber?",
+          "cueTranslation": "Табларза доред?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, kein Fieber."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Diese Tabletten sind gut.",
+          "cueTranslation": "Ин ҳабҳо хубанд.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Was kosten sie?",
+          "accepts": [
+            "Wie viel kosten die?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "вас ко́стэн зи:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Gegen Husten",
+          "translation": "Барои сулфа",
+          "literal": "гэ́:гэн ҳу́:стэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ohne Rezept?",
+          "translation": "Бе рецепт?",
+          "literal": "о́:нэ рэцэ́пт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie oft?",
+          "translation": "Чанд бор?",
+          "literal": "ви: офт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Nach Essen",
+          "translation": "Баъди хӯрок",
+          "literal": "на:х э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Dreimal täglich",
+          "translation": "Се бор дар рӯз",
+          "literal": "дра́йма:л тэ́:клихь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Gute Besserung!",
+          "translation": "Шифо ёбед!",
+          "literal": "гу́:тэ бэ́сэрунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Бе рецепт?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich habe Husten.",
+          "cueTranslation": "Ман сулфа дорам.",
+          "intent": "Бипурс: бе рецепт мешавад?",
+          "text": "Geht das ohne Rezept?",
+          "accepts": [
+            "Ohne Rezept?"
+          ],
+          "translation": "Бе рецепт мешавад?",
+          "literal": "гэ:т дас о́:нэ рэцэ́пт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, das geht.",
+          "cueTranslation": "Ҳа, мешавад.",
+          "intent": "Бипурс: чанд бор?",
+          "text": "Wie oft?",
+          "accepts": [
+            "Wie oft nehme ich das?"
+          ],
+          "translation": "Чанд бор?",
+          "literal": "ви: офт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dreimal täglich.",
+          "cueTranslation": "Се бор дар рӯз.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман бемор ҳастам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin krank.",
+          "translation": "Ман бемор ҳастам.",
+          "literal": "ихь бин кранк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Hals tut weh.",
+          "translation": "Гулӯям дард мекунад.",
+          "literal": "майн ҳалс ту:т вэ:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Fieber.",
+          "translation": "Ман табларза дорам.",
+          "literal": "ихь ҳа́:бэ фи́:ба",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Etwas gegen Husten?",
+          "translation": "Чизе барои сулфа?",
+          "literal": "э́твас гэ́:гэн ҳу́:стэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist mein Rezept.",
+          "translation": "Мана рецептам.",
+          "literal": "ҳи:а ист майн рэцэ́пт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Für mein Kind.",
+          "translation": "Барои фарзандам.",
+          "literal": "фю:а майн кинт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дору барои кӯдак",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte?",
+          "cueTranslation": "Ҳа, лутфан?",
+          "intent": "Бигӯ: фарзандам табларза дорад",
+          "text": "Mein Kind hat Fieber.",
+          "accepts": [
+            "Für mein Kind, Fieber."
+          ],
+          "translation": "Фарзандам табларза дорад.",
+          "literal": "майн кинт ҳат фи́:ба",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie alt ist das Kind?",
+          "cueTranslation": "Кӯдак чандсола аст?",
+          "intent": "Бигӯ: панҷсола",
+          "text": "Fünf Jahre.",
+          "accepts": [
+            "Es ist fünf."
+          ],
+          "translation": "Панҷсола.",
+          "literal": "фюнф йа́:рэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dieser Saft ist gut.",
+          "cueTranslation": "Ин шарбат хуб аст.",
+          "intent": "Бипурс: чанд бор?",
+          "text": "Wie oft?",
+          "accepts": [
+            "Wie viel?"
+          ],
+          "translation": "Чанд бор?",
+          "literal": "ви: офт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Чӣ тавр хӯрдан?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wie nehme ich das?",
+          "translation": "Инро чӣ тавр хӯрам?",
+          "literal": "ви: нэ́:мэ ихь дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Wasser.",
+          "translation": "Бо об.",
+          "literal": "мит ва́са",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Vor dem Essen?",
+          "translation": "Пеш аз хӯрок?",
+          "literal": "фо:а дэ:м э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Nicht mit Alkohol.",
+          "translation": "Бо майзадагӣ не.",
+          "literal": "нихьт мит а́лкоҳо:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Drei Tage lang.",
+          "translation": "Се рӯз.",
+          "literal": "драй та́:гэ ланг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe, danke.",
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "ихь фэаштэ́:э да́нкэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Дастур",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hier sind die Tabletten.",
+          "cueTranslation": "Мана ҳабҳо.",
+          "intent": "Бипурс: инро чӣ тавр хӯрам?",
+          "text": "Wie nehme ich das?",
+          "accepts": [
+            "Wie oft?"
+          ],
+          "translation": "Инро чӣ тавр хӯрам?",
+          "literal": "ви: нэ́:мэ ихь дас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Eine Tablette nach dem Essen.",
+          "cueTranslation": "Як ҳаб баъди хӯрок.",
+          "intent": "Бипурс: чанд рӯз?",
+          "text": "Wie lange?",
+          "accepts": [
+            "Wie viele Tage?"
+          ],
+          "translation": "Чанд рӯз?",
+          "literal": "ви: ла́нгэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Drei Tage. Gute Besserung!",
+          "cueTranslation": "Се рӯз. Шифо ёбед!",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Ich verstehe, danke.",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "ихь фэаштэ́:э да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: шаби бемор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Abend! Was fehlt Ihnen?",
+          "cueTranslation": "Шом ба хайр! Чӣ шудааст?",
+          "intent": "Бигӯ: гулӯям дард мекунад",
+          "text": "Mein Hals tut weh.",
+          "accepts": [
+            "Halsschmerzen."
+          ],
+          "translation": "Гулӯям дард мекунад.",
+          "literal": "майн ҳалс ту:т вэ:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Fieber?",
+          "cueTranslation": "Табларза доред?",
+          "intent": "Бигӯ: ҳа, каме",
+          "text": "Ja, ein bisschen.",
+          "accepts": [
+            "Ja.",
+            "Ein bisschen Fieber."
+          ],
+          "translation": "Ҳа, каме.",
+          "literal": "йа: айн би́схэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Nehmen Sie diese Tabletten.",
+          "cueTranslation": "Ин ҳабҳоро гиред.",
+          "intent": "Бипурс: чанд бор?",
+          "text": "Wie oft?",
+          "accepts": [
+            "Wie oft nehme ich das?"
+          ],
+          "translation": "Чанд бор?",
+          "literal": "ви: офт",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Dreimal täglich. Gute Besserung!",
+          "cueTranslation": "Се бор дар рӯз. Шифо ёбед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

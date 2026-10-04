@@ -1,0 +1,548 @@
+{
+  "slug": "neighbors_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Die Nachbarn",
+    "titleTranslated": "Ҳамсояҳо",
+    "scenario": "Шумо бо ҳамсояҳо шинос мешавед: салом медиҳед, худро муаррифӣ мекунед, барои садо бубахшед мегӯед, ёрӣ мепурсед ва ба меҳмонӣ даъват мекунед.",
+    "emoji": "🏠",
+    "order": 15,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳамсоя",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Nachbar",
+          "translation": "ҳамсоя",
+          "literal": "на́хба:а",
+          "note": "Зан: «Nachbarin».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Wohnung",
+          "translation": "хона (квартира)",
+          "literal": "во́:нунг",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Laut",
+          "translation": "баланд, пурсадо",
+          "literal": "лаут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Leise",
+          "translation": "оҳиста, ором",
+          "literal": "ла́йзэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Treppe",
+          "translation": "зинапоя",
+          "literal": "трэ́пэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Einladen",
+          "translation": "даъват кардан",
+          "literal": "а́йнла:дэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳамсояи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Sind Sie neu hier?",
+          "cueTranslation": "Салом! Шумо ин ҷо навед?",
+          "intent": "Бигӯ: ҳа, ман нав ҳастам",
+          "text": "Ja, ich bin neu.",
+          "accepts": [
+            "Ja.",
+            "Ja, ich wohne jetzt hier."
+          ],
+          "translation": "Ҳа, ман нав ҳастам.",
+          "literal": "йа: ихь бин ной",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich bin Frau Becker.",
+          "cueTranslation": "Ман хонум Беккер.",
+          "intent": "Бигӯ: шодам",
+          "text": "Freut mich.",
+          "accepts": [
+            "Freut mich sehr."
+          ],
+          "translation": "Шодам.",
+          "literal": "фройт михь",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Welche Wohnung?",
+          "cueTranslation": "Кадом хона?",
+          "intent": "Бигӯ: ошёнаи дуюм",
+          "text": "Zweiter Stock.",
+          "accepts": [
+            "Im zweiten Stock."
+          ],
+          "translation": "Ошёнаи дуюм.",
+          "literal": "цва́йта шток",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wohne hier",
+          "translation": "Ин ҷо зиндагӣ мекунам",
+          "literal": "во́:нэ ҳи:а",
+          "note": "Кӯтоҳ аз «Ich wohne hier».",
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zweiter Stock",
+          "translation": "Ошёнаи дуюм",
+          "literal": "цва́йта шток",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Zu laut",
+          "translation": "Хеле баланд",
+          "literal": "цу: лаут",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein Problem",
+          "translation": "Мушкил нест",
+          "literal": "кайн проблэ́:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommen Sie!",
+          "translation": "Биёед!",
+          "literal": "ко́мэн зи:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Gern",
+          "translation": "бо хурсандӣ",
+          "literal": "гэрн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Садо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Entschuldigung, es ist zu laut.",
+          "cueTranslation": "Бубахшед, хеле баланд аст.",
+          "intent": "Бигӯ: бубахшед",
+          "text": "Entschuldigung!",
+          "accepts": [
+            "Oh, das tut mir leid."
+          ],
+          "translation": "Бубахшед!",
+          "literal": "энтшу́лдигунг",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mein Baby schläft.",
+          "cueTranslation": "Кӯдакам хоб аст.",
+          "intent": "Бигӯ: мо ором мешавем",
+          "text": "Wir sind leise.",
+          "accepts": [
+            "Okay, wir sind jetzt leise."
+          ],
+          "translation": "Мо ором мешавем.",
+          "literal": "ви:а зинт ла́йзэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Kein Problem.",
+          "accepts": [
+            "Gerne."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "кайн проблэ́:м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Бо ҳамсоя",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich bin Ihr Nachbar.",
+          "translation": "Ман ҳамсояи шумо ҳастам.",
+          "literal": "ихь бин и:а на́хба:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Haben Sie ein Werkzeug?",
+          "translation": "Асбоб доред?",
+          "literal": "ҳа́:бэн зи: айн вэ́ркцойк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich brauche Hilfe.",
+          "translation": "Ба ман ёрӣ лозим.",
+          "literal": "ихь бра́ухэ ҳи́лфэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Ihr Paket.",
+          "translation": "Бастаи шуморо дорам.",
+          "literal": "ихь ҳа́:бэ и:а пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommen Sie zum Tee!",
+          "translation": "Ба чой биёед!",
+          "literal": "ко́мэн зи: цум тэ:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist sehr nett.",
+          "translation": "Ин хеле хуб аст.",
+          "literal": "дас ист зэ:а нэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бастаи ҳамсоя",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Ja, bitte?",
+          "cueTranslation": "Салом! Ҳа, лутфан?",
+          "intent": "Бигӯ: бастаатон назди ман аст",
+          "text": "Ihr Paket ist bei mir.",
+          "accepts": [
+            "Ich habe Ihr Paket."
+          ],
+          "translation": "Бастаатон назди ман аст.",
+          "literal": "и:а пакэ́:т ист бай ми:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, danke! Das ist nett.",
+          "cueTranslation": "О, ташаккур! Хеле хуб.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Kein Problem.",
+          "accepts": [
+            "Gerne."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "кайн проблэ́:м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Möchten Sie einen Tee?",
+          "cueTranslation": "Чой мехоҳед?",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne!",
+          "accepts": [
+            "Ja, gerne!",
+            "Danke, gerne."
+          ],
+          "translation": "Бо хурсандӣ!",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Даъват",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wir haben ein Fest.",
+          "translation": "Мо ҷашн дорем.",
+          "literal": "ви:а ҳа́:бэн айн фэст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Am Samstag um sechs.",
+          "translation": "Шанбе соати шаш.",
+          "literal": "ам за́мста:к ум зэкс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kommen Sie zum Essen!",
+          "translation": "Ба хӯрок биёед!",
+          "literal": "ко́мэн зи: цум э́сэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich koche Plov.",
+          "translation": "Ман палав мепазам.",
+          "literal": "ихь ко́хэ плов",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bringen Sie nichts mit.",
+          "translation": "Чизе наоред.",
+          "literal": "бри́нгэн зи: нихьц мит",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Wir freuen uns!",
+          "translation": "Мо шод мешавем!",
+          "literal": "ви:а фро́йэн унс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ба палав биёед!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Wie geht's?",
+          "cueTranslation": "Салом! Чӣ хел?",
+          "intent": "Бигӯ: шанбе ҷашн дорем",
+          "text": "Am Samstag haben wir ein Fest.",
+          "accepts": [
+            "Wir haben ein Fest."
+          ],
+          "translation": "Шанбе ҷашн дорем.",
+          "literal": "ам за́мста:к ҳа́:бэн ви:а айн фэст",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Oh, schön!",
+          "cueTranslation": "О, хуб!",
+          "intent": "Бигӯ: ба хӯрок биёед!",
+          "text": "Kommen Sie zum Essen!",
+          "accepts": [
+            "Kommen Sie!"
+          ],
+          "translation": "Ба хӯрок биёед!",
+          "literal": "ко́мэн зи: цум э́сэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gerne! Um wie viel Uhr?",
+          "cueTranslation": "Бо хурсандӣ! Соати чанд?",
+          "intent": "Бигӯ: соати шаш",
+          "text": "Um sechs Uhr.",
+          "accepts": [
+            "Um sechs."
+          ],
+          "translation": "Соати шаш.",
+          "literal": "ум зэкс у:а",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: шиносоӣ бо ҳамсоя",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Sind Sie neu?",
+          "cueTranslation": "Салом! Навед?",
+          "intent": "Бигӯ: ҳа, ман ҳамсояи шумо ҳастам",
+          "text": "Ja, ich bin Ihr Nachbar.",
+          "accepts": [
+            "Ja, ich bin neu."
+          ],
+          "translation": "Ҳа, ман ҳамсояи шумо ҳастам.",
+          "literal": "йа: ихь бин и:а на́хба:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich bin Frau Becker. Freut mich!",
+          "cueTranslation": "Ман хонум Беккер. Шодам!",
+          "intent": "Бигӯ: ман ҳам шодам",
+          "text": "Freut mich auch.",
+          "accepts": [
+            "Mich auch."
+          ],
+          "translation": "Ман ҳам шодам.",
+          "literal": "фройт михь аух",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Brauchen Sie Hilfe?",
+          "cueTranslation": "Ёрӣ лозим?",
+          "intent": "Бигӯ: не, ташаккур",
+          "text": "Nein, danke.",
+          "accepts": [
+            "Jetzt nicht, danke."
+          ],
+          "translation": "Не, ташаккур.",
+          "literal": "найн да́нкэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Schönen Tag!",
+          "cueTranslation": "Хуб. Рӯзи хуш!",
+          "intent": "Бигӯ: ба шумо ҳам",
+          "text": "Ihnen auch!",
+          "accepts": [
+            "Danke, Ihnen auch!"
+          ],
+          "translation": "Ба шумо ҳам!",
+          "literal": "и́:нэн аух",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

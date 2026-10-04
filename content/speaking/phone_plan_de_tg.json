@@ -1,0 +1,546 @@
+{
+  "slug": "phone_plan_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Handy und Internet",
+    "titleTranslated": "Телефон ва интернет",
+    "scenario": "Шумо SIM-корт ва интернет мехаред: тарифро мепурсед, чанд гигабайт ва чанд пул, рақами нав мегиред ва мегӯед, ки интернет кор намекунад.",
+    "emoji": "📶",
+    "order": 9,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Handy",
+          "translation": "телефони мобилӣ",
+          "literal": "ҳэ́нди",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "SIM-Karte",
+          "translation": "SIM-корт",
+          "literal": "зи́мкартэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Tarif",
+          "translation": "тариф",
+          "literal": "тари́:ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Guthaben",
+          "translation": "баланс (пул дар телефон)",
+          "literal": "гу́:тҳа:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Netz",
+          "translation": "шабака",
+          "literal": "нэц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Aufladen",
+          "translation": "пур кардан (пул)",
+          "literal": "а́уфла:дэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "SIM-корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was suchen Sie?",
+          "cueTranslation": "Салом! Чӣ меҷӯед?",
+          "intent": "Бигӯ: SIM-корт",
+          "text": "Eine SIM-Karte.",
+          "accepts": [
+            "Ich brauche eine SIM-Karte."
+          ],
+          "translation": "SIM-корт.",
+          "literal": "а́йнэ зи́мкартэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mit Vertrag?",
+          "cueTranslation": "Бо шартнома?",
+          "intent": "Бигӯ: не, бе шартнома",
+          "text": "Nein, ohne Vertrag.",
+          "accepts": [
+            "Ohne Vertrag, bitte."
+          ],
+          "translation": "Не, бе шартнома.",
+          "literal": "найн о́:нэ фэатра́:к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihren Pass, bitte.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ohne Vertrag",
+          "translation": "Бе шартнома",
+          "literal": "о́:нэ фэатра́:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Zehn Gigabyte",
+          "translation": "Даҳ гигабайт",
+          "literal": "цэ:н ги́:габайт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Pro Monat",
+          "translation": "Дар як моҳ",
+          "literal": "про: мо́:нат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein Netz",
+          "translation": "Шабака нест",
+          "literal": "кайн нэц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwanzig Euro",
+          "translation": "Бист евро",
+          "literal": "цва́нцихь о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Neue Nummer",
+          "translation": "Рақами нав",
+          "literal": "но́йэ ну́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Тариф",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dieser Tarif ist gut.",
+          "cueTranslation": "Ин тариф хуб аст.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Was kostet das?",
+          "accepts": [
+            "Wie viel kostet der Tarif?"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "вас ко́стэт дас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Zehn Euro pro Monat.",
+          "cueTranslation": "Даҳ евро дар як моҳ.",
+          "intent": "Бипурс: чанд гигабайт?",
+          "text": "Wie viele Gigabyte?",
+          "accepts": [
+            "Wie viel Internet?"
+          ],
+          "translation": "Чанд гигабайт?",
+          "literal": "ви: фи́:лэ ги́:габайт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwanzig Gigabyte.",
+          "cueTranslation": "Бист гигабайт.",
+          "intent": "Бигӯ: хуб, инро мегирам",
+          "text": "Gut, das nehme ich.",
+          "accepts": [
+            "Okay, ich nehme das."
+          ],
+          "translation": "Хуб, инро мегирам.",
+          "literal": "гу:т дас нэ́:мэ ихь",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich brauche Internet.",
+          "translation": "Ба ман интернет лозим.",
+          "literal": "ихь бра́ухэ и́нтанэт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Anrufe nach Tadschikistan?",
+          "translation": "Занг ба Тоҷикистон?",
+          "literal": "а́нру:фэ на:х таджикиста́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich möchte aufladen.",
+          "translation": "Пул гузоштан мехоҳам.",
+          "literal": "ихь мё́хьтэ а́уфла:дэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Internet geht nicht.",
+          "translation": "Интернетам кор намекунад.",
+          "literal": "майн и́нтанэт гэ:т нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie ist meine Nummer?",
+          "translation": "Рақами ман чӣ?",
+          "literal": "ви: ист ма́йнэ ну́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe kein Netz.",
+          "translation": "Шабака надорам.",
+          "literal": "ихь ҳа́:бэ кайн нэц",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Занг ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Noch Fragen?",
+          "cueTranslation": "Боз савол?",
+          "intent": "Бипурс: ба Тоҷикистон занг зада метавонам?",
+          "text": "Kann ich nach Tadschikistan anrufen?",
+          "accepts": [
+            "Auch nach Tadschikistan?"
+          ],
+          "translation": "Ба Тоҷикистон занг зада метавонам?",
+          "literal": "кан ихь на:х таджикиста́:н а́нру:фэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, aber das kostet extra.",
+          "cueTranslation": "Ҳа, аммо алоҳида пул аст.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "Wie viel?",
+          "accepts": [
+            "Was kostet das?"
+          ],
+          "translation": "Чанд?",
+          "literal": "ви: фи:л",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zehn Cent pro Minute.",
+          "cueTranslation": "Даҳ сент дар як дақиқа.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Интернет кор намекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das Internet ist langsam.",
+          "translation": "Интернет суст аст.",
+          "literal": "дас и́нтанэт ист ла́нгза:м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich habe Guthaben.",
+          "translation": "Ман баланс дорам.",
+          "literal": "ихь ҳа́:бэ гу́:тҳа:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte prüfen Sie das.",
+          "translation": "Лутфан инро санҷед.",
+          "literal": "би́тэ прю́:фэн зи: дас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Handy neu starten?",
+          "translation": "Телефонро аз нав фурӯзонам?",
+          "literal": "ҳэ́нди ной шта́ртэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Jetzt geht es.",
+          "translation": "Ҳоло кор мекунад.",
+          "literal": "йэцт гэ:т эс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Vielen Dank!",
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мушкил",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist das Problem?",
+          "cueTranslation": "Мушкил чист?",
+          "intent": "Бигӯ: интернетам кор намекунад",
+          "text": "Mein Internet geht nicht.",
+          "accepts": [
+            "Kein Internet."
+          ],
+          "translation": "Интернетам кор намекунад.",
+          "literal": "майн и́нтанэт гэ:т нихьт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie Guthaben?",
+          "cueTranslation": "Баланс доред?",
+          "intent": "Бигӯ: ҳа, баланс дорам",
+          "text": "Ja, ich habe Guthaben.",
+          "accepts": [
+            "Ja."
+          ],
+          "translation": "Ҳа, баланс дорам.",
+          "literal": "йа: ихь ҳа́:бэ гу́:тҳа:бэн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Starten Sie das Handy neu.",
+          "cueTranslation": "Телефонро аз нав фурӯзон кунед.",
+          "intent": "Бигӯ: ҳоло кор мекунад, ташаккур!",
+          "text": "Jetzt geht es, danke!",
+          "accepts": [
+            "Danke, jetzt geht es."
+          ],
+          "translation": "Ҳоло кор мекунад, ташаккур!",
+          "literal": "йэцт гэ:т эс да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: SIM-корти нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Kann ich helfen?",
+          "cueTranslation": "Салом! Ёрӣ диҳам?",
+          "intent": "Бигӯ: ба ман SIM-корт лозим",
+          "text": "Ich brauche eine SIM-Karte.",
+          "accepts": [
+            "Eine SIM-Karte, bitte."
+          ],
+          "translation": "Ба ман SIM-корт лозим.",
+          "literal": "ихь бра́ухэ а́йнэ зи́мкартэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Mit Vertrag oder ohne?",
+          "cueTranslation": "Бо шартнома ё бе?",
+          "intent": "Бигӯ: бе шартнома",
+          "text": "Ohne Vertrag.",
+          "accepts": [
+            "Ohne, bitte."
+          ],
+          "translation": "Бе шартнома.",
+          "literal": "о́:нэ фэатра́:к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zehn Euro, zwanzig Gigabyte.",
+          "cueTranslation": "Даҳ евро, бист гигабайт.",
+          "intent": "Бигӯ: хуб, инро мегирам",
+          "text": "Gut, das nehme ich.",
+          "accepts": [
+            "Okay, ich nehme das."
+          ],
+          "translation": "Хуб, инро мегирам.",
+          "literal": "гу:т дас нэ́:мэ ихь",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihren Pass, bitte.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "slug": "money_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Geld schicken",
+    "titleTranslated": "Пул ва фиристодан ба хона",
+    "scenario": "Шумо ба оила пул мефиристед: ба нуқтаи интиқоли пул меравед, мегӯед чанд пул ва ба кӣ, қурбро мепурсед ва рамзи интиқолро мегиред.",
+    "emoji": "💱",
+    "order": 11,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Geld",
+          "translation": "пул",
+          "literal": "гэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Schicken",
+          "translation": "фиристодан",
+          "literal": "ши́кэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Empfänger",
+          "translation": "гиранда",
+          "literal": "эмпфэ́нга",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Gebühr",
+          "translation": "ҳаққи хизмат",
+          "literal": "гэбю́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kurs",
+          "translation": "қурб",
+          "literal": "курс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Code",
+          "translation": "рамз",
+          "literal": "ко:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пул мефиристам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was möchten Sie?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: пул фиристодан мехоҳам",
+          "text": "Ich möchte Geld schicken.",
+          "accepts": [
+            "Geld schicken, bitte."
+          ],
+          "translation": "Пул фиристодан мехоҳам.",
+          "literal": "ихь мё́хьтэ гэлт ши́кэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wohin?",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бигӯ: ба Тоҷикистон",
+          "text": "Nach Tadschikistan.",
+          "accepts": [
+            "Tadschikistan."
+          ],
+          "translation": "Ба Тоҷикистон.",
+          "literal": "на:х таджикиста́:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viel?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: дусад евро",
+          "text": "Zweihundert Euro.",
+          "accepts": [
+            "Zweihundert."
+          ],
+          "translation": "Дусад евро.",
+          "literal": "цва́йҳундат о́йро",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Zweihundert Euro",
+          "translation": "Дусад евро",
+          "literal": "цва́йҳундат о́йро",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Gebühr?",
+          "translation": "Ҳаққи хизмат?",
+          "literal": "ди: гэбю́:а",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Kurs?",
+          "translation": "Қурб?",
+          "literal": "дэ:а курс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Mutter",
+          "translation": "Модарам",
+          "literal": "ма́йнэ му́та",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Name?",
+          "translation": "Номи ӯ?",
+          "literal": "и:а на́:мэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Code",
+          "translation": "Рамз",
+          "literal": "дэ:а ко:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳаққи хизмат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Zweihundert Euro nach Tadschikistan.",
+          "cueTranslation": "Дусад евро ба Тоҷикистон.",
+          "intent": "Бипурс: ҳаққи хизмат чанд?",
+          "text": "Wie hoch ist die Gebühr?",
+          "accepts": [
+            "Was kostet das?"
+          ],
+          "translation": "Ҳаққи хизмат чанд?",
+          "literal": "ви: ҳо:х ист ди: гэбю́:а",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Fünf Euro.",
+          "cueTranslation": "Панҷ евро.",
+          "intent": "Бипурс: қурб чанд?",
+          "text": "Wie ist der Kurs?",
+          "accepts": [
+            "Und der Kurs?"
+          ],
+          "translation": "Қурб чанд?",
+          "literal": "ви: ист дэ:а курс",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Der Kurs ist gut heute.",
+          "cueTranslation": "Имрӯз қурб хуб аст.",
+          "intent": "Бигӯ: хуб",
+          "text": "Gut.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб.",
+          "literal": "гу:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Маълумоти гиранда",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das ist für Mama.",
+          "translation": "Ин барои модарам.",
+          "literal": "дас ист фю:а ма́ма",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ihr Name ist Zarina.",
+          "translation": "Номи ӯ Зарина.",
+          "literal": "и:а на́:мэ ист зари́:на",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Sie wohnt in Duschanbe.",
+          "translation": "Ӯ дар Душанбе зиндагӣ мекунад.",
+          "literal": "зи: во:нт ин душанбэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann kommt das Geld?",
+          "translation": "Пул кай мерасад?",
+          "literal": "ван комт дас гэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist mein Pass.",
+          "translation": "Мана шиносномаам.",
+          "literal": "ҳи:а ист майн пас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitte den Code.",
+          "translation": "Рамз, лутфан.",
+          "literal": "би́тэ дэ:н ко:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба кӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Wer ist der Empfänger?",
+          "cueTranslation": "Гиранда кист?",
+          "intent": "Бигӯ: модарам",
+          "text": "Meine Mutter.",
+          "accepts": [
+            "Das Geld ist für meine Mutter."
+          ],
+          "translation": "Модарам.",
+          "literal": "ма́йнэ му́та",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie heißt sie?",
+          "cueTranslation": "Номаш чист?",
+          "intent": "Бигӯ: Зарина Каримова",
+          "text": "Zarina Karimova.",
+          "accepts": [
+            "Ihr Name ist Zarina Karimova."
+          ],
+          "translation": "Зарина Каримова.",
+          "literal": "зари́:на кари́:мова",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "In welcher Stadt?",
+          "cueTranslation": "Дар кадом шаҳр?",
+          "intent": "Бигӯ: Душанбе",
+          "text": "Duschanbe.",
+          "accepts": [
+            "In Duschanbe."
+          ],
+          "translation": "Душанбе.",
+          "literal": "душанбэ́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Рамз ва вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wann kommt es an?",
+          "translation": "Кай мерасад?",
+          "literal": "ван комт эс ан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "In zehn Minuten.",
+          "translation": "Баъди даҳ дақиқа.",
+          "literal": "ин цэ:н мину́:тэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist der Code.",
+          "translation": "Мана рамз.",
+          "literal": "ҳи:а ист дэ:а ко:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich schicke den Code.",
+          "translation": "Рамзро мефиристам.",
+          "literal": "ихь ши́кэ дэ:н ко:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ist das sicher?",
+          "translation": "Ин бехатар аст?",
+          "literal": "ист дас зи́хьа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bis nächsten Monat!",
+          "translation": "То моҳи оянда!",
+          "literal": "бис нэ́:хьстэн мо́:нат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Рамз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fertig. Hier ist der Code.",
+          "cueTranslation": "Тайёр. Мана рамз.",
+          "intent": "Бипурс: пул кай мерасад?",
+          "text": "Wann kommt das Geld?",
+          "accepts": [
+            "Wann kommt es an?"
+          ],
+          "translation": "Пул кай мерасад?",
+          "literal": "ван комт дас гэлт",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "In zehn Minuten.",
+          "cueTranslation": "Баъди даҳ дақиқа.",
+          "intent": "Бипурс: ин бехатар аст?",
+          "text": "Ist das sicher?",
+          "accepts": [
+            "Sicher?"
+          ],
+          "translation": "Ин бехатар аст?",
+          "literal": "ист дас зи́хьа",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ja, sehr sicher.",
+          "cueTranslation": "Ҳа, хеле бехатар.",
+          "intent": "Ташаккур гӯй",
+          "text": "Vielen Dank!",
+          "accepts": [
+            "Danke!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "фи́:лэн данк",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: пул ба модар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was möchten Sie?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: пул ба Тоҷикистон фиристодан мехоҳам",
+          "text": "Ich möchte Geld nach Tadschikistan schicken.",
+          "accepts": [
+            "Geld schicken, bitte."
+          ],
+          "translation": "Ба Тоҷикистон пул фиристодан мехоҳам.",
+          "literal": "ихь мё́хьтэ гэлт на:х таджикиста́:н ши́кэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wie viel?",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: дусад евро",
+          "text": "Zweihundert Euro.",
+          "accepts": [
+            "Zweihundert."
+          ],
+          "translation": "Дусад евро.",
+          "literal": "цва́йҳундат о́йро",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Für wen?",
+          "cueTranslation": "Барои кӣ?",
+          "intent": "Бигӯ: барои модарам",
+          "text": "Für meine Mutter.",
+          "accepts": [
+            "Meine Mutter."
+          ],
+          "translation": "Барои модарам.",
+          "literal": "фю:а ма́йнэ му́та",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Hier ist der Code.",
+          "cueTranslation": "Хуб. Мана рамз.",
+          "intent": "Бипурс: пул кай мерасад?",
+          "text": "Wann kommt das Geld?",
+          "accepts": [
+            "Wann kommt es an?"
+          ],
+          "translation": "Пул кай мерасад?",
+          "literal": "ван комт дас гэлт",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

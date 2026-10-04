@@ -1,0 +1,546 @@
+{
+  "slug": "post_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Bei der Post",
+    "titleTranslated": "Дар почта",
+    "scenario": "Шумо ба почта меравед: баста ба Тоҷикистон мефиристед, мепурсед, ки чанд пул ва чанд рӯз, марка мехаред ва бастаи худро мегиред.",
+    "emoji": "📮",
+    "order": 13,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Почта",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Post",
+          "translation": "почта",
+          "literal": "пост",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Paket",
+          "translation": "баста",
+          "literal": "пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Brief",
+          "translation": "мактуб",
+          "literal": "бри:ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Briefmarke",
+          "translation": "марка",
+          "literal": "бри́:фмаркэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Schicken",
+          "translation": "фиристодан",
+          "literal": "ши́кэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Abholen",
+          "translation": "гирифтан (омада)",
+          "literal": "а́пҳо:лэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Баста мефиристам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was möchten Sie?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: ин бастаро фиристодан мехоҳам",
+          "text": "Ich möchte das Paket schicken.",
+          "accepts": [
+            "Ein Paket schicken, bitte."
+          ],
+          "translation": "Ин бастаро фиристодан мехоҳам.",
+          "literal": "ихь мё́хьтэ дас пакэ́:т ши́кэн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wohin?",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бигӯ: ба Тоҷикистон",
+          "text": "Nach Tadschikistan.",
+          "accepts": [
+            "Tadschikistan."
+          ],
+          "translation": "Ба Тоҷикистон.",
+          "literal": "на:х таджикиста́:н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Das kostet dreißig Euro.",
+          "cueTranslation": "Сӣ евро мешавад.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut, danke."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ein Paket",
+          "translation": "Як баста",
+          "literal": "айн пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Eine Briefmarke",
+          "translation": "Як марка",
+          "literal": "а́йнэ бри́:фмаркэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wie lange?",
+          "translation": "Чӣ қадар?",
+          "literal": "ви: ла́нгэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Zwei Wochen",
+          "translation": "Ду ҳафта",
+          "literal": "цвай во́хэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Mein Paket",
+          "translation": "Бастаи ман",
+          "literal": "майн пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier unterschreiben",
+          "translation": "Ин ҷо имзо кунед",
+          "literal": "ҳи:а унташра́йбэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чанд рӯз?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fertig. Noch Fragen?",
+          "cueTranslation": "Тайёр. Боз савол?",
+          "intent": "Бипурс: чӣ қадар вақт мегирад?",
+          "text": "Wie lange dauert das?",
+          "accepts": [
+            "Wie lange?"
+          ],
+          "translation": "Чӣ қадар вақт мегирад?",
+          "literal": "ви: ла́нгэ да́уат дас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwei Wochen.",
+          "cueTranslation": "Ду ҳафта.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hier unterschreiben, bitte.",
+          "cueTranslation": "Ин ҷо имзо кунед, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Hier?"
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар почта",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Was kostet ein Brief?",
+          "translation": "Мактуб чанд пул?",
+          "literal": "вас ко́стэт айн бри:ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Eine Briefmarke, bitte.",
+          "translation": "Як марка, лутфан.",
+          "literal": "а́йнэ бри́:фмаркэ би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich hole ein Paket.",
+          "translation": "Бастаеро мегирам.",
+          "literal": "ихь ҳо́:лэ айн пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist der Zettel.",
+          "translation": "Мана коғаз.",
+          "literal": "ҳи:а ист дэ:а цэ́тэл",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Was ist im Paket?",
+          "translation": "Дар баста чӣ ҳаст?",
+          "literal": "вас ист им пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kleidung und Geschenke.",
+          "translation": "Либос ва тӯҳфаҳо.",
+          "literal": "кла́йдунг унт гэшэ́нкэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Дар баста чӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist im Paket?",
+          "cueTranslation": "Дар баста чӣ ҳаст?",
+          "intent": "Бигӯ: либос ва тӯҳфаҳо",
+          "text": "Kleidung und Geschenke.",
+          "accepts": [
+            "Kleidung."
+          ],
+          "translation": "Либос ва тӯҳфаҳо.",
+          "literal": "кла́йдунг унт гэшэ́нкэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ist das schwer?",
+          "cueTranslation": "Вазнин аст?",
+          "intent": "Бигӯ: панҷ кило",
+          "text": "Fünf Kilo.",
+          "accepts": [
+            "Ungefähr fünf Kilo."
+          ],
+          "translation": "Панҷ кило.",
+          "literal": "фюнф ки́:ло",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut. Noch etwas?",
+          "cueTranslation": "Хуб. Боз чизе?",
+          "intent": "Бигӯ: як марка, лутфан",
+          "text": "Eine Briefmarke, bitte.",
+          "accepts": [
+            "Nein, danke."
+          ],
+          "translation": "Як марка, лутфан.",
+          "literal": "а́йнэ бри́:фмаркэ би́тэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Баста гирифтан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich war nicht da.",
+          "translation": "Ман набудам.",
+          "literal": "ихь ва:а нихьт да:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier ist mein Ausweis.",
+          "translation": "Мана ҳуҷҷатам.",
+          "literal": "ҳи:а ист майн а́усвайс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist für mich.",
+          "translation": "Ин барои ман.",
+          "literal": "дас ист фю:а михь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist mein Paket?",
+          "translation": "Бастаи ман куҷост?",
+          "literal": "во: ист майн пакэ́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Einen Moment, bitte.",
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "а́йнэн момэ́нт би́тэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Danke, schönen Tag!",
+          "translation": "Ташаккур, рӯзи хуш!",
+          "literal": "да́нкэ шё́:нэн та:к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Коғази почта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja, bitte?",
+          "cueTranslation": "Ҳа, лутфан?",
+          "intent": "Бигӯ: бастаеро мегирам",
+          "text": "Ich hole ein Paket.",
+          "accepts": [
+            "Ich möchte ein Paket abholen."
+          ],
+          "translation": "Бастаеро мегирам.",
+          "literal": "ихь ҳо́:лэ айн пакэ́:т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie den Zettel?",
+          "cueTranslation": "Коғаз доред?",
+          "intent": "Бигӯ: ҳа, мана коғаз",
+          "text": "Ja, hier ist der Zettel.",
+          "accepts": [
+            "Ja, hier."
+          ],
+          "translation": "Ҳа, мана коғаз.",
+          "literal": "йа: ҳи:а ист дэ:а цэ́тэл",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und Ihren Ausweis?",
+          "cueTranslation": "Ва ҳуҷҷататон?",
+          "intent": "Бигӯ: мана ҳуҷҷатам",
+          "text": "Hier ist mein Ausweis.",
+          "accepts": [
+            "Hier, bitte."
+          ],
+          "translation": "Мана ҳуҷҷатам.",
+          "literal": "ҳи:а ист майн а́усвайс",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: тӯҳфа ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Was möchten Sie?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: ин бастаро ба Тоҷикистон",
+          "text": "Das Paket nach Tadschikistan.",
+          "accepts": [
+            "Ein Paket nach Tadschikistan, bitte."
+          ],
+          "translation": "Ин баста ба Тоҷикистон.",
+          "literal": "дас пакэ́:т на:х таджикиста́:н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Was ist drin?",
+          "cueTranslation": "Дарунаш чӣ?",
+          "intent": "Бигӯ: либос ва тӯҳфаҳо",
+          "text": "Kleidung und Geschenke.",
+          "accepts": [
+            "Kleidung."
+          ],
+          "translation": "Либос ва тӯҳфаҳо.",
+          "literal": "кла́йдунг унт гэшэ́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dreißig Euro, bitte.",
+          "cueTranslation": "Сӣ евро, лутфан.",
+          "intent": "Бипурс: чӣ қадар вақт мегирад?",
+          "text": "Wie lange dauert das?",
+          "accepts": [
+            "Wie lange?"
+          ],
+          "translation": "Чӣ қадар вақт мегирад?",
+          "literal": "ви: ла́нгэ да́уат дас",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Zwei Wochen.",
+          "cueTranslation": "Ду ҳафта.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Danke schön!"
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

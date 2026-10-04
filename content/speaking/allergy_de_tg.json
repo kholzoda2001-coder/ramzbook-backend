@@ -1,0 +1,547 @@
+{
+  "slug": "allergy_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Halal und Allergien",
+    "titleTranslated": "Хӯрок ва аллергия",
+    "scenario": "Меҳмон мепурсад, ки дар хӯрок чӣ ҳаст: гӯшти хук, чормағз, шир. Шумо аз ошпаз мепурсед ва дақиқ ҷавоб медиҳед, то меҳмон бемор нашавад.",
+    "emoji": "🥜",
+    "order": 18,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Таркиб",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Nüsse",
+          "translation": "чормағз",
+          "literal": "ню́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Milch",
+          "translation": "шир",
+          "literal": "милхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Ei",
+          "translation": "тухм",
+          "literal": "ай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Allergie",
+          "translation": "аллергия",
+          "literal": "алэрги́:",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Fleisch",
+          "translation": "гӯшт",
+          "literal": "флайш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Vegetarisch",
+          "translation": "бе гӯшт",
+          "literal": "вэгэта́:риш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Аллергия дорам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ich habe eine Allergie.",
+          "cueTranslation": "Ман аллергия дорам.",
+          "intent": "Бипурс: ба чӣ?",
+          "text": "Gegen was?",
+          "accepts": [
+            "Was für eine Allergie?"
+          ],
+          "translation": "Ба чӣ?",
+          "literal": "гэ́:гэн вас",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Gegen Nüsse.",
+          "cueTranslation": "Ба чормағз.",
+          "intent": "Бигӯ: аз ошпаз мепурсам",
+          "text": "Ich frage den Koch.",
+          "accepts": [
+            "Einen Moment, ich frage."
+          ],
+          "translation": "Аз ошпаз мепурсам.",
+          "literal": "ихь фра́:гэ дэ:н кох",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: як лаҳза",
+          "text": "Einen Moment.",
+          "accepts": [
+            "Moment, bitte."
+          ],
+          "translation": "Як лаҳза.",
+          "literal": "а́йнэн момэ́нт",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ohne Nüsse",
+          "translation": "Бе чормағз",
+          "literal": "о́:нэ ню́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mit Milch",
+          "translation": "Бо шир",
+          "literal": "мит милхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein Schwein",
+          "translation": "Гӯшти хук нест",
+          "literal": "кайн швайн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Nur Gemüse",
+          "translation": "Танҳо сабзавот",
+          "literal": "ну:а гэмю́:зэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ganz sicher",
+          "translation": "Комилан дуруст",
+          "literal": "ганц зи́хьа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kein Ei",
+          "translation": "Тухм нест",
+          "literal": "кайн ай",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Гӯшти хук?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ist da Schwein drin?",
+          "cueTranslation": "Дар ин гӯшти хук ҳаст?",
+          "intent": "Бигӯ: не, гӯшти хук нест",
+          "text": "Nein, kein Schwein.",
+          "accepts": [
+            "Nein, das ist Hähnchen."
+          ],
+          "translation": "Не, гӯшти хук нест.",
+          "literal": "найн кайн швайн",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sind Sie sicher?",
+          "cueTranslation": "Боварӣ доред?",
+          "intent": "Бигӯ: ҳа, комилан дуруст",
+          "text": "Ja, ganz sicher.",
+          "accepts": [
+            "Ja, sicher.",
+            "Ja, der Koch sagt das."
+          ],
+          "translation": "Ҳа, комилан дуруст.",
+          "literal": "йа: ганц зи́хьа",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, danke.",
+          "cueTranslation": "Хуб, ташаккур.",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Bitte."
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман аз ошпаз мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ist das ohne Nüsse?",
+          "translation": "Ин бе чормағз аст?",
+          "literal": "ист дас о́:нэ ню́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Das hat Milch.",
+          "translation": "Ин шир дорад.",
+          "literal": "дас ҳат милхь",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist vegetarisch.",
+          "translation": "Ин бе гӯшт аст.",
+          "literal": "дас ист вэгэта́:риш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist Rindfleisch.",
+          "translation": "Ин гӯшти гов аст.",
+          "literal": "дас ист ри́нтфлайш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich frage noch einmal.",
+          "translation": "Боз як бор мепурсам.",
+          "literal": "ихь фра́:гэ нох а́йнма:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist nicht gut.",
+          "translation": "Ин хуб нест.",
+          "literal": "дас ист нихьт гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба ошпаз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ja? Was ist?",
+          "cueTranslation": "Ҳа? Чӣ гап?",
+          "intent": "Бипурс: ин бе чормағз аст?",
+          "text": "Ist das ohne Nüsse?",
+          "accepts": [
+            "Sind da Nüsse drin?"
+          ],
+          "translation": "Ин бе чормағз аст?",
+          "literal": "ист дас о́:нэ ню́сэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nein, da sind Nüsse drin.",
+          "cueTranslation": "Не, дар он чормағз ҳаст.",
+          "intent": "Бигӯ: меҳмон аллергия дорад",
+          "text": "Der Gast hat eine Allergie.",
+          "accepts": [
+            "Der Gast hat Allergie."
+          ],
+          "translation": "Меҳмон аллергия дорад.",
+          "literal": "дэ:а гаст ҳат а́йнэ алэрги́:",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dann nimm den Salat.",
+          "cueTranslation": "Пас салатро бигир.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҷавоб ба меҳмон",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Das hat leider Nüsse.",
+          "translation": "Мутаассифона чормағз дорад.",
+          "literal": "дас ҳат ла́йда ню́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Der Salat ist gut.",
+          "translation": "Салат хуб аст.",
+          "literal": "дэ:а зала́:т ист гу:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ohne Milch geht.",
+          "translation": "Бе шир мешавад.",
+          "literal": "о́:нэ милхь гэ:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Das ist Halal.",
+          "translation": "Ин халол аст.",
+          "literal": "дас ист ҳала́:л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bringe die Liste.",
+          "translation": "Рӯйхатро меорам.",
+          "literal": "ихь бри́нгэ ди: ли́стэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Guten Appetit!",
+          "translation": "Ош шавад!",
+          "literal": "гу́:тэн апэти́:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Бехатар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Und der Kuchen?",
+          "cueTranslation": "Ва пирожни?",
+          "intent": "Бигӯ: мутаассифона чормағз дорад",
+          "text": "Das hat leider Nüsse.",
+          "accepts": [
+            "Leider mit Nüssen."
+          ],
+          "translation": "Мутаассифона чормағз дорад.",
+          "literal": "дас ҳат ла́йда ню́сэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Was ist ohne Nüsse?",
+          "cueTranslation": "Чӣ бе чормағз аст?",
+          "intent": "Бигӯ: салат хуб аст",
+          "text": "Der Salat ist gut.",
+          "accepts": [
+            "Der Salat, ohne Nüsse."
+          ],
+          "translation": "Салат хуб аст.",
+          "literal": "дэ:а зала́:т ист гу:т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Gut, einen Salat.",
+          "cueTranslation": "Хуб, як салат.",
+          "intent": "Бигӯ: ош шавад!",
+          "text": "Guten Appetit!",
+          "accepts": [
+            "Gerne, sofort."
+          ],
+          "translation": "Ош шавад!",
+          "literal": "гу́:тэн апэти́:т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: меҳмони эҳтиёткор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hallo! Ist das Halal?",
+          "cueTranslation": "Салом! Ин халол аст?",
+          "intent": "Бигӯ: ҳа, ин халол аст",
+          "text": "Ja, das ist Halal.",
+          "accepts": [
+            "Ja, Halal-Hähnchen."
+          ],
+          "translation": "Ҳа, ин халол аст.",
+          "literal": "йа: дас ист ҳала́:л",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich habe eine Allergie gegen Milch.",
+          "cueTranslation": "Ман ба шир аллергия дорам.",
+          "intent": "Бигӯ: аз ошпаз мепурсам",
+          "text": "Ich frage den Koch.",
+          "accepts": [
+            "Einen Moment, ich frage."
+          ],
+          "translation": "Аз ошпаз мепурсам.",
+          "literal": "ихь фра́:гэ дэ:н кох",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Und?",
+          "cueTranslation": "Хӯш?",
+          "intent": "Бигӯ: бе шир мешавад",
+          "text": "Ohne Milch geht.",
+          "accepts": [
+            "Ja, ohne Milch geht das."
+          ],
+          "translation": "Бе шир мешавад.",
+          "literal": "о́:нэ милхь гэ:т",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Super, danke!",
+          "cueTranslation": "Олӣ, ташаккур!",
+          "intent": "Бигӯ: бо хурсандӣ",
+          "text": "Gerne.",
+          "accepts": [
+            "Guten Appetit!"
+          ],
+          "translation": "Бо хурсандӣ.",
+          "literal": "гэ́рнэ",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

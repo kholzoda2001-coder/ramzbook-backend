@@ -1,0 +1,559 @@
+{
+  "slug": "bank_de_tg",
+  "targetLanguage": "de",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Bank und Stipendium",
+    "titleTranslated": "Бонк ва стипендия",
+    "scenario": "Шумо ба бонк меравед: ҳисоб (Konto) мекушоед, ҳуҷҷатҳоро медиҳед, корти бонкӣ мегиред ва мепурсед, ки стипендия кай меояд.",
+    "emoji": "🏦",
+    "order": 15,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Бонк",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Bank",
+          "translation": "бонк",
+          "literal": "банк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Konto",
+          "translation": "ҳисоб (дар бонк)",
+          "literal": "ко́нто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Karte",
+          "translation": "корт",
+          "literal": "ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Geld",
+          "translation": "пул",
+          "literal": "гэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Stipendium",
+          "translation": "стипендия",
+          "literal": "штипэ́ндиум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Termin",
+          "translation": "вақти қабул",
+          "literal": "тэами́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳисоб кушодан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag! Was kann ich tun?",
+          "cueTranslation": "Рӯз ба хайр! Чӣ хизмат?",
+          "intent": "Бигӯ: ман ҳисоб лозим",
+          "text": "Ich brauche ein Konto.",
+          "accepts": [
+            "Ein Konto, bitte.",
+            "Ich möchte ein Konto."
+          ],
+          "translation": "Ба ман ҳисоб лозим.",
+          "literal": "ихь бра́ухэ айн ко́нто",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Haben Sie einen Termin?",
+          "cueTranslation": "Вақти қабул доред?",
+          "intent": "Бигӯ: не",
+          "text": "Nein.",
+          "accepts": [
+            "Nein, leider nicht."
+          ],
+          "translation": "Не.",
+          "literal": "найн",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kein Problem. Bitte warten Sie.",
+          "cueTranslation": "Мушкил нест. Лутфан интизор шавед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Gut, danke.",
+            "Danke."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Mein Pass",
+          "translation": "Шиносномаи ман",
+          "literal": "майн пас",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Meine Adresse",
+          "translation": "Суроғаи ман",
+          "literal": "ма́йнэ адрэ́сэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ein Konto",
+          "translation": "Як ҳисоб",
+          "literal": "айн ко́нто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Die Karte",
+          "translation": "Корт",
+          "literal": "ди: ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Unterschrift",
+          "translation": "имзо",
+          "literal": "у́нташрифт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hier unterschreiben",
+          "translation": "Ин ҷо имзо кунед",
+          "literal": "ҳи:а унташра́йбэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Шиноснома ва суроға",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ihren Pass, bitte.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Hier ist mein Pass."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Und Ihre Adresse?",
+          "cueTranslation": "Ва суроғаатон?",
+          "intent": "Бигӯ: хобгоҳ, Berliner Straße",
+          "text": "Wohnheim, Berliner Straße.",
+          "accepts": [
+            "Ich wohne im Wohnheim.",
+            "Berliner Straße."
+          ],
+          "translation": "Хобгоҳ, кӯчаи Берлин.",
+          "literal": "во́:нҳайм бэрли́:на штра́:сэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bitte hier unterschreiben.",
+          "cueTranslation": "Лутфан ин ҷо имзо кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Okay.",
+          "accepts": [
+            "Hier?",
+            "Gut."
+          ],
+          "translation": "Хуб.",
+          "literal": "окэ́:",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо дар бонк",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ich möchte ein Konto.",
+          "translation": "Ман ҳисоб мехоҳам.",
+          "literal": "ихь мё́хьтэ айн ко́нто",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kostet das Konto Geld?",
+          "translation": "Ҳисоб пул мехоҳад?",
+          "literal": "ко́стэт дас ко́нто гэлт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Wann kommt die Karte?",
+          "translation": "Корт кай меояд?",
+          "literal": "ван комт ди: ка́ртэ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich bin Student.",
+          "translation": "Ман донишҷӯ ҳастам.",
+          "literal": "ихь бин штудэ́нт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Wo ist ein Geldautomat?",
+          "translation": "Банкомат куҷост?",
+          "literal": "во: ист айн гэ́лтаутома:т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich verstehe das nicht.",
+          "translation": "Инро намефаҳмам.",
+          "literal": "ихь фэаштэ́:э дас нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fertig! Ihr Konto ist da.",
+          "cueTranslation": "Тайёр! Ҳисобатон кушода шуд.",
+          "intent": "Бипурс: корт кай меояд?",
+          "text": "Wann kommt die Karte?",
+          "accepts": [
+            "Und die Karte?",
+            "Wann ist die Karte da?"
+          ],
+          "translation": "Корт кай меояд?",
+          "literal": "ван комт ди: ка́ртэ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "In einer Woche, per Post.",
+          "cueTranslation": "Баъди як ҳафта, бо почта.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Gut, danke.",
+          "accepts": [
+            "Okay, danke."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "гу:т да́нкэ",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Für Studenten ist es frei.",
+          "cueTranslation": "Барои донишҷӯён ройгон аст.",
+          "intent": "Бигӯ: олӣ!",
+          "text": "Super!",
+          "accepts": [
+            "Toll, danke!",
+            "Sehr gut!"
+          ],
+          "translation": "Олӣ!",
+          "literal": "зу́:па",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Стипендия",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Wann kommt das Stipendium?",
+          "translation": "Стипендия кай меояд?",
+          "literal": "ван комт дас штипэ́ндиум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Jeden Monat.",
+          "translation": "Ҳар моҳ.",
+          "literal": "йэ́:дэн мо́:нат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Das Geld kommt nicht.",
+          "translation": "Пул намеояд.",
+          "literal": "дас гэлт комт нихьт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich möchte Geld abheben.",
+          "translation": "Ман пул гирифтан мехоҳам.",
+          "literal": "ихь мё́хьтэ гэлт а́пҳэ:бэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ich möchte Geld schicken.",
+          "translation": "Ман пул фиристодан мехоҳам.",
+          "literal": "ихь мё́хьтэ гэлт ши́кэн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Nach Tadschikistan.",
+          "translation": "Ба Тоҷикистон.",
+          "literal": "на:х таджикиста́:н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Пул наомад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Was ist das Problem?",
+          "cueTranslation": "Мушкил чист?",
+          "intent": "Бигӯ: стипендия наомадааст",
+          "text": "Das Stipendium ist nicht da.",
+          "accepts": [
+            "Das Geld ist nicht da.",
+            "Kein Geld."
+          ],
+          "translation": "Стипендия наомадааст.",
+          "literal": "дас штипэ́ндиум ист нихьт да:",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Wann kommt es normal?",
+          "cueTranslation": "Одатан кай меояд?",
+          "intent": "Бигӯ: дар аввали моҳ",
+          "text": "Am Anfang vom Monat.",
+          "accepts": [
+            "Jeden Monat am Anfang.",
+            "Am ersten."
+          ],
+          "translation": "Дар аввали моҳ.",
+          "literal": "ам а́нфанг фом мо́:нат",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ich prüfe das. Moment.",
+          "cueTranslation": "Месанҷам. Як лаҳза.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Danke.",
+          "accepts": [
+            "Danke schön.",
+            "Okay, danke."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "да́нкэ",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳисоби нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Guten Tag! Wie kann ich helfen?",
+          "cueTranslation": "Рӯз ба хайр! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ман ҳисоб мехоҳам",
+          "text": "Ich möchte ein Konto.",
+          "accepts": [
+            "Ich brauche ein Konto.",
+            "Ein Konto, bitte."
+          ],
+          "translation": "Ман ҳисоб мехоҳам.",
+          "literal": "ихь мё́хьтэ айн ко́нто",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Sind Sie Student?",
+          "cueTranslation": "Шумо донишҷӯед?",
+          "intent": "Бигӯ: ҳа, ман донишҷӯ ҳастам",
+          "text": "Ja, ich bin Student.",
+          "accepts": [
+            "Ja.",
+            "Ja, Studentin."
+          ],
+          "translation": "Ҳа, ман донишҷӯ ҳастам.",
+          "literal": "йа: ихь бин штудэ́нт",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ihren Pass, bitte.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: мана",
+          "text": "Hier, bitte.",
+          "accepts": [
+            "Hier ist mein Pass.",
+            "Bitte schön."
+          ],
+          "translation": "Мана, марҳамат.",
+          "literal": "ҳи:а би́тэ",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Danke. Die Karte kommt per Post.",
+          "cueTranslation": "Ташаккур. Корт бо почта меояд.",
+          "intent": "Бипурс: кай?",
+          "text": "Wann?",
+          "accepts": [
+            "Wann kommt sie?",
+            "Wann genau?"
+          ],
+          "translation": "Кай?",
+          "literal": "ван",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
