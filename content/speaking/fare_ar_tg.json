@@ -1,0 +1,546 @@
+{
+  "slug": "fare_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "دَفْعُ الْأُجْرَة",
+    "titleTranslated": "Пардохти пули роҳ",
+    "scenario": "Сафар тамом шуд: шумо нархро мегӯед, мепурсед, ки нақд ё бо корт, бақия медиҳед, квитансия пешниҳод мекунед ва ташаккур мегӯед.",
+    "emoji": "💵",
+    "order": 8,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "أُجْرَة",
+          "translation": "пули роҳ",
+          "literal": "уҷра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "نَقْدًا",
+          "translation": "нақд",
+          "literal": "нақдан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "إِيصَال",
+          "translation": "квитансия",
+          "literal": "исал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "الْبَاقِي",
+          "translation": "бақия",
+          "literal": "ал-бақи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "رِيَال",
+          "translation": "риёл",
+          "literal": "риял",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "بَقْشِيش",
+          "translation": "чойпулӣ",
+          "literal": "бақшиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Чанд пул?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "كَمِ الْأُجْرَة؟",
+          "cueTranslation": "Пули роҳ чанд?",
+          "intent": "Бигӯ: сӣ риёл",
+          "text": "ثَلَاثُونَ رِيَالًا.",
+          "accepts": [
+            "الْأُجْرَةُ ثَلَاثُونَ رِيَالًا."
+          ],
+          "translation": "Сӣ риёл.",
+          "literal": "саласуна риялан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "بِالْبِطَاقَةِ مِنْ فَضْلِك.",
+          "cueTranslation": "Бо корт, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [
+            "لَا مُشْكِلَة."
+          ],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "شُكْرًا!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "يَوْمٌ سَعِيد!",
+          "accepts": [
+            "مَعَ السَّلَامَة!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "явмун саъид",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَمْ بِطَاقَة؟",
+          "translation": "Ё корт?",
+          "literal": "ам битақа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "ثَلَاثُونَ رِيَالًا",
+          "translation": "Сӣ риёл",
+          "literal": "саласуна риялан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذَا الْإِيصَال",
+          "translation": "Ин квитансия",
+          "literal": "ҳаза-л-исал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "خَلِّ الْبَاقِي",
+          "translation": "Бақия лозим нест",
+          "literal": "халли-л-бақи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذَا الْبَاقِي",
+          "translation": "Ин бақия",
+          "literal": "ҳаза-л-бақи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "شُكْرًا جَزِيلًا",
+          "translation": "Ташаккури зиёд",
+          "literal": "шукран ҷазилан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Нақд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَدْفَعُ نَقْدًا.",
+          "cueTranslation": "Нақд медиҳам.",
+          "intent": "Бигӯ: сӣ риёл",
+          "text": "ثَلَاثُونَ رِيَالًا.",
+          "accepts": [
+            "الْأُجْرَةُ ثَلَاثُونَ."
+          ],
+          "translation": "Сӣ риёл.",
+          "literal": "саласуна риялан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "تَفَضَّلْ خَمْسُون.",
+          "cueTranslation": "Марҳамат, панҷоҳ.",
+          "intent": "Бигӯ: ин бақия",
+          "text": "هَذَا الْبَاقِي.",
+          "accepts": [
+            "تَفَضَّلِ الْبَاقِي."
+          ],
+          "translation": "Ин бақия.",
+          "literal": "ҳаза-л-бақи",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "خَلِّ الْبَاقِي.",
+          "cueTranslation": "Бақия лозим нест.",
+          "intent": "Ташаккури зиёд гӯй",
+          "text": "شُكْرًا جَزِيلًا!",
+          "accepts": [
+            "شُكْرًا!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "шукран ҷазилан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Пардохт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "الْأُجْرَةُ أَرْبَعُونَ رِيَالًا.",
+          "translation": "Пули роҳ чил риёл.",
+          "literal": "ал-уҷрату арбаъуна риялан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "تُرِيدُ إِيصَالًا؟",
+          "translation": "Квитансия мехоҳӣ?",
+          "literal": "туриду исалан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "الْبِطَاقَةُ لَا تَعْمَل.",
+          "translation": "Корт кор намекунад.",
+          "literal": "ал-битақату ла таъмал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "عِنْدَكَ أَصْغَر؟",
+          "translation": "Пули майдатар дорӣ?",
+          "literal": "индака асғар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "لَيْسَ عِنْدِي بَاقِي.",
+          "translation": "Бақия надорам.",
+          "literal": "лайса инди бақи",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "شُكْرًا عَلَى الْبَقْشِيش!",
+          "translation": "Барои чойпулӣ ташаккур!",
+          "literal": "шукран ала-л-бақшиш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Пули калон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "عِنْدِي خَمْسُمِئَةِ رِيَالٍ فَقَط.",
+          "cueTranslation": "Ман танҳо панҷсад риёл дорам.",
+          "intent": "Бигӯ: бақия надорам",
+          "text": "لَيْسَ عِنْدِي بَاقِي.",
+          "accepts": [
+            "لِلْأَسَفِ لَا بَاقِي."
+          ],
+          "translation": "Бақия надорам.",
+          "literal": "лайса инди бақи",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "آهْ. بِالْبِطَاقَةِ مُمْكِن؟",
+          "cueTranslation": "Оҳ. Бо корт мешавад?",
+          "intent": "Бигӯ: ҳа, албатта",
+          "text": "نَعَمْ، طَبْعًا.",
+          "accepts": [
+            "نَعَمْ."
+          ],
+          "translation": "Ҳа, албатта.",
+          "literal": "наъам, табъан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "حَسَنًا، بِالْبِطَاقَة.",
+          "cueTranslation": "Хуб, бо корт.",
+          "intent": "Бипурс: квитансия мехоҳӣ?",
+          "text": "تُرِيدُ إِيصَالًا؟",
+          "accepts": [
+            "إِيصَال؟"
+          ],
+          "translation": "Квитансия мехоҳӣ?",
+          "literal": "туриду исалан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Квитансия",
+      "items": [
+        {
+          "kind": "word",
+          "text": "لِلشَّرِكَة؟",
+          "translation": "Барои ширкат?",
+          "literal": "ли-ш-шарика",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "تَفَضَّلِ الْإِيصَال.",
+          "translation": "Марҳамат, квитансия.",
+          "literal": "тафаззали-л-исал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "مَعَ التَّارِيخِ وَالسِّعْر.",
+          "translation": "Бо сана ва нарх.",
+          "literal": "маъа-т-тарихи ва-с-сиър",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "لَحْظَةً مِنْ فَضْلِك.",
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "лаҳзатан мин фазлик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "الرِّحْلَةُ كَانَتْ قَصِيرَة.",
+          "translation": "Сафар кӯтоҳ буд.",
+          "literal": "ар-риҳлату канат қасира",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "إِلَى اللِّقَاء!",
+          "translation": "То дидан!",
+          "literal": "ила-л-лиқа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Квитансия барои ширкат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَحْتَاجُ إِيصَالًا.",
+          "cueTranslation": "Ба ман квитансия лозим.",
+          "intent": "Бигӯ: як лаҳза, лутфан",
+          "text": "لَحْظَةً مِنْ فَضْلِك.",
+          "accepts": [
+            "لَحْظَة."
+          ],
+          "translation": "Як лаҳза, лутфан.",
+          "literal": "лаҳзатан мин фазлик",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "لِلشَّرِكَة.",
+          "cueTranslation": "Барои ширкат.",
+          "intent": "Бигӯ: марҳамат, квитансия",
+          "text": "تَفَضَّلِ الْإِيصَال.",
+          "accepts": [
+            "تَفَضَّلْ."
+          ],
+          "translation": "Марҳамат, квитансия.",
+          "literal": "тафаззали-л-исал",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "شُكْرًا! مَعَ السَّلَامَة!",
+          "cueTranslation": "Ташаккур! Хайр!",
+          "intent": "Бигӯ: то дидан!",
+          "text": "إِلَى اللِّقَاء!",
+          "accepts": [
+            "مَعَ السَّلَامَة!"
+          ],
+          "translation": "То дидан!",
+          "literal": "ила-л-лиқа",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: охири сафар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "وَصَلْنَا؟ كَمِ الْأُجْرَة؟",
+          "cueTranslation": "Расидем? Пули роҳ чанд?",
+          "intent": "Бигӯ: чил риёл",
+          "text": "أَرْبَعُونَ رِيَالًا.",
+          "accepts": [
+            "الْأُجْرَةُ أَرْبَعُونَ رِيَالًا."
+          ],
+          "translation": "Чил риёл.",
+          "literal": "арбаъуна риялан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "بِالْبِطَاقَةِ مِنْ فَضْلِك.",
+          "cueTranslation": "Бо корт, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [
+            "لَا مُشْكِلَة."
+          ],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "أَحْتَاجُ إِيصَالًا.",
+          "cueTranslation": "Квитансия лозим.",
+          "intent": "Бигӯ: марҳамат, квитансия",
+          "text": "تَفَضَّلِ الْإِيصَال.",
+          "accepts": [
+            "تَفَضَّلْ."
+          ],
+          "translation": "Марҳамат, квитансия.",
+          "literal": "тафаззали-л-исал",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "شُكْرًا جَزِيلًا!",
+          "cueTranslation": "Ташаккури зиёд!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "يَوْمٌ سَعِيد!",
+          "accepts": [
+            "مَعَ السَّلَامَة!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "явмун саъид",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

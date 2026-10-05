@@ -1,0 +1,546 @@
+{
+  "slug": "phone_plan_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "الْجَوَّالُ وَالْإِنْتَرْنِت",
+    "titleTranslated": "Телефон ва интернет",
+    "scenario": "Шумо SIM-корт ва интернет мехаред: тарифро мепурсед, чанд гигабайт ва чанд пул, рақами нав мегиред ва мегӯед, ки интернет кор намекунад.",
+    "emoji": "📶",
+    "order": 9,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "جَوَّال",
+          "translation": "телефони мобилӣ",
+          "literal": "ҷаввал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "شَرِيحَة",
+          "translation": "SIM-корт",
+          "literal": "шариҳа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "بَاقَة",
+          "translation": "тариф",
+          "literal": "бақа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "رَصِيد",
+          "translation": "баланс",
+          "literal": "расид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "شَبَكَة",
+          "translation": "шабака",
+          "literal": "шабака",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "شَحْن",
+          "translation": "пур кардан (баланс)",
+          "literal": "шаҳн",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "SIM-корт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَهْلًا! مَاذَا تُرِيد؟",
+          "cueTranslation": "Салом! Чӣ мехоҳӣ?",
+          "intent": "Бигӯ: SIM-корт",
+          "text": "شَرِيحَة.",
+          "accepts": [
+            "أُرِيدُ شَرِيحَة."
+          ],
+          "translation": "SIM-корт.",
+          "literal": "шариҳа",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "مُسْبَقَةُ الدَّفْع؟",
+          "cueTranslation": "Бо пешпардохт?",
+          "intent": "Бигӯ: ҳа",
+          "text": "نَعَمْ.",
+          "accepts": [
+            "نَعَمْ، مُسْبَقَة."
+          ],
+          "translation": "Ҳа.",
+          "literal": "наъам",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "الْإِقَامَةُ مِنْ فَضْلِك.",
+          "cueTranslation": "Иқома, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "تَفَضَّلْ.",
+          "accepts": [
+            "تَفَضَّلِ الْإِقَامَة."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "тафаззал",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "بَاقَةُ إِنْتَرْنِت",
+          "translation": "Тарифи интернет",
+          "literal": "бақату интернет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "عَشَرَةُ جِيجَا",
+          "translation": "Даҳ гигабайт",
+          "literal": "ашарату ҷиҷа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "كُلَّ شَهْر",
+          "translation": "Ҳар моҳ",
+          "literal": "кулла шаҳр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "لَا شَبَكَة",
+          "translation": "Шабака нест",
+          "literal": "ла шабака",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "خَمْسُونَ رِيَالًا",
+          "translation": "Панҷоҳ риёл",
+          "literal": "хамсуна риялан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "رَقْمٌ جَدِيد",
+          "translation": "Рақами нав",
+          "literal": "рақмун ҷадид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Тариф",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "هَذِهِ الْبَاقَةُ جَيِّدَة.",
+          "cueTranslation": "Ин тариф хуб аст.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "بِكَم؟",
+          "accepts": [
+            "كَمْ سِعْرُهَا؟"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "бикам",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "خَمْسُونَ رِيَالًا فِي الشَّهْر.",
+          "cueTranslation": "Панҷоҳ риёл дар моҳ.",
+          "intent": "Бипурс: чанд гигабайт?",
+          "text": "كَمْ جِيجَا؟",
+          "accepts": [
+            "كَمِ الْإِنْتَرْنِت؟"
+          ],
+          "translation": "Чанд гигабайт?",
+          "literal": "кам ҷиҷа",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "عِشْرُونَ جِيجَا.",
+          "cueTranslation": "Бист гигабайт.",
+          "intent": "Бигӯ: хуб, инро мегирам",
+          "text": "حَسَنًا، آخُذُهَا.",
+          "accepts": [
+            "حَسَنًا."
+          ],
+          "translation": "Хуб, инро мегирам.",
+          "literal": "ҳасанан, ахузуҳа",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мепурсам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَحْتَاجُ إِنْتَرْنِت.",
+          "translation": "Ба ман интернет лозим.",
+          "literal": "аҳтаҷу интернет",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "هَلْ أَتَّصِلُ بِطَاجِيكِسْتَان؟",
+          "translation": "Ба Тоҷикистон занг зада метавонам?",
+          "literal": "ҳал аттасилу битоҷикистан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "أُرِيدُ شَحْنَ الرَّصِيد.",
+          "translation": "Баланс пур кардан мехоҳам.",
+          "literal": "уриду шаҳна-р-расид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "الْإِنْتَرْنِتُ لَا يَعْمَل.",
+          "translation": "Интернет кор намекунад.",
+          "literal": "ал-интарниту ла яъмал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "مَا رَقْمِي؟",
+          "translation": "Рақами ман чӣ?",
+          "literal": "ма рақми",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "لَيْسَ عِنْدِي شَبَكَة.",
+          "translation": "Шабака надорам.",
+          "literal": "лайса инди шабака",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Занг ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "سُؤَالٌ آخَر؟",
+          "cueTranslation": "Боз савол?",
+          "intent": "Бипурс: ба Тоҷикистон занг зада метавонам?",
+          "text": "هَلْ أَتَّصِلُ بِطَاجِيكِسْتَان؟",
+          "accepts": [
+            "وَالِاتِّصَالُ بِطَاجِيكِسْتَان؟"
+          ],
+          "translation": "Ба Тоҷикистон занг зада метавонам?",
+          "literal": "ҳал аттасилу битоҷикистан",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ، لَكِنْ بِسِعْرٍ إِضَافِيّ.",
+          "cueTranslation": "Ҳа, аммо бо пули иловагӣ.",
+          "intent": "Бипурс: чанд пул?",
+          "text": "بِكَم؟",
+          "accepts": [
+            "كَمِ السِّعْر؟"
+          ],
+          "translation": "Чанд пул?",
+          "literal": "бикам",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "رِيَالٌ فِي الدَّقِيقَة.",
+          "cueTranslation": "Як риёл дар дақиқа.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "حَسَنًا، شُكْرًا.",
+          "accepts": [
+            "شُكْرًا."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "ҳасанан, шукран",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Интернет кор намекунад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "الْإِنْتَرْنِتُ بَطِيء.",
+          "translation": "Интернет суст аст.",
+          "literal": "ал-интарниту бати",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "عِنْدِي رَصِيد.",
+          "translation": "Ман баланс дорам.",
+          "literal": "инди расид",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "افْحَصْهُ مِنْ فَضْلِك.",
+          "translation": "Онро санҷ, лутфан.",
+          "literal": "ифҳасҳу мин фазлик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "أُعِيدُ تَشْغِيلَ الْجَوَّال؟",
+          "translation": "Телефонро аз нав фурӯзонам?",
+          "literal": "уъиду ташғила-л-ҷаввал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "الْآنَ يَعْمَل.",
+          "translation": "Ҳоло кор мекунад.",
+          "literal": "ал-ана яъмал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "شُكْرًا جَزِيلًا!",
+          "translation": "Ташаккури зиёд!",
+          "literal": "шукран ҷазилан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мушкил",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "مَا الْمُشْكِلَة؟",
+          "cueTranslation": "Мушкил чист?",
+          "intent": "Бигӯ: интернет кор намекунад",
+          "text": "الْإِنْتَرْنِتُ لَا يَعْمَل.",
+          "accepts": [
+            "لَا يُوجَدُ إِنْتَرْنِت."
+          ],
+          "translation": "Интернет кор намекунад.",
+          "literal": "ал-интарниту ла яъмал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "عِنْدَكَ رَصِيد؟",
+          "cueTranslation": "Баланс дорӣ?",
+          "intent": "Бигӯ: ҳа, баланс дорам",
+          "text": "نَعَمْ، عِنْدِي رَصِيد.",
+          "accepts": [
+            "نَعَمْ."
+          ],
+          "translation": "Ҳа, баланс дорам.",
+          "literal": "наъам, инди расид",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "أَعِدْ تَشْغِيلَ الْجَوَّال.",
+          "cueTranslation": "Телефонро аз нав фурӯзон кун.",
+          "intent": "Бигӯ: ҳоло кор мекунад, ташаккур!",
+          "text": "الْآنَ يَعْمَل، شُكْرًا!",
+          "accepts": [
+            "شُكْرًا، الْآنَ يَعْمَل."
+          ],
+          "translation": "Ҳоло кор мекунад, ташаккур!",
+          "literal": "ал-ана яъмал, шукран",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: SIM-корти нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَهْلًا! كَيْفَ أُسَاعِدُك؟",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: SIM-корт мехоҳам",
+          "text": "أُرِيدُ شَرِيحَة.",
+          "accepts": [
+            "شَرِيحَةٌ مِنْ فَضْلِك."
+          ],
+          "translation": "SIM-корт мехоҳам.",
+          "literal": "уриду шариҳа",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "الْإِقَامَةُ مِنْ فَضْلِك.",
+          "cueTranslation": "Иқома, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "تَفَضَّلْ.",
+          "accepts": [
+            "تَفَضَّلِ الْإِقَامَة."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "тафаззал",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "خَمْسُونَ رِيَالًا، عِشْرُونَ جِيجَا.",
+          "cueTranslation": "Панҷоҳ риёл, бист гигабайт.",
+          "intent": "Бигӯ: хуб, инро мегирам",
+          "text": "حَسَنًا، آخُذُهَا.",
+          "accepts": [
+            "حَسَنًا."
+          ],
+          "translation": "Хуб, инро мегирам.",
+          "literal": "ҳасанан, ахузуҳа",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "هَذَا رَقْمُكَ الْجَدِيد.",
+          "cueTranslation": "Ин рақами нават.",
+          "intent": "Ташаккур гӯй",
+          "text": "شُكْرًا جَزِيلًا!",
+          "accepts": [
+            "شُكْرًا!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "шукран ҷазилан",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

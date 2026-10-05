@@ -1,0 +1,547 @@
+{
+  "slug": "phone_order_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "الطَّلَبُ بِالْهَاتِف",
+    "titleTranslated": "Фармоиш бо телефон",
+    "scenario": "Тарабхона хӯрок ба хона мефиристад. Шумо занг қабул мекунед: фармоишро менависед, суроға ва рақами телефонро мепурсед ва мегӯед, ки хӯрок кай мерасад.",
+    "emoji": "📞",
+    "order": 15,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Телефон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "هَاتِف",
+          "translation": "телефон",
+          "literal": "ҳатиф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "عُنْوَان",
+          "translation": "суроға",
+          "literal": "унван",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "شَارِع",
+          "translation": "кӯча",
+          "literal": "шариъ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "حَيّ",
+          "translation": "маҳалла",
+          "literal": "ҳайй",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "تَوْصِيل",
+          "translation": "расонидан",
+          "literal": "тавсил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "اسْتِلَام",
+          "translation": "омада гирифтан",
+          "literal": "истилам",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ало!",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَلُو؟ أُرِيدُ أَنْ أَطْلُب.",
+          "cueTranslation": "Ало? Фармоиш додан мехоҳам.",
+          "intent": "Бигӯ: бо камоли майл. Чӣ мехоҳед?",
+          "text": "بِكُلِّ سُرُور. مَاذَا تُرِيد؟",
+          "accepts": [
+            "مَاذَا تُرِيد؟"
+          ],
+          "translation": "Бо камоли майл. Чӣ мехоҳед?",
+          "literal": "бикулли сурур маза турид",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "كَبْسَتَانِ مِنْ فَضْلِك.",
+          "cueTranslation": "Ду кабса, лутфан.",
+          "intent": "Бипурс: расонем ё омада мегиред?",
+          "text": "تَوْصِيلٌ أَمِ اسْتِلَام؟",
+          "accepts": [
+            "تَوْصِيل؟"
+          ],
+          "translation": "Расонем ё омада мегиред?",
+          "literal": "тавсилун ами-стилам",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "تَوْصِيلٌ مِنْ فَضْلِك.",
+          "cueTranslation": "Расонед, лутфан.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَاضِر.",
+          "accepts": [
+            "حَسَنًا."
+          ],
+          "translation": "Хуб.",
+          "literal": "ҳазир",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "الْعُنْوَانُ رَجَاءً",
+          "translation": "Суроға, лутфан",
+          "literal": "ал-унвану раҷаъан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "أَيُّ حَيّ؟",
+          "translation": "Кадом маҳалла?",
+          "literal": "айю ҳайй",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "رَقْمُ الْهَاتِف",
+          "translation": "Рақами телефон",
+          "literal": "рақму-л-ҳатиф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "مَرَّةً أُخْرَى",
+          "translation": "Боз як бор",
+          "literal": "марратан ухра",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "ثَلَاثُونَ دَقِيقَة",
+          "translation": "Сӣ дақиқа",
+          "literal": "саласуна дақиқа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "إِلَى اللِّقَاء",
+          "translation": "То дидан",
+          "literal": "ила-л-лиқа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суроға",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَسْكُنُ فِي حَيِّ النَّخِيل.",
+          "cueTranslation": "Дар маҳаллаи Нахил зиндагӣ мекунам.",
+          "intent": "Бипурс: кадом кӯча?",
+          "text": "أَيُّ شَارِع؟",
+          "accepts": [
+            "وَالشَّارِع؟"
+          ],
+          "translation": "Кадом кӯча?",
+          "literal": "айю шариъ",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "شَارِعُ الْمَلِك.",
+          "cueTranslation": "Кӯчаи Малик.",
+          "intent": "Бипурс: рақами телефонатон?",
+          "text": "رَقْمُ هَاتِفِكَ مِنْ فَضْلِك؟",
+          "accepts": [
+            "رَقْمُ الْهَاتِف؟"
+          ],
+          "translation": "Рақами телефонатон?",
+          "literal": "рақму ҳатифика мин фазлик",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "صِفْر خَمْسَة…",
+          "cueTranslation": "Сифр панҷ…",
+          "intent": "Бигӯ: оҳиста, лутфан",
+          "text": "بِبُطْءٍ مِنْ فَضْلِك.",
+          "accepts": [
+            "مَرَّةً أُخْرَى مِنْ فَضْلِك."
+          ],
+          "translation": "Оҳиста, лутфан.",
+          "literal": "бибутъин мин фазлик",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Фармоиш мегирам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "مَا عُنْوَانُك؟",
+          "translation": "Суроғаат чист?",
+          "literal": "ма унванук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "بِبُطْءٍ مِنْ فَضْلِك.",
+          "translation": "Оҳиста, лутфан.",
+          "literal": "бибутъин мин фазлик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "بَعْدَ ثَلَاثِينَ دَقِيقَة.",
+          "translation": "Баъди сӣ дақиқа.",
+          "literal": "баъда саласина дақиқа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "تَدْفَعُ نَقْدًا؟",
+          "translation": "Нақд медиҳед?",
+          "literal": "тадфаъу нақдан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "أُعِيدُ الطَّلَب.",
+          "translation": "Фармоишро такрор мекунам.",
+          "literal": "уъиду-т-талаб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "شُكْرًا عَلَى الطَّلَب.",
+          "translation": "Барои фармоиш ташаккур.",
+          "literal": "шукран ала-т-талаб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Такрор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "إِذَنْ، كَبْسَتَان؟",
+          "cueTranslation": "Пас, ду кабса?",
+          "intent": "Бигӯ: фармоишро такрор мекунам",
+          "text": "أُعِيدُ الطَّلَب.",
+          "accepts": [
+            "نَعَمْ، أُعِيدُ الطَّلَب."
+          ],
+          "translation": "Фармоишро такрор мекунам.",
+          "literal": "уъиду-т-талаб",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ، وَعَصِير.",
+          "cueTranslation": "Ҳа, ва шарбат.",
+          "intent": "Бигӯ: ду кабса ва шарбат",
+          "text": "كَبْسَتَانِ وَعَصِير.",
+          "accepts": [
+            "حَاضِر، كَبْسَتَانِ وَعَصِير."
+          ],
+          "translation": "Ду кабса ва шарбат.",
+          "literal": "кабсатани ва-асир",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "صَحِيح!",
+          "cueTranslation": "Дуруст!",
+          "intent": "Бигӯ: баъди сӣ дақиқа",
+          "text": "بَعْدَ ثَلَاثِينَ دَقِيقَة.",
+          "accepts": [
+            "ثَلَاثُونَ دَقِيقَة."
+          ],
+          "translation": "Баъди сӣ дақиқа.",
+          "literal": "баъда саласина дақиқа",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Савол аз мизоҷ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "كَمْ يَحْتَاجُ مِنْ وَقْت؟",
+          "translation": "Чӣ қадар вақт мегирад?",
+          "literal": "кам яҳтаҷу мин вақт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "هَلْ هُوَ حَارّ؟",
+          "translation": "Тунд аст?",
+          "literal": "ҳал ҳува ҳарр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "هَلْ فِيهِ لَحْم؟",
+          "translation": "Гӯшт дорад?",
+          "literal": "ҳал фиҳи лаҳм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "أَسْأَلُ بِسُرْعَة.",
+          "translation": "Зуд мепурсам.",
+          "literal": "асъалу бисуръа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "نَعَمْ، عِنْدَنَا.",
+          "translation": "Ҳа, дорем.",
+          "literal": "наъам, индана",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "لِلْأَسَفِ لَيْسَ الْيَوْم.",
+          "translation": "Афсӯс, имрӯз не.",
+          "literal": "ли-л-асафи лайса-л-явм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Тунд?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "هَلِ الْكَبْسَةُ حَارَّة؟",
+          "cueTranslation": "Кабса тунд аст?",
+          "intent": "Бигӯ: зуд мепурсам",
+          "text": "أَسْأَلُ بِسُرْعَة.",
+          "accepts": [
+            "لَحْظَة، أَسْأَل."
+          ],
+          "translation": "Зуд мепурсам.",
+          "literal": "асъалу бисуръа",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "وَ؟",
+          "cueTranslation": "Хӯш?",
+          "intent": "Бигӯ: не, тунд нест",
+          "text": "لَا، لَيْسَتْ حَارَّة.",
+          "accepts": [
+            "لَا."
+          ],
+          "translation": "Не, тунд нест.",
+          "literal": "ла, лайсат ҳарра",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "مُمْتَاز! كَمْ يَحْتَاجُ مِنْ وَقْت؟",
+          "cueTranslation": "Олӣ! Чӣ қадар вақт мегирад?",
+          "intent": "Бигӯ: сӣ дақиқа",
+          "text": "ثَلَاثُونَ دَقِيقَة.",
+          "accepts": [
+            "بَعْدَ ثَلَاثِينَ دَقِيقَة."
+          ],
+          "translation": "Сӣ дақиқа.",
+          "literal": "саласуна дақиқа",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: занги фармоиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَلُو؟ أُرِيدُ أَنْ أَطْلُب.",
+          "cueTranslation": "Ало? Фармоиш медиҳам.",
+          "intent": "Бигӯ: бо камоли майл. Чӣ мехоҳед?",
+          "text": "بِكُلِّ سُرُور. مَاذَا تُرِيد؟",
+          "accepts": [
+            "مَاذَا تُرِيد؟"
+          ],
+          "translation": "Бо камоли майл. Чӣ мехоҳед?",
+          "literal": "бикулли сурур маза турид",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "كَبْسَةٌ بِالدَّجَاج.",
+          "cueTranslation": "Кабса бо мурғ.",
+          "intent": "Бипурс: суроғаат чист?",
+          "text": "مَا عُنْوَانُك؟",
+          "accepts": [
+            "الْعُنْوَانُ مِنْ فَضْلِك؟"
+          ],
+          "translation": "Суроғаат чист?",
+          "literal": "ма унванук",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "حَيُّ النَّخِيل، شَارِعُ الْمَلِك.",
+          "cueTranslation": "Маҳаллаи Нахил, кӯчаи Малик.",
+          "intent": "Бипурс: нақд медиҳед?",
+          "text": "تَدْفَعُ نَقْدًا؟",
+          "accepts": [
+            "نَقْدًا أَمْ بِطَاقَة؟"
+          ],
+          "translation": "Нақд медиҳед?",
+          "literal": "тадфаъу нақдан",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ، نَقْدًا.",
+          "cueTranslation": "Ҳа, нақд.",
+          "intent": "Бигӯ: баъди сӣ дақиқа, ташаккур",
+          "text": "بَعْدَ ثَلَاثِينَ دَقِيقَة، شُكْرًا.",
+          "accepts": [
+            "شُكْرًا عَلَى الطَّلَب."
+          ],
+          "translation": "Баъди сӣ дақиқа, ташаккур.",
+          "literal": "баъда саласина дақиқа, шукран",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "slug": "money_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "تَحْوِيلُ الْمَال",
+    "titleTranslated": "Пул ва фиристодан ба хона",
+    "scenario": "Шумо ба оила пул мефиристед: ба нуқтаи интиқоли пул (صَرَّافَة) меравед, мегӯед чанд пул ва ба кӣ, қурбро мепурсед ва рамзи интиқолро мегиред.",
+    "emoji": "💱",
+    "order": 11,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "مَال",
+          "translation": "пул",
+          "literal": "мал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "تَحْوِيل",
+          "translation": "фиристодан, интиқол",
+          "literal": "таҳвил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "الْمُسْتَلِم",
+          "translation": "гиранда",
+          "literal": "ал-мусталим",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "رُسُوم",
+          "translation": "ҳаққи хизмат",
+          "literal": "русум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "سِعْرُ الصَّرْف",
+          "translation": "қурб",
+          "literal": "сиъру-с-сарф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "رَمْز",
+          "translation": "рамз",
+          "literal": "рамз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пул мефиристам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَهْلًا! مَاذَا تُرِيد؟",
+          "cueTranslation": "Салом! Чӣ мехоҳӣ?",
+          "intent": "Бигӯ: пул фиристодан мехоҳам",
+          "text": "أُرِيدُ تَحْوِيلَ مَال.",
+          "accepts": [
+            "تَحْوِيلٌ مِنْ فَضْلِك."
+          ],
+          "translation": "Пул фиристодан мехоҳам.",
+          "literal": "уриду таҳвила мал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "إِلَى أَيْن؟",
+          "cueTranslation": "Ба куҷо?",
+          "intent": "Бигӯ: ба Тоҷикистон",
+          "text": "إِلَى طَاجِيكِسْتَان.",
+          "accepts": [
+            "طَاجِيكِسْتَان."
+          ],
+          "translation": "Ба Тоҷикистон.",
+          "literal": "ила тоҷикистон",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "كَمْ؟",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: ҳазор риёл",
+          "text": "أَلْفُ رِيَال.",
+          "accepts": [
+            "أَلْف."
+          ],
+          "translation": "Ҳазор риёл.",
+          "literal": "алфу риял",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَلْفُ رِيَال",
+          "translation": "Ҳазор риёл",
+          "literal": "алфу риял",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "كَمِ الرُّسُوم؟",
+          "translation": "Ҳаққи хизмат чанд?",
+          "literal": "ками-р-русум",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "سِعْرُ الصَّرْف؟",
+          "translation": "Қурб чанд?",
+          "literal": "сиъру-с-сарф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "لِأُمِّي",
+          "translation": "ба модарам",
+          "literal": "лиумми",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "مَا اسْمُهَا؟",
+          "translation": "Номаш чист?",
+          "literal": "ма-смуҳа",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "الرَّمْز",
+          "translation": "рамз",
+          "literal": "ар-рамз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳаққи хизмат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَلْفُ رِيَالٍ إِلَى طَاجِيكِسْتَان.",
+          "cueTranslation": "Ҳазор риёл ба Тоҷикистон.",
+          "intent": "Бипурс: ҳаққи хизмат чанд?",
+          "text": "كَمِ الرُّسُوم؟",
+          "accepts": [
+            "بِكَمِ التَّحْوِيل؟"
+          ],
+          "translation": "Ҳаққи хизмат чанд?",
+          "literal": "ками-р-русум",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "عِشْرُونَ رِيَالًا.",
+          "cueTranslation": "Бист риёл.",
+          "intent": "Бипурс: қурб чанд?",
+          "text": "كَمْ سِعْرُ الصَّرْف؟",
+          "accepts": [
+            "وَسِعْرُ الصَّرْف؟"
+          ],
+          "translation": "Қурб чанд?",
+          "literal": "кам сиъру-с-сарф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "السِّعْرُ جَيِّدٌ الْيَوْم.",
+          "cueTranslation": "Имрӯз қурб хуб аст.",
+          "intent": "Бигӯ: хуб",
+          "text": "حَسَنًا.",
+          "accepts": [
+            "طَيِّب، شُكْرًا."
+          ],
+          "translation": "Хуб.",
+          "literal": "ҳасанан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Маълумоти гиранда",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "الْمَالُ لِأُمِّي.",
+          "translation": "Пул барои модарам.",
+          "literal": "ал-малу лиумми",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "اسْمُهَا زَرِينَة.",
+          "translation": "Номаш Зарина.",
+          "literal": "исмуҳа зарина",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "هِيَ فِي دُوشَنْبِه.",
+          "translation": "Ӯ дар Душанбе.",
+          "literal": "ҳия фи душанбе",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "مَتَى يَصِلُ الْمَال؟",
+          "translation": "Пул кай мерасад?",
+          "literal": "мата ясилу-л-мал",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذِهِ إِقَامَتِي.",
+          "translation": "Ин иқомаи ман.",
+          "literal": "ҳазиҳи иқамати",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "الرَّمْزُ مِنْ فَضْلِك.",
+          "translation": "Рамз, лутфан.",
+          "literal": "ар-рамзу мин фазлик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба кӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "مَنِ الْمُسْتَلِم؟",
+          "cueTranslation": "Гиранда кист?",
+          "intent": "Бигӯ: модарам",
+          "text": "أُمِّي.",
+          "accepts": [
+            "الْمَالُ لِأُمِّي."
+          ],
+          "translation": "Модарам.",
+          "literal": "умми",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "مَا اسْمُهَا؟",
+          "cueTranslation": "Номаш чист?",
+          "intent": "Бигӯ: Зарина Каримова",
+          "text": "زَرِينَة كَرِيمُوفَا.",
+          "accepts": [
+            "اسْمُهَا زَرِينَة."
+          ],
+          "translation": "Зарина Каримова.",
+          "literal": "зарина каримова",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "فِي أَيِّ مَدِينَة؟",
+          "cueTranslation": "Дар кадом шаҳр?",
+          "intent": "Бигӯ: Душанбе",
+          "text": "دُوشَنْبِه.",
+          "accepts": [
+            "فِي دُوشَنْبِه."
+          ],
+          "translation": "Душанбе.",
+          "literal": "душанбе",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Рамз ва вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "مَتَى يَصِل؟",
+          "translation": "Кай мерасад?",
+          "literal": "мата ясил",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "بَعْدَ عَشْرِ دَقَائِق.",
+          "translation": "Баъди даҳ дақиқа.",
+          "literal": "баъда ашри дақаиқ",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذَا هُوَ الرَّمْز.",
+          "translation": "Ин рамз.",
+          "literal": "ҳаза ҳува-р-рамз",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "أُرْسِلُ الرَّمْزَ لِأُمِّي.",
+          "translation": "Рамзро ба модарам мефиристам.",
+          "literal": "урсилу-р-рамза лиумми",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "هَلْ هَذَا آمِن؟",
+          "translation": "Ин бехатар аст?",
+          "literal": "ҳал ҳаза амин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "إِلَى الشَّهْرِ الْقَادِم!",
+          "translation": "То моҳи оянда!",
+          "literal": "ила-ш-шаҳри-л-қадим",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Рамз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "تَمَّ. هَذَا هُوَ الرَّمْز.",
+          "cueTranslation": "Тайёр. Ин рамз.",
+          "intent": "Бипурс: пул кай мерасад?",
+          "text": "مَتَى يَصِلُ الْمَال؟",
+          "accepts": [
+            "مَتَى يَصِل؟"
+          ],
+          "translation": "Пул кай мерасад?",
+          "literal": "мата ясилу-л-мал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "بَعْدَ عَشْرِ دَقَائِق.",
+          "cueTranslation": "Баъди даҳ дақиқа.",
+          "intent": "Бипурс: ин бехатар аст?",
+          "text": "هَلْ هَذَا آمِن؟",
+          "accepts": [
+            "آمِن؟"
+          ],
+          "translation": "Ин бехатар аст?",
+          "literal": "ҳал ҳаза амин",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ، آمِنٌ جِدًّا.",
+          "cueTranslation": "Ҳа, хеле бехатар.",
+          "intent": "Ташаккури зиёд гӯй",
+          "text": "شُكْرًا جَزِيلًا!",
+          "accepts": [
+            "شُكْرًا!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "шукран ҷазилан",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: пул ба модар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَهْلًا! مَاذَا تُرِيد؟",
+          "cueTranslation": "Салом! Чӣ мехоҳӣ?",
+          "intent": "Бигӯ: ба Тоҷикистон пул фиристодан мехоҳам",
+          "text": "أُرِيدُ تَحْوِيلَ مَالٍ إِلَى طَاجِيكِسْتَان.",
+          "accepts": [
+            "تَحْوِيلٌ إِلَى طَاجِيكِسْتَان."
+          ],
+          "translation": "Ба Тоҷикистон пул фиристодан мехоҳам.",
+          "literal": "уриду таҳвила малин ила тоҷикистон",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "كَمْ؟",
+          "cueTranslation": "Чанд?",
+          "intent": "Бигӯ: ҳазор риёл",
+          "text": "أَلْفُ رِيَال.",
+          "accepts": [
+            "أَلْف."
+          ],
+          "translation": "Ҳазор риёл.",
+          "literal": "алфу риял",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "لِمَن؟",
+          "cueTranslation": "Барои кӣ?",
+          "intent": "Бигӯ: барои модарам",
+          "text": "لِأُمِّي.",
+          "accepts": [
+            "الْمَالُ لِأُمِّي."
+          ],
+          "translation": "Барои модарам.",
+          "literal": "лиумми",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "حَسَنًا. هَذَا هُوَ الرَّمْز.",
+          "cueTranslation": "Хуб. Ин рамз.",
+          "intent": "Бипурс: пул кай мерасад?",
+          "text": "مَتَى يَصِلُ الْمَال؟",
+          "accepts": [
+            "مَتَى يَصِل؟"
+          ],
+          "translation": "Пул кай мерасад?",
+          "literal": "мата ясилу-л-мал",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

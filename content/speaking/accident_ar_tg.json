@@ -1,0 +1,546 @@
+{
+  "slug": "accident_ar_tg",
+  "targetLanguage": "ar",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "حَادِثٌ بَسِيط",
+    "titleTranslated": "Садамаи хурд",
+    "scenario": "Садамаи хурд: касе захмӣ нашуд, аммо мошинҳо осеб диданд. Шумо мепурсед, ки ҳама хубанд, ба полис («نَجْم» дар Саудия) занг мезанед ва бо ронандаи дигар маълумот иваз мекунед.",
+    "emoji": "💥",
+    "order": 19,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Садама",
+      "items": [
+        {
+          "kind": "word",
+          "text": "حَادِث",
+          "translation": "садама",
+          "literal": "ҳадис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "مُصَاب",
+          "translation": "захмӣ",
+          "literal": "мусаб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "شُرْطَة",
+          "translation": "полис",
+          "literal": "шурта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "تَأْمِين",
+          "translation": "суғурта",
+          "literal": "таъмин",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "ضَرَر",
+          "translation": "зарар",
+          "literal": "зарар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "صُورَة",
+          "translation": "акс",
+          "literal": "сура",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳама хуб?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "يَا إِلَهِي! حَادِث!",
+          "cueTranslation": "Худоё! Садама!",
+          "intent": "Бипурс: ту хубӣ?",
+          "text": "هَلْ أَنْتَ بِخَيْر؟",
+          "accepts": [
+            "أَنْتَ بِخَيْر؟"
+          ],
+          "translation": "Ту хубӣ?",
+          "literal": "ҳал анта бихайр",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "نَعَمْ، أَنَا بِخَيْر. وَأَنْتَ؟",
+          "cueTranslation": "Ҳа, хубам. Ва ту?",
+          "intent": "Бигӯ: ман ҳам хубам",
+          "text": "وَأَنَا بِخَيْرٍ أَيْضًا.",
+          "accepts": [
+            "الْحَمْدُ لِلَّه، بِخَيْر."
+          ],
+          "translation": "Ман ҳам хубам.",
+          "literal": "ва-ана бихайрин айзан",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "جَيِّد. نَتَّصِلُ بِالشُّرْطَة؟",
+          "cueTranslation": "Хуб. Ба полис занг занем?",
+          "intent": "Бигӯ: ҳа",
+          "text": "نَعَمْ.",
+          "accepts": [
+            "نَعَمْ، أَتَّصِلُ الْآن."
+          ],
+          "translation": "Ҳа.",
+          "literal": "наъам",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "أَنْتَ بِخَيْر؟",
+          "translation": "Ту хубӣ?",
+          "literal": "анта бихайр",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "بِدُونِ إِصَابَات",
+          "translation": "Бе захмӣ",
+          "literal": "бидуни исабат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "تَأْمِينُك؟",
+          "translation": "Суғуртаат?",
+          "literal": "таъминук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "صُورَةٌ رَجَاءً",
+          "translation": "Акс, лутфан",
+          "literal": "суратун раҷаъан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "مَا اسْمُك؟",
+          "translation": "Номат чист?",
+          "literal": "ма-смук",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "رَقْمُ هَاتِفِك",
+          "translation": "Рақами телефонат",
+          "literal": "рақму ҳатифик",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суғурта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "عِنْدَكَ تَأْمِين؟",
+          "cueTranslation": "Суғурта дорӣ?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "نَعَمْ، تَفَضَّلْ.",
+          "accepts": [
+            "نَعَمْ."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "наъам, тафаззал",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "شُكْرًا. اسْمِي سَعِيد.",
+          "cueTranslation": "Ташаккур. Номи ман Саид.",
+          "intent": "Бипурс: рақами телефонат?",
+          "text": "رَقْمُ هَاتِفِك؟",
+          "accepts": [
+            "رَقْمُكَ مِنْ فَضْلِك؟"
+          ],
+          "translation": "Рақами телефонат?",
+          "literal": "рақму ҳатифик",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "صِفْر خَمْسَة…",
+          "cueTranslation": "Сифр панҷ…",
+          "intent": "Бигӯ: оҳиста, лутфан",
+          "text": "بِبُطْءٍ مِنْ فَضْلِك.",
+          "accepts": [
+            "مَرَّةً أُخْرَى مِنْ فَضْلِك."
+          ],
+          "translation": "Оҳиста, лутфан.",
+          "literal": "бибутъин мин фазлик",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "لَا أَحَدَ مُصَاب.",
+          "translation": "Касе захмӣ нашуд.",
+          "literal": "ла аҳада мусаб",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "آخُذُ صُورَة.",
+          "translation": "Акс мегирам.",
+          "literal": "ахузу сура",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذِهِ سَيَّارَةُ الشَّرِكَة.",
+          "translation": "Ин мошини ширкат аст.",
+          "literal": "ҳазиҳи сайярату-ш-шарика",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "أَتَّصِلُ بِالشُّرْطَة.",
+          "translation": "Ба полис занг мезанам.",
+          "literal": "аттасилу би-ш-шурта",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "أَتَّصِلُ بِالْمُدِير.",
+          "translation": "Ба мудир занг мезанам.",
+          "literal": "аттасилу би-л-мудир",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "هَذَا تَأْمِينِي.",
+          "translation": "Ин суғуртаи ман.",
+          "literal": "ҳаза таъмини",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Занг ба полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "الشُّرْطَة، أَلُو؟",
+          "cueTranslation": "Полис, ало?",
+          "intent": "Бигӯ: салом, садамаи хурд",
+          "text": "مَرْحَبًا، حَادِثٌ بَسِيط.",
+          "accepts": [
+            "عِنْدِي حَادِثٌ بَسِيط."
+          ],
+          "translation": "Салом, садамаи хурд.",
+          "literal": "марҳабан, ҳадисун басит",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "هَلْ هُنَاكَ مُصَاب؟",
+          "cueTranslation": "Захмӣ ҳаст?",
+          "intent": "Бигӯ: не, касе захмӣ нашуд",
+          "text": "لَا، لَا أَحَدَ مُصَاب.",
+          "accepts": [
+            "لَا."
+          ],
+          "translation": "Не, касе захмӣ нашуд.",
+          "literal": "ла, ла аҳада мусаб",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "أَيْنَ أَنْتُم؟",
+          "cueTranslation": "Шумо куҷоед?",
+          "intent": "Бигӯ: дар кӯчаи Малик",
+          "text": "فِي شَارِعِ الْمَلِك.",
+          "accepts": [
+            "شَارِعُ الْمَلِك."
+          ],
+          "translation": "Дар кӯчаи Малик.",
+          "literal": "фи шариъи-л-малик",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ба мудир",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "عِنْدِي حَادِث.",
+          "translation": "Ман садама дорам.",
+          "literal": "инди ҳадис",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "ضَرَرٌ بَسِيطٌ فَقَط.",
+          "translation": "Танҳо зарари хурд.",
+          "literal": "зарарун баситун фақат",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "الشُّرْطَةُ هُنَا.",
+          "translation": "Полис ин ҷост.",
+          "literal": "аш-шуртату ҳуна",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "عِنْدِي صُوَر.",
+          "translation": "Ман акс дорам.",
+          "literal": "инди сувар",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "مَاذَا أَعْمَلُ الْآن؟",
+          "translation": "Ҳоло чӣ кунам?",
+          "literal": "маза аъмалу-л-ан",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "أَنَا آسِف.",
+          "translation": "Ман мебахшам (афсӯс мехӯрам).",
+          "literal": "ана асиф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Занг ба мудир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "أَلُو؟ مَا الْأَمْر؟",
+          "cueTranslation": "Ало? Чӣ гап?",
+          "intent": "Бигӯ: ман садама дорам",
+          "text": "عِنْدِي حَادِث.",
+          "accepts": [
+            "حَادِثٌ بَسِيط."
+          ],
+          "translation": "Ман садама дорам.",
+          "literal": "инди ҳадис",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "أَنْتَ بِخَيْر؟",
+          "cueTranslation": "Хубӣ?",
+          "intent": "Бигӯ: ҳа, танҳо зарари хурд",
+          "text": "نَعَمْ، ضَرَرٌ بَسِيطٌ فَقَط.",
+          "accepts": [
+            "نَعَمْ، الْحَمْدُ لِلَّه."
+          ],
+          "translation": "Ҳа, танҳо зарари хурд.",
+          "literal": "наъам, зарарун баситун фақат",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "جَيِّد. خُذْ صُوَرًا.",
+          "cueTranslation": "Хуб. Акс гир.",
+          "intent": "Бигӯ: ман акс дорам",
+          "text": "عِنْدِي صُوَر.",
+          "accepts": [
+            "نَعَمْ، عِنْدِي صُوَر."
+          ],
+          "translation": "Ман акс дорам.",
+          "literal": "инди сувар",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: зарбаи хурд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "آهْ! هَلْ أَنْتَ بِخَيْر؟",
+          "cueTranslation": "Оҳ! Ту хубӣ?",
+          "intent": "Бигӯ: ҳа, хубам. Ва ту?",
+          "text": "نَعَمْ، أَنَا بِخَيْر. وَأَنْتَ؟",
+          "accepts": [
+            "نَعَمْ. وَأَنْتَ؟"
+          ],
+          "translation": "Ҳа, хубам. Ва ту?",
+          "literal": "наъам, ана бихайр ва-анта",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "بِخَيْر. التَّأْمِينُ مِنْ فَضْلِك.",
+          "cueTranslation": "Хубам. Суғурта, лутфан.",
+          "intent": "Бигӯ: ин суғуртаи ман",
+          "text": "هَذَا تَأْمِينِي.",
+          "accepts": [
+            "تَفَضَّلْ."
+          ],
+          "translation": "Ин суғуртаи ман.",
+          "literal": "ҳаза таъмини",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "شُكْرًا. نَأْخُذُ صُوَرًا؟",
+          "cueTranslation": "Ташаккур. Акс гирем?",
+          "intent": "Бигӯ: ҳа, акс мегирам",
+          "text": "نَعَمْ، آخُذُ صُوَرًا.",
+          "accepts": [
+            "نَعَمْ، فِكْرَةٌ جَيِّدَة."
+          ],
+          "translation": "Ҳа, акс мегирам.",
+          "literal": "наъам, ахузу суваран",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "جَيِّد. وَالشُّرْطَة؟",
+          "cueTranslation": "Хуб. Ва полис?",
+          "intent": "Бигӯ: ба полис занг мезанам",
+          "text": "أَتَّصِلُ بِالشُّرْطَة.",
+          "accepts": [
+            "أَتَّصِلُ الْآن."
+          ],
+          "translation": "Ба полис занг мезанам.",
+          "literal": "аттасилу би-ш-шурта",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
