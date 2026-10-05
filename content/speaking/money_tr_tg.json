@@ -1,0 +1,546 @@
+{
+  "slug": "money_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Para ve havale",
+    "titleTranslated": "Пул ва фиристодан ба хона",
+    "scenario": "Шумо пул иваз мекунед ва ба оила дар Тоҷикистон мефиристед: қурбро мепурсед, маблағ ва номи гирандаро мегӯед ва рамзи интиқолро мегиред.",
+    "emoji": "💱",
+    "order": 11,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Пул",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Döviz",
+          "translation": "асъор",
+          "literal": "дёви́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Dolar",
+          "translation": "доллар",
+          "literal": "дола́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kur",
+          "translation": "қурб",
+          "literal": "ку́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Havale",
+          "translation": "интиқоли пул",
+          "literal": "ҳавалэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Alıcı",
+          "translation": "гиранда",
+          "literal": "алыҷы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Komisyon",
+          "translation": "комиссия",
+          "literal": "комисйо́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Иваз кардан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun?",
+          "cueTranslation": "Марҳамат?",
+          "intent": "Бигӯ: доллар иваз мекунам",
+          "text": "Dolar bozdurmak istiyorum.",
+          "accepts": [
+            "Dolar bozduracağım."
+          ],
+          "translation": "Доллар иваз кардан мехоҳам.",
+          "literal": "дола́р боздурма́к истийору́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne kadar?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: сад доллар",
+          "text": "Yüz dolar.",
+          "accepts": [
+            "Yüz."
+          ],
+          "translation": "Сад доллар.",
+          "literal": "йю́з дола́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, buyurun.",
+          "cueTranslation": "Хуб, марҳамат.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Kur ne?",
+          "translation": "Қурб чанд?",
+          "literal": "ку́р нэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yüz dolar",
+          "translation": "Сад доллар",
+          "literal": "йю́з дола́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Para göndermek",
+          "translation": "Пул фиристодан",
+          "literal": "пара́ гёндэрмэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Tacikistan'a havale",
+          "translation": "Интиқол ба Тоҷикистон",
+          "literal": "таҷикистана́ ҳавалэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Komisyon ne?",
+          "translation": "Комиссия чанд?",
+          "literal": "комисйо́н нэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Pasaport",
+          "translation": "шиноснома",
+          "literal": "пасапо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Қурб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba!",
+          "cueTranslation": "Салом!",
+          "intent": "Бипурс: қурби доллар чанд?",
+          "text": "Dolar kuru ne?",
+          "accepts": [
+            "Kur ne?"
+          ],
+          "translation": "Қурби доллар чанд?",
+          "literal": "дола́р куру́ нэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bugün kırk bir lira.",
+          "cueTranslation": "Имрӯз чилу як лира.",
+          "intent": "Бигӯ: сад доллар иваз кунед",
+          "text": "Yüz dolar bozun.",
+          "accepts": [
+            "Yüz dolar lütfen."
+          ],
+          "translation": "Сад доллар иваз кунед.",
+          "literal": "йю́з дола́р бозу́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Dört bin yüz lira.",
+          "cueTranslation": "Чор ҳазору сад лира.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Фиристодани пул",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Tacikistan'a para göndereceğim.",
+          "translation": "Ба Тоҷикистон пул мефиристам.",
+          "literal": "таҷикистана́ пара́ гёндэрэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Alıcının adı Zarina.",
+          "translation": "Номи гиранда Зарина.",
+          "literal": "алыҷыны́н ады́ зарина́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Duşanbe'de alacak.",
+          "translation": "Дар Душанбе мегирад.",
+          "literal": "душанбэдэ́ алаҷа́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Komisyon ne kadar?",
+          "translation": "Комиссия чанд?",
+          "literal": "комисйо́н нэ́ када́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne zaman ulaşır?",
+          "translation": "Кай мерасад?",
+          "literal": "нэ́ зама́н улашы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kodu yazar mısınız?",
+          "translation": "Рамзро менависед?",
+          "literal": "коду́ йаза́р мысыны́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба модар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun, kime?",
+          "cueTranslation": "Марҳамат, ба кӣ?",
+          "intent": "Бигӯ: номи гиранда Зарина",
+          "text": "Alıcının adı Zarina.",
+          "accepts": [
+            "Zarina Rahimova."
+          ],
+          "translation": "Номи гиранда Зарина.",
+          "literal": "алыҷыны́н ады́ зарина́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi şehir?",
+          "cueTranslation": "Кадом шаҳр?",
+          "intent": "Бигӯ: дар Душанбе мегирад",
+          "text": "Duşanbe'de alacak.",
+          "accepts": [
+            "Duşanbe."
+          ],
+          "translation": "Дар Душанбе мегирад.",
+          "literal": "душанбэдэ́ алаҷа́к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Ne kadar?",
+          "cueTranslation": "Хуб. Чӣ қадар?",
+          "intent": "Бигӯ: дусад доллар",
+          "text": "İki yüz dolar.",
+          "accepts": [
+            "İki yüz."
+          ],
+          "translation": "Дусад доллар.",
+          "literal": "ики́ йю́з дола́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Рамз ва комиссия",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Komisyon beş dolar.",
+          "translation": "Комиссия панҷ доллар.",
+          "literal": "комисйо́н бэ́ш дола́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Para bugün ulaşır.",
+          "translation": "Пул имрӯз мерасад.",
+          "literal": "пара́ бугю́н улашы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu sizin kodunuz.",
+          "translation": "Ин рамзи шумо.",
+          "literal": "бу́ сизи́н кодуну́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kodu annene gönder.",
+          "translation": "Рамзро ба модарат фирист.",
+          "literal": "коду́ аннэнэ́ гёндэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "İmza burada.",
+          "translation": "Имзо ин ҷо.",
+          "literal": "имза́ бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Fişi saklayın.",
+          "translation": "Чекро нигоҳ доред.",
+          "literal": "фиши́ саклайы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай мерасад?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Komisyon beş dolar.",
+          "cueTranslation": "Комиссия панҷ доллар.",
+          "intent": "Бипурс: кай мерасад?",
+          "text": "Ne zaman ulaşır?",
+          "accepts": [
+            "Ne zaman gelir?"
+          ],
+          "translation": "Кай мерасад?",
+          "literal": "нэ́ зама́н улашы́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bugün ulaşır.",
+          "cueTranslation": "Имрӯз мерасад.",
+          "intent": "Бипурс: рамзро менависед?",
+          "text": "Kodu yazar mısınız?",
+          "accepts": [
+            "Kod ne?"
+          ],
+          "translation": "Рамзро менависед?",
+          "literal": "коду́ йаза́р мысыны́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu sizin kodunuz.",
+          "cueTranslation": "Ин рамзи шумо.",
+          "intent": "Ташаккури зиёд гӯй",
+          "text": "Çok teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккури зиёд.",
+          "literal": "чо́к тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: маош ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba, buyurun.",
+          "cueTranslation": "Салом, марҳамат.",
+          "intent": "Бигӯ: ба Тоҷикистон пул мефиристам",
+          "text": "Tacikistan'a para göndereceğim.",
+          "accepts": [
+            "Havale yapacağım."
+          ],
+          "translation": "Ба Тоҷикистон пул мефиристам.",
+          "literal": "таҷикистана́ пара́ гёндэрэҷэйи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kime?",
+          "cueTranslation": "Ба кӣ?",
+          "intent": "Бигӯ: номи гиранда Зарина",
+          "text": "Alıcının adı Zarina.",
+          "accepts": [
+            "Zarina Rahimova."
+          ],
+          "translation": "Номи гиранда Зарина.",
+          "literal": "алыҷыны́н ады́ зарина́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne kadar?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: сесад доллар",
+          "text": "Üç yüz dolar.",
+          "accepts": [
+            "Üç yüz."
+          ],
+          "translation": "Сесад доллар.",
+          "literal": "ю́ч йю́з дола́р",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Bu sizin kodunuz.",
+          "cueTranslation": "Хуб. Ин рамзи шумо.",
+          "intent": "Бипурс: кай мерасад?",
+          "text": "Ne zaman ulaşır?",
+          "accepts": [
+            "Ne zaman gelir?"
+          ],
+          "translation": "Кай мерасад?",
+          "literal": "нэ́ зама́н улашы́р",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

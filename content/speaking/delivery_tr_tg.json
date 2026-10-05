@@ -1,0 +1,546 @@
+{
+  "slug": "delivery_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kurye teslimatı",
+    "titleTranslated": "Расонидани бор",
+    "scenario": "Шумо курйер ҳастед: бастаро мебаред, ба мизоҷ занг мезанед, дар даромадгоҳ ё домофон гап мезанед ва имзо мегиред.",
+    "emoji": "📦",
+    "order": 13,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Курйер",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kurye",
+          "translation": "курйер",
+          "literal": "курйэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Paket",
+          "translation": "баста",
+          "literal": "пакэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kat",
+          "translation": "қабат",
+          "literal": "ка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Daire",
+          "translation": "хонадон (квартира)",
+          "literal": "даирэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Zil",
+          "translation": "занг (дари хона)",
+          "literal": "зи́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "İmza",
+          "translation": "имзо",
+          "literal": "имза́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Домофон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kim o?",
+          "cueTranslation": "Кист?",
+          "intent": "Бигӯ: курйер, баста дорам",
+          "text": "Kurye, paketiniz var.",
+          "accepts": [
+            "Kurye geldi."
+          ],
+          "translation": "Курйер, бастаатон ҳаст.",
+          "literal": "курйэ́ пакэтини́з ва́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, açıyorum.",
+          "cueTranslation": "Хуб, мекушоям.",
+          "intent": "Бипурс: кадом қабат?",
+          "text": "Hangi kat?",
+          "accepts": [
+            "Kaçıncı kat?"
+          ],
+          "translation": "Кадом қабат?",
+          "literal": "ҳанги́ ка́т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Beşinci kat.",
+          "cueTranslation": "Қабати панҷум.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Tamam, geliyorum.",
+          "accepts": [
+            "Geliyorum."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": "тама́м гэлийору́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Paketiniz var",
+          "translation": "Бастаатон ҳаст",
+          "literal": "пакэтини́з ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Hangi kat?",
+          "translation": "Кадом қабат?",
+          "literal": "ҳанги́ ка́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Daire numarası?",
+          "translation": "Рақами хонадон?",
+          "literal": "даирэ́ нумарасы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Buraya imza",
+          "translation": "Ин ҷо имзо",
+          "literal": "бурайа́ имза́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapıya bırakayım?",
+          "translation": "Назди дар монам?",
+          "literal": "капыйа́ быракайы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "İyi günler",
+          "translation": "Рӯзи хуш",
+          "literal": "ийи́ гюнлэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Имзо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Benim paketim mi?",
+          "cueTranslation": "Салом! Бастаи ман?",
+          "intent": "Бипурс: номатон Али Йылмаз?",
+          "text": "Adınız Ali Yılmaz mı?",
+          "accepts": [
+            "Ali Bey mi?"
+          ],
+          "translation": "Номатон Али Йылмаз?",
+          "literal": "адыны́з али́ йылма́з мы́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, benim.",
+          "cueTranslation": "Ҳа, манам.",
+          "intent": "Бигӯ: ин ҷо имзо, лутфан",
+          "text": "Buraya imza lütfen.",
+          "accepts": [
+            "İmza lütfen."
+          ],
+          "translation": "Ин ҷо имзо, лутфан.",
+          "literal": "бурайа́ имза́ лютфэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Teşekkürler!",
+          "cueTranslation": "Хуб. Ташаккур!",
+          "intent": "Бигӯ: рӯзи хуш",
+          "text": "İyi günler!",
+          "accepts": [
+            "Kolay gelsin."
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "ийи́ гюнлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ба мизоҷ занг мезанам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ben kuryeyim.",
+          "translation": "Ман курйерам.",
+          "literal": "бэ́н курйэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapının önündeyim.",
+          "translation": "Дар назди дарам.",
+          "literal": "капыны́н ёнюндэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Zil çalışmıyor.",
+          "translation": "Занг кор намекунад.",
+          "literal": "зи́л чалышмыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Evde misiniz?",
+          "translation": "Дар хонаед?",
+          "literal": "эвдэ́ мисини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Komşuya bırakayım mı?",
+          "translation": "Ба ҳамсоя диҳам?",
+          "literal": "комшуйа́ быракайы́м мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yarın tekrar gelirim.",
+          "translation": "Фардо боз меоям.",
+          "literal": "йары́н тэкра́р гэлири́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Занг кор намекунад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo?",
+          "cueTranslation": "Ало?",
+          "intent": "Бигӯ: ман курйерам, дар назди дарам",
+          "text": "Kuryeyim, kapının önündeyim.",
+          "accepts": [
+            "Kapıdayım."
+          ],
+          "translation": "Курйерам, дар назди дарам.",
+          "literal": "курйэйи́м капыны́н ёнюндэйи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Zili çalın.",
+          "cueTranslation": "Зангро занед.",
+          "intent": "Бигӯ: занг кор намекунад",
+          "text": "Zil çalışmıyor.",
+          "accepts": [
+            "Zil bozuk."
+          ],
+          "translation": "Занг кор намекунад.",
+          "literal": "зи́л чалышмыйо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, iniyorum.",
+          "cueTranslation": "Хуб, мефароям.",
+          "intent": "Бигӯ: хуб, интизорам",
+          "text": "Tamam, bekliyorum.",
+          "accepts": [
+            "Bekliyorum."
+          ],
+          "translation": "Хуб, интизорам.",
+          "literal": "тама́м бэклийору́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мизоҷ дар хона нест",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Evde değilim.",
+          "translation": "Дар хона нестам.",
+          "literal": "эвдэ́ дэйили́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapıya bırakın.",
+          "translation": "Назди дар монед.",
+          "literal": "капыйа́ быракы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bırakamam, imza lazım.",
+          "translation": "Монда наметавонам, имзо лозим.",
+          "literal": "быракама́м имза́ лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne zaman evdesiniz?",
+          "translation": "Кай дар хонаед?",
+          "literal": "нэ́ зама́н эвдэсини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Akşam altıda.",
+          "translation": "Шом соати шаш.",
+          "literal": "акша́м алтыда́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Altıda gelirim.",
+          "translation": "Соати шаш меоям.",
+          "literal": "алтыда́ гэлири́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай дар хонаед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Evde değilim!",
+          "cueTranslation": "Дар хона нестам!",
+          "intent": "Бипурс: кай дар хонаед?",
+          "text": "Ne zaman evdesiniz?",
+          "accepts": [
+            "Ne zaman gelirsiniz?"
+          ],
+          "translation": "Кай дар хонаед?",
+          "literal": "нэ́ зама́н эвдэсини́з",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kapıya bırakın.",
+          "cueTranslation": "Назди дар монед.",
+          "intent": "Бигӯ: монда наметавонам, имзо лозим",
+          "text": "Bırakamam, imza lazım.",
+          "accepts": [
+            "İmza lazım."
+          ],
+          "translation": "Монда наметавонам, имзо лозим.",
+          "literal": "быракама́м имза́ лазы́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Akşam altıda evdeyim.",
+          "cueTranslation": "Шом соати шаш дар хонаам.",
+          "intent": "Бигӯ: соати шаш меоям",
+          "text": "Altıda gelirim.",
+          "accepts": [
+            "Tamam, altıda."
+          ],
+          "translation": "Соати шаш меоям.",
+          "literal": "алтыда́ гэлири́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бастаи охирин",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kim o?",
+          "cueTranslation": "Кист?",
+          "intent": "Бигӯ: курйер, баста дорам",
+          "text": "Kurye, paketiniz var.",
+          "accepts": [
+            "Kurye geldi."
+          ],
+          "translation": "Курйер, бастаатон ҳаст.",
+          "literal": "курйэ́ пакэтини́з ва́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, açıyorum.",
+          "cueTranslation": "Хуб, мекушоям.",
+          "intent": "Бипурс: кадом қабат?",
+          "text": "Hangi kat?",
+          "accepts": [
+            "Kaçıncı kat?"
+          ],
+          "translation": "Кадом қабат?",
+          "literal": "ҳанги́ ка́т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Üçüncü kat, daire yedi.",
+          "cueTranslation": "Қабати сеюм, хонадони ҳафт.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Tamam, geliyorum.",
+          "accepts": [
+            "Geliyorum."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": "тама́м гэлийору́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Teşekkürler.",
+          "cueTranslation": "Салом! Ташаккур.",
+          "intent": "Бигӯ: ин ҷо имзо, лутфан",
+          "text": "Buraya imza lütfen.",
+          "accepts": [
+            "İmza lütfen."
+          ],
+          "translation": "Ин ҷо имзо, лутфан.",
+          "literal": "бурайа́ имза́ лютфэ́н",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,548 @@
+{
+  "slug": "register_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Öğrenci işlerinde",
+    "titleTranslated": "Идораи донишгоҳ",
+    "scenario": "Шумо ба идораи корҳои донишҷӯён (öğrenci işleri) меравед: мегӯед, ки донишҷӯи нав ҳастед, ихтисосро мегӯед, формаро пур мекунед, акс медиҳед ва мепурсед, ки корт кай тайёр мешавад.",
+    "emoji": "🏫",
+    "order": 3,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Идора",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Ofis",
+          "translation": "идора",
+          "literal": "офи́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Form",
+          "translation": "форма, варақа",
+          "literal": "фо́рм",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Fotoğraf",
+          "translation": "акс",
+          "literal": "фото:ра́ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Fotokopi",
+          "translation": "нусха",
+          "literal": "фотокопи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kart",
+          "translation": "корт",
+          "literal": "ка́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Bölüm",
+          "translation": "факултет, ихтисос",
+          "literal": "бёлю́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Донишҷӯи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Ne istiyorsunuz?",
+          "cueTranslation": "Салом! Чӣ мехоҳед?",
+          "intent": "Бигӯ: ман донишҷӯи нав ҳастам",
+          "text": "Yeni öğrenciyim.",
+          "accepts": [
+            "Ben yeni öğrenciyim."
+          ],
+          "translation": "Ман донишҷӯи нав ҳастам.",
+          "literal": "йэни́ ё:рэнҷийи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi bölüm?",
+          "cueTranslation": "Кадом ихтисос?",
+          "intent": "Бигӯ: забони туркӣ",
+          "text": "Türkçe.",
+          "accepts": [
+            "Türk dili.",
+            "İktisat."
+          ],
+          "translation": "Забони туркӣ.",
+          "literal": "тюркчэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu formu doldurun.",
+          "cueTranslation": "Ин формаро пур кунед.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yeni öğrenci",
+          "translation": "Донишҷӯи нав",
+          "literal": "йэни́ ё:рэнҷи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "İki fotoğraf",
+          "translation": "Ду акс",
+          "literal": "ики́ фото:ра́ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Pasaport fotokopisi",
+          "translation": "Нусхаи шиноснома",
+          "literal": "пасапо́рт фотокописи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Adınız ne?",
+          "translation": "Номатон чист?",
+          "literal": "адыны́з нэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Pasaport",
+          "translation": "шиноснома",
+          "literal": "пасапо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Hazır",
+          "translation": "тайёр",
+          "literal": "ҳазы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Акс лозим",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Adınız ne?",
+          "cueTranslation": "Номатон чист?",
+          "intent": "Бигӯ: Раҳимов",
+          "text": "Rahimov.",
+          "accepts": [
+            "Adım Rahimov."
+          ],
+          "translation": "Раҳимов.",
+          "literal": "раҳимо́в",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Fotoğraf lazım.",
+          "cueTranslation": "Акс лозим.",
+          "intent": "Бипурс: чандто?",
+          "text": "Kaç tane?",
+          "accepts": [
+            "Kaç fotoğraf?"
+          ],
+          "translation": "Чандто?",
+          "literal": "ка́ч танэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "İki fotoğraf ve fotokopi.",
+          "cueTranslation": "Ду акс ва нусха.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [
+            "Buyurun, burada."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Форма",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ben yeniyim.",
+          "translation": "Ман навам.",
+          "literal": "бэ́н йэнийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Türkçe okuyorum.",
+          "translation": "Туркӣ мехонам.",
+          "literal": "тюркчэ́ окуйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "own",
+          "text": "Bölümüm ___.",
+          "translation": "Ихтисоси ман ___.",
+          "literal": "бёлюмю́м ___",
+          "note": "Ихтисоси худро гӯед.",
+          "cue": "Ne okuyorsunuz?",
+          "cueTranslation": "Чӣ мехонед?",
+          "intent": "Ихтисоси худро гӯед",
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Form nerede?",
+          "translation": "Форма куҷост?",
+          "literal": "фо́рм нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Pasaportum burada.",
+          "translation": "Шиносномаам ин ҷост.",
+          "literal": "пасапорту́м бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "İki fotoğrafım var.",
+          "translation": "Ду акс дорам.",
+          "literal": "ики́ фото:рафы́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷатҳо, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pasaportunuz lütfen.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [
+            "Pasaportum burada."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Fotoğraf var mı?",
+          "cueTranslation": "Акс ҳаст?",
+          "intent": "Бигӯ: ҳа, ду акс",
+          "text": "Evet, iki fotoğraf.",
+          "accepts": [
+            "Evet, iki fotoğrafım var."
+          ],
+          "translation": "Ҳа, ду акс.",
+          "literal": "эвэ́т ики́ фото:ра́ф",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Fotokopi de var mı?",
+          "cueTranslation": "Нусха ҳам ҳаст?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Evet, buyurun.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "эвэ́т буйуру́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Корти донишҷӯӣ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ne zaman hazır?",
+          "translation": "Кай тайёр?",
+          "literal": "нэ́ зама́н ҳазы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Öğrenci kartı",
+          "translation": "Корти донишҷӯӣ",
+          "literal": "ё:рэнҷи́ карты́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Cuma günü mü?",
+          "translation": "Рӯзи ҷумъа?",
+          "literal": "ҷума́ гюню́ мю́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir sorum var.",
+          "translation": "Як савол дорам.",
+          "literal": "би́р сору́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sınıf nerede?",
+          "translation": "Синфхона куҷост?",
+          "literal": "сыны́ф нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yardım için teşekkürler.",
+          "translation": "Барои ёрӣ ташаккур.",
+          "literal": "йарды́м ичи́н тэшэккюрлэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кай тайёр?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Her şey tamam.",
+          "cueTranslation": "Ҳама чиз дуруст.",
+          "intent": "Бипурс: корт кай тайёр мешавад?",
+          "text": "Kart ne zaman hazır?",
+          "accepts": [
+            "Ne zaman hazır?"
+          ],
+          "translation": "Корт кай тайёр мешавад?",
+          "literal": "ка́рт нэ́ зама́н ҳазы́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Cuma günü.",
+          "cueTranslation": "Рӯзи ҷумъа.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Tamam, teşekkürler.",
+          "accepts": [
+            "Teşekkür ederim."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "тама́м тэшэккюрлэ́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Başka sorunuz var mı?",
+          "cueTranslation": "Боз савол доред?",
+          "intent": "Бигӯ: не, ташаккур",
+          "text": "Hayır, teşekkürler.",
+          "accepts": [
+            "Yok, teşekkürler."
+          ],
+          "translation": "Не, ташаккур.",
+          "literal": "ҳайы́р тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: сабти ном",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Nasıl yardım edebilirim?",
+          "cueTranslation": "Салом! Чӣ ёрӣ диҳам?",
+          "intent": "Бигӯ: ман донишҷӯи нав ҳастам",
+          "text": "Yeni öğrenciyim.",
+          "accepts": [
+            "Ben yeni öğrenciyim."
+          ],
+          "translation": "Ман донишҷӯи нав ҳастам.",
+          "literal": "йэни́ ё:рэнҷийи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne okuyorsunuz?",
+          "cueTranslation": "Чӣ мехонед?",
+          "intent": "Бигӯ: туркӣ",
+          "text": "Türkçe okuyorum.",
+          "accepts": [
+            "Türkçe."
+          ],
+          "translation": "Туркӣ мехонам.",
+          "literal": "тюркчэ́ окуйору́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Fotoğraf ve fotokopi var mı?",
+          "cueTranslation": "Акс ва нусха ҳаст?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Evet, buyurun.",
+          "accepts": [
+            "Evet, var."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "эвэ́т буйуру́н",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Kart cuma günü hazır.",
+          "cueTranslation": "Корт рӯзи ҷумъа тайёр.",
+          "intent": "Ташаккур гӯй ва хайрухуш кун",
+          "text": "Teşekkürler, iyi günler!",
+          "accepts": [
+            "Çok teşekkür ederim."
+          ],
+          "translation": "Ташаккур, рӯзи хуш!",
+          "literal": "тэшэккюрлэ́р ийи́ гюнлэ́р",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "slug": "shift_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Vardiya",
+    "titleTranslated": "Навбати корӣ",
+    "scenario": "Шумо бо диспетчер навбат ва ҳисоботро муҳокима мекунед: кай сар мекунед, чанд фармоиш доштед, пули нақдро месупоред ва рӯзи истироҳат мепурсед.",
+    "emoji": "🕒",
+    "order": 20,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Навбат",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Vardiya",
+          "translation": "навбат (смена)",
+          "literal": "вардийа́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Sipariş",
+          "translation": "фармоиш",
+          "literal": "сипари́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kasa",
+          "translation": "касса (пули ҷамъшуда)",
+          "literal": "каса́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Mola",
+          "translation": "танаффус",
+          "literal": "мола́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Gece",
+          "translation": "шаб",
+          "literal": "гэҷэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "İzin",
+          "translation": "рӯзи истироҳат",
+          "literal": "изи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Оғози навбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Günaydın! Hazır mısın?",
+          "cueTranslation": "Субҳ ба хайр! Тайёрӣ?",
+          "intent": "Бигӯ: ҳа, тайёрам",
+          "text": "Evet, hazırım.",
+          "accepts": [
+            "Hazırım abi."
+          ],
+          "translation": "Ҳа, тайёрам.",
+          "literal": "эвэ́т ҳазыры́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bugün çok sipariş var.",
+          "cueTranslation": "Имрӯз фармоиш бисёр.",
+          "intent": "Бипурс: кай танаффус?",
+          "text": "Mola ne zaman?",
+          "accepts": [
+            "Mola var mı?"
+          ],
+          "translation": "Танаффус кай?",
+          "literal": "мола́ нэ́ зама́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Saat birde.",
+          "cueTranslation": "Соати як.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Vardiya başladı",
+          "translation": "Навбат сар шуд",
+          "literal": "вардийа́ башлады́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Mola saati",
+          "translation": "Вақти танаффус",
+          "literal": "мола́ саати́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Gece vardiyası",
+          "translation": "Навбати шаб",
+          "literal": "гэҷэ́ вардийасы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "On sipariş",
+          "translation": "Даҳ фармоиш",
+          "literal": "о́н сипари́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kasayı teslim",
+          "translation": "Супоридани касса",
+          "literal": "касайы́ тэсли́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yarın izinliyim",
+          "translation": "Фардо истироҳатам",
+          "literal": "йары́н изинлийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҳисобот",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bugün kaç sipariş?",
+          "cueTranslation": "Имрӯз чанд фармоиш?",
+          "intent": "Бигӯ: дувоздаҳ фармоиш",
+          "text": "On iki sipariş.",
+          "accepts": [
+            "On iki."
+          ],
+          "translation": "Дувоздаҳ фармоиш.",
+          "literal": "о́н ики́ сипари́ш",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aferin! Nakit ne kadar?",
+          "cueTranslation": "Офарин! Нақд чанд?",
+          "intent": "Бигӯ: ҳаштсад лира",
+          "text": "Sekiz yüz lira.",
+          "accepts": [
+            "Sekiz yüz."
+          ],
+          "translation": "Ҳаштсад лира.",
+          "literal": "сэки́з йю́з лира́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, kasaya koy.",
+          "cueTranslation": "Хуб, ба касса гузор.",
+          "intent": "Бигӯ: хуб, ака",
+          "text": "Tamam abi.",
+          "accepts": [
+            "Peki."
+          ],
+          "translation": "Хуб, ака.",
+          "literal": "тама́м аби́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҷадвали ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Gece çalışabilirim.",
+          "translation": "Шаб кор карда метавонам.",
+          "literal": "гэҷэ́ чалышабилири́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Pazar izinliyim.",
+          "translation": "Якшанбе истироҳатам.",
+          "literal": "паза́р изинлийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu hafta yorgunum.",
+          "translation": "Ин ҳафта хастаам.",
+          "literal": "бу́ ҳафта́ йоргуну́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ekstra vardiya istiyorum.",
+          "translation": "Навбати иловагӣ мехоҳам.",
+          "literal": "экстра́ вардийа́ истийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Maaş ne zaman?",
+          "translation": "Маош кай?",
+          "literal": "маа́ш нэ́ зама́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ayın birinde.",
+          "translation": "Якуми моҳ.",
+          "literal": "айы́н бириндэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Маош",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bir sorun var mı?",
+          "cueTranslation": "Мушкиле ҳаст?",
+          "intent": "Бипурс: маош кай?",
+          "text": "Maaş ne zaman?",
+          "accepts": [
+            "Maaş ne zaman yatar?"
+          ],
+          "translation": "Маош кай?",
+          "literal": "маа́ш нэ́ зама́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ayın birinde.",
+          "cueTranslation": "Якуми моҳ.",
+          "intent": "Бигӯ: навбати иловагӣ мехоҳам",
+          "text": "Ekstra vardiya istiyorum.",
+          "accepts": [
+            "Daha çok çalışmak istiyorum."
+          ],
+          "translation": "Навбати иловагӣ мехоҳам.",
+          "literal": "экстра́ вардийа́ истийору́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, gece olur mu?",
+          "cueTranslation": "Хуб, шаб мешавад?",
+          "intent": "Бигӯ: шаб кор карда метавонам",
+          "text": "Gece çalışabilirim.",
+          "accepts": [
+            "Olur."
+          ],
+          "translation": "Шаб кор карда метавонам.",
+          "literal": "гэҷэ́ чалышабилири́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Рӯзи истироҳат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yarın izin alabilir miyim?",
+          "translation": "Фардо рухсат гирам?",
+          "literal": "йары́н изи́н алабили́р мийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Doktora gideceğim.",
+          "translation": "Ба духтур меравам.",
+          "literal": "доктора́ гидэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kim yerime çalışır?",
+          "translation": "Кӣ ба ҷоям кор мекунад?",
+          "literal": "ки́м йэримэ́ чалышы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ahmet çalışabilir.",
+          "translation": "Аҳмет кор карда метавонад.",
+          "literal": "аҳмэ́т чалышабили́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Teşekkürler abi.",
+          "translation": "Ташаккур, ака.",
+          "literal": "тэшэккюрлэ́р аби́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "İyi akşamlar!",
+          "translation": "Шоми хуш!",
+          "literal": "ийи́ акшамла́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Рухсат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne istiyorsun?",
+          "cueTranslation": "Чӣ мехоҳӣ?",
+          "intent": "Бипурс: фардо рухсат гирам?",
+          "text": "Yarın izin alabilir miyim?",
+          "accepts": [
+            "Yarın izin var mı?"
+          ],
+          "translation": "Фардо рухсат гирам?",
+          "literal": "йары́н изи́н алабили́р мийи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Neden?",
+          "cueTranslation": "Чаро?",
+          "intent": "Бигӯ: ба духтур меравам",
+          "text": "Doktora gideceğim.",
+          "accepts": [
+            "Doktora."
+          ],
+          "translation": "Ба духтур меравам.",
+          "literal": "доктора́ гидэҷэйи́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, Ahmet çalışır.",
+          "cueTranslation": "Хуб, Аҳмет кор мекунад.",
+          "intent": "Бигӯ: ташаккур, ака",
+          "text": "Teşekkürler abi.",
+          "accepts": [
+            "Sağ ol abi."
+          ],
+          "translation": "Ташаккур, ака.",
+          "literal": "тэшэккюрлэ́р аби́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: охири навбат",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Vardiya bitti mi?",
+          "cueTranslation": "Навбат тамом шуд?",
+          "intent": "Бигӯ: ҳа, дувоздаҳ фармоиш",
+          "text": "Evet, on iki sipariş.",
+          "accepts": [
+            "Bitti abi."
+          ],
+          "translation": "Ҳа, дувоздаҳ фармоиш.",
+          "literal": "эвэ́т о́н ики́ сипари́ш",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aferin! Nakit ne kadar?",
+          "cueTranslation": "Офарин! Нақд чанд?",
+          "intent": "Бигӯ: ҳаштсад лира",
+          "text": "Sekiz yüz lira.",
+          "accepts": [
+            "Sekiz yüz."
+          ],
+          "translation": "Ҳаштсад лира.",
+          "literal": "сэки́з йю́з лира́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Yarın geliyor musun?",
+          "cueTranslation": "Хуб. Фардо меоӣ?",
+          "intent": "Бигӯ: не, ба духтур меравам",
+          "text": "Hayır, doktora gideceğim.",
+          "accepts": [
+            "Yarın izin istiyorum."
+          ],
+          "translation": "Не, ба духтур меравам.",
+          "literal": "ҳайы́р доктора́ гидэҷэйи́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, geçmiş olsun.",
+          "cueTranslation": "Хуб, шифо ёбӣ.",
+          "intent": "Бигӯ: ташаккур, ака",
+          "text": "Teşekkürler abi.",
+          "accepts": [
+            "Sağ ol abi."
+          ],
+          "translation": "Ташаккур, ака.",
+          "literal": "тэшэккюрлэ́р аби́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

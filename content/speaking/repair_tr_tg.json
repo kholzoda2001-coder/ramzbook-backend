@@ -1,0 +1,547 @@
+{
+  "slug": "repair_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Oto tamirde",
+    "titleTranslated": "Таъмири мошин",
+    "scenario": "Мошин вайрон шуд: шумо ба устои автосервис занг мезанед, мегӯед, ки чӣ шуд, мепурсед, ки кай тайёр мешавад ва чанд пул.",
+    "emoji": "🔧",
+    "order": 18,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Автосервис",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Tamirci",
+          "translation": "устои мошин",
+          "literal": "тамирҷи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Motor",
+          "translation": "мотор",
+          "literal": "мото́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Fren",
+          "translation": "тормоз",
+          "literal": "фрэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Akü",
+          "translation": "аккумулятор",
+          "literal": "акю́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Ses",
+          "translation": "овоз",
+          "literal": "сэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Parça",
+          "translation": "қисм (запчаст)",
+          "literal": "парча́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Мошин вайрон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo, oto tamir.",
+          "cueTranslation": "Ало, автосервис.",
+          "intent": "Бигӯ: мошинам вайрон шуд",
+          "text": "Arabam bozuldu.",
+          "accepts": [
+            "Araba bozuk."
+          ],
+          "translation": "Мошинам вайрон шуд.",
+          "literal": "араба́м бозулду́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: мотор оташ намегирад",
+          "text": "Motor çalışmıyor.",
+          "accepts": [
+            "Çalışmıyor."
+          ],
+          "translation": "Мотор кор намекунад.",
+          "literal": "мото́р чалышмыйо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Getirin, bakalım.",
+          "cueTranslation": "Биёред, мебинем.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Tamam, teşekkürler.",
+          "accepts": [
+            "Tamam abi."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "тама́м тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Arabam bozuldu",
+          "translation": "Мошинам вайрон шуд",
+          "literal": "араба́м бозулду́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Garip ses",
+          "translation": "Овози аҷиб",
+          "literal": "гари́п сэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Fren tutmuyor",
+          "translation": "Тормоз намегирад",
+          "literal": "фрэ́н тутмуйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Akü bitti",
+          "translation": "Аккумулятор нишаст",
+          "literal": "акю́ битти́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hazır mı?",
+          "translation": "Тайёр аст?",
+          "literal": "ҳазы́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiyat ne?",
+          "translation": "Нарх чанд?",
+          "literal": "фийа́т нэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Овози аҷиб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Sorun ne?",
+          "cueTranslation": "Мушкил чист?",
+          "intent": "Бигӯ: овози аҷиб ҳаст",
+          "text": "Garip bir ses var.",
+          "accepts": [
+            "Garip ses."
+          ],
+          "translation": "Овози аҷиб ҳаст.",
+          "literal": "гари́п би́р сэ́с ва́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nereden?",
+          "cueTranslation": "Аз куҷо?",
+          "intent": "Бигӯ: аз пеш",
+          "text": "Önden.",
+          "accepts": [
+            "Ön taraftan."
+          ],
+          "translation": "Аз пеш.",
+          "literal": "ёндэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Fren olabilir.",
+          "cueTranslation": "Тормоз шояд.",
+          "intent": "Бипурс: кай тайёр?",
+          "text": "Ne zaman hazır?",
+          "accepts": [
+            "Ne zaman biter?"
+          ],
+          "translation": "Кай тайёр?",
+          "literal": "нэ́ зама́н ҳазы́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Мушкилро мегӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Fren tutmuyor.",
+          "translation": "Тормоз намегирад.",
+          "literal": "фрэ́н тутмуйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Motor ısınıyor.",
+          "translation": "Мотор гарм мешавад.",
+          "literal": "мото́р ысыныйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Akü bitti galiba.",
+          "translation": "Аккумулятор нишаст, гумон кунам.",
+          "literal": "акю́ битти́ галиба́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Işık yanıyor.",
+          "translation": "Чароғ месӯзад.",
+          "literal": "ышы́к йаныйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sabah çalışmadı.",
+          "translation": "Субҳ оташ нагирифт.",
+          "literal": "саба́ҳ чалышмады́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Acil lazım.",
+          "translation": "Фаврӣ лозим.",
+          "literal": "аҷи́л лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Чароғ месӯзад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: субҳ оташ нагирифт",
+          "text": "Sabah çalışmadı.",
+          "accepts": [
+            "Çalışmadı."
+          ],
+          "translation": "Субҳ оташ нагирифт.",
+          "literal": "саба́ҳ чалышмады́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Işık yanıyor mu?",
+          "cueTranslation": "Чароғ месӯзад?",
+          "intent": "Бигӯ: ҳа, чароғ месӯзад",
+          "text": "Evet, ışık yanıyor.",
+          "accepts": [
+            "Evet, kırmızı."
+          ],
+          "translation": "Ҳа, чароғ месӯзад.",
+          "literal": "эвэ́т ышы́к йаныйо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Akü olabilir.",
+          "cueTranslation": "Аккумулятор шояд.",
+          "intent": "Бигӯ: фаврӣ лозим",
+          "text": "Acil lazım.",
+          "accepts": [
+            "İşim var, acil."
+          ],
+          "translation": "Фаврӣ лозим.",
+          "literal": "аҷи́л лазы́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Нарх ва вақт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yarın hazır.",
+          "translation": "Фардо тайёр.",
+          "literal": "йары́н ҳазы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Parça lazım.",
+          "translation": "Қисм лозим.",
+          "literal": "парча́ лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bin beş yüz lira.",
+          "translation": "Ҳазору панҷсад лира.",
+          "literal": "би́н бэ́ш йю́з лира́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Biraz pahalı.",
+          "translation": "Каме қимат.",
+          "literal": "бира́з паҳалы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "İndirim olur mu?",
+          "translation": "Тахфиф мешавад?",
+          "literal": "индири́м олу́р му́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Tamam, yapın.",
+          "translation": "Хуб, кунед.",
+          "literal": "тама́м йапы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чанд пул?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fren balatası lazım.",
+          "cueTranslation": "Колодкаи тормоз лозим.",
+          "intent": "Бипурс: чанд пул мешавад?",
+          "text": "Ne kadar tutar?",
+          "accepts": [
+            "Ne kadar?"
+          ],
+          "translation": "Чанд пул мешавад?",
+          "literal": "нэ́ када́р тута́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bin beş yüz lira.",
+          "cueTranslation": "Ҳазору панҷсад лира.",
+          "intent": "Бипурс: тахфиф мешавад?",
+          "text": "İndirim olur mu?",
+          "accepts": [
+            "Biraz pahalı."
+          ],
+          "translation": "Тахфиф мешавад?",
+          "literal": "индири́м олу́р му́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bin dört yüz olur.",
+          "cueTranslation": "Ҳазору чорсад мешавад.",
+          "intent": "Бигӯ: хуб, кунед",
+          "text": "Tamam, yapın.",
+          "accepts": [
+            "Tamam abi."
+          ],
+          "translation": "Хуб, кунед.",
+          "literal": "тама́м йапы́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: тормози вайрон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo, oto tamir.",
+          "cueTranslation": "Ало, автосервис.",
+          "intent": "Бигӯ: мошинам вайрон шуд",
+          "text": "Arabam bozuldu.",
+          "accepts": [
+            "Araba bozuk."
+          ],
+          "translation": "Мошинам вайрон шуд.",
+          "literal": "араба́м бозулду́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: тормоз намегирад",
+          "text": "Fren tutmuyor.",
+          "accepts": [
+            "Fren kötü."
+          ],
+          "translation": "Тормоз намегирад.",
+          "literal": "фрэ́н тутмуйо́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Getirin. Yarın hazır.",
+          "cueTranslation": "Биёред. Фардо тайёр.",
+          "intent": "Бипурс: чанд пул мешавад?",
+          "text": "Ne kadar tutar?",
+          "accepts": [
+            "Ne kadar?"
+          ],
+          "translation": "Чанд пул мешавад?",
+          "literal": "нэ́ када́р тута́р",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Bin lira civarı.",
+          "cueTranslation": "Тақрибан ҳазор лира.",
+          "intent": "Бигӯ: хуб, меоям",
+          "text": "Tamam, geliyorum.",
+          "accepts": [
+            "Tamam abi."
+          ],
+          "translation": "Хуб, меоям.",
+          "literal": "тама́м гэлийору́м",
+          "note": null,
+          "order": 3
+        }
+      ],
+      "mode": "call"
+    }
+  ]
+}

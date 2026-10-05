@@ -1,0 +1,546 @@
+{
+  "slug": "shelves_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Rafları dizmek",
+    "titleTranslated": "Мол дар рафҳо",
+    "scenario": "Шумо дар анбор ва толори мағоза кор мекунед: қуттиҳоро мекушоед, молро ба раф мегузоред, нарх мечаспонед ва мепурсед, ки чиз куҷо меравад.",
+    "emoji": "📦",
+    "order": 12,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Анбор",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Raf",
+          "translation": "раф",
+          "literal": "ра́ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Koli",
+          "translation": "қуттӣ",
+          "literal": "коли́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Depo",
+          "translation": "анбор",
+          "literal": "дэпо́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Mal",
+          "translation": "мол",
+          "literal": "ма́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Üst",
+          "translation": "боло",
+          "literal": "ю́ст",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Alt",
+          "translation": "поён",
+          "literal": "а́лт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Кор дар анбор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Mallar geldi.",
+          "cueTranslation": "Мол омад.",
+          "intent": "Бипурс: ба куҷо?",
+          "text": "Nereye koyayım?",
+          "accepts": [
+            "Nereye?"
+          ],
+          "translation": "Ба куҷо гузорам?",
+          "literal": "нэрэйэ́ койайы́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Rafa lütfen.",
+          "cueTranslation": "Ба раф, лутфан.",
+          "intent": "Бипурс: боло ё поён?",
+          "text": "Üste mi, alta mı?",
+          "accepts": [
+            "Üste mi?"
+          ],
+          "translation": "Боло ё поён?",
+          "literal": "юстэ́ ми́ алта́ мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Alta.",
+          "cueTranslation": "Поён.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Rafa koy",
+          "translation": "Ба раф бигузор",
+          "literal": "рафа́ ко́й",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Koliyi",
+          "translation": "қуттиро",
+          "literal": "колийи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "En üste",
+          "translation": "Ба болои боло",
+          "literal": "э́н юстэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Depoda",
+          "translation": "Дар анбор",
+          "literal": "дэпода́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Tamam abi",
+          "translation": "Хуб, ака",
+          "literal": "тама́м аби́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bitti bile",
+          "translation": "Аллакай тамом",
+          "literal": "битти́ билэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Қуттӣ вазнин аст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Koliyi al lütfen.",
+          "cueTranslation": "Қуттиро гир, лутфан.",
+          "intent": "Бигӯ: вазнин аст",
+          "text": "Çok ağır.",
+          "accepts": [
+            "Koli ağır."
+          ],
+          "translation": "Хеле вазнин.",
+          "literal": "чо́к а:ы́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ben yardım ederim.",
+          "cueTranslation": "Ман ёрӣ медиҳам.",
+          "intent": "Ташаккур гӯй",
+          "text": "Sağ ol abi!",
+          "accepts": [
+            "Teşekkürler!"
+          ],
+          "translation": "Ташаккур, ака!",
+          "literal": "са́: о́л аби́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Depoya götür.",
+          "cueTranslation": "Ба анбор бубар.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Hemen."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Кор бо мол",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bu nereye gidiyor?",
+          "translation": "Ин ба куҷо меравад?",
+          "literal": "бу́ нэрэйэ́ гидийо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Raf boş.",
+          "translation": "Раф холӣ.",
+          "literal": "ра́ф бо́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Depodan getiriyorum.",
+          "translation": "Аз анбор меорам.",
+          "literal": "дэпода́н гэтирийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiyat etiketi yok.",
+          "translation": "Нарх нест.",
+          "literal": "фийа́т этикэти́ йо́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Etiketleri yapıştırıyorum.",
+          "translation": "Нархҳоро мечаспонам.",
+          "literal": "этикэтлэри́ йапыштырыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu kırık.",
+          "translation": "Ин шикаста.",
+          "literal": "бу́ кыры́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Раф холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Raf boş!",
+          "cueTranslation": "Раф холӣ!",
+          "intent": "Бигӯ: аз анбор меорам",
+          "text": "Depodan getiriyorum.",
+          "accepts": [
+            "Hemen getiriyorum."
+          ],
+          "translation": "Аз анбор меорам.",
+          "literal": "дэпода́н гэтирийору́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Güzel. Ya etiketler?",
+          "cueTranslation": "Хуб. Ва нархҳо?",
+          "intent": "Бигӯ: нархҳоро мечаспонам",
+          "text": "Etiketleri yapıştırıyorum.",
+          "accepts": [
+            "Onu da yaparım."
+          ],
+          "translation": "Нархҳоро мечаспонам.",
+          "literal": "этикэтлэри́ йапыштырыйору́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sağ ol!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: арзише надорад",
+          "text": "Rica ederim.",
+          "accepts": [
+            "Ne demek abi."
+          ],
+          "translation": "Арзише надорад.",
+          "literal": "риҷа́ эдэри́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мушкил дар анбор",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bir şişe kırık.",
+          "translation": "Як шиша шикаста.",
+          "literal": "би́р шишэ́ кыры́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Tarihi geçmiş.",
+          "translation": "Мӯҳлаташ гузаштааст.",
+          "literal": "тариҳи́ гэчми́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Süt kalmadı.",
+          "translation": "Шир намондааст.",
+          "literal": "сю́т калмады́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bunu ne yapayım?",
+          "translation": "Бо ин чӣ кунам?",
+          "literal": "буну́ нэ́ йапайы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "At gitsin.",
+          "translation": "Парто.",
+          "literal": "а́т гитси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Size haber veririm.",
+          "translation": "Ба шумо хабар медиҳам.",
+          "literal": "сизэ́ ҳабэ́р вэрири́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мӯҳлат гузашт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: мӯҳлаташ гузаштааст",
+          "text": "Tarihi geçmiş.",
+          "accepts": [
+            "Bunun tarihi geçmiş."
+          ],
+          "translation": "Мӯҳлаташ гузаштааст.",
+          "literal": "тариҳи́ гэчми́ш",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aa! Kaç tane?",
+          "cueTranslation": "О! Чандто?",
+          "intent": "Бигӯ: се",
+          "text": "Üç tane.",
+          "accepts": [
+            "Üç."
+          ],
+          "translation": "Сето.",
+          "literal": "ю́ч танэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "At gitsin.",
+          "cueTranslation": "Парто.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мол омад",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Mallar geldi.",
+          "cueTranslation": "Салом! Мол омад.",
+          "intent": "Бипурс: ин ба куҷо меравад?",
+          "text": "Bu nereye gidiyor?",
+          "accepts": [
+            "Nereye koyayım?"
+          ],
+          "translation": "Ин ба куҷо меравад?",
+          "literal": "бу́ нэрэйэ́ гидийо́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Rafa, en üste.",
+          "cueTranslation": "Ба раф, ба болои боло.",
+          "intent": "Бигӯ: хуб, ака",
+          "text": "Tamam abi.",
+          "accepts": [
+            "Peki."
+          ],
+          "translation": "Хуб, ака.",
+          "literal": "тама́м аби́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Her şey tamam mı?",
+          "cueTranslation": "Ҳама хуб?",
+          "intent": "Бигӯ: як шиша шикаста",
+          "text": "Bir şişe kırık.",
+          "accepts": [
+            "Hayır, bir şişe kırık."
+          ],
+          "translation": "Як шиша шикаста.",
+          "literal": "би́р шишэ́ кыры́к",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Sorun değil. At gitsin.",
+          "cueTranslation": "Мушкил нест. Парто.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

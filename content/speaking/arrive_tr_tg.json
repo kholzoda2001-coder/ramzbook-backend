@@ -1,0 +1,548 @@
+{
+  "slug": "arrive_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Okumaya geliş",
+    "titleTranslated": "Омадан барои таҳсил",
+    "scenario": "Шумо барои таҳсил ба Туркия омадед. Дар фурудгоҳ мегӯед, ки донишҷӯед ва дар кадом донишгоҳ мехонед, визаро нишон медиҳед ва бо такси ба хобгоҳ меравед.",
+    "emoji": "✈️",
+    "order": 2,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фурудгоҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Öğrenci",
+          "translation": "донишҷӯ",
+          "literal": "ё:рэнҷи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Üniversite",
+          "translation": "донишгоҳ",
+          "literal": "юнивэрситэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Vize",
+          "translation": "виза",
+          "literal": "визэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Okul",
+          "translation": "мактаб, донишгоҳ",
+          "literal": "оку́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Bavul",
+          "translation": "ҷомадон",
+          "literal": "баву́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Yurt",
+          "translation": "хобгоҳ (ётоқ)",
+          "literal": "йу́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Назорати шиноснома",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Neden geldiniz?",
+          "cueTranslation": "Чаро омадед?",
+          "intent": "Бигӯ: барои таҳсил",
+          "text": "Okumak için.",
+          "accepts": [
+            "Okumaya geldim.",
+            "Öğrenciyim."
+          ],
+          "translation": "Барои таҳсил.",
+          "literal": "окума́к ичи́н",
+          "note": "Кӯтоҳ ҷавоб диҳед.",
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Öğrenci misiniz?",
+          "cueTranslation": "Шумо донишҷӯед?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet.",
+          "accepts": [
+            "Evet, öğrenciyim."
+          ],
+          "translation": "Ҳа.",
+          "literal": "эвэ́т",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bavulda ne var?",
+          "cueTranslation": "Дар ҷомадон чӣ ҳаст?",
+          "intent": "Бигӯ: либос",
+          "text": "Kıyafet.",
+          "accepts": [
+            "Sadece kıyafet."
+          ],
+          "translation": "Либос.",
+          "literal": "кыйафэ́т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Виза",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Öğrenci vizesi",
+          "translation": "Визаи донишҷӯӣ",
+          "literal": "ё:рэнҷи́ визэси́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir yıl",
+          "translation": "Як сол",
+          "literal": "би́р йы́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Hangi üniversite?",
+          "translation": "Кадом донишгоҳ?",
+          "literal": "ҳанги́ юнивэрситэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Yurda lütfen",
+          "translation": "Ба хобгоҳ, лутфан",
+          "literal": "йурда́ лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Taksi",
+          "translation": "такси",
+          "literal": "такси́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Buyurun, pasaport",
+          "translation": "Марҳамат, шиноснома",
+          "literal": "буйуру́н пасапо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Виза, лутфан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Vizeniz lütfen.",
+          "cueTranslation": "Визаатон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [
+            "Buyurun, vizem."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne kadar kalacaksınız?",
+          "cueTranslation": "Чӣ қадар мемонед?",
+          "intent": "Бигӯ: як сол",
+          "text": "Bir yıl.",
+          "accepts": [
+            "Bir yıl kalacağım."
+          ],
+          "translation": "Як сол.",
+          "literal": "би́р йы́л",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hoş geldiniz!",
+          "cueTranslation": "Хуш омадед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkür ederim.",
+          "accepts": [
+            "Teşekkürler!"
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккю́р эдэри́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман донишҷӯям",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ben öğrenciyim.",
+          "translation": "Ман донишҷӯ ҳастам.",
+          "literal": "бэ́н ё:рэнҷийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Okumaya geldim.",
+          "translation": "Барои таҳсил омадам.",
+          "literal": "окумайа́ гэлди́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "own",
+          "text": "___ okuyorum.",
+          "translation": "Дар ___ мехонам.",
+          "literal": "___ окуйору́м",
+          "note": "Номи донишгоҳ ё шаҳрро гӯед: «İstanbul'da okuyorum».",
+          "cue": "Nerede okuyorsunuz?",
+          "cueTranslation": "Дар куҷо мехонед?",
+          "intent": "Номи шаҳр ё донишгоҳро гӯед",
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Çıkış nerede?",
+          "translation": "Баромадгоҳ куҷост?",
+          "literal": "чыкы́ш нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Taksi lazım.",
+          "translation": "Такси лозим.",
+          "literal": "такси́ лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu benim bavulum.",
+          "translation": "Ин ҷомадони ман.",
+          "literal": "бу́ бэни́м бавулу́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Мақсади омадан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba. Neden geldiniz?",
+          "cueTranslation": "Салом. Чаро омадед?",
+          "intent": "Бигӯ: барои таҳсил омадам",
+          "text": "Okumaya geldim.",
+          "accepts": [
+            "Okumak için."
+          ],
+          "translation": "Барои таҳсил омадам.",
+          "literal": "окумайа́ гэлди́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi üniversitede?",
+          "cueTranslation": "Дар кадом донишгоҳ?",
+          "intent": "Бигӯ: дар Донишгоҳи Истанбул",
+          "text": "İstanbul Üniversitesinde.",
+          "accepts": [
+            "İstanbul Üniversitesi."
+          ],
+          "translation": "Дар Донишгоҳи Истанбул.",
+          "literal": "истанбу́л юнивэрситэсиндэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hoş geldiniz!",
+          "cueTranslation": "Хуш омадед!",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler!",
+          "accepts": [
+            "Teşekkür ederim."
+          ],
+          "translation": "Ташаккур!",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Такси",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Taksi nerede?",
+          "translation": "Такси куҷост?",
+          "literal": "такси́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yurda gidiyorum.",
+          "translation": "Ба хобгоҳ меравам.",
+          "literal": "йурда́ гидийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne kadar tutar?",
+          "translation": "Чанд пул мешавад?",
+          "literal": "нэ́ када́р тута́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Adres bu.",
+          "translation": "Суроға ин.",
+          "literal": "адрэ́с бу́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bavulum kayboldu.",
+          "translation": "Ҷомадонам гум шуд.",
+          "literal": "бавулу́м кайболду́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yardım eder misiniz?",
+          "translation": "Ёрӣ медиҳед?",
+          "literal": "йарды́м эдэ́р мисини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ба хобгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Taksi mi? Nereye?",
+          "cueTranslation": "Такси? Ба куҷо?",
+          "intent": "Бигӯ: ба хобгоҳ, лутфан",
+          "text": "Yurda lütfen.",
+          "accepts": [
+            "Öğrenci yurduna."
+          ],
+          "translation": "Ба хобгоҳ, лутфан.",
+          "literal": "йурда́ лютфэ́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Buyurun.",
+          "cueTranslation": "Хуб. Марҳамат.",
+          "intent": "Бипурс: чанд пул мешавад?",
+          "text": "Ne kadar tutar?",
+          "accepts": [
+            "Ne kadar?"
+          ],
+          "translation": "Чанд пул мешавад?",
+          "literal": "нэ́ када́р тута́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yüz elli lira.",
+          "cueTranslation": "Саду панҷоҳ лира.",
+          "intent": "Бигӯ: хуб, ташаккур",
+          "text": "Tamam, teşekkürler.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Хуб, ташаккур.",
+          "literal": "тама́м тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: фурудгоҳ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pasaport lütfen. Neden geldiniz?",
+          "cueTranslation": "Шиноснома, лутфан. Чаро омадед?",
+          "intent": "Бигӯ: барои таҳсил омадам",
+          "text": "Okumaya geldim.",
+          "accepts": [
+            "Okumak için."
+          ],
+          "translation": "Барои таҳсил омадам.",
+          "literal": "окумайа́ гэлди́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi üniversite?",
+          "cueTranslation": "Кадом донишгоҳ?",
+          "intent": "Бигӯ: Донишгоҳи Истанбул",
+          "text": "İstanbul Üniversitesi.",
+          "accepts": [
+            "İstanbul'da okuyorum."
+          ],
+          "translation": "Донишгоҳи Истанбул.",
+          "literal": "истанбу́л юнивэрситэси́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Vizeniz var mı?",
+          "cueTranslation": "Виза доред?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Evet, buyurun.",
+          "accepts": [
+            "Evet, var."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "эвэ́т буйуру́н",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Hoş geldiniz!",
+          "cueTranslation": "Хуб. Хуш омадед!",
+          "intent": "Ташаккури зиёд гӯй",
+          "text": "Çok teşekkür ederim!",
+          "accepts": [
+            "Teşekkürler!"
+          ],
+          "translation": "Ташаккури зиёд!",
+          "literal": "чо́к тэшэккю́р эдэри́м",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

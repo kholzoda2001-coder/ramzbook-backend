@@ -1,0 +1,546 @@
+{
+  "slug": "cashier_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kasada",
+    "titleTranslated": "Дар касса",
+    "scenario": "Шумо дар кассаи мағоза (market) кор мекунед: салом медиҳед, нархро мегӯед, халта пешниҳод мекунед, пулро мегиред ва чек медиҳед.",
+    "emoji": "💳",
+    "order": 11,
+    "goals": [
+      "service"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Касса",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kasa",
+          "translation": "касса",
+          "literal": "каса́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Poşet",
+          "translation": "халта",
+          "literal": "пошэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Fiş",
+          "translation": "чек",
+          "literal": "фи́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Fiyat",
+          "translation": "нарх",
+          "literal": "фийа́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Bozuk para",
+          "translation": "пули майда",
+          "literal": "бозу́к пара́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "İndirim",
+          "translation": "тахфиф",
+          "literal": "индири́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Салом дар касса",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba!",
+          "cueTranslation": "Салом!",
+          "intent": "Салом гӯй",
+          "text": "Merhaba, hoş geldiniz!",
+          "accepts": [
+            "Merhaba!"
+          ],
+          "translation": "Салом, хуш омадед!",
+          "literal": "мэрҳаба́ ҳо́ш гэлдини́з",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bunlar lütfen.",
+          "cueTranslation": "Инҳо, лутфан.",
+          "intent": "Бипурс: халта мехоҳед?",
+          "text": "Poşet ister misiniz?",
+          "accepts": [
+            "Poşet?"
+          ],
+          "translation": "Халта мехоҳед?",
+          "literal": "пошэ́т истэ́р мисини́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, lütfen.",
+          "cueTranslation": "Ҳа, лутфан.",
+          "intent": "Бигӯ: панҷоҳ лира",
+          "text": "Elli lira.",
+          "accepts": [
+            "Toplam elli lira."
+          ],
+          "translation": "Панҷоҳ лира.",
+          "literal": "элли́ лира́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Poşet lazım?",
+          "translation": "Халта лозим?",
+          "literal": "пошэ́т лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiş lazım?",
+          "translation": "Чек лозим?",
+          "literal": "фи́ш лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kartla mı?",
+          "translation": "Бо корт?",
+          "literal": "картла́ мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Buyurun",
+          "translation": "марҳамат",
+          "literal": "буйуру́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "İyi günler!",
+          "translation": "Рӯзи хуш!",
+          "literal": "ийи́ гюнлэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sıradaki lütfen",
+          "translation": "Навбатӣ, лутфан",
+          "literal": "сырадаки́ лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чек мехоҳед?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kartla ödüyorum.",
+          "cueTranslation": "Бо корт пардохт мекунам.",
+          "intent": "Бигӯ: хуб, марҳамат",
+          "text": "Tamam, buyurun.",
+          "accepts": [
+            "Buyurun."
+          ],
+          "translation": "Хуб, марҳамат.",
+          "literal": "тама́м буйуру́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam mı?",
+          "cueTranslation": "Шуд?",
+          "intent": "Бипурс: чек лозим?",
+          "text": "Fiş lazım mı?",
+          "accepts": [
+            "Fiş ister misiniz?"
+          ],
+          "translation": "Чек лозим?",
+          "literal": "фи́ш лазы́м мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, teşekkürler.",
+          "cueTranslation": "Не, ташаккур.",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "İyi günler!",
+          "accepts": [
+            "Güle güle!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "ийи́ гюнлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ман дар касса",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Toplam seksen lira.",
+          "translation": "Ҳамагӣ ҳаштод лира.",
+          "literal": "топла́м сэксэ́н лира́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bozuk paranız var mı?",
+          "translation": "Пули майда доред?",
+          "literal": "бозу́к параны́з ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Fişiniz burada.",
+          "translation": "Чекатон ин ҷо.",
+          "literal": "фишини́з бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Poşet bir lira.",
+          "translation": "Халта як лира.",
+          "literal": "пошэ́т би́р лира́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu indirimde.",
+          "translation": "Ин бо тахфиф аст.",
+          "literal": "бу́ индиримдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sıradaki lütfen!",
+          "translation": "Навбатӣ, лутфан!",
+          "literal": "сырадаки́ лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Пули майда",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun, iki yüz lira.",
+          "cueTranslation": "Марҳамат, дусад лира.",
+          "intent": "Бипурс: пули майда доред?",
+          "text": "Bozuk paranız var mı?",
+          "accepts": [
+            "Bozuk var mı?"
+          ],
+          "translation": "Пули майда доред?",
+          "literal": "бозу́к параны́з ва́р мы́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, maalesef.",
+          "cueTranslation": "Не, афсӯс.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Sorun değil.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "сору́н дэйи́л",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Teşekkürler.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: чекатон ин ҷо",
+          "text": "Fişiniz burada.",
+          "accepts": [
+            "Buyurun fiş."
+          ],
+          "translation": "Чекатон ин ҷо.",
+          "literal": "фишини́з бурада́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Нарх",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bu ne kadar?",
+          "translation": "Ин чанд пул?",
+          "literal": "бу́ нэ́ када́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiyat yanlış.",
+          "translation": "Нарх нодуруст.",
+          "literal": "фийа́т йанлы́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Müdüre soruyorum.",
+          "translation": "Аз мудир мепурсам.",
+          "literal": "мюдюрэ́ соруйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir dakika lütfen.",
+          "translation": "Як дақиқа, лутфан.",
+          "literal": "би́р дакика́ лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Haklısınız",
+          "translation": "Ҳақ бо шумост",
+          "literal": "ҳаклысыны́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Şimdi doğru.",
+          "translation": "Ҳоло дуруст.",
+          "literal": "шимди́ до:ру́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Нарх нодуруст?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Fiyat yanlış! Bu indirimde.",
+          "cueTranslation": "Нарх нодуруст! Ин бо тахфиф аст.",
+          "intent": "Бигӯ: як дақиқа, лутфан",
+          "text": "Bir dakika lütfen.",
+          "accepts": [
+            "Bir dakika."
+          ],
+          "translation": "Як дақиқа, лутфан.",
+          "literal": "би́р дакика́ лютфэ́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yirmi lira, otuz değil!",
+          "cueTranslation": "Бист лира, на сӣ!",
+          "intent": "Бигӯ: ҳақ бо шумост",
+          "text": "Haklısınız.",
+          "accepts": [
+            "Özür dilerim, haklısınız."
+          ],
+          "translation": "Ҳақ бо шумост.",
+          "literal": "ҳаклысыны́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Teşekkürler!",
+          "cueTranslation": "Ташаккур!",
+          "intent": "Бигӯ: ҳоло дуруст",
+          "text": "Şimdi doğru.",
+          "accepts": [
+            "Tamam, şimdi doğru."
+          ],
+          "translation": "Ҳоло дуруст.",
+          "literal": "шимди́ до:ру́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: навбат дар касса",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba!",
+          "cueTranslation": "Салом!",
+          "intent": "Салом гӯй ва бипурс: халта мехоҳед?",
+          "text": "Merhaba! Poşet ister misiniz?",
+          "accepts": [
+            "Poşet?"
+          ],
+          "translation": "Салом! Халта мехоҳед?",
+          "literal": "мэрҳаба́ пошэ́т истэ́р мисини́з",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, teşekkürler. Ne kadar?",
+          "cueTranslation": "Не, ташаккур. Чанд?",
+          "intent": "Бигӯ: шаст лира",
+          "text": "Altmış lira.",
+          "accepts": [
+            "Toplam altmış lira."
+          ],
+          "translation": "Шаст лира.",
+          "literal": "алтмы́ш лира́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kartla lütfen.",
+          "cueTranslation": "Бо корт, лутфан.",
+          "intent": "Бигӯ: хуб, марҳамат",
+          "text": "Tamam, buyurun.",
+          "accepts": [
+            "Buyurun."
+          ],
+          "translation": "Хуб, марҳамат.",
+          "literal": "тама́м буйуру́н",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Teşekkürler! Hoşça kalın!",
+          "cueTranslation": "Ташаккур! Хайр!",
+          "intent": "Бигӯ: рӯзи хуш!",
+          "text": "İyi günler!",
+          "accepts": [
+            "Güle güle!"
+          ],
+          "translation": "Рӯзи хуш!",
+          "literal": "ийи́ гюнлэ́р",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

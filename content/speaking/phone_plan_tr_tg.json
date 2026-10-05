@@ -1,0 +1,546 @@
+{
+  "slug": "phone_plan_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Hat ve internet",
+    "titleTranslated": "Телефон ва интернет",
+    "scenario": "Шумо SIM-корт ва тарифи интернет мехаред: шиносномаро медиҳед, мепурсед, ки чанд гигабайт ва чанд пул аст ва чӣ тавр ба Тоҷикистон занг занед.",
+    "emoji": "📶",
+    "order": 9,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Алоқа",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Hat",
+          "translation": "SIM (рақам)",
+          "literal": "ҳа́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Paket",
+          "translation": "тариф (баста)",
+          "literal": "пакэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "İnternet",
+          "translation": "интернет",
+          "literal": "интэрнэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Dakika",
+          "translation": "дақиқа",
+          "literal": "дакика́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Fatura",
+          "translation": "ҳисоб (фактура)",
+          "literal": "фатура́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Kayıt",
+          "translation": "қайд",
+          "literal": "кайы́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Рақами нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba, buyurun.",
+          "cueTranslation": "Салом, марҳамат.",
+          "intent": "Бигӯ: SIM-корт мехоҳам",
+          "text": "Hat almak istiyorum.",
+          "accepts": [
+            "Yeni hat lütfen."
+          ],
+          "translation": "SIM-корт мехоҳам.",
+          "literal": "ҳа́т алма́к истийору́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Pasaportunuz var mı?",
+          "cueTranslation": "Шиноснома доред?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Evet, buyurun.",
+          "accepts": [
+            "Buyurun."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "эвэ́т буйуру́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi paket?",
+          "cueTranslation": "Кадом тариф?",
+          "intent": "Бигӯ: интернети бисёр",
+          "text": "Çok internet.",
+          "accepts": [
+            "İnternet paketi."
+          ],
+          "translation": "Интернети бисёр.",
+          "literal": "чо́к интэрнэ́т",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yeni hat",
+          "translation": "Рақами нав",
+          "literal": "йэни́ ҳа́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kaç gigabayt?",
+          "translation": "Чанд гигабайт?",
+          "literal": "ка́ч гигаба́йт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Aylık paket",
+          "translation": "Тарифи моҳона",
+          "literal": "айлы́к пакэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Yurt dışı",
+          "translation": "Хориҷа",
+          "literal": "йу́рт дышы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Faturasız hat",
+          "translation": "Рақами пешпардохт",
+          "literal": "фатурасы́з ҳа́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kontör yükle",
+          "translation": "Ҳисобро пур кун",
+          "literal": "контё́р йюклэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Тариф",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bu paket yirmi gigabayt.",
+          "cueTranslation": "Ин тариф бист гигабайт.",
+          "intent": "Бипурс: моҳе чанд?",
+          "text": "Ayda ne kadar?",
+          "accepts": [
+            "Fiyat ne?"
+          ],
+          "translation": "Моҳе чанд?",
+          "literal": "айда́ нэ́ када́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ayda dört yüz lira.",
+          "cueTranslation": "Моҳе чорсад лира.",
+          "intent": "Бигӯ: каме қимат",
+          "text": "Biraz pahalı.",
+          "accepts": [
+            "Pahalı."
+          ],
+          "translation": "Каме қимат.",
+          "literal": "бира́з паҳалы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu da var, daha ucuz.",
+          "cueTranslation": "Инаш ҳам ҳаст, арзонтар.",
+          "intent": "Бигӯ: хуб, инро мегирам",
+          "text": "Tamam, bunu alıyorum.",
+          "accepts": [
+            "Bunu alayım."
+          ],
+          "translation": "Хуб, инро мегирам.",
+          "literal": "тама́м буну́ алыйору́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Tacikistan'ı arayabilir miyim?",
+          "translation": "Ба Тоҷикистон занг зада метавонам?",
+          "literal": "таҷикистаны́ арайабили́р мийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Dakikası ne kadar?",
+          "translation": "Дақиқааш чанд?",
+          "literal": "дакикасы́ нэ́ када́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "İnternetim bitti.",
+          "translation": "Интернетам тамом шуд.",
+          "literal": "интэрнэти́м битти́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Telefonum kayıtsız.",
+          "translation": "Телефонам қайд нашудааст.",
+          "literal": "тэлэфону́м кайытсы́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kayıt ücreti ne kadar?",
+          "translation": "Пули қайд чанд?",
+          "literal": "кайы́т юҷрэти́ нэ́ када́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hat ne zaman açılır?",
+          "translation": "Рақам кай фаъол мешавад?",
+          "literal": "ҳа́т нэ́ зама́н ачылы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Занг ба ватан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Başka sorunuz var mı?",
+          "cueTranslation": "Боз савол доред?",
+          "intent": "Бипурс: ба Тоҷикистон занг зада метавонам?",
+          "text": "Tacikistan'ı arayabilir miyim?",
+          "accepts": [
+            "Tacikistan olur mu?"
+          ],
+          "translation": "Ба Тоҷикистон занг зада метавонам?",
+          "literal": "таҷикистаны́ арайабили́р мийи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, ama pahalı.",
+          "cueTranslation": "Ҳа, вале қимат.",
+          "intent": "Бипурс: дақиқааш чанд?",
+          "text": "Dakikası ne kadar?",
+          "accepts": [
+            "Ne kadar?"
+          ],
+          "translation": "Дақиқааш чанд?",
+          "literal": "дакикасы́ нэ́ када́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "WhatsApp daha ucuz.",
+          "cueTranslation": "WhatsApp арзонтар.",
+          "intent": "Бигӯ: ҳа, дуруст",
+          "text": "Evet, doğru.",
+          "accepts": [
+            "Haklısınız."
+          ],
+          "translation": "Ҳа, дуруст.",
+          "literal": "эвэ́т до:ру́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мушкил",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "İnternet çalışmıyor.",
+          "translation": "Интернет кор намекунад.",
+          "literal": "интэрнэ́т чалышмыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Telefonu kapatıp açın.",
+          "translation": "Телефонро хомӯш-фаъол кунед.",
+          "literal": "тэлэфону́ капаты́п ачы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Paketi yenileyin.",
+          "translation": "Тарифро нав кунед.",
+          "literal": "пакэти́ йэнилэйи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Yüz lira yükleyin.",
+          "translation": "Сад лира пур кунед.",
+          "literal": "йю́з лира́ йюклэйи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Şimdi çalışıyor.",
+          "translation": "Ҳоло кор мекунад.",
+          "literal": "шимди́ чалышыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Yardımınız için teşekkürler.",
+          "translation": "Барои ёриатон ташаккур.",
+          "literal": "йардымыны́з ичи́н тэшэккюрлэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Интернет нест",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun?",
+          "cueTranslation": "Марҳамат?",
+          "intent": "Бигӯ: интернет кор намекунад",
+          "text": "İnternet çalışmıyor.",
+          "accepts": [
+            "İnternetim yok."
+          ],
+          "translation": "Интернет кор намекунад.",
+          "literal": "интэрнэ́т чалышмыйо́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Paketiniz bitmiş.",
+          "cueTranslation": "Тарифатон тамом шудааст.",
+          "intent": "Бигӯ: сад лира пур кунед",
+          "text": "Yüz lira yükleyin.",
+          "accepts": [
+            "Yükleyin lütfen."
+          ],
+          "translation": "Сад лира пур кунед.",
+          "literal": "йю́з лира́ йюклэйи́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Şimdi çalışıyor mu?",
+          "cueTranslation": "Хуб. Ҳоло кор мекунад?",
+          "intent": "Бигӯ: ҳа, ташаккур",
+          "text": "Evet, teşekkürler.",
+          "accepts": [
+            "Çalışıyor."
+          ],
+          "translation": "Ҳа, ташаккур.",
+          "literal": "эвэ́т тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: SIM-и нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba, buyurun.",
+          "cueTranslation": "Салом, марҳамат.",
+          "intent": "Бигӯ: SIM-корт мехоҳам",
+          "text": "Hat almak istiyorum.",
+          "accepts": [
+            "Yeni hat lütfen."
+          ],
+          "translation": "SIM-корт мехоҳам.",
+          "literal": "ҳа́т алма́к истийору́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Pasaport lütfen.",
+          "cueTranslation": "Шиноснома, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [
+            "Buyurun pasaport."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu paket yirmi gigabayt.",
+          "cueTranslation": "Ин тариф бист гигабайт.",
+          "intent": "Бипурс: моҳе чанд?",
+          "text": "Ayda ne kadar?",
+          "accepts": [
+            "Fiyat ne?"
+          ],
+          "translation": "Моҳе чанд?",
+          "literal": "айда́ нэ́ када́р",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Üç yüz lira.",
+          "cueTranslation": "Сесад лира.",
+          "intent": "Бигӯ: хуб, инро мегирам",
+          "text": "Tamam, bunu alıyorum.",
+          "accepts": [
+            "Bunu alayım."
+          ],
+          "translation": "Хуб, инро мегирам.",
+          "literal": "тама́м буну́ алыйору́м",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

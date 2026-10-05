@@ -1,0 +1,546 @@
+{
+  "slug": "neighbors_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Komşular",
+    "titleTranslated": "Ҳамсояҳо",
+    "scenario": "Шумо бо ҳамсояҳо шинос мешавед: худро муаррифӣ мекунед, ёрӣ мепурсед, дар бораи садо ё партов гап мезанед ва ба чой даъват мекунед.",
+    "emoji": "🏠",
+    "order": 15,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Хона",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Komşu",
+          "translation": "ҳамсоя",
+          "literal": "комшу́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Apartman",
+          "translation": "бино (хонаи бисёрқабата)",
+          "literal": "апартма́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kapıcı",
+          "translation": "дарбон",
+          "literal": "капыҷы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Gürültü",
+          "translation": "садо (ғавғо)",
+          "literal": "гюрюлтю́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Çöp",
+          "translation": "партов",
+          "literal": "чё́п",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Misafir",
+          "translation": "меҳмон",
+          "literal": "мисафи́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шиносоӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Yeni misiniz?",
+          "cueTranslation": "Салом! Навед?",
+          "intent": "Бигӯ: ҳа, ҳамсояи нав",
+          "text": "Evet, yeni komşuyum.",
+          "accepts": [
+            "Evet, yeniyim."
+          ],
+          "translation": "Ҳа, ҳамсояи навам.",
+          "literal": "эвэ́т йэни́ комшуйу́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hoş geldiniz! Ben Ayşe.",
+          "cueTranslation": "Хуш омадед! Ман Айше.",
+          "intent": "Бигӯ: ман Фаридун, шодам",
+          "text": "Ben Feridun, memnun oldum.",
+          "accepts": [
+            "Memnun oldum."
+          ],
+          "translation": "Ман Фаридун, шодам.",
+          "literal": "бэ́н фэриду́н мэмну́н олду́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangi daire?",
+          "cueTranslation": "Кадом хонадон?",
+          "intent": "Бигӯ: хонадони ҳафт",
+          "text": "Daire yedi.",
+          "accepts": [
+            "Yedi numara."
+          ],
+          "translation": "Хонадони ҳафт.",
+          "literal": "даирэ́ йэди́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yeni komşuyum",
+          "translation": "Ҳамсояи навам",
+          "literal": "йэни́ комшуйу́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Daire yedi",
+          "translation": "Хонадони ҳафт",
+          "literal": "даирэ́ йэди́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kolay gelsin",
+          "translation": "Кор осон шавад",
+          "literal": "кола́й гэлси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Çöp günü",
+          "translation": "Рӯзи партов",
+          "literal": "чё́п гюню́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Çaya buyurun",
+          "translation": "Ба чой марҳамат",
+          "literal": "чайа́ буйуру́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Çok teşekkürler",
+          "translation": "Ташаккури зиёд",
+          "literal": "чо́к тэшэккюрлэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Партов",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba komşu!",
+          "cueTranslation": "Салом, ҳамсоя!",
+          "intent": "Бипурс: партов кай бурда мешавад?",
+          "text": "Çöp ne zaman alınıyor?",
+          "accepts": [
+            "Çöp günü ne zaman?"
+          ],
+          "translation": "Партов кай бурда мешавад?",
+          "literal": "чё́п нэ́ зама́н алыныйо́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Her akşam, saat sekizde.",
+          "cueTranslation": "Ҳар шом, соати ҳашт.",
+          "intent": "Бипурс: дар куҷо мегузорем?",
+          "text": "Nereye koyuyoruz?",
+          "accepts": [
+            "Nereye?"
+          ],
+          "translation": "Дар куҷо мегузорем?",
+          "literal": "нэрэйэ́ койуйору́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kapının önüne.",
+          "cueTranslation": "Назди дар.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Anladım, teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "анлады́м тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Хоҳиш",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bir ricam var.",
+          "translation": "Як хоҳиш дорам.",
+          "literal": "би́р риҷа́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Matkabınız var mı?",
+          "translation": "Пармаатон ҳаст?",
+          "literal": "маткабыны́з ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Yarın geri veririm.",
+          "translation": "Фардо бармегардонам.",
+          "literal": "йары́н гэри́ вэрири́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapıcı nerede?",
+          "translation": "Дарбон куҷост?",
+          "literal": "капыҷы́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Su kesik mi?",
+          "translation": "Об қатъ шудааст?",
+          "literal": "су́ кэси́к ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Tabii, buyurun.",
+          "translation": "Албатта, марҳамат.",
+          "literal": "табии́ буйуру́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Парма",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun?",
+          "cueTranslation": "Марҳамат?",
+          "intent": "Бигӯ: як хоҳиш дорам",
+          "text": "Bir ricam var.",
+          "accepts": [
+            "Bir şey soracağım."
+          ],
+          "translation": "Як хоҳиш дорам.",
+          "literal": "би́р риҷа́м ва́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tabii, söyleyin.",
+          "cueTranslation": "Албатта, гӯед.",
+          "intent": "Бипурс: пармаатон ҳаст?",
+          "text": "Matkabınız var mı?",
+          "accepts": [
+            "Matkap var mı?"
+          ],
+          "translation": "Пармаатон ҳаст?",
+          "literal": "маткабыны́з ва́р мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Var, buyurun.",
+          "cueTranslation": "Ҳаст, марҳамат.",
+          "intent": "Бигӯ: фардо бармегардонам",
+          "text": "Yarın geri veririm.",
+          "accepts": [
+            "Teşekkürler, yarın veririm."
+          ],
+          "translation": "Фардо бармегардонам.",
+          "literal": "йары́н гэри́ вэрири́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Садо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Gece çok gürültü var.",
+          "translation": "Шаб садо зиёд.",
+          "literal": "гэҷэ́ чо́к гюрюлтю́ ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Özür dilerim.",
+          "translation": "Бубахшед.",
+          "literal": "ёзю́р дилэри́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Misafirlerim vardı.",
+          "translation": "Меҳмон доштам.",
+          "literal": "мисафирлэри́м варды́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Bir daha olmaz.",
+          "translation": "Дигар намешавад.",
+          "literal": "би́р даҳа́ олма́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bize çaya gelin.",
+          "translation": "Ба мо ба чой биёед.",
+          "literal": "бизэ́ чайа́ гэли́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Seve seve!",
+          "translation": "Бо камоли майл!",
+          "literal": "сэвэ́ сэвэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Ғавғои шаб",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Dün gece çok gürültü vardı.",
+          "cueTranslation": "Дишаб садо зиёд буд.",
+          "intent": "Бигӯ: бубахшед, меҳмон доштам",
+          "text": "Özür dilerim, misafirlerim vardı.",
+          "accepts": [
+            "Özür dilerim."
+          ],
+          "translation": "Бубахшед, меҳмон доштам.",
+          "literal": "ёзю́р дилэри́м мисафирлэри́м варды́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, sorun değil.",
+          "cueTranslation": "Хуб, мушкил нест.",
+          "intent": "Бигӯ: дигар намешавад",
+          "text": "Bir daha olmaz.",
+          "accepts": [
+            "Olmaz."
+          ],
+          "translation": "Дигар намешавад.",
+          "literal": "би́р даҳа́ олма́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Teşekkürler komşu.",
+          "cueTranslation": "Ташаккур, ҳамсоя.",
+          "intent": "Бигӯ: ба мо ба чой биёед",
+          "text": "Bize çaya gelin.",
+          "accepts": [
+            "Çaya buyurun."
+          ],
+          "translation": "Ба мо ба чой биёед.",
+          "literal": "бизэ́ чайа́ гэли́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: ҳамсояи нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Yeni misiniz?",
+          "cueTranslation": "Салом! Навед?",
+          "intent": "Бигӯ: ҳа, ҳамсояи навам",
+          "text": "Evet, yeni komşuyum.",
+          "accepts": [
+            "Evet, yeniyim."
+          ],
+          "translation": "Ҳа, ҳамсояи навам.",
+          "literal": "эвэ́т йэни́ комшуйу́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hoş geldiniz! Hangi daire?",
+          "cueTranslation": "Хуш омадед! Кадом хонадон?",
+          "intent": "Бигӯ: хонадони ҳафт",
+          "text": "Daire yedi.",
+          "accepts": [
+            "Yedi numara."
+          ],
+          "translation": "Хонадони ҳафт.",
+          "literal": "даирэ́ йэди́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bir şey lazım olursa söyleyin.",
+          "cueTranslation": "Агар чизе лозим шавад, гӯед.",
+          "intent": "Бипурс: партов кай бурда мешавад?",
+          "text": "Çöp ne zaman alınıyor?",
+          "accepts": [
+            "Çöp günü ne zaman?"
+          ],
+          "translation": "Партов кай бурда мешавад?",
+          "literal": "чё́п нэ́ зама́н алыныйо́р",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Her akşam sekizde.",
+          "cueTranslation": "Ҳар шом соати ҳашт.",
+          "intent": "Бигӯ: ба мо ба чой биёед",
+          "text": "Bize çaya gelin.",
+          "accepts": [
+            "Çaya buyurun."
+          ],
+          "translation": "Ба мо ба чой биёед.",
+          "literal": "бизэ́ чайа́ гэли́н",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "slug": "smalltalk_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Yolcuyla sohbet",
+    "titleTranslated": "Гап бо мусофир",
+    "scenario": "Дар роҳ мусофир гап мезанад: аз куҷо ҳастед, чанд сол дар Туркия ҳастед, оила доред? Шумо кӯтоҳ ва хушмуомила ҷавоб медиҳед.",
+    "emoji": "💬",
+    "order": 9,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Гап",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Memleket",
+          "translation": "ватан",
+          "literal": "мэмлэкэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Aile",
+          "translation": "оила",
+          "literal": "аилэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Çocuk",
+          "translation": "кӯдак",
+          "literal": "чоҷу́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Yıl",
+          "translation": "сол",
+          "literal": "йы́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Hava",
+          "translation": "обу ҳаво",
+          "literal": "ҳава́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Trafik",
+          "translation": "роҳбандӣ",
+          "literal": "трафи́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Аз куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nerelisiniz?",
+          "cueTranslation": "Аз куҷоед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Tacikistanlıyım.",
+          "accepts": [
+            "Tacikistan'dan."
+          ],
+          "translation": "Аз Тоҷикистонам.",
+          "literal": "таҷикистанлыйы́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aa, Tacikistan! Güzel.",
+          "cueTranslation": "О, Тоҷикистон! Хуб.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Türkçeniz iyi.",
+          "cueTranslation": "Туркии шумо хуб.",
+          "intent": "Бигӯ: каме",
+          "text": "Biraz.",
+          "accepts": [
+            "Biraz biliyorum."
+          ],
+          "translation": "Каме.",
+          "literal": "бира́з",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Tacikistanlıyım",
+          "translation": "аз Тоҷикистонам",
+          "literal": "таҷикистанлыйы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "İki yıldır",
+          "translation": "Ду сол боз",
+          "literal": "ики́ йылды́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Biraz Türkçe",
+          "translation": "Каме туркӣ",
+          "literal": "бира́з тюркчэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Ailem orada",
+          "translation": "Оилаам он ҷо",
+          "literal": "аилэ́м орада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hava güzel",
+          "translation": "Ҳаво хуб",
+          "literal": "ҳава́ гюзэ́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Çok trafik",
+          "translation": "Роҳбандӣ зиёд",
+          "literal": "чо́к трафи́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Чанд сол?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Kaç yıldır Türkiye'desiniz?",
+          "cueTranslation": "Чанд сол боз дар Туркияед?",
+          "intent": "Бигӯ: ду сол боз",
+          "text": "İki yıldır.",
+          "accepts": [
+            "İki yıl."
+          ],
+          "translation": "Ду сол боз.",
+          "literal": "ики́ йылды́р",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Aileniz burada mı?",
+          "cueTranslation": "Оилаатон ин ҷост?",
+          "intent": "Бигӯ: не, оилаам он ҷо",
+          "text": "Hayır, ailem orada.",
+          "accepts": [
+            "Hayır, memlekette."
+          ],
+          "translation": "Не, оилаам он ҷо.",
+          "literal": "ҳайы́р аилэ́м орада́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Zor olmalı.",
+          "cueTranslation": "Душвор бошад.",
+          "intent": "Бигӯ: ҳа, каме",
+          "text": "Evet, biraz.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, каме.",
+          "literal": "эвэ́т бира́з",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи худам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ben taksi şoförüyüm.",
+          "translation": "Ман ронандаи таксиам.",
+          "literal": "бэ́н такси́ шофёрюйю́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "İki çocuğum var.",
+          "translation": "Ду фарзанд дорам.",
+          "literal": "ики́ чоҷу:у́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Türkçe öğreniyorum.",
+          "translation": "Туркӣ меомӯзам.",
+          "literal": "тюркчэ́ ё:рэнийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "İstanbul'u seviyorum.",
+          "translation": "Истанбулро дӯст медорам.",
+          "literal": "истанбулу́ сэвийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Memleketim çok güzel.",
+          "translation": "Ватанам хеле зебо.",
+          "literal": "мэмлэкэти́м чо́к гюзэ́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Dağlar çok yüksek.",
+          "translation": "Кӯҳҳо хеле баланд.",
+          "literal": "да:ла́р чо́к йюксэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Тоҷикистон чӣ гуна?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Tacikistan nasıl bir yer?",
+          "cueTranslation": "Тоҷикистон чӣ гуна ҷой аст?",
+          "intent": "Бигӯ: ватанам хеле зебо",
+          "text": "Memleketim çok güzel.",
+          "accepts": [
+            "Çok güzel."
+          ],
+          "translation": "Ватанам хеле зебо.",
+          "literal": "мэмлэкэти́м чо́к гюзэ́л",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dağlar var mı?",
+          "cueTranslation": "Кӯҳ ҳаст?",
+          "intent": "Бигӯ: ҳа, кӯҳҳо хеле баланд",
+          "text": "Evet, dağlar çok yüksek.",
+          "accepts": [
+            "Evet, çok dağ var."
+          ],
+          "translation": "Ҳа, кӯҳҳо хеле баланд.",
+          "literal": "эвэ́т да:ла́р чо́к йюксэ́к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Çocuğunuz var mı?",
+          "cueTranslation": "Фарзанд доред?",
+          "intent": "Бигӯ: ду фарзанд дорам",
+          "text": "İki çocuğum var.",
+          "accepts": [
+            "Evet, iki."
+          ],
+          "translation": "Ду фарзанд дорам.",
+          "literal": "ики́ чоҷу:у́м ва́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҳаво ва роҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bugün çok sıcak.",
+          "translation": "Имрӯз хеле гарм.",
+          "literal": "бугю́н чо́к сыҷа́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yağmur yağıyor.",
+          "translation": "Борон меборад.",
+          "literal": "йа:му́р йа:ыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Akşam trafik çok.",
+          "translation": "Шом роҳбандӣ зиёд.",
+          "literal": "акша́м трафи́к чо́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Klimayı açayım mı?",
+          "translation": "Кондитсионерро кушоям?",
+          "literal": "климайы́ ачайы́м мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Müzik açayım mı?",
+          "translation": "Мусиқӣ монам?",
+          "literal": "мюзи́к ачайы́м мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sessiz olsun.",
+          "translation": "Ором бошад.",
+          "literal": "сэсси́з олсу́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Кондитсионер?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bugün çok sıcak!",
+          "cueTranslation": "Имрӯз хеле гарм!",
+          "intent": "Бипурс: кондитсионерро кушоям?",
+          "text": "Klimayı açayım mı?",
+          "accepts": [
+            "Klima açayım mı?"
+          ],
+          "translation": "Кондитсионерро кушоям?",
+          "literal": "климайы́ ачайы́м мы́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, lütfen.",
+          "cueTranslation": "Ҳа, лутфан.",
+          "intent": "Бипурс: мусиқӣ монам?",
+          "text": "Müzik açayım mı?",
+          "accepts": [
+            "Müzik ister misiniz?"
+          ],
+          "translation": "Мусиқӣ монам?",
+          "literal": "мюзи́к ачайы́м мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, sessiz olsun.",
+          "cueTranslation": "Не, ором бошад.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мусофири пургап",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nerelisiniz?",
+          "cueTranslation": "Аз куҷоед?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Tacikistanlıyım.",
+          "accepts": [
+            "Tacikistan'dan."
+          ],
+          "translation": "Аз Тоҷикистонам.",
+          "literal": "таҷикистанлыйы́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kaç yıldır buradasınız?",
+          "cueTranslation": "Чанд сол боз ин ҷоед?",
+          "intent": "Бигӯ: ду сол боз",
+          "text": "İki yıldır.",
+          "accepts": [
+            "İki yıl."
+          ],
+          "translation": "Ду сол боз.",
+          "literal": "ики́ йылды́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Türkçeniz iyi!",
+          "cueTranslation": "Туркии шумо хуб!",
+          "intent": "Бигӯ: туркӣ меомӯзам",
+          "text": "Türkçe öğreniyorum.",
+          "accepts": [
+            "Biraz biliyorum."
+          ],
+          "translation": "Туркӣ меомӯзам.",
+          "literal": "тюркчэ́ ё:рэнийору́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Bugün çok sıcak!",
+          "cueTranslation": "Имрӯз хеле гарм!",
+          "intent": "Бипурс: кондитсионерро кушоям?",
+          "text": "Klimayı açayım mı?",
+          "accepts": [
+            "Klima açayım mı?"
+          ],
+          "translation": "Кондитсионерро кушоям?",
+          "literal": "климайы́ ачайы́м мы́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

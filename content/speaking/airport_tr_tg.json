@@ -1,0 +1,546 @@
+{
+  "slug": "airport_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Havalimanında",
+    "titleTranslated": "Дар фурудгоҳ",
+    "scenario": "Шумо ба Туркия парвоз мекунед ё ба Душанбе бармегардед: дар қайди парвоз бағоҷро медиҳед, гейтро мепурсед ва агар ҷомадон наояд, хабар медиҳед.",
+    "emoji": "🛫",
+    "order": 3,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Фурудгоҳ",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Uçak",
+          "translation": "ҳавопаймо",
+          "literal": "уча́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Bilet",
+          "translation": "чипта",
+          "literal": "билэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Pasaport",
+          "translation": "шиноснома",
+          "literal": "пасапо́рт",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Kapı",
+          "translation": "гейт (дар)",
+          "literal": "капы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Valiz",
+          "translation": "ҷомадон",
+          "literal": "вали́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Uçuş",
+          "translation": "парвоз",
+          "literal": "учу́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Қайди парвоз",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pasaportunuz lütfen.",
+          "cueTranslation": "Шиносномаатон, лутфан.",
+          "intent": "Бигӯ: марҳамат",
+          "text": "Buyurun.",
+          "accepts": [
+            "Buyurun, pasaport."
+          ],
+          "translation": "Марҳамат.",
+          "literal": "буйуру́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nereye uçuyorsunuz?",
+          "cueTranslation": "Ба куҷо парвоз мекунед?",
+          "intent": "Бигӯ: ба Душанбе",
+          "text": "Duşanbe'ye.",
+          "accepts": [
+            "Duşanbe."
+          ],
+          "translation": "Ба Душанбе.",
+          "literal": "душанбэйэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Valiz var mı?",
+          "cueTranslation": "Ҷомадон ҳаст?",
+          "intent": "Бигӯ: ҳа, як ҷомадон",
+          "text": "Evet, bir valiz.",
+          "accepts": [
+            "Bir valiz var."
+          ],
+          "translation": "Ҳа, як ҷомадон.",
+          "literal": "эвэ́т би́р вали́з",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bir valiz",
+          "translation": "Як ҷомадон",
+          "literal": "би́р вали́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Hangi kapı?",
+          "translation": "Кадом гейт?",
+          "literal": "ҳанги́ капы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Uçuş saati",
+          "translation": "Вақти парвоз",
+          "literal": "учу́ш саати́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Pencere kenarı",
+          "translation": "Назди тиреза",
+          "literal": "пэнҷэрэ́ кэнары́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Koridor tarafı",
+          "translation": "Тарафи гузаргоҳ",
+          "literal": "коридо́р тарафы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "İyi uçuşlar!",
+          "translation": "Парвози хуш!",
+          "literal": "ийи́ учушла́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ҷой ва гейт",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pencere mi, koridor mu?",
+          "cueTranslation": "Назди тиреза ё гузаргоҳ?",
+          "intent": "Бигӯ: назди тиреза, лутфан",
+          "text": "Pencere lütfen.",
+          "accepts": [
+            "Pencere kenarı."
+          ],
+          "translation": "Назди тиреза, лутфан.",
+          "literal": "пэнҷэрэ́ лютфэ́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Kartınız burada.",
+          "cueTranslation": "Хуб. Корти шумо ин ҷо.",
+          "intent": "Бипурс: кадом гейт?",
+          "text": "Hangi kapı?",
+          "accepts": [
+            "Kapı kaç?"
+          ],
+          "translation": "Кадом гейт?",
+          "literal": "ҳанги́ капы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Kapı on iki.",
+          "cueTranslation": "Гейти дувоздаҳ.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Саволҳо дар фурудгоҳ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Uçuş ne zaman?",
+          "translation": "Парвоз кай?",
+          "literal": "учу́ш нэ́ зама́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Uçuş gecikmeli mi?",
+          "translation": "Парвоз дер мешавад?",
+          "literal": "учу́ш гэҷикмэли́ ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapı nerede?",
+          "translation": "Гейт куҷост?",
+          "literal": "капы́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Valiz çok ağır.",
+          "translation": "Ҷомадон хеле вазнин.",
+          "literal": "вали́з чо́к а:ы́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Fazla kilo var.",
+          "translation": "Вазни зиёдатӣ ҳаст.",
+          "literal": "фазла́ кило́ ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne kadar ödeyeyim?",
+          "translation": "Чӣ қадар пардохт кунам?",
+          "literal": "нэ́ када́р ёдэйэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Вазни зиёдатӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Valiz otuz kilo.",
+          "cueTranslation": "Ҷомадон сӣ кило.",
+          "intent": "Бипурс: вазни зиёдатӣ ҳаст?",
+          "text": "Fazla kilo var mı?",
+          "accepts": [
+            "Çok mu ağır?"
+          ],
+          "translation": "Вазни зиёдатӣ ҳаст?",
+          "literal": "фазла́ кило́ ва́р мы́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, beş kilo fazla.",
+          "cueTranslation": "Ҳа, панҷ кило зиёд.",
+          "intent": "Бипурс: чӣ қадар пардохт кунам?",
+          "text": "Ne kadar ödeyeyim?",
+          "accepts": [
+            "Ne kadar?"
+          ],
+          "translation": "Чӣ қадар пардохт кунам?",
+          "literal": "нэ́ када́р ёдэйэйи́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Elli dolar.",
+          "cueTranslation": "Панҷоҳ доллар.",
+          "intent": "Бигӯ: хуб, бо корт",
+          "text": "Tamam, kartla.",
+          "accepts": [
+            "Kartla ödüyorum."
+          ],
+          "translation": "Хуб, бо корт.",
+          "literal": "тама́м картла́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ҷомадон наомад",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Valizim gelmedi.",
+          "translation": "Ҷомадонам наомад.",
+          "literal": "вализи́м гэлмэди́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu benim biletim.",
+          "translation": "Ин чиптаи ман.",
+          "literal": "бу́ бэни́м билэти́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Valiz siyah, büyük.",
+          "translation": "Ҷомадон сиёҳ, калон.",
+          "literal": "вали́з сийа́ҳ бюйю́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Telefon numaram bu.",
+          "translation": "Рақами телефонам ин.",
+          "literal": "тэлэфо́н нумара́м бу́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne zaman gelir?",
+          "translation": "Кай меояд?",
+          "literal": "нэ́ зама́н гэли́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Eve getirir misiniz?",
+          "translation": "Ба хона меоред?",
+          "literal": "эвэ́ гэтири́р мисини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Хабар додан",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun, sorun ne?",
+          "cueTranslation": "Марҳамат, мушкил чист?",
+          "intent": "Бигӯ: ҷомадонам наомад",
+          "text": "Valizim gelmedi.",
+          "accepts": [
+            "Valiz yok."
+          ],
+          "translation": "Ҷомадонам наомад.",
+          "literal": "вализи́м гэлмэди́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Valiz nasıl?",
+          "cueTranslation": "Ҷомадон чӣ гуна?",
+          "intent": "Бигӯ: сиёҳ, калон",
+          "text": "Siyah, büyük.",
+          "accepts": [
+            "Büyük, siyah valiz."
+          ],
+          "translation": "Сиёҳ, калон.",
+          "literal": "сийа́ҳ бюйю́к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yarın gelir.",
+          "cueTranslation": "Фардо меояд.",
+          "intent": "Бипурс: ба хона меоред?",
+          "text": "Eve getirir misiniz?",
+          "accepts": [
+            "Eve gelir mi?"
+          ],
+          "translation": "Ба хона меоред?",
+          "literal": "эвэ́ гэтири́р мисини́з",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: парвоз ба хона",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pasaportunuz lütfen. Nereye?",
+          "cueTranslation": "Шиносномаатон, лутфан. Ба куҷо?",
+          "intent": "Бигӯ: ба Душанбе, марҳамат",
+          "text": "Duşanbe'ye, buyurun.",
+          "accepts": [
+            "Duşanbe."
+          ],
+          "translation": "Ба Душанбе, марҳамат.",
+          "literal": "душанбэйэ́ буйуру́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Valiz var mı?",
+          "cueTranslation": "Ҷомадон ҳаст?",
+          "intent": "Бигӯ: ҳа, як ҷомадон",
+          "text": "Evet, bir valiz.",
+          "accepts": [
+            "Bir valiz var."
+          ],
+          "translation": "Ҳа, як ҷомадон.",
+          "literal": "эвэ́т би́р вали́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Pencere mi, koridor mu?",
+          "cueTranslation": "Тиреза ё гузаргоҳ?",
+          "intent": "Бигӯ: назди тиреза, лутфан",
+          "text": "Pencere lütfen.",
+          "accepts": [
+            "Pencere kenarı."
+          ],
+          "translation": "Назди тиреза, лутфан.",
+          "literal": "пэнҷэрэ́ лютфэ́н",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Kapı on iki. İyi uçuşlar!",
+          "cueTranslation": "Гейти дувоздаҳ. Парвози хуш!",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler!",
+          "accepts": [
+            "Sağ olun!"
+          ],
+          "translation": "Ташаккур!",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

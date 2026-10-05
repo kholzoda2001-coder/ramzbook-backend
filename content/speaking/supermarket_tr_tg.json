@@ -1,0 +1,546 @@
+{
+  "slug": "supermarket_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Markette",
+    "titleTranslated": "Дар супермаркет",
+    "scenario": "Шумо дар маркет ва бозор харид мекунед: маҳсулот меҷӯед, нарх мепурсед, «як кило» мегӯед ва дар касса пардохт мекунед.",
+    "emoji": "🛒",
+    "order": 8,
+    "goals": [
+      "life"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Маҳсулот",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Ekmek",
+          "translation": "нон",
+          "literal": "экмэ́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Süt",
+          "translation": "шир",
+          "literal": "сю́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Et",
+          "translation": "гӯшт",
+          "literal": "э́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Pirinç",
+          "translation": "биринҷ",
+          "literal": "пири́нч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Domates",
+          "translation": "помидор",
+          "literal": "доматэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Kilo",
+          "translation": "кило",
+          "literal": "кило́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Дар бозор",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun abi!",
+          "cueTranslation": "Марҳамат, ака!",
+          "intent": "Бипурс: помидор чанд?",
+          "text": "Domates kaç lira?",
+          "accepts": [
+            "Domates ne kadar?"
+          ],
+          "translation": "Помидор чанд лира?",
+          "literal": "доматэ́с ка́ч лира́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kilosu otuz lira.",
+          "cueTranslation": "Килояш сӣ лира.",
+          "intent": "Бигӯ: ду кило, лутфан",
+          "text": "İki kilo lütfen.",
+          "accepts": [
+            "İki kilo."
+          ],
+          "translation": "Ду кило, лутфан.",
+          "literal": "ики́ кило́ лютфэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Başka?",
+          "cueTranslation": "Дигар?",
+          "intent": "Бигӯ: ҳамин, ташаккур",
+          "text": "Bu kadar, teşekkürler.",
+          "accepts": [
+            "Bu kadar."
+          ],
+          "translation": "Ҳамин, ташаккур.",
+          "literal": "бу́ када́р тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bir kilo",
+          "translation": "Як кило",
+          "literal": "би́р кило́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kaç lira?",
+          "translation": "Чанд лира?",
+          "literal": "ка́ч лира́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Taze mi?",
+          "translation": "Тоза (тару тоза) аст?",
+          "literal": "тазэ́ ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Helal et",
+          "translation": "Гӯшти ҳалол",
+          "literal": "ҳэла́л э́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu kadar",
+          "translation": "Ҳамин",
+          "literal": "бу́ када́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Poşet",
+          "translation": "халта",
+          "literal": "пошэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Гӯшти ҳалол",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne istersiniz?",
+          "cueTranslation": "Чӣ мехоҳед?",
+          "intent": "Бигӯ: як кило гӯшт",
+          "text": "Bir kilo et.",
+          "accepts": [
+            "Et lütfen."
+          ],
+          "translation": "Як кило гӯшт.",
+          "literal": "би́р кило́ э́т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Dana mı, kuzu mu?",
+          "cueTranslation": "Гов ё барра?",
+          "intent": "Бигӯ: барра",
+          "text": "Kuzu.",
+          "accepts": [
+            "Kuzu lütfen."
+          ],
+          "translation": "Барра.",
+          "literal": "кузу́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Buyurun.",
+          "cueTranslation": "Марҳамат.",
+          "intent": "Бипурс: чанд лира?",
+          "text": "Kaç lira?",
+          "accepts": [
+            "Ne kadar?"
+          ],
+          "translation": "Чанд лира?",
+          "literal": "ка́ч лира́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Ҷустуҷӯ",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Pirinç nerede?",
+          "translation": "Биринҷ куҷост?",
+          "literal": "пири́нч нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Süt bitmiş mi?",
+          "translation": "Шир тамом шудааст?",
+          "literal": "сю́т битми́ш ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu taze mi?",
+          "translation": "Ин тоза аст?",
+          "literal": "бу́ тазэ́ ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Daha ucuz var mı?",
+          "translation": "Арзонтар ҳаст?",
+          "literal": "даҳа́ уҷу́з ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu indirimde mi?",
+          "translation": "Ин бо тахфиф аст?",
+          "literal": "бу́ индиримдэ́ ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Poşet lazım değil.",
+          "translation": "Халта лозим нест.",
+          "literal": "пошэ́т лазы́м дэйи́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Арзонтар",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Yardım edeyim mi?",
+          "cueTranslation": "Ёрӣ диҳам?",
+          "intent": "Бипурс: биринҷ куҷост?",
+          "text": "Pirinç nerede?",
+          "accepts": [
+            "Pirinç var mı?"
+          ],
+          "translation": "Биринҷ куҷост?",
+          "literal": "пири́нч нэрэдэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Üçüncü rafta.",
+          "cueTranslation": "Дар рафи сеюм.",
+          "intent": "Бипурс: арзонтар ҳаст?",
+          "text": "Daha ucuz var mı?",
+          "accepts": [
+            "Ucuz var mı?"
+          ],
+          "translation": "Арзонтар ҳаст?",
+          "literal": "даҳа́ уҷу́з ва́р мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu indirimde.",
+          "cueTranslation": "Ин бо тахфиф аст.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Дар касса",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Poşet ister misiniz?",
+          "translation": "Халта мехоҳед?",
+          "literal": "пошэ́т истэ́р мисини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Evet, bir tane.",
+          "translation": "Ҳа, яктоӣ.",
+          "literal": "эвэ́т би́р танэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kartla ödeyeceğim.",
+          "translation": "Бо корт медиҳам.",
+          "literal": "картла́ ёдэйэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiş lazım değil.",
+          "translation": "Чек лозим нест.",
+          "literal": "фи́ш лазы́м дэйи́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiyat yanlış galiba.",
+          "translation": "Нарх нодуруст, гумон кунам.",
+          "literal": "фийа́т йанлы́ш галиба́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu yirmi liraydı.",
+          "translation": "Ин бист лира буд.",
+          "literal": "бу́ йирми́ лирайды́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Нархи нодуруст",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Toplam iki yüz lira.",
+          "cueTranslation": "Ҳамагӣ дусад лира.",
+          "intent": "Бигӯ: нарх нодуруст, гумон кунам",
+          "text": "Fiyat yanlış galiba.",
+          "accepts": [
+            "Bu yanlış."
+          ],
+          "translation": "Нарх нодуруст, гумон кунам.",
+          "literal": "фийа́т йанлы́ш галиба́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hangisi?",
+          "cueTranslation": "Кадомаш?",
+          "intent": "Бигӯ: ин бист лира нест?",
+          "text": "Bu yirmi liraydı.",
+          "accepts": [
+            "Bu indirimde."
+          ],
+          "translation": "Ин бист лира буд.",
+          "literal": "бу́ йирми́ лирайды́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Haklısınız, pardon.",
+          "cueTranslation": "Ҳақ бо шумост, бубахшед.",
+          "intent": "Бигӯ: мушкил нест",
+          "text": "Sorun değil.",
+          "accepts": [
+            "Tamam."
+          ],
+          "translation": "Мушкил нест.",
+          "literal": "сору́н дэйи́л",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: харид барои ҳафта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Buyurun abi!",
+          "cueTranslation": "Марҳамат, ака!",
+          "intent": "Бипурс: помидор чанд лира?",
+          "text": "Domates kaç lira?",
+          "accepts": [
+            "Domates ne kadar?"
+          ],
+          "translation": "Помидор чанд лира?",
+          "literal": "доматэ́с ка́ч лира́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Kilosu otuz.",
+          "cueTranslation": "Килояш сӣ.",
+          "intent": "Бигӯ: ду кило, лутфан",
+          "text": "İki kilo lütfen.",
+          "accepts": [
+            "İki kilo."
+          ],
+          "translation": "Ду кило, лутфан.",
+          "literal": "ики́ кило́ лютфэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Başka?",
+          "cueTranslation": "Дигар?",
+          "intent": "Бигӯ: як кило гӯшти барра",
+          "text": "Bir kilo kuzu.",
+          "accepts": [
+            "Kuzu eti."
+          ],
+          "translation": "Як кило гӯшти барра.",
+          "literal": "би́р кило́ кузу́",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Toplam beş yüz lira.",
+          "cueTranslation": "Ҳамагӣ панҷсад лира.",
+          "intent": "Бигӯ: бо корт медиҳам",
+          "text": "Kartla ödeyeceğim.",
+          "accepts": [
+            "Kartla."
+          ],
+          "translation": "Бо корт медиҳам.",
+          "literal": "картла́ ёдэйэҷэйи́м",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

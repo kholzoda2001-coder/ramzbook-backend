@@ -1,0 +1,546 @@
+{
+  "slug": "pickup_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Yolcu almak",
+    "titleTranslated": "Гирифтани мусофир",
+    "scenario": "Шумо мусофирро аз ҷои фармоиш мегиред: занг мезанед, ки омадед, номро месанҷед, мепурсед, ки куҷо меравад ва камарбандро ёдрас мекунед.",
+    "emoji": "🙋",
+    "order": 4,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Такси",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Yolcu",
+          "translation": "мусофир",
+          "literal": "йолҷу́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Taksi",
+          "translation": "такси",
+          "literal": "такси́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Kapı",
+          "translation": "дар",
+          "literal": "капы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Bagaj",
+          "translation": "бағоҷ (бағоҷдон)",
+          "literal": "бага́ж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Kemer",
+          "translation": "камарбанд",
+          "literal": "кэмэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Adres",
+          "translation": "суроға",
+          "literal": "адрэ́с",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ман омадам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo?",
+          "cueTranslation": "Ало?",
+          "intent": "Бигӯ: салом, ман таксиам, омадам",
+          "text": "Merhaba, taksi geldi.",
+          "accepts": [
+            "Ben buradayım."
+          ],
+          "translation": "Салом, такси омад.",
+          "literal": "мэрҳаба́ такси́ гэлди́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, geliyorum.",
+          "cueTranslation": "Хуб, меоям.",
+          "intent": "Бигӯ: мошини сафед",
+          "text": "Beyaz araba.",
+          "accepts": [
+            "Beyaz taksi."
+          ],
+          "translation": "Мошини сафед.",
+          "literal": "бэйа́з араба́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Görüyorum!",
+          "cueTranslation": "Мебинам!",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Bekliyorum."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Taksi geldi",
+          "translation": "Такси омад",
+          "literal": "такси́ гэлди́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Beyaz araba",
+          "translation": "Мошини сафед",
+          "literal": "бэйа́з араба́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Nereye gidiyoruz?",
+          "translation": "Ба куҷо меравем?",
+          "literal": "нэрэйэ́ гидийору́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Kemerinizi takın",
+          "translation": "Камарбандро банд кунед",
+          "literal": "кэмэринизи́ такы́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Buyurun, binin",
+          "translation": "Марҳамат, савор шавед",
+          "literal": "буйуру́н бини́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Bagaj",
+          "translation": "бағоҷдон",
+          "literal": "бага́ж",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ному суроға",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba!",
+          "cueTranslation": "Салом!",
+          "intent": "Бипурс: номатон Айше?",
+          "text": "Adınız Ayşe mi?",
+          "accepts": [
+            "Ayşe Hanım mı?"
+          ],
+          "translation": "Номатон Айше?",
+          "literal": "адыны́з айшэ́ ми́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, benim.",
+          "cueTranslation": "Ҳа, манам.",
+          "intent": "Бипурс: ба куҷо меравем?",
+          "text": "Nereye gidiyoruz?",
+          "accepts": [
+            "Nereye?"
+          ],
+          "translation": "Ба куҷо меравем?",
+          "literal": "нэрэйэ́ гидийору́з",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Havalimanına.",
+          "cueTranslation": "Ба фурудгоҳ.",
+          "intent": "Бигӯ: хуб, марҳамат",
+          "text": "Tamam, buyurun.",
+          "accepts": [
+            "Buyurun, binin."
+          ],
+          "translation": "Хуб, марҳамат.",
+          "literal": "тама́м буйуру́н",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Савор шудан",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Bagajınız var mı?",
+          "translation": "Бағоҷ доред?",
+          "literal": "багажыны́з ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bagajı açıyorum.",
+          "translation": "Бағоҷдонро мекушоям.",
+          "literal": "багажы́ ачыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Kemerinizi takın lütfen.",
+          "translation": "Камарбандро банд кунед, лутфан.",
+          "literal": "кэмэринизи́ такы́н лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Klima açık mı?",
+          "translation": "Кондитсионер кушода бошад?",
+          "literal": "клима́ ачы́к мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Yolculuk yirmi dakika.",
+          "translation": "Роҳ бист дақиқа.",
+          "literal": "йолҷулу́к йирми́ дакика́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hazır mısınız?",
+          "translation": "Тайёред?",
+          "literal": "ҳазы́р мысыны́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бағоҷ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bir valizim var.",
+          "cueTranslation": "Як ҷомадон дорам.",
+          "intent": "Бигӯ: бағоҷдонро мекушоям",
+          "text": "Bagajı açıyorum.",
+          "accepts": [
+            "Bagaja koyalım."
+          ],
+          "translation": "Бағоҷдонро мекушоям.",
+          "literal": "багажы́ ачыйору́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Teşekkürler.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бигӯ: камарбандро банд кунед, лутфан",
+          "text": "Kemerinizi takın lütfen.",
+          "accepts": [
+            "Kemer lütfen."
+          ],
+          "translation": "Камарбандро банд кунед, лутфан.",
+          "literal": "кэмэринизи́ такы́н лютфэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tabii. Ne kadar sürer?",
+          "cueTranslation": "Албатта. Чӣ қадар мегирад?",
+          "intent": "Бигӯ: бист дақиқа",
+          "text": "Yirmi dakika.",
+          "accepts": [
+            "Yolculuk yirmi dakika."
+          ],
+          "translation": "Бист дақиқа.",
+          "literal": "йирми́ дакика́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Мусофир нест",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Neredesiniz?",
+          "translation": "Шумо куҷоед?",
+          "literal": "нэрэдэсини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Kapının önündeyim.",
+          "translation": "Дар назди дарам.",
+          "literal": "капыны́н ёнюндэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Beş dakika bekliyorum.",
+          "translation": "Панҷ дақиқа интизорам.",
+          "literal": "бэ́ш дакика́ бэклийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Sizi göremiyorum.",
+          "translation": "Шуморо намебинам.",
+          "literal": "сизи́ гёрэмийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hangi kapı?",
+          "translation": "Кадом дар?",
+          "literal": "ҳанги́ капы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Hemen geliyorum.",
+          "translation": "Ҳозир меоям.",
+          "literal": "ҳэмэ́н гэлийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Мусофирро намебинам",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo? Neredesiniz?",
+          "cueTranslation": "Ало? Шумо куҷоед?",
+          "intent": "Бигӯ: дар назди дарам",
+          "text": "Kapının önündeyim.",
+          "accepts": [
+            "Ben buradayım."
+          ],
+          "translation": "Дар назди дарам.",
+          "literal": "капыны́н ёнюндэйи́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ben de kapıdayım!",
+          "cueTranslation": "Ман ҳам дар назди дарам!",
+          "intent": "Бигӯ: шуморо намебинам",
+          "text": "Sizi göremiyorum.",
+          "accepts": [
+            "Göremiyorum."
+          ],
+          "translation": "Шуморо намебинам.",
+          "literal": "сизи́ гёрэмийору́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Arka kapıdayım.",
+          "cueTranslation": "Дар дари қафо.",
+          "intent": "Бигӯ: ҳозир меоям",
+          "text": "Hemen geliyorum.",
+          "accepts": [
+            "Tamam, geliyorum."
+          ],
+          "translation": "Ҳозир меоям.",
+          "literal": "ҳэмэ́н гэлийору́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мусофири аввал",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo? Neredesiniz?",
+          "cueTranslation": "Ало? Куҷоед?",
+          "intent": "Бигӯ: дар назди дарам, мошини сафед",
+          "text": "Kapıdayım, beyaz araba.",
+          "accepts": [
+            "Beyaz araba."
+          ],
+          "translation": "Дар назди дарам, мошини сафед.",
+          "literal": "капыдайы́м бэйа́з араба́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, geliyorum. Valizim var.",
+          "cueTranslation": "Хуб, меоям. Ҷомадон дорам.",
+          "intent": "Бигӯ: бағоҷдонро мекушоям",
+          "text": "Bagajı açıyorum.",
+          "accepts": [
+            "Bagaja koyalım."
+          ],
+          "translation": "Бағоҷдонро мекушоям.",
+          "literal": "багажы́ ачыйору́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Teşekkürler.",
+          "cueTranslation": "Ташаккур.",
+          "intent": "Бипурс: ба куҷо меравем?",
+          "text": "Nereye gidiyoruz?",
+          "accepts": [
+            "Nereye?"
+          ],
+          "translation": "Ба куҷо меравем?",
+          "literal": "нэрэйэ́ гидийору́з",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Havalimanına.",
+          "cueTranslation": "Ба фурудгоҳ.",
+          "intent": "Бигӯ: камарбандро банд кунед, лутфан",
+          "text": "Kemerinizi takın lütfen.",
+          "accepts": [
+            "Kemer lütfen."
+          ],
+          "translation": "Камарбандро банд кунед, лутфан.",
+          "literal": "кэмэринизи́ такы́н лютфэ́н",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

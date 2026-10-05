@@ -1,0 +1,546 @@
+{
+  "slug": "fuel_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Benzinlikte",
+    "titleTranslated": "Дар колонка",
+    "scenario": "Шумо ба колонкаи бензин меравед: мегӯед, ки кадом сӯзишворӣ ва чӣ қадар, мепурсед, ки бод ва шустани мошин ҳаст ва пардохт мекунед.",
+    "emoji": "⛽",
+    "order": 11,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Колонка",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Benzinlik",
+          "translation": "колонка (АЗС)",
+          "literal": "бэнзинли́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Benzin",
+          "translation": "бензин",
+          "literal": "бэнзи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Mazot",
+          "translation": "солярка (дизел)",
+          "literal": "мазо́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Litre",
+          "translation": "литр",
+          "literal": "литрэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Hava",
+          "translation": "бод (ҳаво)",
+          "literal": "ҳава́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Yıkama",
+          "translation": "шустан",
+          "literal": "йыкама́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Пур кунед",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Ne alırsınız?",
+          "cueTranslation": "Салом! Чӣ мегиред?",
+          "intent": "Бигӯ: бензин, лутфан",
+          "text": "Benzin lütfen.",
+          "accepts": [
+            "Benzin."
+          ],
+          "translation": "Бензин, лутфан.",
+          "literal": "бэнзи́н лютфэ́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne kadar?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: пур кунед",
+          "text": "Full lütfen.",
+          "accepts": [
+            "Depoyu doldurun."
+          ],
+          "translation": "Пур кунед.",
+          "literal": "фу́лл лютфэ́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam.",
+          "cueTranslation": "Хуб.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Full lütfen",
+          "translation": "Пур кунед",
+          "literal": "фу́лл лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yüz liralık",
+          "translation": "Ба сад лира",
+          "literal": "йю́з лиралы́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Mazot",
+          "translation": "дизел",
+          "literal": "мазо́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Hava basmak",
+          "translation": "Бод додан",
+          "literal": "ҳава́ басма́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Kartla ödeyeceğim",
+          "translation": "Бо корт медиҳам",
+          "literal": "картла́ ёдэйэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiş lütfen",
+          "translation": "Чек, лутфан",
+          "literal": "фи́ш лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Ба панҷсад лира",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Benzin mi, mazot mu?",
+          "cueTranslation": "Бензин ё дизел?",
+          "intent": "Бигӯ: дизел",
+          "text": "Mazot.",
+          "accepts": [
+            "Mazot lütfen."
+          ],
+          "translation": "Дизел.",
+          "literal": "мазо́т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne kadar?",
+          "cueTranslation": "Чӣ қадар?",
+          "intent": "Бигӯ: ба панҷсад лира",
+          "text": "Beş yüz liralık.",
+          "accepts": [
+            "Beş yüz lira."
+          ],
+          "translation": "Ба панҷсад лира.",
+          "literal": "бэ́ш йю́з лиралы́к",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, hemen.",
+          "cueTranslation": "Хуб, ҳозир.",
+          "intent": "Бигӯ: ташаккур",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Хизматҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Hava nerede?",
+          "translation": "Бод куҷост?",
+          "literal": "ҳава́ нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yıkama var mı?",
+          "translation": "Шустан ҳаст?",
+          "literal": "йыкама́ ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Yağa bakar mısınız?",
+          "translation": "Ба равған нигоҳ мекунед?",
+          "literal": "йа:а́ бака́р мысыны́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Tuvalet nerede?",
+          "translation": "Ҳоҷатхона куҷост?",
+          "literal": "тувалэ́т нэрэдэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Su alabilir miyim?",
+          "translation": "Об гирам?",
+          "literal": "су́ алабили́р мийи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kartla ödeyeceğim.",
+          "translation": "Бо корт медиҳам.",
+          "literal": "картла́ ёдэйэҷэйи́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Бод ва равған",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Başka bir şey?",
+          "cueTranslation": "Боз чизе?",
+          "intent": "Бипурс: ба равған нигоҳ мекунед?",
+          "text": "Yağa bakar mısınız?",
+          "accepts": [
+            "Yağı kontrol eder misiniz?"
+          ],
+          "translation": "Ба равған нигоҳ мекунед?",
+          "literal": "йа:а́ бака́р мысыны́з",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Yağ tamam.",
+          "cueTranslation": "Равған хуб.",
+          "intent": "Бипурс: бод куҷост?",
+          "text": "Hava nerede?",
+          "accepts": [
+            "Hava basabilir miyim?"
+          ],
+          "translation": "Бод куҷост?",
+          "literal": "ҳава́ нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Arkada, solda.",
+          "cueTranslation": "Дар қафо, тарафи чап.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Пардохт",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Pompa üç.",
+          "translation": "Колонкаи се.",
+          "literal": "помпа́ ю́ч",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Benzin kartı geçer mi?",
+          "translation": "Корти бензин мегузарад?",
+          "literal": "бэнзи́н карты́ гэчэ́р ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Şirket faturası lazım.",
+          "translation": "Фактураи ширкат лозим.",
+          "literal": "ширкэ́т фатурасы́ лазы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Vergi numarası burada.",
+          "translation": "Рақами андоз ин ҷо.",
+          "literal": "вэрги́ нумарасы́ бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Fiş lütfen.",
+          "translation": "Чек, лутфан.",
+          "literal": "фи́ш лютфэ́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kolay gelsin!",
+          "translation": "Кор осон шавад!",
+          "literal": "кола́й гэлси́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Фактура",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Hangi pompa?",
+          "cueTranslation": "Кадом колонка?",
+          "intent": "Бигӯ: колонкаи се",
+          "text": "Pompa üç.",
+          "accepts": [
+            "Üç numara."
+          ],
+          "translation": "Колонкаи се.",
+          "literal": "помпа́ ю́ч",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Beş yüz lira.",
+          "cueTranslation": "Панҷсад лира.",
+          "intent": "Бигӯ: фактураи ширкат лозим",
+          "text": "Şirket faturası lazım.",
+          "accepts": [
+            "Fatura lütfen."
+          ],
+          "translation": "Фактураи ширкат лозим.",
+          "literal": "ширкэ́т фатурасы́ лазы́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Vergi numarası?",
+          "cueTranslation": "Рақами андоз?",
+          "intent": "Бигӯ: рақами андоз ин ҷо",
+          "text": "Vergi numarası burada.",
+          "accepts": [
+            "Buyurun."
+          ],
+          "translation": "Рақами андоз ин ҷо.",
+          "literal": "вэрги́ нумарасы́ бурада́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: бак холӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Benzin mi, mazot mu?",
+          "cueTranslation": "Салом! Бензин ё дизел?",
+          "intent": "Бигӯ: дизел, пур кунед",
+          "text": "Mazot, full lütfen.",
+          "accepts": [
+            "Mazot, full."
+          ],
+          "translation": "Дизел, пур кунед.",
+          "literal": "мазо́т фу́лл лютфэ́н",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Başka bir şey?",
+          "cueTranslation": "Хуб. Боз чизе?",
+          "intent": "Бипурс: бод куҷост?",
+          "text": "Hava nerede?",
+          "accepts": [
+            "Hava basabilir miyim?"
+          ],
+          "translation": "Бод куҷост?",
+          "literal": "ҳава́ нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Arkada. Nasıl ödersiniz?",
+          "cueTranslation": "Дар қафо. Чӣ тавр медиҳед?",
+          "intent": "Бигӯ: бо корт медиҳам",
+          "text": "Kartla ödeyeceğim.",
+          "accepts": [
+            "Kartla."
+          ],
+          "translation": "Бо корт медиҳам.",
+          "literal": "картла́ ёдэйэҷэйи́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Fiş ister misiniz?",
+          "cueTranslation": "Хуб. Чек мехоҳед?",
+          "intent": "Бигӯ: ҳа, чек, лутфан",
+          "text": "Evet, fiş lütfen.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, чек, лутфан.",
+          "literal": "эвэ́т фи́ш лютфэ́н",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "slug": "car_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Araba ve belgeler",
+    "titleTranslated": "Мошин ва ҳуҷҷатҳо",
+    "scenario": "Рӯзи аввал дар ширкати такси ё расонидан. Мудир ба шумо мошин, калид ва ҳуҷҷатҳоро медиҳад. Шумо мошинро месанҷед ва мепурсед, ки чӣ кор кунед.",
+    "emoji": "🚗",
+    "order": 3,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Мошин",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Araba",
+          "translation": "мошин",
+          "literal": "араба́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Anahtar",
+          "translation": "калид",
+          "literal": "анаҳта́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Ehliyet",
+          "translation": "шаҳодатномаи ронандагӣ",
+          "literal": "эҳлийэ́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Ruhsat",
+          "translation": "ҳуҷҷати мошин",
+          "literal": "руҳса́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Benzin",
+          "translation": "бензин",
+          "literal": "бэнзи́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Lastik",
+          "translation": "чарх (шина)",
+          "literal": "ласти́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳуҷҷатҳо",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Yeni şoför müsün?",
+          "cueTranslation": "Салом! Ронандаи навӣ?",
+          "intent": "Бигӯ: ҳа, ман ронандаам",
+          "text": "Evet, ben şoförüm.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, ман ронандаам.",
+          "literal": "эвэ́т бэ́н шофёрю́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ehliyetin var mı?",
+          "cueTranslation": "Шаҳодатнома дорӣ?",
+          "intent": "Бигӯ: ҳа, марҳамат",
+          "text": "Evet, buyurun.",
+          "accepts": [
+            "Var, buyurun."
+          ],
+          "translation": "Ҳа, марҳамат.",
+          "literal": "эвэ́т буйуру́н",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Anahtar burada.",
+          "cueTranslation": "Хуб. Калид ин ҷо.",
+          "intent": "Ташаккур гӯй",
+          "text": "Teşekkürler.",
+          "accepts": [
+            "Sağ olun abi."
+          ],
+          "translation": "Ташаккур.",
+          "literal": "тэшэккюрлэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Ben şoförüm",
+          "translation": "Ман ронандаам",
+          "literal": "бэ́н шофёрю́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Arabanın anahtarı",
+          "translation": "Калиди мошин",
+          "literal": "арабаны́н анаҳтары́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Ruhsat",
+          "translation": "ҳуҷҷати мошин",
+          "literal": "руҳса́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Depo dolu",
+          "translation": "Бак пур",
+          "literal": "дэпо́ долу́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Lastik inik",
+          "translation": "Чарх холӣ (бебод)",
+          "literal": "ласти́к ини́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Nerede park?",
+          "translation": "Дар куҷо истад?",
+          "literal": "нэрэдэ́ па́рк",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Мошин куҷост?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Araban hazır.",
+          "cueTranslation": "Мошинат тайёр.",
+          "intent": "Бипурс: мошин куҷост?",
+          "text": "Araba nerede?",
+          "accepts": [
+            "Nerede abi?"
+          ],
+          "translation": "Мошин куҷост?",
+          "literal": "араба́ нэрэдэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Otoparkta, beyaz.",
+          "cueTranslation": "Дар таваққуфгоҳ, сафед.",
+          "intent": "Бипурс: ҳуҷҷати мошин куҷост?",
+          "text": "Ruhsat nerede?",
+          "accepts": [
+            "Ya ruhsat?"
+          ],
+          "translation": "Ҳуҷҷати мошин куҷост?",
+          "literal": "руҳса́т нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Torpidoda.",
+          "cueTranslation": "Дар қуттии пеши мошин.",
+          "intent": "Бигӯ: фаҳмидам",
+          "text": "Anladım.",
+          "accepts": [
+            "Tamam abi."
+          ],
+          "translation": "Фаҳмидам.",
+          "literal": "анлады́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Мошинро месанҷам",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Depo yarım.",
+          "translation": "Бак ним аст.",
+          "literal": "дэпо́ йары́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bu lastik inik.",
+          "translation": "Ин чарх бебод.",
+          "literal": "бу́ ласти́к ини́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Işıklar çalışıyor.",
+          "translation": "Чароғҳо кор мекунанд.",
+          "literal": "ышыкла́р чалышыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Klima çalışmıyor.",
+          "translation": "Кондитсионер кор намекунад.",
+          "literal": "клима́ чалышмыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Burada çizik var.",
+          "translation": "Ин ҷо харош ҳаст.",
+          "literal": "бурада́ чизи́к ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Her şey tamam.",
+          "translation": "Ҳама хуб.",
+          "literal": "ҳэ́р шэ́й тама́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Санҷиш",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Arabaya baktın mı?",
+          "cueTranslation": "Ба мошин нигоҳ кардӣ?",
+          "intent": "Бигӯ: ин чарх бебод",
+          "text": "Bu lastik inik.",
+          "accepts": [
+            "Lastik inik abi."
+          ],
+          "translation": "Ин чарх бебод.",
+          "literal": "бу́ ласти́к ини́к",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, hava bas.",
+          "cueTranslation": "Хуб, бод деҳ.",
+          "intent": "Бигӯ: ин ҷо харош ҳаст",
+          "text": "Burada çizik var.",
+          "accepts": [
+            "Bir de çizik var."
+          ],
+          "translation": "Ин ҷо харош ҳаст.",
+          "literal": "бурада́ чизи́к ва́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Biliyorum, eski.",
+          "cueTranslation": "Медонам, кӯҳна аст.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Қоидаҳои ширкат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Arabada sigara yok.",
+          "translation": "Дар мошин сигор не.",
+          "literal": "арабада́ сигара́ йо́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Her akşam rapor.",
+          "translation": "Ҳар шом ҳисобот.",
+          "literal": "ҳэ́р акша́м рапо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Benzin kartı burada.",
+          "translation": "Корти бензин ин ҷо.",
+          "literal": "бэнзи́н карты́ бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Arabayı temiz tut.",
+          "translation": "Мошинро тоза нигоҳ дор.",
+          "literal": "арабайы́ тэми́з ту́т",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sorun olursa ara.",
+          "translation": "Агар мушкил бошад, занг зан.",
+          "literal": "сору́н олурса́ ара́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Anladım, teşekkürler.",
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "анлады́м тэшэккюрлэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Корти бензин",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Bu benzin kartı.",
+          "cueTranslation": "Ин корти бензин.",
+          "intent": "Бипурс: дар кадом колонка?",
+          "text": "Hangi benzinlikte?",
+          "accepts": [
+            "Nerede kullanayım?"
+          ],
+          "translation": "Дар кадом колонка?",
+          "literal": "ҳанги́ бэнзинликтэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Her yerde olur.",
+          "cueTranslation": "Ҳама ҷо мешавад.",
+          "intent": "Бигӯ: фаҳмидам, ташаккур",
+          "text": "Anladım, teşekkürler.",
+          "accepts": [
+            "Tamam, sağ olun."
+          ],
+          "translation": "Фаҳмидам, ташаккур.",
+          "literal": "анлады́м тэшэккюрлэ́р",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sorun olursa ara.",
+          "cueTranslation": "Агар мушкил бошад, занг зан.",
+          "intent": "Бигӯ: хуб, ака",
+          "text": "Tamam abi.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб, ака.",
+          "literal": "тама́м аби́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: мошини нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Merhaba! Yeni şoför müsün?",
+          "cueTranslation": "Салом! Ронандаи навӣ?",
+          "intent": "Бигӯ: ҳа, ман ронандаам",
+          "text": "Evet, ben şoförüm.",
+          "accepts": [
+            "Evet."
+          ],
+          "translation": "Ҳа, ман ронандаам.",
+          "literal": "эвэ́т бэ́н шофёрю́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Bu senin araban. Anahtar burada.",
+          "cueTranslation": "Ин мошини ту. Калид ин ҷо.",
+          "intent": "Бипурс: ҳуҷҷати мошин куҷост?",
+          "text": "Ruhsat nerede?",
+          "accepts": [
+            "Ya ruhsat?"
+          ],
+          "translation": "Ҳуҷҷати мошин куҷост?",
+          "literal": "руҳса́т нэрэдэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Torpidoda. Arabaya bak.",
+          "cueTranslation": "Дар қуттӣ. Ба мошин нигоҳ кун.",
+          "intent": "Бигӯ: ин чарх бебод",
+          "text": "Bu lastik inik.",
+          "accepts": [
+            "Lastik inik abi."
+          ],
+          "translation": "Ин чарх бебод.",
+          "literal": "бу́ ласти́к ини́к",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, hava bas.",
+          "cueTranslation": "Хуб, бод деҳ.",
+          "intent": "Бигӯ: хуб, ака",
+          "text": "Tamam abi.",
+          "accepts": [
+            "Peki abi."
+          ],
+          "translation": "Хуб, ака.",
+          "literal": "тама́м аби́",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

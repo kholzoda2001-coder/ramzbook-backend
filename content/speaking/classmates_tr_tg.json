@@ -1,0 +1,548 @@
+{
+  "slug": "classmates_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Sınıf arkadaşları",
+    "titleTranslated": "Ҳамкурсон",
+    "scenario": "Бо ҳамкурсон шинос мешавед: мепурсед, ки аз куҷоянд ва чӣ мехонанд, рақами телефонро иваз мекунед ва якҷоя ба чой ё ба дарс тайёрӣ даъват мекунед.",
+    "emoji": "👫",
+    "order": 9,
+    "goals": [
+      "study"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Ҳамкурсон",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Arkadaş",
+          "translation": "дӯст",
+          "literal": "аркада́ш",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Beraber",
+          "translation": "якҷоя",
+          "literal": "бэрабэ́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Numara",
+          "translation": "рақам",
+          "literal": "нумара́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Çay",
+          "translation": "чой",
+          "literal": "ча́й",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Çalışmak",
+          "translation": "дарс тайёр кардан, кор кардан",
+          "literal": "чалышма́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Grup",
+          "translation": "гурӯҳ",
+          "literal": "гру́п",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Шиносоӣ",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Selam! Yeni misin?",
+          "cueTranslation": "Салом! Навӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet.",
+          "accepts": [
+            "Evet, yeniyim."
+          ],
+          "translation": "Ҳа.",
+          "literal": "эвэ́т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ben Zeynep. Sen?",
+          "cueTranslation": "Ман Зейнеп. Ту?",
+          "intent": "Номи худро гӯй: Алӣ",
+          "text": "Ben Ali.",
+          "accepts": [
+            "Adım Ali."
+          ],
+          "translation": "Ман Алӣ.",
+          "literal": "бэ́н али́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Memnun oldum!",
+          "cueTranslation": "Шодам!",
+          "intent": "Бигӯ: ман ҳам",
+          "text": "Ben de.",
+          "accepts": [
+            "Ben de memnun oldum."
+          ],
+          "translation": "Ман ҳам.",
+          "literal": "бэ́н дэ́",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Саволҳо",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Tacikistan'dan",
+          "translation": "Аз Тоҷикистон",
+          "literal": "таҷикистанда́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Hangi bölüm?",
+          "translation": "Кадом ихтисос?",
+          "literal": "ҳанги́ бёлю́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Numaran ne?",
+          "translation": "Рақамат чист?",
+          "literal": "нумара́н нэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Memnuniyetle",
+          "translation": "бо камоли майл",
+          "literal": "мэмнунийэтлэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Maalesef olmaz",
+          "translation": "Афсӯс, намешавад",
+          "literal": "маалэсэ́ф олма́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Sonra görüşürüz",
+          "translation": "Баъд мебинем",
+          "literal": "сонра́ гёрюшюрю́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Аз куҷоӣ?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Nerelisin?",
+          "cueTranslation": "Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Tacikistanlıyım.",
+          "accepts": [
+            "Tacikistan'dan."
+          ],
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "таҷикистанлыйы́м",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne güzel! Ne okuyorsun?",
+          "cueTranslation": "Чӣ хуб! Чӣ мехонӣ?",
+          "intent": "Бигӯ: туркӣ",
+          "text": "Türkçe.",
+          "accepts": [
+            "Türkçe okuyorum."
+          ],
+          "translation": "Туркӣ.",
+          "literal": "тюркчэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Ben de!",
+          "cueTranslation": "Ман ҳам!",
+          "intent": "Бигӯ: олӣ!",
+          "text": "Süper!",
+          "accepts": [
+            "Harika!"
+          ],
+          "translation": "Олӣ!",
+          "literal": "сюпэ́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Дар бораи ман",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Yurtta kalıyorum.",
+          "translation": "Дар хобгоҳ зиндагӣ мекунам.",
+          "literal": "йуртта́ калыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Çok çalışıyorum.",
+          "translation": "Бисёр мехонам.",
+          "literal": "чо́к чалышыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Biraz Türkçe biliyorum.",
+          "translation": "Каме туркӣ медонам.",
+          "literal": "бира́з тюркчэ́ билийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "own",
+          "text": "___ okuyorum.",
+          "translation": "Ман ___ мехонам.",
+          "literal": "___ окуйору́м",
+          "note": "Ихтисоси худро гӯед.",
+          "cue": "Ne okuyorsun?",
+          "cueTranslation": "Чӣ мехонӣ?",
+          "intent": "Ихтисоси худро гӯед",
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Vaktin var mı?",
+          "translation": "Вақт дорӣ?",
+          "literal": "вакти́н ва́р мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Beraber çalışalım mı?",
+          "translation": "Якҷоя мехонем?",
+          "literal": "бэрабэ́р чалышалы́м мы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Рақами телефон",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "WhatsApp'ın var mı?",
+          "cueTranslation": "WhatsApp дорӣ?",
+          "intent": "Бигӯ: ҳа",
+          "text": "Evet.",
+          "accepts": [
+            "Evet, var."
+          ],
+          "translation": "Ҳа.",
+          "literal": "эвэ́т",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Numaranı verir misin?",
+          "cueTranslation": "Рақаматро медиҳӣ?",
+          "intent": "Бигӯ: бо камоли майл",
+          "text": "Memnuniyetle.",
+          "accepts": [
+            "Tabii, buyur."
+          ],
+          "translation": "Бо камоли майл.",
+          "literal": "мэмнунийэтлэ́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Sağ ol! Sana yazarım.",
+          "cueTranslation": "Ташаккур! Ба ту менависам.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Olur."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Даъват",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Çay içelim mi?",
+          "translation": "Чой нӯшем?",
+          "literal": "ча́й ичэли́м ми́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Bugün vaktim var.",
+          "translation": "Имрӯз вақт дорам.",
+          "literal": "бугю́н вакти́м ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Bugün olmaz.",
+          "translation": "Имрӯз намешавад.",
+          "literal": "бугю́н олма́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Belki yarın.",
+          "translation": "Шояд фардо.",
+          "literal": "бэлки́ йары́н",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Nerede buluşalım?",
+          "translation": "Куҷо вохӯрем?",
+          "literal": "нэрэдэ́ булушалы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Kütüphanenin önünde.",
+          "translation": "Назди китобхона.",
+          "literal": "кютюпҳанэни́н ёнюндэ́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Чой нӯшем?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Çay içelim mi?",
+          "cueTranslation": "Чой нӯшем?",
+          "intent": "Бигӯ: бо камоли майл",
+          "text": "Memnuniyetle!",
+          "accepts": [
+            "Olur!",
+            "İyi fikir."
+          ],
+          "translation": "Бо камоли майл!",
+          "literal": "мэмнунийэтлэ́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Ne zaman vaktin var?",
+          "cueTranslation": "Кай вақт дорӣ?",
+          "intent": "Бигӯ: баъди дарс",
+          "text": "Dersten sonra.",
+          "accepts": [
+            "Saat ikide."
+          ],
+          "translation": "Баъди дарс.",
+          "literal": "дэрстэ́н сонра́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam, kütüphanenin önünde.",
+          "cueTranslation": "Хуб, назди китобхона.",
+          "intent": "Бигӯ: баъд мебинем",
+          "text": "Sonra görüşürüz!",
+          "accepts": [
+            "Görüşürüz!"
+          ],
+          "translation": "Баъд мебинем!",
+          "literal": "сонра́ гёрюшюрю́з",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: дӯсти нав",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Selam! Adın ne?",
+          "cueTranslation": "Салом! Номат чист?",
+          "intent": "Номи худро гӯй: Алӣ",
+          "text": "Adım Ali.",
+          "accepts": [
+            "Ben Ali."
+          ],
+          "translation": "Номи ман Алӣ.",
+          "literal": "ады́м али́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Nerelisin?",
+          "cueTranslation": "Аз куҷоӣ?",
+          "intent": "Бигӯ: аз Тоҷикистон",
+          "text": "Tacikistanlıyım.",
+          "accepts": [
+            "Tacikistan'dan."
+          ],
+          "translation": "Ман аз Тоҷикистонам.",
+          "literal": "таҷикистанлыйы́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Beraber çalışalım mı?",
+          "cueTranslation": "Якҷоя мехонем?",
+          "intent": "Бигӯ: бо камоли майл",
+          "text": "Memnuniyetle!",
+          "accepts": [
+            "Olur!"
+          ],
+          "translation": "Бо камоли майл!",
+          "literal": "мэмнунийэтлэ́",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Numaranı verir misin?",
+          "cueTranslation": "Рақаматро медиҳӣ?",
+          "intent": "Бигӯ: албатта, марҳамат",
+          "text": "Tabii, buyur.",
+          "accepts": [
+            "Memnuniyetle."
+          ],
+          "translation": "Албатта, марҳамат.",
+          "literal": "табии́ буйу́р",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

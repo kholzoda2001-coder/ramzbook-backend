@@ -1,0 +1,546 @@
+{
+  "slug": "accident_tr_tg",
+  "targetLanguage": "tr",
+  "nativeLanguage": "tg",
+  "category": {
+    "title": "Kaza",
+    "titleTranslated": "Садама",
+    "scenario": "Садамаи хурд рӯй дод: шумо мепурсед, ки касе захмӣ нашуд, ҳуҷҷат ва суғуртаро иваз мекунед, аксбардорӣ мекунед ва ба полис ё ширкат занг мезанед.",
+    "emoji": "💥",
+    "order": 19,
+    "goals": [
+      "drive"
+    ],
+    "isPremium": false,
+    "isActive": true
+  },
+  "lessons": [
+    {
+      "order": 0,
+      "stage": "words",
+      "title": "Садама",
+      "items": [
+        {
+          "kind": "word",
+          "text": "Kaza",
+          "translation": "садама",
+          "literal": "каза́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "word",
+          "text": "Yaralı",
+          "translation": "захмӣ",
+          "literal": "йаралы́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "word",
+          "text": "Hasar",
+          "translation": "зарар",
+          "literal": "ҳаса́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "word",
+          "text": "Tutanak",
+          "translation": "протокол",
+          "literal": "тутана́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "word",
+          "text": "Fotoğraf",
+          "translation": "акс",
+          "literal": "фото:ра́ф",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Ambulans",
+          "translation": "ёрии таъҷилӣ",
+          "literal": "амбула́нс",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "stage": "dialogue",
+      "title": "Ҳама сиҳат?",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ah! Ne oldu?",
+          "cueTranslation": "Оҳ! Чӣ шуд?",
+          "intent": "Бипурс: шумо хубед?",
+          "text": "İyi misiniz?",
+          "accepts": [
+            "Bir şey var mı?"
+          ],
+          "translation": "Шумо хубед?",
+          "literal": "ийи́ мисини́з",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, iyiyim.",
+          "cueTranslation": "Ҳа, хубам.",
+          "intent": "Бипурс: захмӣ ҳаст?",
+          "text": "Yaralı var mı?",
+          "accepts": [
+            "Herkes iyi mi?"
+          ],
+          "translation": "Захмӣ ҳаст?",
+          "literal": "йаралы́ ва́р мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, yok.",
+          "cueTranslation": "Не, нест.",
+          "intent": "Бигӯ: худоро шукр",
+          "text": "Allah'a şükür.",
+          "accepts": [
+            "Çok şükür."
+          ],
+          "translation": "Худоро шукр.",
+          "literal": "аллаҳа́ шюкю́р",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "stage": "chunks",
+      "title": "Ибораҳо",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "İyi misiniz?",
+          "translation": "Хубед?",
+          "literal": "ийи́ мисини́з",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Yaralı yok",
+          "translation": "Захмӣ нест",
+          "literal": "йаралы́ йо́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Polisi arayalım",
+          "translation": "Ба полис занг занем",
+          "literal": "полиси́ арайалы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Fotoğraf çekiyorum",
+          "translation": "Акс мегирам",
+          "literal": "фото:ра́ф чэкийору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Sigorta var?",
+          "translation": "Суғурта ҳаст?",
+          "literal": "сигорта́ ва́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "word",
+          "text": "Tutanak",
+          "translation": "протокол",
+          "literal": "тутана́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "stage": "dialogue",
+      "title": "Суғурта",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Sigortanız var mı?",
+          "cueTranslation": "Суғурта доред?",
+          "intent": "Бигӯ: ҳа, ин ҷо",
+          "text": "Evet, burada.",
+          "accepts": [
+            "Var, buyurun."
+          ],
+          "translation": "Ҳа, ин ҷо.",
+          "literal": "эвэ́т бурада́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Tutanak yazalım.",
+          "cueTranslation": "Протокол нависем.",
+          "intent": "Бигӯ: хуб, акс мегирам",
+          "text": "Tamam, fotoğraf çekiyorum.",
+          "accepts": [
+            "Önce fotoğraf."
+          ],
+          "translation": "Хуб, акс мегирам.",
+          "literal": "тама́м фото:ра́ф чэкийору́м",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam.",
+          "cueTranslation": "Хуб.",
+          "intent": "Бигӯ: ба полис занг занем",
+          "text": "Polisi arayalım.",
+          "accepts": [
+            "Polis çağıralım."
+          ],
+          "translation": "Ба полис занг занем.",
+          "literal": "полиси́ арайалы́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "stage": "sentences",
+      "title": "Чӣ шуд?",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Arkadan çarptı.",
+          "translation": "Аз қафо зад.",
+          "literal": "аркада́н чарпты́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Ben duruyordum.",
+          "translation": "Ман истода будам.",
+          "literal": "бэ́н дуруйорду́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Işık kırmızıydı.",
+          "translation": "Чароғак сурх буд.",
+          "literal": "ышы́к кырмызыйды́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Tampon kırıldı.",
+          "translation": "Бампер шикаст.",
+          "literal": "тампо́н кырылды́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Hasar küçük.",
+          "translation": "Зарар хурд аст.",
+          "literal": "ҳаса́р кючю́к",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Benim hatam değil.",
+          "translation": "Хатои ман нест.",
+          "literal": "бэни́м ҳата́м дэйи́л",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "stage": "dialogue",
+      "title": "Ба полис",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Ne oldu?",
+          "cueTranslation": "Чӣ шуд?",
+          "intent": "Бигӯ: аз қафо зад",
+          "text": "Arkadan çarptı.",
+          "accepts": [
+            "Arkadan çarptı memur bey."
+          ],
+          "translation": "Аз қафо зад.",
+          "literal": "аркада́н чарпты́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Siz ne yapıyordunuz?",
+          "cueTranslation": "Шумо чӣ мекардед?",
+          "intent": "Бигӯ: ман истода будам, чароғак сурх буд",
+          "text": "Duruyordum, ışık kırmızıydı.",
+          "accepts": [
+            "Ben duruyordum."
+          ],
+          "translation": "Истода будам, чароғак сурх буд.",
+          "literal": "дуруйорду́м ышы́к кырмызыйды́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Yaralı var mı?",
+          "cueTranslation": "Захмӣ ҳаст?",
+          "intent": "Бигӯ: не, зарар хурд аст",
+          "text": "Hayır, hasar küçük.",
+          "accepts": [
+            "Yaralı yok."
+          ],
+          "translation": "Не, зарар хурд аст.",
+          "literal": "ҳайы́р ҳаса́р кючю́к",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "stage": "sentences",
+      "title": "Ба ширкат",
+      "items": [
+        {
+          "kind": "sentence",
+          "text": "Abi, kaza oldu.",
+          "translation": "Ака, садама шуд.",
+          "literal": "аби́ каза́ олду́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 0
+        },
+        {
+          "kind": "sentence",
+          "text": "Herkes iyi.",
+          "translation": "Ҳама хуб.",
+          "literal": "ҳэркэ́с ийи́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 1
+        },
+        {
+          "kind": "sentence",
+          "text": "Polis burada.",
+          "translation": "Полис ин ҷо.",
+          "literal": "поли́с бурада́",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 2
+        },
+        {
+          "kind": "sentence",
+          "text": "Araba çalışıyor.",
+          "translation": "Мошин кор мекунад.",
+          "literal": "араба́ чалышыйо́р",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 3
+        },
+        {
+          "kind": "sentence",
+          "text": "Fotoğrafları atıyorum.",
+          "translation": "Аксҳоро мефиристам.",
+          "literal": "фото:рафлары́ атыйору́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 4
+        },
+        {
+          "kind": "sentence",
+          "text": "Ne yapayım?",
+          "translation": "Чӣ кор кунам?",
+          "literal": "нэ́ йапайы́м",
+          "note": null,
+          "cue": null,
+          "cueTranslation": null,
+          "order": 5
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "stage": "dialogue",
+      "title": "Занг ба мудир",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Alo, ne oldu?",
+          "cueTranslation": "Ало, чӣ шуд?",
+          "intent": "Бигӯ: ака, садама шуд",
+          "text": "Abi, kaza oldu.",
+          "accepts": [
+            "Kaza oldu."
+          ],
+          "translation": "Ака, садама шуд.",
+          "literal": "аби́ каза́ олду́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Herkes iyi mi?",
+          "cueTranslation": "Ҳама хубанд?",
+          "intent": "Бигӯ: ҳа, ҳама хуб. Полис ин ҷо",
+          "text": "Evet, herkes iyi. Polis burada.",
+          "accepts": [
+            "Herkes iyi."
+          ],
+          "translation": "Ҳа, ҳама хуб. Полис ин ҷо.",
+          "literal": "эвэ́т ҳэркэ́с ийи́ поли́с бурада́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Fotoğraf çek.",
+          "cueTranslation": "Хуб. Акс гир.",
+          "intent": "Бигӯ: аксҳоро мефиристам",
+          "text": "Fotoğrafları atıyorum.",
+          "accepts": [
+            "Atıyorum."
+          ],
+          "translation": "Аксҳоро мефиристам.",
+          "literal": "фото:рафлары́ атыйору́м",
+          "note": null,
+          "order": 2
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "stage": "mission",
+      "title": "Миссия: садамаи хурд",
+      "items": [
+        {
+          "kind": "turn",
+          "cue": "Pardon! İyi misiniz?",
+          "cueTranslation": "Бубахшед! Хубед?",
+          "intent": "Бигӯ: ҳа, хубам. Захмӣ ҳаст?",
+          "text": "Evet, iyiyim. Yaralı var mı?",
+          "accepts": [
+            "İyiyim."
+          ],
+          "translation": "Ҳа, хубам. Захмӣ ҳаст?",
+          "literal": "эвэ́т ийийи́м йаралы́ ва́р мы́",
+          "note": null,
+          "order": 0
+        },
+        {
+          "kind": "turn",
+          "cue": "Hayır, yok. Benim hatam.",
+          "cueTranslation": "Не, нест. Хатои ман.",
+          "intent": "Бипурс: суғурта доред?",
+          "text": "Sigortanız var mı?",
+          "accepts": [
+            "Sigorta var mı?"
+          ],
+          "translation": "Суғурта доред?",
+          "literal": "сигортаны́з ва́р мы́",
+          "note": null,
+          "order": 1
+        },
+        {
+          "kind": "turn",
+          "cue": "Evet, burada.",
+          "cueTranslation": "Ҳа, ин ҷо.",
+          "intent": "Бигӯ: акс мегирам",
+          "text": "Fotoğraf çekiyorum.",
+          "accepts": [
+            "Önce fotoğraf."
+          ],
+          "translation": "Акс мегирам.",
+          "literal": "фото:ра́ф чэкийору́м",
+          "note": null,
+          "order": 2
+        },
+        {
+          "kind": "turn",
+          "cue": "Tamam. Tutanak yazalım.",
+          "cueTranslation": "Хуб. Протокол нависем.",
+          "intent": "Бигӯ: хуб",
+          "text": "Tamam.",
+          "accepts": [
+            "Olur."
+          ],
+          "translation": "Хуб.",
+          "literal": "тама́м",
+          "note": null,
+          "order": 3
+        }
+      ]
+    }
+  ]
+}
