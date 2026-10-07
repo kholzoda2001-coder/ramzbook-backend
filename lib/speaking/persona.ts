@@ -20,6 +20,8 @@ const JOB_LITERAL: Record<string, Record<SpeakingGoal, string>> = {
     service: 'э сейлзпёрсэн',
     study: 'э стюдэнт',
     life: 'э вёркэр',
+    // `general` касб надорад → ҳамон `life` (барнома: `_goalKey` → 'life').
+    general: 'э вёркэр',
   },
 };
 

@@ -13,7 +13,7 @@ const lessons = await sql.query(`
     JOIN "SpeakingCategory" c ON c.id = l."categoryId"
    WHERE c."titleTranslated" = $1 AND l."isActive" ORDER BY l."order"`, [process.argv[2] ?? 'Назди духтур']);
 for (const l of lessons) {
-  const r = await fetch(`https://admin.ramz.tj/api/admin/speaking/preview?lessonId=${l.id}&ev=3`, {
+  const r = await fetch(`https://admin.ramz.tj/api/admin/speaking/preview?lessonId=${l.id}&ev=${process.argv[3] ?? 3}`, {
     headers: { 'x-admin-api-key': env.ADMIN_API_KEY },
   });
   const j = await r.json();

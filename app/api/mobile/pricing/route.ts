@@ -16,9 +16,9 @@ export async function OPTIONS() {
 // Fallback price table used until an admin sets one in AppSetting `pricing`.
 // Amounts are per-country; the website renders `currency + amount`.
 const DEFAULT_PRICING: Record<string, any> = {
-  TJ: { currency: 'TJS', symbol: 'сом.', monthly: 59, yearly: 399, yearlyOld: 708, lifetime: 799, lifetimeOld: 1200 },
-  RU: { currency: 'RUB', symbol: '₽', monthly: 299, yearly: 1990, yearlyOld: 3588, lifetime: 3990, lifetimeOld: 5990 },
-  default: { currency: 'USD', symbol: '$', monthly: 2.99, yearly: 10.99, yearlyOld: 16.99, lifetime: 54.99, lifetimeOld: 99.99 },
+  TJ: { currency: 'TJS', symbol: 'сом.', monthly: 59, sixmonths: 239, yearly: 399, yearlyOld: 708, lifetime: 799, lifetimeOld: 1200 },
+  RU: { currency: 'RUB', symbol: '₽', monthly: 299, sixmonths: 1190, yearly: 1990, yearlyOld: 3588, lifetime: 3990, lifetimeOld: 5990 },
+  default: { currency: 'USD', symbol: '$', monthly: 2.99, sixmonths: 6.99, yearly: 10.99, yearlyOld: 16.99, lifetime: 54.99, lifetimeOld: 99.99 },
 };
 
 /**

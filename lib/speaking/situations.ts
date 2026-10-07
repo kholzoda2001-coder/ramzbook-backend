@@ -9,8 +9,14 @@
  * ҳам гейти дастрасӣ маҳз инҳоро мехонанд, то тартиб дар ҳама ҷо як бошад.
  */
 
-/** Ҳадафҳои хонанда — ҳамон рӯйхати экрани «Ҳадаф» дар барнома. */
-export const SPEAKING_GOALS = ['build', 'service', 'drive', 'study', 'life'] as const;
+/**
+ * Ҳадафҳои хонанда — ҳамон рӯйхати экрани «Ҳадаф» дар барнома.
+ *
+ * `general` (06.10.2026) — ниша НЕСТ (ҳеҷ вазъият `goals: ['general']`
+ * надорад): хонанда «аз асос» сар мекунад. Роҳаш — АВВАЛ ҳамаи вазъиятҳои
+ * умумӣ, баъд нишаи `life` (ҳаёти ҳаррӯза), ниг. [GENERAL_THEN].
+ */
+export const SPEAKING_GOALS = ['general', 'build', 'service', 'drive', 'study', 'life'] as const;
 export type SpeakingGoal = (typeof SPEAKING_GOALS)[number];
 
 export function asGoal(v: string | null | undefined): SpeakingGoal | null {
@@ -56,7 +62,20 @@ export function isSituation(c: OrderableChapter): boolean {
 export function inPath(c: OrderableChapter, goal: SpeakingGoal | null): boolean {
   if (!isSituation(c)) return false;
   const g = c.goals ?? [];
+  if (goal === 'general') return g.length === 0 || g.includes(GENERAL_THEN);
   return goal === null || g.length === 0 || g.includes(goal);
+}
+
+/**
+ * Нишае, ки роҳи `general` БАЪД аз вазъиятҳои умумӣ идома медиҳад. Танҳо 5–6
+ * вазъияти умумӣ ҳаст — бе идома хонанда пас аз ~45 дарс ба «роҳ тамом»
+ * мерасид. `life` (фурудгоҳ, дорухона, ҳамсояҳо…) ба ҳеҷ касб баста нест.
+ */
+export const GENERAL_THEN = 'life';
+
+/** Дар роҳи `general`: умумӣ (0) пеш аз нишаи идома (1). */
+function generalFirst(c: OrderableChapter, goal: SpeakingGoal | null): number {
+  return goal === 'general' && (c.goals ?? []).length > 0 ? 1 : 0;
 }
 
 /**
@@ -86,6 +105,7 @@ export function orderChapters<T extends OrderableChapter>(
       (a, b) =>
         a.r - b.r ||
         levelOf(a.c) - levelOf(b.c) ||
+        generalFirst(a.c, goal) - generalFirst(b.c, goal) ||
         a.c.order - b.c.order ||
         a.i - b.i,
     )

@@ -75,6 +75,37 @@ describe('orderChapters', () => {
     expect(inPath(situation('taxi', 3, ['drive']), null)).toBe(true);
   });
 
+  it('general: ҲАМАИ умумӣ аввал, баъд нишаи life; нишаҳои касбӣ берун аз роҳ', () => {
+    const all = [
+      situation('meet', 1, []),
+      situation('airport', 3, ['life']),
+      situation('site', 3, ['build']),
+      situation('doctor', 6, []),
+      situation('hotel', 4, ['life']),
+      situation('docs', 16, []),
+      situation('job', 2, ['build', 'service', 'drive', 'life']),
+      legacy('old', 0),
+    ];
+    // Умумӣ (1, 6, 16) — ҳатто пеш аз «life»-и order 2/3/4.
+    expect(orderChapters(all, 'general').map((c) => c.id)).toEqual([
+      'meet', 'doctor', 'docs', 'job', 'airport', 'hotel', 'site', 'old',
+    ]);
+    expect(inPath(situation('meet', 1, []), 'general')).toBe(true);
+    expect(inPath(situation('hotel', 4, ['life']), 'general')).toBe(true);
+    expect(inPath(situation('site', 3, ['build']), 'general')).toBe(false);
+    expect(inPath(legacy('old', 0), 'general')).toBe(false);
+    expect(asGoal('general')).toBe('general');
+  });
+
+  it('general дар сатҳҳо: A1-и умумӣ ва life пеш аз A2', () => {
+    const all = [
+      { ...situation('meet2', 1, []), level: 2 },
+      situation('hotel', 4, ['life']),
+      situation('meet', 1, []),
+    ];
+    expect(orderChapters(all, 'general').map((c) => c.id)).toEqual(['meet', 'hotel', 'meet2']);
+  });
+
   it('isSituation / asGoal', () => {
     expect(isSituation(legacy('a', 0))).toBe(false);
     expect(isSituation(situation('b', 0, []))).toBe(true);
