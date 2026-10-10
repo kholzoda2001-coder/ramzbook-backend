@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { isPronunciationConfigured } from '@/lib/ai/pronunciation';
+import { prisma } from '@/lib/prisma';
+import { isAzureAccountDead, loadAzureMode } from '@/lib/speaking/speech-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,8 +43,13 @@ export async function POST(req: NextRequest) {
     const userId = requireUserId(req);
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
 
+    // ⚠️ 503 = «Azure нест, то охири ҷаласа ба муҳаррики телефон гузар»
+    // (`RealtimeSpeech.available = false` дар барнома). Ниг. `speech-engine.ts`.
     if (!isPronunciationConfigured()) {
       return NextResponse.json({ error: 'not-configured' }, { status: 503 });
+    }
+    if ((await loadAzureMode(prisma)) === 'off') {
+      return NextResponse.json({ error: 'disabled' }, { status: 503 });
     }
 
     const key = process.env.AZURE_SPEECH_KEY!;
@@ -62,6 +69,11 @@ export async function POST(req: NextRequest) {
     if (!res.ok) {
       const body = await res.text().catch(() => '');
       console.error('[mobile/speech/token]', res.status, body.slice(0, 200));
+      // Ҳисоби Azure мурда (озмоиш тамом, квота, калид) — на хатои
+      // муваққатӣ. 502 барномаро маҷбур мекард ҳар машқ аз нав бикӯшад.
+      if (isAzureAccountDead(res.status)) {
+        return NextResponse.json({ error: 'azure-unavailable' }, { status: 503 });
+      }
       return NextResponse.json({ error: 'token-failed' }, { status: 502 });
     }
 

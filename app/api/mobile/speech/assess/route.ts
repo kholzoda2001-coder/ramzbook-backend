@@ -4,6 +4,8 @@ import {
   assessPronunciation,
   isPronunciationConfigured,
 } from '@/lib/ai/pronunciation';
+import { prisma } from '@/lib/prisma';
+import { isAzureAccountDead, loadAzureMode } from '@/lib/speaking/speech-engine';
 
 export const dynamic = 'force-dynamic';
 
@@ -40,6 +42,10 @@ export async function POST(req: NextRequest) {
         { error: 'not-configured' },
         { status: 503 },
       );
+    }
+    // Ҳамон калиди `/speech/token` (ниг. `speech-engine.ts`).
+    if ((await loadAzureMode(prisma)) === 'off') {
+      return NextResponse.json({ error: 'disabled' }, { status: 503 });
     }
 
     const body = (await req.json().catch(() => null)) as {
@@ -80,6 +86,11 @@ export async function POST(req: NextRequest) {
     }
 
     console.error('[mobile/speech/assess]', msg);
+    // Ҳисоби Azure мурда → 503: барнома `disabledForSession` мегузорад.
+    const status = Number(/^Azure (\d{3})/.exec(msg)?.[1] ?? 0);
+    if (isAzureAccountDead(status)) {
+      return NextResponse.json({ error: 'azure-unavailable' }, { status: 503 });
+    }
     return NextResponse.json({ error: 'assess-failed' }, { status: 502 });
   }
 }
