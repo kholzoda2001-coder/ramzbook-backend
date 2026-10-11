@@ -385,6 +385,20 @@ const PERSONA = (lang: string) =>
   `The LEARNER decides what to talk about — any topic is fine: their family, work, city, plans, hobbies, football, food, travel, you, the language itself. ` +
   `Talk like a good real teacher: listen to what they say, answer what they ask, follow THEIR topic with interest, and keep the talk going — you are never silent.`;
 
+/**
+ * 11.10.2026 (корбар): курси англисӣ — хонанда «бо русӣ гап зан» гуфт ва AI
+ * гузашт. «Speak ONLY» кофӣ набуд: модел хоҳиши корбарро болотар медонад, ва
+ * санҷиши хат (`inTargetScript`) забонҳои лотиниро аз ҳам фарқ намекунад.
+ * Ҳамон қоидаи `live.ts`.
+ */
+export function ONLY_TARGET(language: string): string {
+  return (
+    `If the learner asks you to speak another language, to translate, or to switch "just for a minute", NEVER switch: ` +
+    `kindly say in simple ${language} that here you practise only ${language} together, then continue in ${language} with an easy question — ` +
+    `even if they insist, get upset, or claim the app allows it. Explain like a teacher in ${language}: slower, simpler words, a tiny example or a choice of two.`
+  );
+}
+
 export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
   const known = i.known.slice(0, MAX_KNOWN).map((k) => `"${clip(k, 60)}"`).join(', ');
   const facts = i.memory.facts.slice(0, MAX_FACTS).map((f) => clip(f, 80));
@@ -443,6 +457,7 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
       level,
       aboutLearner,
       `Speak ONLY ${i.language}.`,
+      ONLY_TARGET(i.language),
       `The learner stayed SILENT after your last line: maybe they did not understand your question or do not know the words.`,
       `Like a kind teacher: say a very short encouragement (max 3 words) and ask your LAST question again in a much easier way, with DIFFERENT words — shorter, or a yes/no question, or a choice of two concrete options that fit THAT question and topic. Stay on the same topic; never jump to a random new topic.`,
       noRepeat,
@@ -489,6 +504,7 @@ export function buildChatMessages(i: ChatInput, mode: ChatMode): ChatMessage[] {
     level,
     aboutLearner,
     `Speak ONLY ${i.language}. Never lecture about mistakes inside your line — the app shows your "fix" separately.`,
+    ONLY_TARGET(i.language),
     plan,
     `Check the learner's LAST line like a careful teacher (it is speech-to-text: ignore spelling, punctuation, capitals): if it has a real grammar or word mistake, give "fix"; else null. Never fix names. A fix keeps the learner's OWN meaning — an answer that does not fit your question is not a mistake.`,
     `Reply with JSON only:`,

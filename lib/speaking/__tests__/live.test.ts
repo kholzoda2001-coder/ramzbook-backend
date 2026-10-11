@@ -105,19 +105,23 @@ describe('languageNote / забони модарӣ', () => {
     expect(languageNote('English')).toBe('');
     expect(languageNote('Russian')).toBe('');
   });
-  it('хонанда бо забони модарии худ гап занад — Рамз ҳамон ҷо кӯтоҳ ҷавоб медиҳад, баъд бармегардад', () => {
-    const p = buildLivePrompt({ language: 'English', native: 'Russian' });
-    expect(p).toContain('If they speak Russian to you');
-    expect(p).toContain('ONE short, simple sentence in Russian');
-    expect(p).toContain('go straight back to English');
+  it('ТАНҲО забони омӯзиш: хоҳиши «бо забони дигар гап зан» рад мешавад (11.10.2026)', () => {
+    const p = buildLivePrompt({ language: 'English', native: 'Tajik' });
+    expect(p).toContain('This conversation is ONLY in English');
+    expect(p).toContain('NEVER switch');
+    expect(p).toContain('Tajik, Russian, English or any other');
+    expect(p).toContain('never speak a whole sentence in Tajik');
+    // Пештар: «ONE short, simple sentence in {native}» — хонанда метавонист
+    // тамоми суҳбатро ба забони дигар гардонад.
+    expect(p).not.toContain('ONE short, simple sentence in');
   });
-  it('қоида ба промпт меравад; бо забони модарии хонанда (на ҳамеша тоҷикӣ)', () => {
+  it('мисли муаллим фаҳмонад — бо ҳамон забон; забони модарӣ танҳо ЯК калима', () => {
+    const p = buildLivePrompt({ language: 'German', native: 'Russian' });
+    expect(p).toContain('Explain like a good teacher, in German');
+    expect(p).toContain('ONE key word in Russian (a single word, never a sentence)');
+    expect(p).toContain('native language is Russian');
+    expect(p).not.toContain('Tajik');
     expect(buildLivePrompt({ language: 'Korean' })).toContain('해요체');
-    expect(buildLivePrompt({ language: 'English' })).toContain('simple sentence in Tajik');
-    const ru = buildLivePrompt({ language: 'English', native: 'Russian' });
-    expect(ru).toContain('native language is Russian');
-    expect(ru).toContain('simple sentence in Russian');
-    expect(ru).not.toContain('Tajik');
   });
 });
 
