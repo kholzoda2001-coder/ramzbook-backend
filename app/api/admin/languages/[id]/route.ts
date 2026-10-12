@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { cleanLevelLabels } from '@/lib/levelLabels';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,9 +42,12 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
         ...(body.fontFamily !== undefined && { fontFamily: body.fontFamily?.trim() || null }),
         ...(body.hasIPA !== undefined && { hasIPA: body.hasIPA }),
         ...(body.exerciseConfig !== undefined && { exerciseConfig: body.exerciseConfig }),
+        // Номи сатҳҳо (TOPIK I, N5…) — ҳамеша тоза карда мешавад.
+        ...(body.levelLabels !== undefined && { levelLabels: cleanLevelLabels(body.levelLabels) }),
       },
     });
     revalidatePath('/admin/languages');
+    revalidatePath('/admin/languages/levels');
     return NextResponse.json({ success: true, language: updated });
   } catch (err: any) {
     console.error('[admin/languages PUT]', err);

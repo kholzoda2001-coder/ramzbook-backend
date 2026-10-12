@@ -1,106 +1,75 @@
+import { Prisma } from '@prisma/client';
 import { prisma } from './prisma';
+import { realUserSql } from './admin/realUser';
 
-export const COHORT_SIZE = 30;
-export const PROMOTE_COUNT = 10;
-export const DEMOTE_COUNT = 5;
+/**
+ * Лига = РЕЙТИНГИ ҲАФТА (12.10.2026, қарори соҳиби маҳсулот).
+ *
+ * ── Чаро ин тарз ──────────────────────────────────────────────────────────
+ * Аз 19.09 то 12.10 ин ҷо рейтинги ТАМОМИ XP буд («то 1000 корбар»), вале
+ * барнома ба хонанда ҳамоно «ҳафта», «10-и боло боло мераванд» ва «мукофот»
+ * ваъда медод. Натиҷаи воқеӣ (12.10): барои 30-и боло 3774 XP лозим буд, аз
+ * 30 нафар танҳо 8 нафар дар 2 ҳафтаи охир фаъол буданд, ҷои хонандаи берун
+ * аз 30 ҳамеша «31» менамуд ва таби «Дӯстон» ҳамеша холӣ буд.
+ *
+ * Акнун:
+ *   • ЯК ҷадвали умумӣ — XP-и ҲАМИН ҳафта аз `DailyXp`; ҳар душанбе 00:00 UTC
+ *     (05:00 Душанбе) худ ба худ аз сифр (ҳафта аз сана ҳисоб мешавад — на cron
+ *     лозим, на «бастан»);
+ *   • ҷои ВОҚЕИИ ҳар кас (масалан 47-ум), на «31»;
+ *   • `scope: 'all'` — ҳамон ҷадвал аз рӯи `totalXp` (фахри пешсафони кӯҳна);
+ *   • дӯстон = графи `FriendInvite`, XP-и ҳамин ҳафта;
+ *   • зинаҳо, боло/поён рафтан ва мукофот НЕСТАНД. Майдонҳои `tier`,
+ *     `promoteCutoff`, `demoteCutoff` барои барномаҳои КӮҲНАИ насбшуда
+ *     бетараф мемонанд (1 / 0 / memberCount → ягон хатти ҷудокунанда нест).
+ *
+ * Ҳисобҳои роботи Google ва `Test User`-ҳо (`realUserSql`) дар ҷадвал нестанд.
+ * Низоми кӯҳнаи когортаҳо: `lib/league_cohort.ts.bak`.
+ */
+
+export const BOARD_SIZE = 30;
 export const MIN_TIER = 1;
-export const MAX_TIER = 5;
 
-export type LeagueOutcome = 'promoted' | 'stayed' | 'demoted';
-
-export const GEMS_BY_OUTCOME: Record<LeagueOutcome, number> = {
-  promoted: 100,
-  stayed: 25,
-  demoted: 10,
-};
-
-// Thresholds for leagues based on total XP (TEMPORARY GLOBAL LEADERBOARD)
-export function getTierForXp(xp: number): number {
-  if (xp >= 15000) return 5; // Diamond
-  if (xp >= 7000) return 4;  // Platinum
-  if (xp >= 3000) return 3;  // Gold
-  if (xp >= 1000) return 2;  // Silver
-  return 1;                  // Bronze
-}
+export type LeagueScope = 'week' | 'all';
 
 const DAY_MS = 86_400_000;
+
 function utcMidnight(d: Date): Date {
   return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
 }
+
+/** Душанбеи ҳамин ҳафта (UTC), `YYYY-MM-DD`. `DailyXp.date` низ рӯзи UTC аст. */
 export function weekKeyFor(now: Date = new Date()): string {
   const midnight = utcMidnight(now);
-  const daysSinceSaturday = (midnight.getUTCDay() + 1) % 7;
-  const saturday = new Date(midnight.getTime() - daysSinceSaturday * DAY_MS);
-  return saturday.toISOString().slice(0, 10);
+  const daysSinceMonday = (midnight.getUTCDay() + 6) % 7;
+  return new Date(midnight.getTime() - daysSinceMonday * DAY_MS).toISOString().slice(0, 10);
 }
+
 export function weekEndsAt(weekKey: string): Date {
   return new Date(new Date(`${weekKey}T00:00:00.000Z`).getTime() + 7 * DAY_MS);
 }
+
 export function secondsUntilWeekEnd(weekKey: string, now: Date = new Date()): number {
   return Math.max(0, Math.floor((weekEndsAt(weekKey).getTime() - now.getTime()) / 1000));
 }
-export function zonesFor(n: number) {
-  if (n <= 2) return { promote: 0, demote: 0 };
-  const p = Math.round(n * (PROMOTE_COUNT / COHORT_SIZE));
-  const d = Math.round(n * (DEMOTE_COUNT / COHORT_SIZE));
-  if (p + d >= n) return { promote: 0, demote: 0 };
-  return { promote: p, demote: d };
-}
-export function rankAndDecide(members: { userId: string; weeklyXp: number }[], currentTier: number) {
-  const n = members.length;
-  const { promote, demote } = zonesFor(n);
-  return members.map((m, i) => {
-    const rank = i + 1;
-    let outcome: LeagueOutcome = 'stayed';
-    let newTier = currentTier;
-    if (rank <= promote && currentTier < MAX_TIER) {
-      outcome = 'promoted';
-      newTier = currentTier + 1;
-    } else if (rank > n - demote && currentTier > MIN_TIER) {
-      outcome = 'demoted';
-      newTier = currentTier - 1;
-    }
-    return { ...m, finalRank: rank, outcome, newTier, gemsReward: GEMS_BY_OUTCOME[outcome] };
-  });
+
+/**
+ * Барои мутобиқат бо `awardXp`/`achievements`: XP-и ҳафта аз `DailyXp` хонда
+ * мешавад, пас ин ҷо коре нест. Ҳеҷ гоҳ намепартояд.
+ */
+export async function addWeeklyXp(_userId: string, _amount: number, _now: Date = new Date()) {}
+
+/** Ҳафта аз сана ҳисоб мешавад — бастан лозим нест (cron ва роҳи танбал). */
+export async function catchUpClosedWeeks(..._args: unknown[]) {
+  return 0;
 }
 
-// Ensure membership does nothing in global mode
-export async function ensureMembership(userId: string, now: Date = new Date()) {
-  return { id: 'mock', leagueId: 'mock', userId, weekKey: weekKeyFor(now), weeklyXp: 0, startRank: null, joinedAt: new Date() };
-}
+// ── Хатти фарқият «N дарс» ─────────────────────────────────────────────────
 
-// Called after awardXp. We upgrade tier if needed.
-export async function addWeeklyXp(userId: string, amount: number, now: Date = new Date()) {
-  if (amount <= 0) return;
-  try {
-    const user = await prisma.user.findUnique({ where: { id: userId }, select: { totalXp: true, leagueTier: true } });
-    if (!user) return;
-    const correctTier = getTierForXp(user.totalXp);
-    if (correctTier > (user.leagueTier ?? 1)) {
-      await prisma.user.update({
-        where: { id: userId },
-        data: { leagueTier: correctTier }
-      });
-    }
-  } catch (e) {
-    console.error('[league] addWeeklyXp failed', e);
-  }
-}
-
-// Close league does nothing in global mode
-export async function catchUpClosedWeeks(...args: any[]) { return 0; }
-export async function closeLeague(...args: any[]) { return false; }
-
-// Avg XP logic
 const AVG_XP_SETTING_PREFIX = 'league_avg_xp:';
 const AVG_XP_FLOOR = 15;
 const AVG_XP_TTL_MS = 24 * 60 * 60 * 1000;
 
-export type LeagueDb = any;
-export function outcomeFor(...args: any[]) { return 'stayed'; }
-export async function getFriendsLeague(userId: string, now: Date = new Date()) {
-  return [];
-}
 export async function avgXpPerLesson(courseId: string | null): Promise<number> {
   const key = `${AVG_XP_SETTING_PREFIX}${courseId ?? 'global'}`;
   try {
@@ -124,10 +93,13 @@ export async function avgXpPerLesson(courseId: string | null): Promise<number> {
   } catch {}
   return value;
 }
+
 export function lessonsForXpGap(xpGap: number, avgXp: number): number {
   if (xpGap <= 0) return 0;
   return Math.max(1, Math.ceil(xpGap / Math.max(AVG_XP_FLOOR, avgXp)));
 }
+
+// ── Ҷадвал ────────────────────────────────────────────────────────────────
 
 export type LeagueRow = {
   rank: number;
@@ -137,118 +109,220 @@ export type LeagueRow = {
   avatarUrl: string | null;
   level: string;
   streak: number;
+  /** XP-и ҳафта (`scope: 'week'`) ё тамоми XP (`scope: 'all'`). */
   weeklyXp: number;
   rankDelta: number | null;
   isYou: boolean;
 };
+
+type RankedRow = {
+  id: string;
+  name: string;
+  avatarUrl: string | null;
+  level: string;
+  streak: number;
+  xp: number;
+  rank: number;
+  total: number;
+};
+
 function letterOf(name: string): string {
   const t = (name ?? '').trim();
   return t.length > 0 ? t[0].toUpperCase() : '?';
 }
 
-// In global mode, preview just shows the top 30 in the tier
-export async function getLeaguePreview(tier: number, now: Date = new Date(), opts: { publicView?: boolean } = {}): Promise<LeagueRow[]> {
-  const t = Math.min(MAX_TIER, Math.max(MIN_TIER, tier));
-  const raw = await prisma.user.findMany({
-    where: { isActive: true },
-    orderBy: { totalXp: 'desc' },
-    take: 30,
-    select: { id: true, name: true, avatarUrl: true, level: true, streak: true, totalXp: true }
-  });
-  return raw.map((u, i) => ({
-    rank: i + 1,
-    id: opts.publicView ? '' : u.id,
-    name: u.name,
-    avatarLetter: letterOf(u.name),
-    avatarUrl: opts.publicView ? null : (u.avatarUrl ?? null),
-    level: u.level,
-    streak: u.streak,
-    weeklyXp: u.totalXp, // UI expects weeklyXp, but we feed totalXp
-    rankDelta: null,
-    isYou: false,
-  }));
+/**
+ * Ҷадвали тартибдодашуда: 30-и боло + (агар [userId] дода шавад) худи корбар
+ * ва ду ҳамсояи ӯ — барои ҷои ВОҚЕӢ ва хатти фарқият.
+ *
+ * Баробарии XP → тартиби устувор аз рӯи `id` (ҷой ҳар кушодан намеҷаҳад).
+ */
+async function rankedRows(
+  scope: LeagueScope,
+  now: Date,
+  userId: string | null,
+  weekKey: string = weekKeyFor(now),
+): Promise<RankedRow[]> {
+  const real = Prisma.raw(realUserSql('u'));
+  const me = userId ?? '';
+  const weekEnd = weekEndsAt(weekKey).toISOString().slice(0, 10);
+  const scored =
+    scope === 'week'
+      ? Prisma.sql`
+          SELECT d."userId" AS uid, SUM(d.xp)::int AS xp
+          FROM "DailyXp" d JOIN "User" u ON u.id = d."userId"
+          WHERE d.date >= ${weekKey}::date AND d.date < ${weekEnd}::date
+            AND u."isActive" = true AND ${real}
+          GROUP BY d."userId"
+          HAVING SUM(d.xp) > 0`
+      : Prisma.sql`
+          SELECT u.id AS uid, u."totalXp" AS xp
+          FROM "User" u
+          WHERE u."isActive" = true AND u."totalXp" > 0 AND ${real}`;
+
+  const rows = await prisma.$queryRaw<
+    { id: string; name: string; avatarUrl: string | null; level: string; streak: number; xp: number; rank: number; total: number }[]
+  >`
+    WITH s AS (${scored}),
+    r AS (
+      SELECT uid, xp,
+             ROW_NUMBER() OVER (ORDER BY xp DESC, uid)::int AS rk,
+             COUNT(*) OVER ()::int AS total
+      FROM s
+    ),
+    m AS (SELECT rk FROM r WHERE uid = ${me})
+    SELECT u.id, u.name, u."avatarUrl", u.level, u.streak, r.xp, r.rk AS rank, r.total
+    FROM r JOIN "User" u ON u.id = r.uid
+    WHERE r.rk <= ${BOARD_SIZE} OR ABS(r.rk - COALESCE((SELECT rk FROM m), -100)) <= 1
+    ORDER BY r.rk`;
+
+  return rows.map((r) => ({ ...r, xp: Number(r.xp), rank: Number(r.rank), total: Number(r.total) }));
 }
 
-export async function getMyLeague(userId: string, now: Date = new Date()) {
-  const me = await prisma.user.findUnique({
-    where: { id: userId },
-    select: { id: true, leagueTier: true, currentCourseId: true, totalXp: true }
-  });
-  const tier = me?.leagueTier ?? MIN_TIER;
-  
-  // Update tier if they deserve a better one but haven't gotten it yet
-  const correctTier = getTierForXp(me?.totalXp ?? 0);
-  const effectiveTier = Math.max(tier, correctTier);
-
-  const raw = await prisma.user.findMany({
-    where: { isActive: true },
-    orderBy: { totalXp: 'desc' },
-    take: 30,
-    select: { id: true, name: true, avatarUrl: true, level: true, streak: true, totalXp: true }
-  });
-
-  // Ensure current user is in the list even if they are below top 30
-  let isIncluded = raw.some(u => u.id === userId);
-  if (!isIncluded && me) {
-    const fullMe = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, name: true, avatarUrl: true, level: true, streak: true, totalXp: true }});
-    if (fullMe) raw.push(fullMe);
-    raw.sort((a, b) => b.totalXp - a.totalXp);
-  }
-
-  const members: LeagueRow[] = raw.map((u, i) => ({
-    rank: i + 1,
-    id: u.id,
-    name: u.name,
-    avatarLetter: letterOf(u.name),
-    avatarUrl: u.avatarUrl ?? null,
-    level: u.level,
-    streak: u.streak,
-    weeklyXp: u.totalXp, // Exposing totalXp as weeklyXp so the UI renders it
-    rankDelta: null,
-    isYou: u.id === userId,
-  }));
-
-  const n = members.length;
-  const you = members.find((r) => r.isYou) ?? null;
-
-  const avgXp = await avgXpPerLesson(me?.currentCourseId ?? null);
-  let gap = { aheadName: null as string|null, aheadLessons: 0, behindName: null as string|null, behindLessons: 0 };
-
-  if (you) {
-    const idx = you.rank - 1;
-    const above = idx > 0 ? members[idx - 1] : null;
-    const below = idx < n - 1 ? members[idx + 1] : null;
-    gap = {
-      aheadName: above?.name ?? null,
-      aheadLessons: above ? lessonsForXpGap(above.weeklyXp - you.weeklyXp, avgXp) : 0,
-      behindName: below?.name ?? null,
-      behindLessons: below ? lessonsForXpGap(you.weeklyXp - below.weeklyXp, avgXp) : 0,
-    };
-  }
-
-  // Next threshold calculation
-  const nextThreshold = effectiveTier < MAX_TIER ? getXpForTier(effectiveTier + 1) : null;
-  const promoteCutoff = nextThreshold ? members.findIndex(m => m.weeklyXp < nextThreshold) : -1;
-  const demoteCutoff = 999; // No demotions in this temporary mode
-
+function toRow(r: RankedRow, userId: string | null, publicView = false): LeagueRow {
   return {
-    weekKey: weekKeyFor(now),
-    secondsUntilEnd: secondsUntilWeekEnd(weekKeyFor(now), now),
-    tier: effectiveTier,
-    placed: true,
-    members,
-    you,
-    memberCount: n,
-    promoteCutoff: promoteCutoff > 0 ? promoteCutoff : 0,
-    demoteCutoff,
-    gap
+    rank: r.rank,
+    id: publicView ? '' : r.id,
+    name: r.name,
+    avatarLetter: letterOf(r.name),
+    avatarUrl: publicView ? null : (r.avatarUrl ?? null),
+    level: r.level,
+    streak: r.streak,
+    weeklyXp: r.xp,
+    rankDelta: null,
+    isYou: !!userId && r.id === userId,
   };
 }
 
-function getXpForTier(tier: number): number {
-  if (tier === 5) return 15000;
-  if (tier === 4) return 7000;
-  if (tier === 3) return 3000;
-  if (tier === 2) return 1000;
-  return 0;
+/** Ҳадди камтарини иштирокчиён, ки ҷадвали ҳафтаи ҶОРӢ ҳамчун `preview` нишон дода шавад. */
+const PREVIEW_MIN = 3;
+
+/**
+ * 30-и боло барои меҳмон (бе `id` ва акс) ва барои ҳолати «ҳанӯз дар ҷадвал
+ * нестед».
+ *
+ * Душанбе саҳар ҷадвал аз нав сар мешавад ва чанд соат қариб холӣ аст. Он гоҳ
+ * натиҷаи НИҲОИИ ҳафтаи гузашта бармегардад (`lastWeek: true` — барнома инро
+ * менависад), то Хона ҳеҷ гоҳ блоки холӣ нишон надиҳад (талаби 14.09).
+ */
+export async function getLeaguePreviewInfo(
+  now: Date = new Date(),
+  opts: { publicView?: boolean } = {},
+): Promise<{ rows: LeagueRow[]; lastWeek: boolean }> {
+  const cur = (await rankedRows('week', now, null)).filter((r) => r.rank <= BOARD_SIZE);
+  if (cur.length >= PREVIEW_MIN) return { rows: cur.map((r) => toRow(r, null, opts.publicView)), lastWeek: false };
+  const prevKey = new Date(new Date(`${weekKeyFor(now)}T00:00:00.000Z`).getTime() - 7 * DAY_MS)
+    .toISOString()
+    .slice(0, 10);
+  const prev = (await rankedRows('week', now, null, prevKey)).filter((r) => r.rank <= BOARD_SIZE);
+  if (prev.length > cur.length) return { rows: prev.map((r) => toRow(r, null, opts.publicView)), lastWeek: true };
+  return { rows: cur.map((r) => toRow(r, null, opts.publicView)), lastWeek: false };
+}
+
+export async function getLeaguePreview(
+  _tier: number = MIN_TIER,
+  now: Date = new Date(),
+  opts: { publicView?: boolean } = {},
+): Promise<LeagueRow[]> {
+  return (await getLeaguePreviewInfo(now, opts)).rows;
+}
+
+export async function getMyLeague(userId: string, now: Date = new Date(), scope: LeagueScope = 'week') {
+  const weekKey = weekKeyFor(now);
+  const rows = await rankedRows(scope, now, userId);
+  const top = rows.filter((r) => r.rank <= BOARD_SIZE);
+  const mine = rows.find((r) => r.id === userId) ?? null;
+  const total = rows[0]?.total ?? 0;
+
+  const members = top.map((r) => toRow(r, userId));
+  const you = mine ? toRow(mine, userId) : null;
+
+  let gap = { aheadName: null as string | null, aheadLessons: 0, behindName: null as string | null, behindLessons: 0 };
+  if (mine) {
+    const me = await prisma.user.findUnique({ where: { id: userId }, select: { currentCourseId: true } });
+    const avgXp = await avgXpPerLesson(me?.currentCourseId ?? null);
+    const above = rows.find((r) => r.rank === mine.rank - 1);
+    const below = rows.find((r) => r.rank === mine.rank + 1);
+    // «+1»: барои ГУЗАШТАН баробар шудан кам аст.
+    gap = {
+      aheadName: above?.name ?? null,
+      aheadLessons: above ? lessonsForXpGap(above.xp - mine.xp + 1, avgXp) : 0,
+      behindName: below?.name ?? null,
+      behindLessons: below ? lessonsForXpGap(mine.xp - below.xp + 1, avgXp) : 0,
+    };
+  }
+
+  // Ин ҳафта ҳанӯз XP нагирифт → «як дарс хонед» + ҷадвал ҳамчун `preview`.
+  const pv = you ? null : scope === 'week' ? await getLeaguePreviewInfo(now) : { rows: members, lastWeek: false };
+
+  return {
+    scope,
+    weekKey,
+    secondsUntilEnd: secondsUntilWeekEnd(weekKey, now),
+    tier: MIN_TIER,
+    placed: !!you,
+    members: you ? members : [],
+    you,
+    memberCount: total,
+    promoteCutoff: 0,
+    demoteCutoff: total,
+    gap,
+    preview: pv?.rows ?? [],
+    previewLastWeek: pv?.lastWeek ?? false,
+    // Ҳамсояҳои корбар (пеш · худаш · қафо) — ҳатто вақте ӯ берун аз 30-и
+    // боло аст (масалан 47-ум); блоки Хона онҳоро дар паҳлӯи «Шумо» мекашад.
+    around: mine ? rows.filter((r) => Math.abs(r.rank - mine.rank) <= 1).map((r) => toRow(r, userId)) : [],
+  };
+}
+
+/**
+ * Дӯстон = графи `FriendInvite` дар ҳар ду самт; XP-и ҲАМИН ҳафта. Дӯсте, ки
+ * ин ҳафта нахондааст, бо 0 мемонад — маҳз ӯро гузаштан лозим аст.
+ */
+export async function getFriendsLeague(userId: string, now: Date = new Date()) {
+  const weekKey = weekKeyFor(now);
+  const base = { weekKey, secondsUntilEnd: secondsUntilWeekEnd(weekKey, now) };
+
+  const invites = await prisma.friendInvite.findMany({
+    where: { consumedByUserId: { not: null }, OR: [{ creatorUserId: userId }, { consumedByUserId: userId }] },
+    select: { creatorUserId: true, consumedByUserId: true },
+  });
+  const friendIds = new Set<string>();
+  for (const i of invites) {
+    if (i.creatorUserId !== userId) friendIds.add(i.creatorUserId);
+    if (i.consumedByUserId && i.consumedByUserId !== userId) friendIds.add(i.consumedByUserId);
+  }
+  if (friendIds.size === 0) return { ...base, members: [], you: null, memberCount: 0 };
+
+  const ids = [...Array.from(friendIds), userId];
+  const [users, xp] = await Promise.all([
+    prisma.user.findMany({
+      where: { id: { in: ids }, isActive: true },
+      select: { id: true, name: true, avatarUrl: true, level: true, streak: true },
+    }),
+    prisma.dailyXp.groupBy({
+      by: ['userId'],
+      where: { userId: { in: ids }, date: { gte: new Date(`${weekKey}T00:00:00.000Z`) } },
+      _sum: { xp: true },
+    }),
+  ]);
+  const xpById = new Map(xp.map((x) => [x.userId, x._sum.xp ?? 0]));
+
+  const members: LeagueRow[] = users
+    .map((u) => ({
+      rank: 0,
+      id: u.id,
+      name: u.name,
+      avatarLetter: letterOf(u.name),
+      avatarUrl: u.avatarUrl ?? null,
+      level: u.level,
+      streak: u.streak,
+      weeklyXp: xpById.get(u.id) ?? 0,
+      rankDelta: null,
+      isYou: u.id === userId,
+    }))
+    .sort((a, b) => b.weeklyXp - a.weeklyXp || a.name.localeCompare(b.name))
+    .map((r, i) => ({ ...r, rank: i + 1 }));
+
+  return { ...base, memberCount: members.length, members, you: members.find((r) => r.isYou) ?? null };
 }

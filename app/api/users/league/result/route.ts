@@ -1,48 +1,18 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
 import { authenticate } from '@/lib/auth';
-import { catchUpClosedWeeks } from '@/lib/league';
 
 export const dynamic = 'force-dynamic';
 
 /**
- * GET /api/users/league/result — натиҷаи ГИРИФТАНАШУДАИ ҳафтаи гузашта.
+ * GET /api/users/league/result — натиҷаи ҳафтаи гузашта бо мукофот.
  *
- * Барнома инро ҳангоми кушодан, ПЕШ аз экрани асосӣ мепурсад. `result: null`
- * = чизе нест, рост ба Хона.
- *
- * `catchUpClosedWeeks` маҳз ин ҷо ҳам даъват мешавад: ҷадвали воқеӣ нест
- * (ниг. `lib/league.ts`), пас кушодани барнома яке аз ду лаҳзаест, ки ҳафтаи
- * гузаштаро мебандад.
+ * 12.10.2026: лига акнун РЕЙТИНГИ ҲАФТА аст — бе зина, бе боло/поён рафтан ва
+ * бе мукофот (алмос 14.09 нест шуд). Ҳамеша `result: null`, то барнома ҳеҷ гоҳ
+ * экрани «Мукофотро гиред»-ро нишон надиҳад — ҳатто барои сатрҳои кӯҳнаи
+ * гирифтанашудаи `LeagueResult` аз давраи когортаҳо.
  */
 export async function GET(req: Request) {
-  try {
-    const me = await authenticate(req);
-    if (!me) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-
-    await catchUpClosedWeeks();
-
-    const row = await prisma.leagueResult.findFirst({
-      where: { userId: me.id, claimed: false },
-      orderBy: { weekKey: 'desc' },
-    });
-    if (!row) return NextResponse.json({ result: null });
-
-    return NextResponse.json({
-      result: {
-        id: row.id,
-        weekKey: row.weekKey,
-        tier: row.tier,
-        newTier: row.newTier,
-        finalRank: row.finalRank,
-        memberCount: row.memberCount,
-        weeklyXp: row.weeklyXp,
-        outcome: row.outcome,
-        gemsReward: row.gemsReward,
-      },
-    });
-  } catch (error) {
-    console.error('[league/result]', error);
-    return NextResponse.json({ error: 'Failed to load result' }, { status: 500 });
-  }
+  const me = await authenticate(req);
+  if (!me) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  return NextResponse.json({ result: null });
 }

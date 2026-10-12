@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { MIN_READY_LESSONS, isCourseReady } from '@/lib/courseReadiness';
+import { cleanLevelLabels } from '@/lib/levelLabels';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,7 +43,7 @@ export async function GET(req: NextRequest) {
         id: true, code: true, name: true, nativeName: true,
         flag: true, badge: true, learnerCount: true,
         ttsLocale: true, sttLocale: true, direction: true,
-        fontFamily: true, hasIPA: true,
+        fontFamily: true, hasIPA: true, levelLabels: true,
       },
     });
 
@@ -80,6 +81,8 @@ export async function GET(req: NextRequest) {
         const lessonCount = lessonMap.get(t.id) ?? 0;
         return {
           ...t,
+          // Номи сатҳҳо барои ин забон (TOPIK I, N5…) — ҳамеша харитаи тоза.
+          levelLabels: cleanLevelLabels(t.levelLabels),
           courseCount,
           lessonCount,
           available: isCourseReady(courseCount, lessonCount),

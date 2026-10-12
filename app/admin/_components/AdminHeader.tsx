@@ -27,6 +27,7 @@ const PAGE_NAMES: Array<[string, string]> = [
   ['/admin/comprehensions', '📖 Дарки матн'],
   ['/admin/placement', '🎯 Санҷиши сатҳ'],
   ['/admin/speaking', '🎙️ Спикинг'],
+  ['/admin/level-names', '🏷️ Номҳои сатҳ'],
   ['/admin/library', '📚 Китобхона'],
   ['/admin/ui-translations', '🌐 Тарҷумаҳои UI'],
   ['/admin/import', '📥 Воридоти оммавӣ'],

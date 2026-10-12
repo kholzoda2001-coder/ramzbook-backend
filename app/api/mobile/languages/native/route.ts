@@ -16,7 +16,7 @@ export async function GET() {
         id: true, code: true, name: true, nativeName: true,
         flag: true, badge: true, learnerCount: true,
         ttsLocale: true, sttLocale: true, direction: true,
-        fontFamily: true, hasIPA: true, order: true,
+        fontFamily: true, hasIPA: true, levelLabels: true, order: true,
       },
     });
 

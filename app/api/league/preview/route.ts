@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getLeaguePreview, MIN_TIER, secondsUntilWeekEnd, weekKeyFor } from '@/lib/league';
+import { getLeaguePreviewInfo, MIN_TIER, secondsUntilWeekEnd, weekKeyFor } from '@/lib/league';
 
 export const dynamic = 'force-dynamic';
 
@@ -7,14 +7,14 @@ export const dynamic = 'force-dynamic';
  * GET /api/league/preview — БЕ auth.
  *
  * 🔴 2026-09-14: меҳмон (логин накарда) ҳам дар Хона рақобати ҳафтаро мебинад —
- * ҳамон шакли `/api/users/league/me` бо `placed: false` ва `preview`. Зинаи
- * аввал, чунки меҳмон ба он ҳамроҳ мешавад. `id` ва акс холӣ (`publicView`).
+ * ҳамон шакли `/api/users/league/me` бо `placed: false` ва `preview` (30-и
+ * болои рейтинги ҲАФТА, 12.10.2026). `id` ва акс холӣ (`publicView`).
  */
 export async function GET() {
   try {
     const now = new Date();
     const weekKey = weekKeyFor(now);
-    const preview = await getLeaguePreview(MIN_TIER, now, { publicView: true });
+    const { rows: preview, lastWeek } = await getLeaguePreviewInfo(now, { publicView: true });
     return NextResponse.json(
       {
         weekKey,
@@ -23,8 +23,11 @@ export async function GET() {
         placed: false,
         members: [],
         you: null,
-        memberCount: 0,
+        memberCount: preview.length,
+        promoteCutoff: 0,
+        demoteCutoff: preview.length,
         preview,
+        previewLastWeek: lastWeek,
       },
       { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } },
     );

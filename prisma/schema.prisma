@@ -268,6 +268,10 @@ model Language {
   fontFamily     String? // optional custom font, e.g. "Noto Sans Arabic"
   hasIPA         Boolean @default(true) // show phonetic transcription for this language
   exerciseConfig Json? // which exercise types are enabled for this language
+  /// Номи намоишии сатҳҳо барои ИН забон: `{"A1": "TOPIK I", "A2": "TOPIK II"}`.
+  /// Код (A1…C1) дар мантиқ мемонад; танҳо ЧӢ навишта мешавад иваз мешавад.
+  /// Холӣ / калиди нест → худи код («A1»). Аз админ: /admin/languages/levels.
+  levelLabels    Json?
 
   coursesAsTarget         Course[]            @relation("TargetLang")
   coursesAsNative         Course[]            @relation("NativeLang")
@@ -933,11 +937,11 @@ model SpeakingCategory {
   /// Ҳадафҳои хонанда, ки ин ВАЗЪИЯТ барояшон аст (26.09.2026):
   /// "build" | "service" | "drive" | "study" | "life". Холӣ = барои ҳама.
   /// Тартиби вазъиятҳо дар «Гуфтор» аз ин вобаста аст (`lib/speaking/situations.ts`).
-  goals          String[] @default([])
+  goals String[] @default([])
 
   /// Сатҳи ниша (27.09.2026): 1 = A1 («Сохтмон 1»), 2 = A2, 3 = B1. Роҳ
   /// сатҳҳоро пай дар пай мегузарад (`orderChapters`).
-  level          Int      @default(1)
+  level Int @default(1)
 
   lessons SpeakingLesson[]
 
@@ -965,11 +969,11 @@ model SpeakingLesson {
   ///
   /// `null` = дарси КӮҲНА — муҳаррик рафтори пештараро нигоҳ медорад.
   /// Ихтиёрӣ, то `db push` дар ҷадвали пур бехатар бошад.
-  stage      String?
+  stage String?
 
   /// Шакли миссия (27.09.2026): "call" = миссия ҳамчун ЗАНГИ ТЕЛЕФОН (бе
   /// рӯй, танҳо овоз). `null` = муколамаи оддӣ. Ба клиент танҳо ev ≥ 4.
-  mode       String?
+  mode String?
 
   items    SpeakingItem[]
   progress SpeakingProgress[]
@@ -1002,14 +1006,14 @@ model SpeakingItem {
   // нишон дода НАМЕШАВАД — танҳо НИЯТ ба забони модарӣ («Бигӯ, ки сарат дард
   // мекунад»). `text` ҷавоби намунавӣ аст; `accepts` — ҷавобҳои ДИГАРИ дуруст
   // («Голова болит»). Ҳарду ихтиёрӣ.
-  intent         String?  @db.Text
-  accepts        String[] @default([])
+  intent  String?  @db.Text
+  accepts String[] @default([])
 
   // Аудиои тайёр (нишасти Б, 26.09.2026). Ҳарду ихтиёрӣ: холӣ = TTS-и дастгоҳ
   // (cue) ё танҳо матн (ният). `intentAudioUrl` — НИЯТ бо овози ТОҶИКӢ, то
   // хонанда корти ниятро нахонда, ШУНАВАД (мисли гапи воқеӣ).
-  cueAudioUrl    String?
-  intentAudioUrl String?
+  cueAudioUrl     String?
+  intentAudioUrl  String?
   // «Нутқи воқеӣ» (27.09.2026): ҳамон `cue` бо суръати аслӣ, овози дигар ва
   // садои атроф. Холӣ = қадами `real` барои ин навбат сохта намешавад.
   cueRealAudioUrl String?
@@ -1774,18 +1778,18 @@ model LeagueResult {
 /// `id` — аз клиент (uuid), то навбатҳои як суҳбат якҷоя ҳисоб шаванд.
 /// Барои ҳадди ройгон (суҳбат дар рӯз), ҳадди навбат ва XP-и анҷом.
 model SpeakingChatSession {
-  id         String    @id
-  userId     String
-  languageId String
+  id               String    @id
+  userId           String
+  languageId       String
   /// Навбатҳои ХОНАНДА, ки сервер коркард кард — XP аз ҳамин, на аз клиент.
-  turns      Int       @default(0)
-  startedAt  DateTime  @default(now())
-  lastAt     DateTime  @default(now())
+  turns            Int       @default(0)
+  startedAt        DateTime  @default(now())
+  lastAt           DateTime  @default(now())
   /// Кай XP дода шуд (`null` = ҳанӯз) — такрори «анҷом» XP-и дуюм намедиҳад.
-  completedAt DateTime?
+  completedAt      DateTime?
   /// Gemini Live: чанд сония ба ин суҳбат дода шуд (ҳисоби дақиқаҳои ройгон/Premium).
   /// 0 = суҳбати кӯҳна (Groq) — ба лимити Live дахл надорад.
-  liveGrantSeconds Int @default(0)
+  liveGrantSeconds Int       @default(0)
 
   @@index([userId, startedAt])
 }
