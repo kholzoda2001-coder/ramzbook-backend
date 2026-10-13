@@ -263,12 +263,31 @@ export function buildLivePrompt(i: LivePromptInput, override = ''): string {
  * The Live setup message locked into the token (wire format of
  * `BidiGenerateContentSetup`, same as `@google/genai` serialises it).
  */
+/** Минтақаи пешфарзи ҳар забони курс барои транскрипсия (BCP-47). */
+const TRANSCRIPTION_LOCALES: Record<string, string> = {
+  en: 'en-US', ru: 'ru-RU', de: 'de-DE', tr: 'tr-TR', ar: 'ar-SA', ko: 'ko-KR', zh: 'zh-CN',
+};
+
+/** `en` / `en-GB` → BCP-47 барои `languageCodes`-и транскрипсия. */
+export function transcriptionLocale(langCode: string): string {
+  const code = langCode.trim();
+  if (code.includes('-')) return code;
+  return TRANSCRIPTION_LOCALES[code.toLowerCase()] ?? code.toLowerCase();
+}
+
 export function buildLiveSetup(o: {
   model: string;
   voice: string;
   prompt: string;
   resumeHandle?: string;
+  /** Забони курс (`en`…). Бе он транскрипсия забонро худаш тахмин мезанад. */
+  langCode?: string;
 }): Record<string, unknown> {
+  // 14.10.2026: «Hello» гуфтам — дар экран гоҳ матни забони ДИГАР баромад.
+  // Бе `languageCodes` Gemini забони нутқи хонандаро худаш муайян мекунад,
+  // ва калимаи кӯтоҳ ё талаффузи навомӯз ба забони дигар навишта мешуд.
+  // Ҳоло транскрипсия ба забони курс баста аст.
+  const transcription = o.langCode ? { languageCodes: [transcriptionLocale(o.langCode)] } : {};
   return {
     model: `models/${o.model}`,
     generationConfig: {
@@ -276,7 +295,7 @@ export function buildLiveSetup(o: {
       speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: o.voice } } },
     },
     systemInstruction: { parts: [{ text: o.prompt }] },
-    inputAudioTranscription: {},
+    inputAudioTranscription: transcription,
     outputAudioTranscription: {},
     // Server-side VAD: the learner never has to press a button per sentence,
     // and speaking over Ramz interrupts him (barge-in).

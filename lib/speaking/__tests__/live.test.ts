@@ -10,6 +10,7 @@ import {
   buildLivePrompt,
   buildLiveSetup,
   buildTokenRequest,
+  transcriptionLocale,
   clampReportedTurns,
   cleanResumeHandle,
   DAY_MS,
@@ -196,6 +197,15 @@ describe('buildLiveSetup / buildTokenRequest — locked, single use', () => {
       contextWindowCompression: { slidingWindow: {} },
       sessionResumption: {},
     });
+  });
+  it('матни хонанда ба забони КУРС баста аст (на тахмини худкор)', () => {
+    const s = buildLiveSetup({ model: 'm', voice: 'v', prompt: 'p', langCode: 'en' });
+    expect(s.inputAudioTranscription).toEqual({ languageCodes: ['en-US'] });
+    expect(s.outputAudioTranscription).toEqual({});
+    expect(transcriptionLocale('ru')).toBe('ru-RU');
+    expect(transcriptionLocale('ko')).toBe('ko-KR');
+    expect(transcriptionLocale('en-GB')).toBe('en-GB');
+    expect(transcriptionLocale('fr')).toBe('fr');
   });
   it('carries a resume handle when given', () => {
     const s = buildLiveSetup({ model: 'm', voice: 'v', prompt: 'p', resumeHandle: 'h1' });

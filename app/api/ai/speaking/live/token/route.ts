@@ -152,7 +152,9 @@ export async function POST(req: NextRequest) {
       cfg.promptOverride,
     );
     const resumeHandle = cleanResumeHandle(body.resumeHandle);
-    const setup = buildLiveSetup({ model: cfg.model, voice: cfg.voice, prompt, resumeHandle });
+    const setup = buildLiveSetup({
+      model: cfg.model, voice: cfg.voice, prompt, resumeHandle, langCode: language.code,
+    });
     // Токен бо ҳамон вақт мемирад — Google суҳбатро худаш мебандад (ҳадди сахт).
     const tokenReq = buildTokenRequest({ setup, now, sessionSeconds });
 
