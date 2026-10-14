@@ -37,6 +37,7 @@ const texts = [...new Set(items.map(([, t]) => t).filter(Boolean))];
 console.log(`${items.length} element, ${texts.length} noyob matn:`);
 for (const t of texts) console.log('  -', t.length > 90 ? t.slice(0, 90) + '...' : t);
 if (!GO) process.exit(0);
+if (texts.length === 0) { console.log('Audio kerak emas.'); process.exit(0); }
 
 mkdirSync(DIR, { recursive: true });
 const todo = texts.filter((t) => !existsSync(`${DIR}/${hash(t)}.mp3`));

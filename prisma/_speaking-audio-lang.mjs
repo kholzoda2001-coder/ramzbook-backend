@@ -79,7 +79,7 @@ if (!RU) throw new Error(`забони «${LANG}» дар база нест`);
 const measure = (paths) => {
   const out = {};
   for (let i = 0; i < paths.length; i += 60) {
-    const r = spawnSync('python', ['../tools/audio_check.py', ...paths.slice(i, i + 60)], PY);
+    const r = spawnSync(PYTHON, ['../tools/audio_check.py', ...paths.slice(i, i + 60)], PY);
     if (r.status !== 0) throw new Error(r.stderr);
     Object.assign(out, JSON.parse(r.stdout));
   }
@@ -224,8 +224,8 @@ console.log('зинаҳо:', JSON.stringify(used));
 
 // ── 2. Буриши хомӯшӣ ────────────────────────────────────────────────────────
 // ffmpeg дар PATH нест — бинарӣ аз бастаи Python `imageio_ffmpeg` меояд (ниг. хотираи ramz-audio-audit).
-const FFMPEG = execFileSync('python', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], PY).trim();
-console.log(execFileSync('python', ['prisma/_ar-trim.py', WORK, TRIM], PY).trim());
+const FFMPEG = execFileSync(PYTHON, ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], PY).trim();
+console.log(execFileSync(PYTHON, ['prisma/_ar-trim.py', WORK, TRIM], PY).trim());
 // ⚠️ `useTrimOrRaw`-и кореягӣ ҳадди худро дорад (садои воқеӣ < 0.20 с = хомӯш) — «Я» ва «Да»-и
 // СОЛИМ ~0.12–0.19 с садо доранд ва онҳоро рад мекард (13.09.2026). Ин ҷо ҳамон ҳадди `minSpeech`:
 // нусхаи бурида нагузарад, вале хом гузарад → хом (~0.2 с хомӯшии иловагӣ беҳтар аз хомӯшии пурра).
