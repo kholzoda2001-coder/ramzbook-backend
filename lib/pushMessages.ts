@@ -22,12 +22,13 @@ export type BuiltinCampaign =
   | 'test';
 
 /** Забонҳои дастгиришаванда; ҳар чизи дигар ба тоҷикӣ бармегардад. */
-type Lang = 'tg' | 'ru' | 'en';
+type Lang = 'tg' | 'ru' | 'en' | 'uz';
 
 function normLang(raw: string | null | undefined): Lang {
   const v = (raw ?? '').toLowerCase();
   if (v.startsWith('ru')) return 'ru';
   if (v.startsWith('en')) return 'en';
+  if (v.startsWith('uz')) return 'uz';
   return 'tg';
 }
 
@@ -234,7 +235,7 @@ export type BuiltMessage = {
 
 /** «Салом, Аҳмад!» / «Салом!» — агар ном набошад, вергули холӣ намемонад. */
 function hi(ctx: LearnerContext): string {
-  const t = { tg: 'Салом', ru: 'Привет', en: 'Hi' }[ctx.lang];
+  const t = { tg: 'Салом', ru: 'Привет', en: 'Hi', uz: 'Salom' }[ctx.lang];
   return ctx.firstName ? `${t}, ${ctx.firstName}!` : `${t}!`;
 }
 
@@ -250,6 +251,7 @@ function nextStep(ctx: LearnerContext): string {
       tg: `Дарси «${ctx.nextLesson}» интизори туст — ҳамагӣ ${m} дақиқа.`,
       ru: `Урок «${ctx.nextLesson}» ждёт тебя — всего ${m} минут.`,
       en: `"${ctx.nextLesson}" is waiting for you — just ${m} minutes.`,
+      uz: `«${ctx.nextLesson}» darsi sizni kutmoqda — atigi ${m} daqiqa.`,
     }[ctx.lang];
   }
   if (ctx.courseTitle) {
@@ -257,12 +259,14 @@ function nextStep(ctx: LearnerContext): string {
       tg: `Курси «${ctx.courseTitle}» интизори туст.`,
       ru: `Курс «${ctx.courseTitle}» ждёт тебя.`,
       en: `Your "${ctx.courseTitle}" course is waiting.`,
+      uz: `«${ctx.courseTitle}» kursi sizni kutmoqda.`,
     }[ctx.lang];
   }
   return {
     tg: 'Ҳамагӣ 5 дақиқа — ва дарси имрӯза тайёр.',
     ru: 'Всего 5 минут — и урок на сегодня закрыт.',
     en: 'Just 5 minutes and today is done.',
+    uz: 'Atigi 5 daqiqa — va bugungi dars tayyor.',
   }[ctx.lang];
 }
 
@@ -288,28 +292,32 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
             tg: `${hi(ctx)} Силсилаи ${ctx.streak}-рӯзаат интизор аст 🔥`,
             ru: `${hi(ctx)} Твой стрик ${ctx.streak} дн. ждёт 🔥`,
             en: `${hi(ctx)} Your ${ctx.streak}-day streak is waiting 🔥`,
+            uz: `${hi(ctx)} ${ctx.streak} kunlik streak’ingiz sizni kutmoqda 🔥`,
           }[L]
         : {
             tg: `${hi(ctx)} Се рӯз нест 👀`,
             ru: `${hi(ctx)} Тебя не было три дня 👀`,
             en: `${hi(ctx)} It has been three days 👀`,
+            uz: `${hi(ctx)} Uch kundan beri yoʻqsiz 👀`,
           }[L];
       return { title, body: nextStep(ctx), data };
     }
 
     // ── 7 рӯз: ба рекорди ШАХСИИ ӯ такя мекунем ─────────────────────────────
     case 'winback_7': {
-      const title = { tg: 'Як ҳафта гузашт 📚', ru: 'Прошла неделя 📚', en: 'A week has passed 📚' }[L];
+      const title = { tg: 'Як ҳафта гузашт 📚', ru: 'Прошла неделя 📚', en: 'A week has passed 📚', uz: 'Bir hafta oʻtdi 📚' }[L];
       const body = ctx.longestStreak >= 3
         ? {
             tg: `Рекорди ту ${ctx.longestStreak} рӯз буд. Имрӯз аз нав сар кунем? ${nextStep(ctx)}`,
             ru: `Твой рекорд — ${ctx.longestStreak} дн. Начнём заново сегодня? ${nextStep(ctx)}`,
             en: `Your record is ${ctx.longestStreak} days. Start again today? ${nextStep(ctx)}`,
+            uz: `Rekordingiz ${ctx.longestStreak} kun edi. Bugun qaytadan boshlaymizmi? ${nextStep(ctx)}`,
           }[L]
         : {
             tg: `Забон бе такрор фаромӯш мешавад. ${nextStep(ctx)}`,
             ru: `Язык забывается без повторения. ${nextStep(ctx)}`,
             en: `A language fades without practice. ${nextStep(ctx)}`,
+            uz: `Til takrorlamasa unutiladi. ${nextStep(ctx)}`,
           }[L];
       return { title, body, data };
     }
@@ -321,31 +329,35 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
             tg: `Пазмонат шудем, ${ctx.firstName} 😔`,
             ru: `Скучаем по тебе, ${ctx.firstName} 😔`,
             en: `We miss you, ${ctx.firstName} 😔`,
+            uz: `Sizni sogʻindik, ${ctx.firstName} 😔`,
           }[L]
-        : { tg: 'Пазмонат шудем 😔', ru: 'Скучаем по тебе 😔', en: 'We miss you 😔' }[L];
+        : { tg: 'Пазмонат шудем 😔', ru: 'Скучаем по тебе 😔', en: 'We miss you 😔', uz: 'Sizni sogʻindik 😔' }[L];
       const body = ctx.courseTitle
         ? {
             tg: `«${ctx.courseTitle}» ним роҳ монд. Имрӯз ҳатто 2 дақиқа кофист.`,
             ru: `«${ctx.courseTitle}» остался на полпути. Сегодня хватит и 2 минут.`,
             en: `"${ctx.courseTitle}" is half-finished. Even 2 minutes today is enough.`,
+            uz: `«${ctx.courseTitle}» yarim yoʻlda qoldi. Bugun 2 daqiqa ham yetarli.`,
           }[L]
         : {
             tg: 'Ду ҳафта гузашт. Имрӯз ҳатто 2 дақиқа кофист.',
             ru: 'Прошло две недели. Сегодня хватит и 2 минут.',
             en: 'Two weeks have passed. Even 2 minutes today is enough.',
+            uz: 'Ikki hafta oʻtdi. Bugun 2 daqiqa ham yetarli.',
           }[L];
       return { title, body, data };
     }
 
     // ── 30 рӯз: охирин кӯшиш — оғози тоза, бе фишор ─────────────────────────
     case 'winback_30': {
-      const title = { tg: 'Биё баргард! 🎁', ru: 'Возвращайся! 🎁', en: 'Come back! 🎁' }[L];
-      const name = ctx.firstName || { tg: 'Дӯст', ru: 'Друг', en: 'Friend' }[L];
+      const title = { tg: 'Биё баргард! 🎁', ru: 'Возвращайся! 🎁', en: 'Come back! 🎁', uz: 'Qaytib keling! 🎁' }[L];
+      const name = ctx.firstName || { tg: 'Дӯст', ru: 'Друг', en: 'Friend', uz: 'Doʻst' }[L];
       const body = {
         // 🔴 2026-09-14: дил ва алмос аз барнома нест шуданд — матн дигар онҳоро ваъда намедиҳад.
         tg: `${name}, як моҳ шуд. Пешрафти ту нигоҳ дошта шуд — биё, аз нав сар кунем.`,
         ru: `${name}, прошёл месяц. Твой прогресс сохранён — начнём заново.`,
         en: `${name}, it has been a month. Your progress is saved — let us start again.`,
+        uz: `${name}, bir oy boʻldi. Yutuqlaringiz saqlangan — qaytadan boshlaymiz.`,
       }[L];
       return { title, body, data };
     }
@@ -356,6 +368,7 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
         tg: `Силсилаи ${ctx.streak}-рӯзаат дар хатар! 🔥`,
         ru: `Стрик ${ctx.streak} дн. под угрозой! 🔥`,
         en: `Your ${ctx.streak}-day streak is at risk! 🔥`,
+        uz: `${ctx.streak} kunlik streak’ingiz xavf ostida! 🔥`,
       }[L];
       const prefix = ctx.firstName ? `${ctx.firstName}, ` : '';
       return { title, body: `${prefix}${nextStep(ctx)}`, data: { ...data, route: 'lesson' } };
@@ -367,6 +380,7 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
         tg: `Дилҳоят пур шуданд ❤️ (${ctx.maxHearts}/${ctx.maxHearts})`,
         ru: `Жизни восстановлены ❤️ (${ctx.maxHearts}/${ctx.maxHearts})`,
         en: `Hearts refilled ❤️ (${ctx.maxHearts}/${ctx.maxHearts})`,
+        uz: `Yuraklar toʻldi ❤️ (${ctx.maxHearts}/${ctx.maxHearts})`,
       }[L];
       return { title, body: nextStep(ctx), data: { ...data, route: 'lesson' } };
     }
@@ -374,11 +388,12 @@ export function buildMessage(campaign: BuiltinCampaign, ctx: LearnerContext): Bu
     // ── Санҷишӣ (танҳо аз панели админ) ─────────────────────────────────────
     case 'test':
     default: {
-      const title = { tg: 'Санҷиши RAMZ ✅', ru: 'Тест RAMZ ✅', en: 'RAMZ test ✅' }[L];
+      const title = { tg: 'Санҷиши RAMZ ✅', ru: 'Тест RAMZ ✅', en: 'RAMZ test ✅', uz: 'RAMZ sinovi ✅' }[L];
       const body = {
         tg: `${hi(ctx)} Push кор мекунад. Силсила: ${ctx.streak}, сатҳ: ${ctx.level}.`,
         ru: `${hi(ctx)} Push работает. Стрик: ${ctx.streak}, уровень: ${ctx.level}.`,
         en: `${hi(ctx)} Push works. Streak: ${ctx.streak}, level: ${ctx.level}.`,
+        uz: `${hi(ctx)} Push ishlayapti. Streak: ${ctx.streak}, daraja: ${ctx.level}.`,
       }[L];
       return { title, body, data: { ...data, route: 'home' } };
     }

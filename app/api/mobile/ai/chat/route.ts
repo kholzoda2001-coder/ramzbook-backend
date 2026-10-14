@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
 const LANG_NAMES: Record<string, string> = {
   en: 'English', ru: 'Russian', tg: 'Tajik', ar: 'Arabic', tr: 'Turkish',
   zh: 'Chinese', de: 'German', fr: 'French', es: 'Spanish', it: 'Italian',
-  ko: 'Korean', ja: 'Japanese', pt: 'Portuguese', hi: 'Hindi', fa: 'Persian',
+  ko: 'Korean', ja: 'Japanese', pt: 'Portuguese', hi: 'Hindi', fa: 'Persian', uz: 'Uzbek',
 };
 const langName = (code?: string | null) =>
   (code && LANG_NAMES[code.split('-')[0]]) || 'English';

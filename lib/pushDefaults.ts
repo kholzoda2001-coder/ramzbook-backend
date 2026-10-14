@@ -83,6 +83,14 @@ const HARD_RU = {
   title: '🚨 Осталось {countdown}!',
   body: '⏳ Твой стрик {streak} дн. сгорит сегодня. Хватит 5 минут: {lesson}.',
 };
+const SOFT_UZ = {
+  title: '{name}, dars vaqti keldi 📚',
+  body: 'Bugun hali oʻqimadingiz. {lesson} — atigi {minutes} daqiqa.',
+};
+const HARD_UZ = {
+  title: '🚨 {countdown} qoldi!',
+  body: '⏳ {streak} kunlik streak’ingiz bugun kechasi yonib ketadi. 5 daqiqa yetarli: {lesson}.',
+};
 const SOFT_EN = {
   title: '{name}, time to study 📚',
   body: "You haven't studied today. {lesson} takes just {minutes} minutes.",
@@ -106,17 +114,21 @@ export const SPEAKING_DAILY = {
     title: '🗣 {name}, say this today',
     body: '“{phrase}” ({phrase_tr}) — three minutes of speaking and it is yours.',
   },
+  uz: {
+    title: '🗣 {name}, bugun buni ayting',
+    body: '«{phrase}» ({phrase_tr}) — 3 daqiqa gapirish, va bu ibora sizniki.',
+  },
 };
 
 export const DEFAULT_CAMPAIGNS: Seed[] = [
   // ── Занҷири рӯзона: тоҷикӣ ──────────────────────────────────────────────
   {
-    // `langs` низ `uz`/`en`-ро мегирад: онҳо матни тоҷикӣ надоранд, вале
-    // `pickText` барои `en` матни англисиро мегирад ва барои `uz` ба тоҷикӣ
-    // бармегардад. Бе ин корбари ғайри tg/ru ҲЕҶ ёдрасони рӯзона намегирифт.
+    // `langs` низ `en`-ро мегирад: он матни тоҷикӣ надорад, вале `pickText`
+    // барои `en` матни англисиро мегирад. Бе ин корбари ғайри tg/ru/uz ҲЕҶ
+    // ёдрасони рӯзона намегирифт. Ӯзбекӣ занҷири худро дорад (поён).
     name: 'Ёдрасони нарм 19:00 — тоҷикӣ',
     hour: 19,
-    langs: 'tg,uz,en',
+    langs: 'tg,en',
     studiedToday: 'no',
     // Хонандаи гуфтори PREMIUM ба ҷои ин «Гуфтори рӯз»-ро мегирад (ибораи
     // худаш) — вагарна ду паёми 19:00 лимити 2-и рӯзро мехӯрд ва огоҳии 22:00
@@ -131,7 +143,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     name: 'Огоҳии қавӣ 22:00 — тоҷикӣ',
     hour: 22,
     minute: 0,
-    langs: 'tg,uz,en',
+    langs: 'tg,en',
     studiedToday: 'no',
     minStreak: 1,
     maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
@@ -164,6 +176,31 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
     priority: 21,
     route: 'lesson',
     texts: { ru: HARD_RU },
+  },
+  // ── Занҷири рӯзона: ӯзбекӣ ──────────────────────────────────────────────
+  {
+    name: 'Ёдрасони нарм 19:00 — ӯзбекӣ',
+    hour: 19,
+    langs: 'uz',
+    studiedToday: 'no',
+    speaking: 'not_vip',
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    priority: 12,
+    route: 'lesson',
+    texts: { uz: SOFT_UZ },
+  },
+  {
+    name: 'Огоҳии қавӣ 22:00 — ӯзбекӣ',
+    hour: 22,
+    minute: 0,
+    langs: 'uz',
+    studiedToday: 'no',
+    minStreak: 1,
+    maxInactiveDays: DAILY_CHAIN_MAX_INACTIVE,
+    countdownToHour: STREAK_DEADLINE_HOUR,
+    priority: 22,
+    route: 'lesson',
+    texts: { uz: HARD_UZ },
   },
   // ── «Гуфтори рӯз» (хонандагони гуфтор) ────────────────────────────────
   //
@@ -202,6 +239,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       tg: { title: '{name}, {days_inactive} рӯз нест 👀', body: '{lesson} интизори туст — ҳамагӣ {minutes} дақиқа.' },
       ru: { title: '{name}, тебя не было {days_inactive} дн. 👀', body: '{lesson} ждёт тебя — всего {minutes} минут.' },
       en: { title: '{name}, it has been {days_inactive} days 👀', body: '{lesson} is waiting — just {minutes} minutes.' },
+      uz: { title: '{name}, {days_inactive} kundan beri yoʻqsiz 👀', body: '{lesson} sizni kutmoqda — atigi {minutes} daqiqa.' },
     },
   },
   {
@@ -215,6 +253,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       tg: { title: '{days_inactive} рӯз гузашт 📚', body: 'Забон бе такрор зуд фаромӯш мешавад. Имрӯз 5 дақиқа кофист — {lesson}.' },
       ru: { title: 'Прошло {days_inactive} дн. 📚', body: 'Язык без повторения быстро забывается. Сегодня хватит 5 минут — {lesson}.' },
       en: { title: '{days_inactive} days have passed 📚', body: 'A language fades without practice. Five minutes today is enough — {lesson}.' },
+      uz: { title: '{days_inactive} kun oʻtdi 📚', body: 'Til takrorlamasa tez unutiladi. Bugun 5 daqiqa yetarli — {lesson}.' },
     },
   },
   {
@@ -228,6 +267,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       tg: { title: 'Пазмонат шудем, {name} 😔', body: '{days_inactive} рӯз шуд. Имрӯз ҳатто 2 дақиқа кофист — {lesson}.' },
       ru: { title: 'Скучаем по тебе, {name} 😔', body: 'Прошло {days_inactive} дн. Сегодня хватит и 2 минут — {lesson}.' },
       en: { title: 'We miss you, {name} 😔', body: '{days_inactive} days now. Even 2 minutes today is enough — {lesson}.' },
+      uz: { title: 'Sizni sogʻindik, {name} 😔', body: '{days_inactive} kun boʻldi. Bugun 2 daqiqa ham yetarli — {lesson}.' },
     },
   },
   {
@@ -243,6 +283,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       tg: { title: 'Биё баргард! 🎁', body: '{name}, {days_inactive} рӯз гузашт. Дилҳоят пуранд — аз ҳамон ҷое, ки монда будӣ, давом кун.' },
       ru: { title: 'Возвращайся! 🎁', body: '{name}, прошло {days_inactive} дн. Жизни полны — продолжим с того места, где ты остановился.' },
       en: { title: 'Come back! 🎁', body: '{name}, {days_inactive} days have passed. Your hearts are full — pick up right where you left off.' },
+      uz: { title: 'Qaytib keling! 🎁', body: '{name}, {days_inactive} kun oʻtdi. Yuraklaringiz toʻla — qolgan joyingizdan davom eting.' },
     },
   },
   // ── Ҷои ёдрасонҳои МАҲАЛЛИИ 102/103 ────────────────────────────────────
@@ -262,6 +303,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       tg: { title: 'Дӯстат интизор аст 🤝', body: 'Силсилаи ҷуфтиатон имрӯз меғурад. {countdown} монд — {lesson}.' },
       ru: { title: 'Друг тебя ждёт 🤝', body: 'Ваш общий стрик сегодня оборвётся. Осталось {countdown} — {lesson}.' },
       en: { title: 'Your friend is waiting 🤝', body: 'Your joint streak breaks today. {countdown} left — {lesson}.' },
+      uz: { title: 'Doʻstingiz kutmoqda 🤝', body: 'Umumiy streak’ingiz bugun uziladi. {countdown} qoldi — {lesson}.' },
     },
   },
   {
@@ -278,6 +320,7 @@ export const DEFAULT_CAMPAIGNS: Seed[] = [
       tg: { title: '💎 Гаравҳоят дар хатар', body: '{name}, имрӯз нахондаӣ — {countdown} монд. Як дарс ва алмосҳоят маҳфузанд.' },
       ru: { title: '💎 Твоя ставка под угрозой', body: '{name}, сегодня ты не занимался — осталось {countdown}. Один урок, и кристаллы твои.' },
       en: { title: '💎 Your wager is at risk', body: "{name}, you haven't studied today — {countdown} left. One lesson keeps your gems." },
+      uz: { title: '💎 Tikkaningiz xavf ostida', body: '{name}, bugun oʻqimadingiz — {countdown} qoldi. Bitta dars va olmoslaringiz saqlanadi.' },
     },
   },
 ];

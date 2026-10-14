@@ -128,7 +128,7 @@ describe('кампанияҳои оғозӣ', () => {
     expect(daily.speaking).toBe('vip');
     expect(daily.route).toBe('speaking');
     const softs = DEFAULT_CAMPAIGNS.filter((c) => c.name.startsWith('Ёдрасони нарм 19:00'));
-    expect(softs.length).toBe(2);
+    expect(softs.length).toBe(3); // тоҷикӣ, русӣ, ӯзбекӣ
     for (const s of softs) expect(s.speaking).toBe('not_vip');
   });
 });

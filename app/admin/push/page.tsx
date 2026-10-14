@@ -74,6 +74,7 @@ const LANGS = [
   { code: 'tg', label: 'Тоҷикӣ' },
   { code: 'ru', label: 'Русӣ' },
   { code: 'en', label: 'Англисӣ' },
+  { code: 'uz', label: 'Ӯзбекӣ' },
 ];
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'];
 const WEEKDAYS = [

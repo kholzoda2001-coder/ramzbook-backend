@@ -10,7 +10,7 @@
  */
 import type { LearnerContext } from './pushMessages';
 
-export type TplLang = 'tg' | 'ru' | 'en';
+export type TplLang = 'tg' | 'ru' | 'en' | 'uz';
 
 /** Рӯйхати ҷойгузорҳо барои панели админ (нишон дода мешавад). */
 export const PLACEHOLDERS: { key: string; desc: string }[] = [
@@ -64,6 +64,10 @@ export function formatCountdown(totalMinutes: number, lang: TplLang): string {
     if (h === 0) return `${m}m`;
     return m === 0 ? `${h}h` : `${h}h ${m}m`;
   }
+  if (lang === 'uz') {
+    if (h === 0) return `${m} daqiqa`;
+    return m === 0 ? `${h} soat` : `${h} soat ${m} daqiqa`;
+  }
   if (h === 0) return `${m} дақиқа`;
   return m === 0 ? `${h} соат` : `${h} соату ${m} дақиқа`;
 }
@@ -86,9 +90,9 @@ function fallbacks(lang: TplLang) {
   return {
     // Бо ҳарфи калон: шаблонҳо `{name}`-ро ҳам дар АВВАЛИ ҷумла истифода
     // мебаранд («{name}, вақти дарс расид»), пас ҳарфи хурд он ҷо хато мешуд.
-    name: { tg: 'Дӯст', ru: 'Друг', en: 'Friend' }[lang],
-    lesson: { tg: 'Дарси навбатӣ', ru: 'Следующий урок', en: 'The next lesson' }[lang],
-    course: { tg: 'Курсат', ru: 'Твой курс', en: 'Your course' }[lang],
+    name: { tg: 'Дӯст', ru: 'Друг', en: 'Friend', uz: 'Doʻst' }[lang],
+    lesson: { tg: 'Дарси навбатӣ', ru: 'Следующий урок', en: 'The next lesson', uz: 'Keyingi dars' }[lang],
+    course: { tg: 'Курсат', ru: 'Твой курс', en: 'Your course', uz: 'Kursingiz' }[lang],
   };
 }
 
@@ -165,7 +169,7 @@ export function pickText(
   texts: CampaignTexts,
   lang: string,
 ): { lang: TplLang; title: string; body: string } | null {
-  const order: TplLang[] = [(lang as TplLang) ?? 'tg', 'tg', 'ru', 'en'];
+  const order: TplLang[] = [(lang as TplLang) ?? 'tg', 'tg', 'ru', 'en', 'uz'];
   for (const l of order) {
     const t = texts[l];
     if (t) return { lang: l, title: t.title, body: t.body };
