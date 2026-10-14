@@ -1,0 +1,1500 @@
+{
+ "module": {
+  "title": "Hello and Basic Communication",
+  "titleTranslated": "Salom va dastlabki muloqot",
+  "emoji": "👋",
+  "color": "#10B981",
+  "order": 0,
+  "isPremium": false,
+  "isBoss": false,
+  "isActive": true,
+  "canDoStatement": null,
+  "contentVersion": 1
+ },
+ "lessons": [
+  {
+   "title": "Greetings",
+   "titleTranslated": "Salomlashish va xayrlashish",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🤝",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Yes",
+     "translation": "Ha",
+     "emoji": "👍",
+     "ipa": "/jes/",
+     "ipaTajik": "yes",
+     "example": "Yes, I am ready.",
+     "exampleTrans": "Ha, men tayyorman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui0007ee518emegklh.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 9,
+     "order": 0
+    },
+    {
+     "word": "Hi",
+     "translation": "Salom (norasmiy)",
+     "emoji": "🙋",
+     "ipa": "/haɪ/",
+     "ipaTajik": "hay",
+     "example": "Hi, how are you?",
+     "exampleTrans": "Salom, ahvolingiz qalay?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/ad35686b7c417be780cd.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1000,
+     "order": 0
+    },
+    {
+     "word": "No",
+     "translation": "Yoʻq",
+     "emoji": "👎",
+     "ipa": "/nəʊ/",
+     "ipaTajik": "nou",
+     "example": "No, thank you.",
+     "exampleTrans": "Yoʻq, rahmat.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui0008ee51zprckcg2.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 8,
+     "order": 0
+    },
+    {
+     "word": "Hello",
+     "translation": "Salom",
+     "emoji": "👋",
+     "ipa": "/həˈləʊ/",
+     "ipaTajik": "helou",
+     "example": "Hello, my name is Ali.",
+     "exampleTrans": "Salom, mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui0003ee51y3866huz.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 34,
+     "order": 0
+    },
+    {
+     "word": "Goodbye",
+     "translation": "Xayr",
+     "emoji": "🚪",
+     "ipa": "/ɡʊdˈbaɪ/",
+     "ipaTajik": "gudbay",
+     "example": "Goodbye, see you tomorrow!",
+     "exampleTrans": "Xayr, ertagacha!",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui0005ee51awxfknpl.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1001,
+     "order": 0
+    },
+    {
+     "word": "Bye",
+     "translation": "Xayr (norasmiy)",
+     "emoji": "🤙",
+     "ipa": "/baɪ/",
+     "ipaTajik": "bay",
+     "example": "Bye, see you later.",
+     "exampleTrans": "Xayr, keyin koʻrishamiz.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui0006ee51fz5d6q0g.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1002,
+     "order": 0
+    }
+   ]
+  },
+  {
+   "title": "Polite Words",
+   "titleTranslated": "Xushmuomalalik",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🙏",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 1,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Please",
+     "translation": "Iltimos",
+     "emoji": "🙏",
+     "ipa": "/pliːz/",
+     "ipaTajik": "pliz",
+     "example": "Please, come here.",
+     "exampleTrans": "Iltimos, bu yerga keling.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000aee51frg8p545.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 33,
+     "order": 0
+    },
+    {
+     "word": "Thank you",
+     "translation": "Rahmat",
+     "emoji": "🙌",
+     "ipa": "/ˈθæŋk juː/",
+     "ipaTajik": "senk yu",
+     "example": "Thank you very much.",
+     "exampleTrans": "Katta rahmat.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000bee51lybfe1qj.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1003,
+     "order": 0
+    },
+    {
+     "word": "Sorry",
+     "translation": "Kechirasiz",
+     "emoji": "😔",
+     "ipa": "/ˈsɒri/",
+     "ipaTajik": "sori",
+     "example": "I am sorry.",
+     "exampleTrans": "Kechirasiz. / Uzr soʻrayman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000cee511izjaj0y.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1004,
+     "order": 0
+    },
+    {
+     "word": "You're welcome",
+     "translation": "Arzimaydi",
+     "emoji": "😊",
+     "ipa": "/jɔː ˈwelkəm/",
+     "ipaTajik": "yor velkam",
+     "example": "Thank you! You're welcome.",
+     "exampleTrans": "Rahmat! Arzimaydi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000dee51vhqacj5l.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1005,
+     "order": 0
+    },
+    {
+     "word": "OK",
+     "translation": "Yaxshi / Mayli",
+     "emoji": "👌",
+     "ipa": "/ˌəʊˈkeɪ/",
+     "ipaTajik": "oukey",
+     "example": "OK, let's go.",
+     "exampleTrans": "Mayli, ketdik.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@a197629174c8a8697debce8b6fe39c3911ca40c8/audio/en/cmqngcvui000eee51tzn2uk1r.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1006,
+     "order": 0
+    }
+   ]
+  },
+  {
+   "title": "Introducing Yourself",
+   "titleTranslated": "Oʻzini tanishtirish",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🙋",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 2,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "I",
+     "translation": "Men",
+     "emoji": "🙋",
+     "ipa": "/aɪ/",
+     "ipaTajik": "ay",
+     "example": "I am a student.",
+     "exampleTrans": "Men talabaman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000gee51sxahyw73.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "pronoun",
+     "frequencyRank": 1,
+     "order": 0
+    },
+    {
+     "word": "You",
+     "translation": "Siz / Sen",
+     "emoji": "👉",
+     "ipa": "/juː/",
+     "ipaTajik": "yu",
+     "example": "You are my friend.",
+     "exampleTrans": "Sen mening doʻstimsan.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000hee51q64il1e9.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "pronoun",
+     "frequencyRank": 2,
+     "order": 0
+    },
+    {
+     "word": "My",
+     "translation": "Mening",
+     "emoji": "🤲",
+     "ipa": "/maɪ/",
+     "ipaTajik": "may",
+     "example": "This is my book.",
+     "exampleTrans": "Bu mening kitobim.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@a197629174c8a8697debce8b6fe39c3911ca40c8/audio/en/cmqngcvui000iee5122xmnta7.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "determiner",
+     "frequencyRank": 6,
+     "order": 0
+    },
+    {
+     "word": "Name",
+     "translation": "Ism",
+     "emoji": "📛",
+     "ipa": "/neɪm/",
+     "ipaTajik": "neym",
+     "example": "My name is Ali.",
+     "exampleTrans": "Mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000jee51fg9gwtq3.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 13,
+     "order": 0
+    },
+    {
+     "word": "Is",
+     "translation": "-dir / boʻlmoq",
+     "emoji": "🟰",
+     "ipa": "/ɪz/",
+     "ipaTajik": "iz",
+     "example": "It is a book.",
+     "exampleTrans": "Bu kitob.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@a197629174c8a8697debce8b6fe39c3911ca40c8/audio/en/cmqngcvui000kee51g5jvv715.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "verb",
+     "frequencyRank": 3,
+     "order": 0
+    }
+   ]
+  },
+  {
+   "title": "Asking Names",
+   "titleTranslated": "Ismni soʻrash",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "❓",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 3,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "What",
+     "translation": "Nima",
+     "emoji": "❓",
+     "ipa": "/wɒt/",
+     "ipaTajik": "vot",
+     "example": "What is your name?",
+     "exampleTrans": "Ismingiz nima?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000mee51dhzlkbyr.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "pronoun",
+     "frequencyRank": 14,
+     "order": 0
+    },
+    {
+     "word": "Your",
+     "translation": "Sizning",
+     "emoji": "👤",
+     "ipa": "/jɔːr/",
+     "ipaTajik": "yor",
+     "example": "What is your name?",
+     "exampleTrans": "Ismingiz nima?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000nee51mhsec3hf.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "determiner",
+     "frequencyRank": 7,
+     "order": 0
+    },
+    {
+     "word": "Name",
+     "translation": "Ism",
+     "emoji": "📛",
+     "ipa": "/neɪm/",
+     "ipaTajik": "neym",
+     "example": "My name is Ali.",
+     "exampleTrans": "Mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000oee51czf5p8xw.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 13,
+     "order": 0
+    },
+    {
+     "word": "Who",
+     "translation": "Kim",
+     "emoji": "❔",
+     "ipa": "/huː/",
+     "ipaTajik": "hu",
+     "example": "Who is that man?",
+     "exampleTrans": "U odam kim?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000pee511kolgzra.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "pronoun",
+     "frequencyRank": 15,
+     "order": 0
+    },
+    {
+     "word": "Question",
+     "translation": "Savol",
+     "emoji": "📝",
+     "ipa": "/ˈkwes.tʃən/",
+     "ipaTajik": "kveschn",
+     "example": "I have a question.",
+     "exampleTrans": "Mening bir savolim bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000qee51m2epud5g.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1007,
+     "order": 0
+    }
+   ]
+  },
+  {
+   "title": "People",
+   "titleTranslated": "Odamlar",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "👥",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 4,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Girl",
+     "translation": "Qiz bola",
+     "emoji": "👧",
+     "ipa": "/ɡɜːl/",
+     "ipaTajik": "goʻl",
+     "example": "The girl is tall.",
+     "exampleTrans": "Qiz bola novcha.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000vee51bbuwa32n.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1009,
+     "order": 0
+    },
+    {
+     "word": "Man",
+     "translation": "Erkak",
+     "emoji": "👨",
+     "ipa": "/mæn/",
+     "ipaTajik": "men",
+     "example": "He is a man.",
+     "exampleTrans": "U erkak.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000see51h5yqt83f.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 27,
+     "order": 0
+    },
+    {
+     "word": "Woman",
+     "translation": "Ayol",
+     "emoji": "👩",
+     "ipa": "/ˈwʊm.ən/",
+     "ipaTajik": "vumen",
+     "example": "She is a woman.",
+     "exampleTrans": "U ayol.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000tee518qgfwr20.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 28,
+     "order": 0
+    },
+    {
+     "word": "Friend",
+     "translation": "Doʻst",
+     "emoji": "🤝",
+     "ipa": "/frend/",
+     "ipaTajik": "frend",
+     "example": "He is my friend.",
+     "exampleTrans": "U mening doʻstim.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/add26ac500f3645b0245.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 38,
+     "order": 0
+    },
+    {
+     "word": "Boy",
+     "translation": "Oʻgʻil bola",
+     "emoji": "👦",
+     "ipa": "/bɔɪ/",
+     "ipaTajik": "boy",
+     "example": "The boy is happy.",
+     "exampleTrans": "Oʻgʻil bola xursand.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvui000uee51k6zcwqey.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1008,
+     "order": 0
+    }
+   ]
+  },
+  {
+   "title": "Time Greetings",
+   "titleTranslated": "Kun vaqtlari",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🌅",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 5,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Good morning",
+     "translation": "Xayrli tong",
+     "emoji": "🌅",
+     "ipa": "/ɡʊd ˈmɔː.nɪŋ/",
+     "ipaTajik": "gud morning",
+     "example": "Good morning, teacher!",
+     "exampleTrans": "Xayrli tong, oʻqituvchi!",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvuj000yee51o3ecawup.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1010,
+     "order": 0
+    },
+    {
+     "word": "Good night",
+     "translation": "Xayrli tun",
+     "emoji": "🌙",
+     "ipa": "/ɡʊd naɪt/",
+     "ipaTajik": "gud nayt",
+     "example": "Good night, mother.",
+     "exampleTrans": "Xayrli tun, ona.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvuj0011ee51wj6sic4x.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1013,
+     "order": 0
+    },
+    {
+     "word": "Good evening",
+     "translation": "Xayrli kech",
+     "emoji": "🌆",
+     "ipa": "/ɡʊd ˈiːv.nɪŋ/",
+     "ipaTajik": "gud ivning",
+     "example": "Good evening, friend.",
+     "exampleTrans": "Xayrli kech, doʻstim.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvuj0010ee512ygdwwkp.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1012,
+     "order": 0
+    },
+    {
+     "word": "Good afternoon",
+     "translation": "Xayrli kun",
+     "emoji": "☀️",
+     "ipa": "/ɡʊd ˌɑːf.təˈnuːn/",
+     "ipaTajik": "gud afternun",
+     "example": "Good afternoon, teacher.",
+     "exampleTrans": "Xayrli kun, oʻqituvchi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqngcvuj000zee510xohu45n.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1011,
+     "order": 0
+    }
+   ]
+  },
+  {
+   "title": "Grammar: Verb To Be",
+   "titleTranslated": "Grammatika: To Be fe’li",
+   "type": "grammar",
+   "cefrLevel": "A1",
+   "skillType": "grammar",
+   "emoji": "🔗",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 6,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": 1,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": []
+  },
+  {
+   "title": "Grammar: Subject Pronouns",
+   "titleTranslated": "Grammatika: Ega olmoshlari",
+   "type": "grammar",
+   "cefrLevel": "A1",
+   "skillType": "grammar",
+   "emoji": "🧑",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 7,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": 0,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": []
+  },
+  {
+   "title": "Greetings Builder",
+   "titleTranslated": "Salomlashish gaplarini tuzish",
+   "type": "reading",
+   "cefrLevel": "A1",
+   "skillType": "reading",
+   "emoji": "🏗️",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 8,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 0,
+   "words": []
+  },
+  {
+   "title": "Listening: Meeting People",
+   "titleTranslated": "Tinglash: Tanishuv",
+   "type": "quiz",
+   "cefrLevel": "A1",
+   "skillType": "listening",
+   "emoji": "🎧",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 9,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 1,
+   "words": []
+  },
+  {
+   "title": "Conversation Practice",
+   "titleTranslated": "Suhbat va amaliyot",
+   "type": "dialogue",
+   "cefrLevel": "A1",
+   "skillType": "speaking",
+   "emoji": "🗣️",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 10,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": 0,
+   "phrase": null,
+   "comp": null,
+   "words": []
+  },
+  {
+   "title": "Module Review",
+   "titleTranslated": "Takrorlash",
+   "type": "review",
+   "cefrLevel": "A1",
+   "skillType": "review",
+   "emoji": "🔄",
+   "xpReward": 10,
+   "duration": 5,
+   "order": 11,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 2,
+   "words": []
+  },
+  {
+   "title": "Writing Practice",
+   "titleTranslated": "Yozish mashqi",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "writing",
+   "emoji": "✍️",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 12,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Hello",
+     "translation": "Salom",
+     "emoji": "👋",
+     "ipa": "/həˈləʊ/",
+     "ipaTajik": "helou",
+     "example": "Hello, my name is Ali.",
+     "exampleTrans": "Salom, mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge2t6w00035nnr89x96rxj.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 34,
+     "order": 0
+    },
+    {
+     "word": "Yes",
+     "translation": "Ha",
+     "emoji": "👍",
+     "ipa": "/jes/",
+     "ipaTajik": "yes",
+     "example": "Yes, I am ready.",
+     "exampleTrans": "Ha, men tayyorman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge2tov00055nnrc5xnjp7g.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 9,
+     "order": 1
+    },
+    {
+     "word": "Please",
+     "translation": "Iltimos",
+     "emoji": "🙏",
+     "ipa": "/pliːz/",
+     "ipaTajik": "pliz",
+     "example": "Please, come here.",
+     "exampleTrans": "Iltimos, bu yerga keling.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge2u6p00075nnrwywph27o.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 33,
+     "order": 2
+    },
+    {
+     "word": "You're welcome",
+     "translation": "Arzimaydi",
+     "emoji": "😊",
+     "ipa": "/jɔː ˈwelkəm/",
+     "ipaTajik": "yor velkam",
+     "example": "Thank you! You're welcome.",
+     "exampleTrans": "Rahmat! Arzimaydi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/b96e3c15669dffaf23ed.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "interjection",
+     "frequencyRank": 1005,
+     "order": 3
+    },
+    {
+     "word": "You",
+     "translation": "Siz / Sen",
+     "emoji": "👤",
+     "ipa": "/juː/",
+     "ipaTajik": "yu",
+     "example": "You are my friend.",
+     "exampleTrans": "Sen mening doʻstimsan.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/9f641a241bbb3d638fc3.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "pronoun",
+     "frequencyRank": 2,
+     "order": 4
+    },
+    {
+     "word": "Is",
+     "translation": "-dir / boʻlmoq",
+     "emoji": "🟰",
+     "ipa": "/ɪz/",
+     "ipaTajik": "iz",
+     "example": "It is a book.",
+     "exampleTrans": "Bu kitob.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge2vo7000d5nnrg7guwgw8.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "verb",
+     "frequencyRank": 3,
+     "order": 5
+    },
+    {
+     "word": "Name",
+     "translation": "Ism",
+     "emoji": "📛",
+     "ipa": "/neɪm/",
+     "ipaTajik": "neym",
+     "example": "My name is Ali.",
+     "exampleTrans": "Mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge2w61000f5nnr4ei4c3dy.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 13,
+     "order": 6
+    },
+    {
+     "word": "Man",
+     "translation": "Erkak",
+     "emoji": "👨",
+     "ipa": "/mæn/",
+     "ipaTajik": "men",
+     "example": "He is a man.",
+     "exampleTrans": "U erkak.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/3f4503638ce5a4087098.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 27,
+     "order": 7
+    }
+   ]
+  },
+  {
+   "title": "Final Exam",
+   "titleTranslated": "Yakuniy imtihon",
+   "type": "quiz",
+   "cefrLevel": "A1",
+   "skillType": "test",
+   "emoji": "✅",
+   "xpReward": 50,
+   "duration": 5,
+   "order": 13,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 3,
+   "words": []
+  }
+ ],
+ "grammar": [
+  {
+   "title": "Subject Pronouns",
+   "titleTranslated": "Ega olmoshlari",
+   "explanation": "Ega olmoshlari shaxs yoki narsa nomi oʻrniga keladi va gapda ega boʻladi.\n\n- **I** — men\n- **You** — sen / siz\n- **He** — u (erkak)\n- **She** — u (ayol)\n- **It** — u / bu (narsa yoki hayvon)\n- **We** — biz\n- **They** — ular\n\nInglizchada ega shart — olmosh (yoki ism)siz gap toʻgʻri boʻlmaydi. Oʻzbek tilida esa ega koʻpincha tushiriladi («Ishlayman»), inglizchada tushirib boʻlmaydi: **I** work.",
+   "emoji": "🧑",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "examples": [
+    {
+     "sentence": "I am a student.",
+     "translation": "Men talabaman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmjug0007dvu23dyt8srd.mp3",
+     "highlight": "I",
+     "order": 0
+    },
+    {
+     "sentence": "She is my sister.",
+     "translation": "U mening opam.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmked0009dvu2zda1yqb5.mp3",
+     "highlight": "She",
+     "order": 1
+    },
+    {
+     "sentence": "It is a book.",
+     "translation": "Bu kitob.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmkrv000bdvu2qbn9hp93.mp3",
+     "highlight": "It",
+     "order": 2
+    },
+    {
+     "sentence": "We are friends.",
+     "translation": "Biz doʻstmiz.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkml50000ddvu2x9d1uz6z.mp3",
+     "highlight": "We",
+     "order": 3
+    },
+    {
+     "sentence": "They are teachers.",
+     "translation": "Ular oʻqituvchilar.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmlib000fdvu2iuvwfa61.mp3",
+     "highlight": "They",
+     "order": 4
+    }
+   ],
+   "rules": [
+    {
+     "pattern": "I / You / He / She / It / We / They + fe’l",
+     "note": "Har gap egadan boshlanadi.",
+     "order": 0
+    },
+    {
+     "pattern": "He = erkak, She = ayol, It = narsa/hayvon",
+     "note": "Odam uchun He/She, narsa uchun It.",
+     "order": 1
+    },
+    {
+     "pattern": "We = men + boshqalar, They = ular",
+     "note": "We gapiruvchini oʻz ichiga oladi, They esa yoʻq.",
+     "order": 2
+    }
+   ],
+   "exercises": [
+    {
+     "type": "choose",
+     "prompt": "___ am a doctor.",
+     "promptTranslated": "Men shifokorman.",
+     "answer": "I",
+     "options": [
+      "I",
+      "He",
+      "We",
+      "They"
+     ],
+     "explanation": "«am» bilan doim I keladi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmlvg000hdvu2ynyd2jd8.mp3",
+     "order": 0
+    },
+    {
+     "type": "choose",
+     "prompt": "Ali is a boy. ___ is my friend.",
+     "promptTranslated": "Erkak uchun qaysi olmosh?",
+     "answer": "He",
+     "options": [
+      "She",
+      "He",
+      "It",
+      "They"
+     ],
+     "explanation": "Ali erkak → He.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmmfc000jdvu25fo6p4bz.mp3",
+     "order": 1
+    },
+    {
+     "type": "choose",
+     "prompt": "Sara is a girl. ___ is happy.",
+     "promptTranslated": "Ayol uchun qaysi olmosh?",
+     "answer": "She",
+     "options": [
+      "He",
+      "It",
+      "She",
+      "We"
+     ],
+     "explanation": "Sara ayol → She.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmmsl000ldvu297u4wu0q.mp3",
+     "order": 2
+    },
+    {
+     "type": "choose",
+     "prompt": "This is a cat. ___ is small.",
+     "promptTranslated": "Narsa yoki hayvon uchun qaysi olmosh?",
+     "answer": "It",
+     "options": [
+      "He",
+      "She",
+      "They",
+      "It"
+     ],
+     "explanation": "Narsa va hayvon → It.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmn5r000ndvu2bua5vuxp.mp3",
+     "order": 3
+    },
+    {
+     "type": "choose",
+     "prompt": "My brother and I are here. ___ are students.",
+     "promptTranslated": "Men va akam — qaysi olmosh?",
+     "answer": "We",
+     "options": [
+      "We",
+      "They",
+      "You",
+      "I"
+     ],
+     "explanation": "Men + boshqalar → We.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmnmd000pdvu2cte7n3ga.mp3",
+     "order": 4
+    },
+    {
+     "type": "reorder",
+     "prompt": "Gapni tuzing:",
+     "promptTranslated": "Ular oʻqituvchilar.",
+     "answer": "They are teachers.",
+     "options": [
+      "are",
+      "They",
+      "teachers"
+     ],
+     "explanation": "Ega → fe’l → ot.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmnzh000rdvu2muofulbg.mp3",
+     "order": 5
+    },
+    {
+     "type": "transform",
+     "prompt": "Tuzating: Am a student.",
+     "promptTranslated": "Ega yetishmayapti.",
+     "answer": "I am a student.",
+     "options": null,
+     "explanation": "Egasiz boʻlmaydi — I qoʻshing.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmod2000tdvu2lqr6x8sy.mp3",
+     "order": 6
+    },
+    {
+     "type": "choose",
+     "prompt": "The woman is here. ___ is my teacher.",
+     "promptTranslated": "Ayol uchun qaysi olmosh?",
+     "answer": "She",
+     "options": [
+      "He",
+      "She",
+      "It",
+      "You"
+     ],
+     "explanation": "Ayol → She.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmoyd000vdvu2bdiv5j6d.mp3",
+     "order": 7
+    }
+   ]
+  },
+  {
+   "title": "Verb To Be (am / is / are)",
+   "titleTranslated": "To Be fe’li (am / is / are)",
+   "explanation": "Oʻzbek tilida «Men talabaman», «Sen talabasan», «U talaba» deymiz — kesim qoʻshimchasi (-man, -san) soʻzga ulanadi. Inglizchada esa buning oʻrniga alohida **to be** fe’li keladi. U egaga qarab uch shaklga ega:\n\n- **I** (men) → **am**\n- **He / She / It** (u) → **is**\n- **You / We / They** (sen, siz, biz, ular) → **are**\n\n**He, She, It nima bilan farq qiladi?** Oʻzbek tilida hammasi «u», inglizcha esa ajratadi:\n\n- **He** = u — **erkak** uchun (a man, a boy, ota, aka). Misol: my father → **he**.\n- **She** = u — **ayol** uchun (a woman, a girl, ona, opa). Misol: my mother → **she**.\n- **It** = u/bu — **narsa va hayvon** uchun (a table, a dog, mushuk, kitob). Misol: my cat → **it**.\n\nUchalasi — **He**, **She**, **It** — **is** bilan keladi.\n\nInglizchada to be shart: «**I am** Ali» deymiz, «I Ali» emas.\n\nInkor **not** bilan: **am not**, **is not** (**isn't**), **are not** (**aren't**).",
+   "emoji": "🔗",
+   "cefrLevel": "A1",
+   "order": 1,
+   "isPremium": false,
+   "isActive": true,
+   "examples": [
+    {
+     "sentence": "I am Ali.",
+     "translation": "Men Aliman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmsq80015dvu2tywlk0ha.mp3",
+     "highlight": "am",
+     "order": 0
+    },
+    {
+     "sentence": "You are my friend.",
+     "translation": "Sen mening doʻstimsan.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmt3h0017dvu2arrr34ps.mp3",
+     "highlight": "are",
+     "order": 1
+    },
+    {
+     "sentence": "He is a teacher.",
+     "translation": "U oʻqituvchi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmtgl0019dvu2jl2j8jfq.mp3",
+     "highlight": "is",
+     "order": 2
+    },
+    {
+     "sentence": "It is a cat.",
+     "translation": "Bu mushuk.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@f2baa472647efa780789588d14455f7b8c968fad/audio/en/cms8269ky000114bl2z36g21x.mp3",
+     "highlight": "is",
+     "order": 3
+    },
+    {
+     "sentence": "We are happy.",
+     "translation": "Biz xursandmiz.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmttr001bdvu2izamx9ub.mp3",
+     "highlight": "are",
+     "order": 3
+    },
+    {
+     "sentence": "She is not at home.",
+     "translation": "U uyda emas.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmu70001ddvu2kzmqy0e9.mp3",
+     "highlight": "is not",
+     "order": 4
+    }
+   ],
+   "rules": [
+    {
+     "pattern": "I + am",
+     "note": "I bilan doim am.",
+     "order": 0
+    },
+    {
+     "pattern": "He / She / It → is",
+     "note": "He = erkak, She = ayol, It = narsa yoki hayvon. Uchalasi is bilan: He is, She is, It is.",
+     "order": 1
+    },
+    {
+     "pattern": "You / We / They + are",
+     "note": "Koʻplik va you uchun doim are.",
+     "order": 2
+    },
+    {
+     "pattern": "Inkor: is not = isn’t, are not = aren’t",
+     "note": "Inkor uchun not qoʻshiladi.",
+     "order": 3
+    }
+   ],
+   "exercises": [
+    {
+     "type": "choose",
+     "prompt": "I ___ a student.",
+     "promptTranslated": "Men talabaman.",
+     "answer": "am",
+     "options": [
+      "am",
+      "is",
+      "are",
+      "be"
+     ],
+     "explanation": "I bilan → am.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmuk7001fdvu219h0a8tv.mp3",
+     "order": 0
+    },
+    {
+     "type": "choose",
+     "prompt": "She ___ my sister.",
+     "promptTranslated": "U mening opam.",
+     "answer": "is",
+     "options": [
+      "are",
+      "is",
+      "be",
+      "am"
+     ],
+     "explanation": "She bilan → is.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmuxc001hdvu2e8sd9ppe.mp3",
+     "order": 1
+    },
+    {
+     "type": "choose",
+     "prompt": "They ___ teachers.",
+     "promptTranslated": "Ular oʻqituvchilar.",
+     "answer": "are",
+     "options": [
+      "is",
+      "am",
+      "are",
+      "be"
+     ],
+     "explanation": "They bilan → are.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmvaj001jdvu24d71ukys.mp3",
+     "order": 2
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "You ___ my friend.",
+     "promptTranslated": "Sen mening doʻstimsan.",
+     "answer": "are",
+     "options": null,
+     "explanation": "You bilan → are.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmvns001ldvu2107onc77.mp3",
+     "order": 3
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "It ___ a book.",
+     "promptTranslated": "Bu kitob.",
+     "answer": "is",
+     "options": null,
+     "explanation": "It bilan → is.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmw1e001ndvu2wckqxolt.mp3",
+     "order": 4
+    },
+    {
+     "type": "reorder",
+     "prompt": "Gapni tuzing:",
+     "promptTranslated": "Men oʻqituvchiman.",
+     "answer": "I am a teacher.",
+     "options": [
+      "am",
+      "I",
+      "a",
+      "teacher"
+     ],
+     "explanation": "Toʻgʻri tartib: I + am + a + teacher.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmwen001pdvu25ov6fel8.mp3",
+     "order": 5
+    },
+    {
+     "type": "transform",
+     "prompt": "Tuzating: He are a doctor.",
+     "promptTranslated": "To be shakli notoʻgʻri.",
+     "answer": "He is a doctor.",
+     "options": null,
+     "explanation": "He bilan → is, are emas.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmwsd001rdvu2tuu77v7o.mp3",
+     "order": 6
+    },
+    {
+     "type": "transform",
+     "prompt": "Inkorga oʻtkazing: I am tired.",
+     "promptTranslated": "Inkorga oʻtkazing.",
+     "answer": "I am not tired.",
+     "options": null,
+     "explanation": "not am dan keyin keladi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkmx5h001tdvu2tx9o1vsb.mp3",
+     "order": 7
+    }
+   ]
+  }
+ ],
+ "dialogues": [
+  {
+   "title": "Conversation Practice",
+   "titleTranslated": "Suhbat mashqi",
+   "scenario": "Oddiy salomlashish va tanishuv.",
+   "emoji": "🗣️",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "lines": [
+    {
+     "speaker": "Person A",
+     "text": "Hello.",
+     "translation": "Salom.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210002v8u46aueyr6x.mp3",
+     "isUser": false,
+     "order": 0
+    },
+    {
+     "speaker": "Person B",
+     "text": "Hello.",
+     "translation": "Salom.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210003v8u44cp7nae7.mp3",
+     "isUser": true,
+     "order": 1
+    },
+    {
+     "speaker": "Person A",
+     "text": "How are you?",
+     "translation": "Ahvolingiz qalay?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210004v8u4s2gz5s0c.mp3",
+     "isUser": false,
+     "order": 2
+    },
+    {
+     "speaker": "Person B",
+     "text": "I am fine, thank you.",
+     "translation": "Yaxshiman, rahmat.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210005v8u4aafp0uvi.mp3",
+     "isUser": true,
+     "order": 3
+    },
+    {
+     "speaker": "Person A",
+     "text": "What is your name?",
+     "translation": "Ismingiz nima?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210006v8u433gabe4i.mp3",
+     "isUser": false,
+     "order": 4
+    },
+    {
+     "speaker": "Person B",
+     "text": "My name is Ali.",
+     "translation": "Mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210007v8u41k16pb87.mp3",
+     "isUser": true,
+     "order": 5
+    },
+    {
+     "speaker": "Person A",
+     "text": "Nice to meet you.",
+     "translation": "Tanishganimdan xursandman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210008v8u4d68035jj.mp3",
+     "isUser": false,
+     "order": 6
+    },
+    {
+     "speaker": "Person B",
+     "text": "Nice to meet you too.",
+     "translation": "Men ham tanishganimdan xursandman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqp81u210009v8u4dyi90fv2.mp3",
+     "isUser": true,
+     "order": 7
+    }
+   ]
+  }
+ ],
+ "phrases": [],
+ "comps": [
+  {
+   "kind": "reading",
+   "title": "Greetings Builder",
+   "titleTranslated": "Salomlashish gaplarini tuzish",
+   "passage": "Hello! My name is Ali. I am a student. This is my friend. His name is Karim. He is a teacher. Good morning, Karim!",
+   "passageTranslated": "Salom! Mening ismim Ali. Men talabaman. Bu mening doʻstim. Uning ismi Karim. U oʻqituvchi. Xayrli tong, Karim!",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@f2baa472647efa780789588d14455f7b8c968fad/audio/en/cmsd0vtaj000710cpb9v9acey.mp3",
+   "emoji": "📖",
+   "cefrLevel": "A1",
+   "order": 20,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "What is his name?",
+     "questionTranslated": "Uning ismi nima?",
+     "options": [
+      "Karim",
+      "Umar",
+      "Ali"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: His name is Karim.",
+     "order": 0
+    },
+    {
+     "question": "Who is Karim?",
+     "questionTranslated": "Karim kim?",
+     "options": [
+      "A student",
+      "A teacher",
+      "A doctor"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: He is a teacher.",
+     "order": 1
+    }
+   ]
+  },
+  {
+   "kind": "listening",
+   "title": "Listening: Meeting People",
+   "titleTranslated": "Tinglash: Tanishuv",
+   "passage": "Hello! My name is Anna. I am a teacher. Good morning, everyone. This is my friend Tom. He is a student. Nice to meet you. Goodbye and see you soon!",
+   "passageTranslated": "Salom! Mening ismim Anna. Men oʻqituvchiman. Hammaga xayrli tong. Bu mening doʻstim Tom. U talaba. Tanishganimdan xursandman. Xayr va yana koʻrishguncha!",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmr4vkr3h0001g4jr0tp6v6p4.mp3",
+   "emoji": "👋",
+   "cefrLevel": "A1",
+   "order": 60,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "What is her name?",
+     "questionTranslated": "Uning ismi nima?",
+     "options": [
+      "Anna",
+      "Tom",
+      "Sara"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: My name is Anna.",
+     "order": 0
+    },
+    {
+     "question": "What is Anna's job?",
+     "questionTranslated": "Annaning kasbi nima?",
+     "options": [
+      "Student",
+      "Teacher",
+      "Doctor"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: I am a teacher.",
+     "order": 1
+    },
+    {
+     "question": "Who is Tom?",
+     "questionTranslated": "Tom kim?",
+     "options": [
+      "Her brother",
+      "Her teacher",
+      "Her friend"
+     ],
+     "correctIndex": 2,
+     "explanation": "Matn: This is my friend Tom.",
+     "order": 2
+    },
+    {
+     "question": "What is Tom's job?",
+     "questionTranslated": "Tomning kasbi nima?",
+     "options": [
+      "Student",
+      "Teacher",
+      "Doctor"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: He is a student.",
+     "order": 3
+    }
+   ]
+  },
+  {
+   "kind": "reading",
+   "title": "Greetings and Introductions",
+   "titleTranslated": "Salomlashish va tanishuv",
+   "passage": "Let's review greetings! Good morning! My name is Ali. I am a student. This is my friend Karim. He is a teacher. Thank you and goodbye!",
+   "passageTranslated": "Keling, salomlashishlarni takrorlaymiz! Xayrli tong! Mening ismim Ali. Men talabaman. Bu mening doʻstim Karim. U oʻqituvchi. Rahmat va xayr!",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@92cba96abefc6d603c5bdd924ec974a0ee65c718/audio/en/cmskcyd2w0001evc4zecysfhz.mp3",
+   "emoji": "🔄",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "Who is Karim?",
+     "questionTranslated": "Karim kim?",
+     "options": [
+      "A teacher",
+      "A doctor",
+      "A student"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: He is a teacher.",
+     "order": 0
+    },
+    {
+     "question": "What does Ali say at the end?",
+     "questionTranslated": "Ali oxirida nima deydi?",
+     "options": [
+      "Good night",
+      "Goodbye",
+      "Hello"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: Thank you and goodbye!",
+     "order": 1
+    }
+   ]
+  },
+  {
+   "kind": "reading",
+   "title": "Ali and His Friend",
+   "titleTranslated": "Ali va uning doʻsti",
+   "passage": "Hello! My name is Ali. I am a boy. This is my friend Sara. She is a girl. Sara is my friend. Good morning, teacher!",
+   "passageTranslated": "Salom! Mening ismim Ali. Men oʻgʻil bolaman. Bu mening doʻstim Sara. U qiz bola. Sara mening doʻstim. Xayrli tong, oʻqituvchi!",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/9820a80d61f0f357fc45.mp3",
+   "emoji": "🏆",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "What is the boy's name?",
+     "questionTranslated": "Bolaning ismi nima?",
+     "options": [
+      "Ali",
+      "Karim",
+      "Sara"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: My name is Ali.",
+     "order": 0
+    },
+    {
+     "question": "Is Sara a boy or a girl?",
+     "questionTranslated": "Sara oʻgʻil bolami yoki qiz bola?",
+     "options": [
+      "A boy",
+      "A girl",
+      "A man"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: She is a girl.",
+     "order": 1
+    },
+    {
+     "question": "Who is Sara?",
+     "questionTranslated": "Sara kim?",
+     "options": [
+      "A boy",
+      "A man",
+      "My friend"
+     ],
+     "correctIndex": 2,
+     "explanation": "Matn: Sara is my friend. (friend/boy/man — hammasi 1-modulda oʻrgatilgan)",
+     "order": 2
+    },
+    {
+     "question": "How do you say 'Salom' in English?",
+     "questionTranslated": "«Salom» inglizchada qanday?",
+     "options": [
+      "Hello",
+      "Please",
+      "Goodbye"
+     ],
+     "correctIndex": 0,
+     "explanation": "Salom = Hello.",
+     "order": 3
+    },
+    {
+     "question": "'Rahmat' in English is:",
+     "questionTranslated": "«Rahmat» inglizchada qanday?",
+     "options": [
+      "Please",
+      "Thank you",
+      "Sorry"
+     ],
+     "correctIndex": 1,
+     "explanation": "Rahmat = Thank you.",
+     "order": 4
+    },
+    {
+     "question": "Complete: I ___ a student.",
+     "questionTranslated": "To be fe’li: I ___",
+     "options": [
+      "are",
+      "is",
+      "am"
+     ],
+     "correctIndex": 2,
+     "explanation": "I bilan → am.",
+     "order": 5
+    },
+    {
+     "question": "Sara is a girl. ___ is happy.",
+     "questionTranslated": "Ayol uchun olmosh?",
+     "options": [
+      "She",
+      "It",
+      "He"
+     ],
+     "correctIndex": 0,
+     "explanation": "Ayol → She.",
+     "order": 6
+    },
+    {
+     "question": "What does 'Goodbye' mean?",
+     "questionTranslated": "«Goodbye» nimani anglatadi?",
+     "options": [
+      "Salom",
+      "Xayr",
+      "Ha"
+     ],
+     "correctIndex": 1,
+     "explanation": "Goodbye = Xayr.",
+     "order": 7
+    }
+   ]
+  }
+ ]
+}
