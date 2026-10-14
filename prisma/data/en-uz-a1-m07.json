@@ -1,0 +1,1766 @@
+{
+ "module": {
+  "title": "Module 7: Home And Objects",
+  "titleTranslated": "7-modul: Uy va buyumlar",
+  "emoji": "🏠",
+  "color": "#10B981",
+  "order": 6,
+  "isPremium": false,
+  "isBoss": false,
+  "isActive": true,
+  "canDoStatement": null,
+  "contentVersion": 1
+ },
+ "lessons": [
+  {
+   "title": "Lesson 1: Rooms In A House",
+   "titleTranslated": "1-dars: Uy xonalari",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🚪",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "House",
+     "translation": "Uy",
+     "emoji": "🏠",
+     "ipa": "/haʊs/",
+     "ipaTajik": "haus",
+     "example": "This is my house.",
+     "exampleTrans": "Bu mening uyim.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr519000l129a4dz953iu.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 36,
+     "order": 0
+    },
+    {
+     "word": "Room",
+     "translation": "Xona",
+     "emoji": "🚪",
+     "ipa": "/ruːm/",
+     "ipaTajik": "rum",
+     "example": "This is my room.",
+     "exampleTrans": "Bu mening xonam.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr5kj000n129awbn1bnfu.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1175,
+     "order": 1
+    },
+    {
+     "word": "Bedroom",
+     "translation": "Yotoqxona",
+     "emoji": "🛏",
+     "ipa": "/ˈbed.ruːm/",
+     "ipaTajik": "bedrum",
+     "example": "My bedroom is big.",
+     "exampleTrans": "Mening yotoqxonam katta.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr5xh000p129azl0rgixm.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1176,
+     "order": 2
+    },
+    {
+     "word": "Kitchen",
+     "translation": "Oshxona",
+     "emoji": "🍳",
+     "ipa": "/ˈkɪtʃ.ən/",
+     "ipaTajik": "kichin",
+     "example": "I cook in the kitchen.",
+     "exampleTrans": "Men oshxonada ovqat pishiraman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/6f7c36d232f700e4ee43.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1177,
+     "order": 3
+    },
+    {
+     "word": "Living Room",
+     "translation": "Mehmonxona",
+     "emoji": "🛋",
+     "ipa": "/ˈlɪv.ɪŋ ˌruːm/",
+     "ipaTajik": "living rum",
+     "example": "We watch TV in the living room.",
+     "exampleTrans": "Biz mehmonxonada televizor tomosha qilamiz.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr6ne000t129adyhm6p83.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1178,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 2: Rooms In A House (2)",
+   "titleTranslated": "2-dars: Uy xonalari (2)",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🚪",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 1,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Bathroom",
+     "translation": "Hammom",
+     "emoji": "🚿",
+     "ipa": "/ˈbɑːθ.ruːm/",
+     "ipaTajik": "basrum",
+     "example": "The bathroom is clean.",
+     "exampleTrans": "Hammom toza.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr70p000v129atcaqug5n.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1179,
+     "order": 0
+    },
+    {
+     "word": "Apartment",
+     "translation": "Kvartira",
+     "emoji": "🏢",
+     "ipa": "/əˈpɑːt.mənt/",
+     "ipaTajik": "apatment",
+     "example": "I live in an apartment.",
+     "exampleTrans": "Men kvartirada yashayman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr7dm000x129akb3cj4t6.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1180,
+     "order": 1
+    },
+    {
+     "word": "Home",
+     "translation": "Uy (maskan)",
+     "emoji": "🏡",
+     "ipa": "/həʊm/",
+     "ipaTajik": "houm",
+     "example": "I go home.",
+     "exampleTrans": "Men uyga ketyapman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr7qj000z129a69f3gcaa.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 55,
+     "order": 2
+    },
+    {
+     "word": "Dining Room",
+     "translation": "Ovqatlanish xonasi",
+     "emoji": "🍽",
+     "ipa": "/ˈdaɪ.nɪŋ ˌruːm/",
+     "ipaTajik": "dayning rum",
+     "example": "We eat in the dining room.",
+     "exampleTrans": "Biz ovqatlanish xonasida ovqatlanamiz.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr83m0011129afhsak0kd.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1181,
+     "order": 3
+    },
+    {
+     "word": "Hallway",
+     "translation": "Yoʻlak",
+     "emoji": "🚶",
+     "ipa": "/ˈhɔːl.weɪ/",
+     "ipaTajik": "holvey",
+     "example": "The hallway is long.",
+     "exampleTrans": "Yoʻlak uzun.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr8gh0013129aa4tqgahs.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1182,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 3: Furniture",
+   "titleTranslated": "3-dars: Mebel",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🛋",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 2,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Bed",
+     "translation": "Karavot",
+     "emoji": "🛏",
+     "ipa": "/bed/",
+     "ipaTajik": "bed",
+     "example": "There is a bed in my room.",
+     "exampleTrans": "Mening xonamda bitta karavot bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr8td0015129a71s9dfva.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1183,
+     "order": 0
+    },
+    {
+     "word": "Chair",
+     "translation": "Stul",
+     "emoji": "🪑",
+     "ipa": "/tʃeər/",
+     "ipaTajik": "chea",
+     "example": "I sit on a chair.",
+     "exampleTrans": "Men stulda oʻtiraman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr96d0017129aptj4zhxi.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1184,
+     "order": 1
+    },
+    {
+     "word": "Sofa",
+     "translation": "Divan",
+     "emoji": "🛋",
+     "ipa": "/ˈsəʊ.fə/",
+     "ipaTajik": "soufa",
+     "example": "The sofa is soft.",
+     "exampleTrans": "Divan yumshoq.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqr9je0019129a26txid9e.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1185,
+     "order": 2
+    },
+    {
+     "word": "Television",
+     "translation": "Televizor",
+     "emoji": "📺",
+     "ipa": "/ˈtel.ɪ.vɪʒ.ən/",
+     "ipaTajik": "televijn",
+     "example": "I turn on the television.",
+     "exampleTrans": "Men televizorni yoqaman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqra56001b129an4vqqfdl.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1186,
+     "order": 3
+    },
+    {
+     "word": "Window",
+     "translation": "Deraza",
+     "emoji": "🪟",
+     "ipa": "/ˈwɪn.dəʊ/",
+     "ipaTajik": "vindou",
+     "example": "Open the window.",
+     "exampleTrans": "Derazani oching.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrai7001d129a955od2hp.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1187,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 4: Furniture (2)",
+   "titleTranslated": "4-dars: Mebel (2)",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🛋",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 3,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Door",
+     "translation": "Eshik",
+     "emoji": "🚪",
+     "ipa": "/dɔːr/",
+     "ipaTajik": "do",
+     "example": "Close the door.",
+     "exampleTrans": "Eshikni yoping.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrav5001f129aiv170g8i.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1188,
+     "order": 0
+    },
+    {
+     "word": "Mirror",
+     "translation": "Koʻzgu",
+     "emoji": "🪞",
+     "ipa": "/ˈmɪr.ər/",
+     "ipaTajik": "mira",
+     "example": "I look in the mirror.",
+     "exampleTrans": "Men koʻzguga qarayman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrbho001h129ab88675qf.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1189,
+     "order": 1
+    },
+    {
+     "word": "Shelf",
+     "translation": "Tokcha",
+     "emoji": "📚",
+     "ipa": "/ʃelf/",
+     "ipaTajik": "shelf",
+     "example": "The book is on the shelf.",
+     "exampleTrans": "Kitob tokchada.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrbyr001j129afb781m2b.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1190,
+     "order": 2
+    },
+    {
+     "word": "Table",
+     "translation": "Stol",
+     "emoji": "🍽️",
+     "ipa": "/ˈteɪ.bəl/",
+     "ipaTajik": "teybl",
+     "example": "The food is on the table.",
+     "exampleTrans": "Ovqat stol ustida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrcbo001l129ak5tboa3u.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1191,
+     "order": 3
+    },
+    {
+     "word": "Wardrobe",
+     "translation": "Kiyim shkafi",
+     "emoji": "🗄",
+     "ipa": "/ˈwɔː.drəʊb/",
+     "ipaTajik": "vodroub",
+     "example": "My clothes are in the wardrobe.",
+     "exampleTrans": "Kiyimlarim shkafda.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrcru001n129aekhrwpfr.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1192,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 5: Household Objects",
+   "titleTranslated": "5-dars: Uy-roʻzgʻor buyumlari",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "📱",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 4,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Book",
+     "translation": "Kitob",
+     "emoji": "📚",
+     "ipa": "/bʊk/",
+     "ipaTajik": "buk",
+     "example": "There is a book on the table.",
+     "exampleTrans": "Stol ustida bitta kitob bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrd4q001p129a37z015rc.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 44,
+     "order": 0
+    },
+    {
+     "word": "Lamp",
+     "translation": "Chiroq",
+     "emoji": "💡",
+     "ipa": "/læmp/",
+     "ipaTajik": "lemp",
+     "example": "Turn on the lamp.",
+     "exampleTrans": "Chiroqni yoqing.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrdhq001r129ans7yxdq5.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1193,
+     "order": 1
+    },
+    {
+     "word": "Computer",
+     "translation": "Kompyuter",
+     "emoji": "🖥",
+     "ipa": "/kəmˈpjuː.tər/",
+     "ipaTajik": "kompyuta",
+     "example": "I use a computer.",
+     "exampleTrans": "Men kompyuterdan foydalanaman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrdul001t129aq0cbyp8k.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1194,
+     "order": 2
+    },
+    {
+     "word": "Phone",
+     "translation": "Telefon",
+     "emoji": "📱",
+     "ipa": "/fəʊn/",
+     "ipaTajik": "foun",
+     "example": "This is my phone.",
+     "exampleTrans": "Bu mening telefonim.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/a90da848ba4e829e00d8.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1195,
+     "order": 3
+    },
+    {
+     "word": "Clock",
+     "translation": "Devor soati",
+     "emoji": "⌚",
+     "ipa": "/klɒk/",
+     "ipaTajik": "klok",
+     "example": "The clock is on the wall.",
+     "exampleTrans": "Soat devorda.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrekf001x129apuaj4ds6.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1196,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 6: Household Objects (2)",
+   "titleTranslated": "6-dars: Uy-roʻzgʻor buyumlari (2)",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "📱",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 5,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Bag",
+     "translation": "Sumka",
+     "emoji": "🎒",
+     "ipa": "/bæɡ/",
+     "ipaTajik": "beg",
+     "example": "My bag is heavy.",
+     "exampleTrans": "Sumkam ogʻir.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrexc001z129abvmns1if.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1197,
+     "order": 0
+    },
+    {
+     "word": "Pen",
+     "translation": "Ruchka",
+     "emoji": "🖊",
+     "ipa": "/pen/",
+     "ipaTajik": "pen",
+     "example": "I have a pen.",
+     "exampleTrans": "Menda bitta ruchka bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrfcm0021129a4tv7t79i.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1198,
+     "order": 1
+    },
+    {
+     "word": "Notebook",
+     "translation": "Daftar",
+     "emoji": "📖",
+     "ipa": "/ˈnəʊt.bʊk/",
+     "ipaTajik": "noutbuk",
+     "example": "I write in my notebook.",
+     "exampleTrans": "Men daftarimga yozaman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrfpz0023129aqzkvi5xk.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1199,
+     "order": 2
+    },
+    {
+     "word": "Pencil",
+     "translation": "Qalam",
+     "emoji": "✏",
+     "ipa": "/ˈpen.səl/",
+     "ipaTajik": "pensl",
+     "example": "I need a pencil.",
+     "exampleTrans": "Menga qalam kerak.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrg460025129aftvtmlyp.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1200,
+     "order": 3
+    },
+    {
+     "word": "Desk",
+     "translation": "Yozuv stoli",
+     "emoji": "🪑",
+     "ipa": "/desk/",
+     "ipaTajik": "desk",
+     "example": "I sit at my desk.",
+     "exampleTrans": "Men yozuv stolimda oʻtiraman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrgw40027129aud7zowu5.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1201,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 7: Places And Positions",
+   "titleTranslated": "7-dars: Joylar va holatlar",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "📍",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 6,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "On",
+     "translation": "Ustida",
+     "emoji": "⬆",
+     "ipa": "/ɒn/",
+     "ipaTajik": "on",
+     "example": "The book is on the table.",
+     "exampleTrans": "Kitob stol ustida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrhqo0029129a2ga1bb1h.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1202,
+     "order": 0
+    },
+    {
+     "word": "Under",
+     "translation": "Ostida",
+     "emoji": "⬇",
+     "ipa": "/ˈʌn.dər/",
+     "ipaTajik": "anda",
+     "example": "The bag is under the chair.",
+     "exampleTrans": "Sumka stul ostida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqri3l002b129avkhuwzp0.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1203,
+     "order": 1
+    },
+    {
+     "word": "In",
+     "translation": "Ichida",
+     "emoji": "📍",
+     "ipa": "/ɪn/",
+     "ipaTajik": "in",
+     "example": "The pen is in the bag.",
+     "exampleTrans": "Ruchka sumka ichida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqriih002d129a74c10bf3.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1204,
+     "order": 2
+    },
+    {
+     "word": "Next To",
+     "translation": "Yonida",
+     "emoji": "➡",
+     "ipa": "/nekst tuː/",
+     "ipaTajik": "nekst tu",
+     "example": "The chair is next to the table.",
+     "exampleTrans": "Stul stol yonida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrj44002f129af1l7cjkf.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1205,
+     "order": 3
+    },
+    {
+     "word": "Between",
+     "translation": "Orasida",
+     "emoji": "↔",
+     "ipa": "/bɪˈtwiːn/",
+     "ipaTajik": "bitvin",
+     "example": "I sit between Ali and Umar.",
+     "exampleTrans": "Men Ali va Umar orasida oʻtiraman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrjhq002h129aofuns034.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1206,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 8: Places And Positions (2)",
+   "titleTranslated": "8-dars: Joylar va holatlar (2)",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "📍",
+   "xpReward": 15,
+   "duration": 4,
+   "order": 7,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Above",
+     "translation": "Tepasida",
+     "emoji": "🔝",
+     "ipa": "/əˈbʌv/",
+     "ipaTajik": "abav",
+     "example": "The picture is above the sofa.",
+     "exampleTrans": "Rasm divan tepasida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrjum002j129aopr4ahso.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1207,
+     "order": 0
+    },
+    {
+     "word": "Below",
+     "translation": "Pastida",
+     "emoji": "🔽",
+     "ipa": "/bɪˈləʊ/",
+     "ipaTajik": "bilou",
+     "example": "The box is below the window.",
+     "exampleTrans": "Quti deraza ostida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrk7h002l129a30c4g3y5.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1208,
+     "order": 1
+    },
+    {
+     "word": "Near",
+     "translation": "Yaqinida",
+     "emoji": "📌",
+     "ipa": "/nɪər/",
+     "ipaTajik": "nia",
+     "example": "The house is near the school.",
+     "exampleTrans": "Uy maktab yaqinida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrkke002n129ay4p0jkv8.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1209,
+     "order": 2
+    },
+    {
+     "word": "Behind",
+     "translation": "Orqasida",
+     "emoji": "🔙",
+     "ipa": "/bɪˈhaɪnd/",
+     "ipaTajik": "bihaynd",
+     "example": "The cat is behind the door.",
+     "exampleTrans": "Mushuk eshik orqasida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrkx9002p129axww58nqa.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1210,
+     "order": 3
+    },
+    {
+     "word": "In front of",
+     "translation": "Oldida",
+     "emoji": "🔜",
+     "ipa": "/ɪn frʌnt əv/",
+     "ipaTajik": "in frant ov",
+     "example": "The car is in front of the house.",
+     "exampleTrans": "Mashina uyning oldida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrla7002r129axs2xdcif.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1211,
+     "order": 4
+    }
+   ]
+  },
+  {
+   "title": "Lesson 9: My Home",
+   "titleTranslated": "9-dars: Mening uyim",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "vocab",
+   "emoji": "🏡",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 8,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "Clean",
+     "translation": "Toza",
+     "emoji": "🧹",
+     "ipa": "/kliːn/",
+     "ipaTajik": "klin",
+     "example": "My home is clean.",
+     "exampleTrans": "Mening uyim toza.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrlo9002t129azcp2jhur.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "adjective",
+     "frequencyRank": 1212,
+     "order": 1
+    },
+    {
+     "word": "Dirty",
+     "translation": "Iflos",
+     "emoji": "🗑",
+     "ipa": "/ˈdɜː.ti/",
+     "ipaTajik": "doʻti",
+     "example": "The shoes are dirty.",
+     "exampleTrans": "Poyabzallar iflos.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrm15002v129a1lvmdu7a.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "adjective",
+     "frequencyRank": 1213,
+     "order": 2
+    },
+    {
+     "word": "Key",
+     "translation": "Kalit",
+     "emoji": "🔑",
+     "ipa": "/kiː/",
+     "ipaTajik": "ki",
+     "example": "I have a key.",
+     "exampleTrans": "Menda bitta kalit bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrmgi002x129a00cy1wts.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1214,
+     "order": 3
+    },
+    {
+     "word": "Closet",
+     "translation": "Shkaf",
+     "emoji": "🗄️",
+     "ipa": "/ˈklɒz.ɪt/",
+     "ipaTajik": "klozit",
+     "example": "My clothes are in the closet.",
+     "exampleTrans": "Kiyimlarim shkafda.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/a219d883e638a5742102.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1215,
+     "order": 4
+    },
+    {
+     "word": "Picture",
+     "translation": "Rasm",
+     "emoji": "🖼",
+     "ipa": "/ˈpɪk.tʃər/",
+     "ipaTajik": "pikcha",
+     "example": "This is a beautiful picture.",
+     "exampleTrans": "Bu chiroyli rasm.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrne60031129apevaasfr.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1216,
+     "order": 5
+    },
+    {
+     "word": "Plant",
+     "translation": "Oʻsimlik",
+     "emoji": "🌼",
+     "ipa": "/plɑːnt/",
+     "ipaTajik": "plant",
+     "example": "There are plants in my home.",
+     "exampleTrans": "Mening uyimda oʻsimliklar bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/9f5c5819011544797c09.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1217,
+     "order": 6
+    },
+    {
+     "word": "Garden",
+     "translation": "Bogʻ",
+     "emoji": "🌳",
+     "ipa": "/ˈɡɑː.dən/",
+     "ipaTajik": "gadn",
+     "example": "We have a big garden.",
+     "exampleTrans": "Bizda katta bogʻ bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrota0035129a2tkpgh9d.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1218,
+     "order": 7
+    },
+    {
+     "word": "Garage",
+     "translation": "Garaj",
+     "emoji": "🚗",
+     "ipa": "/ˈɡær.ɑːʒ/",
+     "ipaTajik": "garaj",
+     "example": "The car is in the garage.",
+     "exampleTrans": "Mashina garajda.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrp670037129ajnhvb2an.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1219,
+     "order": 8
+    }
+   ]
+  },
+  {
+   "title": "Grammar: Prepositions Of Place",
+   "titleTranslated": "Grammatika: Joy predloglari",
+   "type": "grammar",
+   "cefrLevel": "A1",
+   "skillType": "grammar",
+   "emoji": "🧭",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 9,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": 1,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": []
+  },
+  {
+   "title": "Grammar: There Is / There Are",
+   "titleTranslated": "Grammatika: There is / There are",
+   "type": "grammar",
+   "cefrLevel": "A1",
+   "skillType": "grammar",
+   "emoji": "📍",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 10,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": 0,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": []
+  },
+  {
+   "title": "Lesson 12: Home Builder",
+   "titleTranslated": "12-dars: Uy haqida gaplarni tuzish",
+   "type": "reading",
+   "cefrLevel": "A1",
+   "skillType": "reading",
+   "emoji": "🏗️",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 11,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 0,
+   "words": []
+  },
+  {
+   "title": "Listening: My House",
+   "titleTranslated": "Tinglash: Mening uyim",
+   "type": "quiz",
+   "cefrLevel": "A1",
+   "skillType": "listening",
+   "emoji": "🎧",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 12,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 1,
+   "words": []
+  },
+  {
+   "title": "Lesson 14: Home Conversation",
+   "titleTranslated": "14-dars: Uy haqida suhbat",
+   "type": "dialogue",
+   "cefrLevel": "A1",
+   "skillType": "speaking",
+   "emoji": "🗣️",
+   "xpReward": 20,
+   "duration": 5,
+   "order": 13,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": 0,
+   "phrase": null,
+   "comp": null,
+   "words": []
+  },
+  {
+   "title": "Lesson 15: Module Review",
+   "titleTranslated": "15-dars: Takrorlash",
+   "type": "review",
+   "cefrLevel": "A1",
+   "skillType": "review",
+   "emoji": "🔄",
+   "xpReward": 10,
+   "duration": 5,
+   "order": 14,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 2,
+   "words": []
+  },
+  {
+   "title": "Writing Practice",
+   "titleTranslated": "Yozish mashqi",
+   "type": "vocab",
+   "cefrLevel": "A1",
+   "skillType": "writing",
+   "emoji": "✍️",
+   "xpReward": 15,
+   "duration": 5,
+   "order": 15,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": null,
+   "words": [
+    {
+     "word": "House",
+     "translation": "Uy",
+     "emoji": "🏠",
+     "ipa": "/haʊs/",
+     "ipaTajik": "haus",
+     "example": "This is my house.",
+     "exampleTrans": "Bu mening uyim.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3oau00235nnro9x4v5gn.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 36,
+     "order": 0
+    },
+    {
+     "word": "Apartment",
+     "translation": "Kvartira",
+     "emoji": "🏢",
+     "ipa": "/əˈpɑːt.mənt/",
+     "ipaTajik": "apatment",
+     "example": "I live in an apartment.",
+     "exampleTrans": "Men kvartirada yashayman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3oso00255nnr7jbablmb.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1180,
+     "order": 1
+    },
+    {
+     "word": "Sofa",
+     "translation": "Divan",
+     "emoji": "🛋",
+     "ipa": "/ˈsəʊ.fə/",
+     "ipaTajik": "soufa",
+     "example": "The sofa is soft.",
+     "exampleTrans": "Divan yumshoq.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@8b738baa32778a217602f7cd498e91ccd9cea37d/audio/lead/89ee4af9f03c4f7fdd27.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1185,
+     "order": 2
+    },
+    {
+     "word": "Table",
+     "translation": "Stol",
+     "emoji": "🪵",
+     "ipa": "/ˈteɪ.bəl/",
+     "ipaTajik": "teybl",
+     "example": "The food is on the table.",
+     "exampleTrans": "Ovqat stol ustida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3psf00295nnrdgy4s9h4.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1191,
+     "order": 3
+    },
+    {
+     "word": "Clock",
+     "translation": "Devor soati",
+     "emoji": "⌚",
+     "ipa": "/klɒk/",
+     "ipaTajik": "klok",
+     "example": "The clock is on the wall.",
+     "exampleTrans": "Soat devorda.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3qa8002b5nnr95r1hm84.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1196,
+     "order": 4
+    },
+    {
+     "word": "On",
+     "translation": "Ustida",
+     "emoji": "⬆",
+     "ipa": "/ɒn/",
+     "ipaTajik": "on",
+     "example": "The book is on the table.",
+     "exampleTrans": "Kitob stol ustida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3qs5002d5nnrvlzhu8qz.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1202,
+     "order": 5
+    },
+    {
+     "word": "Below",
+     "translation": "Pastida",
+     "emoji": "🔽",
+     "ipa": "/bɪˈləʊ/",
+     "ipaTajik": "bilou",
+     "example": "The box is below the window.",
+     "exampleTrans": "Quti deraza ostida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3ra1002f5nnrc6bzjdup.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "preposition",
+     "frequencyRank": 1208,
+     "order": 6
+    },
+    {
+     "word": "Key",
+     "translation": "Kalit",
+     "emoji": "🔑",
+     "ipa": "/kiː/",
+     "ipaTajik": "ki",
+     "example": "I have a key.",
+     "exampleTrans": "Menda bitta kalit bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmrge3rrv002h5nnrempcw3ld.mp3",
+     "difficulty": 1,
+     "partOfSpeech": "noun",
+     "frequencyRank": 1214,
+     "order": 7
+    }
+   ]
+  },
+  {
+   "title": "Lesson 17: Final Exam",
+   "titleTranslated": "17-dars: Yakuniy imtihon",
+   "type": "test",
+   "cefrLevel": "A1",
+   "skillType": "test",
+   "emoji": "🏆",
+   "xpReward": 50,
+   "duration": 5,
+   "order": 16,
+   "isPremium": false,
+   "isActive": true,
+   "grammar": null,
+   "dialogue": null,
+   "phrase": null,
+   "comp": 3,
+   "words": []
+  }
+ ],
+ "grammar": [
+  {
+   "title": "There Is / There Are",
+   "titleTranslated": "There is / There are (bor)",
+   "explanation": "Biror joyda narsa borligini aytish uchun:\n\n- **There is** + birlik ot: There **is** a bed in my room.\n- **There are** + koʻplik ot: There **are** two chairs.\n\nInkor: **There isn’t / There aren’t**. Savol: **Is there …? / Are there …?**\n\nOʻzbek tilida hammasi bitta «**bor**» bilan aytiladi («xonamda karavot bor», «ikkita stul bor»). Inglizchada esa is/are songa qarab oʻzgaradi.",
+   "emoji": "📍",
+   "cefrLevel": "A1",
+   "order": 14,
+   "isPremium": false,
+   "isActive": true,
+   "examples": [
+    {
+     "sentence": "There is a bed in my room.",
+     "translation": "Mening xonamda bitta karavot bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpiix00cndvu27sbyjzrt.mp3",
+     "highlight": "There is",
+     "order": 0
+    },
+    {
+     "sentence": "There are two chairs.",
+     "translation": "Ikkita stul bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpiw100cpdvu2u8dvkw39.mp3",
+     "highlight": "There are",
+     "order": 1
+    },
+    {
+     "sentence": "There isn't a TV here.",
+     "translation": "Bu yerda televizor yoʻq.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpj9600crdvu278kc6q9c.mp3",
+     "highlight": "There isn't",
+     "order": 2
+    },
+    {
+     "sentence": "Are there any shops?",
+     "translation": "Doʻkonlar bormi?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpjmb00ctdvu2f5gpz1tz.mp3",
+     "highlight": "Are there",
+     "order": 3
+    },
+    {
+     "sentence": "There is a park near my house.",
+     "translation": "Uyim yaqinida bogʻ bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpjzn00cvdvu200whtp10.mp3",
+     "highlight": "There is",
+     "order": 4
+    }
+   ],
+   "rules": [
+    {
+     "pattern": "There is + birlik ot",
+     "note": "There is a book.",
+     "order": 0
+    },
+    {
+     "pattern": "There are + koʻplik ot",
+     "note": "There are three books.",
+     "order": 1
+    },
+    {
+     "pattern": "Savol: Is/Are there …?",
+     "note": "Is there a bank near here?",
+     "order": 2
+    }
+   ],
+   "exercises": [
+    {
+     "type": "choose",
+     "prompt": "There ___ a book on the table.",
+     "promptTranslated": "book — birlik.",
+     "answer": "is",
+     "options": [
+      "is",
+      "are",
+      "am",
+      "be"
+     ],
+     "explanation": "Birlik → there is.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpkcv00cxdvu2exnhpft5.mp3",
+     "order": 0
+    },
+    {
+     "type": "choose",
+     "prompt": "There ___ three windows.",
+     "promptTranslated": "windows — koʻplik.",
+     "answer": "are",
+     "options": [
+      "is",
+      "are",
+      "am",
+      "be"
+     ],
+     "explanation": "Koʻplik → there are.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpkq000czdvu20gzjlvcr.mp3",
+     "order": 1
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "There ___ a cat in the garden.",
+     "promptTranslated": "cat — birlik.",
+     "answer": "is",
+     "options": null,
+     "explanation": "Birlik → is.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpl3d00d1dvu2ywi54wgo.mp3",
+     "order": 2
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "There ___ two beds in the room.",
+     "promptTranslated": "beds — koʻplik.",
+     "answer": "are",
+     "options": null,
+     "explanation": "Koʻplik → are.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkplgl00d3dvu2h7zn50yu.mp3",
+     "order": 3
+    },
+    {
+     "type": "choose",
+     "prompt": "___ there a bank near here?",
+     "promptTranslated": "Savol, bank birlik.",
+     "answer": "Is",
+     "options": [
+      "Do",
+      "Am",
+      "Is",
+      "Are"
+     ],
+     "explanation": "Birlik → Is there.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpltr00d5dvu2y164wgtm.mp3",
+     "order": 4
+    },
+    {
+     "type": "reorder",
+     "prompt": "Gapni tuzing:",
+     "promptTranslated": "Ikkita stul bor.",
+     "answer": "There are two chairs.",
+     "options": [
+      "are",
+      "There",
+      "two",
+      "chairs"
+     ],
+     "explanation": "Toʻgʻri tartib: There are + two + chairs.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpm6w00d7dvu249a29unl.mp3",
+     "order": 5
+    },
+    {
+     "type": "transform",
+     "prompt": "Tuzating: There are a book.",
+     "promptTranslated": "book birlikda.",
+     "answer": "There is a book.",
+     "options": null,
+     "explanation": "Birlik → there is.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpmk400d9dvu2p5bfmdnl.mp3",
+     "order": 6
+    },
+    {
+     "type": "transform",
+     "prompt": "Inkorga oʻtkazing: There is a TV.",
+     "promptTranslated": "Inkorga oʻtkazing.",
+     "answer": "There isn't a TV.",
+     "options": null,
+     "explanation": "Oʻzgartirish: is → isn’t.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpmx800dbdvu29froq1qp.mp3",
+     "order": 7
+    }
+   ]
+  },
+  {
+   "title": "Prepositions Of Place",
+   "titleTranslated": "Joy predloglari",
+   "explanation": "Joy predloglari narsa qayerdaligini koʻrsatadi:\n\n- **in** — ichida: in the box\n- **on** — ustida: on the table\n- **under** — ostida: under the bed\n- **next to** — yonida: next to the door\n- **behind** — orqasida / **in front of** — oldida\n\nNamuna: **The cat is under the table.**\n\nOʻzbek tilida bu ma’no otdan KEYIN keladigan soʻz bilan beriladi («stol **ustida**», «karavot **ostida**»), inglizchada esa predlog otdan OLDIN turadi: on the table.",
+   "emoji": "🧭",
+   "cefrLevel": "A1",
+   "order": 16,
+   "isPremium": false,
+   "isActive": true,
+   "examples": [
+    {
+     "sentence": "The book is on the table.",
+     "translation": "Kitob stol ustida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpve800ebdvu23kp6d4dm.mp3",
+     "highlight": "on",
+     "order": 0
+    },
+    {
+     "sentence": "The cat is under the bed.",
+     "translation": "Mushuk karavot ostida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpvrf00eddvu2lqzojero.mp3",
+     "highlight": "under",
+     "order": 1
+    },
+    {
+     "sentence": "The keys are in the bag.",
+     "translation": "Kalitlar sumkada.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpw4o00efdvu2e3fetyjh.mp3",
+     "highlight": "in",
+     "order": 2
+    },
+    {
+     "sentence": "The shop is next to the bank.",
+     "translation": "Doʻkon bank yonida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpwhs00ehdvu27rgocn8z.mp3",
+     "highlight": "next to",
+     "order": 3
+    },
+    {
+     "sentence": "The car is in front of the house.",
+     "translation": "Mashina uyning oldida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkpwv400ejdvu2ouko568v.mp3",
+     "highlight": "in front of",
+     "order": 4
+    }
+   ],
+   "rules": [
+    {
+     "pattern": "in = ichida, on = ustida, under = ostida",
+     "note": "Uchta asosiy predlog.",
+     "order": 0
+    },
+    {
+     "pattern": "next to = yonida, behind = orqasida, in front of = oldida",
+     "note": "Nisbiy joylar.",
+     "order": 1
+    }
+   ],
+   "exercises": [
+    {
+     "type": "choose",
+     "prompt": "The book is ___ the table.",
+     "promptTranslated": "Stol ustida.",
+     "answer": "on",
+     "options": [
+      "on",
+      "in",
+      "under",
+      "behind"
+     ],
+     "explanation": "ustida → on.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpx8700eldvu2svc8t6d4.mp3",
+     "order": 0
+    },
+    {
+     "type": "choose",
+     "prompt": "The cat is ___ the bed.",
+     "promptTranslated": "Karavot ostida.",
+     "answer": "under",
+     "options": [
+      "in",
+      "under",
+      "next to",
+      "on"
+     ],
+     "explanation": "ostida → under.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpxle00endvu2jiyjn8n1.mp3",
+     "order": 1
+    },
+    {
+     "type": "choose",
+     "prompt": "The keys are ___ the bag.",
+     "promptTranslated": "Sumka ichida.",
+     "answer": "in",
+     "options": [
+      "behind",
+      "on",
+      "in",
+      "under"
+     ],
+     "explanation": "ichida → in.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpxyn00epdvu2yfjy0icg.mp3",
+     "order": 2
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "The shop is ___ to the bank. (yon)",
+     "promptTranslated": "Bank yonida.",
+     "answer": "next",
+     "options": null,
+     "explanation": "yon → next to.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpybs00erdvu2pqfgllzl.mp3",
+     "order": 3
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "The pen is ___ the box. (ichi)",
+     "promptTranslated": "Quti ichida.",
+     "answer": "in",
+     "options": null,
+     "explanation": "ichi → in.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpyox00etdvu2ltxny39u.mp3",
+     "order": 4
+    },
+    {
+     "type": "reorder",
+     "prompt": "Gapni tuzing:",
+     "promptTranslated": "Mushuk stol ostida.",
+     "answer": "The cat is under the table.",
+     "options": [
+      "is",
+      "The",
+      "cat",
+      "under",
+      "table",
+      "the"
+     ],
+     "explanation": "Toʻgʻri tartib: The cat + is + under + the table.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpz2400evdvu21zortsxc.mp3",
+     "order": 5
+    },
+    {
+     "type": "transform",
+     "prompt": "Tuzating: The book is in the table.",
+     "promptTranslated": "Predlog notoʻgʻri.",
+     "answer": "The book is on the table.",
+     "options": null,
+     "explanation": "Sirt ustida → on.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpzfb00exdvu2jhc5g14q.mp3",
+     "order": 6
+    },
+    {
+     "type": "choose",
+     "prompt": "Moslang: \"ostida\" = ?",
+     "promptTranslated": "Tarjima.",
+     "answer": "under",
+     "options": [
+      "on",
+      "in",
+      "behind",
+      "under"
+     ],
+     "explanation": "ostida → under.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkpzsj00ezdvu2d37xvf1r.mp3",
+     "order": 7
+    }
+   ]
+  }
+ ],
+ "dialogues": [
+  {
+   "title": "Home Conversation",
+   "titleTranslated": "Uy haqida suhbat",
+   "scenario": null,
+   "emoji": "🎙️",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "lines": [
+    {
+     "speaker": "A",
+     "text": "Where is the book?",
+     "translation": "Kitob qayerda?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrs8e003g129aww7m1e25.mp3",
+     "isUser": false,
+     "order": 0
+    },
+    {
+     "speaker": "B",
+     "text": "It is on the table.",
+     "translation": "U stol ustida.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrs8e003h129ar61xpppc.mp3",
+     "isUser": true,
+     "order": 1
+    },
+    {
+     "speaker": "A",
+     "text": "Is there a television in the living room?",
+     "translation": "Mehmonxonada televizor bormi?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrs8e003i129atnyvd5a0.mp3",
+     "isUser": false,
+     "order": 2
+    },
+    {
+     "speaker": "B",
+     "text": "Yes, there is.",
+     "translation": "Ha, bor.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqpqrs8e003j129as05esst4.mp3",
+     "isUser": true,
+     "order": 3
+    }
+   ]
+  }
+ ],
+ "phrases": [],
+ "comps": [
+  {
+   "kind": "reading",
+   "title": "Home Builder",
+   "titleTranslated": "Uy haqida gaplarni tuzish",
+   "passage": "My house is big. There is a living room, a kitchen, and a bathroom. There are two bedrooms. In my bedroom, there is a bed and a desk. There is a big table in the kitchen. My books are on the desk.",
+   "passageTranslated": "Mening uyim katta. Mehmonxona, oshxona va hammom bor. Ikkita yotoqxona bor. Mening yotoqxonamda karavot va yozuv stoli bor. Oshxonada katta stol bor. Kitoblarim yozuv stoli ustida.",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@ab5718c36d72b285ec0358f6703dcb67dd2070a7/audio/en/cmqpqrqy6003b129ald1hlviz.mp3",
+   "emoji": "📖",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "How many bedrooms are there?",
+     "questionTranslated": "Nechta yotoqxona bor?",
+     "options": [
+      "Two",
+      "Three",
+      "One"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: There are two bedrooms.",
+     "order": 0
+    },
+    {
+     "question": "Fill the blank: ___ a bed in my room.",
+     "questionTranslated": "Boʻsh joyni toʻldiring: ___ a bed in my room.",
+     "options": [
+      "This is",
+      "There is",
+      "There are"
+     ],
+     "correctIndex": 1,
+     "explanation": "Toʻgʻri javob: There is. Toʻliq gap: There is a bed in my room.",
+     "order": 1
+    },
+    {
+     "question": "Where is the big table?",
+     "questionTranslated": "Katta stol qayerda?",
+     "options": [
+      "In the bathroom",
+      "In the bedroom",
+      "In the kitchen"
+     ],
+     "correctIndex": 2,
+     "explanation": "Matn: There is a big table in the kitchen.",
+     "order": 2
+    }
+   ]
+  },
+  {
+   "kind": "listening",
+   "title": "Listening: My House",
+   "titleTranslated": "Tinglash: Mening uyim",
+   "passage": "This is my house. It has three rooms. There is a big table in the kitchen. My bed is in the bedroom. There is a television in the living room. My books are on the table. The house is clean and warm. There are two chairs near the big window.",
+   "passageTranslated": "Bu mening uyim. Unda uchta xona bor. Oshxonada katta stol bor. Karavotim yotoqxonada. Mehmonxonada televizor bor. Kitoblarim stol ustida. Uy toza va issiq. Katta deraza yonida ikkita stul bor.",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@26cac2277c4c431025b86c19ba191b39b0d14984/audio/en/cmr4vkylo000xg4jr6o0xsz1p.mp3",
+   "emoji": "🏠",
+   "cefrLevel": "A1",
+   "order": 60,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "How many rooms are there?",
+     "questionTranslated": "Nechta xona bor?",
+     "options": [
+      "Three",
+      "Four",
+      "Two"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: It has three rooms.",
+     "order": 0
+    },
+    {
+     "question": "Where is the big table?",
+     "questionTranslated": "Katta stol qayerda?",
+     "options": [
+      "In the living room",
+      "In the kitchen",
+      "In the bedroom"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: There is a big table in the kitchen.",
+     "order": 1
+    },
+    {
+     "question": "Where is the bed?",
+     "questionTranslated": "Karavot qayerda?",
+     "options": [
+      "Living room",
+      "Kitchen",
+      "Bedroom"
+     ],
+     "correctIndex": 2,
+     "explanation": "Matn: My bed is in the bedroom.",
+     "order": 2
+    },
+    {
+     "question": "Where are the books?",
+     "questionTranslated": "Kitoblar qayerda?",
+     "options": [
+      "On the table",
+      "On the bed",
+      "On the floor"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: My books are on the table.",
+     "order": 3
+    }
+   ]
+  },
+  {
+   "kind": "reading",
+   "title": "Home and Objects",
+   "titleTranslated": "Uy va buyumlar",
+   "passage": "Let's review Home and Objects! The book is on the table. The bag is under the chair. There is a television in the living room.",
+   "passageTranslated": "Keling, uy va buyumlarni takrorlaymiz! Kitob stol ustida. Sumka stul ostida. Mehmonxonada televizor bor.",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@2d602f2b0ea9a2f6759ab3760a151371f335bf6d/audio/en/cmqpqrti7003l129aqjm0l0j5.mp3",
+   "emoji": "📖",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "Where is the book?",
+     "questionTranslated": "Kitob qayerda?",
+     "options": [
+      "On the table",
+      "Under the chair",
+      "In the bag"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: The book is on the table.",
+     "order": 0
+    },
+    {
+     "question": "Where is the bag?",
+     "questionTranslated": "Sumka qayerda?",
+     "options": [
+      "On the table",
+      "Under the chair",
+      "Next to the door"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: The bag is under the chair.",
+     "order": 1
+    }
+   ]
+  },
+  {
+   "kind": "reading",
+   "title": "My Room",
+   "titleTranslated": "Mening xonam",
+   "passage": "This is my room. There is a bed near the window. There is a small table next to the bed. On the table there is a lamp and a book. My bag is under the desk. There are two chairs in the room. The room is clean. My cat sleeps on the sofa in the living room.",
+   "passageTranslated": "Bu mening xonam. Deraza yonida karavot bor. Karavot yonida kichik stol bor. Stol ustida chiroq va kitob bor. Sumkam yozuv stoli ostida. Xonada ikkita stul bor. Xona toza. Mushugim mehmonxonada divanda uxlaydi.",
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@4d0ce08d497c8ded55d0ffb42d08b7ce9f0d656e/audio/en/cmqpqrv6o003p129asvugc9dh.mp3",
+   "emoji": "📖",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "questions": [
+    {
+     "question": "Where is the bed?",
+     "questionTranslated": "Karavot qayerda?",
+     "options": [
+      "Near the window",
+      "Behind the door",
+      "Under the table"
+     ],
+     "correctIndex": 0,
+     "explanation": "Matn: There is a bed near the window.",
+     "order": 0
+    },
+    {
+     "question": "What is on the table?",
+     "questionTranslated": "Stol ustida nima bor?",
+     "options": [
+      "A computer",
+      "A lamp and a book",
+      "A phone"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: On the table there is a lamp and a book.",
+     "order": 1
+    },
+    {
+     "question": "How many chairs are in the room?",
+     "questionTranslated": "Xonada nechta stul bor?",
+     "options": [
+      "Three",
+      "One",
+      "Two"
+     ],
+     "correctIndex": 2,
+     "explanation": "Matn: There are two chairs in the room.",
+     "order": 2
+    },
+    {
+     "question": "Translate 'Mening uyim toza':",
+     "questionTranslated": "«Mening uyim toza»ni tarjima qiling:",
+     "options": [
+      "My home is clean.",
+      "My home is dirty.",
+      "This is my home."
+     ],
+     "correctIndex": 0,
+     "explanation": "Mening uyim toza = My home is clean.",
+     "order": 3
+    },
+    {
+     "question": "Choose correct: ___ two chairs in the kitchen.",
+     "questionTranslated": "Toʻgʻrisini tanlang: ___ two chairs in the kitchen.",
+     "options": [
+      "There is",
+      "There are",
+      "They are"
+     ],
+     "correctIndex": 1,
+     "explanation": "Matn: There are two chairs in the room.",
+     "order": 4
+    },
+    {
+     "question": "Translate 'Stol ustida':",
+     "questionTranslated": "«Stol ustida»ni tarjima qiling:",
+     "options": [
+      "Under the table",
+      "In the table",
+      "On the table"
+     ],
+     "correctIndex": 2,
+     "explanation": "Stol ustida = On the table.",
+     "order": 5
+    },
+    {
+     "question": "What is 'Oshxona' in English?",
+     "questionTranslated": "«Oshxona» inglizchada nima?",
+     "options": [
+      "Kitchen",
+      "Bathroom",
+      "Bedroom"
+     ],
+     "correctIndex": 0,
+     "explanation": "Oshxona = Kitchen.",
+     "order": 6
+    },
+    {
+     "question": "Choose correct: ___ a lamp in the bedroom.",
+     "questionTranslated": "Toʻgʻrisini tanlang.",
+     "options": [
+      "There are",
+      "It is",
+      "They are",
+      "There is"
+     ],
+     "correctIndex": 3,
+     "explanation": "Birlik ot → There is.",
+     "order": 7
+    }
+   ]
+  }
+ ]
+}
