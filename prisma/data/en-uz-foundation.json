@@ -1,0 +1,1206 @@
+{
+ "placement": [
+  {
+   "cefrLevel": "A1",
+   "skill": "grammar",
+   "prompt": "I ___ a student.",
+   "promptTranslated": "Men talaba ___.",
+   "options": [
+    "am",
+    "is",
+    "are",
+    "be"
+   ],
+   "answer": "am",
+   "explanation": "«I» bilan doim «am» ishlatiladi.",
+   "audioUrl": null,
+   "order": 1
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "vocab",
+   "prompt": "What is the English word for «kitob»?",
+   "promptTranslated": "«Kitob» inglizchada nima boʻladi?",
+   "options": [
+    "car",
+    "book",
+    "school",
+    "house"
+   ],
+   "answer": "book",
+   "explanation": "«Book» = kitob.",
+   "audioUrl": null,
+   "order": 2
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "grammar",
+   "prompt": "She ___ a teacher.",
+   "promptTranslated": "U oʻqituvchi ___.",
+   "options": [
+    "am",
+    "is",
+    "are",
+    "be"
+   ],
+   "answer": "is",
+   "explanation": "«She» bilan «is» ishlatiladi.",
+   "audioUrl": null,
+   "order": 3
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "vocab",
+   "prompt": "What does \"hello\" mean?",
+   "promptTranslated": "«Hello» nimani anglatadi?",
+   "options": [
+    "xayr",
+    "rahmat",
+    "salom",
+    "iltimos"
+   ],
+   "answer": "salom",
+   "explanation": "«Hello» = salom.",
+   "audioUrl": null,
+   "order": 4
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "grammar",
+   "prompt": "They ___ happy.",
+   "promptTranslated": "Ular baxtli ___.",
+   "options": [
+    "am",
+    "is",
+    "are",
+    "was"
+   ],
+   "answer": "are",
+   "explanation": "«They» bilan «are» ishlatiladi.",
+   "audioUrl": null,
+   "order": 5
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "grammar",
+   "prompt": "I ___ to school every day.",
+   "promptTranslated": "Men har kuni maktabga ___.",
+   "options": [
+    "go",
+    "goes",
+    "going",
+    "went"
+   ],
+   "answer": "go",
+   "explanation": "Present Simple, «I» bilan — fe’lning asosiy shakli.",
+   "audioUrl": null,
+   "order": 6
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "grammar",
+   "prompt": "She ___ coffee every morning.",
+   "promptTranslated": "U har ertalab qahva ___.",
+   "options": [
+    "drink",
+    "drinks",
+    "drinking",
+    "drank"
+   ],
+   "answer": "drinks",
+   "explanation": "Present Simple, 3-shaxs birlik — «drinks».",
+   "audioUrl": null,
+   "order": 7
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "vocab",
+   "prompt": "Choose the correct meaning of \"beautiful\".",
+   "promptTranslated": "«Beautiful» nimani anglatadi?",
+   "options": [
+    "yomon",
+    "chiroyli",
+    "katta",
+    "tez"
+   ],
+   "answer": "chiroyli",
+   "explanation": "«Beautiful» = chiroyli, goʻzal.",
+   "audioUrl": null,
+   "order": 8
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "grammar",
+   "prompt": "We ___ a movie last night.",
+   "promptTranslated": "Biz kecha kechqurun film ___.",
+   "options": [
+    "watch",
+    "watches",
+    "watched",
+    "watching"
+   ],
+   "answer": "watched",
+   "explanation": "Past Simple — «watched» (qoidali fe’l).",
+   "audioUrl": null,
+   "order": 9
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "vocab",
+   "prompt": "What is the opposite of \"hot\"?",
+   "promptTranslated": "«Hot» ning teskarisi nima?",
+   "options": [
+    "warm",
+    "cold",
+    "cool",
+    "dark"
+   ],
+   "answer": "cold",
+   "explanation": "«Hot» (issiq) — teskarisi «cold» (sovuq).",
+   "audioUrl": null,
+   "order": 10
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "grammar",
+   "prompt": "She ___ from Tashkent.",
+   "promptTranslated": "U Toshkentdan.",
+   "options": [
+    "is",
+    "am",
+    "are",
+    "be"
+   ],
+   "answer": "is",
+   "explanation": "«she» bilan «is» fe’li keladi.",
+   "audioUrl": null,
+   "order": 11
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "grammar",
+   "prompt": "___ is your name?",
+   "promptTranslated": "Ismingiz nima?",
+   "options": [
+    "What",
+    "Who",
+    "Where",
+    "When"
+   ],
+   "answer": "What",
+   "explanation": "Ismni soʻrash uchun «What» ishlatiladi.",
+   "audioUrl": null,
+   "order": 12
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "grammar",
+   "prompt": "Yesterday I ___ to the market.",
+   "promptTranslated": "Kecha men bozorga bordim.",
+   "options": [
+    "went",
+    "go",
+    "going",
+    "goes"
+   ],
+   "answer": "went",
+   "explanation": "«Yesterday» oʻtgan zamonni talab qiladi → «went».",
+   "audioUrl": null,
+   "order": 13
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "grammar",
+   "prompt": "There ___ some milk in the fridge.",
+   "promptTranslated": "Muzlatgichda ozgina sut bor.",
+   "options": [
+    "is",
+    "are",
+    "am",
+    "be"
+   ],
+   "answer": "is",
+   "explanation": "«milk» sanalmaydigan ot → «is».",
+   "audioUrl": null,
+   "order": 14
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "grammar",
+   "prompt": "She is ___ than her brother.",
+   "promptTranslated": "U akasidan boʻylirogʻ.",
+   "options": [
+    "taller",
+    "tall",
+    "tallest",
+    "more tall"
+   ],
+   "answer": "taller",
+   "explanation": "Qiyosiy daraja: tall → taller.",
+   "audioUrl": null,
+   "order": 15
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "I have ___ here for five years.",
+   "promptTranslated": "Men bu yerda besh yildan beri yashayman.",
+   "options": [
+    "lived",
+    "live",
+    "living",
+    "lives"
+   ],
+   "answer": "lived",
+   "explanation": "Present perfect: have + lived.",
+   "audioUrl": null,
+   "order": 16
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "If it rains, we ___ at home.",
+   "promptTranslated": "Yomgʻir yogʻsa, uyda qolamiz.",
+   "options": [
+    "will stay",
+    "stayed",
+    "stay",
+    "would stay"
+   ],
+   "answer": "will stay",
+   "explanation": "First conditional: if + present, will + verb.",
+   "audioUrl": null,
+   "order": 17
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "This book is more interesting ___ that one.",
+   "promptTranslated": "Bu kitob undan qiziqarliroq.",
+   "options": [
+    "than",
+    "then",
+    "as",
+    "that"
+   ],
+   "answer": "than",
+   "explanation": "Qiyosiy darajadan keyin «than» keladi.",
+   "audioUrl": null,
+   "order": 18
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "He asked me ___ I was tired.",
+   "promptTranslated": "U mendan charchaganimni soʻradi.",
+   "options": [
+    "if",
+    "that",
+    "what",
+    "which"
+   ],
+   "answer": "if",
+   "explanation": "Bilvosita savol «if/whether» bilan quriladi.",
+   "audioUrl": null,
+   "order": 19
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "I am used to ___ early.",
+   "promptTranslated": "Men erta turishga oʻrganganman.",
+   "options": [
+    "getting up",
+    "get up",
+    "got up",
+    "gets up"
+   ],
+   "answer": "getting up",
+   "explanation": "«used to + V-ing» — odat uchun.",
+   "audioUrl": null,
+   "order": 20
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "She has been learning English ___ 2019.",
+   "promptTranslated": "U 2019-yildan beri ingliz tilini oʻrganyapti.",
+   "options": [
+    "since",
+    "for",
+    "from",
+    "during"
+   ],
+   "answer": "since",
+   "explanation": "«since» vaqt nuqtasi bilan keladi.",
+   "audioUrl": null,
+   "order": 21
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "grammar",
+   "prompt": "I wish I ___ more free time.",
+   "promptTranslated": "Koʻproq boʻsh vaqtim boʻlsa edi.",
+   "options": [
+    "had",
+    "have",
+    "has",
+    "having"
+   ],
+   "answer": "had",
+   "explanation": "«wish» + past simple — orzu uchun.",
+   "audioUrl": null,
+   "order": 22
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "grammar",
+   "prompt": "By the time we arrived, the film ___.",
+   "promptTranslated": "Biz yetib borgunimizcha film boshlanib boʻlgan edi.",
+   "options": [
+    "had started",
+    "started",
+    "has started",
+    "starts"
+   ],
+   "answer": "had started",
+   "explanation": "Past perfect — oʻtmishda boshqa ishdan oldin boʻlgan ish uchun.",
+   "audioUrl": null,
+   "order": 23
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "grammar",
+   "prompt": "He talks ___ if he knew everything.",
+   "promptTranslated": "U goʻyo hamma narsani bilgandek gapiradi.",
+   "options": [
+    "as",
+    "like",
+    "such",
+    "so"
+   ],
+   "answer": "as",
+   "explanation": "«as if» — real boʻlmagan taqqoslash uchun.",
+   "audioUrl": null,
+   "order": 24
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "grammar",
+   "prompt": "I'd rather you ___ smoke here.",
+   "promptTranslated": "Bu yerda chekmasangiz yaxshi boʻlardi.",
+   "options": [
+    "didn't",
+    "don't",
+    "not",
+    "won't"
+   ],
+   "answer": "didn't",
+   "explanation": "«would rather + past» — boshqalardan iltimos uchun.",
+   "audioUrl": null,
+   "order": 25
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "grammar",
+   "prompt": "Not only ___ late, but he also forgot the keys.",
+   "promptTranslated": "U nafaqat kech qoldi, balki kalitlarni ham unutdi.",
+   "options": [
+    "was he",
+    "he was",
+    "he is",
+    "is he"
+   ],
+   "answer": "was he",
+   "explanation": "«Not only» dan keyin fe’l oldinga oʻtadi (inversion).",
+   "audioUrl": null,
+   "order": 26
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "grammar",
+   "prompt": "The report, ___ took weeks, is ready.",
+   "promptTranslated": "Bir necha hafta davom etgan hisobot tayyor.",
+   "options": [
+    "which",
+    "who",
+    "what",
+    "whose"
+   ],
+   "answer": "which",
+   "explanation": "Narsa uchun ergash gapda «which» keladi.",
+   "audioUrl": null,
+   "order": 27
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "vocab",
+   "prompt": "What is the English word for «ona»?",
+   "promptTranslated": "«Ona» inglizchada nima boʻladi?",
+   "options": [
+    "mother",
+    "father",
+    "sister",
+    "brother"
+   ],
+   "answer": "mother",
+   "explanation": "«Mother» = ona.",
+   "audioUrl": null,
+   "order": 28
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "reading",
+   "prompt": "My name is Sara. I am ten years old.\nHow old is Sara?",
+   "promptTranslated": "Sara necha yoshda?",
+   "options": [
+    "10",
+    "7",
+    "9",
+    "12"
+   ],
+   "answer": "10",
+   "explanation": "«Ten years old» = oʻn yosh.",
+   "audioUrl": null,
+   "order": 29
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "reading",
+   "prompt": "This is my house. It is small and white.\nWhat is the house like?",
+   "promptTranslated": "Uy qanday?",
+   "options": [
+    "kichik va oq",
+    "katta va qizil",
+    "yangi va koʻk",
+    "eski va qora"
+   ],
+   "answer": "kichik va oq",
+   "explanation": "«Small» = kichik, «white» = oq.",
+   "audioUrl": null,
+   "order": 30
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "vocab",
+   "prompt": "Choose the correct meaning of \"expensive\".",
+   "promptTranslated": "«Expensive» nimani anglatadi?",
+   "options": [
+    "qimmat",
+    "arzon",
+    "chiroyli",
+    "qiyin"
+   ],
+   "answer": "qimmat",
+   "explanation": "«Expensive» = qimmat; teskarisi «cheap» (arzon).",
+   "audioUrl": null,
+   "order": 31
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "reading",
+   "prompt": "Ali works from Monday to Friday. On Saturday he visits his parents.\nWhat does Ali do on Saturday?",
+   "promptTranslated": "Ali shanba kuni nima qiladi?",
+   "options": [
+    "ota-onasinikiga boradi",
+    "ishlaydi",
+    "uyda uxlaydi",
+    "maktabga boradi"
+   ],
+   "answer": "ota-onasinikiga boradi",
+   "explanation": "«Visits his parents» = ota-onasinikiga boradi.",
+   "audioUrl": null,
+   "order": 32
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "vocab",
+   "prompt": "Choose the word closest in meaning to \"increase\".",
+   "promptTranslated": "Qaysi soʻz «increase» ga yaqin?",
+   "options": [
+    "rise",
+    "drop",
+    "stay",
+    "lose"
+   ],
+   "answer": "rise",
+   "explanation": "«Increase» va «rise» ikkalasi ham «koʻpaymoq» degani.",
+   "audioUrl": null,
+   "order": 33
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "vocab",
+   "prompt": "What does the phrasal verb \"give up\" mean?",
+   "promptTranslated": "«Give up» fe’li nimani anglatadi?",
+   "options": [
+    "toʻxtatmoq",
+    "boshlamoq",
+    "topmoq",
+    "sotmoq"
+   ],
+   "answer": "toʻxtatmoq",
+   "explanation": "«Give up» = voz kechmoq, toʻxtatmoq.",
+   "audioUrl": null,
+   "order": 34
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "reading",
+   "prompt": "Although the weather was terrible, they decided to continue the journey.\nDid they continue?",
+   "promptTranslated": "Ular sayohatni davom ettirdilarmi?",
+   "options": [
+    "Ha, yomon ob-havoga qaramay",
+    "Yoʻq, qaytib ketishdi",
+    "Yoʻq, kutishdi",
+    "Matnda bu aytilmagan"
+   ],
+   "answer": "Ha, yomon ob-havoga qaramay",
+   "explanation": "«Although» = ...ga qaramay; qaror — davom etish edi.",
+   "audioUrl": null,
+   "order": 35
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "grammar",
+   "prompt": "Had I known about the delay, I ___ earlier.",
+   "promptTranslated": "Toʻgʻri shaklni tanlang.",
+   "options": [
+    "would have left",
+    "will leave",
+    "had left",
+    "would leave"
+   ],
+   "answer": "would have left",
+   "explanation": "Uchinchi shart: Had I known…, I would have left.",
+   "audioUrl": null,
+   "order": 36
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "vocab",
+   "prompt": "What does \"put up with\" mean?",
+   "promptTranslated": "«Put up with» nimani anglatadi?",
+   "options": [
+    "chidamoq",
+    "oʻrnidan turmoq",
+    "saqlamoq",
+    "taklif qilmoq"
+   ],
+   "answer": "chidamoq",
+   "explanation": "«Put up with» = chidamoq, toqat qilmoq.",
+   "audioUrl": null,
+   "order": 37
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "vocab",
+   "prompt": "Choose the best synonym for \"reluctant\".",
+   "promptTranslated": "«Reluctant» ning ma’nodoshini tanlang.",
+   "options": [
+    "unwilling",
+    "eager",
+    "careless",
+    "confident"
+   ],
+   "answer": "unwilling",
+   "explanation": "«Reluctant» = istamaydigan, ya’ni «unwilling».",
+   "audioUrl": null,
+   "order": 38
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "reading",
+   "prompt": "The proposal was turned down, despite widespread support among staff.\nWas the proposal accepted?",
+   "promptTranslated": "Taklif qabul qilindimi?",
+   "options": [
+    "Yoʻq, rad etildi",
+    "Ha, qabul qilindi",
+    "Hali koʻrib chiqilmoqda",
+    "Matnda bu aytilmagan"
+   ],
+   "answer": "Yoʻq, rad etildi",
+   "explanation": "«Turned down» = rad etildi.",
+   "audioUrl": null,
+   "order": 39
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "reading",
+   "prompt": "Sales figures have levelled off after a sharp rise.\nWhat is happening to sales now?",
+   "promptTranslated": "Hozir savdo qanday holatda?",
+   "options": [
+    "Bir darajada qolgan",
+    "Tez koʻtarilmoqda",
+    "Tez pasaymoqda",
+    "Butunlay toʻxtagan"
+   ],
+   "answer": "Bir darajada qolgan",
+   "explanation": "«Level off» = bir darajaga kelib, barqarorlashmoq.",
+   "audioUrl": null,
+   "order": 40
+  }
+ ],
+ "onboarding": [
+  {
+   "word": "Welcome",
+   "translation": "Xush kelibsiz",
+   "transcription": "/ˈwel.kəm/",
+   "transcriptionTajik": "velkam",
+   "emoji": "👋",
+   "example": "Welcome to our app!",
+   "exampleTrans": "Bizning ilovamizga xush kelibsiz!",
+   "options": [
+    "Xush kelibsiz",
+    "Xayr",
+    "Salom",
+    "Rahmat"
+   ],
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@40c3fc2482be53eb750374eeeb4fa3c63c69895f/audio/en/cmqkst6on0001wbdwkoeff6ub.mp3",
+   "order": 1
+  },
+  {
+   "word": "Hello",
+   "translation": "Salom",
+   "transcription": "/heˈləʊ/",
+   "transcriptionTajik": "hellou",
+   "emoji": "🤝",
+   "example": "Hello, my friend!",
+   "exampleTrans": "Salom, doʻstim!",
+   "options": [
+    "Salom",
+    "Rahmat",
+    "Yaxshi",
+    "Ha"
+   ],
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@40c3fc2482be53eb750374eeeb4fa3c63c69895f/audio/en/cmqkst7940003wbdwhq8om5zk.mp3",
+   "order": 2
+  },
+  {
+   "word": "Yes",
+   "translation": "Ha",
+   "transcription": "/jes/",
+   "transcriptionTajik": "yes",
+   "emoji": "✅",
+   "example": "Yes, I can!",
+   "exampleTrans": "Ha, men qila olaman!",
+   "options": [
+    "Ha",
+    "Yoʻq",
+    "Balki",
+    "Xayr"
+   ],
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@40c3fc2482be53eb750374eeeb4fa3c63c69895f/audio/en/cmqkst7le0005wbdwwvtqmpai.mp3",
+   "order": 3
+  },
+  {
+   "word": "Best",
+   "translation": "Eng yaxshi",
+   "transcription": "/best/",
+   "transcriptionTajik": "best",
+   "emoji": "🏆",
+   "example": "You are the best!",
+   "exampleTrans": "Siz eng yaxshisiz!",
+   "options": [
+    "Eng yaxshi",
+    "Eng yomon",
+    "Kichik",
+    "Katta"
+   ],
+   "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@40c3fc2482be53eb750374eeeb4fa3c63c69895f/audio/en/cmqkst7xo0007wbdwpyv4017d.mp3",
+   "order": 4
+  }
+ ],
+ "letters": [
+  {
+   "uppercase": "A",
+   "lowercase": "a",
+   "ipa": "/eɪ/",
+   "tajikTranscription": "Ey",
+   "category": "vowel",
+   "audioUrl": null,
+   "order": 0
+  },
+  {
+   "uppercase": "B",
+   "lowercase": "b",
+   "ipa": "/biː/",
+   "tajikTranscription": "Bi",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 1
+  },
+  {
+   "uppercase": "C",
+   "lowercase": "c",
+   "ipa": "/siː/",
+   "tajikTranscription": "Si",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 2
+  },
+  {
+   "uppercase": "D",
+   "lowercase": "d",
+   "ipa": "/diː/",
+   "tajikTranscription": "Di",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 3
+  },
+  {
+   "uppercase": "E",
+   "lowercase": "e",
+   "ipa": "/iː/",
+   "tajikTranscription": "I",
+   "category": "vowel",
+   "audioUrl": null,
+   "order": 4
+  },
+  {
+   "uppercase": "F",
+   "lowercase": "f",
+   "ipa": "/ɛf/",
+   "tajikTranscription": "Ef",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 5
+  },
+  {
+   "uppercase": "G",
+   "lowercase": "g",
+   "ipa": "/dʒiː/",
+   "tajikTranscription": "Ji",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 6
+  },
+  {
+   "uppercase": "H",
+   "lowercase": "h",
+   "ipa": "/eɪtʃ/",
+   "tajikTranscription": "Eych",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 7
+  },
+  {
+   "uppercase": "I",
+   "lowercase": "i",
+   "ipa": "/aɪ/",
+   "tajikTranscription": "Ay",
+   "category": "vowel",
+   "audioUrl": null,
+   "order": 8
+  },
+  {
+   "uppercase": "J",
+   "lowercase": "j",
+   "ipa": "/dʒeɪ/",
+   "tajikTranscription": "Jey",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 9
+  },
+  {
+   "uppercase": "K",
+   "lowercase": "k",
+   "ipa": "/keɪ/",
+   "tajikTranscription": "Key",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 10
+  },
+  {
+   "uppercase": "L",
+   "lowercase": "l",
+   "ipa": "/ɛl/",
+   "tajikTranscription": "El",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 11
+  },
+  {
+   "uppercase": "M",
+   "lowercase": "m",
+   "ipa": "/ɛm/",
+   "tajikTranscription": "Em",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 12
+  },
+  {
+   "uppercase": "N",
+   "lowercase": "n",
+   "ipa": "/ɛn/",
+   "tajikTranscription": "En",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 13
+  },
+  {
+   "uppercase": "O",
+   "lowercase": "o",
+   "ipa": "/oʊ/",
+   "tajikTranscription": "Ou",
+   "category": "vowel",
+   "audioUrl": null,
+   "order": 14
+  },
+  {
+   "uppercase": "P",
+   "lowercase": "p",
+   "ipa": "/piː/",
+   "tajikTranscription": "Pi",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 15
+  },
+  {
+   "uppercase": "Q",
+   "lowercase": "q",
+   "ipa": "/kjuː/",
+   "tajikTranscription": "Kyu",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 16
+  },
+  {
+   "uppercase": "R",
+   "lowercase": "r",
+   "ipa": "/ɑːr/",
+   "tajikTranscription": "Ar",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 17
+  },
+  {
+   "uppercase": "S",
+   "lowercase": "s",
+   "ipa": "/ɛs/",
+   "tajikTranscription": "Es",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 18
+  },
+  {
+   "uppercase": "T",
+   "lowercase": "t",
+   "ipa": "/tiː/",
+   "tajikTranscription": "Ti",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 19
+  },
+  {
+   "uppercase": "U",
+   "lowercase": "u",
+   "ipa": "/juː/",
+   "tajikTranscription": "Yu",
+   "category": "vowel",
+   "audioUrl": null,
+   "order": 20
+  },
+  {
+   "uppercase": "V",
+   "lowercase": "v",
+   "ipa": "/viː/",
+   "tajikTranscription": "Vi",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 21
+  },
+  {
+   "uppercase": "W",
+   "lowercase": "w",
+   "ipa": "/ˈdʌbəl.juː/",
+   "tajikTranscription": "Dabl-yu",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 22
+  },
+  {
+   "uppercase": "X",
+   "lowercase": "x",
+   "ipa": "/ɛks/",
+   "tajikTranscription": "Eks",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 23
+  },
+  {
+   "uppercase": "Y",
+   "lowercase": "y",
+   "ipa": "/waɪ/",
+   "tajikTranscription": "Uay",
+   "category": "vowel",
+   "audioUrl": null,
+   "order": 24
+  },
+  {
+   "uppercase": "Z",
+   "lowercase": "z",
+   "ipa": "/ziː/",
+   "tajikTranscription": "Zi",
+   "category": "consonant",
+   "audioUrl": null,
+   "order": 25
+  }
+ ],
+ "rules": [
+  {
+   "category": "general",
+   "title": "Avval shu uch narsani biling",
+   "body": "1. Harfning bitta nomi va boshqa tovushi bor. A ning nomi «ey», lekin cat soʻzida «e» boʻladi.\n2. Bir xil harf turli soʻzlarda turlicha oʻqiladi.\n3. Shuning uchun doim butun soʻzga qarang, bitta harfga emas.\n(Esda tuting: oʻzbek imlosida har harf bitta tovush beradi, inglizchada esa bunday emas.)",
+   "order": 0
+  },
+  {
+   "category": "vowel",
+   "title": "A harfi — 4 holat",
+   "body": "A + undosh → «e»:  cat (ket), bag (beg), man (men)\nA + undosh + e → «ey»:  name (neym), cake (keyk), late (leyt)\nA + r → choʻziq «a»:  car (kar), park (park), star (star)\nA + l yoki w → «o»:  ball (bol), all (ol), water (vota)",
+   "order": 0
+  },
+  {
+   "category": "consonant",
+   "title": "C harfi — 2 holat",
+   "body": "C a, o, u dan oldin → «k»:  cat (ket), cup (kap), come (kam)\nC e, i, y dan oldin → «s»:  city (siti), ice (ays), face (feys)\nck → «k»:  black (blek), duck (dak)",
+   "order": 0
+  },
+  {
+   "category": "general",
+   "title": "1-qoida: oxirgi E",
+   "body": "Soʻz oxiridagi E oʻzi oʻqilMAYDI, lekin undan oldingi unlini oʻzgartiradi:\nhat (het) → hate (heyt)\nbit (bit) → bite (bayt)\nnot (not) → note (nout)\ncut (kat) → cute (kyut)\nBu — ingliz oʻqish qoidalarining eng muhimi.",
+   "order": 1
+  },
+  {
+   "category": "vowel",
+   "title": "E harfi — 4 holat",
+   "body": "E + undosh → «e»:  pen (pen), red (red), bed (bed)\nSoʻz oxirida E → JIM:  name (neym), like (layk), nose (nouz)\nE + r → «oʻ»:  her (hoʻ), term (toʻm), person (poʻsn)\nee yoki ea → choʻziq «i»:  see (si), tea (ti), week (vik)",
+   "order": 1
+  },
+  {
+   "category": "consonant",
+   "title": "G harfi — 2 holat",
+   "body": "G a, o, u dan oldin → «g»:  go (gou), game (geym), gun (gan)\nG e, i, y dan oldin → «j»:  age (eyj), page (peyj), giant (jayent)\nIstisno (doim «g»):  get (get), give (giv), girl (goʻl)",
+   "order": 1
+  },
+  {
+   "category": "general",
+   "title": "2-qoida: R harfi",
+   "body": "R unlidan keyin kelsa, tovushni butunlay oʻzgartiradi:\ncar (kar), her (hoʻ), bird (boʻd), for (fo), turn (toʻn)\nBu holda boshqa qoidalar ishlamaydi.",
+   "order": 2
+  },
+  {
+   "category": "vowel",
+   "title": "I harfi — 3 holat",
+   "body": "I + undosh → «i»:  sit (sit), big (big), fish (fish)\nI + undosh + e → «ay»:  like (layk), time (taym), nice (nays)\nI + r → «oʻ»:  bird (boʻd), girl (goʻl), first (foʻst)",
+   "order": 2
+  },
+  {
+   "category": "consonant",
+   "title": "S harfi — 2 holat",
+   "body": "Soʻz boshida S → «s»:  sun (san), see (si), school (skul)\nUnlilar orasida yoki jarangli tovushdan keyin soʻz oxirida → «z»:  his (hiz), music (myuzik), dogs (dogz)",
+   "order": 2
+  },
+  {
+   "category": "general",
+   "title": "Har bir unlining ikki asosiy tovushi bor",
+   "body": "QISQA — undan keyin undosh kelsa: cat, pen, sit, dog, cup\nOʻZ NOMI — soʻz e bilan tugasa yoki oxirida unli boʻlsa: name, he, like, note, my",
+   "order": 3
+  },
+  {
+   "category": "vowel",
+   "title": "O harfi — 4 holat",
+   "body": "O + undosh → «o»:  dog (dog), hot (hot), box (boks)\nO + undosh + e → «ou»:  note (nout), home (houm), nose (nouz)\nO + r → choʻziq «o»:  for (fo), short (shot), morning (moning)\nBa’zi soʻzlarda → «a»:  son (san), love (lav), money (mani)",
+   "order": 3
+  },
+  {
+   "category": "consonant",
+   "title": "TH — oʻzbek tilida boʻlmagan tovush",
+   "body": "Til uchini tishlar orasiga yengil qoʻying.\nJarangli («z» ga yaqin):  this (zis), that (zet), the (ze), mother (maze)\nJarangsiz («s» ga yaqin):  think (sink), three (sri), bath (bas)\nAlbatta tinglang — oʻzbekcha «z» va «s» aynan shu emas.",
+   "order": 3
+  },
+  {
+   "category": "general",
+   "title": "Har soʻzda bitta boʻgʻin kuchliroq aytiladi",
+   "body": "TEA-cher, com-PU-ter, a-BOUT\nBoshqa boʻgʻin kuchsiz va noaniq boʻladi. Shuning uchun doctor «DOKta» deb eshitiladi, «doktor» emas.",
+   "order": 4
+  },
+  {
+   "category": "vowel",
+   "title": "U harfi — 4 holat",
+   "body": "U + undosh → «a»:  cup (kap), bus (bas), sun (san)\nU + undosh + e → «yu»:  tube (tyub), cute (kyut), use (yuz)\nU + r → «oʻ»:  turn (toʻn), burn (boʻn), nurse (noʻs)\nBa’zi soʻzlarda → «u»:  put (put), full (ful), push (push)",
+   "order": 4
+  },
+  {
+   "category": "consonant",
+   "title": "Ikki harf — bitta tovush",
+   "body": "sh → «sh»:  she (shi), fish (fish), shop (shop)\nch → «ch»:  chair (chea), lunch (lanch), teacher (ticha)\nph → «f»:  phone (foun), photo (fouto)\nwh → «v»:  what (vot), where (vea), white (vayt)\nqu → «kv»:  question (kveschn), quick (kvik)",
+   "order": 4
+  },
+  {
+   "category": "vowel",
+   "title": "Y harfi — 3 holat",
+   "body": "Soʻz BOSHIDA Y → «y»:  yes (yes), you (yu), yellow (yelou)\nQISQA soʻz oxirida Y → «ay»:  my (may), fly (flay), why (vay)\nUZUN soʻz oxirida Y → «i»:  happy (hepi), city (siti), study (stadi)",
+   "order": 5
+  },
+  {
+   "category": "consonant",
+   "title": "NG va NK — burun tovushi",
+   "body": "ng → tovush burundan chiqadi, oxirgi «g» deyarli eshitilmaydi:\nsing (sin), long (lon), morning (moning)\nnk → think (sink), thank (senk), drink (drink)",
+   "order": 5
+  },
+  {
+   "category": "vowel",
+   "title": "Ikkita unli birga",
+   "body": "ee → «i»:  see (si), tree (tri), green (grin)\nea → «i»:  tea (ti), eat (it), read (rid)\nai va ay → «ey»:  rain (reyn), day (dey), wait (veyt)\noa → «ou»:  boat (bout), road (roud), coat (kout)\noo → «u»:  moon (mun), food (fud)  /  qisqa:  book (buk), good (gud)\nou va ow → «au»:  house (haus), now (nau), down (daun)",
+   "order": 6
+  },
+  {
+   "category": "consonant",
+   "title": "Yoziladigan, lekin oʻqilmaydigan harflar",
+   "body": "k n dan oldin:  know (nou), knife (nayf)\nw r dan oldin:  write (rayt), wrong (ron)\nl:  talk (tok), walk (vok), half (haf)\nh:  hour (aua), honest (onist)\nb m dan keyin soʻz oxirida:  comb (koum), thumb (sam)",
+   "order": 6
+  },
+  {
+   "category": "consonant",
+   "title": "Qoʻsh undosh — bitta tovush",
+   "body": "letter (leta), dinner (dina), happy (hepi), summer (sama)\nIkki harf bitta tovush beradi. Undan oldingi unli QISQA qolishi uchun qoʻsh yoziladi.",
+   "order": 7
+  },
+  {
+   "category": "consonant",
+   "title": "Soʻz oxiridagi -s qoʻshimchasi",
+   "body": "Jarangsiz tovushdan (p, t, k, f) keyin → «s»:  cats (kets), books (buks)\nJarangli tovush va unlidan keyin → «z»:  dogs (dogz), boys (boyz), friends (frendz)\ns, sh, ch, x dan keyin → «iz»:  buses (basiz), watches (vochiz)",
+   "order": 8
+  },
+  {
+   "category": "consonant",
+   "title": "Fe’l oxiridagi -ed qoʻshimchasi",
+   "body": "t yoki d dan keyin → «id»:  wanted (vontid), needed (nidid)\nJarangsiz tovushdan keyin → «t»:  worked (vokt), helped (helpt)\nBoshqa barcha holatlarda → «d»:  played (pleyd), lived (livd)",
+   "order": 9
+  }
+ ],
+ "cefr": [
+  {
+   "cefrLevel": "A1",
+   "skill": "overall",
+   "canDo": "A1 darajasida oʻquvchi juda oddiy soʻz va gaplarni tushuna oladi va ishlata oladi: salomlashish, oʻzini tanishtirish, raqamlarni aytish va qisqa savollarga javob berish.",
+   "order": 0
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "overall",
+   "canDo": "Men oddiy kundalik vaziyatlarda qisqa gaplar bilan muloqot qila olaman.",
+   "order": 0
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "overall",
+   "canDo": "Tanish mavzulardagi oddiy topshiriqlarda muloqot qila olaman.",
+   "order": 1
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "listening",
+   "canDo": "Sekin va aniq aytilsa, juda tanish soʻzlarni, raqamlarni va iboralarni eshitib tushuna oladi.",
+   "order": 1
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "overall",
+   "canDo": "Men oʻtmish, kelajak rejalar, ish, sayohat va salomatlik haqida oddiy ma’lumot bera olaman.",
+   "order": 1
+  },
+  {
+   "cefrLevel": "B1",
+   "skill": "overall",
+   "canDo": "Sayohatdagi koʻpchilik vaziyatlarni eplay olaman va oʻz tajribam haqida gapirib bera olaman.",
+   "order": 2
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "speaking",
+   "canDo": "Qisqa gaplar bilan salom bera oladi, ismini ayta oladi, yoshini bildira oladi va boshqadan ismini soʻray oladi.",
+   "order": 2
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "listening",
+   "canDo": "Vaqt, sayohat, ish va xarid haqidagi qisqa, aniq xabar va e’lonlarni tushuna olaman.",
+   "order": 2
+  },
+  {
+   "cefrLevel": "B2",
+   "skill": "overall",
+   "canDo": "Ma’lum darajada ravon muloqot qila olaman va aniq, batafsil matn yoza olaman.",
+   "order": 3
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "reading",
+   "canDo": "A1 darajasidagi qisqa soʻz va gaplarni oʻqiy oladi: Hello, My name is..., I am..., raqamlar va oddiy iboralar.",
+   "order": 3
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "listening",
+   "canDo": "Qisqa suhbatning umumiy ma’nosini, agar sekin va aniq boʻlsa, tushuna olaman.",
+   "order": 3
+  },
+  {
+   "cefrLevel": "C1",
+   "skill": "overall",
+   "canDo": "Fikrlarni erkin ifodalay olaman va tildan moslashuvchan foydalana olaman.",
+   "order": 4
+  },
+  {
+   "cefrLevel": "A1",
+   "skill": "writing",
+   "canDo": "Dastlabki soʻzlar va qisqa gaplarni yoza oladi: Hello, I am Ali, My name is..., I am ten.",
+   "order": 4
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "reading",
+   "canDo": "Qisqa kundalik matnlarni, email, e’lon, menyu va oddiy yoʻriqnomalarni tushuna olaman.",
+   "order": 4
+  },
+  {
+   "cefrLevel": "C2",
+   "skill": "overall",
+   "canDo": "Deyarli hamma narsani osongina tushuna olaman va oʻzimni aniq ifodalay olaman.",
+   "order": 5
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "reading",
+   "canDo": "Qisqa matndan asosiy ma’lumotni topa olaman.",
+   "order": 5
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "speaking",
+   "canDo": "Men oila, ish, ta’lim, sayohat va oʻtmish tajribam haqida oddiy gaplar bilan gapira olaman.",
+   "order": 6
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "speaking",
+   "canDo": "Men taklif qila olaman, rozi yoki norozi boʻla olaman va oddiy sabab keltira olaman.",
+   "order": 7
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "writing",
+   "canDo": "Men qisqa email yoki xabar yoza olaman va unda sabab, reja yoki iltimosni tushuntira olaman.",
+   "order": 8
+  },
+  {
+   "cefrLevel": "A2",
+   "skill": "writing",
+   "canDo": "Men because, so, when va if bilan oddiy gaplarni bogʻlay olaman.",
+   "order": 9
+  }
+ ]
+}
