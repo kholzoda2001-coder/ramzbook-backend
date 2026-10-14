@@ -14,21 +14,3 @@ export const MIN_READY_LESSONS = 40;
 export function isCourseReady(courseCount: number, lessonCount: number): boolean {
   return courseCount > 0 && lessonCount >= MIN_READY_LESSONS;
 }
-
-/**
- * Ҷуфтҳое (`забони ҳадаф:забони модарӣ`), ки ҳанӯз ба ҳадди MIN_READY_LESSONS
- * нарасидаанд, вале қасдан барои санҷиш/рушд дастрас карда шудаанд (14.10.2026:
- * англисӣ барои ӯзбекҳо — модулҳо яке-яке илова мешаванд). Рӯйхат КӮТОҲ бимонад
- * ва пас аз пурра шудани курс аз ин ҷо бароварда шавад.
- */
-export const EARLY_ACCESS_PAIRS: ReadonlySet<string> = new Set(['en:uz']);
-
-export function isPairReady(
-  targetCode: string,
-  nativeCode: string,
-  courseCount: number,
-  lessonCount: number,
-): boolean {
-  if (isCourseReady(courseCount, lessonCount)) return true;
-  return EARLY_ACCESS_PAIRS.has(`${targetCode}:${nativeCode}`) && courseCount > 0 && lessonCount > 0;
-}

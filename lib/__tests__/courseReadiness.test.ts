@@ -18,20 +18,3 @@ describe('тайёрии курс', () => {
     expect(isCourseReady(1, MIN_READY_LESSONS - 1)).toBe(false);
   });
 });
-
-import { isPairReady } from '../courseReadiness';
-
-describe('isPairReady — early access', () => {
-  it('en:uz кушода мешавад ҳатто бо 14 дарс', () => {
-    expect(isPairReady('en', 'uz', 1, 14)).toBe(true);
-  });
-  it('en:uz бе дарс — не', () => {
-    expect(isPairReady('en', 'uz', 1, 0)).toBe(false);
-  });
-  it('ҷуфти дигари нимкора (zh:tg, 25 дарс) — ҳамоно SOON', () => {
-    expect(isPairReady('zh', 'tg', 1, 25)).toBe(false);
-  });
-  it('курси пурра ҳамеша тайёр', () => {
-    expect(isPairReady('de', 'tg', 1, 223)).toBe(true);
-  });
-});
