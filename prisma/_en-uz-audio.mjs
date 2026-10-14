@@ -82,7 +82,9 @@ if (st) {
 const sha = git('rev-parse', 'HEAD').stdout.trim();
 console.log('commit', sha);
 
-const urlOf = (t) => `${CDN}@${sha}/audio/en-uz/${hash(t)}.mp3`;
+// Har fayl o'zini QO'SHGAN commitga pin qilinadi (jsDelivr yangi SHA'da ba'zan 404 kesh qiladi).
+const shaOf = (t) => git('log', '-1', '--format=%H', '--', `audio/en-uz/${hash(t)}.mp3`).stdout.trim() || sha;
+const urlOf = (t) => `${CDN}@${shaOf(t)}/audio/en-uz/${hash(t)}.mp3`;
 // CDN tayyor bo'lishini kut (birinchi fayl)
 for (let i = 0; i < 20; i++) {
   const res = await fetch(urlOf(texts[0]), { method: 'HEAD' });
@@ -95,8 +97,13 @@ for (const [o, t] of items) {
   delete o.needAudio;
 }
 for (const t of texts) {
-  const res = await fetch(urlOf(t), { method: 'HEAD' });
-  if (!res.ok) console.error('CDN', res.status, t);
+  let ok = false;
+  for (let i = 0; i < 6 && !ok; i++) {
+    const res = await fetch(urlOf(t), { method: 'HEAD' });
+    ok = res.ok;
+    if (!ok) await new Promise((r) => setTimeout(r, 5000));
+  }
+  if (!ok) { console.error('CDN javob bermadi:', t); process.exit(1); }
 }
 writeFileSync(file, JSON.stringify(M, null, 1));
 console.log('audioUrl yozildi:', items.length);
