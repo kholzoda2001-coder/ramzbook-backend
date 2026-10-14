@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { MIN_READY_LESSONS, isCourseReady } from '@/lib/courseReadiness';
+import { MIN_READY_LESSONS, isCourseReady, isPairReady } from '@/lib/courseReadiness';
 import { cleanLevelLabels } from '@/lib/levelLabels';
 
 export const dynamic = 'force-dynamic';
@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     // курсҳоро мисли пештара мегирифт.
     const native = await prisma.language.findUnique({
       where: { id: nativeLanguageId },
-      select: { isActive: true, canBeNative: true },
+      select: { isActive: true, canBeNative: true, code: true },
     });
     if (!native || !native.isActive || !native.canBeNative) {
       return NextResponse.json({ languages: [] });
@@ -85,7 +85,7 @@ export async function GET(req: NextRequest) {
           levelLabels: cleanLevelLabels(t.levelLabels),
           courseCount,
           lessonCount,
-          available: isCourseReady(courseCount, lessonCount),
+          available: isPairReady(t.code, native.code, courseCount, lessonCount),
         };
       })
       // Only show target languages that actually have a course for this native
