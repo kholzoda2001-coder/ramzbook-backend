@@ -832,7 +832,7 @@
     {
      "sentence": "It is a book.",
      "translation": "Bu kitob.",
-     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkmkrv000bdvu2qbn9hp93.mp3",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@c5987d2f6e29737745dcba5f3f40e7a3d5ef345c/audio/en-uz/fc3c0a9c3c6633bf.mp3",
      "highlight": "It",
      "order": 2
     },
@@ -1162,6 +1162,264 @@
      "order": 7
     }
    ]
+  },
+  {
+   "title": "Introducing Yourself",
+   "titleTranslated": "Oʻzini tanishtirish",
+   "explanation": "Oʻzingizni tanishtirishning ikki asosiy yoʻli bor:\n1. **My name is …** — Mening ismim …\n2. **I am …** — Men …man\n\nNamuna: **Hello, I am Ali. My name is Ali.**",
+   "emoji": "🙋‍♂️",
+   "cefrLevel": "A1",
+   "order": 19,
+   "isPremium": false,
+   "isActive": true,
+   "examples": [
+    {
+     "sentence": "My name is Ali.",
+     "translation": "Mening ismim Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqg4t00gxdvu2wyg2bgfj.mp3",
+     "highlight": "My name is",
+     "order": 0
+    },
+    {
+     "sentence": "I am a student.",
+     "translation": "Men talabaman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqgi200gzdvu2juoygpmp.mp3",
+     "highlight": "I am",
+     "order": 1
+    },
+    {
+     "sentence": "I am from Uzbekistan.",
+     "translation": "Men Oʻzbekistondanman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d7df2fd0a8fb3f30034ddebb3478b6ad043d828f/audio/en-uz/49da1444ecaee42e.mp3",
+     "highlight": "I am",
+     "order": 2
+    },
+    {
+     "sentence": "Nice to meet you.",
+     "translation": "Tanishganimdan xursandman.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqh8i00h3dvu2ji2lrweo.mp3",
+     "highlight": "Nice",
+     "order": 3
+    }
+   ],
+   "rules": [
+    {
+     "pattern": "My name is + ism",
+     "note": "My name is Sara.",
+     "order": 0
+    },
+    {
+     "pattern": "I am + ism",
+     "note": "I am Sara.",
+     "order": 1
+    }
+   ],
+   "exercises": [
+    {
+     "type": "choose",
+     "prompt": "___ name is Sara.",
+     "promptTranslated": "Mening ismim Sara.",
+     "answer": "My",
+     "options": [
+      "My",
+      "I",
+      "Me",
+      "Mine"
+     ],
+     "explanation": "Qoida: My name is …",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqhm100h5dvu2rdkthbe2.mp3",
+     "order": 0
+    },
+    {
+     "type": "choose",
+     "prompt": "I ___ a teacher.",
+     "promptTranslated": "Men oʻqituvchiman.",
+     "answer": "am",
+     "options": [
+      "be",
+      "am",
+      "is",
+      "are"
+     ],
+     "explanation": "I bilan → am.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqhz600h7dvu211x53cdl.mp3",
+     "order": 1
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "My ___ is Karim.",
+     "promptTranslated": "Mening ismim Karim.",
+     "answer": "name",
+     "options": null,
+     "explanation": "Toʻgʻri shakl: My name is …",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqice00h9dvu2eoc7m4a6.mp3",
+     "order": 2
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "I am ___ Tashkent.",
+     "promptTranslated": "Men Toshkentdanman.",
+     "answer": "from",
+     "options": null,
+     "explanation": "I am from + joy.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d7df2fd0a8fb3f30034ddebb3478b6ad043d828f/audio/en-uz/10d75d6de23801f1.mp3",
+     "order": 3
+    },
+    {
+     "type": "reorder",
+     "prompt": "Gapni tuzing:",
+     "promptTranslated": "Mening ismim Ali.",
+     "answer": "My name is Ali.",
+     "options": [
+      "name",
+      "My",
+      "Ali",
+      "is"
+     ],
+     "explanation": "Toʻgʻri tartib: My + name + is + Ali.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqj2x00hddvu277urtv67.mp3",
+     "order": 4
+    },
+    {
+     "type": "transform",
+     "prompt": "Tuzating: I name is Ali.",
+     "promptTranslated": "Shakl notoʻgʻri.",
+     "answer": "My name is Ali.",
+     "options": null,
+     "explanation": "Oʻzgartirish: My name is …",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqjg600hfdvu2mqr7u6ld.mp3",
+     "order": 5
+    }
+   ]
+  },
+  {
+   "title": "Asking Names",
+   "titleTranslated": "Ismni soʻrash",
+   "explanation": "Boshqa odamning ismini soʻrash uchun:\n**What is your name?** — Ismingiz nima?\nJavob: **My name is …** yoki **I am …**",
+   "emoji": "❔",
+   "cefrLevel": "A1",
+   "order": 20,
+   "isPremium": false,
+   "isActive": true,
+   "examples": [
+    {
+     "sentence": "What is your name?",
+     "translation": "Ismingiz nima?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqldj00hldvu2pt0ckocb.mp3",
+     "highlight": "What",
+     "order": 0
+    },
+    {
+     "sentence": "My name is Sara.",
+     "translation": "Mening ismim Sara.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqlzp00hndvu2pmqjchyd.mp3",
+     "highlight": "My name is",
+     "order": 1
+    },
+    {
+     "sentence": "What's his name?",
+     "translation": "Uning ismi nima?",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqmd100hpdvu2139lbgwi.mp3",
+     "highlight": "What's",
+     "order": 2
+    },
+    {
+     "sentence": "Her name is Anna.",
+     "translation": "Uning ismi Anna.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@25efa6a3a4ef76cc0fcebc2535b2f1366e7e950e/audio/en/cmqqkqmq700hrdvu2qa6g4518.mp3",
+     "highlight": "Her name",
+     "order": 3
+    }
+   ],
+   "rules": [
+    {
+     "pattern": "What is your name?",
+     "note": "Ismni soʻrash.",
+     "order": 0
+    },
+    {
+     "pattern": "Javob: My name is … / I am …",
+     "note": "Javob berishning ikki yoʻli.",
+     "order": 1
+    }
+   ],
+   "exercises": [
+    {
+     "type": "choose",
+     "prompt": "___ is your name?",
+     "promptTranslated": "Ismingiz nima?",
+     "answer": "What",
+     "options": [
+      "What",
+      "Where",
+      "Who",
+      "How"
+     ],
+     "explanation": "Ism uchun → What.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqn3k00htdvu2f2smwnec.mp3",
+     "order": 0
+    },
+    {
+     "type": "choose",
+     "prompt": "Javob: ___ name is Ali.",
+     "promptTranslated": "Mening ismim Ali.",
+     "answer": "My",
+     "options": [
+      "He",
+      "My",
+      "I",
+      "Your"
+     ],
+     "explanation": "Qoida: My name is …",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqngs00hvdvu2vyhvewcd.mp3",
+     "order": 1
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "What is ___ name? (sizning)",
+     "promptTranslated": "Ismingiz nima?",
+     "answer": "your",
+     "options": null,
+     "explanation": "Toʻgʻri shakl: your name.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqnty00hxdvu2v3yhjhoz.mp3",
+     "order": 2
+    },
+    {
+     "type": "fill_blank",
+     "prompt": "___ is your name? — Sara.",
+     "promptTranslated": "Soʻroq soʻzi.",
+     "answer": "What",
+     "options": null,
+     "explanation": "Ism uchun → What.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqo7200hzdvu2t1qawdvi.mp3",
+     "order": 3
+    },
+    {
+     "type": "reorder",
+     "prompt": "Savolni tuzing:",
+     "promptTranslated": "Ismingiz nima?",
+     "answer": "What is your name?",
+     "options": [
+      "is",
+      "What",
+      "name",
+      "your"
+     ],
+     "explanation": "Toʻgʻri tartib: What + is + your + name.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqok700i1dvu2qsxwf6hv.mp3",
+     "order": 4
+    },
+    {
+     "type": "transform",
+     "prompt": "Tuzating: Who is your name?",
+     "promptTranslated": "Soʻroq soʻzi notoʻgʻri.",
+     "answer": "What is your name?",
+     "options": null,
+     "explanation": "Ism uchun → What.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@d59fb8eb199e57cfc4066dbde56682005e91f03c/audio/gx/en/cmqqkqoxd00i3dvu20z0jmeuy.mp3",
+     "order": 5
+    }
+   ]
   }
  ],
  "dialogues": [
@@ -1242,7 +1500,104 @@
    ]
   }
  ],
- "phrases": [],
+ "phrases": [
+  {
+   "category": "greetings",
+   "title": "First greetings",
+   "titleTranslated": "Birinchi salomlar",
+   "emoji": "👋",
+   "cefrLevel": "A1",
+   "order": 0,
+   "isPremium": false,
+   "isActive": true,
+   "phrases": [
+    {
+     "text": "Hello!",
+     "translation": "Salom!",
+     "literal": null,
+     "note": "Umumiy, neytral salom.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xxwy000di86cdlrqyl58.mp3",
+     "order": 0
+    },
+    {
+     "text": "Hi!",
+     "translation": "Salom!",
+     "literal": null,
+     "note": "Qisqa va doʻstona salom.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xxwy000ei86cbl75w7eh.mp3",
+     "order": 1
+    },
+    {
+     "text": "Good morning!",
+     "translation": "Xayrli tong!",
+     "literal": null,
+     "note": "Ertalab ishlatiladi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xxwz000fi86cozn75j15.mp3",
+     "order": 2
+    },
+    {
+     "text": "Goodbye!",
+     "translation": "Xayr!",
+     "literal": null,
+     "note": "Ketayotganda aytiladi.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xxwz000gi86cdggg3hk0.mp3",
+     "order": 3
+    },
+    {
+     "text": "Thank you.",
+     "translation": "Rahmat.",
+     "literal": null,
+     "note": "Minnatdorchilik bildirish uchun.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xxwz000hi86cnct7tzyu.mp3",
+     "order": 4
+    }
+   ]
+  },
+  {
+   "category": "introductions",
+   "title": "Introduce yourself",
+   "titleTranslated": "Oʻzingizni tanishtiring",
+   "emoji": "👤",
+   "cefrLevel": "A1",
+   "order": 1,
+   "isPremium": false,
+   "isActive": true,
+   "phrases": [
+    {
+     "text": "My name is Ali.",
+     "translation": "Mening ismim Ali.",
+     "literal": null,
+     "note": "Ismingizni aytish uchun.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xyni000ki86cd2hkj91r.mp3",
+     "order": 0
+    },
+    {
+     "text": "I am a student.",
+     "translation": "Men talabaman.",
+     "literal": null,
+     "note": "Qisqa tanishuv uchun.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xyni000li86cx320m768.mp3",
+     "order": 1
+    },
+    {
+     "text": "Nice to meet you.",
+     "translation": "Tanishganimdan xursandman.",
+     "literal": null,
+     "note": "Birinchi uchrashuvda.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xyni000mi86cx5pdw0dy.mp3",
+     "order": 2
+    },
+    {
+     "text": "What is your name?",
+     "translation": "Ismingiz nima?",
+     "literal": null,
+     "note": "Ismni soʻrash uchun.",
+     "audioUrl": "https://cdn.jsdelivr.net/gh/kholzoda2001-coder/ramz-audio@fec48ea6a9c471c2567ccf78047a4efc86a7cecb/audio/en/cmql0xyni000ni86c071x6juq.mp3",
+     "order": 3
+    }
+   ]
+  }
+ ],
  "comps": [
   {
    "kind": "reading",

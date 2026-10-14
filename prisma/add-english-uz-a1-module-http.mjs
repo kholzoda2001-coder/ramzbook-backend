@@ -28,6 +28,7 @@ const [course] = await sql.query(
 if (!course) { say('Course en->uz A1 yoq — avval add-english-for-uzbek-http.mjs'); process.exit(1); }
 const CID = course.id;
 
+const sqlPending = [];
 const [exists] = await sql.query(`SELECT id FROM "Module" WHERE "courseId"=$1 AND "order"=$2`, [CID, M.module.order]);
 if (exists && !REPLACE) { say(`Modul (order=${M.module.order}) bor — o'tkazildi (--replace bilan qayta yoziladi)`); process.exit(0); }
 
@@ -36,11 +37,20 @@ say(`${exists ? 'QAYTA YOZILADI' : 'Yangi'}: "${M.module.titleTranslated}" — $
 if (DRY) { say('--dry: hech narsa yozilmadi.'); process.exit(0); }
 
 if (exists) {
-  // Modul (va uning darslari/so'zlari — CASCADE) hamda shu modul yaratgan mavzular.
-  for (const g of M.grammar) await sql.query(`DELETE FROM "GrammarTopic" WHERE "courseId"=$1 AND title=$2`, [CID, g.title]);
-  for (const d of M.dialogues) await sql.query(`DELETE FROM "Dialogue" WHERE "courseId"=$1 AND title=$2`, [CID, d.title]);
+  // 1) Modulga BOG'LANGAN mavzular (id bo'yicha — nom bo'yicha emas: bir xil sarlavha ("Conversation Practice")
+  //    boshqa modullarda ham bor, nom bo'yicha o'chirish ularni buzgan edi).
+  const links = await sql.query(
+    `SELECT "grammarTopicId" g, "dialogueId" d, "phraseCollectionId" p, "comprehensionId" c FROM "Lesson" WHERE "moduleId"=$1`, [exists.id]);
+  const uniq = (k) => [...new Set(links.map((r) => r[k]).filter(Boolean))];
+  for (const id of uniq('g')) await sql.query(`DELETE FROM "GrammarTopic" WHERE id=$1`, [id]);
+  for (const id of uniq('d')) await sql.query(`DELETE FROM "Dialogue" WHERE id=$1`, [id]);
+  for (const id of uniq('p')) await sql.query(`DELETE FROM "PhraseCollection" WHERE id=$1`, [id]);
+  for (const id of uniq('c')) await sql.query(`DELETE FROM "ComprehensionExercise" WHERE id=$1`, [id]);
+  // 2) Darsga bog'lanmagan kurs-darajasidagi mavzular (faqat shu fayl yaratganlari — sarlavha bo'yicha, ular noyob).
+  const linkedG = new Set(M.lessons.map((l) => l.grammar).filter((x) => x != null));
+  M.grammar.forEach((g, i) => { if (!linkedG.has(i)) sqlPending.push(g.title); });
+  for (const t of sqlPending) await sql.query(`DELETE FROM "GrammarTopic" WHERE "courseId"=$1 AND title=$2`, [CID, t]);
   for (const p of M.phrases) await sql.query(`DELETE FROM "PhraseCollection" WHERE "courseId"=$1 AND title=$2`, [CID, p.title]);
-  for (const c of M.comps) await sql.query(`DELETE FROM "ComprehensionExercise" WHERE "courseId"=$1 AND title=$2`, [CID, c.title]);
   await sql.query(`DELETE FROM "Module" WHERE id=$1`, [exists.id]);
 }
 
