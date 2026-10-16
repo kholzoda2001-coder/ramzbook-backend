@@ -114,6 +114,46 @@ export function textFromWhisper(resp: {
   return (resp.text ?? '').trim();
 }
 
+/** WAV-и ҳақиқӣ: сарлавҳаи `RIFF…WAVE` ва камаш 0.1с (3200 байт дар 16kHz/16bit). */
+export function isWavBuffer(b: Buffer): boolean {
+  return (
+    b.length > 44 + 3200 &&
+    b.toString('ascii', 0, 4) === 'RIFF' &&
+    b.toString('ascii', 8, 12) === 'WAVE'
+  );
+}
+
+// ── Ҳади дархост ба як корбар ───────────────────────────────────────────────
+// ⚠️ Дар хотираи ҳамин намунаи функсия (Vercel бесервер аст) — ин ҳимояи пурра
+// нест, танҳо монеа барои сӯйистифодаи оддӣ (скрипт, такрори беохир). Ҳади
+// воқеии хароҷот дар Groq (квота) аст.
+export const WHISPER_WINDOW_MS = 10 * 60 * 1000;
+export const WHISPER_MAX_PER_WINDOW = 80;
+const hits = new Map<string, number[]>();
+
+/** `true` = иҷозат; ҳисоб мекунад. `now` барои тест. */
+export function takeWhisperSlot(userId: string, now: number = Date.now()): boolean {
+  const from = now - WHISPER_WINDOW_MS;
+  const list = (hits.get(userId) ?? []).filter((t) => t > from);
+  if (list.length >= WHISPER_MAX_PER_WINDOW) {
+    hits.set(userId, list);
+    return false;
+  }
+  list.push(now);
+  hits.set(userId, list);
+  // Хотираро тоза нигоҳ медорем: корбарони ғайрифаъол нест мешаванд.
+  if (hits.size > 5000) {
+    hits.forEach((v, k) => {
+      if (v.every((t: number) => t <= from)) hits.delete(k);
+    });
+  }
+  return true;
+}
+
+export function _resetWhisperSlotsForTest(): void {
+  hits.clear();
+}
+
 export class WhisperError extends Error {
   constructor(public status: number, msg: string) {
     super(msg);
