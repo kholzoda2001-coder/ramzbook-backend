@@ -17,10 +17,21 @@ const env = Object.fromEntries(
 const sql = neon(env.DATABASE_URL);
 const KEY = 'speech_engine';
 const mode = process.argv[2];
+//   node prisma/_speech-engine.mjs whisper off → Whisper (Groq) хомӯш, ҳамаи ҳолатро нигоҳ медорад
+//   node prisma/_speech-engine.mjs whisper on  → Whisper фаъол (пешфарз)
+const whisper = mode === 'whisper' ? process.argv[3] : undefined;
 
 if (mode) {
-  if (!['auto', 'on', 'off'].includes(mode)) throw new Error('Режим: auto | on | off');
-  const value = JSON.stringify({ azure: mode });
+  if (mode === 'whisper') {
+    if (!['on', 'off'].includes(whisper)) throw new Error('Whisper: on | off');
+  } else if (!['auto', 'on', 'off'].includes(mode)) {
+    throw new Error('Режим: auto | on | off | whisper on|off');
+  }
+  // Калидҳои дигарро нигоҳ медорем (azure ↔ whisper якдигарро нест накунанд).
+  const cur = (await sql.query(`SELECT "valueJson" FROM "AppSetting" WHERE key = $1`, [KEY]))[0];
+  let base = {};
+  try { base = cur?.valueJson ? JSON.parse(cur.valueJson) : {}; } catch { base = {}; }
+  const value = JSON.stringify(mode === 'whisper' ? { ...base, whisper } : { ...base, azure: mode });
   await sql.query(
     `INSERT INTO "AppSetting" (key, "valueJson", "updatedAt") VALUES ($1, $2, now())
      ON CONFLICT (key) DO UPDATE SET "valueJson" = $2, "updatedAt" = now()`,
