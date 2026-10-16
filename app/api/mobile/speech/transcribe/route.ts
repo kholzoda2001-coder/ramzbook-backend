@@ -5,8 +5,8 @@ import { prisma } from '@/lib/prisma';
 import {
   MAX_WHISPER_AUDIO_BYTES,
   WhisperError,
+  cachedWhisperMode,
   isWavBuffer,
-  loadWhisperMode,
   takeWhisperSlot,
   transcribeWithWhisper,
   whisperConfig,
@@ -32,7 +32,12 @@ export const dynamic = 'force-dynamic';
  *   429 `slow-down`         — ҳад аз ҳад зиёд аст.
  */
 async function cfgOrNull() {
-  if ((await loadWhisperMode(prisma)) === 'off') return null;
+  // Режим — бо кэши 60с (ниг. `cachedWhisperMode`): бе он ҳар дархост ба Neon мерафт.
+  if ((await cachedWhisperMode(prisma)) === 'off') return null;
+  // Калиди env ҳаст → пурсиши дуюм (танзимоти админ) ЛОЗИМ НЕСТ. Он танҳо
+  // роҳи эҳтиётӣ барои калиди Groq-и админ аст.
+  const fromEnv = whisperConfig(process.env);
+  if (fromEnv.enabled) return fromEnv;
   let admin: { apiKey?: string; baseUrl?: string } | undefined;
   try {
     admin = await loadAiSettingsConfig(prisma);
@@ -75,8 +80,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'bad-audio' }, { status: 400 });
     }
 
+    // `ms` — вақти ТАНҲО даъвати Groq: аз лог (`[WSTT] … сервер Nмс`) маълум
+    // мешавад, ки таъхир дар Groq аст ё дар шабака/база.
+    const t0 = Date.now();
     const out = await transcribeWithWhisper({ audio, locale: body?.locale, config: cfg });
-    return NextResponse.json(out);
+    return NextResponse.json({ ...out, ms: Date.now() - t0 });
   } catch (e: unknown) {
     if (e instanceof WhisperError) {
       console.error('[mobile/speech/transcribe]', e.status, e.message);

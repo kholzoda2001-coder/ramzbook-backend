@@ -49,6 +49,30 @@ export async function loadWhisperMode(prisma: PrismaClient): Promise<WhisperMode
   }
 }
 
+// ── Кэши режим ───────────────────────────────────────────────────────────────
+// 🔴 Логи телефони воқеӣ (17.10.2026): вақти ҷавоб 2–6.5с (миёна ~4с). Ҳар
+// дархост ду пурсиши Neon мекард (режим + танзимоти админ); Neon-и «хобида»
+// ҳар кадомро 1–3с мекашонад. Режим ҳар чанд соат як бор тағйир меёбад —
+// 60 сония дар хотираи ҳамин намунаи функсия нигоҳ дошта мешавад. Хомӯш
+// кардани `whisper:off` ҳадди аксар 60с мегирад (дар ҳар намуна, на ҳама якбора).
+export const WHISPER_MODE_TTL_MS = 60_000;
+let modeCache: { value: WhisperMode; at: number } | null = null;
+
+/** Ҳамон [loadWhisperMode], вале бо кэши 60-сонияӣ. `now` барои тест. */
+export async function cachedWhisperMode(
+  prisma: PrismaClient,
+  now: number = Date.now(),
+): Promise<WhisperMode> {
+  if (modeCache && now - modeCache.at < WHISPER_MODE_TTL_MS) return modeCache.value;
+  const value = await loadWhisperMode(prisma);
+  modeCache = { value, at: now };
+  return value;
+}
+
+export function _resetWhisperModeCacheForTest(): void {
+  modeCache = null;
+}
+
 export interface WhisperConfig {
   enabled: boolean;
   apiKey: string;

@@ -5,21 +5,38 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 let mode = '{"azure":"off"}';
+let modeReads = 0;
 vi.mock('@/lib/prisma', () => ({
-  prisma: { appSetting: { findUnique: async () => ({ valueJson: mode }) } },
+  prisma: {
+    appSetting: {
+      findUnique: async () => {
+        modeReads++;
+        return { valueJson: mode };
+      },
+    },
+  },
 }));
 let authed = true;
 vi.mock('@/lib/auth', () => ({
   requireUserId: () => (authed ? 'u1' : null),
   unauthorized: () => new Response('no', { status: 401 }),
 }));
+let adminReads = 0;
+let adminCfg = { apiKey: '', baseUrl: '' };
 vi.mock('@/lib/ai/ai-settings', () => ({
-  loadAiSettingsConfig: async () => ({ apiKey: '', baseUrl: '' }),
+  loadAiSettingsConfig: async () => {
+    adminReads++;
+    return adminCfg;
+  },
 }));
 
 import { NextRequest } from 'next/server';
 import { GET, POST } from '@/app/api/mobile/speech/transcribe/route';
-import { _resetWhisperSlotsForTest, WHISPER_MAX_PER_WINDOW } from '../whisper';
+import {
+  _resetWhisperModeCacheForTest,
+  _resetWhisperSlotsForTest,
+  WHISPER_MAX_PER_WINDOW,
+} from '../whisper';
 
 /** WAV-и дуруст: сарлавҳа + [ms] миллисония хомӯшӣ. */
 function wavB64(ms = 500): string {
@@ -50,7 +67,11 @@ let groq: () => Response;
 beforeEach(() => {
   mode = '{"azure":"off"}';
   authed = true;
+  modeReads = 0;
+  adminReads = 0;
+  adminCfg = { apiKey: '', baseUrl: '' };
   _resetWhisperSlotsForTest();
+  _resetWhisperModeCacheForTest();
   vi.stubEnv('GROQ_API_KEY', 'k');
   vi.stubGlobal('fetch', async () => groq());
   vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -84,11 +105,43 @@ describe('GET (санҷиши «фаъол?»)', () => {
   });
 });
 
+describe('суръат: пурсиши база', () => {
+  it('калиди env ҳаст → танзимоти админ ГИРИФТА НАМЕШАВАД', async () => {
+    await GET(get());
+    await POST(post({ audio: wavB64() }));
+    expect(adminReads).toBe(0);
+  });
+  it('режим 60с кэш мешавад: ду дархост = як пурсиш', async () => {
+    await GET(get());
+    await GET(get());
+    await POST(post({ audio: wavB64() }));
+    expect(modeReads).toBe(1);
+  });
+  it('калиди env нест → роҳи эҳтиётӣ: калиди Groq-и админ', async () => {
+    vi.stubEnv('GROQ_API_KEY', '');
+    adminCfg = { apiKey: 'admin-groq', baseUrl: 'https://api.groq.com/openai/v1' };
+    expect(await (await GET(get())).json()).toEqual({ enabled: true });
+    expect(adminReads).toBe(1);
+  });
+  it('кэш тугайдан баъд (>60с) аз нав мепурсад', async () => {
+    const { cachedWhisperMode, WHISPER_MODE_TTL_MS } = await import('../whisper');
+    const db = { appSetting: { findUnique: async () => { modeReads++; return { valueJson: '{"whisper":"off"}' }; } } };
+    expect(await cachedWhisperMode(db as never, 1000)).toBe('off');
+    expect(await cachedWhisperMode(db as never, 1000 + WHISPER_MODE_TTL_MS - 1)).toBe('off');
+    expect(modeReads).toBe(1);
+    await cachedWhisperMode(db as never, 1000 + WHISPER_MODE_TTL_MS + 1);
+    expect(modeReads).toBe(2);
+  });
+});
+
 describe('POST', () => {
   it('муваффақият → {text, language}', async () => {
     const r = await POST(post({ audio: wavB64(), locale: 'en-US' }));
     expect(r.status).toBe(200);
-    expect(await r.json()).toEqual({ text: 'I am fine', language: 'en' });
+    const j = await r.json();
+    expect(j).toMatchObject({ text: 'I am fine', language: 'en' });
+    expect(typeof j.ms).toBe('number'); // вақти Groq барои ташхиси таъхир
+    expect(j.ms).toBeGreaterThanOrEqual(0);
   });
   it('хомӯш → 409 (на 5xx: интерцептори барнома URL-ро иваз мекард)', async () => {
     mode = '{"whisper":"off"}';
