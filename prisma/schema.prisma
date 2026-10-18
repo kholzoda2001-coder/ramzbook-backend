@@ -1416,10 +1416,48 @@ model LibraryItem {
   pages        LibraryPage[]
   progress     LibraryProgress[]
   entitlements Entitlement[]
+  lessons      LibraryLesson[]
 
   @@index([type, isActive, order])
   @@index([targetLang])
   @@index([nativeLang])
+}
+
+/// Дарси КУРС (`LibraryItem.type = "course"`) — видео ё матн.
+///
+/// ── Чаро ҷадвали ҷудо ────────────────────────────────────────────────────
+/// `LibraryPage` барои китоб (саҳифа) ва аудио (қисм/трек) аст. Курс сохтори
+/// «модул → дарс» дорад ва ҳар дарс видеои худро дорад; онро ба `LibraryPage`
+/// зӯр кардан ду маънои гуногунро дар як ҷадвал омехта мекард.
+///
+/// Модул ҷадвали алоҳида НЕСТ: он танҳо номи гурӯҳ аст (`moduleTitle`), дарсҳои
+/// бо як ном ва пай дар пай ба як модул мераванд. Ин ҷадвалро як ададӣ
+/// нигоҳ медорад ва ҳамаи сатрҳои мавҷударо тағйир намедиҳад (танҳо иловагӣ).
+///
+/// ⚠️ Ройгон будани дарс: `isFreePreview` ё ду дарси аввал (ниг.
+/// `FREE_COURSE_PREVIEW_LESSONS` дар lib/libraryAccess.ts).
+model LibraryLesson {
+  id     String      @id @default(cuid())
+  itemId String
+  item   LibraryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  /// Тартиби умумии дарс дар курс (аз 0), на дар дохили модул.
+  order       Int     @default(0)
+  /// Номи модул ("Модули 1 · Оила"). Null = модули ягона.
+  moduleTitle String?
+  title       String
+  /// `video` | `text`.
+  kind        String  @default("video")
+  mediaUrl    String?
+  durationSec Int?
+  /// Матни дарс (барои `kind = text` ё тавзеҳи видео).
+  content     String? @db.Text
+  /// Админ ин дарсро ройгон гузоштааст (илова ба ду дарси аввал).
+  isFreePreview Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([itemId, order])
 }
 
 /// «Ин хонанда ба ин воҳид ҲУҚУҚ дорад» — доимӣ, бе мӯҳлат.

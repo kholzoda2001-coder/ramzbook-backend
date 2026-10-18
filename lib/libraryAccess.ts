@@ -89,6 +89,42 @@ export function canPreviewPages(item: {
   return !item.mediaUrl || item.mediaUrl.trim().length === 0;
 }
 
+/**
+ * Аудио: чанд сонияи аввали ҚУЛФ ройгон шунида мешавад (дизайн: 2 дақиқа).
+ *
+ * 🔴 Қарори 2026-09-02 («барои аудио ва видео ягон минут ройгон набошад»)
+ * БЕКОР шуд — соҳиби маҳсулот ба дизайн гузашт: аудио 2 дақиқа, курс 2 дарс.
+ * Китобҳои саҳифавӣ ҳамон 5 саҳифа (`FREE_PREVIEW_PAGES`).
+ *
+ * ⚠️ Бояд бо `kFreePreviewSeconds`-и барнома
+ * (`lib/features/library/data/library_mappers.dart`) ЯКХЕЛА бошад.
+ */
+export const FREE_AUDIO_PREVIEW_SECONDS = 120;
+
+/** Курс: чанд дарси аввал ройгон аст (дизайн: 2). Ниг. `lessonIsFree`. */
+export const FREE_COURSE_PREVIEW_LESSONS = 2;
+
+/** Оё ин воҳид пешнамоиши АУДИО дошта метавонад (қисмҳо бо файл)? */
+export function canPreviewAudio(item: { type: string }): boolean {
+  return item.type === 'audio';
+}
+
+/** Оё ин воҳид пешнамоиши ДАРСӢ дошта метавонад (курс)? */
+export function canPreviewLessons(item: { type: string }): boolean {
+  return item.type === 'course';
+}
+
+/**
+ * Дарси `index` (аз 0, тартиби умумӣ) ройгон аст?
+ * Ду дарси аввал ё он чи админ `isFreePreview` гузоштааст.
+ */
+export function lessonIsFree(
+  index: number,
+  lesson: { isFreePreview?: boolean | null },
+): boolean {
+  return index < FREE_COURSE_PREVIEW_LESSONS || lesson.isFreePreview === true;
+}
+
 /** The subset of LibraryItem fields the access rule needs. */
 export type AccessItem = {
   id: string;

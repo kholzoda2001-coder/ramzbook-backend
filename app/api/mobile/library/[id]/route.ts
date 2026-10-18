@@ -3,8 +3,13 @@ import { prisma } from '@/lib/prisma';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { checkAndUpdatePremium } from '@/lib/premium';
 import {
+  FREE_AUDIO_PREVIEW_SECONDS,
+  FREE_COURSE_PREVIEW_LESSONS,
   FREE_PREVIEW_PAGES,
+  canPreviewAudio,
+  canPreviewLessons,
   canPreviewPages,
+  lessonIsFree,
   unlockedIds,
 } from '@/lib/libraryAccess';
 import { ownedItemIds } from '@/lib/entitlements';
@@ -46,7 +51,29 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
       include: {
         pages: {
           orderBy: { order: 'asc' },
-          select: { id: true, order: true, title: true, content: true, imageUrl: true },
+          select: {
+            id: true,
+            order: true,
+            title: true,
+            content: true,
+            imageUrl: true,
+            mediaUrl: true,
+            durationSec: true,
+          },
+        },
+        lessons: {
+          orderBy: { order: 'asc' },
+          select: {
+            id: true,
+            order: true,
+            moduleTitle: true,
+            title: true,
+            kind: true,
+            mediaUrl: true,
+            durationSec: true,
+            content: true,
+            isFreePreview: true,
+          },
         },
       },
     });
@@ -92,6 +119,42 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
         );
       }
 
+      // ── Аудио: 2 дақиқаи аввал ───────────────────────────────────────────
+      // Файлҳо ҷамъиятианд (ниг. libraryShelf: «strict»), пас маҳдудияти 2
+      // дақиқа дар барнома татбиқ мешавад; сервер `previewSeconds`-ро мегӯяд.
+      if (canPreviewAudio(item)) {
+        return NextResponse.json(
+          {
+            ...item,
+            preview: true,
+            previewSeconds: FREE_AUDIO_PREVIEW_SECONDS,
+            totalPages: item.pages.length,
+          },
+          { headers: CORS },
+        );
+      }
+
+      // ── Курс: 2 дарси аввал (+ он чи админ ройгон гузоштааст) ────────────
+      // Дарсҳои баста мазмун ва файл намегиранд, танҳо сарлавҳа/давомнокӣ —
+      // то хонанда сохтори курсро бубинад ва девори харидро дарк кунад.
+      if (canPreviewLessons(item)) {
+        const lessons = item.lessons.map((l, i) =>
+          lessonIsFree(i, l)
+            ? { ...l, locked: false }
+            : { ...l, mediaUrl: null, content: null, locked: true },
+        );
+        return NextResponse.json(
+          {
+            ...item,
+            lessons,
+            preview: true,
+            previewLessons: FREE_COURSE_PREVIEW_LESSONS,
+            totalPages: item.pages.length,
+          },
+          { headers: CORS },
+        );
+      }
+
       return NextResponse.json(
         { error: 'Premium required', locked: true },
         { status: 403, headers: CORS },
@@ -99,7 +162,12 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     }
 
     return NextResponse.json(
-      { ...item, preview: false, totalPages: item.pages.length },
+      {
+        ...item,
+        lessons: item.lessons.map((l) => ({ ...l, locked: false })),
+        preview: false,
+        totalPages: item.pages.length,
+      },
       { headers: CORS },
     );
   } catch (error) {
