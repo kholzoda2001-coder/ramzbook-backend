@@ -4,6 +4,11 @@ import { requireUserId, unauthorized } from '@/lib/auth';
 import { checkAndUpdatePremium } from '@/lib/premium';
 import { unlockedIds } from '@/lib/libraryAccess';
 import { ownedItemIds } from '@/lib/entitlements';
+import {
+  LIBRARY_API_HEADER,
+  buildShelfItem,
+  resolveShelfMediaMode,
+} from '@/lib/libraryShelf';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,7 +25,7 @@ const NEW_FOR_DAYS = 21;
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Headers': `Content-Type, Authorization, ${LIBRARY_API_HEADER}`,
 };
 
 export async function OPTIONS() {
@@ -104,22 +109,25 @@ export async function GET(req: NextRequest) {
     const open = unlockedIds(items, isPremium, owned);
     const newCutoff = Date.now() - NEW_FOR_DAYS * 24 * 60 * 60 * 1000;
 
+    // `mediaUrl`-и воҳиди ҚУЛФШУДА: ниг. lib/libraryShelf.ts. Барномаи
+    // ҳозира онро барои пешнамоиш истифода мебарад, пас пешфарз `legacy`
+    // аст; клиенти нав `?media=gated` ё `x-ramz-library-api: 2` мефиристад.
+    const mode = resolveShelfMediaMode({
+      query: sp.get('media'),
+      header: req.headers.get(LIBRARY_API_HEADER),
+      env: process.env.LIBRARY_STRIP_LOCKED_MEDIA,
+    });
+    const ctx = { open, owned, newCutoff, mode };
+
     return NextResponse.json(
       {
         isPremium,
-        items: items.map(({ _count, order, createdAt, ...it }) => ({
-          ...it,
-          pageCount: _count.pages,
-          isNew: createdAt.getTime() >= newCutoff,
-          // The ONE field the app gates on. Derived server-side so the client
-          // cannot decide for itself that a book is open.
-          locked: !open.has(it.id),
-          // ЧАРО кушода аст. Бе ин барнома ҷавоб дода наметавонад: воҳиди
-          // ХАРИДА ва воҳиди РОЙГОН ҳарду `locked: false` доранд, ва раф
-          // китоби пул додаро зери сарлавҳаи «Барои ҳама кушода» мегузошт —
-          // яъне ба харидор мегуфт, ки хариди ӯ маъно надошт.
-          owned: owned.has(it.id),
-        })),
+        // `locked` — ЯГОНА майдоне, ки барнома аз рӯи он қарор мегирад.
+        // `owned` — ЧАРО кушода аст: бе ин воҳиди ХАРИДА ва РОЙГОН ҳарду
+        // `locked: false` доранд, ва раф китоби пул додаро зери «Барои ҳама
+        // кушода» мегузошт — яъне ба харидор мегуфт, ки хариди ӯ маъно
+        // надошт.
+        items: items.map((row) => buildShelfItem(row, ctx)),
       },
       { headers: CORS },
     );
