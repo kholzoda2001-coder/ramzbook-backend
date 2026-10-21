@@ -1407,6 +1407,13 @@ model LibraryItem {
   /// Он ҳеҷ гоҳ набояд ягона асоси кушодани воҳид бошад: дастрасӣ ТАНҲО аз
   /// `Entitlement` меояд.
   priceTjs      Float?
+  /// Google Play Console: Product ID-и ин воҳид (масалан `library_audio_2001`).
+  ///
+  /// Админ онро баъди сохтани маҳсулот дар Console ворид мекунад. `null` =
+  /// Play ҳанӯз пайваст нест (ҳоло фурӯш дастӣ: тамос ё вебсайт). Ягона аст ва
+  /// баъди сохтан дар Play иваз намешавад. Худи нарх дар Play аст — ин ҷо
+  /// танҳо ID нигоҳ дошта мешавад; [priceTjs] нархи витрина аст.
+  playProductId String?  @unique
   isActive      Boolean  @default(true)
   /// Lower first inside its type.
   order         Int      @default(0)

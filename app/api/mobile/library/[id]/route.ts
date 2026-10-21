@@ -41,10 +41,18 @@ export async function OPTIONS() {
  */
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
+    // МЕҲМОН (бе токен) = корбари РОЙГОН: воҳиди ройгон ва пешнамоиш (саҳифаҳои
+    // аввал) бе логин кушода мешаванд, воҳиди пулакӣ — `403` (мисли корбари
+    // ройгон). Логин танҳо барои харид/обуна лозим аст.
     const userId = requireUserId(req);
-    if (!userId) return unauthorized('Missing or invalid Bearer token.');
+    // ⚠️ Токен ҲАСТ, вале нодуруст/кӯҳна → `401` (барнома онро нав мекунад).
+    // Вагарна корбари воридшуда бо токени кӯҳна ногаҳон «меҳмон» мешуд ва
+    // воҳидҳои харидаи ӯ қулф менамуданд.
+    if (!userId && req.headers.get('authorization')) {
+      return unauthorized('Invalid or expired token.');
+    }
 
-    const isPremium = await checkAndUpdatePremium(userId);
+    const isPremium = userId ? await checkAndUpdatePremium(userId) : false;
 
     const item = await prisma.libraryItem.findFirst({
       where: { id: params.id, isActive: true },
@@ -91,7 +99,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
       select: { id: true, type: true, isPremium: true, order: true, createdAt: true },
     });
 
-    const owned = await ownedItemIds(userId);
+    const owned = userId ? await ownedItemIds(userId) : new Set<string>();
     if (!unlockedIds(shelf, isPremium, owned).has(item.id)) {
       // ── Пешнамоиш: чанд саҳифаи аввал ба ҷои девори холӣ ────────────────
       //

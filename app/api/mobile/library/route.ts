@@ -67,19 +67,30 @@ export async function OPTIONS() {
  */
 export async function GET(req: NextRequest) {
   try {
+    // МЕҲМОН (бе токен) ҳам рафро мебинад: ӯ корбари РОЙГОН аст — бе обуна ва бе
+    // харид. Қисматҳои ройгон (воҳиди ройгон, саҳифаҳои аввал, 2 дақиқаи
+    // аввали аудио) бе логин кушода мешаванд; логин танҳо вақте лозим аст, ки
+    // хонанда мехоҳад харад ё обуна шавад. Токени НОДУРУСТ — `401`, на меҳмон (ниг. поён).
     const userId = requireUserId(req);
-    if (!userId) return unauthorized('Missing or invalid Bearer token.');
+    // ⚠️ Токен ҲАСТ, вале нодуруст/кӯҳна → `401` (барнома онро нав мекунад).
+    // Вагарна корбари воридшуда бо токени кӯҳна ногаҳон «меҳмон» мешуд ва
+    // воҳидҳои харидаи ӯ қулф менамуданд.
+    if (!userId && req.headers.get('authorization')) {
+      return unauthorized('Invalid or expired token.');
+    }
 
-    const isPremium = await checkAndUpdatePremium(userId);
+    const isPremium = userId ? await checkAndUpdatePremium(userId) : false;
 
     const sp = req.nextUrl.searchParams;
     const type = sp.get('type');
     const lang = sp.get('lang');
 
-    const me = await prisma.user.findUnique({
-      where: { id: userId },
-      select: { nativeLang: true },
-    });
+    const me = userId
+      ? await prisma.user.findUnique({
+          where: { id: userId },
+          select: { nativeLang: true },
+        })
+      : null;
     const native = (me?.nativeLang ?? '').trim().toLowerCase();
 
     const items = await prisma.libraryItem.findMany({
@@ -99,13 +110,14 @@ export async function GET(req: NextRequest) {
         coverUrl: true, coverWord: true, coverSubtitle: true,
         level: true, targetLang: true, nativeLang: true, mediaUrl: true,
         durationMin: true, rating: true, isPremium: true, priceTjs: true,
+        playProductId: true,
         order: true, createdAt: true,
         _count: { select: { pages: true } },
       },
     });
 
     // Воҳидҳои ХАРИДАИ ин хонанда — доимӣ, аз обуна мустақил.
-    const owned = await ownedItemIds(userId);
+    const owned = userId ? await ownedItemIds(userId) : new Set<string>();
     const open = unlockedIds(items, isPremium, owned);
     const newCutoff = Date.now() - NEW_FOR_DAYS * 24 * 60 * 60 * 1000;
 

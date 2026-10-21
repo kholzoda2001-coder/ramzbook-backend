@@ -32,6 +32,40 @@ export function normalizeCoverWord(raw: unknown): string | null {
   return s ? s.slice(0, COVER_WORD_MAX) : null;
 }
 
+/**
+ * Google Play Console: Product ID-и ин воҳид.
+ *
+ * Қоидаи Play: бо ҳарфи хурд ё рақам сар мешавад, танҳо `a-z 0-9 _ .`, то 40
+ * ҳарф, ва баъди сохтан ИВАЗ НАМЕШАВАД. Пас ин ҷо ҳамон қоида санҷида мешавад —
+ * ID-и нодуруст дар Console намеояд ва вақти фурӯш ошкор мешавад.
+ *
+ * Холӣ = «Play ҳанӯз пайваст нест» (`null`).
+ */
+export const PLAY_PRODUCT_ID_MAX = 40;
+const PLAY_PRODUCT_ID_RE = /^[a-z0-9][a-z0-9_.]*$/;
+
+export type PlayProductIdResult =
+  | { ok: true; value: string | null }
+  | { ok: false; error: string };
+
+export function normalizePlayProductId(raw: unknown): PlayProductIdResult {
+  const s = (raw ?? '').toString().trim();
+  if (!s) return { ok: true, value: null };
+  // Ҳарфи калон ба ҳарфи хурд намеравад: ID-и Console ҳассос аст ва
+  // «хомӯшона ислоҳ кардан» ID-ро аз он, ки дар Console сохтаанд, ҷудо мекард.
+  if (s.length > PLAY_PRODUCT_ID_MAX) {
+    return { ok: false, error: `ID то ${PLAY_PRODUCT_ID_MAX} ҳарф бошад` };
+  }
+  if (!PLAY_PRODUCT_ID_RE.test(s)) {
+    return {
+      ok: false,
+      error:
+        'ID танҳо ҳарфи хурди лотинӣ, рақам, «_» ва «.» дорад ва бо ҳарф ё рақам сар мешавад',
+    };
+  }
+  return { ok: true, value: s };
+}
+
 /** Shapes free-form admin input into valid page rows (drops empty ones). */
 export function normalizePages(pages: unknown): Required<PageInput>[] {
   if (!Array.isArray(pages)) return [];

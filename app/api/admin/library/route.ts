@@ -14,6 +14,7 @@ import {
   COVER_WORD_MAX,
   normalizeCoverWord,
   normalizePages,
+  normalizePlayProductId,
   type PageInput,
 } from '@/lib/library/shared';
 
@@ -44,6 +45,8 @@ export async function POST(req: NextRequest) {
 
     const type: string = ITEM_TYPES.includes(b.type) ? b.type : 'book';
     const pages = normalizePages(b.pages);
+    const play = normalizePlayProductId(b.playProductId);
+    if (!play.ok) return Response.json({ error: play.error }, { status: 400 });
 
     const created = await prisma.libraryItem.create({
       data: {
@@ -64,6 +67,7 @@ export async function POST(req: NextRequest) {
         isPremium: !!b.isPremium,
         priceTjs: b.priceTjs != null && b.priceTjs !== ''
           ? Math.max(0, Number(b.priceTjs) || 0) : null,
+        playProductId: play.value,
         isActive: b.isActive === undefined ? true : !!b.isActive,
         order: Math.floor(Number(b.order) || 0),
         ...(pages.length ? { pages: { create: pages } } : {}),
@@ -74,6 +78,9 @@ export async function POST(req: NextRequest) {
     const { _count, ...item } = created;
     return Response.json({ item: { ...item, pageCount: _count.pages } });
   } catch (e) {
+    if ((e as { code?: string })?.code === 'P2002') {
+      return Response.json({ error: 'Ин Product ID аллакай ба воҳиди дигар дода шудааст' }, { status: 409 });
+    }
     console.error('[admin/library POST]', e);
     return Response.json({ error: 'Failed to create item' }, { status: 500 });
   }

@@ -5,7 +5,7 @@
 
 import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { ITEM_TYPES, normalizeCoverWord, normalizePages } from '@/lib/library/shared';
+import { ITEM_TYPES, normalizeCoverWord, normalizePages, normalizePlayProductId } from '@/lib/library/shared';
 
 export const dynamic = 'force-dynamic';
 
@@ -62,6 +62,11 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
       data.priceTjs = b.priceTjs == null || b.priceTjs === ''
         ? null : Math.max(0, Number(b.priceTjs) || 0);
     }
+    if (b.playProductId !== undefined) {
+      const play = normalizePlayProductId(b.playProductId);
+      if (!play.ok) return Response.json({ error: play.error }, { status: 400 });
+      data.playProductId = play.value;
+    }
     if (b.isActive !== undefined) data.isActive = !!b.isActive;
     if (b.order !== undefined) data.order = Math.floor(Number(b.order) || 0);
 
@@ -86,6 +91,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     return Response.json({ item });
   } catch (e) {
+    if ((e as { code?: string })?.code === 'P2002') {
+      return Response.json({ error: 'Ин Product ID аллакай ба воҳиди дигар дода шудааст' }, { status: 409 });
+    }
     console.error('[admin/library/[id] PUT]', e);
     return Response.json({ error: 'Failed to update item' }, { status: 500 });
   }

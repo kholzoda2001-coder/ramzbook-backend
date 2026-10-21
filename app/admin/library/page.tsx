@@ -161,6 +161,8 @@ interface Item {
   isPremium: boolean;
   /// Нархи ТОҚА (сомонӣ). `null` = алоҳида фурӯхта намешавад.
   priceTjs: number | null;
+  /// Google Play Console: Product ID. `null` = Play ҳанӯз пайваст нест.
+  playProductId: string | null;
   isActive: boolean;
   order: number;
   pageCount?: number;
@@ -171,7 +173,7 @@ const EMPTY: Item = {
   id: '', type: 'book', title: '', author: '', description: '', coverUrl: '',
   coverWord: '', coverSubtitle: '',
   level: '', targetLang: 'en', nativeLang: '', mediaUrl: '', durationMin: null, rating: null,
-  isPremium: false, priceTjs: null, isActive: true, order: 0, pages: [],
+  isPremium: false, priceTjs: null, playProductId: '', isActive: true, order: 0, pages: [],
 };
 
 export default function AdminLibraryPage() {
@@ -233,7 +235,7 @@ export default function AdminLibraryPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       const it = data.item as Item;
-      setEditing({ ...it, author: it.author ?? '', description: it.description ?? '', coverUrl: it.coverUrl ?? '', coverWord: it.coverWord ?? '', coverSubtitle: it.coverSubtitle ?? '', level: it.level ?? '', targetLang: it.targetLang ?? '', nativeLang: it.nativeLang ?? '', mediaUrl: it.mediaUrl ?? '' });
+      setEditing({ ...it, author: it.author ?? '', description: it.description ?? '', coverUrl: it.coverUrl ?? '', coverWord: it.coverWord ?? '', coverSubtitle: it.coverSubtitle ?? '', level: it.level ?? '', targetLang: it.targetLang ?? '', nativeLang: it.nativeLang ?? '', mediaUrl: it.mediaUrl ?? '', playProductId: it.playProductId ?? '' });
       setPages((it.pages ?? []).map((p, i) => ({
         order: p.order ?? i, title: p.title ?? '', content: p.content ?? '', imageUrl: p.imageUrl ?? '',
       })));
@@ -731,6 +733,20 @@ export default function AdminLibraryPage() {
                 <input type="number" step="0.1" min={0} max={5} value={editing.rating ?? ''} onChange={(e) => setEditing({ ...editing, rating: e.target.value === '' ? null : Number(e.target.value) })} className="w-20 bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-2 py-1.5 text-sm text-[var(--text-primary)]" />
               </div>
             </div>
+
+            {/* ── Google Play: хариди воҳид ─────────────────────────────────
+                Нарх ва Product ID. Нарх дар барнома аз «Нархи тоқа» меояд;
+                Product ID-ро баъди сохтани маҳсулот дар Play Console ворид
+                мекунед. ID иваз намешавад — Play онро баъди сохтан намегардонад. */}
+            <PlayProductPanel
+              type={editing.type}
+              id={editing.id}
+              priceTjs={editing.priceTjs}
+              value={editing.playProductId ?? ''}
+              onChange={(v) => setEditing({ ...editing, playProductId: v })}
+              inputClass={input}
+              labelClass={label}
+            />
           </div>
 
           {/* Pages */}
@@ -829,6 +845,16 @@ export default function AdminLibraryPage() {
                   <Icon size={14} className={t.color} />
                   <p className="text-sm font-semibold text-[var(--text-primary)] truncate">{it.title}</p>
                   {it.isPremium && <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-600">PREMIUM</span>}
+                  {(it.priceTjs ?? 0) > 0 && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--bg-surface)] border border-[var(--bg-border)] text-[var(--text-primary)]">
+                      {it.priceTjs} смн
+                    </span>
+                  )}
+                  {it.playProductId ? (
+                    <span title={it.playProductId} className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700">PLAY ✓</span>
+                  ) : (it.priceTjs ?? 0) > 0 ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-700">PLAY: ID НЕСТ</span>
+                  ) : null}
                 </div>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">
                   {[t.label, it.author, it.level, it.targetLang,
@@ -855,6 +881,105 @@ export default function AdminLibraryPage() {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+/** Ҳамон қоидаи сервер (`normalizePlayProductId`): то 40, `a-z 0-9 _ .`. */
+const PLAY_ID_RE = /^[a-z0-9][a-z0-9_.]{0,39}$/;
+
+/**
+ * Ҷараёни пурраи «хариди воҳид тавассути Google Play» барои як воҳид.
+ *
+ * Ҳолат (ранг) нишон медиҳад, ки воҳид дар кадом қадам аст:
+ *   нарх нест → нарх ҳаст → Product ID ҳаст (омода ба Play).
+ * Ҳоло дар барнома харид дастӣ аст (тамос / вебсайт); Product ID барои вақте
+ * нигоҳ дошта мешавад, ки Play Billing насб шавад.
+ */
+function PlayProductPanel({
+  type, id, priceTjs, value, onChange, inputClass, labelClass,
+}: {
+  type: string;
+  id: string;
+  priceTjs: number | null;
+  value: string;
+  onChange: (v: string) => void;
+  inputClass: string;
+  labelClass: string;
+}) {
+  const v = value.trim();
+  const hasPrice = (priceTjs ?? 0) > 0;
+  const invalid = v !== '' && !PLAY_ID_RE.test(v);
+  // ID-и пешниҳодӣ: `library_<id-и воҳид>`. Дар барнома низ ҳамин шакл номбар
+  // шудааст. Воҳиди нав ҳанӯз id надорад — баъди захира пайдо мешавад.
+  const suggested = id ? `library_${id.toLowerCase()}` : '';
+
+  let tone = 'border-[var(--bg-border)] text-[var(--text-secondary)]';
+  let state = '';
+  if (!hasPrice && !v) {
+    state = '⚪ Нарх нест — воҳид танҳо бо обуна (PRO) кушода мешавад.';
+  } else if (hasPrice && !v) {
+    tone = 'border-amber-400/40 text-amber-700';
+    state = '🟡 Нарх ҳаст, Product ID нест — ҳоло харид дастӣ: корбар бояд тамос гирад ё аз вебсайт харад.';
+  } else if (!hasPrice && v) {
+    tone = 'border-amber-400/40 text-amber-700';
+    state = '🟠 Product ID ҳаст, вале нархи тоқа гузошта нашудааст — «Нархи тоқа»-ро пур кунед.';
+  } else {
+    tone = 'border-emerald-500/40 text-emerald-700';
+    state = '🟢 Омода ба Google Play: нарх ва ID ҳаст. Нархи Console бояд бо нархи боло мувофиқ бошад.';
+  }
+
+  return (
+    <div className="md:col-span-3 rounded-xl border border-[var(--bg-border)] p-4 space-y-3">
+      <div>
+        <p className="text-sm font-semibold text-[var(--text-primary)]">Google Play · хариди воҳид</p>
+        <p className={`mt-1 text-xs rounded-lg border px-3 py-2 ${tone}`}>{state}</p>
+      </div>
+
+      <div>
+        <label className={labelClass}>Product ID (аз Play Console)</label>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            maxLength={40}
+            value={value}
+            onChange={(e) => onChange(e.target.value.trim())}
+            className={`${inputClass} font-mono`}
+            placeholder={suggested || `library_${type}_… · баъди захира ID-и пешниҳодӣ пайдо мешавад`}
+            spellCheck={false}
+            autoCapitalize="none"
+          />
+          {suggested && v !== suggested && (
+            <button
+              type="button"
+              onClick={() => onChange(suggested)}
+              className="shrink-0 px-3 rounded-lg border border-[var(--bg-border)] text-xs font-semibold text-[var(--text-primary)] hover:opacity-70"
+              title="ID-и пешниҳодӣ: library_ + id-и воҳид"
+            >
+              Пешниҳод
+            </button>
+          )}
+        </div>
+        {invalid && (
+          <p className="mt-1 text-xs text-red-500">
+            ID танҳо ҳарфи хурди лотинӣ, рақам, «_» ва «.» дорад, бо ҳарф ё рақам сар мешавад ва то 40 ҳарф аст.
+          </p>
+        )}
+        <p className="mt-1 text-xs text-[var(--text-muted)]">
+          Холӣ = Play пайваст нест. Ин махфӣ нест, танҳо ном аст; калиди махфии сервер дар муҳити сервер меистад,
+          на дар ин ҷо.
+        </p>
+      </div>
+
+      <ol className="list-decimal pl-5 space-y-1 text-xs text-[var(--text-secondary)]">
+        <li>Дар боло <b>«Нархи тоқа, смн»</b>-ро гузоред — барнома ҳамин нархро нишон медиҳад.</li>
+        <li>
+          Play Console → <b>Монетизатсия → Маҳсулот → Харидҳои яккарата</b> → маҳсулоти нав. ID-и он бояд
+          дақиқан ҳамон ID-и боло бошад (баъди сохтан иваз намешавад). Нарх ва ҳолати «Фаъол»-ро дар Console гузоред.
+        </li>
+        <li>Ҳамин ID-ро дар майдони боло гузоред ва <b>захира</b> кунед.</li>
+        <li>Дар версияи оянда, вақте Play Billing дар барнома насб шавад, нарх аз Play гирифта мешавад ва харид бо як зарба мегузарад.</li>
+      </ol>
     </div>
   );
 }
