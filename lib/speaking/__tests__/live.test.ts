@@ -244,7 +244,7 @@ describe('limits', () => {
   });
 });
 
-// ── Лимитҳои дақиқа: ройгон 5 дақиқа дар умр; Premium 60/30 рӯз + 10/24 соат ──
+// ── Лимитҳои дақиқа: ройгон 9 дақиқа дар умр + 3/рӯз; Premium 100/30 рӯз + 10/рӯз ──
 const T0 = Date.UTC(2026, 8, 30, 12, 0, 0);
 const at = (msAgo: number) => new Date(T0 - msAgo);
 /** Суҳбати тамомшуда: [sec] сония гап зад, [agoMs] пеш оғоз шуд. */
@@ -269,33 +269,53 @@ describe('usedSeconds', () => {
   });
 });
 
-describe('grantFor — ройгон: 5 дақиқа дар ТАМОМИ умр', () => {
-  it('корбари нав — 300 сония', () => {
-    expect(grantFor(freeLimits, [], T0)).toEqual({ ok: true, seconds: 300 });
+describe('grantFor — ройгон: 9 дақиқа дар ТАМОМИ умр, на бештар аз 3 дақиқа дар рӯз', () => {
+  it('корбари нав — рӯзи аввал 3 дақиқа (180 сония)', () => {
+    expect(grantFor(freeLimits, [], T0)).toEqual({ ok: true, seconds: 180 });
+  });
+  it('имрӯз 3 дақиқа гап зад → day (фардо биёед), на free_used', () => {
+    expect(grantFor(freeLimits, [done(180, 3600_000, 180)], T0)).toEqual({ ok: false, reason: 'day' });
+  });
+  it('3 рӯз × 3 дақиқа: рӯзи 2 ва 3 боз 180 сония; баъд free_used', () => {
+    const d1 = done(180, 2 * DAY_MS, 180);
+    expect(grantFor(freeLimits, [d1], T0)).toEqual({ ok: true, seconds: 180 });
+    const d2 = done(180, DAY_MS + 3600_000, 180);
+    expect(grantFor(freeLimits, [d1, d2], T0)).toEqual({ ok: true, seconds: 180 });
+    const d3 = done(180, 3 * DAY_MS, 180);
+    // 3 × 3 = 9 дақиқа ҷамъ шуд → ройгон тамом, ҳатто дар рӯзи нав.
+    expect(grantFor(freeLimits, [d1, d2, d3], T0)).toEqual({ ok: false, reason: 'free_used' });
   });
   it('дақиқаҳо ҷамъ мешаванд, бе вобастагӣ ба вақт (ҳатто 1 сол пеш)', () => {
-    const rows = [done(100, 365 * DAY_MS, 300), done(120, 40 * DAY_MS, 300)];
-    expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: true, seconds: 80 });
+    // 100 + 120 сония пеш сарф шуд → ҳамагӣ 220 аз 540; ҳадди имрӯз 180.
+    const rows = [done(100, 365 * DAY_MS, 180), done(120, 40 * DAY_MS, 180)];
+    expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: true, seconds: 180 });
   });
-  it('5 дақиқа тамом → free_used', () => {
-    expect(grantFor(freeLimits, [done(300, 10 * DAY_MS, 300)], T0)).toEqual({ ok: false, reason: 'free_used' });
+  it('умр наздик ба тамом: 8 дақиқа сарф шуд → ҳамагӣ 60 сония монд', () => {
+    const rows = [done(180, 4 * DAY_MS, 180), done(180, 3 * DAY_MS, 180), done(120, 2 * DAY_MS, 180)];
+    expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: true, seconds: 60 });
   });
   it('аз ҳадди ақалл (60 с) камтар монд → free_used', () => {
-    expect(grantFor(freeLimits, [done(300 - (MIN_GRANT_SECONDS - 1), 1000, 300)], T0)).toEqual({
-      ok: false,
-      reason: 'free_used',
-    });
+    const rows = [done(180, 4 * DAY_MS, 180), done(180, 3 * DAY_MS, 180), done(121, 2 * DAY_MS, 180)];
+    expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: false, reason: 'free_used' });
+  });
+  it('рӯз — тақвимӣ (Душанбе): суҳбати дирӯз ҳадди имрӯзро намехӯрад', () => {
+    const midnight = dayStart(T0);
+    const now = midnight + 20 * 60_000; // 00:20
+    const late = { liveGrantSeconds: 180, turns: 3, startedAt: new Date(midnight - 10 * 60_000), completedAt: new Date(midnight - 7 * 60_000) };
+    const early = { liveGrantSeconds: 180, turns: 3, startedAt: new Date(midnight + 5 * 60_000), completedAt: new Date(midnight + 8 * 60_000) };
+    expect(grantFor(freeLimits, [late], now)).toEqual({ ok: true, seconds: 180 });
+    expect(grantFor(freeLimits, [early], now)).toEqual({ ok: false, reason: 'day' });
   });
   it('суҳбати бе гап ё чати кӯҳна дақиқаи ройгонро намехӯрад', () => {
     const rows: LiveUsageRow[] = [
-      { liveGrantSeconds: 300, turns: 0, startedAt: at(1000), completedAt: null },
+      { liveGrantSeconds: 180, turns: 0, startedAt: at(1000), completedAt: null },
       { liveGrantSeconds: 0, turns: 9, startedAt: at(1000), completedAt: at(0) },
     ];
-    expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: true, seconds: 300 });
+    expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: true, seconds: 180 });
   });
 });
 
-describe('grantFor — Premium: 60 дақиқа/30 рӯз ва 10 дақиқа/рӯз (аз 00:00 Душанбе)', () => {
+describe('grantFor — Premium: 100 дақиқа/30 рӯз ва 10 дақиқа/рӯз (аз 00:00 Душанбе)', () => {
   it('корбари нав — 10 дақиқа (ҳадди рӯз)', () => {
     expect(grantFor(premiumLimits, [], T0)).toEqual({ ok: true, seconds: 600 });
   });
@@ -315,16 +335,15 @@ describe('grantFor — Premium: 60 дақиқа/30 рӯз ва 10 дақиқа/�
     expect(grantFor(premiumLimits, [early], now)).toEqual({ ok: false, reason: 'day' });
     expect(dayStart(T0 + 1)).toBe(midnight);
   });
-  it('ҳадди моҳ: 55 дақиқа дар 30 рӯз → 5 дақиқа мондааст (на 10)', () => {
-    // 5 × 10 дақиқа + 5 дақиқа = 55 дақиқа → аз 60 ҳамагӣ 5 дақиқа мондааст.
-    const rows = [done(600, 2 * DAY_MS), done(600, 5 * DAY_MS), done(600, 9 * DAY_MS), done(600, 12 * DAY_MS),
-      done(600, 15 * DAY_MS), done(300, 20 * DAY_MS)];
+  it('ҳадди моҳ: 95 дақиқа дар 30 рӯз → 5 дақиқа мондааст (на 10)', () => {
+    // 9 × 10 дақиқа + 5 дақиқа = 95 дақиқа → аз 100 ҳамагӣ 5 дақиқа мондааст.
+    const rows = [2, 5, 8, 11, 14, 17, 20, 23, 26].map((d) => done(600, d * DAY_MS)).concat(done(300, 28 * DAY_MS));
     expect(grantFor(premiumLimits, rows, T0)).toEqual({ ok: true, seconds: 300 });
   });
-  it('60 дақиқа тамом → month; суҳбати 31 рӯз пеш ҳисоб намешавад', () => {
-    const six = Array.from({ length: 6 }, (_, k) => done(600, (k + 2) * 3 * DAY_MS));
-    expect(grantFor(premiumLimits, six, T0)).toEqual({ ok: false, reason: 'month' });
-    const old = [...six.slice(0, 5), done(600, MONTH_MS + DAY_MS)];
+  it('100 дақиқа тамом → month; суҳбати 31 рӯз пеш ҳисоб намешавад', () => {
+    const ten = Array.from({ length: 10 }, (_, k) => done(600, (k + 2) * 2.5 * DAY_MS));
+    expect(grantFor(premiumLimits, ten, T0)).toEqual({ ok: false, reason: 'month' });
+    const old = [...ten.slice(0, 9), done(600, MONTH_MS + DAY_MS)];
     expect(grantFor(premiumLimits, old, T0)).toEqual({ ok: true, seconds: 600 });
   });
 });

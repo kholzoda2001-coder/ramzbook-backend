@@ -73,14 +73,17 @@ export const OUTPUT_SAMPLE_RATE = 24000;
  * Минутные лимиты «Сӯҳбат бо AI» (Gemini Live) — қарори соҳиби маҳсулот 30.09.2026.
  * Танҳо ба ҳамин бахш дахл дорад; суҳбати кӯҳна ва дигар бахшҳо тағйир наёфтанд.
  *
- *   Ройгон:  5 дақиқа дар ТАМОМИ умр (як бор).
- *   Premium: 60 дақиқа дар 30 рӯзи охир ва 10 дақиқа дар як рӯз (аз 00:00 бо вақти Душанбе).
+ *   Ройгон:  9 дақиқа дар ТАМОМИ умр, ва на бештар аз 3 дақиқа дар як рӯз —
+ *            яъне 3 рӯз × 3 дақиқа (22.10.2026; пештар 5 дақиқа якбора).
+ *   Premium: 100 дақиқа дар 30 рӯзи охир ва 10 дақиқа дар як рӯз (аз 00:00 бо вақти Душанбе).
+ *            (22.10.2026: ҳадди моҳона 60 → 100.)
  *
  * Ҳадди ҳар суҳбат = боқимондаи ҳадҳо; Google худаш суҳбатро дар ҳамон лаҳза
  * мебандад (токен мемирад — санҷида шуд), пас клиент онро гузашта наметавонад.
  */
-export const LIVE_FREE_LIFETIME_SECONDS = 5 * 60;
-export const LIVE_PREMIUM_MONTH_SECONDS = 60 * 60;
+export const LIVE_FREE_LIFETIME_SECONDS = 9 * 60;
+export const LIVE_FREE_DAY_SECONDS = 3 * 60;
+export const LIVE_PREMIUM_MONTH_SECONDS = 100 * 60;
 export const LIVE_PREMIUM_DAY_SECONDS = 10 * 60;
 export const MONTH_MS = 30 * 24 * 60 * 60 * 1000;
 export const DAY_MS = 24 * 60 * 60 * 1000;
@@ -361,10 +364,14 @@ export function usedSeconds(r: LiveUsageRow): number {
 }
 
 export type LiveLimits =
-  | { kind: 'free'; lifetimeSeconds: number }
+  | { kind: 'free'; lifetimeSeconds: number; daySeconds: number }
   | { kind: 'premium'; monthSeconds: number; daySeconds: number };
 
-export const freeLimits: LiveLimits = { kind: 'free', lifetimeSeconds: LIVE_FREE_LIFETIME_SECONDS };
+export const freeLimits: LiveLimits = {
+  kind: 'free',
+  lifetimeSeconds: LIVE_FREE_LIFETIME_SECONDS,
+  daySeconds: LIVE_FREE_DAY_SECONDS,
+};
 export const premiumLimits: LiveLimits = {
   kind: 'premium',
   monthSeconds: LIVE_PREMIUM_MONTH_SECONDS,
@@ -385,10 +392,13 @@ export function grantFor(limits: LiveLimits, rows: LiveUsageRow[], now: number):
     rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r) : n), 0);
 
   if (limits.kind === 'free') {
-    const left = limits.lifetimeSeconds - used(0);
-    return left >= MIN_GRANT_SECONDS
-      ? { ok: true, seconds: Math.min(left, limits.lifetimeSeconds) }
-      : { ok: false, reason: 'free_used' };
+    // Умр: 9 дақиқа тамом шуд → Premium. Рӯз: 3 дақиқа тамом шуд → фардо
+    // (ҳамон `day`, ки Premium дорад). Аввал умр: «ройгон тамом» дақиқтар аст.
+    const lifeLeft = limits.lifetimeSeconds - used(0);
+    if (lifeLeft < MIN_GRANT_SECONDS) return { ok: false, reason: 'free_used' };
+    const dayLeft = limits.daySeconds - used(dayStart(now));
+    if (dayLeft < MIN_GRANT_SECONDS) return { ok: false, reason: 'day' };
+    return { ok: true, seconds: Math.min(lifeLeft, dayLeft) };
   }
   const monthLeft = limits.monthSeconds - used(now - MONTH_MS);
   const dayLeft = limits.daySeconds - used(dayStart(now));

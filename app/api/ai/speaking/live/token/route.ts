@@ -38,8 +38,8 @@ export const dynamic = 'force-dynamic';
  *       The app then opens the OLD chat (`/api/ai/speaking/chat`) unchanged.
  *   Live ON → 200 { enabled: true, token, url, model, inputSampleRate,
  *       outputSampleRate, expiresAt, maxTurns, sessionSeconds, signals }
- *   403 { code: 'live_free_used' } — 5 free minutes (whole lifetime) used.
- *   429 { code: 'live_day' | 'live_month' } — Premium: 10 min/day or 60 min/30 d used
+ *   403 { code: 'live_free_used' } — 9 free minutes (whole lifetime) used.
+ *   429 { code: 'live_day' | 'live_month' } — free: 3 min/day used; Premium: 10 min/day or 100 min/30 d used
  *       (or too many conversations started today).
  *   410 { reason: 'expired' } — this conversation's time is over.
  *   502 { reason: 'ai' }    — Google refused to mint a token.
