@@ -24,23 +24,31 @@ export const SPEECH_ENGINE_KEY = 'speech_engine';
 
 export type AzureMode = 'auto' | 'on' | 'off';
 
+/**
+ * ⚠️ 22.10.2026: пешфарз `off` (пештар `auto`). Azure ~200$ гирифт ва фоидаи дилхоҳ
+ * надод; гуфтор акнун бо Deepgram + телефон кор мекунад. Бе сабт дар база Azure
+ * ПУРСИДА НАМЕШАВАД, пас ҳатто агар ҳисоби Azure боз пардохт шавад, пул нарасад.
+ * Баргардонидан: `node prisma/_speech-engine.mjs auto` (ё `{"azure":"auto"}` дар AppSetting).
+ */
+export const DEFAULT_AZURE_MODE: AzureMode = 'off';
+
 export function parseAzureMode(valueJson: string | null | undefined): AzureMode {
-  if (!valueJson) return 'auto';
+  if (!valueJson) return DEFAULT_AZURE_MODE;
   try {
     const v = (JSON.parse(valueJson) as { azure?: unknown }).azure;
-    return v === 'off' || v === 'on' ? v : 'auto';
+    return v === 'off' || v === 'on' || v === 'auto' ? v : DEFAULT_AZURE_MODE;
   } catch {
-    return 'auto';
+    return DEFAULT_AZURE_MODE;
   }
 }
 
-/** Хатои база набояд гуфторро бикушад — дар шубҳа `auto`. */
+/** Хатои база набояд гуфторро бикушад — дар шубҳа Azure хомӯш (пул нарасад). */
 export async function loadAzureMode(prisma: PrismaClient): Promise<AzureMode> {
   try {
     const row = await prisma.appSetting.findUnique({ where: { key: SPEECH_ENGINE_KEY } });
     return parseAzureMode(row?.valueJson);
   } catch {
-    return 'auto';
+    return DEFAULT_AZURE_MODE;
   }
 }
 
