@@ -9,6 +9,7 @@ import {
   buildShelfItem,
   resolveShelfMediaMode,
 } from '@/lib/libraryShelf';
+import { resolveNativeFilter } from '@/lib/library/shared';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,7 +34,7 @@ export async function OPTIONS() {
 }
 
 /**
- * GET /api/mobile/library[?type=book&lang=en]
+ * GET /api/mobile/library[?type=book&lang=en&native=tg]
  *
  * Every active library item, newest-ordered within its type. Books/templates
  * carry a page count so the app can show "12 саҳифа" without loading content.
@@ -91,7 +92,7 @@ export async function GET(req: NextRequest) {
           select: { nativeLang: true },
         })
       : null;
-    const native = (me?.nativeLang ?? '').trim().toLowerCase();
+    const native = resolveNativeFilter(sp.get('native'), me?.nativeLang);
 
     const items = await prisma.libraryItem.findMany({
       where: {

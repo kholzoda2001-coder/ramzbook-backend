@@ -81,3 +81,25 @@ export function normalizePages(pages: unknown): Required<PageInput>[] {
     })
     .filter((p) => p.content.trim().length > 0);
 }
+
+/**
+ * Забони модарие, ки рафи Китобхона аз рӯи он филтр мешавад.
+ *
+ * Аввал `?native=<код>`-и барнома (он чизест, ки хонанда ҲОЗИР дар барнома
+ * интихоб кардааст — ҳатто меҳмон, ки ҳисоб надорад, ва корбаре, ки забонро
+ * навакак иваз кардааст), баъд `User.nativeLang`-и ҳисоб. Ҳарду набошанд —
+ * `''` (филтр нест, раф холӣ намешавад).
+ *
+ * Қимати нодуруст (на код) нодида гирифта мешавад, на хато: он ба `where`-и
+ * Prisma меравад ва ҳеҷ гоҳ SQL-и хом нест, вале барои тозагӣ.
+ */
+export function resolveNativeFilter(
+  param: string | null | undefined,
+  account: string | null | undefined,
+): string {
+  const ok = (s: string | null | undefined): string => {
+    const v = (s ?? '').trim().toLowerCase();
+    return /^[a-z]{2,8}(-[a-z0-9]{2,8})?$/.test(v) ? v : '';
+  };
+  return ok(param) || ok(account);
+}
