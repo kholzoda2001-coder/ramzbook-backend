@@ -1861,3 +1861,14 @@ model SpeakingChatMemory {
   facts     String[] @default([])
   updatedAt DateTime @updatedAt
 }
+
+/// Токенҳои муваққатии Deepgram (гуфтори реалтайм), ки ба корбар дар як рӯз дода
+/// шуданд — ҳадди хароҷот: стриминг аз рӯи сонияҳои микрофон пул мегирад (22.10.2026,
+/// сабақ аз Azure). `day` — рӯзи Душанбе, `YYYY-MM-DD`.
+model SpeechGrant {
+  userId String
+  day    String
+  count  Int    @default(0)
+
+  @@id([userId, day])
+}

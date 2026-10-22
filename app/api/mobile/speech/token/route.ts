@@ -2,7 +2,16 @@ import { NextRequest, NextResponse } from 'next/server';
 import { requireUserId, unauthorized } from '@/lib/auth';
 import { isPronunciationConfigured } from '@/lib/ai/pronunciation';
 import { prisma } from '@/lib/prisma';
-import { isAzureAccountDead, loadAzureMode } from '@/lib/speaking/speech-engine';
+import { isAzureAccountDead, loadAzureMode, SPEECH_ENGINE_KEY } from '@/lib/speaking/speech-engine';
+import {
+  DEEPGRAM_LISTEN_URL,
+  DEEPGRAM_MODEL,
+  dailyGrantCap,
+  deepgramLanguage,
+  dushanbeDay,
+  mintDeepgramToken,
+  parseDeepgramMode,
+} from '@/lib/speaking/deepgram';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,6 +51,48 @@ export async function POST(req: NextRequest) {
   try {
     const userId = requireUserId(req);
     if (!userId) return unauthorized('Missing or invalid Bearer token.');
+
+    // ── Deepgram (22.10.2026) ────────────────────────────────────────────────
+    // Барномаи НАВ `providers: ['deepgram', 'azure']` мефиристад. Нусхаи кӯҳна
+    // бе бадан меояд — ба ӯ Deepgram НАМЕДИҲЕМ (ӯ ба Azure сокет мекушояд ва JWT-и
+    // Deepgram-ро намефаҳмад), пас аз роҳи пештараи Azure мегузарад.
+    const body = (await req.json().catch(() => ({}))) as { providers?: unknown; locale?: unknown };
+    const wantsDeepgram =
+      Array.isArray(body.providers) && (body.providers as unknown[]).includes('deepgram');
+    const dgKey = (process.env.DEEPGRAM_API_KEY ?? '').trim();
+    if (wantsDeepgram && dgKey) {
+      const row = await prisma.appSetting
+        .findUnique({ where: { key: SPEECH_ENGINE_KEY } })
+        .catch(() => null);
+      const lang = deepgramLanguage(typeof body.locale === 'string' ? body.locale : undefined);
+      if (parseDeepgramMode(row?.valueJson) !== 'off' && (lang || body.locale === undefined)) {
+        // Ҳадди рӯзона (пул!): беш аз ҳад → 503, барнома то охири ҷаласа ба телефон меравад.
+        const day = dushanbeDay(Date.now());
+        const grant = await prisma.speechGrant.upsert({
+          where: { userId_day: { userId, day } },
+          create: { userId, day, count: 1 },
+          update: { count: { increment: 1 } },
+          select: { count: true },
+        });
+        if (grant.count > dailyGrantCap(process.env.DEEPGRAM_DAILY_GRANTS)) {
+          return NextResponse.json({ error: 'daily-cap' }, { status: 503 });
+        }
+        const minted = await mintDeepgramToken(dgKey);
+        if (minted.ok) {
+          return NextResponse.json({
+            provider: 'deepgram',
+            token: minted.token,
+            url: DEEPGRAM_LISTEN_URL,
+            model: DEEPGRAM_MODEL,
+            expiresIn: minted.expiresIn,
+          });
+        }
+        console.error('[mobile/speech/token] deepgram mint failed', minted.dead ? 'dead' : 'temporary');
+        if (minted.dead) return NextResponse.json({ error: 'deepgram-unavailable' }, { status: 503 });
+        // Хатои муваққатӣ — ба Azure намеафтем (он ҳам хомӯш аст): 502, барнома дубора мекӯшад.
+        return NextResponse.json({ error: 'token-failed' }, { status: 502 });
+      }
+    }
 
     // ⚠️ 503 = «Azure нест, то охири ҷаласа ба муҳаррики телефон гузар»
     // (`RealtimeSpeech.available = false` дар барнома). Ниг. `speech-engine.ts`.
