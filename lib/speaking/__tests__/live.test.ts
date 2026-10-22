@@ -16,6 +16,7 @@ import {
   DAY_MS,
   dayStart,
   freeLimits,
+  liveQuotaFor,
   grantFor,
   languageNote,
   levelRule,
@@ -354,5 +355,41 @@ describe('reconnectSeconds', () => {
     expect(reconnectSeconds(start, 300, T0)).toBe(200);
     expect(reconnectSeconds(start, 300, T0 + 190_000)).toBe(0); // 10 с мондааст < 20
     expect(reconnectSeconds(start, 100, T0)).toBe(0);
+  });
+});
+
+describe('liveQuotaFor — корти «Бо Рамз гап занед»', () => {
+  it('ройгони нав: рӯз 180, умр 540, дастрас 180', () => {
+    expect(liveQuotaFor(freeLimits, [], T0)).toEqual({
+      plan: 'free', dayLimit: 180, dayLeft: 180, totalLimit: 540, totalLeft: 540,
+      totalKind: 'lifetime', availableSeconds: 180, blocked: null,
+    });
+  });
+  it('имрӯз 2 дақиқа гап зад: рӯз 60 монд, дастрас 60', () => {
+    const q = liveQuotaFor(freeLimits, [done(120, 3600_000, 180)], T0);
+    expect(q.dayLeft).toBe(60);
+    expect(q.totalLeft).toBe(420);
+    expect(q.availableSeconds).toBe(60);
+    expect(q.blocked).toBeNull();
+  });
+  it('имрӯз 3 дақиқа тамом → blocked day, умр ҳанӯз бор', () => {
+    const q = liveQuotaFor(freeLimits, [done(180, 3600_000, 180)], T0);
+    expect(q).toMatchObject({ dayLeft: 0, totalLeft: 360, availableSeconds: 0, blocked: 'day' });
+  });
+  it('9 дақиқа тамом → blocked free_used', () => {
+    const rows = [done(180, 4 * DAY_MS, 180), done(180, 3 * DAY_MS, 180), done(180, 2 * DAY_MS, 180)];
+    expect(liveQuotaFor(freeLimits, rows, T0)).toMatchObject({
+      totalLeft: 0, availableSeconds: 0, blocked: 'free_used',
+    });
+  });
+  it('Premium: рӯз 600, моҳ 6000', () => {
+    expect(liveQuotaFor(premiumLimits, [], T0)).toMatchObject({
+      plan: 'premium', dayLimit: 600, dayLeft: 600, totalLimit: 6000, totalLeft: 6000,
+      totalKind: 'month', availableSeconds: 600, blocked: null,
+    });
+  });
+  it('суҳбати бе гап (turns 0) ҳисоб намешавад', () => {
+    const rows: LiveUsageRow[] = [{ liveGrantSeconds: 180, turns: 0, startedAt: at(1000), completedAt: null }];
+    expect(liveQuotaFor(freeLimits, rows, T0).dayLeft).toBe(180);
   });
 });

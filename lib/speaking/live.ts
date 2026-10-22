@@ -410,6 +410,59 @@ export function grantFor(limits: LiveLimits, rows: LiveUsageRow[], now: number):
 }
 
 /**
+ * Боқимондаи дақиқаҳо барои КАРТИ «Бо Рамз гап занед» (22.10.2026). СОФ.
+ *
+ * Пештар корт «Имрӯз 2:00 ройгон»-ро собит менавишт — на ҳадди воқеӣ ва на ҳамон
+ * рақам, ки сервер медиҳад. Акнун корт аз ҳамин ҷо мехонад:
+ *  • `dayLeft` — имрӯз ҳанӯз чанд сония (3 дақиқа ройгон / 10 дақиқа Premium);
+ *  • `totalLeft` — аз умр (ройгон 9 дақиқа) ё аз 30 рӯз (Premium 100 дақиқа);
+ *  • `availableSeconds` — чанд сония ҲОЗИР метавон гуфт (0 агар баста аст);
+ *  • `blocked` — чаро баста: `free_used` (9 дақиқа тамом), `day` (имрӯз тамом), `month`.
+ */
+export type LiveQuota = {
+  plan: 'free' | 'premium';
+  dayLimit: number;
+  dayLeft: number;
+  totalLimit: number;
+  totalLeft: number;
+  totalKind: 'lifetime' | 'month';
+  availableSeconds: number;
+  blocked: null | 'free_used' | 'day' | 'month';
+};
+
+export function liveQuotaFor(limits: LiveLimits, rows: LiveUsageRow[], now: number): LiveQuota {
+  const used = (since: number) =>
+    rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r) : n), 0);
+  const grant = grantFor(limits, rows, now);
+  const blocked = grant.ok ? null : grant.reason;
+  const availableSeconds = grant.ok ? grant.seconds : 0;
+  const clamp = (n: number) => Math.max(0, Math.round(n));
+
+  if (limits.kind === 'free') {
+    return {
+      plan: 'free',
+      dayLimit: limits.daySeconds,
+      dayLeft: clamp(limits.daySeconds - used(dayStart(now))),
+      totalLimit: limits.lifetimeSeconds,
+      totalLeft: clamp(limits.lifetimeSeconds - used(0)),
+      totalKind: 'lifetime',
+      availableSeconds,
+      blocked,
+    };
+  }
+  return {
+    plan: 'premium',
+    dayLimit: limits.daySeconds,
+    dayLeft: clamp(limits.daySeconds - used(dayStart(now))),
+    totalLimit: limits.monthSeconds,
+    totalLeft: clamp(limits.monthSeconds - used(now - MONTH_MS)),
+    totalKind: 'month',
+    availableSeconds,
+    blocked,
+  };
+}
+
+/**
  * Токен барои сессияи МАВҶУД (пайвасти дубора): то охири ҳамон суҳбат.
  * Қимати бозгардонидашуда — сонияҳои боқимонда (0 = гузашт).
  */
