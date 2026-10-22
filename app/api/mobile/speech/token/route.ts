@@ -87,10 +87,11 @@ export async function POST(req: NextRequest) {
             expiresIn: minted.expiresIn,
           });
         }
-        console.error('[mobile/speech/token] deepgram mint failed', minted.dead ? 'dead' : 'temporary');
-        if (minted.dead) return NextResponse.json({ error: 'deepgram-unavailable' }, { status: 503 });
+        console.error('[mobile/speech/token] deepgram mint failed', minted.status, minted.dead ? 'dead' : 'temporary');
+        // `upstream` — танҳо рамзи HTTP-и Deepgram (на сир): 401 = калид нодуруст, 403 = иҷозат кам (Member лозим), 402 = пул.
+        if (minted.dead) return NextResponse.json({ error: 'deepgram-unavailable', upstream: minted.status }, { status: 503 });
         // Хатои муваққатӣ — ба Azure намеафтем (он ҳам хомӯш аст): 502, барнома дубора мекӯшад.
-        return NextResponse.json({ error: 'token-failed' }, { status: 502 });
+        return NextResponse.json({ error: 'token-failed', upstream: minted.status }, { status: 502 });
       }
     }
 

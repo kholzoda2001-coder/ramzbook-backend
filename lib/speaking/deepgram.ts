@@ -65,7 +65,7 @@ export function deepgramLanguage(locale: string | undefined): string | null {
 
 export type MintResult =
   | { ok: true; token: string; expiresIn: number }
-  | { ok: false; dead: boolean };
+  | { ok: false; dead: boolean; status: number };
 
 /**
  * Токени муваққатӣ мебарорад. `dead` — калид/ҳисоб мурда (401/402/403): барнома
@@ -80,10 +80,10 @@ export async function mintDeepgramToken(
     headers: { Authorization: `Token ${apiKey}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ ttl_seconds: DEEPGRAM_TOKEN_TTL_SECONDS }),
   });
-  if (!res.ok) return { ok: false, dead: [401, 402, 403].includes(res.status) };
+  if (!res.ok) return { ok: false, dead: [401, 402, 403].includes(res.status), status: res.status };
   const j = (await res.json().catch(() => ({}))) as { access_token?: unknown; expires_in?: unknown };
   const token = typeof j.access_token === 'string' ? j.access_token : '';
-  if (!token) return { ok: false, dead: false };
+  if (!token) return { ok: false, dead: false, status: res.status };
   const exp = typeof j.expires_in === 'number' ? j.expires_in : DEEPGRAM_TOKEN_TTL_SECONDS;
   return { ok: true, token, expiresIn: exp };
 }

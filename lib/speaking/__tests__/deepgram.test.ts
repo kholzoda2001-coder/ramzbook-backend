@@ -54,12 +54,12 @@ describe('mintDeepgramToken', () => {
   });
   it('401/402/403 → dead', async () => {
     for (const st of [401, 402, 403]) {
-      expect(await mintDeepgramToken('k', fake(st, {}))).toEqual({ ok: false, dead: true });
+      expect(await mintDeepgramToken('k', fake(st, {}))).toMatchObject({ ok: false, dead: true });
     }
   });
   it('5xx ва ҷавоби бе токен → муваққатӣ', async () => {
-    expect(await mintDeepgramToken('k', fake(500, {}))).toEqual({ ok: false, dead: false });
-    expect(await mintDeepgramToken('k', fake(200, {}))).toEqual({ ok: false, dead: false });
+    expect(await mintDeepgramToken('k', fake(500, {}))).toMatchObject({ ok: false, dead: false });
+    expect(await mintDeepgramToken('k', fake(200, {}))).toMatchObject({ ok: false, dead: false });
   });
   it('калид дар сарлавҳа, ttl дар бадан', async () => {
     let seen: { headers?: HeadersInit; body?: BodyInit | null } = {};
