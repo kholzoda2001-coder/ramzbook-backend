@@ -73,18 +73,29 @@ export function inPath(c: OrderableChapter, goal: SpeakingGoal | null): boolean 
  */
 export const GENERAL_THEN = 'life';
 
-/** Дар роҳи `general`: умумӣ (0) пеш аз нишаи идома (1). */
-function generalFirst(c: OrderableChapter, goal: SpeakingGoal | null): number {
-  return goal === 'general' && (c.goals ?? []).length > 0 ? 1 : 0;
+/**
+ * Дар дохили як сатҳ:
+ *  • `general` — умумӣ (0) пеш аз нишаи идома (1): хонанда аз «аз асос» сар мекунад;
+ *  • нишаи касбӣ (`build`, `service`…) — акс: вазъиятҳои ХУДИ ҳамон ниша (0)
+ *    пеш аз умумӣ (1). Хонандае, ки «Сохтмон»-ро интихоб кард, аз сохтмон сар
+ *    мекунад; умумии боқимонда («Бозор», «Иҷораи хона»…) баъди онҳо меояд.
+ *
+ * ⚠️ Қарори соҳиби маҳсулот (22.10.2026): «ҳар категория, ки интихоб шуд,
+ * бояд аз ҳамон сар шавад; умумӣ — салом ва шиносоӣ».
+ */
+function pathTie(c: OrderableChapter, goal: SpeakingGoal | null): number {
+  const isGeneral = (c.goals ?? []).length === 0;
+  if (goal === 'general') return isGeneral ? 0 : 1;
+  return goal === null ? 0 : isGeneral ? 1 : 0;
 }
 
 /**
  * Тартиби бобҳо барои ҲАМИН хонанда.
  *
- *   0 — РОҲИ хонанда: вазъиятҳои ҳадафи ӯ ва умумӣ, БАҲАМ аз рӯи `order`
- *       (Шиносоӣ → Кор ёфтан → Рӯзи аввал → Назди духтур…). Пештар ҳадаф
- *       пеш аз умумӣ меистод ва навомӯз бо «Кор ёфтан» сар мекард, на бо
- *       «Шиносоӣ» — салом ва номро наомӯхта (26.09.2026);
+ *   0 — РОҲИ хонанда: вазъиятҳои ҳадафи ӯ ва умумӣ. Дар ҳар сатҳ: барои
+ *       ҳадафи касбӣ — аввал вазъиятҳои ХУДИ ҳамон ниша, баъд умумӣ (22.10.2026);
+ *       барои `general` — аввал умумӣ (салом ва шиносоӣ), баъд `life`. Дар
+ *       дохили гурӯҳ — аз рӯи `order`;
  *   1 — вазъият барои ҳадафи дигар;
  *   2 — боби кӯҳна.
  *
@@ -105,7 +116,7 @@ export function orderChapters<T extends OrderableChapter>(
       (a, b) =>
         a.r - b.r ||
         levelOf(a.c) - levelOf(b.c) ||
-        generalFirst(a.c, goal) - generalFirst(b.c, goal) ||
+        pathTie(a.c, goal) - pathTie(b.c, goal) ||
         a.c.order - b.c.order ||
         a.i - b.i,
     )

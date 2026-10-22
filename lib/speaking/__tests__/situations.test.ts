@@ -33,29 +33,29 @@ describe('orderChapters', () => {
     situation('site', 1, ['build']),
   ];
 
-  it('роҳ (ҳадаф + умумӣ) БАҲАМ аз рӯи order, баъд нишаҳои дигар, кӯҳна дар охир', () => {
+  it('роҳ: аввал вазъиятҳои ХУДИ ҳадаф, баъд умумӣ, баъд нишаҳои дигар, кӯҳна дар охир', () => {
     expect(orderChapters(chapters, 'build').map((c) => c.id)).toEqual([
       'site',
       'doctor',
       'taxi',
       'old',
     ]);
-    // «Назди духтур» (order 2) пеш аз «Такси» (order 3) — умумӣ ва ҳадаф баҳам.
+    // «Такси» (ҳадафи drive) пеш аз «Назди духтур» (умумӣ), ҳарчанд order-аш баландтар.
     expect(orderChapters(chapters, 'drive').map((c) => c.id)).toEqual([
-      'doctor',
       'taxi',
+      'doctor',
       'site',
       'old',
     ]);
   });
 
-  it('Шиносоӣ (умумӣ, order 1) пеш аз «Кор ёфтан» (ҳадаф, order 2)', () => {
+  it('ҳадафи касбӣ: «Кор ёфтан» ва «Сайт» пеш аз «Шиносоӣ» (умумӣ) — аз ҳамон категория сар мешавад', () => {
     const path = [
       situation('job', 2, ['build', 'drive']),
       situation('meet', 1, []),
       situation('site', 3, ['build']),
     ];
-    expect(orderChapters(path, 'build').map((c) => c.id)).toEqual(['meet', 'job', 'site']);
+    expect(orderChapters(path, 'build').map((c) => c.id)).toEqual(['job', 'site', 'meet']);
   });
 
   it('бе ҳадаф: ҳамаи вазъиятҳо бо `order`', () => {
@@ -125,12 +125,24 @@ describe('дастрасии ройгон', () => {
     expect(Array.from(open).sort()).toEqual(['meet0', 'meet1', 'meet2', 'meet3', 'meet4']);
   });
 
-  it('вазъияти ройгон аз ҳадаф намеҷаҳад — аввалин УМУМӢ, на аввалин дар рӯйхат', () => {
-    // Ҳадафи «сохтмон» бобҳоро дигар тартиб медиҳад; «Шиносоӣ» ройгон мемонад.
-    const open = unlockedSpeakingLessonIds({
-      chapters: [situation('site', 0, ['build']), situation('meet', 1, []), situation('doctor', 2, [])],
-      isPremium: false,
-    });
+  it('ройгон = АВВАЛИН вазъияти роҳи хонанда: барои ҳадафи касбӣ худи ниша, на умумӣ', () => {
+    // 22.10.2026: роҳи «Сохтмон» аз «site» сар мешавад (orderChapters дар
+    // роут), пас ҳамон ройгон аст — хонанда ба пейвол намерасад. Ба access
+    // тартиби ТАЙЁР дода мешавад.
+    const ordered = orderChapters(
+      [situation('meet', 1, []), situation('site', 2, ['build']), situation('doctor', 3, [])],
+      'build',
+    );
+    const open = unlockedSpeakingLessonIds({ chapters: ordered, isPremium: false });
+    expect(Array.from(open).sort()).toEqual(['site0', 'site1', 'site2', 'site3', 'site4']);
+  });
+
+  it('барои «умумӣ» ройгон — «Шиносоӣ» (аввалин умумӣ)', () => {
+    const ordered = orderChapters(
+      [situation('site', 2, ['build']), situation('meet', 1, []), situation('doctor', 3, [])],
+      'general',
+    );
+    const open = unlockedSpeakingLessonIds({ chapters: ordered, isPremium: false });
     expect(Array.from(open).sort()).toEqual(['meet0', 'meet1', 'meet2', 'meet3', 'meet4']);
   });
 
@@ -176,7 +188,7 @@ describe('дастрасии ройгон', () => {
 });
 
 describe('сатҳҳои ниша (27.09.2026)', () => {
-  it('роҳ: ҳамаи сатҳи 1, баъд сатҳи 2 — новобаста аз order', () => {
+  it('роҳ: ҳамаи сатҳи 1, баъд сатҳи 2 — новобаста аз order; дар сатҳ — ҳадаф пеш аз умумӣ', () => {
     const chapters = [
       { ...situation('pay2', 1, ['build']), level: 2 },
       { ...situation('meet', 1, []), level: 1 },
@@ -184,10 +196,10 @@ describe('сатҳҳои ниша (27.09.2026)', () => {
       { ...situation('meet2', 0, []), level: 2 },
     ];
     expect(orderChapters(chapters, 'build').map((c) => c.id)).toEqual([
-      'meet',
       'site',
-      'meet2',
+      'meet',
       'pay2',
+      'meet2',
     ]);
   });
 
