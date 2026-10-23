@@ -115,7 +115,7 @@ export type LeagueRow = {
   isYou: boolean;
 };
 
-type RankedRow = {
+export type RankedRow = {
   id: string;
   name: string;
   avatarUrl: string | null;
@@ -176,7 +176,49 @@ async function rankedRows(
     WHERE r.rk <= ${BOARD_SIZE} OR ABS(r.rk - COALESCE((SELECT rk FROM m), -100)) <= 1
     ORDER BY r.rk`;
 
-  return rows.map((r) => ({ ...r, xp: Number(r.xp), rank: Number(r.rank), total: Number(r.total) }));
+  const ranked = rows.map((r) => ({ ...r, xp: Number(r.xp), rank: Number(r.rank), total: Number(r.total) }));
+  if (scope !== 'week') return ranked;
+
+  // 🔴 23.10.2026: то охири ҳафта ҷадвал ҳамеша 30 нафар бошад. Пештар танҳо
+  // касоне буданд, ки ИН ҳафта XP гирифтанд — душанбе-сешанбе ҳамагӣ 5–15 нафар.
+  // Ҷойҳои холӣ бо хонандагони воқеии ОХИРОН фаъол (0 XP-и ҳафта) пур мешаванд:
+  // онҳоро бо як дарс гузаштан мумкин аст. Худи корбар ин ҷо ворид намешавад —
+  // «ҳанӯз дар ҷадвал нестед» (бе XP) ҳамон тавр мемонад.
+  const missing = BOARD_SIZE - ranked.filter((r) => r.rank <= BOARD_SIZE).length;
+  if (missing <= 0) return ranked;
+  const fill = await prisma.$queryRaw<
+    { id: string; name: string; avatarUrl: string | null; level: string; streak: number }[]
+  >`
+    SELECT u.id, u.name, u."avatarUrl", u.level, u.streak
+    FROM "User" u
+    WHERE u."isActive" = true AND ${real} AND u.id <> ${me}
+      AND NOT EXISTS (
+        SELECT 1 FROM "DailyXp" d
+        WHERE d."userId" = u.id AND d.date >= ${weekKey}::date AND d.date < ${weekEnd}::date AND d.xp > 0
+      )
+    ORDER BY u."lastActiveDate" DESC NULLS LAST, u."totalXp" DESC, u.id
+    LIMIT ${missing}`;
+  return fillBoard(ranked, fill);
+}
+
+/**
+ * Ҷадвали ҳафтаро то [BOARD_SIZE] бо хонандагони 0-XP пур мекунад. СОФ.
+ * Онҳо пас аз ҳамаи XP-дорон меистанд; ҷойи хонандаи берун аз 30 (`rank > 30`)
+ * бетағйир мемонад, пас ҳамсояҳо ва «N дарс то гузаштан» вайрон намешаванд.
+ */
+export function fillBoard(
+  ranked: RankedRow[],
+  fill: { id: string; name: string; avatarUrl: string | null; level: string; streak: number }[],
+): RankedRow[] {
+  const top = ranked.filter((r) => r.rank <= BOARD_SIZE);
+  const rest = ranked.filter((r) => r.rank > BOARD_SIZE);
+  const seen = new Set(ranked.map((r) => r.id));
+  const total = ranked[0]?.total ?? 0;
+  const extra = fill
+    .filter((f) => !seen.has(f.id))
+    .slice(0, BOARD_SIZE - top.length)
+    .map((f, i) => ({ ...f, xp: 0, rank: top.length + i + 1, total }));
+  return [...top, ...extra, ...rest];
 }
 
 function toRow(r: RankedRow, userId: string | null, publicView = false): LeagueRow {
@@ -210,12 +252,15 @@ export async function getLeaguePreviewInfo(
   opts: { publicView?: boolean } = {},
 ): Promise<{ rows: LeagueRow[]; lastWeek: boolean }> {
   const cur = (await rankedRows('week', now, null)).filter((r) => r.rank <= BOARD_SIZE);
-  if (cur.length >= PREVIEW_MIN) return { rows: cur.map((r) => toRow(r, null, opts.publicView)), lastWeek: false };
+  // Танҳо XP-дорон ҳисоб мешаванд — пуркунии 0-XP (`fillBoard`) ҷадвали холии
+  // душанберо «пур» наменамояд.
+  const scored = (rs: RankedRow[]) => rs.filter((r) => r.xp > 0).length;
+  if (scored(cur) >= PREVIEW_MIN) return { rows: cur.map((r) => toRow(r, null, opts.publicView)), lastWeek: false };
   const prevKey = new Date(new Date(`${weekKeyFor(now)}T00:00:00.000Z`).getTime() - 7 * DAY_MS)
     .toISOString()
     .slice(0, 10);
   const prev = (await rankedRows('week', now, null, prevKey)).filter((r) => r.rank <= BOARD_SIZE);
-  if (prev.length > cur.length) return { rows: prev.map((r) => toRow(r, null, opts.publicView)), lastWeek: true };
+  if (scored(prev) > scored(cur)) return { rows: prev.map((r) => toRow(r, null, opts.publicView)), lastWeek: true };
   return { rows: cur.map((r) => toRow(r, null, opts.publicView)), lastWeek: false };
 }
 

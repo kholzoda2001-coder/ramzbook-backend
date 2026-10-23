@@ -2,7 +2,34 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('../prisma', () => ({ prisma: {} }));
 
-import { lessonsForXpGap, secondsUntilWeekEnd, weekEndsAt, weekKeyFor } from '../league';
+import { BOARD_SIZE, fillBoard, lessonsForXpGap, secondsUntilWeekEnd, weekEndsAt, weekKeyFor, type RankedRow } from '../league';
+
+const row = (id: string, xp: number, rank: number, total = 12): RankedRow => ({
+  id, name: id, avatarUrl: null, level: 'A1', streak: 0, xp, rank, total,
+});
+const person = (id: string) => ({ id, name: id, avatarUrl: null, level: 'A1', streak: 0 });
+
+/** 23.10.2026: ҷадвали ҳафта ҳамеша 30 нафар — ҷойҳои холӣ бо 0-XP пур мешаванд. */
+describe('fillBoard', () => {
+  it('12 XP-дор + 0-XP-ҳо → ҳамагӣ 30, ҷойҳо 13…30, XP 0', () => {
+    const ranked = Array.from({ length: 12 }, (_, i) => row(`u${i}`, 500 - i * 10, i + 1));
+    const fill = Array.from({ length: 40 }, (_, i) => person(`z${i}`));
+    const out = fillBoard(ranked, fill);
+    expect(out).toHaveLength(BOARD_SIZE);
+    expect(out.slice(0, 12).map((r) => r.id)).toEqual(ranked.map((r) => r.id));
+    expect(out[12]).toMatchObject({ id: 'z0', rank: 13, xp: 0, total: 12 });
+    expect(out[29]).toMatchObject({ rank: 30, xp: 0 });
+  });
+  it('такрор нест; хонандаи берун аз 30 бетағйир', () => {
+    const ranked = [row('a', 90, 1), row('b', 80, 2), row('me', 5, 47)];
+    const out = fillBoard(ranked, [person('a'), person('c')]);
+    expect(out.map((r) => r.id)).toEqual(['a', 'b', 'c', 'me']);
+    expect(out.find((r) => r.id === 'me')?.rank).toBe(47);
+  });
+  it('корбарони кам — ҳамон қадар, ки ҳаст', () => {
+    expect(fillBoard([row('a', 10, 1)], [person('b')])).toHaveLength(2);
+  });
+});
 
 /** Рейтинги ҳафта (12.10.2026): ҳафта аз ДУШАНБЕ 00:00 UTC (05:00 Душанбе). */
 describe('league week', () => {
