@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
     const now = Date.now();
 
     // ── Сессия ва лимитҳои дақиқа ─────────────────────────────────────────
-    // Лимитҳо (ройгон 5 дақиқа дар умр; Premium 60/30 рӯз ва 10/рӯз) танҳо
+    // Лимитҳо (ройгон 9 дақиқа дар умр ва 3/рӯз; Premium 100/30 рӯз ва 10/рӯз) танҳо
     // ба суҳбатҳои LIVE дахл доранд (`liveGrantSeconds > 0`); чати кӯҳна — не.
     let session = await prisma.speakingChatSession.findUnique({ where: { id: sessionId } });
     if (session && session.userId !== userId) {
@@ -95,6 +95,11 @@ export async function POST(req: NextRequest) {
     }
     let sessionSeconds: number;
     if (session) {
+      // Суҳбати тамомшуда (`/chat/complete`) аз нав кушода намешавад: вақти он аллакай
+      // ҳисоб шуд — пайвасти дубора дақиқаҳоро бе ҳисоб медод (23.10.2026).
+      if (session.completedAt) {
+        return NextResponse.json({ error: 'Session over.', reason: 'expired' }, { status: 410 });
+      }
       // Пайвасти дубораи суҳбати ҷорӣ: то охири ҳамон вақти додашуда, на бештар.
       const grant = session.liveGrantSeconds > 0 ? session.liveGrantSeconds : 5 * 60;
       sessionSeconds = reconnectSeconds(session.startedAt, grant, now);

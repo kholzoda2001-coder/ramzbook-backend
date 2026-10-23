@@ -347,20 +347,33 @@ export type LiveUsageRow = {
 };
 
 /**
+ * Суҳбати бе гап (`turns = 0`), ки аз ин кӯтоҳтар буд, ройгон аст: кушод-баст,
+ * пайваст нашуд, танҳо саломи Рамзро шунид. Дарозтар — ҳисоб мешавад (23.10.2026).
+ */
+export const LIVE_GRACE_SECONDS = 30;
+
+/**
  * Чанд сония аз ҳадд ин суҳбат сарф кард. СОФ.
  *
- *   • суҳбати кӯҳна (grant 0) ё хонанда ҳеҷ гап назад (`turns = 0`) → 0;
+ *   • суҳбати кӯҳна (grant 0) → 0;
  *   • тамомшуда → фосилаи воқеӣ (то ҳадди grant);
- *   • нотамом (барнома кушта шуд) → grant-и пурра — эҳтиёткорона.
+ *   • нотамом (ҳоло меравад ё барнома кушта шуд) → grant-и пурра: вақт «банд» аст,
+ *     то суҳбати дуюми ҳамзамон (дастгоҳи дигар) ҳадро нагузарад;
+ *   • бе гап ва на дарозтар аз [LIVE_GRACE_SECONDS] → 0.
+ *
+ * 🔴 23.10.2026: пештар ҳар суҳбати `turns = 0` → 0, ҳатто 3 дақиқа. `turns`-ро
+ * барнома мефиристад — барномаи тағйирдода (ё транскрипсияи холӣ) дақиқаҳоро бе
+ * ҳисоб мегирифт, ва Google барои ҳар сонияи микрофон пул мегирад.
  *
  * ⚠️ Овоз мустақим ба Google меравад, сервер онро намебинад. Ин ҳисоб бо соати
  * сервер аст (таваққуфи пасманзар ҳам ҳисоб мешавад — ба фоидаи ҳадди арзиш).
  */
-export function usedSeconds(r: LiveUsageRow): number {
-  if (r.liveGrantSeconds <= 0 || r.turns <= 0) return 0;
-  if (!r.completedAt) return r.liveGrantSeconds;
-  const elapsed = Math.round((r.completedAt.getTime() - r.startedAt.getTime()) / 1000);
-  return Math.max(0, Math.min(r.liveGrantSeconds, elapsed));
+export function usedSeconds(r: LiveUsageRow, now: number): number {
+  if (r.liveGrantSeconds <= 0) return 0;
+  const end = r.completedAt ? r.completedAt.getTime() : now;
+  const elapsed = Math.max(0, Math.min(r.liveGrantSeconds, Math.round((end - r.startedAt.getTime()) / 1000)));
+  if (r.turns <= 0 && elapsed <= LIVE_GRACE_SECONDS) return 0;
+  return r.completedAt ? elapsed : r.liveGrantSeconds;
 }
 
 export type LiveLimits =
@@ -389,7 +402,7 @@ export type LiveGrant =
  */
 export function grantFor(limits: LiveLimits, rows: LiveUsageRow[], now: number): LiveGrant {
   const used = (since: number) =>
-    rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r) : n), 0);
+    rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r, now) : n), 0);
 
   if (limits.kind === 'free') {
     // Умр: 9 дақиқа тамом шуд → Premium. Рӯз: 3 дақиқа тамом шуд → фардо
@@ -432,7 +445,7 @@ export type LiveQuota = {
 
 export function liveQuotaFor(limits: LiveLimits, rows: LiveUsageRow[], now: number): LiveQuota {
   const used = (since: number) =>
-    rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r) : n), 0);
+    rows.reduce((n, r) => (r.startedAt.getTime() >= since ? n + usedSeconds(r, now) : n), 0);
   const grant = grantFor(limits, rows, now);
   const blocked = grant.ok ? null : grant.reason;
   const availableSeconds = grant.ok ? grant.seconds : 0;

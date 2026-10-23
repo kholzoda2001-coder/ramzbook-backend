@@ -31,6 +31,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Session not found.' }, { status: 404 });
     }
     if (session.turns === 0) {
+      // Live бе гап (23.10.2026): XP нест, вале вақти воқеӣ сабт мешавад — бе ин
+      // суҳбат «нотамом» мемонд ва grant-и пурра ҳисоб мешуд (ниг. `usedSeconds`).
+      if (session.liveGrantSeconds > 0 && !session.completedAt) {
+        await prisma.speakingChatSession.update({
+          where: { id: sessionId },
+          data: { completedAt: new Date() },
+        });
+      }
       return NextResponse.json({ ok: true, xpEarned: 0 });
     }
 

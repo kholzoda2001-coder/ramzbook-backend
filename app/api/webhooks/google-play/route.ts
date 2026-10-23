@@ -1,13 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getPublisher, PACKAGE_NAME, PRODUCT_PLAN, planPrice, type Plan } from '@/lib/googlePlay';
+import { applyGoogleRenewal } from '@/lib/premium';
 
 export const dynamic = 'force-dynamic';
 
 // Google Play RTDN subscriptionNotification types.
 // https://developer.android.com/google/play/billing/rtdn-reference
-const ACTIVE_EVENTS = [1, 2, 4, 6, 7]; // recovered, renewed, purchased, restarted, price-change-confirmed
-const CANCELLED_EVENTS = [3, 5, 12, 13]; // canceled, on-hold, revoked, expired
+// 1 RECOVERED (аз hold — пул гирифта шуд), 2 RENEWED, 4 PURCHASED, 6 IN_GRACE_PERIOD
+// (дастрасӣ то охири grace боқӣ), 7 RESTARTED.
+const ACTIVE_EVENTS = [1, 2, 4, 6, 7];
+// 3 CANCELED = автотамдид хомӯш шуд, вале пул то мӯҳлат пардохт шудааст.
+// 🔴 23.10.2026: пештар 3 Premium-ро ФАВРАН мегирифт — хонанда рӯзҳои пардохташударо гум мекард.
+const RENEW_OFF_EVENTS = [3];
+const CANCELLED_EVENTS = [5, 12, 13]; // on-hold, revoked, expired
 
 /**
  * POST /api/webhooks/google-play
@@ -28,7 +34,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { purchaseToken, subscriptionId, notificationType } = notification.subscriptionNotification;
-    if (![...ACTIVE_EVENTS, ...CANCELLED_EVENTS].includes(notificationType)) {
+    if (![...ACTIVE_EVENTS, ...RENEW_OFF_EVENTS, ...CANCELLED_EVENTS].includes(notificationType)) {
       return NextResponse.json({ ok: true });
     }
 
@@ -40,6 +46,15 @@ export async function POST(req: NextRequest) {
 
     const userId = subscription.userId;
     const now = new Date();
+
+    if (RENEW_OFF_EVENTS.includes(notificationType)) {
+      // Premium то `premiumExpiresAt` мемонад; `checkAndUpdatePremium` баъд хомӯш мекунад.
+      await prisma.subscription.update({
+        where: { id: subscription.id },
+        data: { autoRenew: false, cancelledAt: now },
+      });
+      return NextResponse.json({ ok: true });
+    }
 
     if (CANCELLED_EVENTS.includes(notificationType)) {
       await prisma.$transaction([
@@ -77,21 +92,16 @@ export async function POST(req: NextRequest) {
     const plan: Plan = PRODUCT_PLAN[subscriptionId] ?? 'monthly';
     const orderId = p.orderId || '';
 
+    // Ҳамон роҳи санҷиши такрорӣ (lib/premium.ts): `premiumPlan` ва дилҳо ҳам бармегарданд —
+    // пештар баъди hold → recovered хонанда Premium буд, вале бо 5 дил.
+    await applyGoogleRenewal({
+      userId,
+      subscriptionId: subscription.id,
+      plan,
+      expiresAt: newExpiry,
+      autoRenew: p.autoRenewing || false,
+    });
     await prisma.$transaction(async (tx) => {
-      await tx.user.update({
-        where: { id: userId },
-        data: {
-          subscriptionTier: 'premium',
-          subscriptionPlan: plan,
-          subscriptionEndsAt: newExpiry,
-          isPremium: true,
-          premiumExpiresAt: newExpiry,
-        },
-      });
-      await tx.subscription.update({
-        where: { id: subscription.id },
-        data: { status: 'active', expiresAt: newExpiry, autoRenew: p.autoRenewing || false },
-      });
       // Renewal audit row (idempotent on the Google order id).
       if (orderId) {
         const existing = await tx.paymentTransaction.findFirst({ where: { externalId: orderId } });

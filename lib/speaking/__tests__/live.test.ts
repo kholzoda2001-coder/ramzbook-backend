@@ -29,6 +29,7 @@ import {
   premiumLimits,
   reconnectSeconds,
   usedSeconds,
+  LIVE_GRACE_SECONDS,
   type LiveUsageRow,
 } from '../live';
 
@@ -257,16 +258,26 @@ const done = (sec: number, agoMs: number, grant = 600): LiveUsageRow => ({
 });
 
 describe('usedSeconds', () => {
-  it('чати кӯҳна (grant 0) ва суҳбати бе гап — 0', () => {
-    expect(usedSeconds({ liveGrantSeconds: 0, turns: 5, startedAt: at(1000), completedAt: at(0) })).toBe(0);
-    expect(usedSeconds({ liveGrantSeconds: 300, turns: 0, startedAt: at(1000), completedAt: null })).toBe(0);
+  it('чати кӯҳна (grant 0) — 0', () => {
+    expect(usedSeconds({ liveGrantSeconds: 0, turns: 5, startedAt: at(1000), completedAt: at(0) }, T0)).toBe(0);
   });
   it('тамомшуда — фосилаи воқеӣ, то ҳадди grant', () => {
-    expect(usedSeconds(done(90, 0))).toBe(90);
-    expect(usedSeconds(done(9999, 0, 300))).toBe(300);
+    expect(usedSeconds(done(90, 0), T0)).toBe(90);
+    expect(usedSeconds(done(9999, 0, 300), T0)).toBe(300);
   });
-  it('нотамом (барнома кушта шуд, вале гап зад) — grant-и пурра', () => {
-    expect(usedSeconds({ liveGrantSeconds: 300, turns: 2, startedAt: at(5000), completedAt: null })).toBe(300);
+  it('нотамом (ҳоло меравад ё барнома кушта шуд) — grant-и пурра (вақт банд аст)', () => {
+    expect(usedSeconds({ liveGrantSeconds: 300, turns: 2, startedAt: at(5000), completedAt: null }, T0)).toBe(300);
+  });
+  it('бе гап, на дарозтар аз 30 с (кушод-баст, пайваст нашуд) — 0', () => {
+    expect(usedSeconds({ liveGrantSeconds: 180, turns: 0, startedAt: at(20_000), completedAt: at(0) }, T0)).toBe(0);
+    expect(usedSeconds({ liveGrantSeconds: 180, turns: 0, startedAt: at(10_000), completedAt: null }, T0)).toBe(0);
+    expect(LIVE_GRACE_SECONDS).toBe(30);
+  });
+  it('🔴 бе гап, вале дароз — ҲИСОБ мешавад (пештар 0 буд: дақиқаҳои бепул)', () => {
+    // 2 дақиқа кушода буд, `turns` наомад (транскрипсия холӣ ё барномаи тағйирдода).
+    expect(usedSeconds({ liveGrantSeconds: 180, turns: 0, startedAt: at(120_000), completedAt: at(0) }, T0)).toBe(120);
+    // Партофта (тамом нашуд) ва 40 с гузашт → grant-и пурра.
+    expect(usedSeconds({ liveGrantSeconds: 180, turns: 0, startedAt: at(40_000), completedAt: null }, T0)).toBe(180);
   });
 });
 
@@ -307,12 +318,23 @@ describe('grantFor — ройгон: 9 дақиқа дар ТАМОМИ умр, 
     expect(grantFor(freeLimits, [late], now)).toEqual({ ok: true, seconds: 180 });
     expect(grantFor(freeLimits, [early], now)).toEqual({ ok: false, reason: 'day' });
   });
-  it('суҳбати бе гап ё чати кӯҳна дақиқаи ройгонро намехӯрад', () => {
+  it('кушод-басти кӯтоҳи бе гап ё чати кӯҳна дақиқаи ройгонро намехӯрад', () => {
     const rows: LiveUsageRow[] = [
-      { liveGrantSeconds: 180, turns: 0, startedAt: at(1000), completedAt: null },
+      { liveGrantSeconds: 180, turns: 0, startedAt: at(15_000), completedAt: at(5_000) },
       { liveGrantSeconds: 0, turns: 9, startedAt: at(1000), completedAt: at(0) },
     ];
     expect(grantFor(freeLimits, rows, T0)).toEqual({ ok: true, seconds: 180 });
+  });
+  it('суҳбати ҷорӣ (дастгоҳи дигар) тамоми вақташро банд мекунад — дуюмаш ҳадро намегузарад', () => {
+    const running: LiveUsageRow = { liveGrantSeconds: 180, turns: 1, startedAt: at(40_000), completedAt: null };
+    expect(grantFor(freeLimits, [running], T0)).toEqual({ ok: false, reason: 'day' });
+  });
+  it('3 суҳбати хомӯши 60-сонияӣ ҳамон 3 дақиқаи рӯзро мехӯранд', () => {
+    const silent = (ago: number): LiveUsageRow => ({
+      liveGrantSeconds: 180, turns: 0, startedAt: at(ago), completedAt: at(ago - 60_000),
+    });
+    expect(grantFor(freeLimits, [silent(600_000), silent(400_000)], T0)).toEqual({ ok: true, seconds: 60 });
+    expect(grantFor(freeLimits, [silent(600_000), silent(400_000), silent(200_000)], T0)).toEqual({ ok: false, reason: 'day' });
   });
 });
 
@@ -388,8 +410,12 @@ describe('liveQuotaFor — корти «Бо Рамз гап занед»', () =
       totalKind: 'month', availableSeconds: 600, blocked: null,
     });
   });
-  it('суҳбати бе гап (turns 0) ҳисоб намешавад', () => {
+  it('кушод-басти кӯтоҳи бе гап (≤30 с) ҳисоб намешавад', () => {
     const rows: LiveUsageRow[] = [{ liveGrantSeconds: 180, turns: 0, startedAt: at(1000), completedAt: null }];
     expect(liveQuotaFor(freeLimits, rows, T0).dayLeft).toBe(180);
+  });
+  it('Premium: 4 дақиқа гап зад → рӯз 6:00, моҳ 96:00, дастрас 360', () => {
+    const q = liveQuotaFor(premiumLimits, [done(240, 3600_000)], T0);
+    expect(q).toMatchObject({ dayLeft: 360, totalLeft: 5760, availableSeconds: 360, blocked: null });
   });
 });
