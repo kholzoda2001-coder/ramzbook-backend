@@ -48,10 +48,20 @@ export async function sendOtpViaZudSms(params: {
   });
 
   const result = (await response.json().catch(() => null)) as
-    | { status?: unknown; msg?: unknown; error?: unknown }
+    | { status?: unknown; msg?: unknown; error?: unknown; code?: unknown }
     | null;
   if (!response.ok) {
-    console.error('[ZudSMS] request failed with HTTP status', response.status);
+    const providerCode = Number(result?.code);
+    console.error('[ZudSMS] request failed with HTTP status and provider code', response.status, providerCode || 'unknown');
+    if (providerCode === 106) {
+      throw new Error('ZudSMS rejected the API signature (code 106). Check the ZudSMS login and Security Hash.');
+    }
+    if (providerCode === 107) {
+      throw new Error('ZudSMS rejected the Sender ID (code 107). Check the approved sender nickname.');
+    }
+    if (providerCode === 105) {
+      throw new Error('ZudSMS reports that the account is inactive (code 105).');
+    }
     throw new Error('SMS provider rejected the request. Check ZudSMS credentials and sender ID.');
   }
 
