@@ -168,15 +168,9 @@ export default function AdminOtpSettingsPage() {
                 className="w-full bg-[var(--bg-surface)] border border-[var(--bg-border)] rounded-lg px-4 py-2.5 text-sm text-[var(--text-primary)] outline-none focus:border-indigo-500"
               >
                 <option value="mock">Mock Delivery</option>
-                <option value="smtp">SMTP / Hostinger</option>
                 <option value="rabbitmq">RabbitMQ Queue</option>
-                <option value="zudsms">ZudSMS (Tajikistan)</option>
+                <option value="smtp">SMTP / Hostinger</option>
               </select>
-              {activePhone === 'zudsms' && (
-                <p className="mt-2 text-xs text-[var(--text-muted)]">
-                  Set ZUDSMS_LOGIN, ZUDSMS_PASS_SALT_HASH, and ZUDSMS_SENDER_ID in the server environment, then redeploy.
-                </p>
-              )}
             </div>
 
             <div>
@@ -189,7 +183,13 @@ export default function AdminOtpSettingsPage() {
                 <option value="mock">Mock Delivery</option>
                 <option value="twilio">Twilio SMS</option>
                 <option value="rabbitmq">RabbitMQ Queue</option>
+                <option value="zudsms">ZudSMS (Tajikistan)</option>
               </select>
+              {activePhone === 'zudsms' && (
+                <p className="mt-2 text-xs text-[var(--text-muted)]">
+                  ZudSMS is configured with the server environment variables.
+                </p>
+              )}
             </div>
           </div>
         </div>
