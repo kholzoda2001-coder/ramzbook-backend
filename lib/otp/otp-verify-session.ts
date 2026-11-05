@@ -26,7 +26,7 @@ export type VerifyOtpSessionResult =
 
 export async function runVerifyOtpSession(
   prisma: PrismaClient,
-  params: { rawIdentifier: string; type: 'email' | 'phone'; code: string },
+  params: { rawIdentifier: string; type: 'email' | 'phone'; code: string; loginOnly?: boolean },
 ): Promise<VerifyOtpSessionResult> {
   const channel: OtpChannel = params.type === 'phone' ? 'phone' : 'email';
   const identifier = normalizeIdentifier(channel, params.rawIdentifier);
@@ -55,6 +55,9 @@ export async function runVerifyOtpSession(
         });
 
   if (!user) {
+    if (params.loginOnly) {
+      return { ok: false, status: 401, error: 'Ҳисоб ёфт нашуд. Рақам ё email-и дигарро санҷед.' };
+    }
     isNewUser = true;
     const passwordHash = await bcrypt.hash(crypto.randomBytes(24).toString('hex'), 10);
     if (channel === 'email') {

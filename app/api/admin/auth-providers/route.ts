@@ -17,7 +17,7 @@ import {
 } from '@/lib/otp/auth-provider-settings';
 
 const ALLOWED_EMAIL: EmailOtpProviderId[] = ['mock', 'smtp', 'rabbitmq'];
-const ALLOWED_PHONE: PhoneOtpProviderId[] = ['mock', 'twilio', 'rabbitmq'];
+const ALLOWED_PHONE: PhoneOtpProviderId[] = ['mock', 'twilio', 'rabbitmq', 'zudsms'];
 
 function assertValidProviderIds(partial: Partial<AuthProvidersConfig>): string | null {
   if (

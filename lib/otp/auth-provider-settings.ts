@@ -20,7 +20,7 @@ const SETTING_KEY = 'auth_providers';
 
 export type EmailOtpProviderId = 'mock' | 'smtp' | 'rabbitmq';
 /** `rabbitmq` = queue/SMS gate (e.g. smsgate.tj worker) using RabbitMqOtpConfig + routingKeyPhone. */
-export type PhoneOtpProviderId = 'mock' | 'twilio' | 'rabbitmq';
+export type PhoneOtpProviderId = 'mock' | 'twilio' | 'rabbitmq' | 'zudsms';
 
 export interface AuthProvidersConfig {
   activeEmailProvider: EmailOtpProviderId;

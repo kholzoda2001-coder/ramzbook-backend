@@ -19,7 +19,7 @@ import { deliverEmailOtp } from '@/lib/providers/email-delivery-router';
 import { deliverPhoneOtp } from '@/lib/providers/phone-delivery-router';
 
 export type SendOtpResult =
-  | { ok: true }
+  | { ok: true; demoCode?: string }
   | { ok: false; status: number; error: string; retryAfterSec?: number };
 
 export async function runSendOtpPipeline(
@@ -46,18 +46,33 @@ export async function runSendOtpPipeline(
     };
   }
 
+  const demoMode = process.env.OTP_DEMO_ENABLED === 'true';
+  const configuredDemoCode = process.env.OTP_DEMO_CODE?.trim();
+  if (demoMode && !/^\d{6}$/.test(configuredDemoCode ?? '')) {
+    return { ok: false, status: 500, error: 'OTP_DEMO_CODE бояд 6 рақам бошад.' };
+  }
+
   await invalidateOpenChallenges(prisma, identifier);
-  const plain = generateOtp();
+  const plain = demoMode ? configuredDemoCode! : generateOtp();
   const otpHash = hashOtp(plain);
   await storeOtpChallenge(prisma, { identifier, channel, otpHash });
 
-  const cfg = await loadAuthProvidersConfig(prisma);
-
-  if (channel === 'email') {
-    await deliverEmailOtp({ cfg, identifier, otp: plain });
-  } else {
-    await deliverPhoneOtp({ cfg, identifier, otp: plain });
+  if (!demoMode) {
+    const cfg = await loadAuthProvidersConfig(prisma);
+    try {
+      if (channel === 'email') {
+        await deliverEmailOtp({ cfg, identifier, otp: plain });
+      } else {
+        await deliverPhoneOtp({ cfg, identifier, otp: plain });
+      }
+    } catch (error) {
+      await invalidateOpenChallenges(prisma, identifier);
+      throw error;
+    }
   }
 
-  return { ok: true };
+  return {
+    ok: true,
+    ...(demoMode || process.env.NODE_ENV === 'development' ? { demoCode: plain } : {}),
+  };
 }

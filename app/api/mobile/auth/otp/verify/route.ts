@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
       identifier?: string;
       code?: string;
       type?: string;
+      loginOnly?: boolean;
     };
     const identifier = (body?.identifier ?? '').trim();
     const code = (body?.code ?? '').trim();
@@ -38,6 +39,7 @@ export async function POST(req: NextRequest) {
       rawIdentifier: identifier,
       type,
       code,
+      loginOnly: body?.loginOnly === true,
     });
 
     if (!result.ok) {

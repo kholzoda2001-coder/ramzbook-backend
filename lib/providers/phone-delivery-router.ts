@@ -7,6 +7,7 @@ import type { OtpChannel } from '@/lib/otp/otp-core';
 import { deliverOtpMock } from '@/lib/providers/mock-otp-delivery';
 import { publishOtpViaRabbitMq } from '@/lib/providers/rabbitmq-adapter';
 import { sendOtpViaTwilio } from '@/lib/providers/twilio-adapter';
+import { sendOtpViaZudSms } from '@/lib/providers/zudsms-adapter';
 
 export async function deliverPhoneOtp(params: {
   cfg: AuthProvidersConfig;
@@ -40,6 +41,11 @@ export async function deliverPhoneOtp(params: {
       identifier: params.identifier,
       otp: params.otp,
     });
+    return;
+  }
+
+  if (id === 'zudsms') {
+    await sendOtpViaZudSms({ toE164: params.identifier, otp: params.otp });
     return;
   }
 

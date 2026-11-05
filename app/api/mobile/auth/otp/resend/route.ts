@@ -37,7 +37,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    return Response.json({ message: 'Код дубора фиристода шуд.' }, { status: 200, headers: CORS });
+    return Response.json(
+      {
+        message: 'Код дубора фиристода шуд.',
+        ...(result.demoCode
+          ? { demoCode: result.demoCode }
+          : {}),
+      },
+      { status: 200, headers: CORS },
+    );
   } catch (err) {
     console.error('[otp/resend]', err);
     return Response.json({ error: 'Хатогии дохилӣ.' }, { status: 500, headers: CORS });

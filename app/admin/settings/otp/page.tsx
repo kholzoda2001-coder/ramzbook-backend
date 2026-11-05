@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Save, AlertCircle, CheckCircle2, Mail, MessageSquare, Server, Send } from 'lucide-react';
 
 type EmailProvider = 'mock' | 'smtp' | 'rabbitmq';
-type PhoneProvider = 'mock' | 'twilio' | 'rabbitmq';
+type PhoneProvider = 'mock' | 'twilio' | 'rabbitmq' | 'zudsms';
 
 export default function AdminOtpSettingsPage() {
   const [loading, setLoading] = useState(false);
@@ -170,7 +170,13 @@ export default function AdminOtpSettingsPage() {
                 <option value="mock">Mock Delivery</option>
                 <option value="smtp">SMTP / Hostinger</option>
                 <option value="rabbitmq">RabbitMQ Queue</option>
+                <option value="zudsms">ZudSMS (Tajikistan)</option>
               </select>
+              {activePhone === 'zudsms' && (
+                <p className="mt-2 text-xs text-[var(--text-muted)]">
+                  Set ZUDSMS_LOGIN, ZUDSMS_PASS_SALT_HASH, and ZUDSMS_SENDER_ID in the server environment, then redeploy.
+                </p>
+              )}
             </div>
 
             <div>

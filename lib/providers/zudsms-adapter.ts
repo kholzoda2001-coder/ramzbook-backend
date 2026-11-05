@@ -1,0 +1,63 @@
+/** ZudSMS HTTP API adapter for RamzBook's own 6-digit OTP codes. */
+
+import crypto from 'crypto';
+
+const ZUDSMS_SEND_URL = 'https://api.zudsms.tj/api/v1/send';
+
+function getConfig() {
+  const login = process.env.ZUDSMS_LOGIN?.trim();
+  const passSaltHash = process.env.ZUDSMS_PASS_SALT_HASH?.trim();
+  const from = process.env.ZUDSMS_SENDER_ID?.trim();
+  if (!login || !passSaltHash || !from) {
+    throw new Error('ZudSMS is not configured (login, pass_salt_hash, sender ID required).');
+  }
+  return { login, passSaltHash, from };
+}
+
+export async function sendOtpViaZudSms(params: {
+  toE164: string;
+  otp: string;
+}): Promise<void> {
+  if (!/^\d{6}$/.test(params.otp)) throw new Error('OTP must contain exactly 6 digits.');
+
+  const { login, passSaltHash, from } = getConfig();
+  const phoneNumber = params.toE164.replace(/\D/g, '');
+  if (phoneNumber.length < 8 || phoneNumber.length > 15) {
+    throw new Error('Invalid recipient phone number.');
+  }
+
+  const txnId = crypto.randomUUID();
+  const strHash = crypto
+    .createHash('sha256')
+    .update(`${txnId};${login};${from};${phoneNumber};${passSaltHash}`)
+    .digest('hex');
+
+  const response = await fetch(ZUDSMS_SEND_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from,
+      phone_number: phoneNumber,
+      msg: `RamzBook: коди тасдиқи шумо ${params.otp}. Муҳлати амал 5 дақиқа.`,
+      login,
+      str_hash: strHash,
+      txn_id: txnId,
+    }),
+    signal: AbortSignal.timeout(15000),
+    cache: 'no-store',
+  });
+
+  const result = (await response.json().catch(() => null)) as
+    | { status?: unknown; msg?: unknown; error?: unknown }
+    | null;
+  if (!response.ok) {
+    console.error('[ZudSMS] request failed with HTTP status', response.status);
+    throw new Error('SMS provider rejected the request. Check ZudSMS credentials and sender ID.');
+  }
+
+  const providerStatus = typeof result?.status === 'string' ? result.status.toLowerCase() : '';
+  if (['error', 'failed', 'fail', 'rejected'].includes(providerStatus) || result?.error) {
+    console.error('[ZudSMS] provider returned an error status');
+    throw new Error('SMS provider could not send the OTP. Check the ZudSMS balance and API settings.');
+  }
+}

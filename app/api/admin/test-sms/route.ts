@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { loadAuthProvidersConfig } from '@/lib/otp/auth-provider-settings';
 import { sendOtpViaTwilio } from '@/lib/providers/twilio-adapter';
 import { publishOtpViaRabbitMq } from '@/lib/providers/rabbitmq-adapter';
+import { sendOtpViaZudSms } from '@/lib/providers/zudsms-adapter';
 
 export async function POST(req: NextRequest) {
 
@@ -53,6 +54,13 @@ export async function POST(req: NextRequest) {
         });
       } catch (e: any) {
         return Response.json({ error: 'RabbitMQ Error: ' + (e.message || String(e)) }, { status: 500 });
+      }
+    } else if (provider === 'zudsms') {
+      try {
+        await sendOtpViaZudSms({ toE164: to, otp: '000000' });
+        return Response.json({ success: true, message: 'Test SMS accepted by ZudSMS.' });
+      } catch (e: any) {
+        return Response.json({ error: e.message || 'ZudSMS request failed.' }, { status: 502 });
       }
     }
 
