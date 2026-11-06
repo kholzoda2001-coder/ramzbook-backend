@@ -42,7 +42,7 @@ export const defaultAuthProvidersConfig: AuthProvidersConfig = {
     secure: true,
     user: '',
     pass: '',
-    fromName: 'RamzBook',
+    fromName: 'RamzGo',
   },
   rabbitmq: {
     originatorSystem: 'ramzbook-api',
