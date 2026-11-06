@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { PUBLIC_CACHE } from '@/lib/publicCache';
 import { MIN_READY_LESSONS, isCourseReady } from '@/lib/courseReadiness';
 import { cleanLevelLabels } from '@/lib/levelLabels';
 
@@ -93,7 +94,7 @@ export async function GET(req: NextRequest) {
       // displays its "no course yet" message) instead of unbuilt teaser options.
       .filter(l => l.courseCount > 0);
 
-    return NextResponse.json({ languages });
+    return NextResponse.json({ languages }, { headers: PUBLIC_CACHE.long });
   } catch (err: any) {
     console.error('[mobile/languages/target]', err);
     return NextResponse.json({ error: err?.message ?? 'Server error' }, { status: 500 });

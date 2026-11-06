@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { PUBLIC_CACHE } from '@/lib/publicCache';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,7 +37,7 @@ export async function GET(req: NextRequest) {
       descriptors,
     }));
 
-    return NextResponse.json({ levels });
+    return NextResponse.json({ levels }, { headers: PUBLIC_CACHE.long });
   } catch (err: any) {
     console.error('[mobile/cefr-descriptors]', err);
     return NextResponse.json({ error: err?.message ?? 'Server error' }, { status: 500 });

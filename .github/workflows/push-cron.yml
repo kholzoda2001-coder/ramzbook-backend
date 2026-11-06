@@ -13,7 +13,7 @@ name: Push Cron
 # Сирри лозимӣ (Settings → Secrets and variables → Actions):
 #   CRON_SECRET — ҳамон қимате, ки дар Vercel гузошта шудааст
 # Ихтиёрӣ:
-#   CRON_BASE_URL — агар домен дигар шавад (пешфарз: https://admin.ramz.tj)
+#   CRON_BASE_URL — агар домен дигар шавад (пешфарз: https://backend-theta-lake-29.vercel.app)
 
 on:
   schedule:
@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Кампанияҳои вақташон расидаро иҷро кун
         env:
-          BASE_URL: ${{ secrets.CRON_BASE_URL || 'https://admin.ramz.tj' }}
+          BASE_URL: ${{ secrets.CRON_BASE_URL || 'https://backend-theta-lake-29.vercel.app' }}
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
         run: |
           set -euo pipefail

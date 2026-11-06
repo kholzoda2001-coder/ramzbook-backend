@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { PUBLIC_CACHE } from '@/lib/publicCache';
 
 export const dynamic = 'force-dynamic';
 
@@ -59,7 +60,7 @@ export async function GET(req: NextRequest) {
         order: l.order,
       })),
       rules,
-    });
+    }, { headers: PUBLIC_CACHE.long });
   } catch (err: any) {
     console.error('[mobile/alphabet]', err);
     return NextResponse.json({ error: err?.message ?? 'Server error' }, { status: 500 });

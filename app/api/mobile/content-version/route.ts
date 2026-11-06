@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { PUBLIC_CACHE } from '@/lib/publicCache';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,7 +23,7 @@ export async function GET() {
     // a safe "always considered stale" sentinel so a first-ever check on the
     // client still forces a real fetch rather than trusting an empty cache.
     const version = row ? row.updatedAt.getTime() : 0;
-    return NextResponse.json({ version });
+    return NextResponse.json({ version }, { headers: PUBLIC_CACHE.short });
   } catch (err: any) {
     console.error('[mobile/content-version]', err);
     return NextResponse.json({ error: err?.message ?? 'Server error' }, { status: 500 });
