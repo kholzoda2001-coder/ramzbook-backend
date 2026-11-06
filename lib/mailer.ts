@@ -9,6 +9,10 @@
 import nodemailer from 'nodemailer';
 import { type SmtpConfig } from '@/lib/otp/auth-provider-settings';
 
+function normalizeSmtpPass(host: string | undefined, pass: string): string {
+  return host?.includes('gmail') ? pass.replace(/\s+/g, '') : pass;
+}
+
 function createTransport(cfg?: SmtpConfig) {
   if (cfg && cfg.host) {
     return nodemailer.createTransport({
@@ -27,7 +31,8 @@ function createTransport(cfg?: SmtpConfig) {
     secure: process.env.SMTP_SECURE === 'true',
     auth: {
       user: process.env.SMTP_USER ?? '',
-      pass: process.env.SMTP_PASS ?? '',
+      // Google shows app passwords as 4 groups of 4 letters; the real value has no spaces.
+      pass: normalizeSmtpPass(process.env.SMTP_HOST, process.env.SMTP_PASS ?? ''),
     },
   });
 }
