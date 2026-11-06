@@ -52,50 +52,62 @@ export async function sendOtpEmail(to: string, otp: string, cfg?: SmtpConfig): P
     fromAddress = cfg.user || fromAddress;
   }
 
-  const html = `
-<!DOCTYPE html>
+  const year = new Date().getFullYear();
+  const digits = otp.split('');
+  const codeCells = digits
+    .map(
+      (d) =>
+        `<td style="padding:0 5px;"><div style="width:56px;height:68px;line-height:68px;text-align:center;font-size:34px;font-weight:800;color:#1A1A2E;background:#FFFFFF;border:2px solid #C89B3C;border-radius:14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">${d}</div></td>`,
+    )
+    .join('');
+
+  const html = `<!DOCTYPE html>
 <html lang="tg">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Коди тасдиқ</title>
-  <style>
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
-         background:#F8FAFC;margin:0;padding:32px 16px;}
-    .card{max-width:460px;margin:0 auto;background:#fff;border-radius:20px;
-          overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);}
-    .header{background:linear-gradient(135deg,#1A1A2E 0%,#0E0E1C 100%);
-            padding:28px 32px;text-align:center;}
-    .header h1{color:#fff;font-size:22px;font-weight:900;margin:0;}
-    .header p{color:rgba(255,255,255,.7);font-size:13px;margin:4px 0 0;}
-    .body{padding:32px;text-align:center;}
-    .label{font-size:11px;font-weight:700;letter-spacing:1.4px;
-           color:#94A3B8;text-transform:uppercase;margin-bottom:10px;}
-    .otp-box{display:inline-block;background:#FBF5E6;border:2px dashed #C89B3C;
-             border-radius:14px;padding:16px 36px;margin-bottom:24px;}
-    .otp{font-size:40px;font-weight:900;letter-spacing:10px;color:#1A1A2E;line-height:1;}
-    .note{font-size:13px;color:#64748B;line-height:1.6;margin-bottom:20px;}
-    .footer{background:#F8FAFC;border-top:1px solid #F1F5F9;
-            padding:18px 32px;text-align:center;font-size:11px;color:#94A3B8;}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="light"/>
+<title>Коди тасдиқи RamzGo</title>
 </head>
-<body>
-  <div class="card">
-    <div class="header">
-      <h1>RamzGo</h1>
-      <p>Забонро тез ва кафолатнок омӯзед</p>
-    </div>
-    <div class="body">
-      <p class="note">Барои ворид шудан коди зеринро истифода баред:</p>
-      <p class="label">Коди тасдиқӣ</p>
-      <div class="otp-box"><div class="otp">${otp}</div></div>
-      <p class="note">Ин код <strong>5 дақиқа</strong> эътибор дорад.<br/>
-         Агар шумо ин дархостро нафиристодед, нодида гиред.</p>
-    </div>
-    <div class="footer">
-      © ${new Date().getFullYear()} RamzGo
-    </div>
-  </div>
+<body style="margin:0;padding:0;background:#F3F1EA;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">Коди тасдиқи шумо: ${otp}. Муҳлати амал 5 дақиқа.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F1EA;padding:32px 12px;">
+  <tr><td align="center">
+    <table role="presentation" width="480" cellpadding="0" cellspacing="0" style="width:100%;max-width:480px;background:#FFFFFF;border-radius:24px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;">
+      <tr>
+        <td align="center" style="background:#1A1A2E;padding:34px 24px 30px;">
+          <div style="display:inline-block;width:56px;height:56px;line-height:56px;border-radius:16px;background:#C89B3C;color:#1A1A2E;font-size:28px;font-weight:900;text-align:center;">R</div>
+          <div style="margin-top:14px;color:#FFFFFF;font-size:26px;font-weight:800;letter-spacing:0.5px;">RamzGo</div>
+          <div style="margin-top:6px;color:#E7C578;font-size:13px;letter-spacing:0.4px;">Забонро тез ва кафолатнок омӯзед</div>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:36px 28px 8px;">
+          <div style="color:#0F1533;font-size:20px;font-weight:700;margin-bottom:8px;">Коди тасдиқи шумо</div>
+          <div style="color:#5A628A;font-size:14px;line-height:1.6;">Барои ворид шудан ба RamzGo ин кодро дар барнома ворид кунед:</div>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:22px 16px 10px;">
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr>${codeCells}</tr></table>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:14px 28px 4px;">
+          <div style="display:inline-block;background:#FBF5E6;color:#7A5A12;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;">Муҳлати амал: 5 дақиқа</div>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="padding:22px 32px 34px;">
+          <div style="color:#9AA1C0;font-size:12.5px;line-height:1.7;">Ин кодро ба ҳеҷ кас нагӯед.<br/>Агар шумо ин дархостро нафиристода бошед, ин паёмро нодида гиред.</div>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="background:#FAFAFC;border-top:1px solid #EDEDF2;padding:18px 24px;color:#9AA1C0;font-size:12px;">© ${year} RamzGo</td>
+      </tr>
+    </table>
+  </td></tr>
+</table>
 </body>
 </html>`;
 
