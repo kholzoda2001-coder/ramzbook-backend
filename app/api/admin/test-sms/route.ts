@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
     } else if (provider === 'winback3') {
       try {
         const lang = ((body as { lang?: SmsLang }).lang ?? 'tg') as SmsLang;
-        await sendSmsViaZudSms({ toE164: to, msg: winbackDay3Sms(lang) });
+        await sendSmsViaZudSms({ toE164: to, msg: winbackDay3Sms(lang, (body as { name?: string }).name) });
         return Response.json({ success: true, message: 'Win-back (3 days) test SMS accepted by ZudSMS.' });
       } catch (e: any) {
         return Response.json({ error: e.message || 'ZudSMS request failed.' }, { status: 502 });
