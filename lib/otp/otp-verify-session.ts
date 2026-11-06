@@ -26,6 +26,8 @@ export type VerifyOtpSessionResult =
       refreshToken: string;
       user: { id: string; name: string; email: string; phone: string | null; isPremium: boolean; vipExpiresAt: Date | null };
       isNewUser: boolean;
+      /** True when the app must ask for the user's name (first sign-in, or phone account never named). */
+      needsProfile: boolean;
     }
   | { ok: false; status: number; error: string };
 
@@ -116,6 +118,10 @@ export async function runVerifyOtpSession(
       vipExpiresAt: user.premiumExpiresAt,
     },
     isNewUser,
+    // A phone account is created with the number itself as its name; until the learner
+    // replaces it we keep asking for a name on sign-in (e.g. they closed the app mid-signup).
+    needsProfile:
+      isNewUser || !user.name?.trim() || (channel === 'phone' && user.name.trim() === identifier),
   };
 }
 

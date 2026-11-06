@@ -48,7 +48,7 @@ export async function sendOtpViaTwilio(params: {
 
   try {
     const client = twilio(params.cfg.accountSid, params.cfg.authToken);
-    const body = `RamzBook: коди тасдиқи шумо ${params.otp}. 5 дақиқа эътибор дорад.`;
+    const body = `RamzGo: коди тасдиқи шумо ${params.otp}. 5 дақиқа эътибор дорад.`;
 
     if (params.cfg.messagingServiceSid) {
       await client.messages.create({

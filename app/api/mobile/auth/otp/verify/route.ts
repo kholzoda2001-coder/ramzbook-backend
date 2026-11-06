@@ -52,6 +52,7 @@ export async function POST(req: NextRequest) {
         refreshToken: result.refreshToken,
         user: result.user,
         isNewUser: result.isNewUser,
+        needsProfile: result.needsProfile,
       },
       { status: 200, headers: CORS },
     );

@@ -40,7 +40,7 @@ export async function sendOtpViaZudSms(params: {
     body: JSON.stringify({
       from,
       phone_number: phoneNumber,
-      msg: `RamzBook: коди тасдиқи шумо ${params.otp}. Муҳлати амал 5 дақиқа.`,
+      msg: `RamzGo: коди тасдиқи шумо ${params.otp}. Муҳлати амал 5 дақиқа.`,
       login,
       str_hash: strHash,
       txn_id: txnId,
