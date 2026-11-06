@@ -13,8 +13,13 @@ function normalizeSmtpPass(host: string | undefined, pass: string): string {
   return host?.includes('gmail') ? pass.replace(/\s+/g, '') : pass;
 }
 
+/** Vercel env (SMTP_HOST + SMTP_USER + SMTP_PASS) is the source of truth; it wins over the admin-saved DB config. */
+function envSmtpConfigured(): boolean {
+  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+}
+
 function createTransport(cfg?: SmtpConfig) {
-  if (cfg && cfg.host) {
+  if (!envSmtpConfigured() && cfg && cfg.host) {
     return nodemailer.createTransport({
       host: cfg.host,
       port: cfg.port,
@@ -42,7 +47,7 @@ export async function sendOtpEmail(to: string, otp: string, cfg?: SmtpConfig): P
   let fromName    = process.env.SMTP_FROM_NAME ?? 'RamzGo';
   let fromAddress = process.env.SMTP_USER      ?? 'help@ramz.tj';
 
-  if (cfg && cfg.host) {
+  if (!envSmtpConfigured() && cfg && cfg.host) {
     fromName = cfg.fromName || fromName;
     fromAddress = cfg.user || fromAddress;
   }
