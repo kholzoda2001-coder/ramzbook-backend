@@ -8,6 +8,7 @@
 
 import nodemailer from 'nodemailer';
 import { type SmtpConfig } from '@/lib/otp/auth-provider-settings';
+import { winbackDay3Email, type WinbackLang } from '@/lib/emailTemplates/winbackDay3';
 
 function normalizeSmtpPass(host: string | undefined, pass: string): string {
   return host?.includes('gmail') ? pass.replace(/\s+/g, '') : pass;
@@ -118,4 +119,21 @@ export async function sendOtpEmail(to: string, otp: string, cfg?: SmtpConfig): P
     subject: 'Коди тасдиқи шумо — RamzGo',
     html,
   });
+}
+
+/** Send the "3 days away" win-back email (see lib/emailTemplates/winbackDay3.ts). */
+export async function sendWinbackDay3Email(
+  to: string,
+  params: { name: string; lang?: WinbackLang; unsubscribeUrl?: string },
+  cfg?: SmtpConfig,
+): Promise<void> {
+  let fromName    = process.env.SMTP_FROM_NAME ?? 'RamzGo';
+  let fromAddress = process.env.SMTP_USER      ?? 'help@ramz.tj';
+  if (!envSmtpConfigured() && cfg && cfg.host) {
+    fromName = cfg.fromName || fromName;
+    fromAddress = cfg.user || fromAddress;
+  }
+  const { subject, html } = winbackDay3Email(params);
+  const transport = createTransport(cfg);
+  await transport.sendMail({ from: `"${fromName}" <${fromAddress}>`, to, subject, html });
 }

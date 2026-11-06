@@ -1,13 +1,18 @@
 import { NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { loadAuthProvidersConfig } from '@/lib/otp/auth-provider-settings';
-import { sendOtpEmail } from '@/lib/mailer';
+import { sendOtpEmail, sendWinbackDay3Email } from '@/lib/mailer';
 import { publishOtpViaRabbitMq } from '@/lib/providers/rabbitmq-adapter';
 
 export async function POST(req: NextRequest) {
 
   try {
-    const body = (await req.json()) as { provider: string; to: string };
+    const body = (await req.json()) as {
+      provider: string;
+      to: string;
+      name?: string;
+      lang?: 'tg' | 'ru' | 'uz' | 'en';
+    };
     const { provider, to } = body;
 
     if (!to) {
@@ -20,6 +25,13 @@ export async function POST(req: NextRequest) {
       try {
         await sendOtpEmail(to, '000000', cfg.smtp);
         return Response.json({ success: true, message: 'Test email sent via SMTP successfully.' });
+      } catch (e: any) {
+        return Response.json({ error: 'SMTP Error: ' + (e.message || String(e)) }, { status: 500 });
+      }
+    } else if (provider === 'winback3') {
+      try {
+        await sendWinbackDay3Email(to, { name: body.name ?? '', lang: body.lang }, cfg.smtp);
+        return Response.json({ success: true, message: 'Win-back (3 days) test email sent.' });
       } catch (e: any) {
         return Response.json({ error: 'SMTP Error: ' + (e.message || String(e)) }, { status: 500 });
       }
