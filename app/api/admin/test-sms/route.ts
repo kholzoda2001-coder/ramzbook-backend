@@ -3,7 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { loadAuthProvidersConfig } from '@/lib/otp/auth-provider-settings';
 import { sendOtpViaTwilio } from '@/lib/providers/twilio-adapter';
 import { publishOtpViaRabbitMq } from '@/lib/providers/rabbitmq-adapter';
-import { sendOtpViaZudSms } from '@/lib/providers/zudsms-adapter';
+import { sendOtpViaZudSms, sendSmsViaZudSms } from '@/lib/providers/zudsms-adapter';
+import { winbackDay3Sms, type SmsLang } from '@/lib/smsTemplates/winbackDay3';
 
 export async function POST(req: NextRequest) {
 
@@ -59,6 +60,14 @@ export async function POST(req: NextRequest) {
       try {
         await sendOtpViaZudSms({ toE164: to, otp: '000000' });
         return Response.json({ success: true, message: 'Test SMS accepted by ZudSMS.' });
+      } catch (e: any) {
+        return Response.json({ error: e.message || 'ZudSMS request failed.' }, { status: 502 });
+      }
+    } else if (provider === 'winback3') {
+      try {
+        const lang = ((body as { lang?: SmsLang }).lang ?? 'tg') as SmsLang;
+        await sendSmsViaZudSms({ toE164: to, msg: winbackDay3Sms(lang) });
+        return Response.json({ success: true, message: 'Win-back (3 days) test SMS accepted by ZudSMS.' });
       } catch (e: any) {
         return Response.json({ error: e.message || 'ZudSMS request failed.' }, { status: 502 });
       }

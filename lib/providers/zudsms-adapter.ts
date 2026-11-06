@@ -19,7 +19,14 @@ export async function sendOtpViaZudSms(params: {
   otp: string;
 }): Promise<void> {
   if (!/^(\d{4}|\d{6})$/.test(params.otp)) throw new Error('OTP must contain exactly 4 or 6 digits.');
+  await sendSmsViaZudSms({
+    toE164: params.toE164,
+    msg: `RamzGo: коди тасдиқи шумо ${params.otp}. Муҳлати амал 5 дақиқа.`,
+  });
+}
 
+/** Generic ZudSMS send (the OTP sender above uses this too). */
+export async function sendSmsViaZudSms(params: { toE164: string; msg: string }): Promise<void> {
   const { login, passSaltHash, from } = getConfig();
   const phoneNumber = params.toE164.replace(/\D/g, '');
   if (phoneNumber.length < 8 || phoneNumber.length > 15) {
@@ -40,7 +47,7 @@ export async function sendOtpViaZudSms(params: {
     body: JSON.stringify({
       from,
       phone_number: phoneNumber,
-      msg: `RamzGo: коди тасдиқи шумо ${params.otp}. Муҳлати амал 5 дақиқа.`,
+      msg: params.msg,
       login,
       str_hash: strHash,
       txn_id: txnId,
