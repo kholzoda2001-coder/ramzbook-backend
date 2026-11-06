@@ -8,7 +8,9 @@
 import crypto from 'crypto';
 import type { PrismaClient } from '@prisma/client';
 
-const OTP_LENGTH = 6;
+const OTP_LENGTH = 4;
+/** 6-digit codes issued before the switch to 4 digits stay valid until they expire (5 min). */
+const LEGACY_OTP_LENGTH = 6;
 const OTP_TTL_MS = 5 * 60 * 1000;
 const SEND_COOLDOWN_MS = 60 * 1000;
 const MAX_VERIFY_ATTEMPTS = 5;
@@ -23,9 +25,14 @@ function getOtpPepper(): string {
   return 'dev-otp-pepper-min16chars!';
 }
 
-/** Generate a 6-digit numeric OTP string. */
+/** Generate a numeric OTP of OTP_LENGTH digits (leading zeros allowed, CSPRNG). */
 export function generateOtp(): string {
-  return String(Math.floor(10 ** (OTP_LENGTH - 1) + Math.random() * 9 * 10 ** (OTP_LENGTH - 1)));
+  return String(crypto.randomInt(0, 10 ** OTP_LENGTH)).padStart(OTP_LENGTH, '0');
+}
+
+/** True for a current-length code or a still-valid legacy 6-digit code. */
+export function isValidOtpFormat(code: string): boolean {
+  return /^\d+$/.test(code) && (code.length === OTP_LENGTH || code.length === LEGACY_OTP_LENGTH);
 }
 
 /** HMAC-SHA256 hex digest of the OTP (constant-time compare in verify). */

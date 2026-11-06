@@ -11,7 +11,12 @@ import {
   signAccessTokenForUser,
   REFRESH_TTL_MS,
 } from '@/lib/auth';
-import { verifyOtpInDb, normalizeIdentifier, type OtpChannel } from '@/lib/otp/otp-core';
+import {
+  verifyOtpInDb,
+  normalizeIdentifier,
+  isValidOtpFormat,
+  type OtpChannel,
+} from '@/lib/otp/otp-core';
 import { isBlocked, BLOCKED_ERROR } from '@/lib/accountBlock';
 
 export type VerifyOtpSessionResult =
@@ -32,8 +37,8 @@ export async function runVerifyOtpSession(
   const identifier = normalizeIdentifier(channel, params.rawIdentifier);
   const code = params.code.trim();
 
-  if (!code || code.length !== 6) {
-    return { ok: false, status: 400, error: 'Коди 6-рақама лозим аст.' };
+  if (!isValidOtpFormat(code)) {
+    return { ok: false, status: 400, error: 'Коди 4-рақама лозим аст.' };
   }
 
   const v = await verifyOtpInDb(prisma, identifier, code);

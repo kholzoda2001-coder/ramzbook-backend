@@ -48,8 +48,8 @@ export async function runSendOtpPipeline(
 
   const demoMode = process.env.OTP_DEMO_ENABLED === 'true';
   const configuredDemoCode = process.env.OTP_DEMO_CODE?.trim();
-  if (demoMode && !/^\d{6}$/.test(configuredDemoCode ?? '')) {
-    return { ok: false, status: 500, error: 'OTP_DEMO_CODE бояд 6 рақам бошад.' };
+  if (demoMode && !/^(\d{4}|\d{6})$/.test(configuredDemoCode ?? '')) {
+    return { ok: false, status: 500, error: 'OTP_DEMO_CODE бояд 4 ё 6 рақам бошад.' };
   }
 
   await invalidateOpenChallenges(prisma, identifier);

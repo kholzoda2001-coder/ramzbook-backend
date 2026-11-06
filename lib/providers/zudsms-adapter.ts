@@ -18,7 +18,7 @@ export async function sendOtpViaZudSms(params: {
   toE164: string;
   otp: string;
 }): Promise<void> {
-  if (!/^\d{6}$/.test(params.otp)) throw new Error('OTP must contain exactly 6 digits.');
+  if (!/^(\d{4}|\d{6})$/.test(params.otp)) throw new Error('OTP must contain exactly 4 or 6 digits.');
 
   const { login, passSaltHash, from } = getConfig();
   const phoneNumber = params.toE164.replace(/\D/g, '');
@@ -26,7 +26,9 @@ export async function sendOtpViaZudSms(params: {
     throw new Error('Invalid recipient phone number.');
   }
 
-  const txnId = crypto.randomUUID();
+  // ZudSMS requires txn_id to be a positive integer (a UUID is rejected with code 106).
+  // Millisecond timestamp * 1000 + 3 random digits stays unique and safely below 2^53.
+  const txnId = String(Date.now() * 1000 + crypto.randomInt(0, 1000));
   const strHash = crypto
     .createHash('sha256')
     .update(`${txnId};${login};${from};${phoneNumber};${passSaltHash}`)
@@ -54,7 +56,9 @@ export async function sendOtpViaZudSms(params: {
     const providerCode = Number(result?.code);
     console.error('[ZudSMS] request failed with HTTP status and provider code', response.status, providerCode || 'unknown');
     if (providerCode === 106) {
-      throw new Error('ZudSMS rejected the API signature (code 106). Check the ZudSMS login and Security Hash.');
+      throw new Error(
+        `ZudSMS rejected the request (code 106): ${String(result?.msg ?? 'invalid txn_id or signature')}. Check txn_id, the ZudSMS login and Security Hash.`,
+      );
     }
     if (providerCode === 107) {
       throw new Error('ZudSMS rejected the Sender ID (code 107). Check the approved sender nickname.');
